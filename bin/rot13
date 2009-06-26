@@ -1,0 +1,2 @@
+#! /bin/sh
+exec tr '[a-mn-zA-MN-Z]' '[n-za-mN-ZA-M]'

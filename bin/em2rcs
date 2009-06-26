@@ -1,0 +1,30 @@
+#! /bin/sh
+
+ul=
+shell=sh
+verbose=
+while : $# $*
+do
+	case $1 in
+	-[ul])	ul=" $1";  shift;;
+	-v)	verbose=-x; shift;;
+	-n)	shell=cat; shift;;
+	*)	break;;
+	esac
+done
+
+test -d RCS || mkdir RCS
+for file
+do
+	test -f $file || continue
+	test -f RCS/$file,v && echo rcs -l $file
+	echo mv $file $file.$$
+	for x in $file.~?~ $file.~??~
+	do
+		test -f $x || continue
+		echo "mv $x $file; ci -l $file </dev/null"
+	done
+	echo mv $file.$$ $file
+	echo "ci$ul $file </dev/null"
+done | $shell $verbose
+echo true

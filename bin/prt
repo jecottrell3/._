@@ -1,0 +1,48 @@
+#! /bin/sh
+
+two=
+nop=
+top=
+hdr='-h STDIN'
+mt=-h
+
+shell=sh
+verbose=
+
+inner=
+outer='| atops $two | lp'
+
+while : $# "$@"
+do
+	case $1 in
+	-v)	verbose=-x;;
+	-V)	verbose=-nx;;
+	-n)	shell=cat;;
+	-m)	eval inner="'$outer' outer=";;
+	-[2c])	two=-c;;
+	-[pd])	LPDEST=$2 export LPDEST; shift;;
+	-h)	hdr="-h $2"; shift;;
+	-t)	top=-t;;
+	*)	break;;
+	esac
+	shift
+done
+
+{
+	echo two=$two export two
+	echo { 
+	mt=-h
+	while : $# "$@"
+	do
+		case $1 in
+		"$mt")	break;;
+		*)	echo "pr $nop $top ${1-$hdr} $inner";;
+		esac
+		case $1 in
+		'')	break;;
+		*)	shift;;
+		esac
+		mt=
+	done
+	echo "} $outer"
+} | $shell $verbose

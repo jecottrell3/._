@@ -1,0 +1,12 @@
+#! /bin/sh -x
+ls .dst > .EVERY
+:
+rpm -qa | sort | ./.truncate > .ADDED
+:
+comm -13 .ADDED .EVERY |
+sed 's/^/q d 1 /' >  .PKGS
+sed 's/^/a a 1 /' >> .PKGS < .ADDED
+:
+mkdir -p RCS
+rm -f RCS/.PKGS,v
+rcs -i -U -t-'Package Databse' .PKGS

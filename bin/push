@@ -1,0 +1,12 @@
+#! /bin/sh
+DIR=$1
+shift
+for FILE in $*
+do
+	if test -f $DIR/$FILE
+	then	:
+	else
+		mv $FILE $DIR
+		ln -s $DIR/$FILE
+	fi
+done

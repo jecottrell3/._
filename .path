@@ -1,0 +1,8 @@
+for path in /usr/sbin /sbin ~/bin
+do
+	test -d $path || continue
+	case :$PATH: in
+	(:$path:)	continue;;
+	esac
+	PATH=$path:$PATH
+done

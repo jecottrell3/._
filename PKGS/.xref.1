@@ -1,0 +1,75 @@
+#! /usr/bin/perl
+
+use strict;
+
+use Data::Dumper;
+
+package Pkg;
+
+sub new
+{
+	my $class = shift;
+	bless({ @_ }, $class);
+}
+
+package main;
+
+my @Pkg = ();
+my %Pkg = ();
+my %File = ();
+
+
+sub snarf
+{
+	while (my $pkg = shift)
+	{
+		my @file = split(/\//, $pkg);
+		my $file = pop(@file);
+		my $dir  = join('/', @file);
+
+		my @name = split(/-/, $file);
+		my $rel = pop(@name);
+		my $ver = pop(@name);
+		my $name = join('-', @name);
+
+		my @arch = split(/\./, $rel);
+		return warn("ERROR: Not a Package File: $file\n")
+			unless (pop(@arch) eq 'rpm');
+		my $arch = pop(@arch);
+		$rel = join('.', @arch);
+
+		chomp(my @pro  = `rpm -qp --provides $pkg`);
+		chomp(my @req  = `rpm -qp --requires $pkg`);
+
+		chomp(my @list = `rpm -qp --list     $pkg`);
+		map({ $File{$_} = $name; } @list);
+
+		push(@Pkg, $Pkg{$name} = Pkg->new(
+				pkg	=> $pkg,
+				dir	=> $dir,
+				file	=> $file,
+				name	=> $name,
+				ver	=> $ver,
+				rel	=> $rel,
+				arch	=> $arch,
+				line	=> 0,
+				pro	=> [ @pro ],
+				req	=> [ @req ],
+#				list	=> [ @list ],
+			));
+	}
+}
+
+sub splat
+{
+	print(Data::Dumper->Dump([ \%Pkg  ], [ '*Pkg'  ]));
+	print(Data::Dumper->Dump([ \%File ], [ '*File' ]));
+}
+
+sub main
+{
+	snarf(@_);
+	splat;
+}
+
+main(@ARGV);

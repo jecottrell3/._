@@ -1,0 +1,133 @@
+#! /usr/bin/perl
+
+use strict;
+
+use Data::Dumper;
+
+package Pkg;
+
+our %File = ();
+
+sub name
+{
+	my $self = shift;
+	$self->{name};
+}
+
+sub genpro
+{
+	my $self = shift;
+	my ($key, $val);
+
+	chomp(my @pro  = `rpm -qp --provides $self->{pkg}`);
+	$self->{PRO} = { };
+	$self->{pro} = [ @pro ];
+	for (@pro)
+	{
+		s/ //g;
+		next if /[()]/;
+		$val = $key = $_;
+		$key =~ s/[<=>()].*//;
+		$val =~ s/.*[<=>()]//;
+		$self->{PRO}{$key} = $val;
+	}
+}
+
+sub genreq
+{
+	my $self = shift;
+	my ($key, $val);
+
+	chomp(my @req  = `rpm -qp --requires $self->{pkg}`);
+	$self->{REQ} = { };
+	$self->{req} = [ @req ];
+	for (@req)
+	{
+		s/ //g;
+		next if /[()]/;
+		$val = $key = $_;
+		$key =~ s/[<=>()].*//;
+		$val =~ s/.*[<=>()]//;
+		$self->{REQ}{$key} = $val;
+	}
+}
+
+sub genlist
+{
+	my $self = shift;
+	my $name = $self->{name};
+	chomp(my @list = `rpm -qp --list     $self->{pkg}`);
+	map({ $File{$_} = $name; } @list);
+}
+
+sub gename
+{
+	my $self = shift;
+
+	my @file = split(/\//, $self->{pkg});
+	$self->{file} = pop(@file);
+	$self->{dir}  = join('/', @file);
+
+	my @name = split(/-/, $self->{file});
+	$self->{rel} = pop(@name);
+	$self->{ver} = pop(@name);
+	$self->{name} = join('-', @name);
+
+	my @arch = split(/\./, $self->{rel});
+	$self->{arch} = pop(@arch);
+	$self->{rel} = join('.', @arch);
+
+}
+
+sub new
+{
+	my $class = shift;
+	my $pkg   = shift;
+
+	warn("ERROR: Not a Package File: $pkg\n") && return(undef)
+		unless ($pkg =~ /\.rpm$/);
+
+	my $self = {
+		pkg	=> $pkg,
+		line	=> 0,
+		lvl	=> 0,
+	};
+
+	bless($self, $class);
+	$self->gename;
+	$self->genpro;
+	$self->genreq;
+	$self->genlist;
+
+	return($self);
+}
+
+package main;
+
+our $Line = 0;
+our $Lvl = 0;
+our @Pkg = ();
+our %Pkg = ();
+
+sub snarf
+{
+	while (my $pkg = shift)
+	{
+		my $p = Pkg->new($pkg);
+		push(@Pkg, $Pkg{$p->{name}} = $p);
+	}
+}
+
+sub splat
+{
+	print(Data::Dumper->Dump([ \%Pkg  ], [ '*Pkg'  ]));
+	print(Data::Dumper->Dump([ \%File ], [ '*File' ]));
+}
+
+sub main
+{
+	snarf(@_);
+	splat;
+}
+
+main(@ARGV);

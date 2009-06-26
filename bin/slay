@@ -1,0 +1,94 @@
+#! /bin/ksh
+################################################################
+#	KILL PROCESSES BY NAME
+################################################################
+
+usage()
+{
+	echo "\
+$1 [-#|NAME] [-adex] [-nv] [-gptu arg] pattern
+
+	-#	signal number
+	-NAME	signal name
+	-ade	ps option
+	-gptu	ps group, proc, term, or user
+	-x	script debugging
+	-n	not really
+	-v 	verbose
+
+Kill processes by name. Always uses -f format.
+Pattern may contain * or ? as in filenames.
+"
+	exit 0
+}
+
+################################################################
+#	VARIABLES & OPTIONS
+################################################################
+
+ps="/bin/ps -f"
+sig=
+shell=sh
+verbose=
+show=false
+
+while : $# $*
+do
+	case $1 in
+	-\?|-help)	usage `basename $0`;;
+	-x)		set $1;;
+	-z)		show=true;;
+	-[ade])		ps="$ps $1";;
+	-[gptu])	ps="$ps $1 $2"; shift;;
+	-n)		shell=cat;;
+	-v)		verbose=-v;;
+	-[0-9]*)	sig=$1;;
+	-???*)		sig=$1;;
+	*)		break;;
+	esac
+	shift
+done
+
+pat="$*"	# search for what's left
+
+################################################################
+: skip FF \
+
+################################################################
+#	PROCESS LOOP
+################################################################
+
+PID1=$$		# us
+PID0=$PPID	# parent
+$show && echo : PID0=$PID0, PID1=$PID1 1>&2
+
+$ps |
+while read uid pid ppid c rest
+do
+	# stime can be "##:##:##" or "Mon ##"
+
+	set $rest
+	case $1 in
+	STIME)		continue;;
+	??:??:??)	stime="$1"; shift;;
+	*)		stime="$1 $2"; shift 2;;
+	esac
+
+	tty=$1 time=$2; shift 2
+
+	$show && echo : .. $sig $pid...$ppid.$uid.$stime.$tty.$time.$*
+
+	case $pid@$ppid in
+	$PID1@*) continue;;	# don't kill ourselves
+	*@$PID1) continue;;	# don't kill our children
+	$PID0@*) continue;;	# don't kill our parent
+	esac
+
+	case "$*" in
+	*$pat*)	echo kill $sig $pid \# $ppid $uid $stime $tty $time $*;;
+	esac
+
+done | $shell $verbose
+exit 0
+
+################################################################

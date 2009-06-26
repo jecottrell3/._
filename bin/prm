@@ -1,0 +1,28 @@
+#! /bin/sh
+
+two=
+eval=eval
+nop=
+top=
+hdr='-h STDIN'
+mt=-h
+
+while : $# "$@"
+do
+	case $1 in
+	-j)	eval=echo;;
+	-[vx])	set $1;;
+	-[2c])	two=-c;;
+	-n)	nop=-n;;
+	-[pd])	LPDEST=$2 export LPDEST; shift;;
+	-h)	hdr="-h $2"; shift;;
+	-t)	top=-t;;
+	"$mt")	break;;
+	*)	$eval "pr $nop $top ${1-$hdr} | atops $two | lp"
+		mt=;;
+	esac
+	case $1 in
+	'')	break;;
+	*)	shift;;
+	esac
+done

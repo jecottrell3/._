@@ -1,0 +1,6 @@
+#! /bin/sh
+X=./.,
+mkdir $X
+mv * .??* $X
+mv $X/.??* $X/* .
+rmdir $X

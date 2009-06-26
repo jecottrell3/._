@@ -1,0 +1,289 @@
+#! /usr/local/bin/perl
+eval "exec perl -S $0 $*"
+    if $braindead;
+################################################################
+#	VARIABLES
+################################################################
+
+$0 =~ s%.*/%%;					# deslash prog name
+
+%opt = ();					# options
+$opt{'C'} = 1;					# ping count
+$opt{'L'} = 66;					# ping length
+$opt{'h'} = 'hosts';				# host table
+$opt{'u'} = (getpwuid($<))[0];			# user name
+
+################################################################
+#	USAGE
+################################################################
+
+sub usage
+{
+    die("@_
+usage: $0 [options] [args]
+	-H		print longer help
+	-h name		hosts file (hosts.name)
+	-d dir		work directory (name)
+	-P hosts	ping host
+	-x cmd		execute command
+	-l files	list files
+	-g file		get files
+	-p file		put files
+	-s file		store files
+	-r		recursive
+	-u user		run as user
+	-n		not really
+	-q		no command output
+	-v		show commands
+	-k		keep old directory
+	-a		append mode
+	-e		die on errors
+	-t secs		timeout
+	args		files or commands
+");
+}
+
+sub help
+{
+    die("$0 is the ...
+
+Multi rsh utility. For each host in the HOSTS file, eXecute a
+command, Get, Put, or List files, or Ping that host.
+
+File transfers read and write from a files named after each host in a
+directory named after the filename with slashes replaced by percents.
+
+Commands use the command name as the directory, and execute with no
+input, and write output to a file named after the host.
+
+Someday it may be desirable to use this file for input. I will do this
+when I figure out reasonable variations.
+");
+}
+
+################################################################
+
+################################################################
+#	MAIN PROGRAM
+################################################################
+
+sub main
+{
+    &options('Pgpxl aeknqrv', 'dhLCstu');
+    &sanity;
+    &host;					# get host list
+    $opt{'H'} && &help;
+    $opt{'P'} && &pinger;
+    $opt{'g'} && &transfer;
+    $opt{'p'} && &transfer;
+    $opt{'x'} && &execer;
+    $opt{'l'} && &lister;
+}
+
+################################################################
+#	PROCESS OPTIONS
+################################################################
+
+sub options
+{
+    local(@opt) = @_;
+    while ($ARGV[0] =~ /^-/)			# arg loop
+    {
+	$opt = shift(@ARGV);
+	while ($_ = substr($opt,0,1))		# opt loop
+	{
+	    $opt =~ s/^.//;			# rest
+
+	    /-/ && next;
+	    /H/ && &help;
+
+	    /[$opt[0]]/o && ++$opt{$_} && next;	# flag options
+
+	    /[$opt[1]]/o &&			# arg options
+		do {
+		    $opt{$_} = $opt || shift(@ARGV) ||
+			&usage("-$_ option: missing argument");
+		    $opt = '';
+		    next;
+		};
+
+	    &usage("unknown option: -$_");
+	}
+    }
+}
+
+################################################################
+
+################################################################
+#	SANITY CLAUSES
+################################################################
+
+sub sanity
+{
+    $opt{'s'} = 1 if ($name = $opt{'s'});
+    grep($opt{$_}, split(//,'Pgpxl'))    == 1 ||
+	&usage("exactly one of [Pgpxl] options must be given");
+
+    $wdir = $opt{'d'};				# work dir
+    $host = $opt{'h'};				# host table
+    $keep = $opt{'k'};				# keep old dir
+    $user = $opt{'u'};				# run as user
+    $errs = $opt{'e'};				# die on errors
+    $tmot = $opt{'t'};				# timeout
+    $SIG{'INT'} = 'sigint';			# interrupt handler
+    $SIG{'ALRM'} = 'sigint';			# interrupt handler
+}
+
+################################################################
+#	MAKE WORK AREA
+################################################################
+
+sub work
+{
+    $kill = !$keep;
+    -e $work && $kill && &command("rm -rf $_[0]");
+    -d $work && $keep || &command("mkdir  $_[0]");
+}
+
+################################################################
+
+################################################################
+#	INTERRUPT HANDLER
+################################################################
+
+sub sigint
+{
+    $opt{'v'} && print(": kill(SIG@_, $pid\n");	# announce
+    $SIG{'INT'} = 'sigint';			# reset handler
+    $SIG{'ALRM'} = 'sigint';			# reset handler
+    kill(@_, $pid) if $pid;			# death!
+    $pid = 0;					# no proc now
+}
+
+################################################################
+#	PROCESS A COMMAND
+################################################################
+
+sub command
+{
+    $opt{'v'} && print(": @_\n");
+    $opt{'n'} && return;
+
+    if ($pid = fork())
+    {
+	$opt{'t'} && alarm($tmot);
+	$status = wait();
+	$status && $errs &&
+	    &usage("system(@_): status $status");
+    }
+    else
+    {
+	$SIG{'INT'} = 'DEFAULT';
+	exec(@_);
+	&usage("exec(@_): $!");
+    }
+}
+
+################################################################
+
+################################################################
+#	PROCESS HOSTS FILE
+################################################################
+
+sub host
+{
+    open(HOST, "hosts.$host") ||
+	open(HOST, $host) ||
+	    &usage("open({hosts.,}$host): $!");
+
+    while ($_ = <HOST>)
+    {
+	next if /^#/;
+	next if /^\s*$/;
+	@@ = split;
+	$_ = $@[@@ > 1];
+	push(@host, $_)
+	    unless ($host{$_}++);
+    }
+
+    close(HOST);
+}
+
+################################################################
+#	PING MULTIPLE HOSTS
+################################################################
+
+sub pinger
+{
+    $ln = $opt{'L'};				# ping length
+    $ct = $opt{'C'};				# ping count
+    $work = $wdir || "$host%ping";		# default name
+    &work($work);				# set up work area
+    grep(&command("ping -s $_ $ln $ct | tee $work/$_"), @host);
+}
+
+################################################################
+#	LIST MULTIPLE HOSTS
+################################################################
+
+sub lister
+{
+    $work = $wdir || "$host%list";		# default name
+    &work($work);				# set up work area
+    grep(&command("remsh $_ -n ls -FAls @ARGV | tee $work/$_"),
+	 @host);
+}
+
+################################################################
+#	EXECUTE COMMAND ON MULTIPLE HOSTS
+################################################################
+
+sub execer
+{
+    $tee  = $opt{'a'} ? 'tee -a' : 'tee';
+    $null = $opt{'q'} ? '>/dev/null' : '';	# no command output
+    $work = $wdir || "$host%$ARGV[0]";		# default to command
+    &work($work);				# set up work area
+    grep(&command("remsh $_ -n -l $user @ARGV | $tee $work/$_ $null"),
+	@host);
+}
+
+################################################################
+
+################################################################
+#	FILE TRANSFER
+################################################################
+
+sub transfer
+{
+    $pfx = $wdir || $host;			# save for prefix
+    $opt{'p'} && ++$keep;			# always keep puts
+    $rcp = $opt{'r'} ? 'rcp -r' : 'rcp';	# remote copy cmd
+    $dot = $opt{'r'} ? '/.' : '';		# trailer for -r
+    $cmd =
+	$opt{'g'} ? '$rcp $user\@$host:$file $work/$host' :
+	$opt{'p'} ? '$rcp $work/$name$dot $user\@$host:$file' :
+	    'false';
+
+    for $file (@ARGV)				# file loop
+    {
+	($work = $pfx . $file) =~ tr/\//%/;	# encode
+	&work($work);				# make main work
+
+	for $host (@host)			# host loop
+	{
+	    $name = $opt{'s'} || $host;		# find src
+	    #$opt{'r'} && &work("$work/$host");	# make sub work
+	    &command(eval(qq/"$cmd"/));		# move files
+	}
+    }
+}
+
+################################################################
+# $Id: mrsh,v 1.1.1.1 2007/05/02 18:47:35 rbj Exp $
+# Local Variables:
+# mode: perl
+# comment-column: 48
+# End:
+################################################################
+&main;

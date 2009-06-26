@@ -1,0 +1,23 @@
+#! /bin/sh
+
+bc14='*-courier-bold-r-*-20-140-*'
+bc14='*-courier-bold-r-*-140-100-100-*'
+bc18='*-courier-bold-r-*-25-180-*'
+bc18='*-courier-bold-r-*-180-100-100-*'
+
+case "$1" in
+-nw)	emacs "$@"; return;;
+5*)	fn=5x8		geo=80x60; shift;;
+6*)	fn=6x12		geo=80x50; shift;;
+7*)	fn=7x13		geo=80x50; shift;;
+8*)	fn=8x13bold	geo=80x50; shift;;
+9*)	fn=9x15bold	geo=80x40; shift;;
+10*)	fn=10x20	geo=80x30; shift;;
+12*)	fn=12x24	geo=80x24; shift;;
+14*)	fn=$bc14	geo=80x40; shift;;
+18*)	fn=$bc18	geo=80x24; shift;;
+*)	fn=9x15bold	geo=80x40;;
+esac
+
+set -x
+emacs -fn $fn -geometry $geo ${1+"$@"} &

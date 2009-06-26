@@ -1,0 +1,120 @@
+#! /usr/bin/perl
+
+use strict;
+
+use Data::Dumper;
+
+package Pkg;
+
+our %File = ();
+
+sub name
+{
+	my $self = shift;
+	$self->{name};
+}
+
+sub fixpro
+{
+	my $self = shift;
+	my ($key, $val);
+	%{$self->{P}} = ();
+	for (@{$self->{pro}})
+	{
+		s/ //g;
+		$val = $key = $_;
+		$key =~ s/[<=>()].*//;
+		$val =~ s/.*[<=>()]//;
+		$self->{P}{$key} = $val;
+	}
+}
+
+sub fixreq
+{
+	my $self = shift;
+	my ($key, $val);
+	%{$self->{R}} = ();
+	for (@{$self->{req}})
+	{
+		s/ //g;
+		$val = $key = $_;
+		$key =~ s/[<=>()].*//;
+		$val =~ s/.*[<=>()]//;
+		$self->{R}{$key} = $val;
+	}
+}
+
+sub new
+{
+	my $class = shift;
+	my $pkg  = shift;
+	my @file = split(/\//, $pkg);
+	my $file = pop(@file);
+	my $dir  = join('/', @file);
+
+	my @name = split(/-/, $file);
+	my $rel = pop(@name);
+	my $ver = pop(@name);
+	my $name = join('-', @name);
+
+	my @arch = split(/\./, $rel);
+	return warn("ERROR: Not a Package File: $file\n")
+		unless (pop(@arch) eq 'rpm');
+	my $arch = pop(@arch);
+	$rel = join('.', @arch);
+
+	chomp(my @pro  = `rpm -qp --provides $pkg`);
+	chomp(my @req  = `rpm -qp --requires $pkg`);
+
+	chomp(my @list = `rpm -qp --list     $pkg`);
+	map({ $File{$_} = $name; } @list);
+
+	my $self = {
+			pkg	=> $pkg,
+			dir	=> $dir,
+			file	=> $file,
+			name	=> $name,
+			ver	=> $ver,
+			rel	=> $rel,
+			arch	=> $arch,
+			line	=> 0,
+			lvl	=> 0,
+			pro	=> [ @pro ],
+			req	=> [ @req ],
+#			list	=> [ @list ],
+		}; 
+	bless($self, $class);
+	$self->fixpro;
+	$self->fixreq;
+	return($self);
+}
+
+package main;
+
+our $Line = 0;
+our $Lvl = 0;
+our @Pkg = ();
+our %Pkg = ();
+
+sub snarf
+{
+	while (my $pkg = shift)
+	{
+		my $p = Pkg->new($pkg);
+		push(@Pkg, $Pkg{$p->{name}} = $p);
+	}
+}
+
+sub splat
+{
+	print(Data::Dumper->Dump([ \%Pkg  ], [ '*Pkg'  ]));
+	print(Data::Dumper->Dump([ \%File ], [ '*File' ]));
+}
+
+sub main
+{
+	snarf(@_);
+	splat;
+}
+
+main(@ARGV);

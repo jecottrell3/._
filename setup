@@ -1,0 +1,40 @@
+#! /must/source/this/file
+################################################################
+#	Initialize Environment
+################################################################
+# [0] must SOURCE this file
+# [1] must be in home directory
+# [2] init must be a symlink or a real directory
+# [3] everything in init gets symlinked to home
+# [4] previous versions saved in ~/.save.$$
+################################################################
+
+SAVE=.save.$$
+INIT=._
+
+test -d $INIT || return
+
+mkdir -p $SAVE
+
+ls -a ._/. |
+while read x
+do
+	case $x in
+	(.|..)		continue;;
+	(CVS)		continue;;
+	(.profile)	continue;;
+	(setup)		continue;;
+	 (*~)		continue;;
+	(.*~)		continue;;
+	(.?)	test -f $x || cp $INIT/$x .
+			continue;;
+	esac
+
+	test -e	$x &&
+	mv	$x $SAVE
+	ln -s	$INIT/$x .
+done
+
+source .bash_profile
+
+################################################################

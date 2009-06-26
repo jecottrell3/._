@@ -1,0 +1,18 @@
+#! /bin/sh
+
+mksum()
+{
+	grep ^$1 * |
+	sed "s/$2.*//" |
+	sed "s/:[^:]*:/	/" |
+	while read x y
+	do
+		printf "%-$3s: %s\\n" "$x" "$y"
+	done | sort -t: $4
+}
+
+cd info
+
+mksum Group	Source.RPM	40	-bk2 > ../GROUP
+mksum Size	License		40	-nk2 > ../SIZE
+mksum Summary	NOTHING		24	-bk2 > ../SUMMARY

@@ -1,0 +1,13 @@
+#! /bin/sh
+
+OFS="$IFS"
+IFS="$IFS:"
+
+CMD=$1
+set $PATH
+for DIR
+do
+	test -x $DIR/$CMD &&
+	echo $DIR
+done
+exit 1

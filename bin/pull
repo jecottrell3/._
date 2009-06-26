@@ -1,0 +1,11 @@
+#! /bin/sh
+for FILE in $*
+do
+	if test -f $FILE
+	then
+		set -x
+		cp -p $FILE .$FILE.$$
+		mv -f .$FILE.$$ $FILE
+		set +x
+	fi
+done

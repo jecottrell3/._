@@ -1,0 +1,11 @@
+#! /bin/sh
+
+mkdir -p .dst
+ls .src | grep rpm |
+./.truncate - |
+while read x y
+do
+	echo "rm -f    .dst/$x"
+	echo "ln -s ../.src/$y" \\
+	echo "         .dst/$x"
+done | sh -v

@@ -1,0 +1,251 @@
+trap '' 2
+NAME=$USER
+FINFILE=/tmp/FIN$$
+FINISHED="FINISHED......
+Do you wish to :
+1. View output then remove
+2. View output & send to mailbox
+3. Send output to mailbox to view later
+select: "
+while :
+do
+echo -n " * * * PERSONAL FINANCE * * *
+1. Savings Account
+2. Amortized Loan
+3. Installment Loan
+Q. Quit
+
+Select: "
+read select
+case $select in
+     1) while :
+        do
+        echo -n "SAVINGS.... Continue (Y/N)? "
+        read yorn
+        case $yorn in
+            [Yy]*) ;;
+            *) exit;;
+        esac
+        echo -n "Starting Balance: "
+        read amnt
+        echo -n "Yearly Interest Rate (6.5% = 6.5): "
+        read rate
+        echo -n "Number of days to calculate: "
+        read num
+        echo -n "Print (F)ull Table or (S)ummery: "
+        read how
+        case $how in
+            [Ff]*) how="F";;
+            *) how="S";;
+        esac
+        echo "Calculating....."
+        echo "$amnt $num $rate $how" |
+        awk '{
+            P = $1
+            M = $2
+            R = $3
+            OR = $3
+            TABLE = $4
+        }
+        END{
+            R *= (.01/360)
+            
+            print "         * * * SAVINGS - INTEREST TABLE COMPOUNDED DAILY * * *"
+            printf"\nBalance $%9.2f\nCompounded at %2.2f%%\nFor %d Days\n\n",P,OR,M
+        
+            if(TABLE == "F"){
+            print "DAY        BALANCE        INTEREST"
+            print "--------------------------------------------------"
+            }
+            TI = 0
+            for(J = 1; J <= M; J++){
+                I1 = P * R
+                TI += I1
+                P += I1
+                if(TABLE == "F")
+                    printf"%3d:     %9.2f     %3.6f\n",J,P,I1
+            }
+            print ""
+            print "           BALANCE     TOTAL INTEREST"
+            print "----------------------------------------------------"
+            printf"        $%9.2f     %3.6f\n", P,TI
+        }' > $FINFILE
+        echo -n "$FINISHED"
+        read select
+        case $select in
+            1) more $FINFILE;;
+            2) more $FINFILE
+               cat $FINFILE | mail $NAME;;
+            3) cat $FINFILE | mail $NAME;;
+            *) break;;
+        esac
+        rm $FINFILE
+        echo -n "Again (Y/N) "
+        read again
+        case $again in
+            [Yy]*) continue;;
+            *) break;;
+        esac
+        done
+        continue;;
+    
+    2) while :
+        do
+        echo -n "AMORTIZATION.... Continue (Y/N)? "
+        read yorn
+        case $yorn in
+            [Yy]*) ;;
+            *) exit;;
+        esac
+        echo -n "Amount Borrowed (principal): "
+        read amnt
+        echo -n "Interest Rate (6.5% = 6.5): "
+        read rate
+        echo -n "Number of payments: "
+        read num
+        echo -n "Number of payments per year: "
+        read peryear
+        echo "Calculating....."
+        echo "$amnt $num $rate $peryear" |
+        awk '{
+            P = $1
+            M = $2
+            R = $3
+            OR = $3
+	    PY = $4
+        }
+        END{
+            R *= (.01/PY)
+            RR = R + 1
+            PR = RR
+            for(i = 1; i <= M - 1 ; i++){
+                PR = PR * RR
+            }
+            E = (P * R * (PR))/((PR) - 1) + .01
+            print "         * * * AMORTIZATION TABLE * * *"
+            printf"\nPrincipal: $%9.2f\nInterest Rate: %2.3f%%\nMonths: %d\n\n",P,OR,M
+            print "Month   Principal   Interest + Principal = Monthly"
+            print "Number  Owed        Payment    Payment     Payment"
+            print "--------------------------------------------------"
+            for(J = 1; J <= M; J++){
+                I1 = P * R
+                P1 = E - I1
+                if(J == M){
+                    P1 = P
+                    I1 = E - P1
+                }
+                printf"%3d:  %9.2f  %9.2f  %9.2f  %9.2f\n",J,P,I1,P1,E
+                T1 = T1 + I1
+                TP = TP + P1 + I1
+                SP = SP + P1
+                P = P - P1
+            }
+            print ""
+            print "                 Total       Total       Total"
+            print "                 Interest    Principal   Payments"
+            print "----------------------------------------------------"
+            printf"                 %9.2f  %9.2f  %9.2f\n",T1, SP, TP
+        }' > $FINFILE
+        echo -n "$FINISHED"
+        read select
+        case $select in
+            1) more $FINFILE;;
+            2) more $FINFILE
+               Mail -s "Amortization: $amnt@$rate for $num months" $NAME \
+		< $FINFILE;;
+	    3) Mail -s "Amortization: $amnt@$rate for $num months" $NAME \
+		< $FINFILE;;
+            *) break;;
+        esac
+        rm $FINFILE
+        echo -n "Again (Y/N) "
+        read again
+        case $again in
+            [Yy]*) continue;;
+            *) break;;
+        esac
+        done
+        continue;;
+    
+
+    3) while :
+        do
+        echo -n "INSTALLMENT LOAN.... Continue (Y/N)? "
+        read yorn
+        case $yorn in
+            [Yy]*) ;;
+            *) exit;;
+        esac
+        echo -n "Amount Borrowed (principal): "
+        read amnt
+        echo -n "Interest Rate (6.5% = 6.5): "
+        read rate
+        echo -n "Number of months to pay: "
+        read num
+        echo -n "Print (F)ull table or (S)ummary: "
+        read how
+        case $how in
+            [Ff]*) how="F";;
+            *) how="S";;
+        esac
+        echo -n "Number of payments per year: "
+        read peryear
+        echo "Calculating....."
+        echo "$amnt $num $rate $how $peryear" |
+        awk '{
+            P = $1
+            M = $2
+            R = $3
+            OR = $3
+            TABLE=$4
+            PY=$5
+        }
+        END{
+            R *= .01
+            P1 = P/M
+            print "         * * * AMORTIZATION TABLE * * *"
+            printf"\nPrincipal: $%9.2f\nInterest Rate: %2.2f%%\nMonths: %d\n\n",P,OR,M
+            if(TABLE == "F"){
+            print "Month   Principal   Interest + Principal = Monthly"
+            print "Number  Owed        Payment    Payment     Payment"
+            print "--------------------------------------------------"
+            }
+            for(J = 1; J <= M; J++){
+                I1 = (P * R)/PY
+                if(TABLE == "F")
+                    printf"%3d:  %9.2f  %9.2f  %9.2f  %9.2f\n",J,P,I1,P1,P1 + I1
+                T1 = T1 + I1
+                TP = TP + P1 + I1
+                SP = SP + P1
+                P = P - P1
+            }
+            print ""
+            print "                 Total       Total       Total"
+            print "                 Interest    Principal   Payments"
+            print "----------------------------------------------------"
+            printf"                 %9.2f  %9.2f  %9.2f\n",T1, SP, TP
+        }' > $FINFILE
+        echo -n "$FINISHED"
+        read select
+        case $select in
+            1) more $FINFILE;;
+            2) more $FINFILE
+               cat $FINFILE | mail $NAME;;
+            3) cat $FINFILE | mail $NAME;;
+            *) break;;
+        esac
+        rm $FINFILE
+        echo -n "Again (Y/N) "
+        read again
+        case $again in
+            [Yy]*) continue;;
+            *) break;;
+        esac
+        done
+        continue;;
+
+    [Qq]) exit;;
+    *) continue;;
+esac
+done
+

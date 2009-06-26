@@ -1,0 +1,20 @@
+#! /bin/sh -x
+
+sub=${1:+/$1}
+uid=${2:-6654}
+gid=${3:-6654}
+rbj=${4:-rbj}
+
+dir=/home/$rbj$sub
+
+grep $rbj /etc/group ||
+groupadd -g $gid $rbj
+
+grep $rbj /etc/passwd ||
+useradd -g $gid -u $uid -c 'Root Boy Jim' -m \
+	-d $dir -s /bin/bash \
+	-p '$1$W4V.6jvA$lVqS2WtLVws8CXUr7Mhwc0' $rbj
+
+mkdir -p	$dir
+chown $rbj:$rbj	$dir
+chmod 2755	$dir

@@ -1,0 +1,47 @@
+#! /usr/global/bin/perl
+eval "exec /usr/local/bin/perl -S $0 $*"
+	if $braindead;
+
+################################################################
+# Replacement for RCS RLOG Command
+################################################################
+
+while ($ARGV[0] =~ /-/) {
+    $_ = shift;
+    /-a/ && do {
+	($level = 999);
+	next;
+    };
+    last;
+}
+
+@ARGV && do {
+    open(STDIN,"rlog @ARGV|") ||
+	die("open(rlog @ARGV): $!\n");
+    @ARGV = ('-');
+};
+
+while (<>) {
+    chop;
+    /^RCS file: / && ++$level;
+    next if $level <= 0;
+    /^Working file: / && do {
+	s/$&//;
+	print "$_";
+	next;
+    };
+
+    /^revision / && do {
+	s/$&//;
+	print "\t$_";
+	next;
+    };
+
+    /^date:/ && do {
+	s/$&//;
+	s/state:.*//;
+	print "$_\n";
+	--$level;
+    };
+}
+

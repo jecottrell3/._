@@ -1,0 +1,19 @@
+if [ -s ${MAIL=/usr/spool/mail/rbj} ]
+then
+sed -n '
+/^From /!d
+s///
+s/^[^ ]*[!:]\([^ !:]*\) /\1 /
+s/^\([^ @%]*\)[@%][^ ]* /\1 /
+s/ /           /
+s/^\(..........\)[^ ]* *\(.*\)/\2 \1/
+h
+: loop
+  n
+  /^$/!b    hdr
+    g;p;d;: hdr
+  /^Subject:/!b loop
+s/^\(Subject: ...........................................\).*/\1/
+H;g;s/\nSubject: */ /p
+' ${MAIL=/usr/spool/mail/rbj}
+fi

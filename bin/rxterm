@@ -1,0 +1,20 @@
+#! /bin/sh
+exec 1>.1 2>.2
+set -xv
+env
+
+HOST=$1; shift
+case $HOST in
+lando)	RLOGIN=telnet EIGHT=;;
+*)	RLOGIN=rlogin EIGHT=-8;;
+esac
+
+TERM="$TERM DISPLAY=$DISPLAY" export TERM
+
+XTERM='xterm -cn -aw -rw -s -sb -si -sk -vb'
+ICONIC="-wf -iconic -n $HOST"
+FONT='-fn 10x20'
+GEOM='-geom 80x24'
+
+#xhost +$HOST
+exec $XTERM $FONT $GEOM -e $RLOGIN $HOST $EIGHT &

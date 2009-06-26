@@ -1,0 +1,30 @@
+#! /bin/sh
+
+DOIT=eval
+OPT=
+PRT=-print
+while :
+do
+	case $1 in
+	-\?)	exec ${PAGER:-more} $0;;  # HELP
+	-j)	DOIT=echo;		shift 1;; # DEBUG
+	-[acm])OPT="$OPT $1time '$2'";	shift 2;;
+	-g)	OPT="$OPT -group '$2'";	shift 2;;
+	-i)	OPT="$OPT -inum  '$2'";	shift 2;;
+	-l)	OPT="$OPT -links '$2'";	shift 2;;
+	-n)	OPT="$OPT -name  '$2'";	shift 2;;
+	-p)	OPT="$OPT -perm  '$2'";	shift 2;;
+	-t)	OPT="$OPT -type  '$2'";	shift 2;;
+	-u)	OPT="$OPT -user  '$2'";	shift 2;;
+	-y)	OPT="$OPT -newer '$2'";	shift 2;; # YOUNGER
+	-z)	OPT="$OPT -size  '$2'";	shift 2;;
+	-o)	OPT="$OPT '$1'";	shift 1;; # LOGICAL OR
+	-ls)	PRT=-ls;		shift 1;; # LOGICAL OR
+	-no*)	OPT="$OPT '$1'";	shift 1;; # KNOWN  UNARY
+	-)	OPT="$OPT '-$2'";	shift 2;; # ASSUME UNARY
+	-*)	OPT="$OPT '$1' '$2'";	shift 2;; # ASSUME BINARY
+	[\!\(\)])OPT="$OPT '$1'";	shift 1;; # GROUPING
+	*)	break;; # filenames
+	esac
+done
+$DOIT find ${*:-.} $OPT $PRT

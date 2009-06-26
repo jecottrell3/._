@@ -1,0 +1,109 @@
+#! /usr/local/bin/perl
+#
+#	remail [-u user] file
+#
+#	Resend each message in FILE to USER, one at a time.
+#	USER defaults to FILE if not specified.
+
+$0 =~ s%.*/%%;
+$EOF='%END%OF%MAIL%';
+$sender = 'jcottrell';
+$sendmail = "/usr/lib/sendmail -f $sender -odq -oem";
+
+sub usage
+{
+    die("$0: @_
+usage: $0 [-u user] file
+");
+}
+
+$file = shift;
+
+if ($file eq '-u')
+{
+    $user = shift;
+    $file = shift;
+}
+
+$file || &usage("missing file");
+$user || ($user = $file);
+
+@$ = getpwnam($user);
+$$[0] || warn("unknown user: $user\n");
+
+open(FILE, $file) ||
+    &usage("open($file): $!");
+
+if (-f "$0.msg")
+{
+    print("echo $file: $0.msg\n");
+    print("$sendmail $user < $0.msg\n");
+}
+
+@@ = ();
+ line:
+while ($line = <FILE>)
+{
+    if ($line =~ /^From /)
+    {
+	if (&isfrom)
+	{
+	    &remail;
+	    next line;
+	}
+	else
+	{
+	    print(STDERR "NOT-FROM: $line");
+	}
+	
+    }
+
+    if ($line =~ /^Date: /)
+    {
+	chop($date = $line)
+	    unless ($date);
+    }
+
+    if ($line =~ /^Subject: /)
+    {
+	chop($subject = $line)
+	    unless ($subject);
+    }
+
+    push(@@, $line);
+}
+&remail;
+exit(0);
+
+sub isfrom
+{
+    @$ = split(' ', $line);
+    return (0) unless @$ == 8;
+    return (0) unless $$[2] =~ /Sun|Mon|Tue|Wed|Thu|Fri|Sat/;
+    return (0) unless $$[3] =~ /Jan|Feb|Ma[ry]|Apr|Ju[nl]|Aug|Sep|Oct|Nov|Dec/;
+    return (0) unless $$[4] =~ /^\d+$/;
+    return (0) unless $$[5] =~ /^[\d:]+$/;
+    return (0) unless $$[6] =~ /^\w\wT$/;
+    $$[7] =~ /^19\d\d$/;
+}
+
+sub remail
+{
+    return unless @@;
+    $subject =~ tr/'/"/;	# "'
+    $subject = 'NO SUBJECT' unless $subject;
+    $date = 'NO DATE' unless $date;
+    print("echo '$file: $subject'\n");
+    print("echo '$file: $date'\n");
+    print("$sendmail $user <<'$EOF'\n");
+    print("Resent-From: $sender\n");
+    print("Resent-To: $user\n");
+    print("Resent-Subject: OLD UNIX MAIL\n");
+    grep(print, @@);
+    print("$EOF\n");
+    @@ = (); $subject = ''; $date = '';
+}
+# Local Variables:
+# mode: perl
+# comment-column: 48
+# End:

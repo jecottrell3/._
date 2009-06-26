@@ -1,0 +1,9 @@
+#! /bin/sh
+#
+#	I really want to do:
+#	tr '[a-z][0-9][A-Z]' '[5-9][A-Z][a-z][0-4]'
+#	but IRIX  tr is broken. Sigh.
+#
+exec /usr/bin/tr \
+'[a-e][f-z][0-4][5-9][A-U][V-Z]' \
+'[5-9][A-U][V-Z][a-e][f-z][0-4]'

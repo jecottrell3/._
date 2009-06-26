@@ -1,0 +1,45 @@
+# set ${1:-$HOSTNAME}
+# set $(host $1)
+# FQDN=$1
+# DOMN=${FQDN#*.}
+
+# echo $HOSTNAME $FQDN $DOMN
+
+case $HOSTNAME in
+(cottr002*|*.census.gov)
+	export  C=cottr002
+	export  CG=Census.GOV
+	export  SSD=SSD.$CG
+
+	#xport	idc1=idc1.$SSD;   alias	idc1="ssh -qAX $C@$idc1"
+	#xport	idc2=idc2.$SSD;   alias	idc2="ssh -qAX $C@$idc2"
+	#xport	idc3=idc3.$SSD;   alias	idc3="ssh -qAX $C@$idc3"
+	#xport	idc4=idc4.$SSD;   alias	idc4="ssh -qAX $C@$idc4"
+	export	lb1=ct-lb-1.$SSD; alias	lb1="ssh -qAX $C@$lb1"
+	export	lb2=ct-lb-2.$SSD; alias	lb2="ssh -qAX $C@$lb2"
+	export	wb1=ct-web-1.$SSD;alias	wb1="ssh -qAX $C@$wb1"
+	export	wb2=ct-web-2.$SSD;alias	wb2="ssh -qAX $C@$wb2"
+	export	wb3=ct-web-3.$SSD;alias	wb3="ssh -qAX $C@$wb3"
+	export	db1=ct-db-1.$SSD; alias	db1="ssh -qAX $C@$db1"
+	export	db2=ct-db-2.$SSD; alias	db2="ssh -qAX $C@$db2"
+	export	db3=ct-db-3.$SSD; alias	db3="ssh -qAX $C@$db3"
+
+	export	db1v=ct-db-1v.$SSD; alias sq1="mysql -h $db1v -P 3307"
+	export	db2v=ct-db-2v.$SSD; alias sq2="mysql -h $db2v -P 3308"
+	export	db3v=ct-db-3v.$SSD; alias sq3="mysql -h $db3v -P 3309"
+
+	for host in idc{1,2,3,4} red1 scribe1
+	do
+		export	$host=$host.$SSD
+		alias	$host="ssh  -qAX $C@\$$host"
+		done
+
+	for host in scribe censustaker
+	do
+		export	$host=$host.$CG
+		alias	$host="ssh  -qAX $C@\$$host"
+	done
+
+	alias	ct3=censustaker
+	export	ct3=$censustaker
+esac

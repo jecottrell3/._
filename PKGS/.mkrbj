@@ -1,0 +1,7 @@
+#! /bin/sh -x
+
+grep rbj: /etc/group ||
+groupadd -g 6654    rbj
+
+grep rbj: /etc/passwd ||
+useradd  -u 6654 -g rbj -c "Root Boy Jim" -m -k - rbj

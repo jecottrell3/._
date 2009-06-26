@@ -1,0 +1,12 @@
+#! /bin/sh -x
+
+SAVE=.SAVE
+
+case $1 in
+.*)	SAVE=$1; shift;;
+esac
+
+for x
+do
+	cp $x $x$SAVE
+done

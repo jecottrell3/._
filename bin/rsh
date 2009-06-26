@@ -1,0 +1,36 @@
+#! /bin/sh
+
+for rsh in \
+		/usr/ucb/rsh /usr/bin/rsh \
+		/usr/ucb/rcmd /usr/bin/rcmd \
+		/usr/ucb/remsh /usr/bin/remsh 
+do
+	test -x $rsh && break
+done
+
+vx=
+opts=
+
+case $0 in
+*RSH)	host=;;
+*)	host=`basename $0`
+esac
+
+while :
+do
+	case "$1@$host" in
+	-[vx]@*)	vx=$1; set $1; shift;;
+	-l@*)		opts="$opts $1 $2"; shift 2;;
+	-n@*)		opts="$opts $1"; shift;;
+	-z@*)		echo $rsh $host $opts "$@"; exit 0;;
+	*@)		host=$1; shift;;
+	*)		break;;
+	esac
+done
+
+case "$1@$ARCH" in
+	@*)	exec RLOGIN $vx $host $opts;;
+#	*@sco)	eval exec rcmd  $host $opts DISPLAY=$DISPLAY "$@";;
+	*)	exec $rsh $host $opts /bin/sh -c \
+		"'TERM=$TERM DISPLAY=$DISPLAY ENV=$ENV $@'";;
+esac

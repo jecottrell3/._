@@ -1,0 +1,109 @@
+test -f "$DEBUG" && echo "(CMDS $ARCH" | tr -d \\012
+ULB=$LOCAL/bin
+################################################################
+# [DF] FIX 512 BLOCK SYNDROME
+################################################################
+unalias df
+case $ARCH in
+(alpha|dgux)
+	test -f $ULB/df || alias	df='df -k';;
+(hp9)	test -f $ULB/df || alias	df='bdf';;
+(sco)	test -f $ULB/df || alias	df='df -v';;
+(aix)	test -f $ULB/df || alias	df='df -I';;
+(sun5)	test -f $ULB/df || alias	df='df -k';;
+esac
+################################################################
+# [DU] FIX 512 BLOCK SYNDROME
+################################################################
+unalias du
+case $ARCH in
+(alpha)	test -f $ULB/du || alias	du='du -kx';;	# K, -xdev
+(aix)	test -f $ULB/du || alias	du='du -k';;	# K
+(dgux)	test -f $ULB/du || alias	du='du -m';;	# -xdev
+(hp9)	test -f $ULB/du || alias	du='du -x';;	# -xdev
+esac
+################################################################
+# [LS] HAGGLE OVER -A & -g
+################################################################
+unalias ls
+alias l='ls  -FaC'	# default to SV
+alias ll='l  -ls'	# default to SV
+case "$ARCH" in
+(aix|alpha)
+	alias l='ls  -FAC'	# BSD
+	;;
+(sun[2345])
+	alias l='ls  -FAC'	# BSD
+	alias ll='l  -lsg'	# BSD
+	;;
+esac
+test -f $ULB/ls && alias l='ls  -FAC'	# GNU
+test -f $ULB/ls && alias ll='l  -lsg'	# GNU
+################################################################
+# [MAN]
+################################################################
+unalias man
+case $ARCH in
+(sgi)
+	alias man='MANPAGER="less -r" man';;
+(alpha|dgux)
+	test -f $ULB/man || alias man='PAGER="less -r" man';;
+(sun5)	alias man='man -aF';;
+esac
+################################################################
+: \
+
+################################################################
+# [PS] SELECT bsd OR sysv VERSION
+################################################################
+case $ARCH in
+(sun5)
+	function ps
+	{
+		case $1 in
+		(-*) /usr/bin/ps "$@";;	# SYSV
+		(*)  /usr/ucb/ps "$@";;	# BSD
+		esac
+	};;
+esac
+################################################################
+# [SU] Super User
+################################################################
+unalias su
+case $ARCH in
+(linux)
+        alias su='su -p'
+        ;;
+(*)
+        test -f $ULB/su &&
+        alias su="$ULB/su -p" ||
+        alias su=SU
+        ;;
+esac
+################################################################
+# [TSET]
+################################################################
+case $ARCH in
+(dgux)
+	function tset		# partial implementation
+	{
+		case $1 in
+		-)	echo $TERM;;
+		-s)	echo TERM=$TERM export TERM;;
+		esac
+	}
+	;;
+esac
+################################################################
+# [USERS]
+################################################################
+case $ARCH in
+(dgux|sco)
+	function users
+	{
+		echo `who | awk '{print $1}' | sort -u`
+	}
+	;;
+esac
+################################################################
+test -f "$DEBUG" && echo ')'

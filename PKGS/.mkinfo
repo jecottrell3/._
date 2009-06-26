@@ -1,0 +1,19 @@
+#! /bin/sh
+
+mkdir -p info list req pro
+mkdir -p con obs
+
+ls .dst |
+while read x
+do
+	y=${x%-*}
+	z=${y%-*}
+	z=$x
+	echo === $x ===
+	rpm -qp --info		.dst/$x > info/$x
+	rpm -qp --list		.dst/$x > list/$x
+	rpm -qp --requires	.dst/$x > req/$x
+	rpm -qp --provides	.dst/$x > pro/$x
+	rpm -qp --obsoletes	.dst/$x > obs/$x
+	rpm -qp --conflicts	.dst/$x > con/$x
+done

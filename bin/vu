@@ -1,0 +1,14 @@
+#! /usr/bin/perl -p
+
+BEGIN
+{
+	open(STDOUT, "|fmt|less");
+}
+
+s/$/\n/;
+
+END
+{
+	close(STDOUT);
+}
+

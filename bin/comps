@@ -1,0 +1,108 @@
+#! /usr/bin/perl
+
+$banner = '#' x 64;
+
+$xml = $ARGV[0] || "comps.xml";
+
+($dir = $xml) =~ s/\.xml$//;	# nuke suffix
+($xml = $dir) =~ s/$/.xml/;	# add  suffix
+($pkg = $dir) =~ s/$/.pkg/;	# add  suffix
+
+warn("$dir, $xml, $pkg\n");
+
+# $dir =~ s%.*/%%;
+# $dir =~ s/\.xml$//;
+# $repo = $ARGV[1] || "/repo/CentOS/5.2/i386/CentOS";
+
+-d $dir || mkdir($dir) or die;
+
+@xml = stat $xml;
+warn("$xml @xml\n");
+
+open(STDIN, "<$xml")  or die;
+open(LANG , ">$dir/.lang") or die;
+
+sub id;
+sub lang;
+sub group;
+sub splat;
+sub item;
+
+line:
+while (<STDIN>)
+{
+	chomp;
+	/<langonly>/	and lang;
+	/<group>/	and group;
+	/<\/group>/	and splat;
+	/<id>/		and id;
+	/<packagereq /	and item;
+	/<category>/	and last;
+}
+
+sub lang
+{
+	$norm = 0;
+	select LANG;
+	next line;
+}
+
+sub id
+{
+	$N = $1 if m%<id>(.*)</id>%;
+	warn("\@$N\n");
+	next line;
+}
+
+sub group
+{
+	$N = 'bogus'; $norm = 1;
+	%M = %D = %O = %C = %X = ();
+	# select NORM;
+	next line;
+}
+
+
+sub splat
+{
+	$M = $N;
+	$M =~ s/^(core)$/0$1/;
+	$M =~ s/^(base)$/1$1/;
+	$M =~ s/^(base-x)$/2$1/;
+
+	if ($norm) {
+		open(NORM, ">$dir/$M") or
+	die(   "open(NORM,  >$dir/$M ): $!\n");
+		select NORM;
+	} else {
+		select LANG;
+	}
+
+	print("$banner\n");
+	print("-\@$N\n");
+	print("$banner\n\n");
+
+	map
+		{ $X{$_} = 'x' unless (<$pkg/$_-*.rpm>)[0]; }
+		keys(%M), keys(%D), keys(%O);
+
+	map { print("#m$X{$_}\t-$_\n"); } sort(keys(%M));
+	map { print("#d$X{$_}\t-$_\n"); } sort(keys(%D));
+	map { print("#o$X{$_}\t $_\n"); } sort(keys(%O));
+	map {printf("#c\t?%-31s %s\n", $_, $C{$_}); } sort(keys(%C));
+
+	print("\n");
+	close(NORM) if $norm;
+
+	next line;
+}
+
+sub item
+{
+	s%packagereq%%g;
+	$M{$1} = $1 if m%type="mandatory">(.*)</>%;
+	$D{$1} = $1 if m%type="default">(.*)</>%;
+	$O{$1} = $1 if m%type="optional">(.*)</>%;
+	$C{$2} = $1 if m%type="conditional" requires="(.*)">(.*)</>%;
+	next line;
+}

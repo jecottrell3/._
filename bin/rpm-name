@@ -1,0 +1,21 @@
+#! /bin/sh
+#
+# Strip off Version and Release
+# Leaving only Name of RPM Package/File
+# Output Original name if $1 is "-"
+
+case $1 in
+(-)	BOTH=1; shift;;
+(*)	BOTH=;;
+esac
+
+cat $* |
+while read NVR	# Name Version Release
+do
+	case $NVR in
+	(*-[0-9]*-*)	NV=${NVR%-*}; N=${NV%-*};;
+	(*.rpm)		NV=${NVR%-*}; N=${NV%-*};;
+	(*)		N=$NVR;;
+	esac
+	echo	$N ${BOTH:+$NVR}
+done

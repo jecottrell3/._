@@ -1,0 +1,1336 @@
+(
+ ([] keymap
+  [set-mark-command
+   scroll-up
+   backward-char
+   mode-specific-command-prefix
+   delete-char
+   end-of-line
+   forward-char
+   keyboard-quit
+   ehelp-command
+   indent-for-tab-command
+   newline-and-indent
+   kill-line
+   recenter
+   newline
+   next-line
+   open-line
+   previous-line
+   quoted-insert
+   isearch-backward
+   transpose-chars
+   isearch-forward
+   universal-argument
+   beginning-of-line
+   kill-region
+   Control-X-prefix
+   yank
+   scroll-down
+   ESC-prefix
+   nil
+   other-window
+   nil
+   undo
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   ESC-prefix
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   delete-backward-char
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   self-insert-command
+   ]
+  (select . call-last-kbd-macro)
+  (67108923 . indent-for-comment)
+  (vertical-line keymap
+		 (mouse-1 . mouse-select-window)
+		 (down-mouse-1 . mouse-drag-vertical-line)
+		 (C-mouse-2 . mouse-split-window-vertically)
+		 )
+  (vertical-scroll-bar keymap
+		       (drag-mouse-3 . scroll-bar-scroll-down)
+		       (mouse-3 . scroll-bar-scroll-down)
+		       (down-mouse-2 . scroll-bar-drag)
+		       (drag-mouse-1 . scroll-bar-scroll-up)
+		       (mouse-1 . scroll-bar-scroll-up)
+		       (C-mouse-2 . mouse-split-window-vertically)
+		       )
+  (mode-line keymap
+	     (C-mouse-2 . mouse-split-window-horizontally)
+	     (mouse-3 . mouse-delete-window)
+	     (mouse-2 . mouse-delete-other-windows)
+	     (down-mouse-1 . mouse-drag-mode-line)
+	     (drag-mouse-1 . mouse-select-window)
+	     (mouse-1 . mouse-select-window)
+	     )
+  (C-down-mouse-3 . mouse-major-mode-menu)
+  (S-down-mouse-1 . mouse-set-font)
+  (C-down-mouse-1 . mouse-buffer-menu)
+  (mouse-3 . mouse-save-then-kill)
+  (mouse-2 . mouse-yank-at-click)
+  (triple-mouse-1 . mouse-set-point)
+  (double-mouse-1 . mouse-set-point)
+  (drag-mouse-1 . mouse-set-region)
+  (mouse-1 . mouse-set-point)
+  (down-mouse-1 . mouse-drag-region)
+  (M-mouse-2 . mouse-yank-secondary)
+  (M-mouse-3 . mouse-secondary-save-then-kill)
+  (M-down-mouse-1 . mouse-drag-secondary)
+  (M-drag-mouse-1 . mouse-set-secondary)
+  (M-mouse-1 . mouse-start-secondary)
+  (C-down-mouse-2 . facemenu-menu)
+  (f1 . help-command)
+  (help . help-command)
+  (f2 . 2C-command)
+  (menu-bar keymap
+	    (buffer "Buffers" keymap "Select Buffer" ("*scratch*" "  *scratch*  *   " (nil) . menu-bar-select-buffer) ("global-map" " global-map      .../jcottrell/emacs/" (nil) . menu-bar-select-buffer) ("*info*" "     *info*   %  " (nil) . menu-bar-select-buffer) ("emacs" "      emacs      /" (nil) . menu-bar-select-buffer) ("dist" "       dist  *%  /dist/" (nil) . menu-bar-select-buffer) ("qaz" "        qaz  *%  /dist/qaz/" (nil) . menu-bar-select-buffer) ("domains.nis" "domains.nis      /dist/" (nil) . menu-bar-select-buffer) ("ml-sort" "    ml-sort      /dist/" (nil) . menu-bar-select-buffer) ("*Messages*" " *Messages*  *   " (nil) . menu-bar-select-buffer) (list-buffers "          List All Buffers" ([24 2] . "  (C-x C-b)") . list-buffers))
+	    (files "Files" keymap (open-file "Open File..." ([24 6] . "  (C-x C-f)") . find-file) (dired "Open Directory..." ([24 100] . "  (C-x d)") . dired) (save-buffer "Save Buffer" ([24 19] . "  (C-x C-s)") . save-buffer) (write-file "Save Buffer As..." ([24 23] . "  (C-x C-w)") . write-file) (revert-buffer "Revert Buffer" (nil) . revert-buffer) (insert-file "Insert File..." ([24 105] . "  (C-x i)") . insert-file) (kill-buffer "Kill Current Buffer" (nil) . kill-this-buffer) (separator-buffers "--" (nil)) (make-frame "Make New Frame" ([24 53 50] . "  (C-x 5 2)") . make-frame) (make-frame-on-display "Open New Display..." (nil) . make-frame-on-display) (delete-this-frame "Delete Frame" ([24 53 48] . "  (C-x 5 0)") . delete-frame) (split-window "Split Window" ([24 50] . "  (C-x 2)") . split-window-vertically) (one-window "One Window" ([24 49] . "  (C-x 1)") . delete-other-windows) (separator-exit "--" (nil)) (exit-emacs "Exit Emacs" ([24 3] . "  (C-x C-c)") . save-buffers-kill-emacs) "Files")
+	    (tools "Tools" keymap (print-buffer "Print Buffer" (nil) . print-buffer) (print-region "Print Region" (nil) . print-region) (ps-print-buffer "Postscript Print Buffer" (nil) . ps-print-buffer-with-faces) (ps-print-region "Postscript Print Region" (nil) . ps-print-region-with-faces) (separator-print "--" (nil)) (compare "Compare" (nil) . menu-bar-ediff-menu) (ediff-merge "Merge" (nil) . menu-bar-ediff-merge-menu) (epatch "Apply Patch" (nil) . menu-bar-epatch-menu) (separator-compare "--" (nil)) (vc-menu "Version Control" (nil) keymap (vc-register "Register" . vc-register) (vc-check-out "Check Out" . vc-toggle-read-only) (vc-menu-check-in "Check In" . vc-next-action) (vc-insert-header "Insert Header" . vc-insert-headers) (vc-revert-buffer "Revert to Last Version" . vc-revert-buffer) (undo "Undo Last Check-In" . vc-cancel-version) (separator2 "----") (vc-print-log "Show History" . vc-print-log) (vc-update-change-log "Update ChangeLog" . vc-update-change-log) (vc-diff "Compare with Last Version" . vc-diff) (vc-version-other-window "Show Other Version" . vc-version-other-window) (vc-rename-file "Rename File" . vc-rename-file) (separator1 "----") (vc-directory "Show Locked Files" . vc-directory) "Version Control") (separator-vc "--" (nil)) (gnus "Read Net News" (nil) . gnus) (rmail "Read Mail" (nil) . rmail) (calendar "Display Calendar" (nil) . calendar) "Tools")
+	    (edit "Edit" keymap (undo "Undo" ([31] . "  (C-_)") . undo) (cut "Cut" ([23] . "  (C-w)") . kill-region) (copy "Copy" (nil) . menu-bar-kill-ring-save) (select-paste "Select and Paste" (nil) . yank-menu) (paste "Paste Most Recent" ([25] . "  (C-y)") . yank) (clear "Clear" (nil) . delete-region) (separator-edit "--" (nil)) (props "Text Properties" ([C-down-mouse-2] . "  (C-down-mouse-2)") . facemenu-menu) (fill "Fill" (nil) . fill-region) (spell "Spell" (nil) . ispell-menu-map) "Edit")
+	    (search "Search" keymap (search-fwd "Search..." (nil) . nonincremental-search-forward) (re-search-fwd "Regexp Search..." (nil) . nonincremental-re-search-forward) (search-back "Search Backwards..." (nil) . nonincremental-search-backward) (re-search-back "Regexp Search Backwards..." (nil) . nonincremental-re-search-backward) (separator-repeat "--" (nil)) (nonincremental-repeat-search-fwd "Repeat Search" (nil) . nonincremental-repeat-search-forward) (nonincremental-repeat-re-search-fwd "Repeat Regexp" (nil) . nonincremental-repeat-re-search-forward) (nonincremental-repeat-search-back "Repeat Backwards" (nil) . nonincremental-repeat-search-backward) (nonincremental-repeat-re-search-back "Repeat Regexp Backwards" (nil) . nonincremental-repeat-re-search-backward) (separator-search "--" (nil)) (bookmark "Bookmarks" (nil) . menu-bar-bookmark-map) (find-tag "Find Tag..." ([-134217682] . "  (M-.)") . find-tag) (query-replace "Query Replace..." ([-134217691] . "  (M-%)") . query-replace) (query-replace-regexp "Query Replace Regexp..." (nil) . query-replace-regexp) "Search")
+	    (help-menu "Help" keymap (emacs-news "Emacs News" ([8 110] . "  (C-h n)") . view-emacs-news) (emacs-faq "Emacs FAQ" ([8 70] . "  (C-h F)") . view-emacs-FAQ) (info "Browse Manuals" ([8 105] . "  (C-h i)") . info) (describe-mode "Describe Mode" ([8 109] . "  (C-h m)") . describe-mode) (command-apropos "Command Apropos..." (nil) . command-apropos) (list-keybindings "List Keybindings" ([8 98] . "  (C-h b)") . describe-bindings) (describe-key "Describe Key..." ([8 107] . "  (C-h k)") . describe-key) (describe-function "Describe Function..." ([8 102] . "  (C-h f)") . describe-function) (describe-variable "Describe Variable..." ([8 118] . "  (C-h v)") . describe-variable) (man "Man..." (nil) . manual-entry) (emacs-tutorial "Emacs Tutorial" ([8 116] . "  (C-h t)") . help-with-tutorial) (finder-by-keyword "Find Lisp Packages..." ([8 112] . "  (C-h p)") . finder-by-keyword) (report-emacs-bug "Send Bug Report..." (nil) . report-emacs-bug) (emacs-version "Show Version" (nil) . emacs-version) "Help")
+	    (mouse-1 . tmm-menubar)
+	    )
+  (f10 . tmm-menubar)
+  (C-M-backspace . backward-kill-sexp)
+  (C-M-delete . backward-kill-sexp)
+  (S-delete . kill-region)
+  (C-delete . backward-kill-word)
+  (C-left . backward-word)
+  (C-right . forward-word)
+  (M-left . backward-word)
+  (M-right . forward-word)
+  (mouse-movement . ignore)
+  (deletechar . delete-char)
+  (deleteline . kill-line)
+  (insertline . open-line)
+  (redo . repeat-complex-command)
+  (undo . undo)
+  (S-insert . yank)
+  (C-insert . kill-ring-save)
+  (insert . overwrite-mode)
+  (execute . execute-extended-command)
+  (M-begin . beginning-of-buffer-other-window)
+  (begin . beginning-of-buffer)
+  (M-end . end-of-buffer-other-window)
+  (end . end-of-buffer)
+  (M-prior . scroll-other-window-down)
+  (M-next . scroll-other-window)
+  (C-next . scroll-left)
+  (C-prior . scroll-right)
+  (C-down . forward-paragraph)
+  (C-up . backward-paragraph)
+  (next . scroll-up)
+  (prior . scroll-down)
+  (down . next-line)
+  (right . forward-char)
+  (up . previous-line)
+  (left . backward-char)
+  (M-home . beginning-of-buffer-other-window)
+  (home . beginning-of-buffer)
+  (find . search-forward)
+  (menu . execute-extended-command)
+  (67108896 . set-mark-command)
+  (67108909 . negative-argument)
+  (67108921 . digit-argument)
+  (67108920 . digit-argument)
+  (67108919 . digit-argument)
+  (67108918 . digit-argument)
+  (67108917 . digit-argument)
+  (67108916 . digit-argument)
+  (67108915 . digit-argument)
+  (67108914 . digit-argument)
+  (67108913 . digit-argument)
+  (67108912 . digit-argument)
+  (67108911 . undo)
+  (make-frame-visible . ignore-event)
+  (iconify-frame . ignore-event)
+  (delete-frame . handle-delete-frame)
+  (switch-frame . handle-switch-frame)
+  )
+ ([3] keymap)
+ ([8] keymap
+  (117 . buffer-enable-undo)
+  (111 . occur-sorted)
+  (106 . goto-char)
+  (103 . grep)
+  (101 . Info-goto-emacs-key-command-node)
+  (96 . bell)
+  (61 . what-page)
+  (59 . kill-comment)
+  (58 . sort-colon)
+  (47 . expand-region-abbrevs)
+  (46 . find-tag-other-window)
+  (42 . set-variable)
+  (35 . server-start)
+  (32 . delete-horizontal-space)
+  (31)
+  (30 . never)
+  (29 . end-kbd-macro)
+  (28 . never)
+  (27 . start-kbd-macro)
+  (26)
+  (25 . random-yow)
+  (24 . ding)
+  (22 . electric-describe-variable)
+  (21 . describe-c-function)
+  (20 . tick)
+  (19 . electric-describe-syntax)
+  (18 . byte-recompile-directory)
+  (17 . bugger)
+  (15 . display-buffer)
+  (13 . electric-describe-mode)
+  (12 . load-library)
+  (10 . goto-line)
+  (9 . info)
+  (7)
+  (5 . call-last-kbd-macro)
+  (2 . electric-describe-bindings)
+  (1 . electric-command-apropos)
+  (0 . blackbox)
+  (113 . help-quit)
+  (118 . visit-tags-table)
+  (119 . where-is)
+  (116 . tags-apropos)
+  (115 . tags-search)
+  (112 . finder-by-keyword)
+  (110 . next-file)
+  (14 . forward-to-indentation)
+  (109 . man)
+  (108 . list-tags)
+  (11 . electric-describe-key)
+  (6 . electric-describe-function)
+  (105 . info)
+  (70 . view-emacs-FAQ)
+  (102 . find-file-other-window)
+  (100 . Info-goto-emacs-command-node)
+  (107 . electric-describe-key)
+  (99 . compile)
+  (98 . switch-to-buffer-other-window)
+  (97 . electric-apropos)
+  (16 . backward-to-indentation)
+  (23 . where-is)
+  (4 . dup-line)
+  (3 . describe-key-briefly)
+  (63 . help-for-help)
+  (f1 . help-for-help)
+  (help . help-for-help)
+  (8 . help-for-help)
+  )
+ ([24] keymap
+  [pop-global-mark
+   nil
+   buffer-menu
+   save-buffers-kill-emacs
+   list-directory
+   eval-last-sexp
+   find-file
+   nil
+   fill-paragraph
+   insert-file
+   set-variable
+   bury-buffer
+   count-lines-page
+   nil
+   set-goal-column
+   delete-blank-lines
+   mark-page
+   vc-toggle-read-only
+   ro-mode
+   save-buffer
+   transpose-lines
+   advertised-undo
+   find-alternate-file
+   write-file
+   exchange-point-and-mark
+   nil
+   suspend-emacs
+   repeat-complex-command
+   nil
+   nil
+   nil
+   backward-kill-sexp
+   just-one-space
+   shell
+   nil
+   server-edit
+   set-selective-display
+   nil
+   nil
+   expand-abbrev
+   start-kbd-macro
+   end-kbd-macro
+   nil
+   balance-windows
+   nil
+   shrink-window-if-larger-than-buffer
+   set-fill-prefix
+   point-to-register-compatibility-binding
+   delete-window
+   delete-other-windows
+   split-window-vertically
+   split-window-horizontally
+   shell
+   ctl-x-5-prefix
+   enlarge-window
+   compare-windows
+   perl-mode
+   perldb
+   nil
+   set-comment-column
+   scroll-left
+   what-cursor-position
+   scroll-right
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   backward-page
+   electric-command-history
+   forward-page
+   enlarge-window
+   nil
+   next-error
+   (keymap
+    (39 . expand-abbrev)
+    (101 . expand-abbrev)
+    (45 . inverse-add-global-abbrev)
+    (105 keymap
+	 (108 . inverse-add-mode-abbrev)
+	 (103 . inverse-add-global-abbrev)
+	 )
+    (43 . add-mode-abbrev)
+    (103 . add-global-abbrev)
+    (1 . add-mode-abbrev)
+    (108 . add-mode-abbrev)
+    )
+   switch-to-buffer
+   cd
+   zap-lines
+   call-last-kbd-macro
+   set-fill-column
+   insert-register-compatibility-binding
+   mark-whole-buffer
+   insert-buffer
+   jump-to-register-compatibility-binding
+   kill-buffer
+   downcase-region
+   mail
+   (keymap
+    (112 . narrow-to-page)
+    (119 . widen)
+    (110 . narrow-to-region)
+    )
+   other-window
+   nil
+   kbd-macro-query
+   (keymap
+    (108 . bookmark-bmenu-list)
+    (109 . bookmark-set)
+    (98 . bookmark-jump)
+    (102 . frame-configuration-to-register)
+    (119 . window-configuration-to-register)
+    (116 . string-rectangle)
+    (111 . open-rectangle)
+    (121 . yank-rectangle)
+    (100 . delete-rectangle)
+    (107 . kill-rectangle)
+    (99 . clear-rectangle)
+    (114 . copy-rectangle-to-register)
+    (103 . insert-register)
+    (105 . insert-register)
+    (120 . copy-to-register)
+    (115 . copy-to-register)
+    (106 . jump-to-register)
+    (32 . point-to-register)
+    (67108896 . point-to-register)
+    (0 . point-to-register)
+    )
+   save-some-buffers
+   mark-line
+   capitalize-region
+   (keymap
+    (126 . vc-version-other-window)
+    (61 . vc-diff)
+    (118 . vc-next-action)
+    (117 . vc-revert-buffer)
+    (115 . vc-create-snapshot)
+    (114 . vc-retrieve-snapshot)
+    (108 . vc-print-log)
+    (105 . vc-register)
+    (104 . vc-insert-headers)
+    (100 . vc-directory)
+    (99 . vc-cancel-version)
+    (97 . vc-update-change-log)
+    )
+   nil
+   copy-to-register-compatibility-binding
+   nil
+   nil
+   shrink-window-horizontally
+   recover-file
+   enlarge-window-horizontally
+   revert-buffer
+   backward-kill-sentence
+   ]
+  (67108896 . pop-global-mark)
+  )
+ ([27] keymap
+  [mark-sexp
+   beginning-of-defun
+   backward-sexp
+   exit-recursive-edit
+   down-list
+   end-of-defun
+   forward-sexp
+   nil
+   mark-defun
+   lisp-complete-symbol
+   indent-new-comment-line
+   kill-sexp
+   count-lines-region
+   scroll-other-window
+   forward-list
+   split-line
+   backward-list
+   indent-sexp
+   isearch-backward-regexp
+   isearch-forward-regexp
+   transpose-sexps
+   backward-up-list
+   up-list
+   append-next-kill
+   nil
+   eval-region
+   eval-current-buffer
+   (keymap
+    (27 . keyboard-escape-quit)
+    (58 . eval-expression)
+    )
+   indent-region
+   scroll-other-window-down
+   nil
+   abort-recursive-edit
+   set-mark-command
+   shell-command
+   nil
+   nil
+   ispell-word
+   query-replace
+   hack-local-variables-command
+   abbrev-prefix-mark
+   insert-parentheses
+   move-past-close-and-reindent
+   set-key
+   nil
+   beginning-of-buffer
+   negative-argument
+   end-of-buffer
+   dabbrev-expand
+   digit-argument
+   digit-argument
+   digit-argument
+   digit-argument
+   digit-argument
+   digit-argument
+   digit-argument
+   digit-argument
+   digit-argument
+   digit-argument
+   eval-expression
+   indent-for-comment
+   tags-loop-continue
+   what-line
+   find-tag
+   nil
+   mark-word
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   nil
+   indent-region
+   delete-indentation
+   delete-indentation
+   nil
+   self-insert-command
+   backward-sentence
+   backward-word
+   upcase-word
+   kill-word
+   forward-sentence
+   forward-word
+   facemenu-keymap
+   mark-paragraph
+   tab-to-tab-stop
+   indent-new-comment-line
+   kill-sentence
+   downcase-word
+   back-to-indentation
+   rename-buffer
+   occur
+   pwd
+   query-replace
+   query-replace-regexp
+   set-variable
+   transpose-words
+   capitalize-word
+   scroll-down
+   kill-ring-save
+   execute-extended-command
+   yank-pop
+   zap-to-char
+   backward-paragraph
+   shell-command-on-region
+   forward-paragraph
+   not-modified
+   backward-kill-word
+   ]
+  (67108923 . kill-comment)
+  (C-return . scroll-other-window)
+  (33554454 . scroll-other-window-down)
+  (67108910 . find-tag-regexp)
+  (67108911 . dabbrev-completion)
+  (67108896 . mark-sexp)
+  (67108909 . negative-argument)
+  (67108921 . digit-argument)
+  (67108920 . digit-argument)
+  (67108919 . digit-argument)
+  (67108918 . digit-argument)
+  (67108917 . digit-argument)
+  (67108916 . digit-argument)
+  (67108915 . digit-argument)
+  (67108914 . digit-argument)
+  (67108913 . digit-argument)
+  (67108912 . digit-argument)
+  )
+ ([-134217625] keymap
+  (100 "default" . facemenu-set-default)
+  (98 "bold" . facemenu-set-bold)
+  (105 "italic" . facemenu-set-italic)
+  (108 "bold-italic" . facemenu-set-bold-italic)
+  (117 "underline" . facemenu-set-underline)
+  (111 "Other..." . facemenu-set-face)
+  "Set face"
+  )
+ ([-134217701] keymap
+  (27 . keyboard-escape-quit)
+  (58 . eval-expression)
+  )
+ ([vertical-line] keymap
+  (mouse-1 . mouse-select-window)
+  (down-mouse-1 . mouse-drag-vertical-line)
+  (C-mouse-2 . mouse-split-window-vertically)
+  )
+ ([vertical-scroll-bar] keymap
+  (drag-mouse-3 . scroll-bar-scroll-down)
+  (mouse-3 . scroll-bar-scroll-down)
+  (down-mouse-2 . scroll-bar-drag)
+  (drag-mouse-1 . scroll-bar-scroll-up)
+  (mouse-1 . scroll-bar-scroll-up)
+  (C-mouse-2 . mouse-split-window-vertically)
+  )
+ ([mode-line] keymap
+  (C-mouse-2 . mouse-split-window-horizontally)
+  (mouse-3 . mouse-delete-window)
+  (mouse-2 . mouse-delete-other-windows)
+  (down-mouse-1 . mouse-drag-mode-line)
+  (drag-mouse-1 . mouse-select-window)
+  (mouse-1 . mouse-select-window)
+  )
+ ([C-down-mouse-2] keymap
+  (fc "Face" . facemenu-face-menu)
+  (fg "Foreground Color" . facemenu-foreground-menu)
+  (bg "Background Color" . facemenu-background-menu)
+  (sp "Special Properties" . facemenu-special-menu)
+  (s2 "-----------------")
+  (ju "Justification" . facemenu-justification-menu)
+  (in "Indentation" . facemenu-indentation-menu)
+  (s1 "-----------------")
+  (rm "Remove Properties" . facemenu-remove-props)
+  (ra "Remove All" . facemenu-remove-all)
+  (dp "List Properties" . list-text-properties-at)
+  (df "Display Faces" . list-faces-display)
+  (dc "Display Colors" . list-colors-display)
+  "Text Properties"
+  )
+ ([f1] keymap
+  (117 . buffer-enable-undo)
+  (111 . occur-sorted)
+  (106 . goto-char)
+  (103 . grep)
+  (101 . Info-goto-emacs-key-command-node)
+  (96 . bell)
+  (61 . what-page)
+  (59 . kill-comment)
+  (58 . sort-colon)
+  (47 . expand-region-abbrevs)
+  (46 . find-tag-other-window)
+  (42 . set-variable)
+  (35 . server-start)
+  (32 . delete-horizontal-space)
+  (31)
+  (30 . never)
+  (29 . end-kbd-macro)
+  (28 . never)
+  (27 . start-kbd-macro)
+  (26)
+  (25 . random-yow)
+  (24 . ding)
+  (22 . describe-variable)
+  (21 . describe-c-function)
+  (20 . tick)
+  (19 . describe-syntax)
+  (18 . byte-recompile-directory)
+  (17 . bugger)
+  (15 . display-buffer)
+  (13 . describe-mode)
+  (12 . load-library)
+  (10 . goto-line)
+  (9 . info)
+  (7)
+  (5 . call-last-kbd-macro)
+  (2 . describe-bindings)
+  (1 . command-apropos)
+  (0 . blackbox)
+  (113 . help-quit)
+  (118 . visit-tags-table)
+  (119 . where-is)
+  (116 . tags-apropos)
+  (115 . tags-search)
+  (112 . finder-by-keyword)
+  (110 . next-file)
+  (14 . forward-to-indentation)
+  (109 . man)
+  (108 . list-tags)
+  (11 . describe-key)
+  (6 . describe-function)
+  (105 . info)
+  (70 . view-emacs-FAQ)
+  (102 . find-file-other-window)
+  (100 . Info-goto-emacs-command-node)
+  (107 . describe-key)
+  (99 . compile)
+  (98 . switch-to-buffer-other-window)
+  (97 . apropos)
+  (16 . backward-to-indentation)
+  (23 . where-is)
+  (4 . dup-line)
+  (3 . describe-key-briefly)
+  (63 . help-for-help)
+  (f1 . help-for-help)
+  (help . help-for-help)
+  (8 . help-for-help)
+  )
+ ([menu-bar] keymap
+  (buffer "Buffers" keymap
+	  "Select Buffer"
+	  ("*scratch*" "  *scratch*  *   " (nil) . menu-bar-select-buffer)
+	  ("global-map" " global-map      .../jcottrell/emacs/" (nil) . menu-bar-select-buffer)
+	  ("*info*" "     *info*   %  " (nil) . menu-bar-select-buffer)
+	  ("emacs" "      emacs      /" (nil) . menu-bar-select-buffer)
+	  ("dist" "       dist  *%  /dist/" (nil) . menu-bar-select-buffer)
+	  ("qaz" "        qaz  *%  /dist/qaz/" (nil) . menu-bar-select-buffer)
+	  ("domains.nis" "domains.nis      /dist/" (nil) . menu-bar-select-buffer)
+	  ("ml-sort" "    ml-sort      /dist/" (nil) . menu-bar-select-buffer)
+	  ("*Messages*" " *Messages*  *   " (nil) . menu-bar-select-buffer)
+	  (list-buffers "          List All Buffers" ([24 2] . "  (C-x C-b)") . list-buffers)
+	  )
+  (files "Files" keymap
+	 (open-file "Open File..." ([24 6] . "  (C-x C-f)") . find-file)
+	 (dired "Open Directory..." ([24 100] . "  (C-x d)") . dired)
+	 (save-buffer "Save Buffer" ([24 19] . "  (C-x C-s)") . save-buffer)
+	 (write-file "Save Buffer As..." ([24 23] . "  (C-x C-w)") . write-file)
+	 (revert-buffer "Revert Buffer" (nil) . revert-buffer)
+	 (insert-file "Insert File..." ([24 105] . "  (C-x i)") . insert-file)
+	 (kill-buffer "Kill Current Buffer" (nil) . kill-this-buffer)
+	 (separator-buffers "--" (nil))
+	 (make-frame "Make New Frame" ([24 53 50] . "  (C-x 5 2)") . make-frame)
+	 (make-frame-on-display "Open New Display..." (nil) . make-frame-on-display)
+	 (delete-this-frame "Delete Frame" ([24 53 48] . "  (C-x 5 0)") . delete-frame)
+	 (split-window "Split Window" ([24 50] . "  (C-x 2)") . split-window-vertically)
+	 (one-window "One Window" ([24 49] . "  (C-x 1)") . delete-other-windows)
+	 (separator-exit "--" (nil))
+	 (exit-emacs "Exit Emacs" ([24 3] . "  (C-x C-c)") . save-buffers-kill-emacs)
+	 "Files"
+	 )
+  (tools "Tools" keymap
+	 (print-buffer "Print Buffer" (nil) . print-buffer)
+	 (print-region "Print Region" (nil) . print-region)
+	 (ps-print-buffer "Postscript Print Buffer" (nil) . ps-print-buffer-with-faces)
+	 (ps-print-region "Postscript Print Region" (nil) . ps-print-region-with-faces)
+	 (separator-print "--" (nil))
+	 (compare "Compare" (nil) . menu-bar-ediff-menu)
+	 (ediff-merge "Merge" (nil) . menu-bar-ediff-merge-menu)
+	 (epatch "Apply Patch" (nil) . menu-bar-epatch-menu)
+	 (separator-compare "--" (nil))
+	 (vc-menu "Version Control" (nil) keymap
+		  (vc-register "Register" . vc-register)
+		  (vc-check-out "Check Out" . vc-toggle-read-only)
+		  (vc-menu-check-in "Check In" . vc-next-action)
+		  (vc-insert-header "Insert Header" . vc-insert-headers)
+		  (vc-revert-buffer "Revert to Last Version" . vc-revert-buffer)
+		  (undo "Undo Last Check-In" . vc-cancel-version)
+		  (separator2 "----")
+		  (vc-print-log "Show History" . vc-print-log)
+		  (vc-update-change-log "Update ChangeLog" . vc-update-change-log)
+		  (vc-diff "Compare with Last Version" . vc-diff)
+		  (vc-version-other-window "Show Other Version" . vc-version-other-window)
+		  (vc-rename-file "Rename File" . vc-rename-file)
+		  (separator1 "----")
+		  (vc-directory "Show Locked Files" . vc-directory)
+		  "Version Control"
+		  )
+	 (separator-vc "--" (nil))
+	 (gnus "Read Net News" (nil) . gnus)
+	 (rmail "Read Mail" (nil) . rmail)
+	 (calendar "Display Calendar" (nil) . calendar)
+	 "Tools"
+	 )
+  (edit "Edit" keymap
+	(undo "Undo" ([31] . "  (C-_)") . undo)
+	(cut "Cut" ([23] . "  (C-w)") . kill-region)
+	(copy "Copy" (nil) . menu-bar-kill-ring-save)
+	(select-paste "Select and Paste" (nil) . yank-menu)
+	(paste "Paste Most Recent" ([25] . "  (C-y)") . yank)
+	(clear "Clear" (nil) . delete-region)
+	(separator-edit "--" (nil))
+	(props "Text Properties" ([C-down-mouse-2] . "  (C-down-mouse-2)") . facemenu-menu)
+	(fill "Fill" (nil) . fill-region)
+	(spell "Spell" (nil) . ispell-menu-map)
+	"Edit"
+	)
+  (search "Search" keymap
+	  (search-fwd "Search..." (nil) . nonincremental-search-forward)
+	  (re-search-fwd "Regexp Search..." (nil) . nonincremental-re-search-forward)
+	  (search-back "Search Backwards..." (nil) . nonincremental-search-backward)
+	  (re-search-back "Regexp Search Backwards..." (nil) . nonincremental-re-search-backward)
+	  (separator-repeat "--" (nil))
+	  (nonincremental-repeat-search-fwd "Repeat Search" (nil) . nonincremental-repeat-search-forward)
+	  (nonincremental-repeat-re-search-fwd "Repeat Regexp" (nil) . nonincremental-repeat-re-search-forward)
+	  (nonincremental-repeat-search-back "Repeat Backwards" (nil) . nonincremental-repeat-search-backward)
+	  (nonincremental-repeat-re-search-back "Repeat Regexp Backwards" (nil) . nonincremental-repeat-re-search-backward)
+	  (separator-search "--" (nil))
+	  (bookmark "Bookmarks" (nil) . menu-bar-bookmark-map)
+	  (find-tag "Find Tag..." ([-134217682] . "  (M-.)") . find-tag)
+	  (query-replace "Query Replace..." ([-134217691] . "  (M-%)") . query-replace)
+	  (query-replace-regexp "Query Replace Regexp..." (nil) . query-replace-regexp)
+	  "Search"
+	  )
+  (help-menu "Help" keymap
+	     (emacs-news "Emacs News" ([8 110] . "  (C-h n)") . view-emacs-news)
+	     (emacs-faq "Emacs FAQ" ([8 70] . "  (C-h F)") . view-emacs-FAQ)
+	     (info "Browse Manuals" ([8 105] . "  (C-h i)") . info)
+	     (describe-mode "Describe Mode" ([8 109] . "  (C-h m)") . describe-mode)
+	     (command-apropos "Command Apropos..." (nil) . command-apropos)
+	     (list-keybindings "List Keybindings" ([8 98] . "  (C-h b)") . describe-bindings)
+	     (describe-key "Describe Key..." ([8 107] . "  (C-h k)") . describe-key)
+	     (describe-function "Describe Function..." ([8 102] . "  (C-h f)") . describe-function)
+	     (describe-variable "Describe Variable..." ([8 118] . "  (C-h v)") . describe-variable)
+	     (man "Man..." (nil) . manual-entry)
+	     (emacs-tutorial "Emacs Tutorial" ([8 116] . "  (C-h t)") . help-with-tutorial)
+	     (finder-by-keyword "Find Lisp Packages..." ([8 112] . "  (C-h p)") . finder-by-keyword)
+	     (report-emacs-bug "Send Bug Report..." (nil) . report-emacs-bug)
+	     (emacs-version "Show Version" (nil) . emacs-version)
+	     "Help"
+	     )
+  (mouse-1 . tmm-menubar)
+  )
+ ([24 53] keymap
+  (111 . other-frame)
+  (48 . delete-frame)
+  (50 . make-frame)
+  (114 . find-file-read-only-other-frame)
+  (6 . find-file-other-frame)
+  (102 . find-file-other-frame)
+  (98 . switch-to-buffer-other-frame)
+  (109 . mail-other-frame)
+  (46 . find-tag-other-frame)
+  (100 . dired-other-frame)
+  )
+ ([24 97] keymap
+  (39 . expand-abbrev)
+  (101 . expand-abbrev)
+  (45 . inverse-add-global-abbrev)
+  (105 keymap
+       (108 . inverse-add-mode-abbrev)
+       (103 . inverse-add-global-abbrev)
+       )
+  (43 . add-mode-abbrev)
+  (103 . add-global-abbrev)
+  (1 . add-mode-abbrev)
+  (108 . add-mode-abbrev)
+  )
+ ([24 110] keymap
+  (112 . narrow-to-page)
+  (119 . widen)
+  (110 . narrow-to-region)
+  )
+ ([24 114] keymap
+  (108 . bookmark-bmenu-list)
+  (109 . bookmark-set)
+  (98 . bookmark-jump)
+  (102 . frame-configuration-to-register)
+  (119 . window-configuration-to-register)
+  (116 . string-rectangle)
+  (111 . open-rectangle)
+  (121 . yank-rectangle)
+  (100 . delete-rectangle)
+  (107 . kill-rectangle)
+  (99 . clear-rectangle)
+  (114 . copy-rectangle-to-register)
+  (103 . insert-register)
+  (105 . insert-register)
+  (120 . copy-to-register)
+  (115 . copy-to-register)
+  (106 . jump-to-register)
+  (32 . point-to-register)
+  (67108896 . point-to-register)
+  (0 . point-to-register)
+  )
+ ([24 118] keymap
+  (126 . vc-version-other-window)
+  (61 . vc-diff)
+  (118 . vc-next-action)
+  (117 . vc-revert-buffer)
+  (115 . vc-create-snapshot)
+  (114 . vc-retrieve-snapshot)
+  (108 . vc-print-log)
+  (105 . vc-register)
+  (104 . vc-insert-headers)
+  (100 . vc-directory)
+  (99 . vc-cancel-version)
+  (97 . vc-update-change-log)
+  )
+ ([C-down-mouse-2 fc] keymap
+  (100 "default" . facemenu-set-default)
+  (98 "bold" . facemenu-set-bold)
+  (105 "italic" . facemenu-set-italic)
+  (108 "bold-italic" . facemenu-set-bold-italic)
+  (117 "underline" . facemenu-set-underline)
+  (111 "Other..." . facemenu-set-face)
+  "Face"
+  )
+ ([C-down-mouse-2 fg] keymap
+  (111 "Other..." . facemenu-set-foreground)
+  "Foreground Color"
+  )
+ ([C-down-mouse-2 bg] keymap
+  (111 "Other..." . facemenu-set-background)
+  "Background Color"
+  )
+ ([C-down-mouse-2 sp] keymap
+  (114 "Read-Only" . facemenu-set-read-only)
+  (118 "Invisible" . facemenu-set-invisible)
+  (116 "Intangible" . facemenu-set-intangible)
+  (115 "Remove Special" . facemenu-remove-special)
+  "Special"
+  )
+ ([C-down-mouse-2 ju] keymap
+  (117 "Unfilled" . set-justification-none)
+  (108 "Left" . set-justification-left)
+  (114 "Right" . set-justification-right)
+  (98 "Full" . set-justification-full)
+  (99 "Center" . set-justification-center)
+  "Justification"
+  )
+ ([C-down-mouse-2 in] keymap
+  (increase-left-margin "Indent More" . increase-left-margin)
+  (decrease-left-margin "Indent Less" . decrease-left-margin)
+  (increase-right-margin "Indent Right More" . increase-right-margin)
+  (decrease-right-margin "Indent Right Less" . decrease-right-margin)
+  "Indentation"
+  )
+ ([menu-bar buffer] keymap
+  "Select Buffer"
+  ("*scratch*" "  *scratch*  *   " (nil) . menu-bar-select-buffer)
+  ("global-map" " global-map      .../jcottrell/emacs/" (nil) . menu-bar-select-buffer)
+  ("*info*" "     *info*   %  " (nil) . menu-bar-select-buffer)
+  ("emacs" "      emacs      /" (nil) . menu-bar-select-buffer)
+  ("dist" "       dist  *%  /dist/" (nil) . menu-bar-select-buffer)
+  ("qaz" "        qaz  *%  /dist/qaz/" (nil) . menu-bar-select-buffer)
+  ("domains.nis" "domains.nis      /dist/" (nil) . menu-bar-select-buffer)
+  ("ml-sort" "    ml-sort      /dist/" (nil) . menu-bar-select-buffer)
+  ("*Messages*" " *Messages*  *   " (nil) . menu-bar-select-buffer)
+  (list-buffers "          List All Buffers" ([24 2] . "  (C-x C-b)") . list-buffers)
+  )
+ ([menu-bar files] keymap
+  (open-file "Open File..." ([24 6] . "  (C-x C-f)") . find-file)
+  (dired "Open Directory..." ([24 100] . "  (C-x d)") . dired)
+  (save-buffer "Save Buffer" ([24 19] . "  (C-x C-s)") . save-buffer)
+  (write-file "Save Buffer As..." ([24 23] . "  (C-x C-w)") . write-file)
+  (revert-buffer "Revert Buffer" (nil) . revert-buffer)
+  (insert-file "Insert File..." ([24 105] . "  (C-x i)") . insert-file)
+  (kill-buffer "Kill Current Buffer" (nil) . kill-this-buffer)
+  (separator-buffers "--" (nil))
+  (make-frame "Make New Frame" ([24 53 50] . "  (C-x 5 2)") . make-frame)
+  (make-frame-on-display "Open New Display..." (nil) . make-frame-on-display)
+  (delete-this-frame "Delete Frame" ([24 53 48] . "  (C-x 5 0)") . delete-frame)
+  (split-window "Split Window" ([24 50] . "  (C-x 2)") . split-window-vertically)
+  (one-window "One Window" ([24 49] . "  (C-x 1)") . delete-other-windows)
+  (separator-exit "--" (nil))
+  (exit-emacs "Exit Emacs" ([24 3] . "  (C-x C-c)") . save-buffers-kill-emacs)
+  "Files"
+  )
+ ([menu-bar tools] keymap
+  (print-buffer "Print Buffer" (nil) . print-buffer)
+  (print-region "Print Region" (nil) . print-region)
+  (ps-print-buffer "Postscript Print Buffer" (nil) . ps-print-buffer-with-faces)
+  (ps-print-region "Postscript Print Region" (nil) . ps-print-region-with-faces)
+  (separator-print "--" (nil))
+  (compare "Compare" (nil) . menu-bar-ediff-menu)
+  (ediff-merge "Merge" (nil) . menu-bar-ediff-merge-menu)
+  (epatch "Apply Patch" (nil) . menu-bar-epatch-menu)
+  (separator-compare "--" (nil))
+  (vc-menu "Version Control" (nil) keymap
+	   (vc-register "Register" . vc-register)
+	   (vc-check-out "Check Out" . vc-toggle-read-only)
+	   (vc-menu-check-in "Check In" . vc-next-action)
+	   (vc-insert-header "Insert Header" . vc-insert-headers)
+	   (vc-revert-buffer "Revert to Last Version" . vc-revert-buffer)
+	   (undo "Undo Last Check-In" . vc-cancel-version)
+	   (separator2 "----")
+	   (vc-print-log "Show History" . vc-print-log)
+	   (vc-update-change-log "Update ChangeLog" . vc-update-change-log)
+	   (vc-diff "Compare with Last Version" . vc-diff)
+	   (vc-version-other-window "Show Other Version" . vc-version-other-window)
+	   (vc-rename-file "Rename File" . vc-rename-file)
+	   (separator1 "----")
+	   (vc-directory "Show Locked Files" . vc-directory)
+	   "Version Control"
+	   )
+  (separator-vc "--" (nil))
+  (gnus "Read Net News" (nil) . gnus)
+  (rmail "Read Mail" (nil) . rmail)
+  (calendar "Display Calendar" (nil) . calendar)
+  "Tools"
+  )
+ ([menu-bar edit] keymap
+  (undo "Undo" ([31] . "  (C-_)") . undo)
+  (cut "Cut" ([23] . "  (C-w)") . kill-region)
+  (copy "Copy" (nil) . menu-bar-kill-ring-save)
+  (select-paste "Select and Paste" (nil) . yank-menu)
+  (paste "Paste Most Recent" ([25] . "  (C-y)") . yank)
+  (clear "Clear" (nil) . delete-region)
+  (separator-edit "--" (nil))
+  (props "Text Properties" ([C-down-mouse-2] . "  (C-down-mouse-2)") . facemenu-menu)
+  (fill "Fill" (nil) . fill-region)
+  (spell "Spell" (nil) . ispell-menu-map)
+  "Edit"
+  )
+ ([menu-bar search] keymap
+  (search-fwd "Search..." (nil) . nonincremental-search-forward)
+  (re-search-fwd "Regexp Search..." (nil) . nonincremental-re-search-forward)
+  (search-back "Search Backwards..." (nil) . nonincremental-search-backward)
+  (re-search-back "Regexp Search Backwards..." (nil) . nonincremental-re-search-backward)
+  (separator-repeat "--" (nil))
+  (nonincremental-repeat-search-fwd "Repeat Search" (nil) . nonincremental-repeat-search-forward)
+  (nonincremental-repeat-re-search-fwd "Repeat Regexp" (nil) . nonincremental-repeat-re-search-forward)
+  (nonincremental-repeat-search-back "Repeat Backwards" (nil) . nonincremental-repeat-search-backward)
+  (nonincremental-repeat-re-search-back "Repeat Regexp Backwards" (nil) . nonincremental-repeat-re-search-backward)
+  (separator-search "--" (nil))
+  (bookmark "Bookmarks" (nil) . menu-bar-bookmark-map)
+  (find-tag "Find Tag..." ([-134217682] . "  (M-.)") . find-tag)
+  (query-replace "Query Replace..." ([-134217691] . "  (M-%)") . query-replace)
+  (query-replace-regexp "Query Replace Regexp..." (nil) . query-replace-regexp)
+  "Search"
+  )
+ ([menu-bar help-menu] keymap
+  (emacs-news "Emacs News" ([8 110] . "  (C-h n)") . view-emacs-news)
+  (emacs-faq "Emacs FAQ" ([8 70] . "  (C-h F)") . view-emacs-FAQ)
+  (info "Browse Manuals" ([8 105] . "  (C-h i)") . info)
+  (describe-mode "Describe Mode" ([8 109] . "  (C-h m)") . describe-mode)
+  (command-apropos "Command Apropos..." (nil) . command-apropos)
+  (list-keybindings "List Keybindings" ([8 98] . "  (C-h b)") . describe-bindings)
+  (describe-key "Describe Key..." ([8 107] . "  (C-h k)") . describe-key)
+  (describe-function "Describe Function..." ([8 102] . "  (C-h f)") . describe-function)
+  (describe-variable "Describe Variable..." ([8 118] . "  (C-h v)") . describe-variable)
+  (man "Man..." (nil) . manual-entry)
+  (emacs-tutorial "Emacs Tutorial" ([8 116] . "  (C-h t)") . help-with-tutorial)
+  (finder-by-keyword "Find Lisp Packages..." ([8 112] . "  (C-h p)") . finder-by-keyword)
+  (report-emacs-bug "Send Bug Report..." (nil) . report-emacs-bug)
+  (emacs-version "Show Version" (nil) . emacs-version)
+  "Help"
+  )
+ ([24 97 105] keymap
+  (108 . inverse-add-mode-abbrev)
+  (103 . inverse-add-global-abbrev)
+  )
+ ([menu-bar tools compare] keymap
+  (ediff-windows-wordwise "Windows Word-by-word ..." . ediff-windows-wordwise)
+  (ediff-windows-linewise "Windows Line-by-line ..." . ediff-windows-linewise)
+  (separator-ediff-windows "--")
+  (ediff-regions-wordwise "Regions Word-by-word ..." . ediff-regions-wordwise)
+  (ediff-regions-linewise "Regions Line-by-line ..." . ediff-regions-linewise)
+  (separator-ediff-regions "--")
+  (ediff-files "Two Files ..." . ediff-files)
+  (ediff-buffers "Two Buffers ..." . ediff-buffers)
+  (ediff-files3 "Three Files ..." . ediff-files3)
+  (ediff-buffers3 "Three Buffers ..." . ediff-buffers3)
+  (separator-ediff-files "--")
+  (ediff-directories "Two Directories ..." . ediff-directories)
+  (ediff-directories3 "Three Directories ..." . ediff-directories3)
+  (separator-ediff-directories "--")
+  (ediff-revision "File with Revision ..." . ediff-revision)
+  (ediff-dir-revision "Directory Revisions ..." . ediff-directory-revisions)
+  (window "This Window And Next Window" . compare-windows)
+  "Compare"
+  )
+ ([menu-bar tools ediff-merge] keymap
+  (ediff-merge-files "Files ..." . ediff-merge-files)
+  (ediff-merge-files-with-ancestor "Files with Ancestor ..." . ediff-merge-files-with-ancestor)
+  (ediff-merge-buffers "Buffers ..." . ediff-merge-buffers)
+  (ediff-merge-buffers-with-ancestor "Buffers with Ancestor ..." . ediff-merge-buffers-with-ancestor)
+  (separator-ediff-merge-dirs "--")
+  (ediff-merge-directories "Directories ..." . ediff-merge-directories)
+  (ediff-merge-directories-with-ancestor "Directories with Ancestor ..." . ediff-merge-directories-with-ancestor)
+  (separator-ediff-merge "--")
+  (ediff-merge-revisions "Revisions ..." . ediff-merge-revisions)
+  (ediff-merge-revisions-with-ancestor "Revisions with Ancestor ..." . ediff-merge-revisions-with-ancestor)
+  (ediff-merge-dir-revisions "Directory Revisions ..." . ediff-merge-directory-revisions)
+  (ediff-merge-dir-revisions-with-ancestor "Directory Revisions with Ancestor ..." . ediff-merge-directory-revisions-with-ancestor)
+  "Merge"
+  )
+ ([menu-bar tools epatch] keymap
+  (ediff-patch-file "To a File ..." . ediff-patch-file)
+  (ediff-patch-buffer "To a Buffer ..." . ediff-patch-buffer)
+  "Apply Patch"
+  )
+ ([menu-bar tools vc-menu] keymap
+  (vc-register "Register" . vc-register)
+  (vc-check-out "Check Out" . vc-toggle-read-only)
+  (vc-menu-check-in "Check In" . vc-next-action)
+  (vc-insert-header "Insert Header" . vc-insert-headers)
+  (vc-revert-buffer "Revert to Last Version" . vc-revert-buffer)
+  (undo "Undo Last Check-In" . vc-cancel-version)
+  (separator2 "----")
+  (vc-print-log "Show History" . vc-print-log)
+  (vc-update-change-log "Update ChangeLog" . vc-update-change-log)
+  (vc-diff "Compare with Last Version" . vc-diff)
+  (vc-version-other-window "Show Other Version" . vc-version-other-window)
+  (vc-rename-file "Rename File" . vc-rename-file)
+  (separator1 "----")
+  (vc-directory "Show Locked Files" . vc-directory)
+  "Version Control"
+  )
+ ([menu-bar edit select-paste] keymap
+  "Select Yank"
+  ("67108923)))" "67108923)))" . menu-bar-select-yank)
+  ("logand 67108923 1023))))" "logand 671...3 1023))))" . menu-bar-select-yank)
+  ("local/sol/info/*Help*" "local/sol/...nfo/*Help*" . menu-bar-select-yank)
+  ("\nDocumentation:\nDefault global keymap mapping Emacs keyboard input into commands.\nThe value is a keymap which is usually (but not necessarily) Emacs's\nglobal map." "\nDocumenta...lobal map." . menu-bar-select-yank)
+  ("global-map's value" "global-map's value" . menu-bar-select-yank)
+  ("	 \n" "	 \n" . menu-bar-select-yank)
+  ("(too" "(too" . menu-bar-select-yank)
+  ("\n" "\n" . menu-bar-select-yank)
+  ("Documentation:\nDefault global keymap mapping Emacs keyboard input into commands.\nThe value is a keymap which is usually (but not necessarily) Emacs's\nglobal map." "Documentat...lobal map." . menu-bar-select-yank)
+  ("keymap" "keymap" . menu-bar-select-yank)
+  ("global-map's value is" "global-map...s value is" . menu-bar-select-yank)
+  ("-map" "-map" . menu-bar-select-yank)
+  ("global" "global" . menu-bar-select-yank)
+  ("dist/" "dist/" . menu-bar-select-yank)
+  )
+ ([menu-bar edit spell] keymap
+  (ispell-help "Help" lambda nil (interactive) (describe-function (quote ispell-help)))
+  (ispell-message "Check Message" . ispell-message)
+  (ispell-buffer "Check Buffer" . ispell-buffer)
+  (ispell-region "Check Region" . ispell-region)
+  (ispell-word "Check Word" . ispell-word)
+  (ispell-continue "Continue Check" . ispell-continue)
+  (ispell-complete-word-interior-frag "Complete Word Frag" . ispell-complete-word-interior-frag)
+  (ispell-complete-word "Complete Word" . ispell-complete-word)
+  (ispell-pdict-save "Save Dictionary" lambda nil (interactive) (ispell-pdict-save t t))
+  (ispell-kill-ispell "Kill Process" . ispell-kill-ispell)
+  (ispell-change-dictionary "Change Dictionary" . ispell-change-dictionary)
+  (default "Select Default" lambda nil (interactive) (ispell-change-dictionary "default"))
+  (english "Select English" lambda nil (interactive) (ispell-change-dictionary "english"))
+  (british "Select British" lambda nil (interactive) (ispell-change-dictionary "british"))
+  (deutsch "Select Deutsch" lambda nil (interactive) (ispell-change-dictionary "deutsch"))
+  (deutsch8 "Select Deutsch8" lambda nil (interactive) (ispell-change-dictionary "deutsch8"))
+  (nederlands "Select Nederlands" lambda nil (interactive) (ispell-change-dictionary "nederlands"))
+  (nederlands8 "Select Nederlands8" lambda nil (interactive) (ispell-change-dictionary "nederlands8"))
+  (svenska "Select Svenska" lambda nil (interactive) (ispell-change-dictionary "svenska"))
+  (svenska8 "Select Svenska8" lambda nil (interactive) (ispell-change-dictionary "svenska8"))
+  (francais7 "Select Francais7" lambda nil (interactive) (ispell-change-dictionary "francais7"))
+  (francais "Select Francais" lambda nil (interactive) (ispell-change-dictionary "francais"))
+  (francais-tex "Select Francais-Tex" lambda nil (interactive) (ispell-change-dictionary "francais-tex"))
+  (dansk "Select Dansk" lambda nil (interactive) (ispell-change-dictionary "dansk"))
+  "Spell"
+  )
+ ([menu-bar search bookmark] keymap
+  (jump "Jump to Bookmark" . bookmark-menu-jump)
+  (set "Set Bookmark" . bookmark-set)
+  (insert "Insert Contents" . bookmark-menu-insert)
+  (locate "Insert Location" . bookmark-menu-locate)
+  (rename "Rename Bookmark" . bookmark-menu-rename)
+  (delete "Delete Bookmark" . bookmark-menu-delete)
+  (edit "Edit Bookmark List" . bookmark-bmenu-list)
+  (save "Save  (in default file)" . bookmark-save)
+  (write "Write (to another file)" . bookmark-write)
+  (load "Load a Bookmark File" . bookmark-load)
+  "Bookmark functions"
+  )
+ )

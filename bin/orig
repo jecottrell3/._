@@ -1,0 +1,15 @@
+#! /bin/sh
+
+for x
+do
+	if test -f $x.ORIG
+	then
+		echo $x.ORIG already exists
+		continue
+	fi
+
+	set -x
+	mv $x $x.ORIG
+	cp $x.ORIG $x
+	set +x
+done

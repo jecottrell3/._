@@ -1,0 +1,92 @@
+test -s "$DEBUG" && echo ">>ENV $-" 1>&2
+PATH=${SUPATH:-$PATH}	# restore path
+################################################################
+#	INTERACTIVE ONLY
+################################################################
+
+case $- in
+(*k*)	set +k; return;;	# like csh -f
+(*i*)	set +k;;		# interactive
+(*)	return;;		# not intereactive
+esac
+
+test -f "$DEBUG" && echo "=>ENV $-" 1>&2
+################################################################
+#	EARLY SHELL SETUP
+################################################################
+
+case "$BASH_VERSION" in
+('')	export SHELL=/bin/ksh
+	# from the book, pg 79
+	# DO NOT EXPORT TYPESET VARIABLE ATTRIBUTES!
+	typeset -Z2 _h _m _x
+	export _hh="(SECONDS/3600)%24" _mm="(SECONDS/60)%60"
+	CMD='!'		TIME='${_x[(_m=_mm)==(_h=_hh)]}$_h:$_m'
+	BQ=$CR			# Begin Prompt Quote
+	LQ=$SOH			# Left  Prompt Quote
+	RQ=$SOH			# Right Prompt Quote
+	;;
+(*)	export SHELL=/bin/bash
+	CMD='\#'	TIME='\t'
+	LQ='\['			# Left  Prompt Quote
+	RQ='\]'			# Right Prompt Quote
+	BQ='\]'			# Begin Prompt Quote
+	alias	bi=builtin
+	alias	bl='bind -l'	# fn names
+	alias	bv='bind -v'	# fn map
+	alias	bq='bind -q'	# keys that do FN
+	alias	print='echo -e'	# SV  echo
+	alias	ee='echo -E'	# BSD echo
+	alias	r='fc -s'	# redo
+	alias	ue='export -n'	# unexport
+	FIGNORE='.o:~'
+	history_control=ignoreboth # ignorespace AND ignoredups
+	command_oriented_history=yes
+	nolinks=dunno
+	autoresume=exact	# or substring, or prefix
+	cdable_vars=yes
+	notify=yes
+	;;
+esac
+
+################################################################
+
+################################################################
+#	OPTIONS
+################################################################
+
+set -o emacs
+set -o monitor
+
+################################################################
+#	FIX CMDS, GET VARS, ALIASES, and OTHER CUSTOMIZATION
+################################################################
+
+for path in cmds vars alias $ARCH $HOST
+do
+	test -f $FPATH/%$path && . $FPATH/%$path
+done
+
+################################################################
+#	SETUP TERMINAL and PROMPT
+################################################################
+
+# BASH complains about "08" and "09", which date produces
+# overcompensate HMS by 100 and fix by subtracting 366100
+let SECONDS=$(date "+3600*1%H+60*1%M+1%S-366100")
+
+: ${LLLL:="$LEFT<"} ${RRRR:=">$RITE"}	# local
+export LEFT="$LLLL" RITE="$RRRR"	# global
+alias ps0='LEFT="$LLLL"		PWD='	# no dir in prompt
+alias ps1='LEFT="$LLLL";	cd .'	# one line  prompt
+alias ps2='LEFT="$LF$LLLL";	cd .'	# two line  prompt
+#export WHO=`whoami`					# BSD
+export WHO=`id | sed -e 's/.*uid//;s/).*//;s/.*(//'`	# SYSV
+
+. $FPATH/%term				# define TERM and CHDIR
+term +x $TERM $LOGIN			# setup terminal
+unset LOGIN				# term init done
+cd .
+
+################################################################
+test -f "$DEBUG" && echo "<=ENV $-"

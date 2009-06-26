@@ -1,0 +1,78 @@
+#! /bin/sh
+
+DEBUG=0
+ALWAYS=0
+
+ADD=0
+DEL=0
+TOTAL=0
+FAIL=0
+
+while : $# $*
+do
+	case $1 in
+	(-c)	ALWAYS=1;;
+	(-d)	DEBUG=1;;
+	('')	break;;
+	esac
+	shift
+done
+
+(($CHECK)) && echo 1>&2 Checking...
+(($DEBUG)) && echo 1>&2 DEBUG Mode
+
+ci -l$(date +%y%m%d.%H%M%S) -f -m"$0 $@" .PKGS
+exec 0< .PKGS 3> .NEW
+HERE=$PWD
+cd .dst
+
+while read want stat cnt pkg
+do
+	((++TOTAL))
+	CHECK=$ALWAYS
+
+	set $pkg; cnt=$#
+
+	# STS is Desired vs Installed
+	# Desired: [adzq] = add, del, zap, dunno
+	case $want$stat in
+	(c?)	CHECK=1;;
+	(ad)
+		#echo 1>&2 ""
+		echo 1>&2 : === ADD ===$pkg===
+		(($DEBUG)) ||
+		if rpm -Uvh $pkg	# Try Add
+		then	stat=a;  ((++ADD))
+		else	CHECK=1; ((++FAIL))
+		fi;;
+	(za)	
+		#echo 1>&2 ""
+		echo 1>&2 : === ZAP ===$pkg===
+		(($DEBUG)) ||
+		if rpm -e $pkg		# Try Delete
+		then	stat=d;  ((++DEL))
+		else	CHECK=1; ((++FAIL))
+		fi;;
+	(da)	
+		#echo 1>&2 ""
+		echo 1>&2 : === DEL ===$pkg===
+		(($DEBUG)) ||
+		if rpm -e $pkg		# Try Delete
+		then	stat=d;  ((++DEL))
+		else	CHECK=1; ((++FAIL))
+		fi;;
+	esac
+
+	(($CHECK)) &&
+	echo 1>&2 : ===CHECK===$pkg=== &&
+	if	rpm -q $pkg
+	then	stat=a
+	else	stat=d
+	fi && echo 1>&2 ''
+	echo	1>&3 "$want $stat $cnt $pkg"		# write new status
+done 
+echo 1>&2 : === ADD: $ADD, DEL: $DEL, FAIL: $FAIL, TOTAL: $TOTAL ===
+
+cd $HERE
+(($DEBUG)) || mv .PKGS .OLD
+(($DEBUG)) || mv .NEW .PKGS

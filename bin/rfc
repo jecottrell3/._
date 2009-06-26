@@ -1,0 +1,13 @@
+#! /bin/ksh -p
+RFC=$HOME/rfc
+cd $RFC
+for rfc
+do
+	case $rfc in
+	   ????) HH=${rfc%??};;
+	[6-9]??) HH=0${rfc%??};;
+	      *) HH=00;;
+	esac
+	zmore $HH/rfc$rfc.Z
+	chmod +x $HH/rfc$rfc.Z
+done

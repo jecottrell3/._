@@ -1,0 +1,5 @@
+#command
+^n	next-file
+^p	prev-file
+\t	goto-end
+

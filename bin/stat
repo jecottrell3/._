@@ -1,0 +1,76 @@
+: #! /usr/local/bin/perl
+eval "exec perl -S $0 $*"
+        if $braindead;
+
+$TOP = 1 << ($ENV{'ARCH'} eq 'hpux' ? 24 : 18);
+$BOT = $TOP - 1;
+
+$MINUS2 = 222;
+
+open(GROUP, "/etc/group");
+@GROUP = reverse(<GROUP>);
+close(GROUP);
+
+for (@GROUP) {
+    next if /^\+:/;
+    split(/:/);
+    $_[2] = $MINUS2 if $_[2] == -2;
+    $_[2] = $MINUS2 if $_[2] eq '4294967294';
+    $_[2] = $MINUS2 if $_[2] eq '2147483647';
+    $group[$_[2]] = $_[0];
+}
+
+open(PASSWD, "/etc/passwd");
+@PASSWD = reverse(<PASSWD>);
+close(PASSWD);
+
+for (@PASSWD) {
+    split(/:/);
+    $_[2] = $MINUS2 if $_[2] == -2;
+    $_[2] = $MINUS2 if $_[2] eq '4294967294';
+    $passwd[$_[2]] = $_[0];
+}
+
+while ($FILE = shift)
+{
+    ($dev, $ino, $mode, $link, $uid, $gid, $rdev, $size,
+     $atime, $mtime, $ctime, $bs, $bk) = lstat($FILE);
+
+    $ala = $mode;
+    printf("%-15s\t%d\t%d,%d\t%d,%d\t%d\n",
+	   $FILE, $ino, int($dev / $TOP), $dev & $BOT,
+	   int($rdev / $TOP), $rdev & $BOT,$link);
+    printf("\t\t%s\t%s\t%s\t%d\t%dk,%d\n",
+	   &mode,$passwd[$uid],$group[$gid],$size,$bk/2,$bs);
+    printf("\t\t%d\t%d\t%d\t%o\n",$atime,$mtime,$ctime,$ala);
+}
+
+sub mode
+{
+    $mode &= ((1 << 16) - 1);
+    @rwx = (); $rwx = 11;
+    for (split(//, 'xwr' x 3)) {
+	unshift(@rwx, $mode & 1 ? $_ : '@');
+	$mode >>= 1;
+    }
+
+    for (split(//, 'tss')) {
+	$rwx -= 3;
+	vec($rwx[$rwx], 0, 8) ^=
+	    ord('x') ^ ord($_) if $mode & 1;
+	$mode >>= 1;
+    }
+
+    unshift(@rwx,
+	    ('0', 'p', 'c', '3', 'd', '5', 'b', '7',
+	     '-', '9', 'l', 'B', 's', 'D', 'E', 'F')
+	    [$mode]);
+
+    grep(tr/@/-/, @rwx);
+    join('', @rwx);
+}
+
+# Local Variables:
+# mode: perl
+# comment-column: 48
+# End:

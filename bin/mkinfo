@@ -1,0 +1,35 @@
+#! /bin/sh
+
+mkdir -p info list req pro
+mkdir -p con obs
+
+((A=1))
+while : $# $*
+do
+	case $1 in
+	('')	break;;
+	(-i)	((++I));;
+	(-l)	((++L));;
+	(-r)	((++R));;
+	(-p)	((++P));;
+	(-o)	((++O));;
+	(-c)	((++C));;
+	esac
+	((A=0))
+	shift
+done
+
+ls .dst | grep '\.rpm$' |
+while read x
+do
+	y=${x%-*}
+	z=${y%-*}
+	#z=$x
+	echo === $x ===
+	((A | I)) && rpm -qp --info		.dst/$x > info/$z
+	((A | L)) && rpm -qp --list		.dst/$x > list/$z
+	((A | R)) && rpm -qp --requires		.dst/$x > req/$z
+	((A | P)) && rpm -qp --provides		.dst/$x > pro/$z
+	((A | O)) && rpm -qp --obsoletes	.dst/$x > obs/$z
+	((A | C)) && rpm -qp --conflicts	.dst/$x > con/$z
+done

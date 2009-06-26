@@ -1,0 +1,22 @@
+a a cdparanoia-alpha9.8-27.2
+a a cdparanoia-devel-alpha9.8-27.2
+a a cdparanoia-libs-alpha9.8-27.2
+a a control-center control-center-devel
+a a elfutils-devel elfutils-devel-static elfutils-libelf-devel elfutils-libelf-devel-static
+a a firstboot system-config-boot system-config-keyboard
+a a gcc-objc
+a a gdk-pixbuf gdk-pixbuf-devel gtk+
+a a ghostscript ghostscript-fonts
+a a gnome-python2 gnome-python2-bonobo gnome-python2-gnomevfs
+a a gstreamer gstreamer-plugins-base gstreamer-plugins-good
+a a gstreamer-devel
+a a java-1.4.2-gcj-compat gjdoc antlr
+a a kdelibs kdnssd-avahi
+a a kdelibs-devel kdnssd-avahi-devel
+a a libX11-devel libXdmcp-devel xorg-x11-proto-devel mesa-libGL-devel
+a a libgnome gnome-vfs2 gnome-mount libbonoboui libgnomeui
+a a libsane-hpaio sane-backends sane-backends-libs
+a a libvirt libvirt-python python-virtinst xen
+a a rarpd-ss981107-22.2.2
+a a xorg-x11-drv-evdev xorg-x11-drv-keyboard xorg-x11-drv-mouse xorg-x11-drv-vesa xorg-x11-drv-void xorg-x11-server-Xorg
+a a xorg-x11-xfs chkfontpath

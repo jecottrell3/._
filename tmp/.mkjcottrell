@@ -1,0 +1,21 @@
+#! /bin/sh -x
+
+OLD=${1:-rbj}
+NEW=${2:-jcottrell}
+
+cd /etc
+
+grep $OLD group ||
+{
+	echo need to add $OLD first
+	exit 1
+}
+
+for FILE in group passwd shadow
+do
+	grep $NEW $FILE ||
+	{
+		cp -p $FILE $FILE.old
+		sed "/^$OLD/{;h;s//$NEW/;p;g;}" $FILE.old > $FILE
+	}
+done

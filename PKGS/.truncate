@@ -1,0 +1,17 @@
+#! /bin/sh
+
+case $1 in
+(-)	BOTH=1; shift;;
+(*)	BOTH=;;
+esac
+
+cat $* |
+while read x
+do
+	case $x in
+	(*-[0-9]*-*)	y=${x%-*}; z=${y%-*};;
+	(*.rpm)		y=${x%-*}; z=${y%-*};;
+	(*)		z=$x;;
+	esac
+	echo	$z ${BOTH:+$x}
+done
