@@ -4,6 +4,8 @@
 # 
 test -f .debug && echo BASH_PROFILE
 
+chmod 600 .ssh/id*
+
 test -f	/etc/profile &&
 source	/etc/profile
 
