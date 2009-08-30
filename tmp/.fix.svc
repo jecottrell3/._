@@ -1,0 +1,68 @@
+#! /bin/sh
+
+chkconfig --list | 
+while read svc rest
+do
+
+	case $svc in
+(NetworkManager*) 	state=on;;
+(acpid)          	state=on;;
+(anacron)        	state=on;;
+(apmd)           	state=off;;
+(atd)            	state=off;;
+(auditd)         	state=off;;
+(autofs)         	state=on;;
+(bluetooth)      	state=off;;
+(conman)         	state=off;;
+(cpuspeed)       	state=on;;
+(crond)          	state=on;;
+(cups)           	state=on;;
+(dhcdbd)         	state=off;;
+(dund)           	state=off;;
+(firstboot)      	state=on;;
+(gpm)            	state=on;;
+(haldaemon)      	state=on;;
+(hidd)           	state=on;;
+(ibmasm)         	state=off;;
+(ip6tables)      	state=off;;
+(iptables)       	state=on;;
+(irda)           	state=off;;
+(irqbalance)     	state=on;;
+(kudzu)          	state=on;;
+(lvm2-monitor)   	state=on;;
+(mcstrans)       	state=off;;
+(mdmonitor)      	state=on;;
+(mdmpd)          	state=off;;
+(messagebus)     	state=on;;
+(microcode_ctl)  	state=on;;
+(multipathd)     	state=off;;
+(netconsole)     	state=off;;
+(netfs)          	state=off;;
+(netplugd)       	state=off;;
+(network)        	state=on;;
+(nfs)            	state=off;;
+(nfslock)        	state=off;;
+(nscd)           	state=off;;
+(oddjobd)        	state=off;;
+(pand)           	state=off;;
+(pcscd)          	state=off;;
+(portmap)        	state=off;;
+(psacct)         	state=off;;
+(rdisc)          	state=off;;
+(readahead_early)	state=on;;
+(readahead_later)	state=on;;
+(restorecond)    	state=off;;
+(rpcgssd)        	state=off;;
+(rpcidmapd)      	state=off;;
+(rpcsvcgssd)     	state=off;;
+(saslauthd)      	state=off;;
+(sendmail)       	state=off;;
+(smartd)         	state=on;;
+(sshd)           	state=on;;
+(syslog)         	state=on;;
+(wpa_supplicant) 	state=off;;
+(ypbind)         	state=off;;
+(yum-updatesd)   	state=off;;
+	esac
+	echo chkconfig $svc $state
+done

@@ -110,6 +110,8 @@ alias	yn='yum info'		ygn='yum groupinfo'
 alias	yu='yum update'		ygu='yum groupupdate'
 alias	zz=suspend
 
+test -f        /usr/bin/vim && alias   vi=vim
+
 unalias	rm cp mv 2>/dev/null
 alias	h='fc -l'	r='fc -s'
 

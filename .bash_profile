@@ -11,6 +11,8 @@ source	/etc/profile
 
 set -o	ignoreeof
 
+alias rbj='source .rbj'
+
 for file in .init .domain .host .profile .bashrc .path
 do
 	test -f $file &&
@@ -68,5 +70,3 @@ export		XC=$X11/xorg.conf
 
 export	YC=/etc/sysctl.conf
 export	YR=/etc/yum.repos.d
-
-alias rbj='source .rbj'
