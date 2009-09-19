@@ -1,0 +1,12 @@
+#! /bin/sh
+
+TAG=provider:
+
+ls .dst |
+while read x
+do
+	y=${x%-*}
+	z=${y%-*}
+	echo === $z === 1>&2
+	yum deplist $z | grep provider: | sort -u > dep/$z
+done
