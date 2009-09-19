@@ -1,5 +1,20 @@
 #! /usr/bin/perl
 
+################################################################
+# usage:  comps NAME
+
+# expects:	NAME.xml	points to a comps.xml file
+# expects:	NAME.pkg	points to a directory of pkgs
+
+# creates:	NAME/		directory of group files
+# creates:	NAME/group	kickstart packages in group
+# creates:	NAME/.lang	aggregate of language groups
+
+# Lines in the Group files are M, D, O, C for
+# Mandatory, Default, Optional, and Conditional
+# The letter x appears if the file is not found
+################################################################
+
 $banner = '#' x 64;
 
 $xml = $ARGV[0] || "comps.xml";
@@ -8,7 +23,7 @@ $xml = $ARGV[0] || "comps.xml";
 ($xml = $dir) =~ s/$/.xml/;	# add  suffix
 ($pkg = $dir) =~ s/$/.pkg/;	# add  suffix
 
-warn("$dir, $xml, $pkg\n");
+warn("$dir, $xml, $pkg\n");	# DEBUG
 
 # $dir =~ s%.*/%%;
 # $dir =~ s/\.xml$//;
@@ -17,7 +32,7 @@ warn("$dir, $xml, $pkg\n");
 -d $dir || mkdir($dir) or die;
 
 @xml = stat $xml;
-warn("$xml @xml\n");
+warn("$xml @xml\n");		# DEBUG
 
 open(STDIN, "<$xml")  or die;
 open(LANG , ">$dir/.lang") or die;
@@ -27,6 +42,10 @@ sub lang;
 sub group;
 sub splat;
 sub item;
+
+################################################################
+#	Main Routine: read lines and process interesting ones
+################################################################
 
 line:
 while (<STDIN>)
@@ -40,6 +59,10 @@ while (<STDIN>)
 	/<category>/	and last;
 }
 
+################################################################
+#	Switch to Language Mode
+################################################################
+
 sub lang
 {
 	$norm = 0;
@@ -47,12 +70,20 @@ sub lang
 	next line;
 }
 
+################################################################
+#	Remember Group Name
+################################################################
+
 sub id
 {
 	$N = $1 if m%<id>(.*)</id>%;
 	warn("\@$N\n");
 	next line;
 }
+
+################################################################
+#	New Group -- Initialize
+################################################################
 
 sub group
 {
@@ -62,6 +93,10 @@ sub group
 	next line;
 }
 
+
+################################################################
+#	Dump Accumulated Info
+################################################################
 
 sub splat
 {
@@ -82,7 +117,7 @@ sub splat
 	print("-\@$N\n");
 	print("$banner\n\n");
 
-	map
+	map	# existance test
 		{ $X{$_} = 'x' unless (<$pkg/$_-*.rpm>)[0]; }
 		keys(%M), keys(%D), keys(%O);
 
@@ -97,6 +132,10 @@ sub splat
 	next line;
 }
 
+################################################################
+#	Add Package to Mandatory, Default, Optional, or Conditional
+################################################################
+
 sub item
 {
 	s%packagereq%%g;
@@ -106,3 +145,5 @@ sub item
 	$C{$2} = $1 if m%type="conditional" requires="(.*)">(.*)</>%;
 	next line;
 }
+
+################################################################
