@@ -1,0 +1,75 @@
+test -f "$DEBUG" && echo "(SOL" | tr -d \\012
+################################################################
+#	SOLARIS INITIALIZATION
+################################################################
+
+true << EOF
+export DOMAIN=$(domainname)
+export DOMAIN=$(domainname)
+export D=$DOMAIN
+export O=org_dir
+export G=groups_dir
+export OO=$O.$DOMAIN
+export GG=$G.$DOMAIN
+export NIS_PATH=$O.\$:$G.\$:\$
+EOF
+
+################################################################
+#	FIND EXTRA paths IN /opt
+################################################################
+
+echo $PATH | grep SUNW >/dev/null 2>&1 ||
+set `echo /opt/SUNW*/*bin`
+false && while :
+do
+	case $1 in
+	'')	break;;
+	*\**)	break;;
+	esac
+	PATH=$PATH$1:
+	shift
+done
+
+################################################################
+#	FIND EXTRA manpaths IN /opt
+################################################################
+
+#echo $MANPATH | grep SUNW >/dev/null 2>&1 ||
+#set `echo /opt/SUNW*/man`
+#while :
+#do
+	#case $1 in
+	#'')	break;;
+	#*\**)	break;;
+	#esac
+	#MANPATH=$MANPATH$1:
+	#shift
+#done
+
+################################################################
+#	ANSWERBOOK SETUP
+################################################################
+
+ABHOME= AB_CARDCATALOG=
+for dir in /opt/*
+do
+	test -f $dir/ab_cardcatalog || continue
+	ABHOME=$ABHOME$dir:
+	AB_CARDCATALOG=$AB_CARDCATALOG$dir/ab_cardcatalog:
+done
+export ABHOME AB_CARDCATALOG
+
+################################################################
+#	NIS+ REPLACEMENTS for GREPing FILES
+################################################################
+
+false && function gf { $GREP $* /etc/vfstab; }
+false && alias ga='niscat mail_aliases.org_dir | $GREP -i'
+false && alias gg='niscat        group.org_dir | $GREP -i'
+false && alias gh='niscat    auto_home.org_dir | $GREP -i'
+false && alias gn='niscat     networks.org_dir | $GREP -i'
+false && alias go='niscat        hosts.org_dir | $GREP -i'
+false && alias gp='niscat       passwd.org_dir | $GREP -i'
+
+################################################################
+test -f "$DEBUG" && echo ')'

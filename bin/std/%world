@@ -1,0 +1,6 @@
+alias ok=/usr/games/okbridge2.0G3
+alias ok=/usr/games/okbridge-2.0E
+alias qv='quota -v'
+alias rmrn='ls -ls .*newsrc*;rm -i .*newsrc*'
+alias irc='irc QazyGuy irc.mindspring.com irc.dal.net us.undernet.org'
+alias irc='irc QazyGuy irc.dal.net us.undernet.org irc.mindspring.com '
