@@ -2,29 +2,35 @@
 
 DOIT=eval
 OPT=
-PRT=-print
+ACT=-print
 while :
 do
 	case $1 in
-	-\?)	exec ${PAGER:-more} $0;;  # HELP
-	-j)	DOIT=echo;		shift 1;; # DEBUG
-	-[acm])OPT="$OPT $1time '$2'";	shift 2;;
-	-g)	OPT="$OPT -group '$2'";	shift 2;;
-	-i)	OPT="$OPT -inum  '$2'";	shift 2;;
-	-l)	OPT="$OPT -links '$2'";	shift 2;;
-	-n)	OPT="$OPT -name  '$2'";	shift 2;;
-	-p)	OPT="$OPT -perm  '$2'";	shift 2;;
-	-t)	OPT="$OPT -type  '$2'";	shift 2;;
-	-u)	OPT="$OPT -user  '$2'";	shift 2;;
-	-y)	OPT="$OPT -newer '$2'";	shift 2;; # YOUNGER
-	-z)	OPT="$OPT -size  '$2'";	shift 2;;
-	-o)	OPT="$OPT '$1'";	shift 1;; # LOGICAL OR
-	-ls)	PRT=-ls;		shift 1;; # LOGICAL OR
-	-no*)	OPT="$OPT '$1'";	shift 1;; # KNOWN  UNARY
-	-)	OPT="$OPT '-$2'";	shift 2;; # ASSUME UNARY
-	-*)	OPT="$OPT '$1' '$2'";	shift 2;; # ASSUME BINARY
-	[\!\(\)])OPT="$OPT '$1'";	shift 1;; # GROUPING
-	*)	break;; # filenames
+	(-\?)	exec ${PAGER:-more} $0;;  # HELP
+	(-j)	DOIT=echo;		shift 1;; # DEBUG
+	(-[am])OPT="$OPT ${1}time '$2'";shift 2;;
+	(-e)	OPT="$OPT -empty";	shift 1;; # Empty
+	(-g)	OPT="$OPT -group '$2'";	shift 2;; # Group
+	(-I)	OPT="$OPT -inum  '$2'";	shift 2;; # Inode
+	(-L)	OPT="$OPT -links '$2'";	shift 2;; # Links
+	(-n)	OPT="$OPT -name  '$2'";	shift 2;; # Name
+	(-i)	OPT="$OPT -iname '$2'";	shift 2;; # Any Case
+	(-p)	OPT="$OPT -perm  '$2'";	shift 2;; # Perms
+	(-s)	OPT="$OPT -perm +6000";	shift 2;; # Set[ug]id
+	(-t)	OPT="$OPT -type  '$2'";	shift 2;; # Type
+	(-[bcdfl])OPT="$OPT -type  ${1#-}";shift 1;; # File/Dir/etc
+	(-u)	OPT="$OPT -user  '$2'";	shift 2;; # User
+	(-y)	OPT="$OPT -newer '$2'";	shift 2;; # Younger
+	(-z)	OPT="$OPT -size  '$2'";	shift 2;;
+	(-o)	OPT="$OPT -o";		shift 1;; # Logical OR
+	(-x)	OPT="$OPT -xdev";	shift 1;; # Cross Device
+	(-rm)	OPT="$OPT -delete";	shift 1;; # Remove
+	(-ls)	ACT=-ls;		shift 1;; # List
+	(-no*)	OPT="$OPT '$1'";	shift 1;; # Known Unary
+	(-)	OPT="$OPT '-$2'";	shift 2;; # Unary  Syntax
+	(-*)	OPT="$OPT '$1' '$2'";	shift 2;; # Binary Syntax
+	([\!\(\)])OPT="$OPT '$1'";	shift 1;; # Grouping
+	(*)	break;; # filenames
 	esac
 done
-$DOIT find ${*:-.} $OPT $PRT
+$DOIT find ${*:?'Missing Directory'} $OPT $ACT
