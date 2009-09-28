@@ -86,6 +86,7 @@ function s3() { service $* restart; }
 alias	sb='sudo bash'
 alias	sl='ln -s'
 alias	ss='ssh -qAX'
+alias	sun12x22='setfont sun12x22'
 alias	sx='exec ssh-agent bash -l'
 
 alias	sva='svn add'	svrm='svn rm'
