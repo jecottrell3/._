@@ -1,0 +1,21 @@
+
+Disk /dev/sda: 1000.2 GB, 1000204886016 bytes
+255 heads, 63 sectors/track, 121601 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1               2       10001    80325000   83  Linux
+/dev/sda2           10002       20001    80325000   83  Linux
+/dev/sda3           20002       30001    80325000   83  Linux
+/dev/sda4           30002      121601   735777000    5  Extended
+/dev/sda5           30003       40002    80325000   83  Linux
+/dev/sda6           40004       50003    80325000   83  Linux
+/dev/sda7           50005       60004    80325000   83  Linux
+/dev/sda8           60006       70005    80325000   83  Linux
+/dev/sda9           70007       80006    80325000   83  Linux
+/dev/sda10          80008       90007    80325000   83  Linux
+/dev/sda11          90009      100008    80325000   83  Linux
+/dev/sda12         100010      110009    80325000   83  Linux
+/dev/sda13         110011      120010    80325000   83  Linux
+/dev/sda14  *      120012      121311    10442250   83  Linux
+/dev/sda15         121314      121601     2313360   82  Linux swap / Solaris

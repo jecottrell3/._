@@ -1,0 +1,176 @@
+* INTRODUCTION
+
+This Essay explains my (admittedly unique) approach to Disk Partitioning
+and the Reasons behind what I do and why.
+
+Before we proceed, some obvious facts:
+
+[1] All disks have an MBR in the first sector.
+[2] All disks can have up to four Primary Partitions.
+[3] One of these can be an Extended, containing Logical Partitions.
+[4] Linux allows up to 11 Logical Partitions.
+[5] Disk Labels are Valuable.
+[6] Swap Partitions can be up to 2G.
+
+Please note that I am referring to Real Partitions here; I have less
+experience with RAID or LVM and might well develop different methods.
+
+* SIMPLICITY
+
+Disk Labels are Valuable.  If you lose one, you may lose data on the
+disk. There are programs to guess where labels might be on a disk and
+recover them, but nothing beats printing them out and writing the disk,
+hostname, and date on them. Or at least keeping records elsewhere,
+as on another flash drive.
+
+Because of that, I want my disk labels to be SIMPLE. When you look at
+a disk label I made, you will notice certain Patterns.
+
+For one thing, I am Obsessed with Geometry. Most disk labels will be made
+from Sizes, and the Cylinders will simply be computed and Look Random. On
+the other hand, all my labels are Standard Sizes, usually Multiples of
+Hundreds or Thousands. I can usually guess what I did long ago because
+I do things in the same way.
+
+So I ALWAYS deal in terms of Cylinders, not {Me,Gi}gabytes. I always
+use fdisk unless some other tool supports Cylinders.
+
+* GEOMETRY
+
+Most Disks I have been dealing with have 63 Sectors and 255 Heads, for
+a total of 16065 Sectors or about 8MB. I tend to use partitions which are
+multiples of 1000 Cylinders, giving Standard Sizes of 8G, 16G, etc. Or
+for a flash drive, 100C = 800M, 200C = 1.6G, etc.
+
+But lately, I have been experimenting with different geometries. Using
+128 Sectors and 128 Heads gives the same size Cylinder, but now it's
+a multiple of a power of two. And on a Flash Drive, 32 Sectors and 64
+Heads gives a 1M Cylinder, which is Pleasing.
+
+I might try out the Large Geometry, 255/240 (or is it 240/255?) for
+my Terabyte Disks, giving me 30M Cylinders.
+
+* REGULARITY
+
+Disk Labels are stored in the MBR.  The MBR eats one sector out of your
+First Partition, making it smaller.  Thus, if your have a disk of 4*N
+Cylinders, and create 4 Partitions of N Cylinders, your First Partition
+will not be the same size as the others. This bothers me.
+
+You will not be able to simply DD it to another partition or Vice Versa.
+If you make a Partition Image, you will need to know whether it is a short
+partition before you restore it.
+
+Now you could argue that you rarely/never do this, and I would agree,
+because I rarely do either. But I *CAN* if I Want To.
+
+Because of this, I simply Avoid Using the First Cylinder. That's right,
+it's Wasted. The good news is that Windows is often in the first partition,
+or some sort of restore or Diagnostic system.
+
+Another strategy, if you're not using all 4 Primary partitions is to make
+a small 1 Cylinder partition on Cylinder 1 and store a small amount of
+Key Information there, such as the Disk Label, Serial Numbers, and *gasp*
+maybe even Passwords.
+
+* LOGIC
+
+Linux numbers the Primary Partitions 1 thru 4, and starts numbering the
+Logicals at 5. The maximum number is 15, so you get 11 Logicals, 5-15.
+
+Unfortunately, the way Logical partitions work is that they are treated
+similarly to an entirely new disk, with a Disk Label/MBR stealing one
+sector out of the partition. So you have to waste a cylinder for each
+Logical as well as the First Primary. The only Partitions that don't have
+to waste a Cylinder are P2 and P3, and P4 if Logicals aren't being used.
+
+* STRATEGY
+
+There are a useful common strategies:
+
+[1] Use the whole disk as one partition,
+[2] Two to add a swap
+[3] 3 or 4 for more complex usage. No Logical Partitions.
+[4] Some number of Logicals.
+
+One configuration I often end up with at Work is P1=Windows, P2=VFAT
+for Data Exchange, P3=Rescue Linux, and P4=Extended, with Linux in the
+Logical Partitions.
+
+I will discus Rescue Linux and Booting in another Essay.
+
+* EXAMPLE
+
+OK, here is an example of one of my labels, a brand new 1T disk. Shiny.
+
+Disk /dev/sda: 1000.2 GB, 1000204886016 bytes
+255 heads, 63 sectors/track, 121601 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1               2       10001    80325000   83  Linux
+/dev/sda2           10002       20001    80325000   83  Linux
+/dev/sda3           20002       30001    80325000   83  Linux
+/dev/sda4           30002      121601   735777000    5  Extended
+/dev/sda5           30003       40002    80325000   83  Linux
+/dev/sda6           40004       50003    80325000   83  Linux
+/dev/sda7           50005       60004    80325000   83  Linux
+/dev/sda8           60006       70005    80325000   83  Linux
+/dev/sda9           70007       80006    80325000   83  Linux
+/dev/sda10          80008       90007    80325000   83  Linux
+/dev/sda11          90009      100008    80325000   83  Linux
+/dev/sda12         100010      110009    80325000   83  Linux
+/dev/sda13         110011      120010    80325000   83  Linux
+/dev/sda14  *      120012      121311    10442250   83  Linux
+/dev/sda15         121314      121601     2313360   82  Linux swap / Solaris
+
+As you can see, each partition gets roughly 10,000 Cylinders, or 80G.
+The last partition is always Swap, and the Penultimate one serves two
+purposes, as a common /home as well as a Rescue Linux system.
+
+Why so many Partitions? Because I load a different distribution into
+each one so I can learn about each one. I tend to install into the
+Logicals first and use the other Primaries are for things
+like ISO, repositories, backups, and other data.
+
+In any case, you can see the avoidance of Cylinder 1, which
+ends up staggering the Logicals.
+
+Partition 14 is /home and is whatever is left over minus the swap size.
+Swap is theoretically limited to 2G or about 260 cylinders, but I threw
+in 288 so I could get the nice 121314 number ... easy to remember.
+
+* FILESYSTEM LABELS
+
+Since disk names may change as a result of new software (recently, the
+hd prefix has been changed to sd, and now the SATAs seemed to be scanned
+before the PATAs, making hda become sdb when mixed with an sda), being
+booted differently, or even moving to another computer (portable USB
+drives) it is best to use the e2label program to assign a Label to
+a filesystem and use that in preference to a device name. There are
+also UUIDs, but they are Long and Meaningless names.
+
+All my Labels are Two Characters. The first is the Disk Name, a capital
+letter, and the other is the Partition Name, chosen from the set
+[1-9A-EHRS]. The numbers 1 thru 9 should be obvious, A-E are 10 thru 14,
+and HRS are Home, Rescue, and Swap respectively. Since SWAP is the Last
+Partition, there can never be an F partition.
+
+If the Home Partition is also used as a Rescue Linux, it is called H.
+
+I tend to reuse the Disk Names X, Y, and Z for work hosts and I start
+at A for my home use (I am up to G). Portable USB drives start at P
+(for Passport; I have 3, P, Q, R) and SATA Drives start at S (I have two,
+S and T).
+
+Flash Drives are 3 chars: NGP where N is the size, G stand for Gigs, and
+P is the partition number. If I have more of a given size, G rolls over
+to H, I, J, etc. I do have a few less than a gig, which are simply labeled
+by their size suffixed with an M. If there is only one partition, it is
+dropped. Maybe I should try making a filesystem on the whole device itself?
+
+* CONCLUSION
+
+Obviously, I've put a lot of thought into this. Maybe Too Much. Maybe I'm
+OCD or something. I welcome comments and observation on my methods.
+

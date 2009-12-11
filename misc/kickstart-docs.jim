@@ -1,0 +1,225 @@
+* INSTALL
+
+** autostep [ --autoscreenshot ]  OR interactive OR cmdline
+** text OR graphical
+** install OR upgrade
+
+*** cdrom
+*** harddrive --biospart= OR --partition= --dir=
+*** nfs --server=ip|host --dir=/path/to/tree --opts=nfs,options
+*** url -url ftp://user:pass@server/path OR http:...
+
+* EASY
+
+** firstboot  --enabled OR --disabled OR --reconfig
+** keyboard us (required)
+** lang en_US (required)
+** reboot [--eject]
+** rootpw [--iscrypted] password (required)
+** selinux  -disabled OR --enforcing OR --permissive
+** timezone [--utc] <timezone> (required)
+
+* OTHER
+
+** auth or authconfig (required)
+
+*** --usemd5
+*** --useshadow
+*** --ldap/kerberos/nis/etc
+
+** bootloader (required)
+
+*** --append="kernel options"
+*** --driveorder=device,list
+*** --location=mbr|partition|none
+*** --password=xxx OR --md5pass=$1$xxx
+*** --lba32
+*** --upgrade (upgrade only)
+
+** firewall --disabled OR --enabled <options>
+
+*** --trust=device --trust=device ...
+*** --ssh --telnet --smtp --http --ftp
+*** --port=proto|port:tcp|udp
+
+** services --disabled=comma,list --enabled=comma,list
+
+** user 
+
+*** --name=username
+*** --groups=other groups
+*** --homedir=/home/username
+*** --password=XXX (locked by default)
+*** --iscrypted
+*** --shell=/bin/bash
+*** --uid=#
+
+** xconfig OR skipx
+
+*** --driver=name
+*** --videoram=size
+*** --defaultdesktop=gnome|kde
+*** --startxonboot
+*** --resolution=1280x1024
+*** --depth=8|16|24|32
+
+** monitor 
+
+*** --hsync=kHz
+*** --monitor=name (see /usr/share/hwdata/MonitorsDB)
+*** --noprobe
+*** --vsync=Hz
+
+* NETWORK
+
+** network 
+
+*** --hostname=f.q.d.n
+*** --gateway=addr
+*** --nameserver=addr OR --nodns
+
+*** --onboot=yes|no
+*** --bootproto=dhcp|bootp|static.
+*** --device=eth# for install
+*** --ip=addr
+*** --netmask=addr
+
+*** --ethtool=option,list
+*** --essid=SSID
+*** --wepkey=KEY
+*** --dhcpclass=CLASS
+*** --mtu=MTU
+*** --noipv4
+*** --noipv6
+
+*DISK
+
+** LABEL
+
+*** ignoredisk --drives=comma,list
+*** zerombr 
+*** clearpart 
+
+*** --all
+*** --drives=comma,list
+*** --initlabel
+*** --linux
+*** --none (default)
+
+** NORMAL
+
+*** autopart  Use Default Layout
+
+*** part[ition] swap|/path|raid<id>|pv.<id> <options>
+
+**** --size=MB
+**** --maxsize=MB
+**** --grow
+**** --noformat (with --onpart)
+**** --onpart= or --usepart=
+**** --ondisk= or --ondrive=
+**** --asprimary
+**** --fstype=swap|ext2|ext3|swap
+**** --fsoptions=noatime,etc
+**** --label=LABEL
+**** --start=cyl
+**** --end=cyl
+**** --bytes-per-inode=#
+**** --recommended
+**** --onbiosdisk
+
+** LVM
+
+*** volgroup <name> <partition> <options>                       
+
+**** --noformat
+**** --useexisting (also formats)
+**** --pesize=size
+
+*** logvol <mntpoint> --vgname=<name> --size=<size> --name=<name> <options> 
+
+**** --noformat
+**** --useexisting
+**** --fstype=vfat|ext2|ext3|swap
+
+**** --fsoptions=noatime,etc
+**** --bytes-per-inode=#
+**** --grow
+**** --maxsize=MB
+**** --recommended
+**** --percent
+
+** RAID
+
+*** raid <mntpoint> --level=<level> --device=<mddevice> <partitions*> 
+
+**** --level=0|1|5
+**** --device=md[0-7]
+**** --bytes-per-inode=#
+**** --spares=#
+**** --fstype=vfat|ext2|ext3|swap
+**** --fsoptions=noatime,etc
+**** --noformat
+**** --useexisting (also formats)
+
+* RARE
+
+** device scsi|eth <moduleName> --opts="space list"
+** dmraid --name= --dev=
+** driverdisk <partition> --type=vfat|ext2 OR --source=url
+** iscsi --ipaddr=addr [options] --target= --port= --user= --password=
+** iscsiname 
+** key <key>|--skip (RedHat only)
+** langsupport (deprecated)
+
+** logging 
+
+*** --host=ip|name
+*** --port=#
+*** --level=debug|info|warning|error|critical
+
+** mediacheck 
+** mouse (deprecated)
+** multipath --name= --device= --rule=
+** repo --name=<repoid> [--baseurl=<url>|--mirrorlist=<url>]
+** vnc [--host=<hostname>] [--port=<port>] [--password=<password>]
+** zfcp --devnum= --fcplun= --scsiid= --scsilun= --wwpn=
+
+* %include /path/to/file
+
+Path is relative to the *execution environment*
+
+* %packages
+
+** --ignoremissing
+** --nobase
+
+@group
+included
+-excluded
+
+* %pre
+
+** --interpreter /usr/bin/python
+** --erroronfail
+** --log=file
+
+* %post
+
+** --nochroot
+** --interpreter /usr/bin/python
+** --erroronfail
+** --log=file
+
+* KICKSTART LOCATION
+
+ks=cdrom:/ks.cfg
+ks=cdrom:/<path>
+ks=file:/<file>
+ks=floppy = ks=hd:fd0:/ks.cfg
+ks=floppy:/<path>
+ks=hd:<device>:/<file>
+ks=ftp://<server>/<path>
+ks=http://<server>/<path>
+ks=nfs:<server>:/<path>
+
