@@ -1,11 +1,24 @@
 #! /usr/bin/perl
 
-$REPO = $ARGV[0] || "/repo/CentOS/5.2/i386/CentOS";
+$REPO = $ARGV[0] || "/repo/CentOS/5.4/i386/CentOS";
 
 $out = $ARGV[1] || "deplist";
 $out =~ s%.*/%%;
+`mkdir -p deplist`;
 
 @ARGV = <$REPO/*>;
+
+$announce = 0;
+
+sub announce
+{
+	local($_) = shift;
+	if (80 < ($announce += length))
+	{
+		print("\n"); $announce = length;
+	}
+	print;
+}
 
 FILE:
 for $ARGV (@ARGV)
@@ -22,17 +35,19 @@ for $ARGV (@ARGV)
 
 #$f = -f "dep/$ARGV";
 #print("-f 'dep/$ARGV' = $f\n");
-	print("$ARGV-"), next if (-f "dep/$ARGV");
-	print("$ARGV...");
-	open(OUT, "> dep/$ARGV") or die;
+	announce("$ARGV-"), next if (-f "deplist/$ARGV");
+	announce("$ARGV...");
+	open(OUT, ">   deplist/$ARGV")  or die;
 	open(YUM, "yum deplist $ARGV|") or die;
 
 	%dep = ();
 	while ($_ = <YUM>)
 	{
 		($x, $y, $z) = split(' ');
+		$y =~ /glibc.i[3-6]86/ and next;
 		$dep = $y		if $x =~ /dependency:/;
 		$dep{$y} = $dep		if $x =~ /provider:/;
+#	warn( "\$dep{$y} = $dep\n")	if $x =~ /provider:/;
 	}
 	map { printf(OUT "%-32s%s\n", $_, $dep{$_}); } sort(keys(%dep));
 	close(YUM); close(OUT);

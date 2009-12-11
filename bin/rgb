@@ -1,0 +1,10 @@
+#! /bin/ksh
+while sleep ${1-60}
+do
+	typeset -i16 r g b
+	let r=RANDOM%16
+	let g=RANDOM%16
+	let b=RANDOM%16
+	typeset  -R1 R=$r G=$g B=$b
+	xsetroot -solid "#${R}${G}${B}"
+done

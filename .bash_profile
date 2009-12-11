@@ -1,19 +1,17 @@
-# echo BP $0 $(date) >> /tmp/xxx
-# ps -ef | grep $PPID  >> /tmp/xxx
-# pstree  -p >> /tmp/xxx
-# 
+# echo BP $0 $(date)	>> /tmp/xxx
+# ps -ef | grep $PPID	>> /tmp/xxx
+# pstree  -p		>> /tmp/xxx
+ 
 test -f .debug && echo BASH_PROFILE
 
-chmod 600 .ssh/id*
-
-test -f	/etc/profile &&
-source	/etc/profile
+chmod a+rx $HOME
+chmod 600  $HOME/.ssh/id*
 
 set -o	ignoreeof
 
 alias rbj='source .rbj'
 
-for file in .init .domain .host .profile .bashrc .path
+for file in /etc/profile .init .domain .host .profile .bashrc .path
 do
 	test -f $file &&
 	source  $file
@@ -27,8 +25,11 @@ export	VERSION_CONTROL=numbered
 export	EDITOR=vi
 
 export	PNY=/pny/CVR
+export	SVN=/svn
 
 export	CVS_RSH=/usr/bin/ssh
+
+export	CMMI=https://192.168.21.31/repos/cmmi
 
 export	AM=/etc/auto.misc
 export	FS=/etc/fstab

@@ -139,6 +139,7 @@ sub splat
 sub item
 {
 	s%packagereq%%g;
+	s%'%"%g;
 	$M{$1} = $1 if m%type="mandatory">(.*)</>%;
 	$D{$1} = $1 if m%type="default">(.*)</>%;
 	$O{$1} = $1 if m%type="optional">(.*)</>%;
