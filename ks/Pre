@@ -1,0 +1,31 @@
+################################################################
+####	Save Previous Systems
+################################################################
+
+%pre
+
+#! /bin/sh
+P=/dev/ROOT
+
+echo 1>/root/pre.log 2>&1
+set -x
+mkdir /p
+mount $P /p
+cd /p
+	test -d root &&
+	for x in 0 1 2 3 4 5 6 7 8 9
+	do
+		test -d .$x && continue
+		mkdir   .$x
+		mv *    .$x
+		break
+	done
+cd /
+umount /p
+
+################################################################
+####	Package Selection
+################################################################
+
+%packages NOBASE
+

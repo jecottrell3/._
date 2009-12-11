@@ -1,0 +1,8 @@
+title TA-INSTALL
+	root (hd0,0)
+	kernel /cos54iso/vmlinuz ks=hd:sda14:/home/kick/yoko-TA-core.ks
+	initrd /cos54iso/initrd.img
+title TA-CentOS-5.4-CORE
+	root (hd0,9)
+	chainloader +1
+	savedefault

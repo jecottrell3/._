@@ -1,0 +1,32 @@
+################################################################
+####	Finalization
+################################################################
+
+%post --log=/mnt/sysimage/root/post.log
+
+#! /bin/sh -x
+
+set -x
+set -x
+exec 2>&1
+
+#exec 1>/tmp/post 2>&1
+
+date
+cd /root
+ln -s /home/rbj/._ .
+. ._/setup
+
+date
+echo makewhatis -v
+
+date
+umount  -av
+echo updatedb -v
+mount   -av
+
+date
+rsync -vax /home/kick/dist/. /
+date
+
+################################################################

@@ -1,0 +1,160 @@
+################################################################
+@base
+################################################################
+
+#m	-acl
+#m	-at
+#m	-attr
+#m	-authconfig
+#m	-bc
+#m	-bind-utils
+#m	-bzip2
+#m	-crontabs
+#m	-cyrus-sasl-plain
+#m	-libutempter
+#m	-logrotate
+#m	-lsof
+#m	-mailcap
+#m	-man
+#m	-ntsysv
+#m	-parted
+#m	-pciutils
+#m	-psacct
+-quota
+-rhel-instnum
+#m	-system-config-securitylevel-tui
+#m	-tmpwatch
+#m	-traceroute
+#m	-vixie-cron
+#d	-NetworkManager
+#d	-acpid
+-amtu
+#d	-anacron
+-apmd
+#d	-aspell
+#d	-aspell-en
+#d	-autofs
+-bluez-utils
+-ccid
+-conman
+-coolkey
+#d	-cpuspeed
+#d	-crash
+#d	-cryptsetup-luks
+#d	-dmraid
+#d	-dos2unix
+#d	-dosfstools
+#d	-dump
+#d	-eject
+-elsa
+#d	-fbset
+#d	-finger
+#d	-firstboot-tui
+#d	-ftp
+#d	-gnupg
+#d	-gpm
+-ibmasm
+#d	-ipsec-tools
+#d	-iptstate
+-irda-utils
+#d	-irqbalance
+#d	-jwhois
+#d	-krb5-workstation
+#d	-ksh
+#d	-lftp
+#d	-libaio
+#d	-logwatch
+-longrun
+#d	-m2crypto
+#d	-man-pages
+-mcelog
+#d	-mdadm
+-mgetty
+#d	-microcode_ctl
+-mkbootdisk
+#d	-mlocate
+#d	-mtools
+#d	-mtr
+#d	-nano
+#d	-nc
+#d	-nfs-utils
+#d	-nss_db
+#d	-nss_ldap
+-numactl
+#d	-oddjob
+#d	-pam_ccreds
+#d	-pam_krb5
+#d	-pam_passwdqc
+-pam_pkcs11
+#d	-pam_smb
+#d	-pax
+-pcmciautils
+#d	-pinfo
+#d	-pkinit-nss
+#d	-pm-utils
+-prctl
+#d	-rdate
+#d	-rdist
+#d	-readahead
+#d	-redhat-lsb
+-rhn-check
+-rhn-setup
+-rng-utils
+-rp-pppoe
+#d	-rsh
+#d	-rsync
+#d	-sendmail
+#d	-setarch
+#d	-setuptool
+#d	-smartmontools
+#d	-sos
+-specspo
+#d	-stunnel
+#d	-sudo
+#d	-symlinks
+-sysreport
+#d	-system-config-network-tui
+#d	-talk
+#d	-tcp_wrappers
+#d	-tcpdump
+-tcsh
+#d	-telnet
+#d	-time
+#d	-tree
+#d	-unix2dos
+#d	-unzip
+#d	-usbutils
+-vconfig
+#d	-wget
+#d	-which
+-wireless-tools
+#d	-words
+-ypbind
+-yum-rhn-plugin
+#d	-yum-updatesd
+#d	-zip
+#o	 aide
+#o	 authd
+#o	 bridge-utils
+#o	 brltty
+#o	 convmv
+#o	 device-mapper-multipath
+gpart
+hardlink
+#o	 hesinfo
+#o	 hfsutils
+#ox	 iscsi-initiator-utils
+#o	 kexec-tools
+#o	 keyutils
+#ox	 lha
+#ox	 libica
+#ox	 netconfig
+#o	 openCryptoki
+#ox	 openssl-ibmca
+#o	 openswan
+#o	 squashfs-tools
+star
+#o	 tpm-tools
+#o	 trousers
+#o	 x86info
+
