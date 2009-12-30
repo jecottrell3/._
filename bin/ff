@@ -33,4 +33,4 @@ do
 	(*)	break;; # filenames
 	esac
 done
-$DOIT find ${*:?'Missing Directory'} $OPT $ACT
+$DOIT find ${*:-.} $OPT $ACT

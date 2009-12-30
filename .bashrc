@@ -68,8 +68,8 @@ alias	loop='mount -o loop'
 alias	m=less mr='less -r'
 alias	md='mkdir'	mp='mkdir -p'
 alias	mn='make -n'
-alias	mo=mount  mz='mount  -av'
-alias	um=umount uz='umount -av'
+alias	mo='sudo  mount' mz='sudo  mount  -av'
+alias	um='sudo umount' uz='sudo umount -av'
 alias	ns=nslookup
 alias	p='ps -ef | egrep'
 alias	pd=pushd	po=popd
