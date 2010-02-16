@@ -4,7 +4,7 @@
 # usage:  comps NAME
 
 # expects:	NAME.xml	points to a comps.xml file
-# expects:	NAME.pkg	points to a directory of pkgs
+# expects:	NAME.pkg	points to a directory of rpms
 
 # creates:	NAME/		directory of group files
 # creates:	NAME/group	kickstart packages in group
@@ -14,6 +14,9 @@
 # Mandatory, Default, Optional, and Conditional
 # The letter x appears if the file is not found
 ################################################################
+
+$DIST='CentOS';
+$VER='5.4';
 
 $banner = '#' x 64;
 
@@ -27,7 +30,7 @@ warn("$dir, $xml, $pkg\n");	# DEBUG
 
 # $dir =~ s%.*/%%;
 # $dir =~ s/\.xml$//;
-# $repo = $ARGV[1] || "/repo/CentOS/5.2/i386/CentOS";
+# $repo = $ARGV[1] || "/repo/$DIST/$VER/i386/$DIST";
 
 -d $dir || mkdir($dir) or die;
 

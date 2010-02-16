@@ -54,6 +54,7 @@ alias	eg='env | egrep'
 alias	fn='typeset -f'
 alias	g='egrep --color=auto' gc='egrep --color=always'
 function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
+function i { eval "$1=$PWD"; }
 alias	i0=ifdown i1=ifup i2=ifconfig
 alias	j='jobs -l'
 alias	kp='cp -p'
@@ -78,6 +79,7 @@ alias	rbj='chown -R rbj:rbj'
 alias	jcottrell='chown -R jcottrell:jcottrell'
 alias	rd='rmdir'	rp='rmdir -p'
 
+function sd() { cd $(echo "$PWD" | sed "s%$1%$2%"); }
 function s0() { service $* stop; }
 function s1() { service $* start; }
 function s2() { service $* status; }
