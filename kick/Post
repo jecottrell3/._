@@ -1,0 +1,42 @@
+################################################################
+####	Finalization
+################################################################
+
+%post --nochroot
+
+cp /tmp/pre.log /mnt/sysimage/root
+
+%post --log=/mnt/sysimage/root/post.log
+
+exec 2>&1
+
+set -x
+df -h
+
+date
+export HOME=/root
+cd
+ln -s /home/rbj/._ .
+
+set +x;
+echo \
+source ._/setup
+source ._/setup
+set -x
+
+date
+tmp/.mkrbj cos5
+
+date
+echo makewhatis -v
+
+date
+umount /home
+echo updatedb -v
+mount  /home
+
+date
+rsync -vax /home/kick/dist/. /
+date
+
+################################################################
