@@ -1,0 +1,57 @@
+################################################################
+-@development-libs
+################################################################
+
+#m	-bzip2-devel
+#m	-glibc-devel
+#m	-libtermcap-devel
+#m	-ncurses-devel
+#m	-pam-devel
+#m	-readline-devel
+#m	-zlib-devel
+#d	-boost-devel
+#d	-coolkey-devel
+#d	-curl-devel
+#d	-cyrus-sasl-devel
+#d	-db4-devel
+#d	-dbus-devel
+#d	-expat-devel
+#d	-gdbm-devel
+#d	-gmp-devel
+#d	-gpm-devel
+#d	-hesiod-devel
+#d	-krb5-devel
+#d	-kudzu-devel
+#d	-libacl-devel
+#d	-libattr-devel
+#d	-libcap-devel
+#d	-libogg-devel
+#d	-libselinux-devel
+#d	-libusb-devel
+#d	-libuser-devel
+#d	-libvorbis-devel
+#d	-libxml2-devel
+#d	-lockdev-devel
+#d	-newt-devel
+#d	-openldap-devel
+#d	-openssl-devel
+#d	-pciutils-devel
+#d	-pcsc-lite-devel
+#d	-python-devel
+#d	-rpm-devel
+#d	-slang-devel
+#dx	-sysfsutils-devel
+#d	-xmlsec1
+#d	-xmlsec1-devel
+#d	-xulrunner-devel
+#o	 perl-Convert-ASN1
+#o	 perl-Crypt-SSLeay
+#o	 perl-DateManip
+#o	 perl-LDAP
+#o	 perl-XML-Dumper
+#o	 perl-XML-Grove
+#o	 perl-XML-NamespaceSupport
+#o	 perl-XML-SAX
+#o	 perl-XML-Twig
+#o	 perl-libxml-perl
+
