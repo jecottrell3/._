@@ -18,6 +18,6 @@ network --bootproto dhcp --hostname _HOST_
 part /     --fstype ext3 --noformat --onpart _ROOT_ --fsoptions="noatime"
 part /home --fstype ext3 --noformat --onpart _HOME_ --fsoptions="noatime"
 part /dist --fstype ext3 --noformat --onpart _DIST_ --fsoptions="noatime"
-#art /repo --fstype ext3 --noformat --onpart _REPO_ --fsoptions="noatime"
+`#'art /repo --fstype ext3 --noformat --onpart _REPO_ --fsoptions="noatime"
 part swap                --noformat --onpart _SWAP_
 

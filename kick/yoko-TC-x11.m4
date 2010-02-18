@@ -4,6 +4,7 @@ dnl
 define(`_HOST_', `yoko')dnl
 define(`_LABEL_', `TC')dnl
 define(`_TYPE_', `x11')dnl
+define(`_UTC_', `--utc')dnl
 dnl
 define(`_ISO_', `sda1')dnl
 define(`_ROOT_', `sda12')dnl

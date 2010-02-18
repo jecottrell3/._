@@ -12,6 +12,6 @@ rootpw --iscrypted $1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1
 firewall --enabled --port=22:tcp
 selinux --disabled
 authconfig --enableshadow --enablemd5 --enablelocauthorize
-timezone --utc America/New_York
+timezone _UTC_ America/New_York
 bootloader --location=partition --driveorder=sda
 

@@ -69,7 +69,7 @@ rmdir  /p
 ####	Package Selection
 ################################################################
 
-%packages 
+%packages  --ignoremissing
 
 rsync
 

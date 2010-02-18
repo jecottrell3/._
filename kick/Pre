@@ -29,6 +29,6 @@ rmdir  /p
 ####	Package Selection
 ################################################################
 
-%packages _NOBASE_
+%packages _NOBASE_ --ignoremissing
 
 rsync

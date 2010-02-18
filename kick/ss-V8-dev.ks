@@ -1,25 +1,25 @@
 ################################################################
-####	yoko TC x11 Kickstart
+####	jcottrell V8 std Kickstart
 ################################################################
 
 install
 text
-harddrive --partition=sda1 --dir=/CentOS/5.4/i386
+harddrive --partition=sda13 --dir=/CentOS/5.4/i386
 keyboard us
 lang en_US.UTF-8
-xconfig --startxonboot --resolution=1600x900  --depth=24
+xconfig --startxonboot --resolution=1440x900  --depth=24
 rootpw --iscrypted $1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1
 firewall --enabled --port=22:tcp
 selinux --disabled
 authconfig --enableshadow --enablemd5 --enablelocauthorize
-timezone --utc America/New_York
+timezone  America/New_York
 bootloader --location=partition --driveorder=sda
 
 ################################################################
 ####    Use DHCP -- fix later
 ################################################################
 
-network --bootproto dhcp --hostname yoko
+network --bootproto dhcp --hostname jcottrell
 #network --nodns --gateway=1.2.3.4
 #network --device eth0 --ip=1.2.3.6 --netmask=255.255.255.0
 #network --nameserver=68.87.73.242
@@ -32,10 +32,10 @@ network --bootproto dhcp --hostname yoko
 
 #clearpart --linux
 
-part /     --fstype ext3 --noformat --onpart sda12 --fsoptions="noatime"
+part /     --fstype ext3 --noformat --onpart sda8 --fsoptions="noatime"
 part /home --fstype ext3 --noformat --onpart sda14 --fsoptions="noatime"
-part /dist --fstype ext3 --noformat --onpart sda1 --fsoptions="noatime"
-#art /repo --fstype ext3 --noformat --onpart _REPO_ --fsoptions="noatime"
+part /dist --fstype ext3 --noformat --onpart sda13 --fsoptions="noatime"
+#art /repo --fstype ext3 --noformat --onpart sda12 --fsoptions="noatime"
 part swap                --noformat --onpart sda15
 
 ################################################################
@@ -48,7 +48,7 @@ exec 2>&1
 set -x
 df -h
 
-P=/dev/sda12
+P=/dev/sda8
 
 mkdir    /p
 mount $P /p
