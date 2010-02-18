@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : bzip2
+Arch       : i386
+Version    : 1.0.3
+Release    : 4.el5_2
+Size       : 74 k
+Repo       : installed
+Summary    : A file compression utility.
+URL        : http://sources.redhat.com/bzip2/
+License    : BSD
+Description: Bzip2 is a freely available, patent-free, high quality data
+           : compressor. Bzip2 compresses files to within 10 to 15 percent of
+           : the capabilities of the best techniques available.  However, bzip2
+           : has the added benefit of being approximately two times faster at
+           : compression and six times faster at decompression than those
+           : techniques.  Bzip2 is not the fastest compression utility, but it
+           : does strike a balance between speed and compression capability.
+           : 
+           : Install bzip2 if you need a compression utility.
+

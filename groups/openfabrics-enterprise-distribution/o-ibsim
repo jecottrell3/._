@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : ibsim
+Arch       : i386
+Version    : 0.5
+Release    : 1.el5
+Size       : 60 k
+Repo       : base
+Summary    : InfiniBand fabric simulator for management
+URL        : http://openfabrics.org/
+License    : GPL/BSD
+Description: ibsim provides simulation of infiniband fabric for using with OFA
+           : OpenSM, diagnostic and management tools.
+

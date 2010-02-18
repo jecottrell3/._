@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : automake14
+Arch       : noarch
+Version    : 1.4p6
+Release    : 13
+Size       : 650 k
+Repo       : installed
+Summary    : A GNU tool for automatically creating Makefiles.
+URL        : http://sources.redhat.com/automake
+License    : GPL
+Description: Automake is a tool for automatically generating
+           : `Makefile.in' files compliant with the GNU Coding Standards.
+           : 
+           : This package contains Automake 1.4, an older version of Automake.
+           : You should install it if you need to run automake in a project that
+           : has not yet been updated to work with newer versions of Automake.
+

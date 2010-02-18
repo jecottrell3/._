@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : pcmciautils
+Arch       : i386
+Version    : 014
+Release    : 5
+Size       : 57 k
+Repo       : installed
+Summary    : PCMCIA utilities and initialization programs
+License    : GPL
+Description: The pcmciautils package contains utilities for initializing and
+           : debugging PCMCIA and Cardbus sockets.
+

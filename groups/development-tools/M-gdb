@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gdb
+Arch       : i386
+Version    : 6.8
+Release    : 37.el5
+Size       : 7.0 M
+Repo       : installed
+Summary    : A GNU source-level debugger for C, C++, Java and other languages
+URL        : http://gnu.org/software/gdb/
+License    : GPLv3+
+Description: GDB, the GNU debugger, allows you to debug programs written in C,
+           : C++, Java, and other languages, by executing them in a controlled
+           : fashion and printing their data.
+

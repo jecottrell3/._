@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : NetworkManager-gnome
+Arch       : i386
+Epoch      : 1
+Version    : 0.7.0
+Release    : 9.el5
+Size       : 859 k
+Repo       : installed
+Summary    : GNOME applications for use with NetworkManager
+URL        : http://www.gnome.org/projects/NetworkManager/
+License    : GPLv2+
+Description: This package contains GNOME utilities and applications for use with
+           : NetworkManager, including a panel applet for wireless networks.
+

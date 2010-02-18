@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : exim
+Arch       : i386
+Version    : 4.63
+Release    : 3.el5
+Size       : 1.2 M
+Repo       : base
+Summary    : The exim mail transfer agent
+URL        : http://www.exim.org/
+License    : GPL
+Description: Exim is a message transfer agent (MTA) developed at the University
+           : of Cambridge for use on Unix systems connected to the Internet. It
+           : is freely available under the terms of the GNU General Public
+           : Licence. In style it is similar to Smail 3, but its facilities are
+           : more general. There is a great deal of flexibility in the way mail
+           : can be routed, and there are extensive facilities for checking
+           : incoming mail. Exim can be installed in place of sendmail, although
+           : the configuration of exim is quite different to that of sendmail.
+

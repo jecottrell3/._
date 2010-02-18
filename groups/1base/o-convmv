@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : convmv
+Arch       : noarch
+Version    : 1.10
+Release    : 1.el5
+Size       : 25 k
+Repo       : base
+Summary    : Convert filename encodings
+URL        : http://j3e.de/linux/convmv
+License    : GPL
+Description: This package contains the tool convmv with which you can convert
+           : the encodings of filenames, e.g. from Latin1 to UTF-8.
+

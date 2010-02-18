@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : hal-gnome
+Arch       : i386
+Version    : 0.5.8.1
+Release    : 52.el5
+Size       : 205 k
+Repo       : installed
+Summary    : GNOME based device manager for HAL
+URL        : http://www.freedesktop.org/Software/hal
+License    : AFL/GPL
+Description: GNOME program for displaying the devices detected by HAL
+

@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : openldap-servers
+Arch       : i386
+Version    : 2.3.43
+Release    : 3.el5
+Size       : 7.1 M
+Repo       : installed
+Summary    : OpenLDAP servers and related files.
+URL        : http://www.openldap.org/
+License    : OpenLDAP
+Description: OpenLDAP is an open-source suite of LDAP (Lightweight Directory
+           : Access Protocol) applications and development tools. LDAP is a set
+           : of protocols for accessing directory services (usually phone book
+           : style information, but other information is possible) over the
+           : Internet, similar to the way DNS (Domain Name System) information
+           : is propagated over the Internet. This package contains the slapd
+           : and slurpd servers, migration scripts, and related files.
+

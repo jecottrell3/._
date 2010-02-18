@@ -1,0 +1,13 @@
+@clustering
+#d	-cluster-cim
+#d	-cluster-snmp
+#d	-clustermon
+#d	-conga-devel
+#d	-ipvsadm
+#d	-luci
+#d	-modcluster
+#d	-piranha
+#d	-rgmanager
+#d	-ricci
+#d	-ricci-modcluster
+#d	-system-config-cluster

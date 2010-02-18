@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : kvm
+Arch       : i386
+Version    : 36
+Release    : 1
+Size       : 883 k
+Repo       : extras
+Summary    : Kernel-based Virtual Machine
+URL        : http://kvm.sf.net
+License    : GPL
+Description: KVM (for Kernel-based Virtual Machine) is a full virtualization
+           : solution for Linux on x86 hardware.
+           : 
+           : Using KVM, one can run multiple virtual machines running unmodified
+           : Linux or Windows images. Each virtual machine has private
+           : virtualized hardware: a network card, disk, graphics adapter, etc.
+

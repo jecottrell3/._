@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : gsf-sharp
+Arch       : i386
+Version    : 0.8.1
+Release    : 5.el5.centos
+Size       : 42 k
+Repo       : extras
+Summary    : Mono bindings for libgsf
+URL        : http://go-mono.com
+License    : GPL
+Description: Mono bindings for libgsf
+

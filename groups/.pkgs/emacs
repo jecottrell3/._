@@ -1,0 +1,7 @@
+@emacs
+#M	-emacs
+#d	-emacs-leim
+#d	-emacspeak
+#d	-psgml
+#o	emacs-nox
+#o	gnuplot-emacs

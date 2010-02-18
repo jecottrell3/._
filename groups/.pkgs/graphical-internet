@@ -1,0 +1,13 @@
+@graphical-internet
+#d	-ekiga
+#d	-evolution
+#d	-evolution-connector
+#d	-evolution-webcal
+#d	-firefox
+#d	-gnome-themes
+#d	-java-1.4.2-gcj-compat-plugin
+#d	-nspluginwrapper
+#d	-pidgin
+#o	gftp
+#o	thunderbird
+#o	xchat

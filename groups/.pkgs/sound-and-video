@@ -1,0 +1,18 @@
+@sound-and-video
+#M	-alsa-utils
+#M	-sox
+#M	-vorbis-tools
+#d	-cdda2wav
+#d	-cdparanoia
+#d	-cdrdao
+#d	-cdrecord
+#d	-mkisofs
+#d	-rhythmbox
+#d	-sound-juicer
+#d	-totem
+#d	-totem-mozplugins
+#o	dvgrab
+#o	k3b
+#o	kdemultimedia
+#o	mikmod
+#o	xcdroast

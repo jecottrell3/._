@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : xterm
+Arch       : i386
+Version    : 215
+Release    : 8.el5_4.1
+Size       : 1.2 M
+Repo       : installed
+Summary    : xterm terminal emulator for the X Window System
+URL        : http://dickey.his.com/xterm
+License    : MIT
+Description: The xterm program is a terminal emulator for the X Window System.
+           : It provides DEC VT102 and Tektronix 4014 compatible terminals for
+           : programs that can't use the window system directly.
+

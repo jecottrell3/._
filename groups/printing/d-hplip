@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : hplip
+Arch       : i386
+Version    : 1.6.7
+Release    : 4.1.el5.4
+Size       : 12 M
+Repo       : installed
+Summary    : HP Linux Imaging and Printing Project
+URL        : http://hplip.sourceforge.net/
+License    : GPL/MIT/BSD
+Description: The Hewlett-Packard Linux Imaging and Printing Project provides
+           : drivers for HP printers and multi-function peripherals.
+

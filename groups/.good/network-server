@@ -1,0 +1,13 @@
+@network-server
+-dhcpv6
+-freeradius
+-quagga
+-radvd
+amanda-server
+cyrus-sasl
+dhcp
+krb5-server
+openldap-servers
+privoxy
+vnc-server
+ypserv

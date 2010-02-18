@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : ppp
+Arch       : i386
+Version    : 2.4.4
+Release    : 2.el5
+Size       : 811 k
+Repo       : installed
+Summary    : The PPP (Point-to-Point Protocol) daemon.
+License    : distributable
+Description: The ppp package contains the PPP (Point-to-Point Protocol) daemon
+           : and documentation for PPP support. The PPP protocol provides a
+           : method for transmitting datagrams over serial point-to-point links.
+           : PPP is usually used to dial in to an ISP (Internet Service
+           : Provider) or other organization over a modem and phone line.
+

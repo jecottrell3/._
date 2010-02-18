@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : imp-h3
+Arch       : noarch
+Version    : 4.1.6
+Release    : 1.el5.centos
+Size       : 4.2 M
+Repo       : extras
+Summary    : The Internet Messaging Program: webmail access to IMAP/POP3
+           : accounts.
+URL        : http://www.horde.org/
+License    : GPL
+Description: IMP is the Internet Messaging Program, one of the Horde
+           : applications. It provides webmail access to IMAP and POP3 accounts.
+           : 
+           : The Horde Project writes web applications in PHP and releases them
+           : under Open Source licenses.  For more information (including help
+           : with IMP) please visit http://www.horde.org/.
+           : 
+           : This package contains customizations for the Mitel Networks SME
+           : Server and will probably not work properly on other Linux systems.
+

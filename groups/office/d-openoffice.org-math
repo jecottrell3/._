@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : openoffice.org-math
+Arch       : i386
+Epoch      : 1
+Version    : 2.3.0
+Release    : 6.11.el5_4.4
+Size       : 3.4 M
+Repo       : installed
+Summary    : Equation editor module for openoffice.org
+URL        : http://www.openoffice.org/
+License    : LGPLv2 and LGPLv2+ and MPLv1.1 and BSD
+Description: The math editor of openoffice.org.
+

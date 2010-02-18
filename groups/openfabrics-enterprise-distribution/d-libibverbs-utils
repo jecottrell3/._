@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libibverbs-utils
+Arch       : i386
+Version    : 1.1.2
+Release    : 4.el5
+Size       : 37 k
+Repo       : base
+Summary    : Utilities for the libibverbs library
+URL        : http://www.openfabrics.org/downloads/
+License    : GPL/BSD
+Description: Libibverbs based programs useful for verifying network operation
+           : and connectivity.
+

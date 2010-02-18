@@ -1,0 +1,25 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : pidgin
+Arch       : i386
+Version    : 2.6.5
+Release    : 1.el5
+Size       : 1.5 M
+Repo       : updates
+Summary    : A Gtk+ based multiprotocol instant messaging client
+URL        : http://pidgin.im/
+License    : GPLv2+ and GPLv2 and MIT
+Description: Pidgin allows you to talk to anyone using a variety of messaging
+           : protocols including AIM, MSN, Yahoo!, Jabber, Bonjour, Gadu-Gadu,
+           : ICQ, IRC, Novell Groupwise, QQ, Lotus Sametime, SILC, Simple and
+           : Zephyr.  These protocols are implemented using a modular, easy to
+           : use design.  To use a protocol, just add an account using the
+           : account editor.
+           : 
+           : Pidgin supports many common features of other clients, as well as
+           : many unique features, such as perl scripting, TCL scripting and C
+           : plugins.
+           : 
+           : Pidgin is not affiliated with or endorsed by America Online, Inc.,
+           : Microsoft Corporation, Yahoo! Inc., or ICQ Inc.
+

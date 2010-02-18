@@ -1,0 +1,30 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : bsh
+Arch       : i386
+Version    : 1.3.0
+Release    : 9jpp.1
+Size       : 1.2 M
+Repo       : installed
+Summary    : Lightweight Scripting for Java
+URL        : http://www.beanshell.org/
+License    : LGPL
+Description: BeanShell is a small, free, embeddable, Java source interpreter
+           : with object scripting language features, written in Java. BeanShell
+           : executes standard Java statements and expressions, in addition to
+           : obvious scripting commands and syntax. BeanShell supports scripted
+           : objects as simple method closures like those in Perl and
+           : JavaScript(tm). You can use BeanShell interactively for Java
+           : experimentation and debugging or as a simple scripting engine for
+           : your applications. In short: BeanShell is a dynamically interpreted
+           : Java, plus some useful stuff. Another way to describe it is to say
+           : that in many ways BeanShell is to Java as Tcl/Tk is to C: BeanShell
+           : is embeddable - You can call BeanShell from your Java applications
+           : to execute Java code dynamically at run-time or to provide
+           : scripting extensibility for your applications. Alternatively, you
+           : can call your Java applications and objects from BeanShell; working
+           : with Java objects and APIs dynamically. Since BeanShell is written
+           : in Java and runs in the same space as your application, you can
+           : freely pass references to "real live" objects into scripts and
+           : return them as results.
+

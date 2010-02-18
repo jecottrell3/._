@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gimp-data-extras
+Arch       : noarch
+Version    : 2.0.1
+Release    : 1.1.1
+Size       : 7.6 M
+Repo       : installed
+Summary    : Extra files for the GIMP.
+URL        : http://www.gimp.org/
+License    : GPL
+Description: Patterns, gradients, and other extra files for the GIMP.
+

@@ -1,0 +1,39 @@
+#! /bin/sh
+
+mkdir -p .pkgs
+yum -v grouplist | 
+sed -n '/^   /s/.*(//;s/)//p' |
+sort | 
+while read group
+do
+	case $group in
+	(core)	name=0$group;;
+	(base)	name=1$group;;
+	(base-x)name=2$group;;
+	(*)	name=$group;;
+	esac
+
+	echo 1>&2 "=== Group: '$group' ==="
+	exec 3>.pkgs/$name
+	echo 1>&3 @$group
+	mkdir -p $name
+
+	type=
+	yum groupinfo $group | 
+	while read pkg
+	do
+		case $pkg in
+		(*Mandatory*)	type=M pm=-;;
+		(*Default*)	type=d pm=-;;
+		(*Optional*)	type=o pm=;;
+		(*Conditional*)	type=c pm=?;;
+		(*)
+			test -n "$type" || continue
+			echo 1>&3 "#$type	$pm$pkg"
+			echo 1>&2 "=== Package: '$name/$type-$pkg' ==="
+			yum info $pkg > $name/$type-$pkg
+			;;
+		esac
+	done
+	exec 3>&-
+done

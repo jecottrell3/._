@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : exim-doc
+Arch       : noarch
+Version    : 4.63
+Release    : 2.el5
+Size       : 17 M
+Repo       : installed
+Summary    : Documentation for the exim mail transfer agent
+URL        : http://www.exim.org/
+License    : GPL
+Description: Exim is a mail transport agent (MTA) developed at the University of
+           : Cambridge for use on Unix systems connected to the Internet. This
+           : package contains the documentation for Exim, also available on the
+           : web at http://www.exim.org/
+

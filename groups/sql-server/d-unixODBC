@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : unixODBC
+Arch       : i386
+Version    : 2.2.11
+Release    : 7.1
+Size       : 1.8 M
+Repo       : installed
+Summary    : A complete ODBC driver manager for Linux.
+URL        : http://www.unixODBC.org/
+License    : LGPL
+Description: Install unixODBC if you want to access databases through ODBC.
+           : This package includes low-level drivers for MySQL, PostgreSQL, and
+           : local files. However, the included drivers are not as up-to-date as
+           : the ones distributed separately.  It is recommended that you
+           : install and use the MyODBC package if you need a driver for MySQL,
+           : and/or the postgresql-odbc package for PostgreSQL.
+

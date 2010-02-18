@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : system-switch-mail-gnome
+Arch       : noarch
+Version    : 0.5.25
+Release    : 12
+Size       : 38 k
+Repo       : installed
+Summary    : A GUI interface for Mail Transport Agent Switcher.
+License    : GPL
+Description: The system-switch-mail-gnome package contains a GNOME interface for
+           : the Mail Transport Agent Switcher.
+

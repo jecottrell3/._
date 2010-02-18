@@ -1,0 +1,12 @@
+@authoring-and-publishing
+#d	-docbook-slides
+#d	-docbook-style-dsssl
+#d	-docbook-style-xsl
+#d	-docbook-utils
+#d	-docbook-utils-pdf
+#d	-linuxdoc-tools
+#d	-tetex
+#d	-xhtml1-dtds
+#d	-xmlto
+#o	scribus
+#o	tetex-xdvi

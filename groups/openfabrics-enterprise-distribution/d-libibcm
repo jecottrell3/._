@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libibcm
+Arch       : i386
+Version    : 1.0.4
+Release    : 3.el5
+Size       : 19 k
+Repo       : base
+Summary    : Userspace InfiniBand Communication Manager.
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: libibcm provides a userspace InfiniBand Communication Managment
+           : library.
+

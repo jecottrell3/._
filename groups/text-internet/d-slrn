@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : slrn
+Arch       : i386
+Version    : 0.9.8.1pl1
+Release    : 1.2.2
+Size       : 2.1 M
+Repo       : installed
+Summary    : A threaded Internet news reader.
+URL        : http://slrn.sourceforge.net/
+License    : GPL
+Description: SLRN is a threaded Internet news reader. SLRN is highly
+           : customizable and allows users to design complex filters for sorting
+           : or killing news articles. SLRN works well over slow network lines.
+           : A helper utility for reading news offline is provided in the
+           : slrn-pull package.
+

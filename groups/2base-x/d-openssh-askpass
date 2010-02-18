@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : openssh-askpass
+Arch       : i386
+Version    : 4.3p2
+Release    : 36.el5_4.3
+Size       : 9.8 k
+Repo       : installed
+Summary    : A passphrase dialog for OpenSSH and X
+URL        : http://www.openssh.com/portable.html
+License    : BSD
+Description: OpenSSH is a free version of SSH (Secure SHell), a program for
+           : logging into and executing commands on a remote machine. This
+           : package contains an X11 passphrase dialog for OpenSSH.
+

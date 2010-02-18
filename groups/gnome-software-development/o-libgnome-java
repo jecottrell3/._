@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libgnome-java
+Arch       : i386
+Version    : 2.12.4
+Release    : 3.fc6
+Size       : 453 k
+Repo       : base
+Summary    : Java bindings for libgnome
+URL        : http://java-gnome.sourceforge.net
+License    : LGPL
+Description: libgnome-java is a language binding that allows developers to write
+           : GNOME applications in Java.  It is part of Java-GNOME.
+

@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : ibutils
+Arch       : i386
+Version    : 1.2
+Release    : 10.el5
+Size       : 1.7 M
+Repo       : base
+Summary    : OpenIB Mellanox InfiniBand Diagnostic Tools
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: ibutils provides IB network and path diagnostics.
+

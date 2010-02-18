@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gnome-applets
+Arch       : i386
+Epoch      : 1
+Version    : 2.16.0.1
+Release    : 19.el5
+Size       : 31 M
+Repo       : installed
+Summary    : Small applications for the GNOME panel
+URL        : http://www.gnome.org/
+License    : GPL
+Description: GNOME (GNU Network Object Model Environment) is a user-friendly set
+           : of applications and desktop tools to be used in conjunction with a
+           : window manager for the X Window System. The gnome-applets package
+           : provides small utilities for the GNOME panel.
+

@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : exo
+Arch       : i386
+Version    : 0.3.4
+Release    : 1.el5.centos
+Size       : 728 k
+Repo       : extras
+Summary    : Application library for the Xfce desktop environment
+URL        : http://xfce.org/
+License    : LGPLv2+ and GPLv2+
+Description: Extension library for Xfce, targeted at application development.
+

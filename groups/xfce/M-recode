@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : recode
+Arch       : i386
+Version    : 3.6
+Release    : 22.el5.centos
+Size       : 837 k
+Repo       : extras
+Summary    : Conversion between character sets and surfaces
+URL        : http://recode.progiciels-bpi.ca/
+License    : GPL
+Description: The `recode' converts files between character sets and usages.
+           : It recognises or produces nearly 150 different character sets
+           : and is able to transliterate files between almost any pair. When
+           : exact transliteration are not possible, it may get rid of the
+           : offending characters or fall back on approximations.  Most RFC 1345
+           : character sets are supported.
+

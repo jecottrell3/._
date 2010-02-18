@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : compat-slang
+Arch       : i386
+Version    : 1.4.9
+Release    : 27.2.2
+Size       : 200 k
+Repo       : base
+Summary    : The shared library for the S-Lang extension language.
+URL        : http://www.s-lang.org/
+License    : GPL
+Description: S-Lang is an interpreted language and a programming library.  The
+           : S-Lang language was designed so that it can be easily embedded into
+           : a program to provide the program with a powerful extension
+           : language. The S-Lang library, provided in this package, provides
+           : the S-Lang extension language.  S-Lang's syntax resembles C, which
+           : makes it easy to recode S-Lang procedures in C if you need to.
+

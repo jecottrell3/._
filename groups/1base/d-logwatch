@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : logwatch
+Arch       : noarch
+Version    : 7.3
+Release    : 6.el5
+Size       : 987 k
+Repo       : installed
+Summary    : A log file analysis program
+URL        : http://www.logwatch.org/
+License    : MIT
+Description: Logwatch is a customizable, pluggable log-monitoring system.  It
+           : will go through your logs for a given period of time and make a
+           : report in the areas that you wish with the detail that you wish.
+           : Easy to use - works right out of the package on many systems.
+

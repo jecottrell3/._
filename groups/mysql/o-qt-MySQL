@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : qt-MySQL
+Arch       : i386
+Epoch      : 1
+Version    : 3.3.6
+Release    : 23.el5
+Size       : 55 k
+Repo       : base
+Summary    : MySQL drivers for Qt's SQL classes.
+URL        : http://www.troll.no
+License    : GPL/QPL
+Description: MySQL driver for Qt's SQL classes (QSQL)
+

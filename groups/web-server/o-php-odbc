@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : php-odbc
+Arch       : i386
+Version    : 5.1.6
+Release    : 24.el5_4.5
+Size       : 83 k
+Repo       : installed
+Summary    : A module for PHP applications that use ODBC databases.
+URL        : http://www.php.net/
+License    : The PHP License v3.01
+Description: The php-odbc package contains a dynamic shared object that will add
+           : database support through ODBC to PHP. ODBC is an open specification
+           : which provides a consistent API for developers to use for accessing
+           : data sources (which are often, but not always, databases). PHP is
+           : an HTML-embeddable scripting language. If you need ODBC support for
+           : PHP applications, you will need to install this package and the php
+           : package.
+

@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : vnc
+Arch       : i386
+Version    : 4.1.2
+Release    : 14.el5_3.1
+Size       : 346 k
+Repo       : installed
+Summary    : A remote display system.
+URL        : http://www.realvnc.com
+License    : GPL
+Description: Virtual Network Computing (VNC) is a remote display system which
+           : allows you to view a computing 'desktop' environment not only on
+           : the machine where it is running, but from anywhere on the Internet
+           : and from a wide variety of machine architectures.  This package
+           : contains a client which will allow you to connect to other desktops
+           : running a VNC server.
+

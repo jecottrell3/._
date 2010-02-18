@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : smartmontools
+Arch       : i386
+Epoch      : 1
+Version    : 5.38
+Release    : 2.el5
+Size       : 739 k
+Repo       : installed
+Summary    : Tools for monitoring SMART capable hard disks
+URL        : http://smartmontools.sourceforge.net/
+License    : GPL
+Description: The smartmontools package contains two utility programs (smartctl
+           : and smartd) to control and monitor storage systems using the Self-
+           : Monitoring, Analysis and Reporting Technology System (SMART) built
+           : into most modern ATA and SCSI hard disks. In many cases, these
+           : utilities will provide advanced warning of disk degradation and
+           : failure.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : infiniband-diags
+Arch       : i386
+Version    : 1.4.4
+Release    : 1.el5
+Size       : 174 k
+Repo       : base
+Summary    : OpenFabrics Alliance InfiniBand Diagnostic Tools
+URL        : http://openfabrics.org/
+License    : GPL/BSD
+Description: This package provides IB diagnostic programs and scripts needed to
+           : diagnose an IB subnet.
+

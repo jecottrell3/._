@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : system-config-services
+Arch       : noarch
+Version    : 0.9.4
+Release    : 1.el5
+Size       : 569 k
+Repo       : installed
+Summary    : system-config-services is an initscript and xinetd configuration
+           : utility
+URL        : http://www.redhat.com/
+License    : GPL
+Description: system-config-services is a utility which allows you to configure
+           : which services should be enabled on your machine.
+

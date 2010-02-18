@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : bluez-hcidump
+Arch       : i386
+Version    : 1.32
+Release    : 1
+Size       : 242 k
+Repo       : installed
+Summary    : Bluetooth HCI protocol analyser
+URL        : http://www.bluez.org/
+License    : GPL
+Description: Protocol analyser for Bluetooth traffic.
+           : 
+           : The BLUETOOTH trademarks are owned by Bluetooth SIG, Inc., U.S.A.
+

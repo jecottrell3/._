@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : icon-naming-utils
+Arch       : noarch
+Version    : 0.8.1
+Release    : 1.fc6
+Size       : 9.8 k
+Repo       : base
+Summary    : A script to handle icon names in desktop icon themes
+URL        : http://tango-project.org/Standard_Icon_Naming_Specification
+License    : GPL
+Description: A script for creating a symlink mapping for deprecated icon names
+           : to the new Icon Naming Specification names, for desktop icon
+           : themes.
+

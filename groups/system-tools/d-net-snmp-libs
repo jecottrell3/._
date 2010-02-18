@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : net-snmp-libs
+Arch       : i386
+Epoch      : 1
+Version    : 5.3.2.2
+Release    : 7.el5_4.2
+Size       : 3.2 M
+Repo       : installed
+Summary    : The NET-SNMP runtime libraries.
+URL        : http://net-snmp.sourceforge.net/
+License    : BSDish
+Description: The net-snmp-libs package contains the runtime libraries for shared
+           : binaries and applications.
+

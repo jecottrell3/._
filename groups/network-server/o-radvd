@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : radvd
+Arch       : i386
+Version    : 0.9.1
+Release    : 4
+Size       : 63 k
+Repo       : base
+Summary    : A Router Advertisement daemon
+License    : BSD-style
+Description: radvd is the router advertisement daemon for IPv6.  It listens to
+           : router solicitations and sends router advertisements as described
+           : in "Neighbor Discovery for IP Version 6 (IPv6)" (RFC 2461).  With
+           : these advertisements hosts can automatically configure their
+           : addresses and some other parameters.  They also can choose a
+           : default router based on these advertisements.
+           : 
+           : Install radvd if you are setting up IPv6 network and/or Mobile IPv6
+           : services.
+

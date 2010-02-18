@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : eruby
+Arch       : i386
+Version    : 1.0.5
+Release    : 6.1
+Size       : 43 k
+Repo       : installed
+Summary    : An interpreter of embedded Ruby language
+URL        : http://www.modruby.net/
+License    : distributable
+Description: eRuby interprets a Ruby code embedded text file. For example, eRuby
+           : enables you to embed a Ruby code to a HTML file.
+

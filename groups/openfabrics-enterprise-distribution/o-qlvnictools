@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : qlvnictools
+Arch       : i386
+Version    : 0.0.1
+Release    : 11.el5
+Size       : 34 k
+Repo       : base
+Summary    : VNIC ULP service
+URL        : http://www.openfabrics.org
+License    : GPLv2
+Description: VNIC ULP service
+

@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : nss_ldap
+Arch       : i386
+Version    : 253
+Release    : 22.el5_4
+Size       : 3.3 M
+Repo       : installed
+Summary    : NSS library and PAM module for LDAP.
+URL        : http://www.padl.com/
+License    : LGPL
+Description: This package includes two LDAP access clients: nss_ldap and
+           : pam_ldap. Nss_ldap is a set of C library extensions that allow
+           : X.500 and LDAP directory servers to be used as a primary source of
+           : aliases, ethers, groups, hosts, networks, protocol, users, RPCs,
+           : services, and shadow passwords (instead of or in addition to using
+           : flat files or NIS).
+           : 
+           : Pam_ldap is a module for Linux-PAM that supports password changes,
+           : V2 clients, Netscape's SSL, ypldapd, Netscape Directory Server
+           : password policies, access authorization, and crypted hashes.
+

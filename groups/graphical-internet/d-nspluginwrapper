@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : nspluginwrapper
+Arch       : i386
+Version    : 0.9.91.5
+Release    : 22.el5
+Size       : 302 k
+Repo       : installed
+Summary    : A compatibility layer for Netscape 4 plugins
+URL        : http://gwenole.beauchesne.info/projects/nspluginwrapper/
+License    : GPL
+Description: nspluginwrapper makes it possible to use Netscape 4 compatible
+           : plugins compiled for i386 into Mozilla for another architecture,
+           : e.g. x86_64.
+           : 
+           : This package consists in:
+           :   * npviewer: the plugin viewer
+           :   * npwrapper.so: the browser-side plugin
+           :   * mozilla-plugin-config: a tool to manage plugins installation
+           :     and update
+

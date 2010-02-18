@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : compat-libgcc-296
+Arch       : i386
+Version    : 2.96
+Release    : 138
+Size       : 51 k
+Repo       : base
+Summary    : Compatibility 2.96-RH libgcc library
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: The compat-libgcc-296 package contains 2.96-RH libgcc.a library and
+           : support object files.
+

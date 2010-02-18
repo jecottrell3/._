@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : mysql-bench
+Arch       : i386
+Version    : 5.0.77
+Release    : 4.el5_4.1
+Size       : 2.6 M
+Repo       : installed
+Summary    : MySQL benchmark scripts and data
+URL        : http://www.mysql.com
+License    : GPLv2 with exceptions
+Description: MySQL is a multi-user, multi-threaded SQL database server. This
+           : package contains benchmark scripts and data for use when
+           : benchmarking MySQL.
+

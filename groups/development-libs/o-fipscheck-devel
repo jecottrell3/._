@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : fipscheck-devel
+Arch       : i386
+Version    : 1.2.0
+Release    : 1.el5
+Size       : 4.4 k
+Repo       : base
+Summary    : Development files for fipscheck
+URL        : http://people.redhat.com/tmraz/fipscheck
+License    : BSD
+Description: This package contains development files for fipscheck.
+

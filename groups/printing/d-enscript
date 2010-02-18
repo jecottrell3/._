@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : enscript
+Arch       : i386
+Version    : 1.6.4
+Release    : 4.1.1.el5_2
+Size       : 1.7 M
+Repo       : installed
+Summary    : A plain ASCII to PostScript converter.
+URL        : http://www.codento.com/people/mtr/genscript/
+License    : GPL
+Description: GNU enscript is a free replacement for Adobe's Enscript
+           : program. Enscript converts ASCII files to PostScript(TM) and spools
+           : generated PostScript output to the specified printer or saves it to
+           : a file. Enscript can be extended to handle different output media
+           : and includes many options for customizing printouts.
+

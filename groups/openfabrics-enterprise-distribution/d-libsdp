@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libsdp
+Arch       : i386
+Epoch      : 1
+Version    : 1.1.99
+Release    : 11.el5
+Size       : 40 k
+Repo       : base
+Summary    : A library for direct userspace use of Sockets Direct Protocol
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: libsdp is an LD_PRELOAD-able library that can be used to have
+           : existing applications use InfiniBand Sockets Direct Protocol (SDP)
+           : instead of TCP sockets, transparently and without recompilation.
+           : For information on how to configure libsdp, see libsdp.conf, which
+           : is installed in $(sysconfdir) (usually /usr/local/etc or /etc).
+

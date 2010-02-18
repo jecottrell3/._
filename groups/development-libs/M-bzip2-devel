@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : bzip2-devel
+Arch       : i386
+Version    : 1.0.3
+Release    : 4.el5_2
+Size       : 38 k
+Repo       : base
+Summary    : Header files and libraries for developing apps which will use
+           : bzip2.
+URL        : http://sources.redhat.com/bzip2/
+License    : BSD
+Description: 
+           : Header files and a static library of bzip2 functions, for
+           : developing apps which will use the library.
+

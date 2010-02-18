@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : compat-gcc-34-g77
+Arch       : i386
+Version    : 3.4.6
+Release    : 4
+Size       : 2.1 M
+Repo       : base
+Summary    : Fortran 77 support for compatibility compiler
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: The compat-gcc-34-g77 package provides support for compiling
+           : Fortran 77 programs with the GNU Compiler Collection.
+

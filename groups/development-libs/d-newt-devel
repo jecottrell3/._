@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : newt-devel
+Arch       : i386
+Version    : 0.52.2
+Release    : 12.el5_4.1
+Size       : 75 k
+Repo       : updates
+Summary    : Newt windowing toolkit development files.
+License    : LGPL
+Description: The newt-devel package contains the header files and libraries
+           : necessary for developing applications which use newt.  Newt is a
+           : development library for text mode user interfaces.  Newt is based
+           : on the slang library.
+           : 
+           : Install newt-devel if you want to develop applications which will
+           : use newt.
+

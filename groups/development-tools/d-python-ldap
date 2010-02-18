@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : python-ldap
+Arch       : i386
+Version    : 2.2.0
+Release    : 2.1
+Size       : 497 k
+Repo       : installed
+Summary    : An object-oriented API to access LDAP directory servers.
+URL        : http://python-ldap.sourceforge.net/
+License    : PSF - see LICENCE
+Description: python-ldap provides an object-oriented API for working with LDAP
+           : within Python programs.  It allows access to LDAP directory servers
+           : by wrapping the OpenLDAP 2.x libraries, and contains modules for
+           : other LDAP-related tasks (including processing LDIF, LDAPURLs,
+           : LDAPv3 schema, etc.).
+

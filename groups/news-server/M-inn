@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : inn
+Arch       : i386
+Version    : 2.4.3
+Release    : 8.el5
+Size       : 3.2 M
+Repo       : base
+Summary    : The InterNetNews (INN) system, an Usenet news server.
+License    : GPL
+Description: INN (InterNetNews) is a complete system for serving Usenet news
+           : and/or private newsfeeds.  INN includes innd, an NNTP (NetNews
+           : Transport Protocol) server, and nnrpd, a newsreader that is spawned
+           : for each client.  Both innd and nnrpd vary slightly from the NNTP
+           : protocol, but not in ways that are easily noticed.
+           : 
+           : Install the inn package if you need a complete system for serving
+           : and reading Usenet news.  You may also need to install inn-devel,
+           : if you are going to use a separate program which interfaces to INN,
+           : like newsgate or tin.
+

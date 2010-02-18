@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : fortune-mod
+Arch       : i386
+Version    : 1.99.1
+Release    : 7.el5.centos
+Size       : 1.2 M
+Repo       : extras
+Summary    : A program which will display a fortune
+URL        : http://www.redellipse.net/code/fortune
+License    : BSD
+Description: Fortune-mod contains the ever-popular fortune program, which will
+           : display quotes or witticisms. Fun-loving system administrators can
+           : add fortune to users' .login files, so that the users get their
+           : dose of wisdom each time they log in.
+

@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : units
+Arch       : i386
+Version    : 1.85
+Release    : 1.2.2
+Size       : 262 k
+Repo       : installed
+Summary    : A utility for converting amounts from one unit to another.
+License    : GPL
+Description: Units converts an amount from one unit to another, or tells you
+           : what mathematical operation you need to perform to convert from one
+           : unit to another. The units program can handle multiplicative scale
+           : changes as well as conversions such as Fahrenheit to Celsius.
+

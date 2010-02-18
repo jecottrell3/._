@@ -1,0 +1,25 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : ImageMagick
+Arch       : i386
+Version    : 6.2.8.0
+Release    : 4.el5_1.1
+Size       : 11 M
+Repo       : installed
+Summary    : An X application for displaying and manipulating images.
+URL        : http://www.imagemagick.org/
+License    : freeware
+Description: ImageMagick(TM) is an image display and manipulation tool for the X
+           : Window System. ImageMagick can read and write JPEG, TIFF, PNM, GIF,
+           : and Photo CD image formats. It can resize, rotate, sharpen, color
+           : reduce, or add special effects to an image, and when finished you
+           : can either save the completed work in the original format or a
+           : different one. ImageMagick also includes command line programs for
+           : creating animated or transparent .gifs, creating composite images,
+           : creating thumbnail images, and more.
+           : 
+           : ImageMagick is one of your choices if you need a program to
+           : manipulate and dis play images. If you want to develop your own
+           : applications which use ImageMagick code or APIs, you need to
+           : install ImageMagick-devel as well.
+

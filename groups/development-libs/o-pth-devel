@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : pth-devel
+Arch       : i386
+Version    : 2.0.7
+Release    : 6.el5
+Size       : 55 k
+Repo       : base
+Summary    : Development headers and libraries for GNU Pth
+URL        : http://www.gnu.org/software/pth/
+License    : LGPLv2+
+Description: Development headers and libraries for GNU Pth.
+

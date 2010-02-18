@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : libtool
+Arch       : i386
+Version    : 1.5.22
+Release    : 7.el5_4
+Size       : 2.4 M
+Repo       : installed
+Summary    : The GNU Portable Library Tool
+URL        : http://www.gnu.org/software/libtool/
+License    : GPL
+Description: GNU Libtool is a set of shell scripts which automatically configure
+           : UNIX and UNIX-like systems to generically build shared libraries.
+           : Libtool provides a consistent, portable interface which simplifies
+           : the process of using shared libraries.
+           : 
+           : If you are developing programs which will use shared libraries, but
+           : do not use the rest of the GNU Autotools (such as GNU Autoconf and
+           : GNU Automake), you should install the libtool package.
+           : 
+           : The libtool package also includes all files needed to integrate the
+           : GNU Portable Library Tool (libtool) and the GNU Libtool Dynamic
+           : Module Loader (ltdl) into a package built using the GNU Autotools
+           : (including GNU Autoconf and GNU Automake).
+           : 
+           : This package includes a modification from the original GNU Libtool
+           : to allow support for multi-architecture systems, such as the AMD64
+           : Opteron and the Intel 64-bit Xeon.
+

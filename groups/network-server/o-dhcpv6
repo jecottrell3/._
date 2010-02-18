@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : dhcpv6
+Arch       : i386
+Version    : 1.0.10
+Release    : 17.el5
+Size       : 558 k
+Repo       : installed
+Summary    : DHCPv6 - DHCP server and client for IPv6
+URL        : http://fedorahosted.org/dhcpv6/
+License    : LGPLv2+
+Description: Implements the Dynamic Host Configuration Protocol (DHCP) for
+           : Internet Protocol version 6 (IPv6) networks in accordance with RFC
+           : 3315: Dynamic Host Configuration Protocol for IPv6 (DHCPv6).
+           : Consists of dhcp6s(8), the server DHCP daemon, and dhcp6r(8), the
+           : DHCPv6 relay agent.
+           : 
+           : Install this package if you want to support dynamic configuration
+           : of IPv6 addresses and parameters on your IPv6 network.
+

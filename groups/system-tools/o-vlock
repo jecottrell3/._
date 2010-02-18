@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : vlock
+Arch       : i386
+Version    : 1.3
+Release    : 23
+Size       : 11 k
+Repo       : installed
+Summary    : A program which locks one or more virtual consoles.
+License    : GPL
+Description: The vlock program locks one or more sessions on the console.  Vlock
+           : can lock the current terminal (local or remote) or the entire
+           : virtual console system, which completely disables all console
+           : access.  The vlock program unlocks when either the password of the
+           : user who started vlock or the root password is typed.
+           : 
+           : Install vlock if you need to disable access to one console or to
+           : all virtual consoles.
+

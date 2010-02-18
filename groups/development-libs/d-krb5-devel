@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : krb5-devel
+Arch       : i386
+Version    : 1.6.1
+Release    : 36.el5_4.1
+Size       : 1.8 M
+Repo       : updates
+Summary    : Development files needed to compile Kerberos 5 programs.
+URL        : http://web.mit.edu/kerberos/www/
+License    : MIT, freely distributable.
+Description: Kerberos is a network authentication system. The krb5-devel package
+           : contains the header files and libraries needed for compiling
+           : Kerberos 5 programs. If you want to develop Kerberos-aware
+           : programs, you need to install this package.
+

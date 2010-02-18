@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libjpeg-devel
+Arch       : i386
+Version    : 6b
+Release    : 37
+Size       : 105 k
+Repo       : base
+Summary    : Development tools for programs which will use the libjpeg library.
+URL        : http://www.ijg.org/
+License    : distributable
+Description: The libjpeg-devel package includes the header files and static
+           : libraries necessary for developing programs which will manipulate
+           : JPEG files using the libjpeg library.
+           : 
+           : If you are going to develop programs which will manipulate JPEG
+           : images, you should install libjpeg-devel.  You'll also need to have
+           : the libjpeg package installed.
+

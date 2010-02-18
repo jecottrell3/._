@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : dev86
+Arch       : i386
+Version    : 0.16.17
+Release    : 2.2
+Size       : 836 k
+Repo       : installed
+Summary    : A real mode 80x86 assembler and linker.
+License    : GPL
+Description: The dev86 package provides an assembler and linker for real mode
+           : 80x86 instructions. You'll need to have this package installed in
+           : order to build programs that run in real mode, including LILO and
+           : the kernel's bootstrapping code, from their sources.
+           : 
+           : You should install dev86 if you intend to build programs that run
+           : in real mode from their source code.
+

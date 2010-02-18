@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : lynx
+Arch       : i386
+Version    : 2.8.5
+Release    : 28.1.el5_2.1
+Size       : 4.4 M
+Repo       : installed
+Summary    : A text-based Web browser.
+URL        : http://lynx.isc.org/
+License    : GPL
+Description: Lynx is a text-based Web browser. Lynx does not display any images,
+           : but it does support frames, tables, and most other HTML tags. One
+           : advantage Lynx has over graphical browsers is speed; Lynx starts
+           : and exits quickly and swiftly displays webpages.
+

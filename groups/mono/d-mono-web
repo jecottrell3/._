@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : mono-web
+Arch       : i386
+Version    : 1.2.4
+Release    : 2.el5.centos
+Size       : 2.6 M
+Repo       : extras
+Summary    : ASP.NET, Remoting, and Web Services for Mono
+URL        : http://www.mono-project.com/
+License    : GPL, LGPL, MIT X11
+Description: This package provides the ASP.NET libraries and runtime for
+           : development of web application, web services and remoting support.
+

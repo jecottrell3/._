@@ -1,0 +1,33 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : mousepad
+Arch       : i386
+Version    : 0.2.13
+Release    : 1.el5.centos
+Size       : 105 k
+Repo       : extras
+Summary    : Mousepad - A simple text editor for Xfce
+URL        : http://xfce.org/
+License    : GPLv2+
+Description: Mousepad is a text editor for Xfce based on Leafpad. The initial
+           : reason for Mousepad was to provide printing support, which would
+           : have been difficult for Leafpad for various reasons.
+           : 
+           : Although some features are under development, currently Mousepad
+           : has following features:
+           : 
+           :     * Complete support for UTF-8 text
+           :     * Cut/Copy/Paste and Select All text
+           :     * Search and Replace
+           :     * Font selecton
+           :     * Word Wrap
+           :     * Character coding selection
+           :     * Auto character coding detection (UTF-8 and some codesets)
+           :     * Manual codeset setting
+           :     * Infinite Undo/Redo by word
+           :     * Auto Indent
+           :     * Multi-line Indent
+           :     * Display line numbers
+           :     * Drag and Drop
+           :     * Printing
+

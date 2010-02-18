@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : microcode_ctl
+Arch       : i386
+Epoch      : 1
+Version    : 1.17
+Release    : 1.48.el5
+Size       : 1.2 M
+Repo       : installed
+Summary    : Tool to update x86/x86-64 CPU microcode.
+URL        : http://www.urbanmyth.org/microcode/
+License    : GPL
+Description: microcode_ctl - updates the microcode on Intel x86/x86-64 CPU's
+

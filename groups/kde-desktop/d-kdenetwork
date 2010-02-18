@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : kdenetwork
+Arch       : i386
+Epoch      : 7
+Version    : 3.5.4
+Release    : 9.el5
+Size       : 27 M
+Repo       : installed
+Summary    : K Desktop Environment - Network Applications
+URL        : http://www.kde.org
+License    : GPL
+Description: Networking applications for the K Desktop Environment.
+

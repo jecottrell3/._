@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : finger
+Arch       : i386
+Version    : 0.17
+Release    : 32.2.1.1
+Size       : 25 k
+Repo       : installed
+Summary    : The finger client.
+License    : BSD
+Description: Finger is a utility which allows users to see information about
+           : system users (login name, home directory, name, how long they've
+           : been logged in to the system, etc.).  The finger package includes a
+           : standard finger client.
+           : 
+           : You should install finger if you'd like to retrieve finger
+           : information from other systems.
+

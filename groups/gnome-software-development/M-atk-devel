@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : atk-devel
+Arch       : i386
+Version    : 1.12.2
+Release    : 1.fc6
+Size       : 126 k
+Repo       : base
+Summary    : System for layout and rendering of internationalized text.
+URL        : http://developer.gnome.org/projects/gap/
+License    : LGPL
+Description: The atk-devel package includes the static libraries, header files,
+           : and developer docs for the atk package.
+           : 
+           : Install atk-devel if you want to develop programs which will use
+           : ATK.
+

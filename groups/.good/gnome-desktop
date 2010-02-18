@@ -1,0 +1,13 @@
+@gnome-desktop
+-at-spi
+-dasher
+-esc
+-gnome-bluetooth
+-gnome-pilot
+-gnome-pilot-conduits
+-gnopernicus
+-im-chooser
+-orca
+compiz
+gconf-editor
+gnome-keyring-manager

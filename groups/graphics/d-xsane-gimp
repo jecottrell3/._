@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xsane-gimp
+Arch       : i386
+Version    : 0.991
+Release    : 5.el5
+Size       : 243 k
+Repo       : base
+Summary    : A GIMP plug-in which provides the SANE scanner interface.
+URL        : http://www.xsane.org/
+License    : GPL
+Description: This package provides the regular XSane frontend for the SANE
+           : scanner interface, but it works as a GIMP plug-in. You must have
+           : GIMP installed to use this package.
+

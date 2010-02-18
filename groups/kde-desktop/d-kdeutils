@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : kdeutils
+Arch       : i386
+Epoch      : 6
+Version    : 3.5.4
+Release    : 5.fc6
+Size       : 9.3 M
+Repo       : installed
+Summary    : K Desktop Environment - Utilities
+URL        : http://www.kde.org
+License    : GPL
+Description: Utilities for the K Desktop Environment.
+           : Includes: ark (tar/gzip archive manager); kcalc (scientific
+           : calculator); kcharselect (character selector); kdepasswd (change
+           : password); kdessh (ssh front end); kdf (view disk usage); kedit
+           : (simple text editor); kfloppy (floppy formatting tool); khexedit
+           : (hex editor); kjots (note taker); klaptopdaemon (battery monitoring
+           : and management for laptops); ksim (system information monitor);
+           : ktimer (task scheduler); kwikdisk (removable media utility)
+

@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : linuxwacom
+Arch       : i386
+Version    : 0.7.8.3
+Release    : 6.el5
+Size       : 553 k
+Repo       : installed
+Summary    : Wacom Drivers from Linux Wacom Project
+URL        : http://linuxwacom.sourceforge.net
+License    : GPL/X11
+Description: The Linux Wacom Project manages the drivers, libraries, and
+           : documentation for configuring and running Wacom tablets under the
+           : Linux operating system. It contains diagnostic applications as well
+           : as X.org XInput drivers.
+

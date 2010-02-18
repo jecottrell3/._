@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : compat-glibc
+Arch       : i386
+Epoch      : 1
+Version    : 2.3.4
+Release    : 2.26
+Size       : 1.0 M
+Repo       : base
+Summary    : Compatibility C library
+License    : LGPL
+Description: This package contains stub shared libraries and static libraries
+           : from Red Hat Enterprise Linux 4.
+           : To compile and link against these compatibility libraries, use
+           : gcc34 -I /usr/lib/i386-redhat-linux4E/include \
+           :       -B /usr/lib/i386-redhat-linux4E/lib/
+

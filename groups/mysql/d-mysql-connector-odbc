@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : mysql-connector-odbc
+Arch       : i386
+Version    : 3.51.26r1127
+Release    : 1.el5
+Size       : 419 k
+Repo       : installed
+Summary    : ODBC driver for MySQL
+URL        : http://www.mysql.com/downloads/api-myodbc.html
+License    : GPLv2 with exceptions
+Description: An ODBC (rev 3) driver for MySQL, for use with unixODBC.
+

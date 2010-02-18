@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : cscope
+Arch       : i386
+Version    : 15.5
+Release    : 15.1.el5_3.1
+Size       : 435 k
+Repo       : installed
+Summary    : C source code tree search and browse tool
+URL        : http://cscope.sourceforge.net
+License    : BSD
+Description: cscope is a mature, ncurses based, C source code tree browsing
+           : tool.  It allows users to search large source code bases for
+           : variables, functions, macros, etc, as well as perform general regex
+           : and plain text searches. Results are returned in lists, from which
+           : the user can select individual matches for use in file editing.
+

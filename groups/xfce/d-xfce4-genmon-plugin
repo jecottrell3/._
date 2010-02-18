@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfce4-genmon-plugin
+Arch       : i386
+Version    : 3.1
+Release    : 1.el5.centos
+Size       : 29 k
+Repo       : extras
+Summary    : Generic monitor plugin for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
+License    : LGPL
+Description: The GenMon plugin cyclically spawns the indicated script/program,
+           : captures its output and displays it as a string into the panel.
+

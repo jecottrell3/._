@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : words
+Arch       : noarch
+Version    : 3.0
+Release    : 9.1
+Size       : 4.7 M
+Repo       : installed
+Summary    : A dictionary of English words for the /usr/share/dict directory.
+URL        : http://www.dcs.shef.ac.uk/research/ilash/Moby/
+License    : public domain
+Description: The words file is a dictionary of English words for the
+           : /usr/share/dict directory. Some programs use this database of
+           : words to check spelling. Password checkers use it to look for bad
+           : passwords.
+

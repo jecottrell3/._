@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : rdate
+Arch       : i386
+Version    : 1.4
+Release    : 8.el5
+Size       : 7.9 k
+Repo       : installed
+Summary    : Tool for getting the date/time from a remote machine.
+License    : GPL
+Description: The rdate utility retrieves the date and time from another machine
+           : on your network, using the protocol described in RFC 868. If you
+           : run rdate as root, it will set your machine's local time to the
+           : time of the machine that you queried.
+

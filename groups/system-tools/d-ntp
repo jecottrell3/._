@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : ntp
+Arch       : i386
+Version    : 4.2.2p1
+Release    : 9.el5.centos.2.1
+Size       : 2.4 M
+Repo       : installed
+Summary    : Synchronizes system time using the Network Time Protocol (NTP).
+URL        : http://www.ntp.org
+License    : distributable
+Description: The Network Time Protocol (NTP) is used to synchronize a computer's
+           : time with another reference time source. The ntp package contains
+           : utilities and daemons that will synchronize your computer's time to
+           : Coordinated Universal Time (UTC) via the NTP protocol and NTP
+           : servers. The ntp package includes ntpdate (a program for retrieving
+           : the date and time from remote machines via a network) and ntpd (a
+           : daemon which continuously adjusts system time).
+           : 
+           : Install the ntp package if you need tools for keeping your system's
+           : time synchronized via the NTP protocol.
+

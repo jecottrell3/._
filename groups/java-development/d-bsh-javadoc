@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : bsh-javadoc
+Arch       : i386
+Version    : 1.3.0
+Release    : 9jpp.1
+Size       : 175 k
+Repo       : base
+Summary    : Javadoc for bsh
+URL        : http://www.beanshell.org/
+License    : LGPL
+Description: Javadoc for bsh.
+

@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : squashfs-tools
+Arch       : i386
+Version    : 3.0
+Release    : 4
+Size       : 157 k
+Repo       : installed
+Summary    : squashfs utilities
+URL        : http://squashfs.sf.net
+License    : GPL
+Description: Squashfs is a highly compressed read-only filesystem for Linux.
+           : This package contains the utilities for manipulating squashfs
+           : filesystems.
+

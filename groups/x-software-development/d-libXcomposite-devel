@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libXcomposite-devel
+Arch       : i386
+Version    : 0.3
+Release    : 5.1
+Size       : 7.0 k
+Repo       : base
+Summary    : X.Org X11 libXcomposite development package
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 libXcomposite development package
+

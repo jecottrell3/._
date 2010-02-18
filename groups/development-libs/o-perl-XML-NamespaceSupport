@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : perl-XML-NamespaceSupport
+Arch       : noarch
+Version    : 1.09
+Release    : 1.2.1
+Size       : 15 k
+Repo       : base
+Summary    : XML-NamespaceSupport Perl module
+URL        : http://search.cpan.org/dist/XML-NamespaceSupport/
+License    : GPL or Artistic
+Description: XML-NamespaceSupport Perl module.
+

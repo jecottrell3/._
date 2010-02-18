@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : mtx
+Arch       : i386
+Version    : 1.2.18
+Release    : 8.2.2
+Size       : 94 k
+Repo       : base
+Summary    : A SCSI media changer control program.
+License    : GPL
+Description: The MTX program controls the robotic mechanism in autoloaders and
+           : tape libraries such as the HP SureStore DAT 40x6, Exabyte EZ-17,
+           : and Exabyte 220. This program is also reported to work with a
+           : variety of other tape libraries and autochangers from ADIC,
+           : Tandberg/Overland, Breece Hill, HP, and Seagate.
+           : 
+           : If you have a backup tape device capable of handling more than one
+           : tape at a time, you should install MTX.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : compat-libstdc++-33
+Arch       : i386
+Version    : 3.2.3
+Release    : 61
+Size       : 232 k
+Repo       : base
+Summary    : Compatibility standard C++ libraries
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: The compat-libstdc++ package contains compatibility standard C++
+           : library from GCC 3.3.4.
+

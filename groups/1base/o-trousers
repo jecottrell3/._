@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : trousers
+Arch       : i386
+Version    : 0.3.1
+Release    : 4.el5
+Size       : 793 k
+Repo       : installed
+Summary    : TCG's Software Stack v1.2
+URL        : http://trousers.sourceforge.net
+License    : CPL
+Description: TrouSerS is an implementation of the Trusted Computing Group's
+           : Software Stack (TSS) specification. You can use TrouSerS to write
+           : applications that make use of your TPM hardware. TPM hardware can
+           : create, store and use RSA keys securely (without ever being exposed
+           : in memory), verify a platform's software state using cryptographic
+           : hashes and more.
+

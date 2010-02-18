@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : mysql
+Arch       : i386
+Version    : 5.0.77
+Release    : 4.el5_4.1
+Size       : 7.9 M
+Repo       : installed
+Summary    : MySQL client programs and shared libraries
+URL        : http://www.mysql.com
+License    : GPLv2 with exceptions
+Description: MySQL is a multi-user, multi-threaded SQL database server. MySQL is
+           : a client/server implementation consisting of a server daemon
+           : (mysqld) and many different client programs and libraries. The base
+           : package contains the MySQL client programs, the client shared
+           : libraries, and generic MySQL files.
+

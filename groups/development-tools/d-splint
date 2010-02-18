@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : splint
+Arch       : i386
+Version    : 3.1.1
+Release    : 16.el5
+Size       : 3.2 M
+Repo       : installed
+Summary    : An implementation of the lint program
+URL        : http://www.splint.org/
+License    : GPL
+Description: Splint is a tool for statically checking C programs for coding
+           : errors and security vulnerabilities. With minimal effort, Splint
+           : can be used as a better lint. If additional effort is invested
+           : adding annotations to programs, Splint can perform even stronger
+           : checks than can be done by any standard lint.
+

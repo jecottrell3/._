@@ -1,0 +1,14 @@
+@development-tools
+-automake14
+-automake15
+-automake16
+-automake17
+-gcc-gfortran
+-gcc-gnat
+-gcc-objc
+-gcc44-gfortran
+-gettext
+-imake
+-libgfortran44
+memtest86+
+unifdef

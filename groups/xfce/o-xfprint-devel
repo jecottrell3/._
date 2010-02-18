@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfprint-devel
+Arch       : i386
+Version    : 4.4.2
+Release    : 1.el5.centos
+Size       : 7.3 k
+Repo       : extras
+Summary    : Development tools for the Xfce xfprint manager
+URL        : http://www.xfce.org
+License    : GPLv2+
+Description: Static libraries and header files for the Xfce xfprint library.
+

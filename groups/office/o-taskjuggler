@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : taskjuggler
+Arch       : i386
+Version    : 2.2.0
+Release    : 3
+Size       : 836 k
+Repo       : base
+Summary    : Project management tool
+URL        : http://www.taskjuggler.org
+License    : GPL
+Description: TaskJuggler is a modern and powerful project management tool. Its
+           : new approach to project planning and tracking is far superior to
+           : the commonly used Gantt chart editing tools. It has already been
+           : successfully used in many projects and scales easily to projects
+           : with hundreds of resources and thousands of tasks. It covers the
+           : complete spectrum of project management tasks from the first idea
+           : to the completion of the project. It assists you during project
+           : scoping, resource assignment, cost and revenue planning, and risk
+           : and communication management.
+

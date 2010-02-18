@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : librdmacm-utils
+Arch       : i386
+Version    : 1.0.8
+Release    : 5.el5
+Size       : 27 k
+Repo       : base
+Summary    : Examples for the librdmacm library
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: Example test programs for the librdmacm library.
+

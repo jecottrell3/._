@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : statserial
+Arch       : i386
+Version    : 1.1
+Release    : 38.2.2
+Size       : 9.4 k
+Repo       : base
+Summary    : A tool which displays the status of serial port modem lines.
+License    : BSD
+Description: The statserial utility displays a table of the signals on a
+           : standard 9-pin or 25-pin serial port and indicates the status of
+           : the handshaking lines.  Statserial is useful for debugging serial
+           : port and/or modem problems.
+

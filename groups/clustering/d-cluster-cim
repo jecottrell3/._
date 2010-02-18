@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : cluster-cim
+Arch       : i386
+Version    : 0.12.1
+Release    : 2.el5.centos
+Size       : 146 k
+Repo       : base
+Summary    : CentOS Linux Cluster Suite - CIM provider
+URL        : http://sources.redhat.com/cluster/conga
+License    : GPLv2
+Description: CIM provider for CentOS Linux Cluster Suite.
+

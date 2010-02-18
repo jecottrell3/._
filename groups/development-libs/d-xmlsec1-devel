@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xmlsec1-devel
+Arch       : i386
+Version    : 1.2.9
+Release    : 8.1.1
+Size       : 658 k
+Repo       : updates
+Summary    : Libraries, includes, etc. to develop applications with XML Digital
+           : Signatures and XML Encryption support.
+URL        : http://www.aleksey.com/xmlsec/
+License    : MIT
+Description: Libraries, includes, etc. you can use to develop applications with
+           : XML Digital Signatures and XML Encryption support.
+

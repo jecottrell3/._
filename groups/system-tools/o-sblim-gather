@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : sblim-gather
+Arch       : i386
+Version    : 2.1.2
+Release    : 35.el5
+Size       : 160 k
+Repo       : base
+Summary    : SBLIM Gatherer
+URL        : http://www.sblim.org
+License    : IBM Common Public License (CPL)
+Description: Standards Based Linux Instrumentation for Manageability
+           : Performance Data Gatherer Base.
+           : This package contains the agents and control programs for gathering
+           : and providing performance data.
+

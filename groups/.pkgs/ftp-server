@@ -1,0 +1,3 @@
+@ftp-server
+#M	-vsftpd
+#o	xferstats

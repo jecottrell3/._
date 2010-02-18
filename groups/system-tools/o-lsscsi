@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : lsscsi
+Arch       : i386
+Version    : 0.17
+Release    : 3.el5
+Size       : 27 k
+Repo       : base
+Summary    : List SCSI devices (or hosts) and associated information
+URL        : http://www.torque.net/scsi/lsscsi.html
+License    : GPL
+Description: Uses information provided by the sysfs pseudo file system in Linux
+           : kernel 2.6 series to list SCSI devices or all SCSI hosts. Includes
+           : a "classic" option to mimic the output of "cat /proc/scsi/scsi"
+           : that has been widely used prior to the lk 2.6 series.
+           : 
+           : Author:
+           : --------
+           :     Doug Gilbert <dgilbert(at)interlog(dot)com>
+

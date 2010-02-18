@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : gtk-sharp2
+Arch       : i386
+Version    : 2.10.0
+Release    : 6.el5.centos
+Size       : 691 k
+Repo       : extras
+Summary    : GTK+ and GNOME bindings for Mono
+URL        : http://gtk-sharp.sf.net
+License    : LGPL
+Description: This package provides a library that allows you to build
+           : fully native graphical GNOME applications using Mono. Gtk#
+           : is a binding to GTK+, the cross platform user interface
+           : toolkit used in GNOME. It includes bindings for Gtk, Atk,
+           : Pango, Gdk.
+

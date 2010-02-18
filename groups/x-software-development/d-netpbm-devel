@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : netpbm-devel
+Arch       : i386
+Version    : 10.35.58
+Release    : 8.el5
+Size       : 175 k
+Repo       : base
+Summary    : Development tools for programs which will use the netpbm libraries
+URL        : http://netpbm.sourceforge.net/
+License    : BSD and GPLv2 and IJG and MIT and Public Domain
+Description: The netpbm-devel package contains the header files and static
+           : libraries, etc., for developing programs which can handle the
+           : various graphics file formats supported by the netpbm libraries.
+           : 
+           : Install netpbm-devel if you want to develop programs for handling
+           : the graphics file formats supported by the netpbm libraries.
+           : You'll also need to have the netpbm package installed.
+

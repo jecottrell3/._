@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : postgresql-server
+Arch       : i386
+Version    : 8.1.18
+Release    : 2.el5_4.1
+Size       : 9.8 M
+Repo       : installed
+Summary    : The programs needed to create and run a PostgreSQL server.
+URL        : http://www.postgresql.org/
+License    : BSD
+Description: The postgresql-server package includes the programs needed to
+           : create and run a PostgreSQL server, which will in turn allow you to
+           : create and maintain PostgreSQL databases.  PostgreSQL is an
+           : advanced Object-Relational database management system (DBMS) that
+           : supports almost all SQL constructs (including transactions,
+           : subselects and user-defined types and functions). You should
+           : install postgresql-server if you want to create and maintain your
+           : own PostgreSQL databases and/or your own PostgreSQL server. You
+           : also need to install the postgresql package.
+

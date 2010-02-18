@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gnome-system-monitor
+Arch       : i386
+Version    : 2.16.0
+Release    : 3.el5
+Size       : 2.9 M
+Repo       : installed
+Summary    : Simple process monitor
+URL        : http://www.gnome.org/
+License    : GPL
+Description: gnome-system-monitor is a simple process and system monitor.
+

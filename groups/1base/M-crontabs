@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : crontabs
+Arch       : noarch
+Version    : 1.10
+Release    : 8
+Size       : 1.0 k
+Repo       : installed
+Summary    : Root crontab files used to schedule the execution of programs.
+License    : Public Domain
+Description: The crontabs package contains root crontab files.  Crontab is the
+           : program used to install, uninstall or list the tables used to drive
+           : the cron daemon.  The cron daemon checks the crontab files to see
+           : when particular commands are scheduled to be executed.  If commands
+           : are scheduled, it executes them.
+           : 
+           : Crontabs handles a basic system function, so it should be installed
+           : on your system.
+

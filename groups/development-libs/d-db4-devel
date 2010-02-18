@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : db4-devel
+Arch       : i386
+Version    : 4.3.29
+Release    : 10.el5
+Size       : 1.9 M
+Repo       : base
+Summary    : Development files for the Berkeley DB (version 4) library.
+URL        : http://www.sleepycat.com/
+License    : GPL
+Description: The Berkeley Database (Berkeley DB) is a programmatic toolkit that
+           : provides embedded database support for both traditional and
+           : client/server applications. This package contains the header files,
+           : libraries, and documentation for building programs which use the
+           : Berkeley DB.
+

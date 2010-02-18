@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfce4-timer-plugin
+Arch       : i386
+Version    : 0.5.1
+Release    : 1.el5.centos
+Size       : 30 k
+Repo       : extras
+Summary    : Timer for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-timer-plugin
+License    : GPL
+Description: A timer for the Xfce panel. It supports countdown periods and
+           : alarms at certain times.
+

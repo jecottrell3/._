@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : dapl-utils
+Arch       : i386
+Version    : 2.0.19
+Release    : 2.el5
+Size       : 94 k
+Repo       : base
+Summary    : Test suites for dapl libraries
+URL        : http://openfabrics.org/
+License    : Dual GPL/BSD/CPL
+Description: Useful test suites to validate the dapl library API's and
+           : operation.
+

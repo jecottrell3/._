@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : jpilot
+Arch       : i386
+Version    : 0.99.8
+Release    : 7.1
+Size       : 921 k
+Repo       : base
+Summary    : Jpilot pilot desktop software
+URL        : http://jpilot.org
+License    : GPL
+Description: J-Pilot is a desktop organizer application for the palm pilot that
+           : runs under Linux.  It is similar in functionality to the one that
+           : 3com distributes for a well known rampant legacy operating system.
+

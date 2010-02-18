@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : ftp
+Arch       : i386
+Version    : 0.17
+Release    : 35.el5
+Size       : 84 k
+Repo       : installed
+Summary    : The standard UNIX FTP (File Transfer Protocol) client.
+License    : BSD
+Description: The ftp package provides the standard UNIX command-line FTP (File
+           : Transfer Protocol) client.  FTP is a widely used protocol for
+           : transferring files over the Internet and for archiving files.
+           : 
+           : If your system is on a network, you should install ftp in order to
+           : do file transfers.
+

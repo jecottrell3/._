@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libassuan-devel
+Arch       : i386
+Version    : 1.0.4
+Release    : 5.el5
+Size       : 139 k
+Repo       : base
+Summary    : GnuPG IPC library
+URL        : http://www.gnupg.org/
+License    : LGPLv2+ and GPLv3+
+Description: This is the IPC static library used by GnuPG 2, GPGME and a few
+           : other packages.
+           : 
+           : This package contains files needed to develop applications using
+           : libassuan.
+

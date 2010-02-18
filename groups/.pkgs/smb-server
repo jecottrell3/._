@@ -1,0 +1,4 @@
+@smb-server
+#M	-samba
+#M	-samba-client
+#d	-system-config-samba

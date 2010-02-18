@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : xorg-x11-xauth
+Arch       : i386
+Epoch      : 1
+Version    : 1.0.1
+Release    : 2.1
+Size       : 49 k
+Repo       : installed
+Summary    : X.Org X11 X authority utilities
+URL        : http://www.x.org
+License    : MIT/X11
+Description: xauth is used to edit and display the authorization information
+           : used in connecting to an X server.
+

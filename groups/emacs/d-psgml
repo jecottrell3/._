@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : psgml
+Arch       : noarch
+Version    : 1.2.5
+Release    : 4.3
+Size       : 205 k
+Repo       : base
+Summary    : A GNU Emacs major mode for editing SGML documents.
+License    : GPL
+Description: Emacs is an advanced and extensible editor. An Emacs major mode
+           : customizes Emacs for editing particular types of text documents.
+           : PSGML is a major mode for SGML (a markup language) documents.
+           : PSGML provides several functionalities for editing SGML documents:
+           : indentation according to element nesting depth and identification
+           : of structural errors (but it is not a validating SGML parser);
+           : menus and commands for inserting tags with only the contextually
+           : valid tags; attribute values can be edited in a separate window
+           : with information about types and defaults; structure based editing
+           : includes movement and killing; and also several commands for
+           : folding editing.
+

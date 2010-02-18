@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : NetworkManager
+Arch       : i386
+Epoch      : 1
+Version    : 0.7.0
+Release    : 9.el5
+Size       : 3.3 M
+Repo       : installed
+Summary    : Network connection manager and user applications
+URL        : http://www.gnome.org/projects/NetworkManager/
+License    : GPLv2+
+Description: NetworkManager attempts to keep an active network connection
+           : available at all times.  It is intended only for the desktop
+           : use-case, and is not intended for usage on servers.   The point of
+           : NetworkManager is to make networking configuration and setup as
+           : painless and automatic as possible.  If using DHCP, NetworkManager
+           : is intended to replace default routes, obtain IP addresses from a
+           : DHCP server, and change nameservers whenever it sees fit.
+

@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libcap-devel
+Arch       : i386
+Version    : 1.10
+Release    : 26
+Size       : 16 k
+Repo       : base
+Summary    : Development files for libcap
+License    : BSD-like and LGPL
+Description: Development files (Headers, libraries for static linking, etc) for
+           : libcap.
+           : 
+           : libcap is a library for getting and setting POSIX.1e (formerly
+           : POSIX 6) draft 15 capabilities.
+           : 
+           : Install libcap-devel if you want to develop or compile applications
+           : using libcap.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libglade-java
+Arch       : i386
+Version    : 2.12.5
+Release    : 3.fc6
+Size       : 96 k
+Repo       : base
+Summary    : Java bindings for libglade
+URL        : http://java-gnome.sourceforge.net
+License    : LGPL
+Description: libglade-java is a language binding that allows developers to write
+           : Java applications that use libglade.  It is part of Java-GNOME.
+

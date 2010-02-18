@@ -1,0 +1,17 @@
+@sql-server
+#M	-postgresql
+#d	-perl-DBD-Pg
+#d	-postgresql-python
+#d	-postgresql-server
+#d	-rhdb-utils
+#d	-unixODBC
+#o	libdbi-dbd-pgsql
+#o	postgresql-contrib
+#o	postgresql-docs
+#o	postgresql-jdbc
+#o	postgresql-odbc
+#o	postgresql-pl
+#o	postgresql-tcl
+#o	postgresql-test
+#o	qt-ODBC
+#o	unixODBC-kde

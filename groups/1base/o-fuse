@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : fuse
+Arch       : i386
+Version    : 2.7.4
+Release    : 8.el5
+Size       : 83 k
+Repo       : base
+Summary    : File System in Userspace (FUSE) utilities
+URL        : http://fuse.sf.net
+License    : GPL+
+Description: With FUSE it is possible to implement a fully functional filesystem
+           : in a userspace program. This package contains the FUSE userspace
+           : tools to mount a FUSE filesystem.
+

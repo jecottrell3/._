@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libselinux-devel
+Arch       : i386
+Version    : 1.33.4
+Release    : 5.5.el5
+Size       : 143 k
+Repo       : base
+Summary    : Header files and libraries used to build SELinux
+URL        : http://www.nsa.gov/selinux
+License    : Public domain (uncopyrighted)
+Description: The libselinux-devel package contains the static libraries and
+           : header files needed for developing SELinux applications.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : which
+Arch       : i386
+Version    : 2.16
+Release    : 7
+Size       : 31 k
+Repo       : installed
+Summary    : Displays where a particular program in your path is located.
+URL        : http://www.xs4all.nl/~carlo17/which/
+License    : GPL
+Description: The which command shows the full pathname of a specified program,
+           : if the specified program is in your PATH.
+

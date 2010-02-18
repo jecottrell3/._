@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libogg-devel
+Arch       : i386
+Epoch      : 2
+Version    : 1.1.3
+Release    : 3.el5
+Size       : 73 k
+Repo       : base
+Summary    : Files needed for development using libogg.
+URL        : http://www.xiph.org/
+License    : BSD
+Description: Libogg is a library used for manipulating Ogg bitstreams. The
+           : libogg-devel package contains the header files and documentation
+           : needed for development using libogg.
+

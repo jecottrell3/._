@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : SDL-devel
+Arch       : i386
+Version    : 1.2.10
+Release    : 8.el5
+Size       : 643 k
+Repo       : base
+Summary    : Files needed to develop Simple DirectMedia Layer applications.
+URL        : http://www.libsdl.org/
+License    : LGPL
+Description: Simple DirectMedia Layer (SDL) is a cross-platform multimedia
+           : library designed to provide fast access to the graphics frame
+           : buffer and audio device. This package provides the libraries,
+           : include files, and other resources needed for developing SDL
+           : applications.
+

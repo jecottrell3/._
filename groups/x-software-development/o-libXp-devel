@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libXp-devel
+Arch       : i386
+Version    : 1.0.0
+Release    : 8.1.el5
+Size       : 15 k
+Repo       : base
+Summary    : X.Org X11 libXp development package
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 libXp development package
+

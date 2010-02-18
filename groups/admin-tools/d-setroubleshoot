@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : setroubleshoot
+Arch       : noarch
+Version    : 2.0.5
+Release    : 5.el5
+Size       : 314 k
+Repo       : installed
+Summary    : Helps troubleshoot SELinux problems
+URL        : https://fedorahosted.org/setroubleshoot
+License    : GPLv2+
+Description: setroubleshoot gui. Application that allows you to view
+           : setroubleshoot-server messages.
+           : Provides tools to help diagnose SELinux problems. When AVC messages
+           : are generated an alert can be generated that will give information
+           : about the problem and help track its resolution. Alerts can be
+           : configured to user preference. The same tools can be run on
+           : existing log files.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : gcc44-gfortran
+Arch       : i386
+Version    : 4.4.0
+Release    : 6.el5
+Size       : 4.4 M
+Repo       : base
+Summary    : Fortran support for GCC 4.4 preview
+URL        : http://gcc.gnu.org
+License    : GPLv3+, GPLv3+ with exceptions and GPLv2+ with exceptions
+Description: The gcc44-gfortran package provides support for compiling Fortran
+           : programs with the GNU Compiler Collection.
+

@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gnome-power-manager
+Arch       : i386
+Version    : 2.16.0
+Release    : 10.el5
+Size       : 6.1 M
+Repo       : installed
+Summary    : GNOME Power Manager
+URL        : http://gnome-power.sourceforge.net/
+License    : GPL
+Description: GNOME Power Manager uses the information and facilities provided by
+           : HAL displaying icons and handling user callbacks in an interactive
+           : GNOME session. GNOME Power Preferences allows authorised users to
+           : set policy and change preferences.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : cryptsetup-luks
+Arch       : i386
+Version    : 1.0.3
+Release    : 5.el5
+Size       : 1.3 M
+Repo       : installed
+Summary    : A utility for setting up encrypted filesystems
+URL        : http://clemens.endorphin.org/LUKS
+License    : GPL
+Description: This package contains cryptsetup, a utility for setting up
+           : encrypted filesystems using Device Mapper and the dm-crypt target.
+

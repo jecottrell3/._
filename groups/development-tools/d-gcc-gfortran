@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gcc-gfortran
+Arch       : i386
+Version    : 4.1.2
+Release    : 46.el5_4.2
+Size       : 6.9 M
+Repo       : installed
+Summary    : Fortran 95 support
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: The gcc-gfortran package provides support for compiling Fortran 95
+           : programs with the GNU Compiler Collection.
+

@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : qt-devel
+Arch       : i386
+Epoch      : 1
+Version    : 3.3.6
+Release    : 23.el5
+Size       : 11 M
+Repo       : base
+Summary    : Development files for the Qt GUI toolkit.
+URL        : http://www.troll.no
+License    : GPL/QPL
+Description: The qt-devel package contains the files necessary to develop
+           : applications using the Qt GUI toolkit: the header files, the Qt
+           : meta object compiler.
+           : 
+           : Install qt-devel if you want to develop GUI applications using the
+           : Qt toolkit.
+

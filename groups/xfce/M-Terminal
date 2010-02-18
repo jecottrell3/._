@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : Terminal
+Arch       : i386
+Version    : 0.2.8
+Release    : 2.el5.centos
+Size       : 1.6 M
+Repo       : extras
+Summary    : X Terminal Emulator
+URL        : http://terminal.os-cillation.com/
+License    : GPLv2+
+Description: Terminal is a lightweight and easy to use terminal emulator
+           : application for the X windowing system, with some new ideas and
+           : features that make it unique among X terminal emulators.
+

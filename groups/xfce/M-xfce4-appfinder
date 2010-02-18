@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfce4-appfinder
+Arch       : i386
+Version    : 4.4.2
+Release    : 1.el5.centos
+Size       : 245 k
+Repo       : extras
+Summary    : Appfinder for the Xfce4 Desktop Environment
+URL        : http://www.xfce.org/
+License    : GPLv2+
+Description: xfce-appfinder shows system wide installed applications.
+

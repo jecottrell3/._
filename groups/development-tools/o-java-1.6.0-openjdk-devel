@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : java-1.6.0-openjdk-devel
+Arch       : i386
+Epoch      : 1
+Version    : 1.6.0.0
+Release    : 1.7.b09.el5
+Size       : 30 M
+Repo       : installed
+Summary    : OpenJDK Development Environment
+URL        : http://icedtea.classpath.org/
+License    : GPLv2 with exceptions
+Description: The OpenJDK development tools.
+

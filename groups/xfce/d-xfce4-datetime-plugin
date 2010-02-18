@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfce4-datetime-plugin
+Arch       : i386
+Version    : 0.5.0
+Release    : 2.el5.centos
+Size       : 25 k
+Repo       : extras
+Summary    : Date/time plugin for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin
+License    : GPL
+Description: An alternative clock plugin for the Xfce panel. A calendar appears
+           : when you left-click on it.
+

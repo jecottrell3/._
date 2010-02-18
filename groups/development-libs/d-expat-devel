@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : expat-devel
+Arch       : i386
+Version    : 1.95.8
+Release    : 8.3.el5_4.2
+Size       : 132 k
+Repo       : updates
+Summary    : Libraries and include files to develop XML applications with expat.
+URL        : http://www.libexpat.org/
+License    : BSD
+Description: The expat-devel package contains the libraries, include files and
+           : documentation to develop XML applications with expat.
+

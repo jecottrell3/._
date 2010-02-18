@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : redhat-lsb
+Arch       : i386
+Version    : 3.1
+Release    : 12.3.EL.el5.centos
+Size       : 22 k
+Repo       : installed
+Summary    : LSB support for Red Hat Linux
+URL        : http://www.linuxbase.org/
+License    : GPL
+Description: The Linux Standards Base (LSB) is an attempt to develop a set of
+           : standards that will increase compatibility among Linux
+           : distributions. The redhat-lsb package provides utilities needed for
+           : LSB Compliant Applications.  It also contains requirements that
+           : will ensure that all components required by the LSB that are
+           : provided by CentOS are installed on the system.
+

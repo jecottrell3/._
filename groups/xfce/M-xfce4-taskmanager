@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfce4-taskmanager
+Arch       : i386
+Version    : 0.4.0
+Release    : 0.2.rc2.el5.centos
+Size       : 28 k
+Repo       : extras
+Summary    : Taskmanager for the Xfce desktop environment
+URL        : http://xfce4-taskmanager.nebulon.de
+License    : GPL
+Description: A simple taskmanager for the Xfce desktop environment.
+

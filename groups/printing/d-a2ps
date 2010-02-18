@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : a2ps
+Arch       : i386
+Version    : 4.13b
+Release    : 57.2.el5
+Size       : 3.1 M
+Repo       : installed
+Summary    : Converts text and other types of files to PostScript(TM).
+URL        : http://www.inf.enst.fr/~demaille/a2ps/
+License    : GPL
+Description: The a2ps filter converts text and other types of files to
+           : PostScript(TM). A2ps has pretty-printing capabilities and includes
+           : support for a wide number of programming languages, encodings (ISO
+           : Latins, Cyrillic, etc.), and medias.
+

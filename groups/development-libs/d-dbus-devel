@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : dbus-devel
+Arch       : i386
+Version    : 1.1.2
+Release    : 12.el5_4.1
+Size       : 1.4 M
+Repo       : updates
+Summary    : Libraries and headers for D-BUS
+URL        : http://www.freedesktop.org/software/dbus/
+License    : GPLv2+ or AFL
+Description: 
+           : Headers and static libraries for D-BUS.
+

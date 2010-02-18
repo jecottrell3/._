@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : createrepo
+Arch       : noarch
+Version    : 0.4.11
+Release    : 3.el5
+Size       : 216 k
+Repo       : installed
+Summary    : Creates a common metadata repository
+URL        : http://linux.duke.edu/projects/metadata/
+License    : GPLv2
+Description: This utility will generate a common metadata repository from a
+           : directory of rpm packages.
+

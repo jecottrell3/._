@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gnome-vfs2-smb
+Arch       : i386
+Version    : 2.16.2
+Release    : 4.el5
+Size       : 28 k
+Repo       : installed
+Summary    : Windows fileshare support for gnome-vfs
+URL        : http://www.gnome.org/
+License    : LGPL
+Description: This package provides support for reading and writing files on
+           : windows shares (SMB) to applications using GNOME VFS.
+

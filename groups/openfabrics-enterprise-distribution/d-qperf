@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : qperf
+Arch       : i386
+Version    : 0.4.4
+Release    : 3.el5
+Size       : 56 k
+Repo       : base
+Summary    : Measure socket and RDMA performance
+URL        : http://www.openfabrics.org
+License    : BSD 3-Clause, GPL v2
+Description: Measure socket and RDMA performance.
+

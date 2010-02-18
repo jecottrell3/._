@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : dejavu-lgc-fonts
+Arch       : noarch
+Version    : 2.10
+Release    : 1
+Size       : 5.4 M
+Repo       : installed
+Summary    : DejaVu LGC Fonts
+URL        : http://dejavu.sourceforge.net
+License    : Redistributable, with restrictions
+Description: The DejaVu LGC fonts are high-quality Latin/Greek/Cyrillic fonts
+           : based on Bitstream Vera fonts ((http://gnome.org/fonts/)).  Its
+           : purpose is to provide a wider range of characters while maintaining
+           : the original look and feel.
+

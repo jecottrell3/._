@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : uuidd
+Arch       : i386
+Version    : 1.39
+Release    : 23.el5
+Size       : 27 k
+Repo       : base
+Summary    : helper daemon to guarantee uniqueness of time-based UUIDs
+URL        : http://e2fsprogs.sourceforge.net/
+License    : GPLv2
+Description: The uuidd package contains a userspace daemon (uuidd) which
+           : guarantees uniqueness of time-based UUID generation even at very
+           : high rates on SMP systems.
+

@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : memtest86+
+Arch       : i386
+Version    : 1.65
+Release    : 4.1
+Size       : 60 k
+Repo       : base
+Summary    : Stand-alone memory tester for x86 and x86-64 computers
+URL        : http://www.memtest.org
+License    : GPL
+Description: Memtest86+ is a thorough stand-alone memory test for x86 and x86-64
+           : architecture computers. BIOS based memory tests are only a quick
+           : check and often miss many of the failures that are detected by
+           : Memtest86+.
+           : 
+           : Run 'memtest-setup' to add to your GRUB or lilo boot menu.
+

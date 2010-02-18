@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libXfontcache-devel
+Arch       : i386
+Version    : 1.0.2
+Release    : 3.1
+Size       : 8.2 k
+Repo       : base
+Summary    : X.Org X11 libXfontcache development package
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 libXfontcache development package
+

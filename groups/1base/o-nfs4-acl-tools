@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : nfs4-acl-tools
+Arch       : i386
+Version    : 0.3.3
+Release    : 1.el5
+Size       : 44 k
+Repo       : base
+Summary    : The nfs4 ACL tools
+URL        : http://www.citi.umich.edu/projects/nfsv4/linux/
+License    : BSD
+Description: This package contains commandline and GUI ACL utilities for the
+           : Linux NFSv4 client.
+

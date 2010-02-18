@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : ldapjdk
+Arch       : i386
+Version    : 4.18
+Release    : 2jpp.3.el5
+Size       : 1.9 M
+Repo       : installed
+Summary    : The Mozilla LDAP Java SDK
+URL        : http://www.mozilla.org/directory/javasdk.html
+License    : MPL/GPL/LGPL
+Description: The Mozilla LDAP SDKs enable you to write applications which
+           : access, manage, and update the information stored in an LDAP
+           : directory.
+

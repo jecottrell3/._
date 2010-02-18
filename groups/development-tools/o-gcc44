@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : gcc44
+Arch       : i386
+Version    : 4.4.0
+Release    : 6.el5
+Size       : 9.5 M
+Repo       : base
+Summary    : Preview of GCC version 4.4
+URL        : http://gcc.gnu.org
+License    : GPLv3+, GPLv3+ with exceptions and GPLv2+ with exceptions
+Description: The gcc44 package contains preview of the GNU Compiler Collection
+           : version 4.4.
+

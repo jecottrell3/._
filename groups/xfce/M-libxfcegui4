@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : libxfcegui4
+Arch       : i386
+Version    : 4.4.2
+Release    : 1.el5.centos
+Size       : 245 k
+Repo       : extras
+Summary    : GTK widgets for Xfce
+URL        : http://www.xfce.org/
+License    : LGPLv2+
+Description: The package includes various gtk widgets for Xfce.
+

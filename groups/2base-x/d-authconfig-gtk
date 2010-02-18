@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : authconfig-gtk
+Arch       : i386
+Version    : 5.3.21
+Release    : 6.el5
+Size       : 188 k
+Repo       : installed
+Summary    : Graphical tool for setting up authentication from network services
+URL        : http://rhlinux.redhat.com/
+License    : GPLv2+
+Description: Authconfig-gtk is a GUI program which can configure a workstation
+           : to use shadow (more secure) passwords.  Authconfig-gtk can also
+           : configure a system to be a client for certain networked user
+           : information and authentication schemes.
+

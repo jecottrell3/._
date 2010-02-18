@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : gftp
+Arch       : i386
+Epoch      : 1
+Version    : 2.0.18
+Release    : 3.2.2
+Size       : 2.6 M
+Repo       : installed
+Summary    : A multi-threaded FTP client for the X Window System.
+URL        : http://gftp.seul.org/
+License    : GPL
+Description: gFTP is a multi-threaded FTP client for the X Window System. gFTP
+           : supports simultaneous downloads, resumption of interrupted file
+           : transfers, file transfer queues to allow downloading of multiple
+           : files, support for downloading entire directories/subdirectories, a
+           : bookmarks menu to allow quick connection to FTP sites, caching of
+           : remote directory listings, local and remote chmod, drag and drop, a
+           : connection manager and much more.
+           : 
+           : Install gftp if you need a graphical FTP client.
+

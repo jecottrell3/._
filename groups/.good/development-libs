@@ -1,0 +1,5 @@
+-@development-libs
+-coolkey-devel
+-hesiod-devel
+-libselinux-devel
+-pcsc-lite-devel

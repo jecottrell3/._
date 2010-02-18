@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : yum-downloadonly
+Arch       : noarch
+Version    : 1.1.16
+Release    : 14.el5.centos.1
+Size       : 11 k
+Repo       : updates
+Summary    : Yum plugin to add downloadonly command option
+URL        : http://linux.duke.edu/yum/download/yum-utils/
+License    : GPLv2+
+Description: This plugin adds a --downloadonly flag to yum so that yum will only
+           : download the packages and not install/update them.
+

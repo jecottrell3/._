@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : eog
+Arch       : i386
+Version    : 2.16.0.1
+Release    : 6.el5
+Size       : 1.8 M
+Repo       : installed
+Summary    : Eye of GNOME image viewer
+URL        : http://www.gnome.org
+License    : GPL
+Description: Eye of GNOME (EOG) is an image viewer.
+

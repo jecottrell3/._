@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : telnet-server
+Arch       : i386
+Epoch      : 1
+Version    : 0.17
+Release    : 39.el5
+Size       : 35 k
+Repo       : base
+Summary    : The server program for the telnet remote login protocol.
+License    : BSD
+Description: Telnet is a popular protocol for logging into remote systems over
+           : the Internet. The telnet-server package includes a telnet daemon
+           : that supports remote logins into the host machine. The telnet
+           : daemon is disabled by default. You may enable the telnet daemon by
+           : editing /etc/xinetd.d/telnet.
+

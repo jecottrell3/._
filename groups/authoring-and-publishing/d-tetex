@@ -1,0 +1,25 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : tetex
+Arch       : i386
+Version    : 3.0
+Release    : 33.8.el5
+Size       : 8.4 M
+Repo       : base
+Summary    : The TeX text formatting system.
+URL        : http://www.tug.org/teTeX/
+License    : distributable
+Description: TeTeX is an implementation of TeX for Linux or UNIX systems. TeX
+           : takes a text file and a set of formatting commands as input and
+           : creates a typesetter-independent .dvi (DeVice Independent) file as
+           : output. Usually, TeX is used in conjunction with a higher level
+           : formatting package like LaTeX or PlainTeX, since TeX by itself is
+           : not very user-friendly. The output format needn't to be DVI, but
+           : also PDF, when using pdflatex or similar tools.
+           : 
+           : Install tetex if you want to use the TeX text formatting system.
+           : Consider to install tetex-latex (a higher level formatting package
+           : which provides an easier-to-use interface for TeX). Unless you are
+           : an expert at using TeX, you should also install the tetex-doc
+           : package, which includes the documentation for TeX.
+

@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : sudo
+Arch       : i386
+Version    : 1.6.9p17
+Release    : 5.el5
+Size       : 457 k
+Repo       : installed
+Summary    : Allows restricted root access for specified users.
+URL        : http://www.courtesan.com/sudo/
+License    : BSD
+Description: Sudo (superuser do) allows a system administrator to give certain
+           : users (or groups of users) the ability to run some (or all)
+           : commands as root while logging all commands and arguments. Sudo
+           : operates on a per-command basis.  It is not a replacement for the
+           : shell.  Features include: the ability to restrict what commands a
+           : user may run on a per-host basis, copious logging of each command
+           : (providing a clear audit trail of who did what), a configurable
+           : timeout of the sudo command, and the ability to use the same
+           : configuration file (sudoers) on many different machines.
+

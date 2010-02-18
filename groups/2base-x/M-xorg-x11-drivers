@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : xorg-x11-drivers
+Arch       : i386
+Version    : 7.1
+Release    : 4.1.el5
+Size       : 0.0 
+Repo       : installed
+Summary    : X.Org X11 driver installation package
+URL        : http://www.redhat.com
+License    : MIT/X11
+Description: The purpose of this package is to require all of the individual
+           : X.Org driver rpms, to allow the OS installation software to install
+           : all drivers all at once, without having to track which individual
+           : drivers are present on each architecture.  By installing this
+           : package, it forces all of the individual driver packages to be
+           : installed.
+

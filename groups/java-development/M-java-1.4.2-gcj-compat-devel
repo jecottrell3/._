@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : java-1.4.2-gcj-compat-devel
+Arch       : i386
+Version    : 1.4.2.0
+Release    : 40jpp.115
+Size       : 50 k
+Repo       : base
+Summary    : JPackage development scripts for GCJ
+URL        : ftp://sources.redhat.com/pub/rhug/java-gcj-compat
+License    : GPL
+Description: This package installs directory structures, shell scripts and
+           : symbolic links to simulate a JPackage-compatible development
+           : environment with GCJ.
+

@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : mod_ssl
+Arch       : i386
+Epoch      : 1
+Version    : 2.2.3
+Release    : 31.el5.centos.2
+Size       : 173 k
+Repo       : installed
+Summary    : SSL/TLS module for the Apache HTTP server
+URL        : http://httpd.apache.org/
+License    : Apache Software License
+Description: The mod_ssl module provides strong cryptography for the Apache Web
+           : server via the Secure Sockets Layer (SSL) and Transport Layer
+           : Security (TLS) protocols.
+

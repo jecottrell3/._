@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : fipscheck
+Arch       : i386
+Version    : 1.2.0
+Release    : 1.el5
+Size       : 21 k
+Repo       : installed
+Summary    : A library for integrity verification of FIPS validated modules
+URL        : http://people.redhat.com/tmraz/fipscheck
+License    : BSD
+Description: FIPSCheck is a library for integrity verification of FIPS validated
+           : modules. The package also provides helper binaries for creation and
+           : verification of the HMAC-SHA256 checksum files.
+

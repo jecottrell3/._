@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : symlinks
+Arch       : i386
+Version    : 1.2
+Release    : 24.2.2
+Size       : 8.8 k
+Repo       : installed
+Summary    : A utility which maintains a system's symbolic links.
+License    : distributable
+Description: The symlinks utility performs maintenance on symbolic links.
+           : Symlinks checks for symlink problems, including dangling symlinks
+           : which point to nonexistent files.  Symlinks can also automatically
+           : convert absolute symlinks to relative symlinks.
+           : 
+           : Install the symlinks package if you need a program for maintaining
+           : symlinks on your system.
+

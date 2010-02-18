@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : xferstats
+Arch       : i386
+Version    : 2.16
+Release    : 14.1
+Size       : 127 k
+Repo       : installed
+Summary    : Compiles information about file transfers from logfiles
+URL        : http://xferstats.off.net/
+License    : GPL
+Description: xferstats compiles information about file transfers from logfiles.
+

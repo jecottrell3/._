@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : tsclient
+Arch       : i386
+Version    : 0.148
+Release    : 6.el5
+Size       : 326 k
+Repo       : base
+Summary    : Client for VNC and Windows Terminal Server
+URL        : http://www.gnomepro.com/tsclient/
+License    : GPL
+Description: tsclient is a frontend that makes it easy to use rdesktop and
+           : vncviewer. You will need to install rdesktop or vnc in addition to
+           : tsclient.
+

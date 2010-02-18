@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : linuxdoc-tools
+Arch       : i386
+Version    : 0.9.21
+Release    : 7.1
+Size       : 265 k
+Repo       : base
+Summary    : A text formatting package based on SGML.
+URL        : http://packages.qa.debian.org/l/linuxdoc-tools.html
+License    : Freely distributable
+Description: Linuxdoc-tools is a text formatting suite based on SGML (Standard
+           : Generalized Markup Language), using the LinuxDoc document type.
+           : Linuxdoc-tools allows you to produce LaTeX, HTML, GNU info, LyX,
+           : RTF, plain text (via groff), and other format outputs from a single
+           : SGML source.  Linuxdoc-tools is intended for writing technical
+           : software documentation.
+

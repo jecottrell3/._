@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : gollem-h3
+Arch       : noarch
+Version    : 1.0.4
+Release    : 1.el5_3
+Size       : 1.2 M
+Repo       : extras
+Summary    : The Horde web-based File Manager.
+URL        : http://www.horde.org/
+License    : GPL
+Description: Gollem is a web-based File Manager, providing the ability to fully
+           : manage a hierarchical file system stored in a variety of backends
+           : such as a SQL database, as part of a real filesystem, or on an FTP
+           : server.
+           : 
+           : The Horde Project writes web applications in PHP and releases them
+           : under Open Source licenses.  For more information (including help
+           : with gollem) please visit http://www.horde.org/.
+

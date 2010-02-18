@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : yum-protectbase
+Arch       : noarch
+Version    : 1.1.16
+Release    : 14.el5.centos.1
+Size       : 12 k
+Repo       : updates
+Summary    : Yum plugin to protect packages from certain repositories.
+URL        : http://linux.duke.edu/yum/download/yum-utils/
+License    : GPLv2+
+Description: This plugin allows certain repositories to be protected. Packages
+           : in the protected repositories can't be overridden by packages in
+           : non-protected repositories even if the non-protected repo has a
+           : later version.
+

@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : systemtap-sdt-devel
+Arch       : i386
+Version    : 0.9.7
+Release    : 5.el5
+Size       : 9.6 k
+Repo       : base
+Summary    : Static probe support tools
+URL        : http://sourceware.org/systemtap/
+License    : GPLv2+
+Description: Support tools to allow applications to use static probes.
+

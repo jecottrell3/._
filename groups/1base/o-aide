@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : aide
+Arch       : i386
+Version    : 0.13.1
+Release    : 4.el5
+Size       : 124 k
+Repo       : base
+Summary    : Intrusion detection environment
+URL        : http://sourceforge.net/projects/aide
+License    : GPL
+Description: AIDE (Advanced Intrusion Detection Environment) is a file integrity
+           : checker and intrusion detection program.
+

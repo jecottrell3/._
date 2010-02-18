@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : unzip
+Arch       : i386
+Version    : 5.52
+Release    : 3.el5
+Size       : 285 k
+Repo       : installed
+Summary    : A utility for unpacking zip files.
+URL        : http://www.info-zip.org/pub/infozip/UnZip.html
+License    : BSD
+Description: The unzip utility is used to list, test, or extract files from a
+           : zip archive.  Zip archives are commonly found on MS-DOS systems.
+           : The zip utility, included in the zip package, creates zip archives.
+           :  Zip and unzip are both compatible with archives created by
+           : PKWARE(R)'s PKZIP for MS-DOS, but the programs' options and default
+           : behaviors do differ in some respects.
+           : 
+           : Install the unzip package if you need to list, test or extract
+           : files from a zip archive.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfce4-sensors-plugin
+Arch       : i386
+Version    : 0.10.99.2
+Release    : 3.el5.centos
+Size       : 47 k
+Repo       : extras
+Summary    : Sensors plugin for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin
+License    : GPLv2+
+Description: This plugin displays various hardware sensor values in the Xfce
+           : panel.
+

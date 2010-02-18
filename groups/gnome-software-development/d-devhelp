@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : devhelp
+Arch       : i386
+Version    : 0.12
+Release    : 20.el5
+Size       : 179 k
+Repo       : base
+Summary    : API document browser
+URL        : http://ftp.gnome.org/pub/gnome/sources/devhelp/
+License    : GPL
+Description: An API document browser for GNOME 2.
+

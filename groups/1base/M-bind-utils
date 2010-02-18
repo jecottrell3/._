@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : bind-utils
+Arch       : i386
+Epoch      : 30
+Version    : 9.3.6
+Release    : 4.P1.el5_4.2
+Size       : 279 k
+Repo       : installed
+Summary    : Utilities for querying DNS name servers.
+URL        : http://www.isc.org/products/BIND/
+License    : BSD-like
+Description: Bind-utils contains a collection of utilities for querying DNS
+           : (Domain Name System) name servers to find out information about
+           : Internet hosts. These tools will provide you with the IP addresses
+           : for given host names, as well as other information about registered
+           : domains and network addresses.
+           : 
+           : You should install bind-utils if you need to get information from
+           : DNS name servers.
+

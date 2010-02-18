@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror, priorities
+Available Packages
+Name       : xfce4-eyes-plugin
+Arch       : i386
+Version    : 4.4.0
+Release    : 1.el5.centos
+Size       : 49 k
+Repo       : extras
+Summary    : Eyes for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-eyes-plugin
+License    : GPL
+Description: A xfce4 panel plugin that adds eyes which watch your every step.
+           : Scary!
+

@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror, priorities
+Installed Packages
+Name       : mlocate
+Arch       : i386
+Version    : 0.15
+Release    : 1.el5.2
+Size       : 85 k
+Repo       : installed
+Summary    : An utility for finding files by name
+License    : GPLv2
+Description: mlocate is a locate/updatedb implementation.  It keeps a database
+           : of all existing files and allows you to lookup files by name.
+           : 
+           : The 'm' stands for "merging": updatedb reuses the existing database
+           : to avoid rereading most of the file system, which makes updatedb
+           : faster and does not trash the system caches as much as traditional
+           : locate implementations.
+
