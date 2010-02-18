@@ -3,8 +3,8 @@
 ################################################################
 # usage:  comps NAME
 
-# expects:	NAME.xml	points to a comps.xml file
-# expects:	NAME.pkg	points to a directory of rpms
+# expects:	.xml		points to a comps.xml file
+# expects:	.rpm		points to a directory of rpms
 
 # creates:	NAME/		directory of group files
 # creates:	NAME/group	kickstart packages in group
@@ -20,25 +20,26 @@ $VER='5.4';
 
 $banner = '#' x 64;
 
-$xml = $ARGV[0] || "comps.xml";
+#$xml = $ARGV[0] || "comps.xml";
 
-($dir = $xml) =~ s/\.xml$//;	# nuke suffix
-($xml = $dir) =~ s/$/.xml/;	# add  suffix
-($pkg = $dir) =~ s/$/.pkg/;	# add  suffix
+#($dir = $xml) =~ s/\.xml$//;	# nuke suffix
+#($xml = $dir) =~ s/$/.xml/;	# add  suffix
+#($pkg = $dir) =~ s/$/.pkg/;	# add  suffix
 
-warn("$dir, $xml, $pkg\n");	# DEBUG
+#warn("$dir, $xml, $pkg\n");	# DEBUG
 
 # $dir =~ s%.*/%%;
 # $dir =~ s/\.xml$//;
 # $repo = $ARGV[1] || "/repo/$DIST/$VER/i386/$DIST";
 
--d $dir || mkdir($dir) or die;
+#-d $dir || mkdir($dir) or die;
 
-@xml = stat $xml;
-warn("$xml @xml\n");		# DEBUG
+#@xml = stat $xml;
+#warn("$xml @xml\n");		# DEBUG
 
-open(STDIN, "<$xml")  or die;
-open(LANG , ">$dir/.lang") or die;
+$rpm =    -d '.rpm'   or warn("No .rpm directory\n");
+open(STDIN, "<.xml")  or die("Missing .xml file\n");
+open(LANG , ">.lang") or die;
 
 sub id;
 sub lang;
@@ -109,8 +110,8 @@ sub splat
 	$M =~ s/^(base-x)$/2$1/;
 
 	if ($norm) {
-		open(NORM, ">$dir/$M") or
-	die(   "open(NORM,  >$dir/$M ): $!\n");
+		open(NORM, ">$M") or
+	die(   "open(NORM,  >$M ): $!\n");
 		select NORM;
 	} else {
 		select LANG;
@@ -121,7 +122,7 @@ sub splat
 	print("$banner\n\n");
 
 	map	# existance test
-		{ $X{$_} = 'x' unless (<$pkg/$_-*.rpm>)[0]; }
+		{ $X{$_} = $rpm ? (<.rpm/$_-*.rpm>)[0] ? '' : 'x' : 'q'; }
 		keys(%M), keys(%D), keys(%O);
 
 	map { print("#m$X{$_}\t-$_\n"); } sort(keys(%M));
