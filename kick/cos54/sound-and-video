@@ -1,0 +1,22 @@
+################################################################
+@sound-and-video
+################################################################
+
+#m	-alsa-utils
+#m	-sox
+#m	-vorbis-tools
+#d	-cdda2wav
+#d	-cdparanoia
+#d	-cdrdao
+#d	-cdrecord
+#d	-mkisofs
+#d	-rhythmbox
+#d	-sound-juicer
+#d	-totem
+#dx	-totem-mozplugins
+dvgrab
+k3b
+kdemultimedia
+mikmod
+xcdroast
+

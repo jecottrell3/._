@@ -21,10 +21,7 @@ include(`Head')dnl
 dnl include(`net')dnl
 include(`Disk')dnl
 include(`Pre')dnl
-include(`pkgs.core')dnl
-include(`pkgs.base')dnl
-include(`pkgs.x11')dnl
-include(`pkgs.dev')dnl
+include(`cos54.rbj')dnl
 include(`Post')dnl
 dnl
 dnl	END

@@ -1,0 +1,21 @@
+################################################################
+@admin-tools
+################################################################
+
+#d	-authconfig-gtk
+#d	-pirut
+#d	-sabayon
+-setroubleshoot
+#d	-system-config-date
+#d	-system-config-kdump
+#d	-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-lvm
+#d	-system-config-network
+#d	-system-config-rootpassword
+#d	-system-config-soundcard
+#d	-system-config-users
+system-config-kickstart
+system-config-netboot
+system-config-netboot-cmd
+

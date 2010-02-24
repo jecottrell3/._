@@ -1,0 +1,29 @@
+################################################################
+@miscallvars
+################################################################
+
+anaconda
+anaconda-runtime
+-bitmap-fonts-cjk
+#o	 booty
+#o	 busybox-anaconda
+#ox	 cachefilesd
+#o	 convmv
+iptables
+#o	 iptables-devel
+-iptables-ipv6
+#o	 ipv6calc
+-iscsi-initiator-utils
+#o	 joe
+kernel
+#ox	 kernel-kdump
+kernel-xen
+#o	 lksctp-tools
+#o	 netlabel_tools
+#o	 openhpi
+#o	 openmotif
+procinfo
+#ox	 salinfo
+#o	 sg3_utils
+syslinux
+

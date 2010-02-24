@@ -1,0 +1,34 @@
+################################################################
+-@kvm
+################################################################
+
+#mx	-celt051
+#mx	-etherboot-zroms
+#mx	-etherboot-zroms-kvm
+#mx	-kmod-kvm
+#mx	-kvm
+#mx	-kvm-qemu-img
+#mx	-log4cpp
+#mx	-qcairo
+#mx	-qffmpeg-libs
+#mx	-qpixman
+#mx	-qspice-libs
+#d	-libvirt
+#d	-virt-manager
+#d	-virt-viewer
+#o	 Virtualization-en-US
+#ox	 celt051-devel
+#ox	 etherboot-pxes
+#ox	 etherboot-roms
+#ox	 etherboot-roms-kvm
+#ox	 iasl
+#ox	 kvm-tools
+#o	 libcmpiutil
+#o	 libvirt-cim
+#ox	 log4cpp-devel
+#ox	 qcairo-devel
+#ox	 qffmpeg-devel
+#ox	 qpixman-devel
+#ox	 qspice
+#ox	 qspice-libs-devel
+

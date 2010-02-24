@@ -1,0 +1,18 @@
+################################################################
+@kde-desktop
+################################################################
+
+#m	-arts
+#m	-kdebase
+#d	-desktop-printing
+-im-chooser
+#d	-kdeaccessibility
+#d	-kdeaddons
+#d	-kdeartwork
+#d	-kdegraphics
+#d	-kdemultimedia
+#d	-kdenetwork
+-kdepim
+#d	-kdeutils
+#o	 kdeadmin
+

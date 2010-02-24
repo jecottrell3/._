@@ -1,0 +1,17 @@
+################################################################
+@graphical-internet
+################################################################
+
+-ekiga
+#d	-evolution
+#d	-evolution-connector
+#d	-evolution-webcal
+#d	-firefox
+#d	-gnome-themes
+#dx	-java-1.4.2-gcj-compat-plugin
+#d	-nspluginwrapper
+#d	-pidgin	
+gftp
+thunderbird
+xchat
+

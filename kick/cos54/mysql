@@ -1,0 +1,17 @@
+################################################################
+@mysql
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-libdbi-dbd-mysql
+#d	-mysql-connector-odbc
+#d	-mysql-server
+#d	-perl-DBD-MySQL
+#d	-unixODBC
+mod_auth_mysql
+mysql-bench
+mysql-devel
+php-mysql
+qt-MySQL
+

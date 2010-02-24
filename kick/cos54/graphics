@@ -1,0 +1,19 @@
+################################################################
+@graphics
+################################################################
+
+#d	-ImageMagick
+-dcraw
+#d	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-print-plugin
+#d	-netpbm-progs
+-sane-frontends
+-xsane
+-xsane-gimp
+#o	 agg
+kdegraphics
+-libsane-hpaio
+#o	 xfig
+

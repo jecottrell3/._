@@ -1,0 +1,15 @@
+################################################################
+-@legacy-network-server
+################################################################
+
+#d	-rusers
+#d	-rwho
+#d	-xinetd
+#o	 bootparamd
+#o	 rarpd
+#o	 rsh-server
+#o	 rusers-server
+#o	 talk-server
+#o	 telnet-server
+tftp-server
+

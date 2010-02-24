@@ -1,0 +1,169 @@
+################################################################
+@base
+################################################################
+
+#m	-acl
+#m	-at
+#m	-attr
+#m	-authconfig
+#m	-bc
+#m	-bind-utils
+#m	-bzip2
+#m	-crontabs
+#m	-cyrus-sasl-plain
+#m	-libutempter
+#m	-logrotate
+#m	-lsof
+#m	-mailcap
+#m	-man
+#m	-ntsysv
+#m	-parted
+#m	-pciutils
+#m	-psacct
+-quota
+-rhel-instnum
+#m	-system-config-securitylevel-tui
+#m	-tmpwatch
+#m	-traceroute
+#m	-vixie-cron
+#d	-NetworkManager
+#d	-acpid
+-amtu
+#d	-anacron
+-apmd
+#d	-aspell
+#d	-aspell-en
+#d	-autofs
+-bluez-utils
+-ccid
+-conman
+-coolkey
+#d	-cpuspeed
+#d	-crash
+#d	-cryptsetup-luks
+#d	-dmraid
+#d	-dos2unix
+#d	-dosfstools
+#d	-dump
+#d	-eject
+#dx	-elsa
+#d	-fbset
+#d	-finger
+#d	-firstboot-tui
+#d	-ftp
+#d	-gnupg
+#d	-gpm
+-ibmasm
+#d	-ipsec-tools
+#d	-iptstate
+-irda-utils
+#d	-irqbalance
+#d	-jwhois
+#d	-krb5-workstation
+#d	-ksh
+#d	-lftp
+#d	-libaio
+#d	-logwatch
+#dx	-longrun
+#d	-m2crypto
+#d	-man-pages
+#dx	-mcelog
+#d	-mdadm
+-mgetty
+#d	-microcode_ctl
+-mkbootdisk
+#d	-mlocate
+#d	-mtools
+#d	-mtr
+#d	-nano
+#d	-nc
+#d	-nfs-utils
+#d	-nss_db
+#d	-nss_ldap
+-numactl
+#d	-oddjob
+#d	-pam_ccreds
+#d	-pam_krb5
+#d	-pam_passwdqc
+#d	-pam_pkcs11
+#d	-pam_smb
+#d	-pax
+-pcmciautils
+#d	-pinfo
+#d	-pkinit-nss
+#d	-pm-utils
+#dx	-prctl
+#d	-rdate
+#d	-rdist
+#d	-readahead
+#d	-redhat-lsb
+-rhn-check
+-rhn-setup
+-rng-utils
+-rp-pppoe
+#d	-rsh
+#d	-rsync
+#d	-sendmail
+#d	-setarch
+#d	-setuptool
+#d	-smartmontools
+#d	-sos
+-specspo
+#d	-stunnel
+#d	-sudo
+#d	-symlinks
+#dx	-sysreport
+#d	-system-config-network-tui
+#d	-talk
+#d	-tcp_wrappers
+#d	-tcpdump
+#d	-tcsh
+#d	-telnet
+#d	-time
+#d	-tree
+#d	-unix2dos
+#d	-unzip
+#d	-usbutils
+-vconfig
+#d	-wget
+#d	-which
+-wireless-tools
+#d	-words
+#d	-ypbind
+-yum-rhn-plugin
+#d	-yum-updatesd
+#d	-zip
+aide
+-authd
+#o	 bridge-utils
+-brltty
+#o	 convmv
+#o	 cpufreq-utils
+#o	 device-mapper-multipath
+#o	 dmraid-events-logwatch
+#o	 fcoe-utils
+#o	 fipscheck
+fuse
+#o	 fuse-libs
+gpart
+hardlink
+#o	 hesinfo
+#o	 hfsutils
+-iscsi-initiator-utils
+#o	 kexec-tools
+#o	 keyutils
+#ox	 lha
+#o	 libhbaapi
+#o	 libhbalinux
+#ox	 libica
+#ox	 netconfig
+#o	 nfs4-acl-tools
+#o	 openCryptoki
+#ox	 openssl-ibmca
+openswan
+squashfs-tools
+star
+#o	 tpm-tools
+#o	 trousers
+x86info
+

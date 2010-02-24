@@ -1,0 +1,17 @@
+################################################################
+-@mail-server
+################################################################
+
+#d	-cyrus-sasl
+#d	-dovecot
+#d	-sendmail
+#d	-sendmail-cf
+#d	-spamassassin
+#o	 cyrus-imapd
+#o	 exim
+#o	 exim-doc
+#o	 mailman
+#ox	 perl-Cyrus
+#o	 postfix
+#o	 squirrelmail
+
