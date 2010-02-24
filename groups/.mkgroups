@@ -1,16 +1,18 @@
 #! /bin/sh
 
 mkdir -p .pkgs
-yum -v grouplist | 
+yum -v grouplist hidden | 
 sed -n '/^   /s/.*(//;s/)//p' |
 sort | 
 while read group
 do
+	name=$group			# Normal
 	case $group in
-	(core)	name=0$group;;
-	(base)	name=1$group;;
-	(base-x)name=2$group;;
-	(*)	name=$group;;
+	(legacy-*)	;;		# OK
+	(*-support)	continue;;	# LANG
+	(core)	name=0$group;;		# SPECIAL
+	(base)	name=1$group;;		# SPECIAL
+	(base-x)name=2$group;;		# SPECIAL
 	esac
 
 	echo 1>&2 "=== Group: '$group' ==="
