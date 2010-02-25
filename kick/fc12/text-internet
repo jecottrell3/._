@@ -1,0 +1,52 @@
+################################################################
+@text-internet
+################################################################
+
+#d	-bittorrent
+#d	-cadaver
+#d	-elinks
+#d	-fetchmail
+#d	-fpaste
+#d	-mutt
+#d	-slrn
+#ox	 abook
+#ox	 alpine
+#ox	 archivemail
+#ox	 argus
+#ox	 aria2
+#ox	 axel
+#ox	 centerim
+#ox	 cone
+#ox	 ctorrent
+#ox	 deletemail
+#ox	 ekg
+#ox	 ekg2
+#ox	 emacs-mew
+#ox	 epic
+#ox	 getmail
+#ox	 iperf
+#ox	 irssi
+#ox	 isync
+#ox	 libtranslate
+lynx
+#ox	 naim
+#ox	 ncftp
+#ox	 netstiff
+#ox	 ninja
+#ox	 nmh
+#ox	 offlineimap
+#ox	 pork
+#ox	 rss2email
+#ox	 rtorrent
+#ox	 sitecopy
+#ox	 snownews
+#ox	 tftp
+#ox	 tin
+#ox	 trickle
+w3m
+#ox	 websec
+#ox	 whatmask
+#ox	 xprobe2
+#ox	 yafc
+#ox	 youtube-dl
+

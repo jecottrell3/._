@@ -1,0 +1,44 @@
+################################################################
+@network-server
+################################################################
+
+cyrus-sasl
+#ox	 amanda-server
+#ox	 cobbler
+#ox	 ctrlproxy
+#ox	 dhcp
+dnsmasq
+#ox	 ejabberd
+#ox	 fedora-ds-base
+#ox	 flumotion
+#ox	 freenx
+#ox	 freeradius
+#ox	 fwknop
+#ox	 icecast
+#ox	 ipxripd
+#ox	 ircd-hybrid
+#ox	 jabberd
+#ox	 kannel
+#ox	 koan
+#ox	 krb5-server
+#ox	 netatalk
+#ox	 nsd
+#ox	 oidentd
+#ox	 openldap-servers
+#ox	 openswan
+#ox	 privoxy
+#ox	 puppet-server
+#ox	 quagga
+#ox	 radvd
+#ox	 rbldnsd
+#ox	 rinetd
+#ox	 sobby
+#ox	 tigervnc-server
+#ox	 torque-server
+#ox	 ucarp
+#ox	 ushare
+#ox	 vnc-reflector
+#ox	 vtun
+#ox	 xl2tpd
+#ox	 ypserv
+

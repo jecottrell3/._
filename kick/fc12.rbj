@@ -1,0 +1,3767 @@
+################################################################
+@core
+################################################################
+
+#m	-acl
+#m	-attr
+#m	-audit
+#m	-authconfig
+#m	-basesystem
+#m	-bash
+#m	-coreutils
+#m	-cpio
+#m	-cronie
+#m	-cronie-anacron
+#m	-dhclient
+#m	-e2fsprogs
+#m	-fedora-release
+#m	-file
+#m	-filesystem
+#m	-glibc
+#m	-initscripts
+#m	-iproute
+#mx	-iprutils
+#m	-iptables
+-iptables-ipv6
+#m	-iputils
+#m	-kbd
+#m	-libgcc
+#m	-ncurses
+#m	-openssh-server
+#m	-passwd
+-policycoreutils
+#m	-procps
+#m	-readline
+-rootfiles
+#m	-rpm
+#m	-rsyslog
+-selinux-policy-targeted
+-setserial
+#m	-setup
+#m	-shadow-utils
+#m	-sudo
+#m	-util-linux-ng
+#m	-vim-minimal
+#m	-yum
+-efibootmgr
+#d	-grub
+-ppc64-utils
+-s390utils
+#d	-sendmail
+-silo
+#dx	-yaboot
+
+################################################################
+@base
+################################################################
+
+#m	-NetworkManager
+#m	-at
+#m	-authconfig
+#m	-bc
+#m	-bind-utils
+#m	-bzip2
+#m	-crontabs
+#m	-cyrus-sasl-plain
+#m	-ed
+#m	-logrotate
+#m	-lsof
+#m	-mailcap
+#m	-man
+#m	-ntsysv
+#m	-parted
+#m	-pciutils
+#m	-psacct
+#m	-quota
+#m	-tmpwatch
+#m	-traceroute
+#d	-acpid
+-ccid
+-coolkey
+#d	-cpuspeed
+#d	-cryptsetup-luks
+#d	-device-mapper-multipath
+#d	-dmraid
+#d	-dos2unix
+#d	-dosfstools
+#d	-dump
+#d	-eject
+#d	-fedora-release-notes
+#d	-finger
+#d	-fprintd-pam
+#d	-ftp
+#d	-gnupg
+-hunspell
+#d	-iptstate
+-irda-utils
+#d	-irqbalance
+#d	-jwhois
+#d	-krb5-workstation
+#d	-lftp
+#d	-man-pages
+#dx	-mcelog
+#d	-mdadm
+#d	-microcode_ctl
+#d	-mlocate
+#d	-mtr
+#d	-nano
+#d	-nc
+#d	-nfs-utils
+#d	-nss_db
+#d	-nss_ldap
+#d	-ntfs-3g
+#d	-ntfsprogs
+-numactl
+#d	-openssh-clients
+#d	-pam_ccreds
+#d	-pam_krb5
+#d	-pam_passwdqc
+#d	-pam_pkcs11
+#d	-pam_smb
+-pcmciautils
+#d	-perf
+#d	-pinfo
+#d	-pm-utils
+#dx	-prctl
+#d	-prelink
+#d	-rdate
+#d	-rdist
+#d	-readahead
+-rng-utils
+#d	-rsh
+#d	-rsync
+#d	-sendmail
+#d	-setuptool
+#d	-smartmontools
+#d	-sos
+-specspo
+#d	-stunnel
+#d	-sudo
+#d	-symlinks
+#d	-system-config-firewall-tui
+#d	-system-config-network-tui
+#d	-talk
+#d	-tcp_wrappers
+#d	-tcpdump
+#d	-telnet
+#d	-time
+#d	-tree
+#d	-unix2dos
+#d	-unzip
+#d	-usbutils
+-vconfig
+#d	-wget
+#d	-which
+-wireless-tools
+#d	-words
+#d	-ypbind
+#d	-yum-utils
+#d	-zip
+#ox	 apmd
+#ox	 authd
+#o	 bridge-utils
+#ox	 brltty
+#ox	 btrfs-progs
+#ox	 fbset
+gnupg2
+#ox	 gpart
+#o	 gpgme
+gpm
+hardlink
+#ox	 hfsutils
+#o	 iscsi-initiator-utils
+#o	 jfsutils
+#ox	 kexec-tools
+#ox	 ksh
+#ox	 logwatch
+#ox	 mgetty
+#ox	 mkbootdisk
+mtools
+pax
+#ox	 redhat-lsb
+#o	 reiserfs-utils
+#ox	 squashfs-tools
+#ox	 star
+tcsh
+x86info
+#o	 xfsprogs
+#ox	 yum-updatesd
+#c	?aspell-en                       aspell
+#c	?hunspell-en                     hunspell
+
+################################################################
+@base-x
+################################################################
+
+#m	-xorg-x11-drivers
+#m	-xorg-x11-server-Xorg
+#m	-xorg-x11-xauth
+#m	-xorg-x11-xinit
+#d	-abrt-desktop
+#d	-authconfig-gtk
+#d	-bitmap-fonts
+#d	-cups-pk-helper
+#d	-desktop-backgrounds-basic
+#d	-firstboot
+#d	-glx-utils
+#d	-gnome-packagekit
+#d	-krb5-auth-dialog
+#d	-openssh-askpass
+#d	-plymouth-system-theme
+-policycoreutils-gui
+-setroubleshoot
+#d	-smolt-firstboot
+#d	-system-config-date
+#d	-system-config-firewall
+#d	-system-config-network
+#d	-system-config-printer
+#d	-system-config-services
+#d	-system-config-users
+#d	-xorg-x11-utils
+#ox	 alltray
+#ox	 aterm
+#ox	 devilspie
+#o	 gdm
+#ox	 gxmessage
+#ox	 lilyterm
+#ox	 lxpanel
+#ox	 roxterm
+#ox	 rss-glx
+#ox	 rss-glx-xscreensaver
+#ox	 rxvt
+#ox	 sakura
+#ox	 slim
+#ox	 switchdesk
+#ox	 system-config-display
+#ox	 system-switch-displaymanager
+#ox	 termit
+#ox	 tigervnc-server
+#ox	 uim-gtk2
+#ox	 workrave
+#ox	 xclip
+#ox	 xdaliclock
+#ox	 xguest
+#ox	 xkeycaps
+#ox	 xlockmore
+#o	 xorg-x11-apps
+#o	 xorg-x11-resutils
+#ox	 xorg-x11-server-Xnest
+#ox	 xorg-x11-server-Xvfb
+#ox	 xorg-x11-twm
+#ox	 xorg-x11-xfs
+#ox	 xorg-x11-xfs-utils
+#ox	 xorg-x11-xsm
+xscreensaver
+xscreensaver-base
+xscreensaver-extras
+xscreensaver-gl-extras
+#o	 xterm
+
+################################################################
+@admin-tools
+################################################################
+
+#d	-authconfig-gtk
+#d	-gnome-packagekit
+#d	-system-config-boot
+#d	-system-config-date
+#d	-system-config-firewall
+#d	-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-lvm
+#d	-system-config-network
+#d	-system-config-users
+#ox	 cacti
+#ox	 dbench
+#ox	 etherape
+#ox	 ettercap-gtk
+#ox	 galternatives
+#ox	 gparted
+#ox	 gpointing-device-settings
+kpackagekit
+#ox	 lat
+#ox	 lshw-gui
+#ox	 luma
+#ox	 ntop
+#ox	 pessulus
+#ox	 qtparted
+#ox	 system-config-kickstart
+#ox	 system-config-rootpassword
+#ox	 yumex
+
+################################################################
+-@authoring-and-publishing
+################################################################
+
+#dx	-docbook-slides
+#d	-docbook-style-dsssl
+#d	-docbook-style-xsl
+#d	-docbook-utils
+#dx	-docbook-utils-pdf
+#dx	-docbook5-schemas
+#dx	-docbook5-style-xsl
+#dx	-linuxdoc-tools
+#dx	-texlive
+#dx	-xhtml1-dtds
+#dx	-xmlto
+#ox	 BibTool
+#ox	 abcm2ps
+#ox	 conglomerate
+#ox	 dblatex
+#ox	 docbook2X
+#ox	 html401-dtds
+#ox	 kile
+#ox	 latex-mk
+#ox	 latexmk
+#ox	 lilypond
+#ox	 lout
+#ox	 ooo2txt
+#ox	 python-docutils
+#o	 scribus
+#ox	 tetex-prosper
+#ox	 txt2rss
+#ox	 w3c-markup-validator
+#ox	 xdvik
+#ox	 xmlcopyeditor
+#c	?tex-cm-lgc                      texlive
+
+################################################################
+@books
+################################################################
+
+#dx	-diveintopython
+#dx	-fedora-security-guide-en-US
+#dx	-javanotes
+#dx	-ldd-pdf
+
+################################################################
+@buildsys-build
+################################################################
+
+#m	-bash
+#m	-bzip2
+#m	-coreutils
+#m	-cpio
+#m	-diffutils
+#m	-fedora-release
+#m	-findutils
+#m	-gawk
+#m	-gcc
+#m	-gcc-c++
+#m	-grep
+#m	-gzip
+#m	-info
+#m	-make
+#m	-patch
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-sed
+#m	-shadow-utils
+#m	-tar
+#m	-unzip
+#m	-util-linux-ng
+#m	-which
+
+################################################################
+-@clustering
+################################################################
+
+#dx	-cluster-cim
+#dx	-cluster-snmp
+#dx	-ipvsadm
+#dx	-modcluster
+#dx	-rgmanager
+#dx	-ricci
+#dx	-system-config-cluster
+#ox	 heartbeat
+#ox	 pacemaker
+
+################################################################
+@critical-path-base
+################################################################
+
+#m	-NetworkManager
+#m	-anaconda
+#m	-createrepo
+#m	-dash
+#m	-dracut
+#m	-firstboot
+#m	-gcc-c++
+#m	-kernel
+#mx	-livecd-tools
+#mx	-mash
+#mx	-pungi
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-yum
+
+################################################################
+@critical-path-gnome
+################################################################
+
+#m	-desktop-backgrounds-basic
+#m	-gdm
+#m	-xorg-x11-drivers
+#m	-xorg-x11-server-Xorg
+#m	-xorg-x11-xauth
+#m	-xorg-x11-xinit
+#d	-notification-daemon
+
+################################################################
+-@development-libs
+################################################################
+
+#m	-bzip2-devel
+#m	-glibc-devel
+#m	-ncurses-devel
+#m	-pam-devel
+#m	-readline-devel
+#m	-zlib-devel
+#d	-binutils-devel
+#d	-boost-devel
+#d	-coolkey-devel
+#d	-cyrus-sasl-devel
+#d	-db4-devel
+#d	-dbus-cxx-devel
+#d	-dbus-cxx-doc
+#d	-dbus-cxx-tools
+#d	-dbus-devel
+#d	-expat-devel
+#d	-gdbm-devel
+#d	-geoclue-devel
+#d	-gmp-devel
+#d	-gpm-devel
+#d	-gssdp-devel
+#d	-gupnp-devel
+#d	-gypsy-devel
+#d	-hesiod-devel
+#d	-krb5-devel
+#d	-libacl-devel
+#d	-libattr-devel
+#d	-libcap-devel
+#d	-libcurl-devel
+#d	-libogg-devel
+#d	-libselinux-devel
+#d	-libuser-devel
+#d	-libvorbis-devel
+#d	-libxml2-devel
+#d	-lockdev-devel
+#d	-newt-devel
+#d	-openldap-devel
+#d	-openssl-devel
+#d	-pciutils-devel
+#d	-pcsc-lite-devel
+#d	-perl-devel
+#d	-python-devel
+#d	-rpm-devel
+#d	-slang-devel
+#ox	 check-devel
+#ox	 cvc3-devel
+#ox	 expatmm-devel
+#ox	 libdwarf-devel
+#ox	 libusb-devel
+#ox	 mona-devel
+
+################################################################
+@development-tools
+################################################################
+
+#m	-autoconf
+#m	-automake
+#m	-binutils
+#m	-bison
+#m	-flex
+#m	-gcc
+#m	-gcc-c++
+#m	-gdb
+#m	-gettext
+#m	-libtool
+#m	-make
+#m	-pkgconfig
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-strace
+-automake14
+-automake15
+-automake16
+-automake17
+#d	-byacc
+#d	-ccache
+#d	-cscope
+#d	-ctags
+#d	-cvs
+#d	-diffstat
+#d	-doxygen
+#d	-elfutils
+-gcc-gfortran
+#d	-git
+#d	-indent
+-intltool
+#d	-ltrace
+#d	-oprofile
+#d	-oprofile-gui
+#d	-patchutils
+#d	-python-ldap
+#d	-rcs
+#d	-subversion
+#d	-swig
+#d	-sysprof
+#d	-systemtap
+#d	-texinfo
+#d	-valgrind
+#ox	 CodeAnalyst-gui
+#ox	 ElectricFence
+#ox	 Sprog
+#ox	 abicheck
+#ox	 alex
+#ox	 alleyoop
+#ox	 aplus-fsf
+#ox	 archmage
+#ox	 asa
+#ox	 astyle
+#ox	 bazaar
+#ox	 bigloo
+#ox	 bugzilla
+#ox	 buildbot
+bzr
+#ox	 check
+#ox	 clips
+#ox	 clips-doc
+#ox	 clips-xclips
+#ox	 clipsmm-devel
+#ox	 clisp
+#o	 cmake
+#ox	 cmucl
+#ox	 codeblocks
+#ox	 cogito
+#ox	 colordiff
+#ox	 coredumper
+#ox	 cpan-upload
+#ox	 cpanspec
+#ox	 cppunit
+#ox	 cproto
+#ox	 crossvc
+#ox	 curry
+#ox	 cvs2cl
+#ox	 cvs2svn
+#ox	 cvsgraph
+#ox	 cvsps
+#ox	 cvsweb
+#ox	 darcs
+#ox	 dejagnu
+#ox	 ecl
+#ox	 elfinfo
+#ox	 email2trac
+#ox	 epydoc
+#ox	 eric
+#ox	 erlang
+#ox	 expect
+#ox	 flasm
+#ox	 fpc
+#ox	 frysk
+#ox	 frysk-gnome
+#ox	 ftnchek
+#ox	 gambas-ide
+#ox	 gauche
+#ox	 gcc-gnat
+#ox	 gcc-objc
+#ox	 gcl
+#ox	 gcl-emacs
+#ox	 gcl-xemacs
+#ox	 gforth
+#ox	 ghc
+#ox	 giggle
+#ox	 git-cola
+#ox	 gnu-smalltalk
+#ox	 gphpedit
+#ox	 gprolog
+#ox	 gpsim
+#ox	 gputils
+#ox	 gtranslator
+#ox	 haddock
+#ox	 happy
+#ox	 highlight
+#ox	 hugs98
+#ox	 iasl
+#ox	 imake
+#ox	 insight
+#ox	 ipython
+#ox	 jam
+#o	 koji
+#ox	 koji-hub
+#ox	 koji-web
+#ox	 kuipc
+#ox	 lazarus
+#ox	 lcov
+#ox	 libdwarf-tools
+#ox	 lightning
+#ox	 livecd-tools
+lua
+#ox	 lush
+#ox	 mach
+#ox	 manedit
+#ox	 mantis
+#ox	 mcrypt
+#ox	 meld
+#ox	 memtest86+
+mercurial
+#ox	 mlton
+#o	 mock
+#ox	 monodevelop
+#ox	 monotone
+#ox	 mr
+#ox	 nasm
+#ox	 nemiver
+#ox	 nqc
+#ox	 nqc-doc
+#ox	 ocaml
+#ox	 oorexx
+#ox	 parrot
+#ox	 patchy
+#ox	 pax-utils
+#ox	 perl-perlmenu
+#ox	 perltidy
+#ox	 phpcs
+#ox	 pikdev
+#ox	 pl
+#o	 plague
+#o	 plague-client
+#ox	 plt-scheme
+#ox	 polyml
+#ox	 pscan
+#ox	 pungi
+#o	 pylint
+#ox	 q
+#ox	 qgit
+#ox	 quilt
+#ox	 rapidsvn
+#ox	 regexxer
+#ox	 revisor
+#ox	 robodoc
+rpmdevtools
+rpmlint
+#ox	 sbcl
+#ox	 scanmem
+#ox	 scons
+#ox	 sigscheme
+#ox	 smarteiffel
+#ox	 splint
+#ox	 srecord
+#ox	 subcommander
+#ox	 subversion-svn2cl
+#ox	 sunifdef
+#ox	 svnmailer
+#ox	 sysconftool
+#ox	 tailor
+#ox	 tclpro
+#ox	 tkcon
+#ox	 tkcvs
+#ox	 tla
+#ox	 tolua++
+#ox	 trac
+#ox	 trac-git-plugin
+#ox	 trac-mercurial-plugin
+#ox	 translate-toolkit
+#ox	 ucblogo
+#ox	 utrac
+#ox	 virtaal
+#ox	 wxGlade
+#ox	 xbsql
+#ox	 xfce4-dev-tools
+#ox	 yap
+#ox	 yasm
+#ox	 zzuf
+
+################################################################
+-@dial-up
+################################################################
+
+#m	-ppp
+#d	-isdn4k-utils
+#d	-lrzsz
+#d	-minicom
+#d	-rp-pppoe
+#d	-wvdial
+#ox	 efax
+#o	 pptp
+#ox	 statserial
+
+################################################################
+-@directory-server
+################################################################
+
+#ox	 389-admin-console
+#ox	 389-console
+#ox	 389-ds-admin
+#ox	 389-ds-base
+#ox	 389-ds-console
+#ox	 389-dsgw
+#ox	 idm-console-framework
+#ox	 krb5-server
+#ox	 migrationtools
+#ox	 openldap-servers
+#o	 samba
+#ox	 ypserv
+
+################################################################
+@dns-server
+################################################################
+
+#m	-dnssec-conf
+-bind-chroot
+bind
+#ox	 dnsperf
+#ox	 ldns
+#ox	 nsd
+#ox	 pdns
+#ox	 pdns-recursor
+#ox	 unbound
+
+################################################################
+-@eclipse
+################################################################
+
+#m	-eclipse-cdt
+#m	-eclipse-jdt
+#d	-eclipse-callgraph
+#d	-eclipse-changelog
+#d	-eclipse-egit
+#d	-eclipse-mylyn
+#d	-eclipse-mylyn-java
+#d	-eclipse-oprofile
+#d	-eclipse-pde
+#d	-eclipse-pydev
+#d	-eclipse-rpm-editor
+#d	-eclipse-subclipse
+#d	-eclipse-valgrind
+#ox	 eclipse-cmakeed
+#ox	 eclipse-epic
+#ox	 eclipse-findbugs
+#ox	 eclipse-moreunit
+#ox	 eclipse-mylyn-trac
+#ox	 eclipse-photran
+#ox	 eclipse-phpeclipse
+#ox	 eclipse-quickrex
+#ox	 eclipse-rpmstubby
+#ox	 eclipse-shelled
+#ox	 eclipse-slide
+#ox	 eclipse-veditor
+
+################################################################
+@editors
+################################################################
+
+#d	-vim-enhanced
+#ox	 cssed
+emacs
+#ox	 emacs-auctex
+#ox	 emacs-bbdb
+#ox	 emacs-ess
+#ox	 emacs-muse
+#ox	 emacs-vm
+#ox	 geany
+#ox	 gobby
+#ox	 jed
+#o	 joe
+#ox	 leafpad
+#ox	 nedit
+#ox	 pida
+#ox	 poedit
+#ox	 psgml
+#ox	 scite
+#ox	 scribes
+#ox	 scribes-templates
+#ox	 vim-X11
+#ox	 virtaal
+#ox	 xemacs
+#ox	 xemacs-ess
+#ox	 xemacs-muse
+#ox	 xemacs-packages-extra
+#ox	 xmlcopyeditor
+#ox	 zile
+
+################################################################
+-@education
+################################################################
+
+#ox	 anki
+#ox	 childsplay
+#ox	 corrida
+#ox	 drgeo
+#ox	 drgeo-doc
+#ox	 fantasdic
+#ox	 gcompris
+#ox	 genchemlab
+#ox	 glglobe
+#ox	 gperiodic
+#ox	 gtypist
+#ox	 justmoon-gtk
+#o	 kdeedu
+#ox	 kdeedu-kstars
+#ox	 kdeedu-math
+#ox	 mnemosyne
+#ox	 moodle
+#ox	 nightview
+#ox	 saoimage
+#ox	 skychart
+#ox	 starlab
+#ox	 stellarium
+#ox	 tuxtype2
+#c	?gcompris-sound-en               gcompris
+
+################################################################
+-@electronic-lab
+################################################################
+
+#dx	-LabPlot
+#dx	-alliance
+#dx	-archimedes
+#dx	-arm-gp2x-linux-SDL
+#dx	-arm-gp2x-linux-binutils
+#dx	-arm-gp2x-linux-gcc
+#dx	-arm-gp2x-linux-gcc-c++
+#dx	-arm-gp2x-linux-glibc
+#dx	-arm-gp2x-linux-kernel-headers
+#dx	-arm-gp2x-linux-zlib
+#dx	-avarice
+#dx	-avr-binutils
+#dx	-avr-gcc
+#dx	-avr-gcc-c++
+#dx	-avr-gdb
+#dx	-avra
+#dx	-avrdude
+#dx	-dfu-programmer
+#dx	-dinotrace
+#dx	-drawtiming
+#d	-eclipse-cdt
+#dx	-eclipse-dltk-tcl
+#dx	-eclipse-eclox
+#dx	-eclipse-epic
+#d	-eclipse-subclipse
+#dx	-eclipse-texlipse
+#dx	-eclipse-veditor
+#dx	-electric
+#dx	-emacs-dinotrace
+#dx	-emacs-verilog-mode
+#dx	-emacs-vregs-mode
+#dx	-eqntott
+#dx	-espresso-ab
+#dx	-fped
+#dx	-gds2pov
+#dx	-geda-docs
+#dx	-geda-examples
+#dx	-geda-gattrib
+#dx	-geda-gnetlist
+#dx	-geda-gschem
+#dx	-geda-gsymcheck
+#dx	-geda-symbols
+#dx	-geda-utils
+#dx	-gerbv
+#dx	-ghdl
+#dx	-gnucap
+#dx	-gnuradio
+#dx	-gnusim8085
+#dx	-gplcver
+#dx	-gpsim
+#dx	-gputils
+#dx	-gresistor
+#dx	-gsim85
+#dx	-gspiceui
+#dx	-gtkterm
+#dx	-gtkwave
+#dx	-gwave
+#dx	-irsim
+#dx	-iverilog
+#dx	-kicad
+#dx	-ktechlab
+#dx	-linsmith
+#dx	-magic
+#dx	-magic-doc
+#dx	-mcu8051ide
+#dx	-netgen
+#dx	-ngspice
+#dx	-ngspice-doc
+#dx	-openocd
+#dx	-pcb
+#dx	-perl-Hardware-Verilog-Parser
+#dx	-perl-Hardware-Vhdl-Lexer
+#dx	-perl-Hardware-Vhdl-Parser
+#dx	-perl-Hardware-Vhdl-Tidy
+#dx	-perl-ModelSim-List
+#d	-perl-Perlilog
+#dx	-perl-SystemC-Vregs
+#dx	-perl-SystemPerl
+#dx	-perl-Verilog
+#dx	-perl-Verilog-CodeGen
+#dx	-perl-Verilog-Readmem
+#dx	-pharosc
+#dx	-pharosc-alliance
+#dx	-pharosc-magic
+#dx	-pharosc-synopsys
+#dx	-pharosc-xcircuit
+#dx	-picocom
+#dx	-picprog
+#dx	-pikdev
+#dx	-piklab
+#dx	-pikloops
+#dx	-qtoctave
+#dx	-qucs
+#dx	-sdcc
+#dx	-sk2py
+#dx	-tclspice
+#dx	-tetex-IEEEtran
+#dx	-tkcvs
+#dx	-tkgate
+#dx	-toped
+#dx	-uisp
+#dx	-usrp
+#dx	-verilator
+#dx	-vhd2vl
+#dx	-vrq
+#dx	-xcircuit
+#dx	-xorg-x11-fonts-100dpi
+#d	-xorg-x11-fonts-ISO8859-1-100dpi
+#dx	-xorg-x11-fonts-ISO8859-9-100dpi
+#dx	-xorg-x11-fonts-Type1
+#ox	 freehdl
+#ox	 kdesvn
+#o	 minicom
+#ox	 octave-forge
+#ox	 rfdump
+
+################################################################
+@engineering-and-scientific
+################################################################
+
+#dx	-gnuplot
+#dx	-units
+#ox	 GMT
+#ox	 GMT-coastlines-all
+#ox	 GMT-coastlines-full
+#ox	 GMT-coastlines-high
+#ox	 GMT-doc
+#ox	 Macaulay2
+#ox	 R
+#ox	 SIBsim4
+#ox	 TeXmacs
+#ox	 asana-math-fonts
+#ox	 atlas
+#ox	 automaton
+#ox	 automaton-javadoc
+#ox	 blacs
+#ox	 blas
+#ox	 cdo
+#ox	 cernlib-utils
+#ox	 chemtool
+#ox	 cvc3
+#ox	 cvc3-doc
+#ox	 cvc3-emacs
+#ox	 cvc3-xemacs
+#ox	 dx
+#ox	 dx-samples
+#ox	 freefem++
+#ox	 funtools
+#ox	 gabedit
+#ox	 galculator
+#ox	 gdl
+#ox	 geant321
+#ox	 genius
+#ox	 geomview
+#ox	 ginac
+#ox	 gnome-chemistry-utils
+#ox	 gpredict
+#ox	 grace
+#ox	 grads
+#ox	 gridengine
+#ox	 gromacs
+#ox	 gromacs-mpi
+#ox	 gts
+#ox	 harminv
+#ox	 hdf
+#ox	 hdf5
+#ox	 hmmer
+#ox	 jmol
+#ox	 kpolynome
+#ox	 kst
+#ox	 lagan
+#ox	 lapack
+#ox	 libctl
+#ox	 libmatheval
+#ox	 libtcd
+#o	 malaga
+#ox	 maxima
+#ox	 maxima-gui
+#ox	 mona
+#ox	 mona-emacs
+#ox	 mona-examples
+#ox	 mona-xemacs
+#ox	 ncl
+#ox	 nco
+#ox	 ncview
+#ox	 netcdf
+#ox	 numpy
+#ox	 octave
+#ox	 octave-forge
+#ox	 openbabel
+#o	 opencv
+#ox	 orpie
+#ox	 osiv
+#ox	 paraview
+#ox	 paw
+#ox	 perl-bioperl
+#ox	 plotutils
+#ox	 pvm
+#ox	 pypop
+#ox	 python-biopython
+#ox	 qalculate-gtk
+#ox	 qalculate-kde
+#ox	 qcad
+#ox	 qtiplot
+#ox	 qtoctave
+#ox	 rrdtool
+#ox	 scalapack
+#ox	 scidavis
+#ox	 scidavis-manual
+#ox	 scigraphica
+#ox	 scrip
+#ox	 seaview
+#ox	 sextractor
+#ox	 speedcrunch
+#ox	 stix-integrals-fonts
+#ox	 stix-pua-fonts
+#ox	 stix-sizes-fonts
+#ox	 stix-variants-fonts
+#ox	 tcd-utils
+#ox	 tgif
+#ox	 tideEditor
+#ox	 vaspview
+#ox	 veusz
+#ox	 wcstools
+#ox	 wgrib
+#ox	 wgrib2
+#ox	 wise2
+#ox	 wvs-data
+#ox	 wxMaxima
+#ox	 xdrawchem
+#ox	 xtide
+
+################################################################
+@fedora-packager
+################################################################
+
+#m	-bodhi-client
+#m	-bzr
+#m	-curl
+#m	-cvs
+#m	-fedora-packager
+#m	-git
+#m	-koji
+#m	-make
+#m	-mercurial
+#m	-mock
+#m	-plague-client
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-rpmdevtools
+#ox	 cpanspec
+
+################################################################
+-@font-design
+################################################################
+
+#mx	-fontforge
+#mx	-xgridfit
+#dx	-fontmatrix
+#dx	-fontpackages-devel
+#dx	-fonttools
+#dx	-fontypython
+#d	-ghostscript
+#d	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+#dx	-gnome-specimen
+#d	-gucharmap
+#dx	-inkscape
+#dx	-lcdf-typetools
+#dx	-perl-Font-TTF
+#d	-poppler-utils
+#dx	-xgridfit-doc
+#o	 bzr
+#o	 cvs
+#ox	 darcs
+#ox	 fontpackages-tools
+#ox	 freetype-demos
+#ox	 gbdfed
+#ox	 ghostscript-doc
+#ox	 ghostscript-gtk
+#ox	 giggle
+#o	 git
+#ox	 meld
+#o	 mercurial
+#ox	 nautilus-bzr
+#ox	 qgit
+#ox	 quilt
+#o	 scribus
+#o	 scribus-doc
+#o	 subversion
+#ox	 xmbdfed
+
+################################################################
+-@fonts
+################################################################
+
+-abyssinica-fonts
+-cjkuni-uming-fonts
+-dejavu-sans-fonts
+-dejavu-sans-mono-fonts
+-dejavu-serif-fonts
+-jomolhari-fonts
+-kacst-art-fonts
+-kacst-book-fonts
+-kacst-decorative-fonts
+-kacst-digital-fonts
+-kacst-farsi-fonts
+-kacst-letter-fonts
+-kacst-naskh-fonts
+-kacst-office-fonts
+-kacst-one-fonts
+-kacst-pen-fonts
+-kacst-poster-fonts
+-kacst-qurn-fonts
+-kacst-screen-fonts
+-kacst-title-fonts
+-kacst-titlel-fonts
+-khmeros-base-fonts
+-liberation-mono-fonts
+-liberation-sans-fonts
+-liberation-serif-fonts
+-lklug-fonts
+-lohit-assamese-fonts
+-lohit-bengali-fonts
+-lohit-gujarati-fonts
+-lohit-hindi-fonts
+-lohit-kannada-fonts
+-lohit-maithili-fonts
+-lohit-marathi-fonts
+-lohit-oriya-fonts
+-lohit-punjabi-fonts
+-lohit-tamil-fonts
+-lohit-telugu-fonts
+-padauk-fonts
+-paktype-naqsh-fonts
+-paktype-tehreer-fonts
+-smc-meera-fonts
+-stix-fonts
+-thai-scalable-waree-fonts
+-un-core-dotum-fonts
+-vlgothic-fonts
+#ox	 adf-accanthis-2-fonts
+#ox	 adf-accanthis-3-fonts
+#ox	 adf-accanthis-fonts
+#ox	 adf-tribun-fonts
+#ox	 allgeyer-musiqwik-fonts
+#ox	 allgeyer-musisync-fonts
+#ox	 apa-new-athena-unicode-fonts
+#ox	 apanov-edrip-fonts
+#ox	 apanov-heuristica-fonts
+#ox	 aplus-fsf-KAPL-fonts
+#ox	 asana-math-fonts
+#ox	 baekmuk-ttf-batang-fonts
+#ox	 baekmuk-ttf-dotum-fonts
+#o	 baekmuk-ttf-gulim-fonts
+#ox	 baekmuk-ttf-hline-fonts
+#ox	 beteckna-fonts
+#ox	 beteckna-lower-case-fonts
+#ox	 beteckna-small-caps-fonts
+#ox	 bitstream-vera-sans-fonts
+#ox	 bitstream-vera-sans-mono-fonts
+#ox	 bitstream-vera-serif-fonts
+#ox	 bpg-algeti-fonts
+#o	 bpg-chveulebrivi-fonts
+#o	 bpg-courier-fonts
+#ox	 bpg-courier-s-fonts
+#ox	 bpg-elite-fonts
+#ox	 bpg-excelsior-fonts
+#o	 bpg-glaho-fonts
+#ox	 bpg-ingiri-fonts
+#ox	 bpg-nino-medium-cond-fonts
+#ox	 bpg-nino-medium-fonts
+#ox	 bpg-sans-fonts
+#ox	 bpg-sans-medium-fonts
+#ox	 bpg-sans-modern-fonts
+#ox	 bpg-sans-regular-fonts
+#ox	 bpg-serif-fonts
+#ox	 bpg-serif-modern-fonts
+#ox	 brettfont-fonts
+#ox	 cave9-mutante-fonts
+#ox	 cf-bonveno-fonts
+#ox	 chisholm-letterslaughing-fonts
+#ox	 chisholm-to-be-continued-fonts
+#o	 cjkuni-ukai-fonts
+#ox	 conakry-fonts
+#ox	 ctan-cm-lgc-roman-fonts
+#ox	 ctan-cm-lgc-sans-fonts
+#ox	 ctan-cm-lgc-typewriter-fonts
+#ox	 ctan-kerkis-calligraphic-fonts
+#ox	 ctan-kerkis-sans-fonts
+#ox	 ctan-kerkis-serif-fonts
+#ox	 darkgarden-fonts
+#ox	 dejavu-lgc-sans-fonts
+#ox	 dejavu-lgc-sans-mono-fonts
+#ox	 dejavu-lgc-serif-fonts
+#ox	 denemo-music-fonts
+#ox	 drehatlas-warender-bibliothek-fonts
+#ox	 drehatlas-widelands-fonts
+#ox	 drehatlas-xaporho-fonts
+#ox	 dustin-domestic-manners-fonts
+#ox	 dustin-dustismo-roman-fonts
+#ox	 dustin-dustismo-sans-fonts
+#ox	 ecolier-court-fonts
+#ox	 ecolier-court-lignes-fonts
+#ox	 extremetuxracer-papercuts-fonts
+#ox	 extremetuxracer-papercuts-outline-fonts
+#ox	 freecol-imperator-fonts
+#ox	 freecol-shadowedblack-fonts
+#ox	 gargi-fonts
+#ox	 gfs-ambrosia-fonts
+#ox	 gfs-artemisia-fonts
+#ox	 gfs-baskerville-fonts
+#ox	 gfs-bodoni-classic-fonts
+#ox	 gfs-bodoni-fonts
+#ox	 gfs-complutum-fonts
+#ox	 gfs-decker-fonts
+#ox	 gfs-didot-classic-fonts
+#ox	 gfs-didot-fonts
+#ox	 gfs-eustace-fonts
+#ox	 gfs-fleischman-fonts
+#ox	 gfs-garaldus-fonts
+#ox	 gfs-gazis-fonts
+#ox	 gfs-ignacio-fonts
+#ox	 gfs-jackson-fonts
+#ox	 gfs-neohellenic-fonts
+#ox	 gfs-nicefore-fonts
+#ox	 gfs-olga-fonts
+#ox	 gfs-philostratos-fonts
+#ox	 gfs-porson-fonts
+#ox	 gfs-pyrsos-fonts
+#ox	 gfs-solomos-fonts
+#ox	 gfs-theokritos-fonts
+#ox	 gnu-free-mono-fonts
+#ox	 gnu-free-sans-fonts
+#ox	 gnu-free-serif-fonts
+#ox	 google-droid-sans-fonts
+#ox	 google-droid-sans-mono-fonts
+#ox	 google-droid-serif-fonts
+#ox	 hanazono-fonts
+#ox	 hartke-aurulent-sans-fonts
+#ox	 hartke-aurulent-sans-mono-fonts
+#ox	 icelandic-fonts
+#ox	 inkboy-fonts
+#ox	 ipa-gothic-fonts
+#ox	 ipa-mincho-fonts
+#ox	 ipa-pgothic-fonts
+#ox	 ipa-pmincho-fonts
+#o	 khmeros-battambang-fonts
+#o	 khmeros-bokor-fonts
+#o	 khmeros-handwritten-fonts
+#o	 khmeros-metal-chrieng-fonts
+#o	 khmeros-muol-fonts
+#o	 khmeros-siemreap-fonts
+#ox	 kurdit-unikurd-web-fonts
+#ox	 levien-inconsolata-fonts
+#ox	 lilypond-aybabtu-fonts
+#ox	 lilypond-century-schoolbook-l-fonts
+#ox	 lilypond-emmentaler-fonts
+#ox	 lilypond-feta-alphabet-fonts
+#ox	 lilypond-feta-braces-fonts
+#ox	 lilypond-feta-fonts
+#ox	 lilypond-parmesan-fonts
+#ox	 linux-libertine-fonts
+#o	 lohit-kashmiri-fonts
+#o	 lohit-konkani-fonts
+#o	 lohit-malayalam-fonts
+#o	 lohit-nepali-fonts
+#o	 lohit-sindhi-fonts
+#o	 madan-fonts
+#ox	 mathml-fonts
+#ox	 mgopen-canonica-fonts
+#ox	 mgopen-cosmetica-fonts
+#ox	 mgopen-modata-fonts
+#ox	 mgopen-moderna-fonts
+#ox	 mscore-fonts
+#ox	 myanmar3-unicode-fonts
+#o	 nafees-web-naskh-fonts
+#ox	 oflb-goudy-bookletter-1911-fonts
+#ox	 oflb-notcouriersans-fonts
+#ox	 oflb-prociono-fonts
+#ox	 oflb-riordonfancy-fonts
+#ox	 oflb-smonohand-fonts
+#ox	 oldstandard-sfd-fonts
+#o	 openoffice.org-opensymbol-fonts
+#ox	 roadstencil-fonts
+#o	 samyak-devanagari-fonts
+#o	 samyak-gujarati-fonts
+#o	 samyak-malayalam-fonts
+#o	 samyak-oriya-fonts
+#o	 samyak-tamil-fonts
+#o	 sarai-fonts
+#ox	 sazanami-gothic-fonts
+#ox	 sazanami-mincho-fonts
+#ox	 senamirmir-washra-fantuwua-fonts
+#ox	 senamirmir-washra-fonts
+#ox	 senamirmir-washra-hiwua-fonts
+#ox	 senamirmir-washra-jiret-fonts
+#ox	 senamirmir-washra-tint-fonts
+#ox	 senamirmir-washra-wookianos-fonts
+#ox	 senamirmir-washra-yebse-fonts
+#ox	 senamirmir-washra-yigezu-bisrat-goffer-fonts
+#ox	 senamirmir-washra-yigezu-bisrat-gothic-fonts
+#ox	 senamirmir-washra-zelan-fonts
+#o	 serafettin-cartoon-fonts
+#ox	 sil-andika-fonts
+#ox	 sil-charis-compact-fonts
+#ox	 sil-charis-fonts
+#ox	 sil-doulos-fonts
+#ox	 sil-gentium-alt-fonts
+#ox	 sil-gentium-basic-book-fonts
+#ox	 sil-gentium-basic-fonts
+#ox	 sil-gentium-fonts
+#ox	 sil-lateef-fonts
+#o	 sil-scheherazade-fonts
+#ox	 silkscreen-expanded-fonts
+#ox	 silkscreen-fonts
+#ox	 sj-delphine-fonts
+#ox	 sj-stevehand-fonts
+#o	 smc-anjalioldlipi-fonts
+#o	 smc-dyuthi-fonts
+#o	 smc-kalyani-fonts
+#o	 smc-rachana-fonts
+#o	 smc-raghumalayalam-fonts
+#o	 smc-suruma-fonts
+#ox	 sportrop-fonts
+#ox	 stix-integrals-fonts
+#ox	 stix-pua-fonts
+#ox	 stix-sizes-fonts
+#ox	 stix-variants-fonts
+#ox	 thibault-essays1743-fonts
+#ox	 thibault-isabella-fonts
+#ox	 thibault-rockets-fonts
+#ox	 thibault-staypuft-fonts
+#o	 tibetan-machine-uni-fonts
+#ox	 tiresias-info-fonts
+#ox	 tiresias-info-z-fonts
+#ox	 tiresias-key-v2-fonts
+#ox	 tiresias-lp-fonts
+#ox	 tiresias-pc-fonts
+#ox	 tiresias-pc-z-fonts
+#ox	 tiresias-sign-fonts
+#ox	 tiresias-sign-z-fonts
+#ox	 tulrich-tuffy-fonts
+#o	 un-core-batang-fonts
+#o	 un-core-dinaru-fonts
+#o	 un-core-graphic-fonts
+#o	 un-core-gungseo-fonts
+#o	 un-core-pilgi-fonts
+#ox	 un-extra-fonts-bom
+#ox	 un-extra-fonts-jamobatang
+#ox	 un-extra-fonts-jamodotum
+#ox	 un-extra-fonts-jamonovel
+#ox	 un-extra-fonts-jamosora
+#ox	 un-extra-fonts-pen
+#ox	 un-extra-fonts-penheulim
+#ox	 un-extra-fonts-pilgia
+#ox	 un-extra-fonts-shinmun
+#ox	 un-extra-fonts-taza
+#ox	 un-extra-fonts-vada
+#ox	 un-extra-fonts-yetgul
+#o	 vlgothic-p-fonts
+#ox	 vollkorn-fonts
+#ox	 woodardworks-laconic-fonts
+#ox	 woodardworks-laconic-shadow-fonts
+#ox	 wqy-zenhei-fonts
+#ox	 xorg-x11-fonts-ethiopic
+#ox	 yanone-kaffeesatz-fonts
+#ox	 yanone-tagesschrift-fonts
+
+################################################################
+-@ftp-server
+################################################################
+
+#m	-vsftpd
+#ox	 proftpd
+#ox	 pure-ftpd
+#ox	 xferstats
+
+################################################################
+-@games
+################################################################
+
+#d	-gnome-games
+#d	-gnome-games-help
+#d	-joystick
+#ox	 BlockOutII
+#ox	 CriticalMass
+#ox	 FlightGear
+#ox	 KoboDeluxe
+#ox	 Maelstrom
+#ox	 MegaMek
+#ox	 PySolFC
+#ox	 PySolFC-cardsets
+#ox	 PySolFC-music
+#ox	 Ri-li
+#ox	 TnL
+#ox	 abe
+#ox	 abuse
+#ox	 adanaxisgpl
+#ox	 agistudio
+#ox	 alex4
+#ox	 alienarena
+#ox	 alienblaster
+#ox	 alphabet-soup
+#ox	 amoebax
+#ox	 angrydd
+#ox	 ants
+#ox	 apricots
+#ox	 armacycles-ad
+#ox	 arrows
+#ox	 asc
+#ox	 asc-music
+#ox	 astromenace
+#ox	 asylum
+#ox	 atanks
+#ox	 atomix
+#ox	 atomorun
+#ox	 auriferous
+#ox	 ballbuster
+#ox	 ballz
+#ox	 barrage
+#ox	 beneath-a-steel-sky
+#ox	 beneath-a-steel-sky-cd
+#ox	 berusky
+#ox	 biloba
+#ox	 biniax
+#ox	 blobAndConquer
+#ox	 blobby
+#ox	 blobwars
+#ox	 bolzplatz2006
+#ox	 bombardier
+#ox	 boswars
+#ox	 boswars-addons
+#ox	 bsd-games
+#ox	 btanks
+#ox	 bygfoot
+#ox	 bzflag
+#ox	 ca-installer
+#ox	 cave9
+#ox	 cdogs-sdl
+#ox	 celestia
+#ox	 cgoban
+#ox	 chess
+#ox	 clanbomber
+#ox	 clonekeen
+#ox	 coco-coq
+#ox	 colossus
+#ox	 crack-attack
+#ox	 crossfire
+#ox	 crossfire-client
+#ox	 crystal-stacker
+#ox	 crystal-stacker-themes
+#ox	 csmash
+#ox	 cylindrix
+#ox	 cyphesis
+#ox	 dd2
+#ox	 dgae
+#ox	 dopewars
+#ox	 drascula
+#ox	 duel3
+#ox	 egoboo
+#ox	 ember
+#ox	 enigma
+#ox	 escape
+#ox	 extremetuxracer
+#ox	 fRaBs
+#ox	 fbg
+#ox	 fillets-ng
+#ox	 flight-of-the-amazon-queen
+#ox	 flight-of-the-amazon-queen-cd
+#ox	 flobopuyo
+#ox	 foobillard
+#ox	 fortune-mod
+#ox	 freeciv
+#ox	 freecol
+#ox	 freedink
+#ox	 freedoom
+#ox	 freedoom-freedm
+#ox	 freedroid
+#ox	 freedroidrpg
+#ox	 freetennis
+#ox	 frozen-bubble
+#ox	 gamazons
+#ox	 games-menus
+#ox	 gbrainy
+#ox	 gemdropx
+#ox	 gl-117
+#ox	 glaxium
+#ox	 glest
+#ox	 glob2
+#ox	 gnome-games-extra
+#ox	 gnome-games-extra-data
+#ox	 gnome-hearts
+#ox	 gnubg
+#ox	 gnubik
+#ox	 gnuchess
+#ox	 gnugo
+#ox	 greyhounds
+#ox	 grhino
+#ox	 gweled
+#ox	 hedgewars
+#ox	 kbilliards
+#ox	 kcheckers
+#ox	 kcirbshooter
+#ox	 kdeaddons-atlantikdesigner
+#o	 kdegames
+#ox	 kdegames3
+#ox	 kitsune
+#ox	 kmagnet
+#ox	 koules
+#ox	 lacewing
+#ox	 lbrickbuster2
+#ox	 lincity-ng
+#ox	 liquidwar
+#ox	 lmarbles
+#ox	 londonlaw
+#ox	 lordsawar
+#ox	 lostlabyrinth
+#ox	 lpairs
+#ox	 lucidlife
+#ox	 lure
+#ox	 machineball
+#ox	 magicmaze
+#ox	 magicor
+#ox	 manaworld
+#ox	 manaworld-music
+#ox	 maniadrive
+#ox	 maniadrive-music
+#ox	 maxr
+#ox	 methane
+#ox	 mirrormagic
+#ox	 monkey-bubble
+#ox	 monsterz
+#ox	 nagi
+#ox	 naturette
+#ox	 nazghul
+#ox	 nazghul-haxima
+#ox	 nethack
+#ox	 nethack-vultures
+#ox	 netpanzer
+#ox	 neverball
+#ox	 nexuiz
+#ox	 njam
+#ox	 nogravity
+#ox	 numptyphysics
+#ox	 oneko
+#ox	 openalchemist
+#ox	 openarena
+#ox	 openlierox
+#ox	 overgod
+#ox	 pachi
+#ox	 penguin-command
+#ox	 pengupop
+#ox	 pinball
+#ox	 pingus
+#ox	 pioneers
+#ox	 pipenightdreams
+#ox	 pipepanic
+#ox	 planets
+#ox	 poker2d
+#ox	 poker3d
+#ox	 powermanga
+#ox	 prboom
+#ox	 professor-is-missing
+#ox	 puzzles
+#ox	 pychess
+#ox	 qascade
+#ox	 qgo
+#ox	 qstars
+#ox	 quake3
+#ox	 quake3-demo
+#ox	 quarry
+#ox	 rafkill
+#ox	 raidem
+#ox	 raidem-music
+#ox	 rocksndiamonds
+#ox	 rogue
+#ox	 rott-shareware
+#ox	 scorched3d
+#ox	 scorchwentbonkers
+#ox	 scummvm
+#ox	 seahorse-adventures
+#ox	 sear
+#ox	 sergueis-destiny
+#ox	 shippy
+#ox	 sirius
+#ox	 six
+#ox	 slashem
+#ox	 slingshot
+#ox	 smashteroid
+#ox	 solarwolf
+#ox	 sopwith
+#ox	 spring
+#ox	 stormbaancoureur
+#ox	 supertux
+#ox	 supertuxkart
+#ox	 taxipilot
+#ox	 tecnoballz
+#ox	 teeworlds
+#ox	 tennix
+#ox	 tong
+#ox	 torcs
+#ox	 torcs-data-cars-extra
+#ox	 torcs-data-tracks-dirt
+#ox	 torcs-data-tracks-oval
+#ox	 trackballs
+#ox	 trackballs-music
+#ox	 tremulous
+#ox	 trophy
+#ox	 tunneler
+#ox	 tuxpuck
+#ox	 typespeed
+#ox	 ularn
+#ox	 ultimatestunts
+#ox	 uqm
+#ox	 urbanterror
+#ox	 vavoom
+#ox	 vdr-sudoku
+#ox	 vdrift
+#ox	 vegastrike
+#ox	 vegastrike-music
+#ox	 vodovod
+#ox	 warzone2100
+#ox	 wastesedge
+#ox	 wesnoth
+#ox	 widelands
+#ox	 wordwarvi
+#ox	 worldofpadman
+#ox	 worminator
+#ox	 wormux
+#ox	 xaos
+#ox	 xarchon
+#ox	 xblast
+#ox	 xboard
+#ox	 xgalaxy
+#ox	 xgrav
+#ox	 xmoto
+#ox	 xpilot-ng
+#ox	 xpilot-ng-server
+#ox	 xplanet
+#ox	 xqf
+#ox	 xscorch
+#ox	 xstar
+#ox	 xteddy
+#ox	 xu4
+#ox	 yofrankie-bge
+#ox	 zasx
+
+################################################################
+@gnome-desktop
+################################################################
+
+#m	-control-center
+#m	-fedora-gnome-theme
+#m	-gnome-applets
+#m	-gnome-panel
+#m	-gnome-session
+#m	-gnome-terminal
+#m	-gvfs-fuse
+#m	-metacity
+#m	-nautilus
+#m	-yelp
+#d	-NetworkManager-gnome
+#d	-NetworkManager-openvpn
+#d	-NetworkManager-pptp
+#d	-NetworkManager-vpnc
+#d	-at-spi
+#d	-brasero-nautilus
+#d	-cheese
+#d	-compiz-gnome
+-dasher
+#d	-eog
+#d	-evince
+#d	-evince-djvu
+#d	-file-roller
+#d	-gcalctool
+#d	-gdm
+#d	-gdm-plugin-fingerprint
+#d	-gdm-user-switch-applet
+#d	-gedit
+#d	-gnome-backgrounds
+-gnome-bluetooth
+#d	-gnome-disk-utility
+#d	-gnome-media
+#d	-gnome-pilot
+#d	-gnome-power-manager
+#d	-gnome-screensaver
+#d	-gnome-system-monitor
+#d	-gnome-themes
+#d	-gnome-user-docs
+#d	-gnome-user-share
+#d	-gnome-utils
+#d	-gnote
+-gok
+#d	-gthumb
+#d	-gtk2-engines
+#d	-gucharmap
+#d	-gvfs-archive
+#d	-gvfs-gphoto2
+#d	-gvfs-smb
+#d	-libcanberra-gtk2
+#d	-mousetweaks
+#d	-nautilus-sendto
+#d	-notification-daemon
+-orca
+#d	-pulseaudio-module-gconf
+#d	-pulseaudio-module-x11
+#d	-seahorse
+#d	-vinagre
+#d	-vino
+#d	-xdg-user-dirs-gtk
+#d	-yum-presto
+#d	-zenity
+#ox	 alacarte
+#ox	 avant-window-navigator
+#ox	 beagle-evolution
+#ox	 beagle-gnome
+#ox	 buoh
+#ox	 byzanz
+#ox	 deskbar-applet
+-esc
+#ox	 evince-dvi
+#ox	 file-browser-applet
+#ox	 gconf-editor
+#ox	 gdesklets
+#ox	 gedit-plugins
+#ox	 glipper
+#ox	 glunarclock
+#ox	 gmpc
+#ox	 gmrun
+#ox	 gnochm
+#ox	 gnome-applet-alarm-clock
+#ox	 gnome-applet-bubblemon
+#ox	 gnome-applet-cpufire
+#ox	 gnome-applet-music
+#ox	 gnome-applet-netspeed
+#ox	 gnome-applet-sensors
+#ox	 gnome-applet-timer
+#ox	 gnome-commander
+#ox	 gnome-device-manager
+#ox	 gnome-media-apps
+#ox	 gnome-netstatus
+#ox	 gnome-phone-manager
+#ox	 gnome-pilot-conduits
+#ox	 gnome-schedule
+#ox	 gnome-system-log
+#ox	 gnome-theme-curvylooks
+#ox	 gnotime
+#ox	 gonvert
+#ox	 grsync
+#ox	 gst-mixer
+#ox	 gtrayicon
+#ox	 gtweakui
+#o	 gvfs-obexftp
+#ox	 hamster-applet
+#ox	 istanbul
+#ox	 lock-keys-applet
+#ox	 nautilus-actions
+#ox	 nautilus-image-converter
+#ox	 nautilus-open-terminal
+#ox	 nautilus-search-tool
+#ox	 nautilus-sound-converter
+#ox	 panelfm
+#ox	 pcmanfm
+#ox	 preferences-menus
+#ox	 pulseaudio-esound-compat
+#ox	 qtcurve-gtk2
+#ox	 rss-glx-gnome-screensaver
+#ox	 sabayon
+#ox	 scim-gtk
+#ox	 screenruler
+#ox	 seahorse-plugins
+#ox	 shotwell
+#ox	 stardict-dic-en
+#ox	 swfdec-gnome
+#ox	 tango-icon-theme
+#ox	 tango-icon-theme-extras
+#ox	 themes-backgrounds-gnome
+#ox	 tomboy
+#ox	 tracker-search-tool
+#ox	 verbiste-gnome
+#ox	 wallpapoz
+#ox	 wp_tray
+#ox	 xiphos
+#ox	 xscreensaver-extras-gss
+#ox	 xscreensaver-gl-extras-gss
+#c	?ibus-gtk                        ibus
+#c	?scim-bridge-gtk                 scim
+
+################################################################
+-@gnome-software-development
+################################################################
+
+#m	-GConf2-devel
+#m	-ORBit2-devel
+#m	-atk-devel
+#m	-glib2-devel
+#m	-gtk2-devel
+#m	-libbonobo-devel
+#m	-libbonoboui-devel
+#m	-libglade2-devel
+#m	-libgnome-devel
+#m	-libgnomecanvas-devel
+#m	-libgnomeui-devel
+#m	-pango-devel
+#d	-at-spi-devel
+#d	-devhelp
+#d	-evolution-data-server-devel
+#d	-glade3
+#d	-gnome-common
+#d	-gnome-desktop-devel
+#d	-gnome-devel-docs
+#d	-gnome-panel-devel
+#d	-gnome-pilot-devel
+#d	-gtk-doc
+#d	-gtk2-devel-docs
+#d	-hal-devel
+#d	-libgtop2-devel
+#d	-pygtk2-devel
+#d	-xulrunner-devel
+#ox	 anjuta
+#ox	 anjuta-doc
+#ox	 bakery-devel
+#ox	 bit-devel
+#ox	 bit-gtkmm-devel
+#ox	 cairomm-devel
+#ox	 conexus-devel
+#ox	 conexus-gtkmm-devel
+#ox	 conexus-nspr-devel
+#ox	 conexus-nss-devel
+#ox	 conexus-ssl-devel
+#ox	 ddd
+#ox	 eel2-devel
+#ox	 gazpacho
+#ox	 gconfmm26-devel
+#ox	 gedit-vala
+#ox	 glade2
+#ox	 glibmm24-devel
+#ox	 gnome-python2-gda-devel
+#ox	 gnome-valgrind-session
+#o	 gnome-vfs2-devel
+#ox	 gnome-vfsmm26-devel
+#ox	 gob2
+#ox	 gquilt
+#ox	 gtk+extra
+#ox	 gtkdatabox-devel
+#ox	 gtkmm24-devel
+#ox	 gtkparasite
+#o	 libart_lgpl-devel
+#ox	 libgconf-java
+#ox	 libglade-java
+#ox	 libglademm24-devel
+#ox	 libgnome-java
+#ox	 libgnomecanvasmm26-devel
+#ox	 libgnomemm26-devel
+#ox	 libgnomeprintui22-devel
+#ox	 libgnomeuimm26-devel
+#ox	 libgtk-java
+#ox	 libsexy-devel
+#ox	 libsexymm-devel
+#o	 libsigc++20-devel
+#ox	 nemiver
+#ox	 papyrus-devel
+#ox	 papyrus-doc
+#ox	 papyrus-extras-devel
+#ox	 papyrus-gtkmm-devel
+#ox	 plotmm-devel
+#ox	 scim-devel
+#ox	 vala
+
+################################################################
+@graphical-internet
+################################################################
+
+-ekiga
+#d	-empathy
+#d	-evolution
+#d	-evolution-help
+#d	-firefox
+#d	-java-1.6.0-openjdk-plugin
+#d	-nspluginwrapper
+#d	-transmission
+#ox	 Miro
+#ox	 amsn
+#ox	 apollon
+#ox	 arora
+#ox	 azureus
+#ox	 balsa
+#ox	 bittorrent-gui
+#ox	 blam
+#ox	 blogtk
+#ox	 bluefish
+#ox	 checkgmail
+#ox	 choqok
+#ox	 claws-mail
+#ox	 contact-lookup-applet
+#ox	 deluge
+#ox	 deskbar-applet
+#ox	 dillo
+#ox	 epiphany
+#ox	 epiphany-extensions
+#ox	 evolution-bogofilter
+#ox	 evolution-conduits
+#ox	 evolution-exchange
+#ox	 evolution-perl
+#ox	 filezilla
+#ox	 fwbuilder
+#ox	 gajim
+#ox	 galeon
+#ox	 gftp
+#ox	 gg2
+#ox	 gift-gnutella
+#ox	 gift-openft
+#ox	 gnash-plugin
+#ox	 gnome-translate
+#ox	 gnubiff
+#ox	 gossip
+#ox	 gtk-gnutella
+#ox	 gtorrentviewer
+#ox	 gwget
+#ox	 gyachi
+#ox	 jabbim
+#ox	 jd
+#ox	 kadu
+#ox	 kasablanca
+#ox	 kazehakase
+#o	 kdepim
+#ox	 kdewebdev
+#o	 kftpgrabber
+#ox	 kita
+#ox	 knetstats
+#o	 konversation
+#ox	 kvirc
+#ox	 licq
+#o	 liferea
+#ox	 linphone
+#ox	 logjam
+#ox	 mail-notification
+#ox	 midori
+#ox	 mitter
+#ox	 mtr-gtk
+#ox	 mugshot
+#ox	 netactview
+#ox	 nntpgrab-gui
+#ox	 ochusha
+#ox	 pan
+#ox	 pidgin
+#ox	 pidgin-libnotify
+#ox	 prozilla
+#ox	 psi
+#ox	 psimedia
+#ox	 putty
+#ox	 qbittorrent
+#ox	 rekonq
+#ox	 seamonkey
+#ox	 streamtuner
+#ox	 swfdec-mozilla
+#ox	 sylpheed
+#ox	 tangogps
+#o	 thunderbird
+#ox	 torium
+#ox	 twinkle
+#ox	 urlgfe
+#ox	 valknut
+#ox	 x3270-x11
+#ox	 xchat
+#ox	 xchat-gnome
+#ox	 xchat-ruby
+#ox	 xchat-tcl
+
+################################################################
+@graphics
+################################################################
+
+#d	-f-spot
+#d	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+-libsane-hpaio
+-xsane
+-xsane-gimp
+#o	 ImageMagick
+#ox	 Panini
+#ox	 agave
+#ox	 argyllcms
+#ox	 asciio
+#ox	 asymptote
+#ox	 blender
+#ox	 cbrpager
+#ox	 cinepaint
+#ox	 comix
+#o	 dcraw
+#o	 digikam
+#ox	 digikam-doc
+#ox	 fyre
+#ox	 gcolor2
+#ox	 geeqie
+#ox	 gifsicle
+#ox	 gifview
+#ox	 gipfel
+#ox	 gnome-scan
+#ox	 gpp
+#ox	 gqview
+#ox	 graphviz
+#ox	 gutenprint-plugin
+#ox	 gv
+#ox	 hugin
+#ox	 inkscape
+#ox	 ipe
+#ox	 k3d
+#o	 kdegraphics
+#o	 kipi-plugins
+#ox	 koffice-krita
+#ox	 kphotoalbum
+#ox	 makehuman
+#ox	 mirage
+#ox	 netpbm-progs
+#ox	 nip2
+#ox	 optipng
+#ox	 pstoedit
+#ox	 pydot
+#ox	 qiv
+#ox	 rawstudio
+#ox	 renrot
+#ox	 sane-frontends
+#ox	 scanbuttond
+#ox	 showimg
+#ox	 tachyon
+#ox	 tuxpaint
+#ox	 tzclock
+#ox	 ufraw
+#ox	 uniconvertor
+#ox	 viewnior
+#ox	 wings
+#ox	 xfig
+
+################################################################
+-@hardware-support
+################################################################
+
+#d	-atmel-firmware
+#d	-b43-fwcutter
+#d	-b43-openfwwf
+#d	-ipw2100-firmware
+#d	-ipw2200-firmware
+#d	-ivtv-firmware
+#d	-iwl1000-firmware
+#d	-iwl3945-firmware
+#d	-iwl4965-firmware
+#d	-iwl5000-firmware
+#d	-libertas-usb8388-firmware
+#d	-printer-filters
+#d	-ql2100-firmware
+#d	-ql2200-firmware
+#d	-ql23xx-firmware
+#d	-ql2400-firmware
+#d	-ql2500-firmware
+#d	-rt61pci-firmware
+#d	-rt73usb-firmware
+#d	-zd1211-firmware
+#ox	 acpi
+#ox	 acpitool
+#ox	 cmospwd
+#o	 ctapi-cyberjack
+#o	 ctapi-cyberjack-pcsc
+#ox	 ctapi-cyberjack-tools
+#ox	 firmware-addon-dell
+#o	 gpsd
+#ox	 gpsd-clients
+#o	 gypsy
+#ox	 hddtemp
+#o	 hdparm
+#ox	 i8kutils
+#ox	 iscan-firmware
+#ox	 isight-firmware-tools
+#ox	 libifp
+#ox	 lsscsi
+#ox	 multican
+#o	 openct
+#ox	 opensc
+#ox	 s3switch
+#ox	 tpb
+
+################################################################
+-@haskell
+################################################################
+
+#dx	-alex
+#dx	-cabal-install
+#dx	-cabal2spec
+#dx	-darcs
+#dx	-ghc
+#dx	-ghc-GLUT-devel
+#dx	-ghc-HTTP-devel
+#dx	-ghc-OpenGL-devel
+#dx	-ghc-cgi-devel
+#dx	-ghc-doc
+#dx	-ghc-editline-devel
+#dx	-ghc-fgl-devel
+#dx	-ghc-haskell-platform-devel
+#dx	-ghc-network-devel
+#dx	-ghc-time-devel
+#dx	-ghc-utf8-string-devel
+#dx	-ghc-zlib-devel
+#dx	-happy
+#dx	-haskell-platform
+#ox	 cpphs
+#ox	 ghc-HUnit-devel
+#ox	 ghc-X11-devel
+#ox	 ghc-X11-xft-devel
+#ox	 ghc-gtk-devel
+#ox	 ghc-gtk2hs-doc
+#ox	 ghc-haskell-platform-doc
+#ox	 ghc-haskell-platform-prof
+#ox	 ghc-haskell-src-exts-devel
+#ox	 ghc-prof
+#ox	 ghc-tar-devel
+#ox	 ghc-uniplate-devel
+#ox	 ghc-xmonad-contrib-devel
+#ox	 hscolour
+#ox	 hugs98
+#ox	 hugs98-demos
+#ox	 xmonad
+
+################################################################
+-@input-methods
+################################################################
+
+#d	-ibus-anthy
+#d	-ibus-chewing
+#d	-ibus-hangul
+#d	-ibus-m17n
+#d	-ibus-pinyin
+#d	-ibus-rawcode
+#d	-im-chooser
+#d	-imsettings
+#d	-m17n-contrib-assamese
+#d	-m17n-contrib-bengali
+#d	-m17n-contrib-gujarati
+#d	-m17n-contrib-hindi
+#d	-m17n-contrib-kannada
+#d	-m17n-contrib-maithili
+#d	-m17n-contrib-malayalam
+#d	-m17n-contrib-marathi
+#d	-m17n-contrib-oriya
+#d	-m17n-contrib-punjabi
+#d	-m17n-contrib-tamil
+#d	-m17n-contrib-telugu
+#d	-m17n-contrib-urdu
+#d	-m17n-db-sinhala
+#d	-m17n-db-thai
+#ox	 WritRecogn
+#ox	 cellwriter
+#ox	 gcin
+#o	 gok
+#o	 ibus-sayura
+#ox	 ibus-table-additional
+#ox	 ibus-table-array30
+#ox	 ibus-table-cangjie
+#ox	 ibus-table-erbi
+#ox	 ibus-table-quick
+#ox	 ibus-table-translit
+#ox	 ibus-table-wubi
+#ox	 ibus-table-xinhua
+#ox	 ibus-table-yong
+#o	 iok
+#ox	 kinput2
+#ox	 m17n-contrib-esperanto
+#o	 m17n-contrib-nepali
+#ox	 m17n-contrib-russian
+#o	 m17n-contrib-sinhala
+#ox	 m17n-contrib-tai
+#ox	 m17n-contrib-vietnamese
+#ox	 m17n-db-amharic
+#ox	 m17n-db-arabic
+#o	 m17n-db-assamese
+#o	 m17n-db-bengali
+#ox	 m17n-db-cham
+#ox	 m17n-db-chinese
+#ox	 m17n-db-croatian
+#ox	 m17n-db-danish
+#ox	 m17n-db-dhivehi
+#ox	 m17n-db-farsi
+#ox	 m17n-db-french
+#ox	 m17n-db-generic
+#ox	 m17n-db-greek
+#o	 m17n-db-gujarati
+#ox	 m17n-db-hebrew
+#o	 m17n-db-hindi
+#ox	 m17n-db-japanese
+#o	 m17n-db-kannada
+#ox	 m17n-db-kazakh
+#ox	 m17n-db-khmer
+#ox	 m17n-db-korean
+#ox	 m17n-db-lao
+#ox	 m17n-db-latin
+#o	 m17n-db-malayalam
+#ox	 m17n-db-myanmar
+#o	 m17n-db-oriya
+#o	 m17n-db-punjabi
+#ox	 m17n-db-russian
+#ox	 m17n-db-serbian
+#ox	 m17n-db-slovak
+#ox	 m17n-db-swedish
+#o	 m17n-db-tamil
+#o	 m17n-db-telugu
+#o	 m17n-db-tibetan
+#ox	 m17n-db-uyghur
+#ox	 m17n-db-vietnamese
+#ox	 nabi
+#ox	 scim-anthy
+#ox	 scim-array
+#ox	 scim-bridge-gtk
+#ox	 scim-bridge-qt
+#ox	 scim-bridge-qt3
+#ox	 scim-chewing
+#ox	 scim-fcitx
+#ox	 scim-gtk
+#ox	 scim-hangul
+#ox	 scim-input-pad
+#ox	 scim-m17n
+#ox	 scim-pinyin
+#ox	 scim-python-chinese
+#ox	 scim-python-english
+#ox	 scim-python-pinyin
+#ox	 scim-python-xingma-cangjie
+#ox	 scim-python-xingma-erbi
+#ox	 scim-python-xingma-wubi
+#ox	 scim-python-xingma-zhengma
+#ox	 scim-rawcode
+#ox	 scim-sayura
+#ox	 scim-skk
+#ox	 scim-tables-additional
+#ox	 scim-tables-chinese
+#ox	 scim-tables-chinese-extra
+#ox	 scim-tomoe
+#ox	 uim
+#ox	 uim-anthy
+#ox	 uim-canna
+#ox	 uim-gnome
+#ox	 uim-gtk2
+#ox	 uim-m17n
+#ox	 uim-qt3
+#ox	 uim-skk
+#c	?gtk2-immodule-xim               gtk2
+#c	?ibus-gtk                        gtk2
+#c	?ibus-qt                         qt
+#c	?imsettings-xfce                 xfce-utils
+
+################################################################
+@java
+################################################################
+
+#m	-java-1.5.0-gcj
+#m	-libgcj
+#d	-java-1.6.0-openjdk
+#d	-java-1.6.0-openjdk-plugin
+
+################################################################
+-@java-development
+################################################################
+
+#m	-ant
+#mx	-ecj
+#mx	-gcc-java
+#mx	-java-1.5.0-gcj-devel
+#mx	-libgcj-devel
+#m	-sinjdoc
+#d	-ant-antlr
+#d	-ant-apache-bcel
+#d	-ant-apache-log4j
+#d	-ant-apache-oro
+#d	-ant-apache-regexp
+#d	-ant-apache-resolver
+#d	-ant-commons-logging
+#dx	-ant-javadoc
+#d	-ant-javamail
+#d	-ant-jdepend
+#d	-ant-junit
+#dx	-ant-manual
+#d	-ant-nodeps
+#dx	-ant-scripts
+#d	-ant-swing
+#d	-ant-trax
+#d	-antlr
+#dx	-antlr-javadoc
+#dx	-antlr-manual
+#d	-avalon-framework
+#dx	-avalon-framework-javadoc
+#dx	-avalon-framework-manual
+#dx	-avalon-logkit
+#dx	-avalon-logkit-javadoc
+#d	-bcel
+#dx	-bcel-javadoc
+#d	-classpathx-jaf
+#dx	-classpathx-jaf-javadoc
+#d	-classpathx-mail
+#dx	-classpathx-mail-javadoc
+#dx	-cryptix-asn1-javadoc
+#dx	-cryptix-javadoc
+#dx	-gnu-getopt
+#dx	-gnu-getopt-javadoc
+#d	-jakarta-commons-beanutils
+#dx	-jakarta-commons-beanutils-javadoc
+#d	-jakarta-commons-collections
+#dx	-jakarta-commons-collections-javadoc
+#dx	-jakarta-commons-daemon
+#dx	-jakarta-commons-daemon-javadoc
+#d	-jakarta-commons-dbcp
+#dx	-jakarta-commons-dbcp-javadoc
+#d	-jakarta-commons-digester
+#dx	-jakarta-commons-digester-javadoc
+#d	-jakarta-commons-el
+#dx	-jakarta-commons-el-javadoc
+#d	-jakarta-commons-fileupload
+#dx	-jakarta-commons-fileupload-javadoc
+#d	-jakarta-commons-lang
+#dx	-jakarta-commons-lang-javadoc
+#d	-jakarta-commons-launcher
+#dx	-jakarta-commons-launcher-javadoc
+#d	-jakarta-commons-logging
+#dx	-jakarta-commons-logging-javadoc
+#d	-jakarta-commons-modeler
+#dx	-jakarta-commons-modeler-javadoc
+#d	-jakarta-commons-pool
+#dx	-jakarta-commons-pool-javadoc
+#dx	-jakarta-commons-validator
+#dx	-jakarta-commons-validator-javadoc
+#d	-jakarta-oro
+#dx	-jakarta-oro-javadoc
+#dx	-jakarta-taglibs-standard
+#dx	-jakarta-taglibs-standard-javadoc
+#dx	-java-1.5.0-gcj-src
+#dx	-java-1.6.0-openjdk-demo
+#d	-java-1.6.0-openjdk-devel
+#d	-java-1.6.0-openjdk-javadoc
+#dx	-java-1.6.0-openjdk-src
+#d	-java_cup
+#dx	-java_cup-javadoc
+#dx	-java_cup-manual
+#d	-jdepend
+#dx	-jdepend-demo
+#dx	-jdepend-javadoc
+#dx	-jlex
+#dx	-jlex-javadoc
+#d	-junit
+#dx	-junit-demo
+#dx	-junit-javadoc
+#dx	-junit-manual
+#dx	-ldapjdk
+#dx	-ldapjdk-javadoc
+#dx	-libgcj-src
+#d	-log4j
+#dx	-log4j-javadoc
+#dx	-log4j-manual
+#dx	-maven2
+#d	-mx4j
+#dx	-mx4j-javadoc
+#dx	-mx4j-manual
+#dx	-puretls-javadoc
+#d	-regexp
+#dx	-regexp-javadoc
+#d	-xalan-j2
+#dx	-xalan-j2-demo
+#dx	-xalan-j2-javadoc
+#dx	-xalan-j2-manual
+#dx	-xalan-j2-xsltc
+#d	-xerces-j2
+#dx	-xerces-j2-demo
+#dx	-xerces-j2-javadoc-apis
+#dx	-xerces-j2-javadoc-impl
+#dx	-xerces-j2-javadoc-other
+#dx	-xerces-j2-javadoc-xni
+#dx	-xerces-j2-scripts
+#d	-xml-commons-apis
+#dx	-xml-commons-apis-javadoc
+#dx	-xml-commons-apis-manual
+#d	-xml-commons-resolver
+#dx	-xml-commons-resolver-javadoc
+#dx	-xml-commons-which
+#dx	-xml-commons-which-javadoc
+#ox	 ant-findbugs
+#ox	 findbugs
+#ox	 findbugs-javadoc
+#ox	 findbugs-tools
+#ox	 idw-gpl
+#ox	 idw-gpl-javadoc
+#ox	 java-1.5.0-gcj-javadoc
+#ox	 jcip-annotations
+#ox	 jcip-annotations-javadoc
+#ox	 jlint
+#ox	 jsr-305
+#ox	 jsr-305-javadoc
+#ox	 pmd
+
+################################################################
+@kde-desktop
+################################################################
+
+#m	-kdebase-runtime
+#m	-kdebase-workspace
+#m	-kdelibs
+#d	-NetworkManager-gnome
+#d	-amarok
+#d	-cups-pk-helper
+#d	-dejavu-sans-fonts
+#d	-dejavu-sans-mono-fonts
+#d	-dejavu-serif-fonts
+-digikam
+#d	-kaffeine
+#d	-kcm-gtk
+#d	-kde-settings-pulseaudio
+#d	-kdeaccessibility
+#d	-kdeartwork-screensavers
+#d	-kdebase
+#d	-kdebase-workspace-python-applet
+-kdebluetooth
+#d	-kdegames
+#d	-kdegraphics
+#d	-kdemultimedia
+#d	-kdenetwork
+#d	-kdepim
+#d	-kdeplasma-addons
+#d	-kdeutils
+#d	-kdeutils-printer-applet
+#d	-kdm
+#d	-kftpgrabber
+#d	-kipi-plugins
+#d	-konq-plugins
+#d	-konversation
+#d	-kpackagekit
+#d	-ksshaskpass
+#d	-ktorrent
+#d	-phonon-backend-gstreamer
+#d	-phonon-backend-xine
+#d	-pinentry-qt
+#d	-polkit-gnome
+#d	-scribus
+#d	-system-config-printer-kde
+#d	-xsettings-kde
+#ox	 apollon
+#ox	 basket
+#ox	 bibletime
+#ox	 bilbo
+#ox	 compiz-kde
+#ox	 crystal
+#ox	 kbibtex
+#ox	 kbilliards
+#ox	 kchmviewer
+#ox	 kcoloredit
+#ox	 kcometen4
+#ox	 kde-colorscheme-plastik
+#ox	 kde-plasma-ktorrent
+#ox	 kde-plasma-networkmanagement
+#ox	 kde-plasma-quickaccess
+#ox	 kde-plasma-runcommand
+#ox	 kde-plasma-stasks
+#ox	 kde-plasma-translatoid
+#ox	 kde-plasma-yawp
+#ox	 kdeadmin
+#o	 kdeartwork
+#ox	 kdeartwork-sounds
+#ox	 kdeartwork-wallpapers
+#ox	 kdebase-workspace-googlegadgets
+#ox	 kdebase-workspace-wallpapers
+#ox	 kdeclassic-icon-theme
+#o	 kdeedu
+#ox	 kdetoys
+#ox	 kdissert
+#ox	 kerry
+#ox	 kgrab
+#ox	 kiconedit
+#ox	 kio-ftps
+#ox	 kio_gopher
+#ox	 kiosktool
+#ox	 klamav
+#ox	 kmenu-gnome
+#ox	 kmid
+#ox	 kmymoney2
+#ox	 knemo
+#ox	 knetworkmanager
+#ox	 kobby
+#ox	 koffice-suite
+#ox	 koverartist
+#ox	 krecipes
+#ox	 krename
+#ox	 krusader
+#ox	 ksensors
+#ox	 kshutdown
+#ox	 ksig
+#ox	 kvirc
+#ox	 leonidas-kde-theme-landscape
+#ox	 leonidas-kde-theme-lion
+#ox	 metamonitor
+#ox	 oooqs2
+#ox	 polyester
+#ox	 qt-recordmydesktop
+#ox	 qtcurve-kde4
+#ox	 rekall
+#ox	 rsibreak
+#ox	 rss-glx-kde
+#ox	 scim-bridge-qt3
+#ox	 scim-qtimm
+#ox	 skanlite
+#ox	 smb4k
+#ox	 speedcrunch
+#ox	 uim-qt3
+#ox	 yakuake
+#c	?ibus-qt                         ibus
+#c	?scim-bridge-qt                  scim
+
+################################################################
+-@kde-software-development
+################################################################
+
+#m	-kdelibs-devel
+#m	-qt-devel
+#d	-PyQt4-devel
+#d	-kdbg
+#d	-kdebase-workspace-devel
+#d	-kdelibs3-devel
+#d	-kdemultimedia-devel
+#d	-kdepimlibs-devel
+#d	-kdesdk
+#d	-kdevelop
+#d	-qt3-designer
+#d	-qt3-devel
+#ox	 PyKDE-devel
+#ox	 PyQt-devel
+#ox	 gambas-runtime
+#ox	 kdebase-devel
+#ox	 kdebindings-devel
+#ox	 kdeedu-devel
+#ox	 kdegames-devel
+#ox	 kdegraphics-devel
+#ox	 kdenetwork-devel
+#ox	 kdepim-devel
+#ox	 kdesvn
+#ox	 kdewebdev-devel
+#ox	 krazy2
+#ox	 qt-creator
+
+################################################################
+-@legacy-fonts
+################################################################
+
+#d	-bitmap-fonts
+#dx	-xorg-x11-fonts-100dpi
+#dx	-xorg-x11-fonts-ISO8859-15-100dpi
+#dx	-xorg-x11-fonts-Type1
+#dx	-xorg-x11-fonts-misc
+#ox	 artwiz-aleczapka-fonts
+#ox	 baekmuk-bdf-fonts
+#ox	 bitmap-cjk-fonts
+#ox	 ctan-musixtex-fonts
+#o	 culmus-aharoni-clm-fonts
+#o	 culmus-caladings-clm-fonts
+#o	 culmus-david-clm-fonts
+#o	 culmus-drugulin-clm-fonts
+#o	 culmus-ellinia-clm-fonts
+#o	 culmus-frank-ruehl-clm-fonts
+#o	 culmus-miriam-clm-fonts
+#o	 culmus-miriam-mono-clm-fonts
+#o	 culmus-nachlieli-clm-fonts
+#o	 culmus-yehuda-clm-fonts
+#ox	 efont-unicode-bdf
+#ox	 fonts-ISO8859-2
+#ox	 fonts-ISO8859-2-100dpi
+#ox	 fonts-ISO8859-2-75dpi
+#ox	 fonts-KOI8-R
+#ox	 fonts-KOI8-R-100dpi
+#ox	 fonts-KOI8-R-75dpi
+#ox	 fonts-hebrew-fancy
+#o	 ghostscript-fonts
+#ox	 japanese-bitmap-fonts
+#ox	 jisksp16-1990-fonts
+#ox	 knm-new-fixed-fonts
+#ox	 libdockapp-fonts
+#ox	 lyx-cmex10-fonts
+#ox	 lyx-cmmi10-fonts
+#ox	 lyx-cmr10-fonts
+#ox	 lyx-cmsy10-fonts
+#ox	 lyx-esint10-fonts
+#ox	 lyx-eufm10-fonts
+#ox	 lyx-msam10-fonts
+#ox	 lyx-msbm10-fonts
+#ox	 lyx-wasy10-fonts
+#ox	 mona-bitmap-fonts
+#ox	 nethack-bitmap-fonts
+#ox	 nted-ntedfont-fonts
+#ox	 rosegarden4-feta-fonts
+#ox	 rosegarden4-parmesan-fonts
+#ox	 taipeifonts
+#ox	 terminus-fonts
+#ox	 terminus-fonts-console
+#o	 urw-fonts
+#ox	 wqy-bitmap-fonts
+#ox	 wqy-unibit-fonts
+#ox	 xorg-x11-fonts-75dpi
+#o	 xorg-x11-fonts-ISO8859-1-100dpi
+#ox	 xorg-x11-fonts-ISO8859-1-75dpi
+#ox	 xorg-x11-fonts-ISO8859-14-100dpi
+#ox	 xorg-x11-fonts-ISO8859-14-75dpi
+#ox	 xorg-x11-fonts-ISO8859-15-75dpi
+#ox	 xorg-x11-fonts-ISO8859-2-100dpi
+#ox	 xorg-x11-fonts-ISO8859-2-75dpi
+#ox	 xorg-x11-fonts-ISO8859-9-100dpi
+#ox	 xorg-x11-fonts-ISO8859-9-75dpi
+#ox	 xorg-x11-fonts-cyrillic
+#ox	 xorg-x11-fonts-ethiopic
+#ox	 zvbi-fonts
+
+################################################################
+-@legacy-network-server
+################################################################
+
+#ox	 bootparamd
+#ox	 rarpd
+#ox	 rsh-server
+#ox	 rusers
+#ox	 rusers-server
+#ox	 rwho
+#ox	 talk-server
+#ox	 telnet-server
+#ox	 tftp-server
+
+################################################################
+-@legacy-software-development
+################################################################
+
+#dx	-compat-gcc-34
+#dx	-compat-gcc-34-c++
+#dx	-compat-gcc-34-g77
+#dx	-compat-libstdc++-296
+#dx	-compat-libstdc++-33
+
+################################################################
+-@legacy-software-support
+################################################################
+
+#dx	-compat-libgcc-296
+#dx	-compat-libstdc++-296
+#dx	-compat-libstdc++-33
+#ox	 compat-db
+
+################################################################
+-@lxde-desktop
+################################################################
+
+#mx	-lxde-common
+#mx	-lxde-settings-daemon
+#mx	-lxmenu-data
+#mx	-lxpanel
+#mx	-lxsession-lite
+#mx	-openbox
+#mx	-pcmanfm
+#dx	-gpicview
+#dx	-leafpad
+#dx	-lxappearance
+#dx	-lxinput
+#dx	-lxrandr
+#dx	-lxsession-edit
+#dx	-lxshortcut
+#dx	-lxtask
+#dx	-lxterminal
+#dx	-obconf
+#dx	-slim
+#dx	-xarchiver
+#d	-xscreensaver-base
+#ox	 lxde-icon-theme
+#ox	 lxlauncher
+#ox	 lxmusic
+#ox	 obmenu
+#ox	 parcellite
+
+################################################################
+-@mail-server
+################################################################
+
+#d	-cyrus-sasl
+#d	-dovecot
+#d	-sendmail
+#d	-sendmail-cf
+#d	-spamassassin
+#ox	 amavisd-new
+#ox	 clamav
+#ox	 clamav-data
+#ox	 clamav-milter
+#ox	 crm114
+#ox	 cyrus-imapd
+#ox	 dbmail
+#ox	 enemies-of-carlotta
+#o	 esmtp
+#o	 exim
+#ox	 exim-clamav
+#ox	 exim-doc
+#ox	 imp
+#ox	 mailman
+#ox	 milter-regex
+#ox	 mlmmj
+#o	 postfix
+#ox	 pyzor
+#ox	 roundcubemail
+#ox	 spamass-milter
+#o	 spambayes
+#ox	 sqlgrey
+#ox	 squirrelmail
+#ox	 up-imapproxy
+#ox	 uw-imap
+
+################################################################
+-@mingw32
+################################################################
+
+#mx	-mingw32-binutils
+#mx	-mingw32-filesystem
+#mx	-mingw32-gcc
+#mx	-mingw32-runtime
+#mx	-mingw32-w32api
+#dx	-mingw32-crossreport
+#dx	-mingw32-nsis
+#dx	-wine
+#ox	 mingw32-SDL
+#ox	 mingw32-atk
+#ox	 mingw32-bzip2
+#ox	 mingw32-cairo
+#ox	 mingw32-dlfcn
+#ox	 mingw32-freetype
+#ox	 mingw32-gdbm
+#ox	 mingw32-gettext
+#ox	 mingw32-glib2
+#ox	 mingw32-iconv
+#ox	 mingw32-libgcrypt
+#ox	 mingw32-libgpg-error
+#ox	 mingw32-libjpeg
+#ox	 mingw32-libpng
+#ox	 mingw32-libxml2
+#ox	 mingw32-openssl
+#ox	 mingw32-pdcurses
+#ox	 mingw32-pixman
+#ox	 mingw32-proj
+#ox	 mingw32-pthreads
+#ox	 mingw32-readline
+#ox	 mingw32-sqlite
+#ox	 mingw32-termcap
+#ox	 mingw32-zlib
+#c	?mingw32-nsiswrapper             mingw32-nsis
+
+################################################################
+-@moblin-desktop
+################################################################
+
+#mx	-bisho
+#mx	-bognor-regis
+#mx	-dalston
+#mx	-moblin-cursor-theme
+#mx	-moblin-gtk-engine
+#mx	-moblin-icon-theme
+#mx	-moblin-panel-applications
+#mx	-moblin-panel-media
+#mx	-moblin-panel-myzone
+#mx	-moblin-panel-pasteboard
+#mx	-moblin-panel-people
+#mx	-moblin-panel-status
+#mx	-moblin-session
+#mx	-moblin-sound-theme
+#mx	-mutter
+#mx	-network-manager-netbook
+#dx	-anjal
+#dx	-hornsey
+#dx	-syncevolution-moblin
+
+################################################################
+@mysql
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-libdbi-dbd-mysql
+#d	-mysql-connector-odbc
+#d	-mysql-server
+#d	-perl-DBD-MySQL
+#d	-unixODBC
+#ox	 mod_auth_mysql
+#ox	 mysql-bench
+#ox	 mysql-devel
+#ox	 mysqlreport
+#ox	 mysqltuner
+php-mysql
+#ox	 qt-mysql
+#ox	 qt3-MySQL
+
+################################################################
+@network-server
+################################################################
+
+cyrus-sasl
+#ox	 amanda-server
+#ox	 cobbler
+#ox	 ctrlproxy
+#ox	 dhcp
+dnsmasq
+#ox	 ejabberd
+#ox	 fedora-ds-base
+#ox	 flumotion
+#ox	 freenx
+#ox	 freeradius
+#ox	 fwknop
+#ox	 icecast
+#ox	 ipxripd
+#ox	 ircd-hybrid
+#ox	 jabberd
+#ox	 kannel
+#ox	 koan
+#ox	 krb5-server
+#ox	 netatalk
+#ox	 nsd
+#ox	 oidentd
+#ox	 openldap-servers
+#ox	 openswan
+#ox	 privoxy
+#ox	 puppet-server
+#ox	 quagga
+#ox	 radvd
+#ox	 rbldnsd
+#ox	 rinetd
+#ox	 sobby
+#ox	 tigervnc-server
+#ox	 torque-server
+#ox	 ucarp
+#ox	 ushare
+#ox	 vnc-reflector
+#ox	 vtun
+#ox	 xl2tpd
+#ox	 ypserv
+
+################################################################
+-@news-server
+################################################################
+
+#m	-inn
+#ox	 cleanfeed
+#ox	 leafnode
+#ox	 newscache
+#ox	 newsx
+#ox	 suck
+
+################################################################
+-@ocaml
+################################################################
+
+#mx	-ocaml
+#mx	-ocaml-findlib-devel
+#mx	-ocaml-ocamldoc
+#mx	-ocaml-runtime
+#mx	-ocaml-x11
+#dx	-emacs-tuareg
+#dx	-ocaml-camlp4-devel
+#ox	 ocaml-bitstring-devel
+#ox	 ocaml-calendar-devel
+#ox	 ocaml-camomile-devel
+#ox	 ocaml-csv-devel
+#ox	 ocaml-curl-devel
+#ox	 ocaml-curses-devel
+#ox	 ocaml-expat-devel
+#ox	 ocaml-extlib-devel
+#ox	 ocaml-lablgl-devel
+#ox	 ocaml-lablgtk-devel
+#ox	 ocaml-labltk-devel
+#ox	 ocaml-ocamlnet-devel
+#ox	 ocaml-pcre-devel
+#ox	 ocaml-pxp-devel
+#ox	 ocaml-ssl-devel
+#ox	 ocaml-xml-light-devel
+#ox	 ocaml-xmlrpc-light-devel
+#ox	 xemacs-tuareg
+
+################################################################
+-@office
+################################################################
+
+#d	-evince
+#d	-openoffice.org-calc
+#d	-openoffice.org-draw
+#d	-openoffice.org-graphicfilter
+#d	-openoffice.org-impress
+#d	-openoffice.org-math
+#d	-openoffice.org-writer
+#d	-openoffice.org-xsltfilter
+#d	-planner
+#ox	 MagicPoint
+#ox	 Zim
+#ox	 abiword
+#ox	 aiksaurus-thesaurus
+#ox	 alexandria
+#ox	 bibus
+#ox	 calcurse
+#ox	 calibre
+#ox	 contacts
+#ox	 dates
+#ox	 dayplanner
+#ox	 dia
+#ox	 gbirthday
+#ox	 gdeskcal
+#ox	 glabels
+#ox	 glista
+#ox	 glom
+#ox	 gnotime
+#ox	 gnucash
+#ox	 gnumeric
+#ox	 gnumeric-plugins-extras
+#ox	 gourmet
+#ox	 gramps
+#ox	 grisbi
+#ox	 hnb
+#ox	 htmldoc
+#ox	 jpilot
+#o	 kdepim
+#ox	 keurocalc
+#ox	 klatexformula
+#ox	 kmymoney2
+#ox	 kmymoney2-aqbanking
+#ox	 koffice-suite
+#ox	 krecipes
+#ox	 kreetingkard
+#ox	 kreetingkard_templates
+#ox	 labyrinth
+#ox	 lyx
+#ox	 notecase
+#ox	 openoffice.org-base
+#ox	 openoffice.org-emailmerge
+#ox	 openoffice.org-extendedPDF
+#ox	 openoffice.org-javafilter
+#ox	 openoffice.org-ooolatex
+#ox	 openoffice.org-pyuno
+#ox	 openoffice.org-testtools
+#o	 openoffice.org-voikko
+#ox	 pybliographer
+#ox	 qcad
+#ox	 rednotebook
+#ox	 referencer
+#ox	 revelation
+#ox	 skrooge
+#ox	 sunbird
+#ox	 taskcoach
+#ox	 taskjuggler
+#ox	 tellico
+#ox	 tetex-IEEEtran
+#ox	 texmaker
+#ox	 tinyerp
+#ox	 tinyerp-server
+#ox	 vym
+#ox	 wyrd
+#ox	 xchm
+#ox	 xdvik
+#ox	 xfbib
+#ox	 xournal
+#c	?hyphen-en                       hyphen
+#c	?openoffice.org-langpack-en      openoffice.org-core
+
+################################################################
+-@online-docs
+################################################################
+
+#c	?system-config-date-docs         system-config-date
+#c	?system-config-nfs-docs          system-config-nfs
+#c	?system-config-samba-docs        system-config-samba
+#c	?system-config-services-docs     system-config-services
+#c	?system-config-users-docs        system-config-users
+
+################################################################
+@perl
+################################################################
+
+#mx	-perl-core
+#dx	-cpan-upload
+#dx	-git-cpan-patch
+#dx	-perltidy
+#ox	 eclipse-epic
+#ox	 parrot
+#ox	 perl-Task-Catalyst
+#ox	 vim-perl-support
+#ox	 vim-perl-tt2
+
+################################################################
+@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+-bluez-cups
+#d	-cups-pk-helper
+#d	-gutenprint
+#d	-gutenprint-cups
+#d	-hpijs
+#d	-hplip
+#d	-mpage
+#d	-samba-client
+#d	-system-config-printer
+#d	-system-config-printer-udev
+#ox	 a2ps
+#ox	 cups-pdf
+#ox	 enscript
+
+################################################################
+@ruby
+################################################################
+
+#mx	-ruby
+#dx	-ruby-devel
+#dx	-ruby-mode
+#ox	 eruby
+#ox	 ruby-ri
+
+################################################################
+@server-cfg
+################################################################
+
+#d	-cups-pk-helper
+#d	-system-config-httpd
+#d	-system-config-nfs
+#d	-system-config-printer
+#d	-system-config-samba
+#d	-system-config-services
+#ox	 system-config-bind
+#ox	 system-switch-mail-gnome
+
+################################################################
+@smb-server
+################################################################
+
+#m	-samba
+#m	-samba-client
+#d	-system-config-samba
+
+################################################################
+-@somali-support
+################################################################
+
+#c	?gcompris-sound-so               gcompris
+#c	?hunspell-so                     hunspell
+#c	?moodle-so                       moodle
+
+################################################################
+@sound-and-video
+################################################################
+
+#m	-alsa-utils
+#m	-vorbis-tools
+#d	-PackageKit-gstreamer-plugin
+#d	-alsa-plugins-pulseaudio
+#d	-brasero
+#d	-cdparanoia
+#d	-genisoimage
+#d	-gstreamer-plugins-good
+#d	-icedax
+#d	-pulseaudio
+#d	-pulseaudio-module-bluetooth
+#d	-pulseaudio-utils
+#d	-rhythmbox
+#d	-sound-juicer
+#d	-sox
+#d	-totem
+#d	-totem-mozplugin
+#d	-totem-nautilus
+#d	-wodim
+#ox	 AcetoneISO2
+#ox	 Miro
+#ox	 abcde
+#ox	 adplay
+#ox	 alsamixergui
+amarok
+#ox	 ardour
+#ox	 argyllcms
+#ox	 asunder
+#ox	 audacious
+#ox	 audacity
+#ox	 aumix
+#ox	 banshee
+#ox	 bluez-alsa
+#ox	 bmpx
+#ox	 camE
+#ox	 cdcollect
+#ox	 cdlabelgen
+#ox	 cdrskin
+#ox	 cmusphinx3
+#ox	 cowbell
+#ox	 csound-gui
+#ox	 decibel-audio-player
+#ox	 denemo
+#ox	 dvdauthor
+#ox	 dvdisaster
+#ox	 dvgrab
+#ox	 easytag
+#ox	 exaile
+#ox	 festvox-bdl-arctic-hts
+#ox	 festvox-clb-arctic-hts
+#ox	 festvox-rms-arctic-hts
+#ox	 gcdmaster
+#ox	 gcombust
+#ox	 gcstar
+#ox	 gmixer
+#ox	 gnomad2
+#ox	 gnomebaker
+#ox	 gnomeradio
+#ox	 grip
+#ox	 gtkpod
+#ox	 id3v2
+#ox	 isomaster
+#o	 jack-audio-connection-kit
+#ox	 jokosher
+k3b
+#o	 kaffeine
+#o	 kdemultimedia
+#ox	 kid3
+#ox	 kover
+#ox	 lxmusic
+#ox	 mikmod
+#ox	 mkvtoolnix-gui
+#ox	 muine
+#ox	 multimedia-menus
+#ox	 mybashburn
+#ox	 nted
+#ox	 nyquist
+#ox	 padevchooser
+#ox	 paman
+#ox	 paprefs
+#ox	 parole
+#ox	 pavucontrol
+#ox	 pavumeter
+#ox	 picard
+#ox	 pitivi
+#ox	 pocketsphinx
+#ox	 pulseaudio-module-lirc
+#ox	 pulseaudio-module-zeroconf
+#ox	 pyvnc2swf
+#ox	 qmmp
+#ox	 quodlibet
+#ox	 rakarrack
+#ox	 regionset
+#ox	 rosegarden4
+#ox	 serpentine
+#ox	 soundconverter
+#ox	 soundtracker
+#ox	 subtitlecomposer
+#ox	 sweep
+#ox	 tagtool
+#ox	 tclabc
+#ox	 totem-lirc
+#ox	 tvtime
+#ox	 ushare
+#ox	 v4l2-tool
+#ox	 vdr
+#ox	 vdr-epgsearch
+#ox	 vdr-femon
+#ox	 vdr-osdteletext
+#ox	 vdr-remote
+#ox	 vdr-skins
+#ox	 vdr-skinsoppalusikka
+#ox	 vdr-streamdev-client
+#ox	 vdr-streamdev-server
+#ox	 vdr-sudoku
+#ox	 vdr-text2skin
+#ox	 vdr-ttxtsubs
+#ox	 vdr-tvonscreen
+#ox	 vdr-wapd
+#ox	 vdradmin-am
+#ox	 whaawmp
+#ox	 wmix
+#ox	 xcdroast
+#ox	 xfburn
+#ox	 xmms
+#ox	 xmms-adplug
+#ox	 xmms-cdread
+#ox	 xmms-flac
+#ox	 xmp
+#c	?xine-lib-pulseaudio             xine-lib
+
+################################################################
+-@sql-server
+################################################################
+
+#m	-postgresql
+#d	-libdbi-dbd-pgsql
+#d	-perl-DBD-Pg
+#d	-postgresql-python
+#d	-postgresql-server
+#d	-rhdb-utils
+#d	-unixODBC
+#ox	 postgresql-contrib
+#ox	 postgresql-docs
+#ox	 postgresql-jdbc
+#ox	 postgresql-odbc
+#ox	 postgresql-tcl
+#ox	 postgresql-test
+#ox	 qt-odbc
+#ox	 qt-postgresql
+#ox	 qt3-ODBC
+#ox	 qt3-PostgreSQL
+#ox	 unixODBC-kde
+
+################################################################
+-@sugar-desktop
+################################################################
+
+#mx	-sugar
+#dx	-etoys
+#d	-gdm
+#dx	-sugar-browse
+#dx	-sugar-calculator
+#dx	-sugar-chat
+#dx	-sugar-imageviewer
+#dx	-sugar-jukebox
+#dx	-sugar-log
+#dx	-sugar-pippy
+#dx	-sugar-read
+#dx	-sugar-terminal
+#dx	-sugar-turtleart
+#dx	-sugar-write
+#ox	 sugar-analyze
+#ox	 sugar-clock
+#ox	 sugar-connect
+#ox	 sugar-distance
+#ox	 sugar-emulator
+#ox	 sugar-finance
+#ox	 sugar-flipsticks
+#ox	 sugar-help
+#ox	 sugar-implode
+#ox	 sugar-infoslicer
+#ox	 sugar-memorize
+#ox	 sugar-moon
+#ox	 sugar-playgo
+#ox	 sugar-record
+#ox	 sugar-speak
+#ox	 sugar-update-control
+#ox	 sugar-xoirc
+#ox	 sugar-xomail
+
+################################################################
+@system-tools
+################################################################
+
+#d	-BackupPC
+#d	-NetworkManager-openconnect
+#d	-NetworkManager-openvpn
+#d	-NetworkManager-vpnc
+#d	-bonnie++
+#d	-ipsec-tools
+#d	-jigdo
+#d	-nmap
+#d	-ntfs-3g
+#d	-ntp
+#d	-openconnect
+#d	-openldap-clients
+#d	-openvpn
+#d	-samba-client
+#d	-screen
+#d	-tigervnc
+#d	-vpnc
+#d	-xdelta
+#d	-yum-utils
+#d	-zisofs-tools
+#d	-zsh
+#ox	 PackageKit-command-not-found
+#ox	 aide
+#ox	 aircrack-ng
+#ox	 airsnort
+#ox	 am-utils
+#ox	 amanda-client
+#ox	 apcupsd
+#ox	 apcupsd-gui
+#ox	 apg
+#ox	 apt
+#ox	 arc
+#ox	 arj
+#ox	 arptables_jf
+#ox	 arpwatch
+#ox	 autofs
+#ox	 avahi-tools
+#ox	 bash-completion
+bochs
+#ox	 cabextract
+#ox	 catfish
+#ox	 cfengine
+#ox	 chrpath
+#ox	 conman
+#ox	 connect-proxy
+#ox	 convmv
+#ox	 crack
+#ox	 crash
+#o	 createrepo
+#ox	 dar
+#ox	 ddclient
+#ox	 denyhosts
+#ox	 dkms
+#ox	 dnrd
+#ox	 dstat
+#ox	 dtach
+#ox	 ebtables
+#ox	 ed2k_hash
+#ox	 eiciel
+#ox	 emelfm2
+#ox	 enca
+#ox	 environment-modules
+#ox	 epylog
+#ox	 etherbat
+#ox	 ettercap
+#ox	 fatsort
+#ox	 fcron
+#ox	 fdupes
+#ox	 fedora-package-config-apt
+#ox	 fedora-package-config-smart
+#o	 festival
+#ox	 foremost
+#ox	 freeze
+#o	 fuse
+#ox	 fwbuilder
+#ox	 fwknop
+#ox	 fwrestart
+#ox	 ganglia
+#o	 geoclue
+#ox	 ghasher
+#ox	 ghex
+#ox	 gigolo
+#ox	 gkrellm
+#o	 gnokii
+#ox	 gnome-nettool
+#ox	 gnutls-utils
+#ox	 greadelf
+#ox	 grepmail
+#o	 gssdp
+#ox	 gtklp
+#ox	 gtkterm
+#o	 gupnp
+#ox	 gxemul
+#ox	 hercules
+#ox	 hfsplus-tools
+#ox	 htop
+#ox	 hyperestraier
+#ox	 ibmonitor
+#ox	 iftop
+#ox	 inadyn-mt
+#ox	 incron
+#ox	 iotop
+#ox	 ip6sic
+#ox	 iptraf
+#ox	 ircp-tray
+#ox	 isic
+#ox	 jfbterm
+#ox	 john
+#ox	 kdirstat
+#ox	 keychain
+#ox	 ksmarttray
+#ox	 limph
+#ox	 lirc
+#ox	 lslk
+#o	 lzop
+#ox	 macchanger
+mc
+#ox	 mmv
+#ox	 mrtg
+#ox	 mtx
+#ox	 munin
+#ox	 nagios
+#ox	 net-snmp-utils
+#ox	 netgo
+#ox	 nethogs
+#ox	 netstat-nat
+#ox	 nfswatch
+#ox	 nmap-frontend
+#ox	 noip
+#ox	 nomarch
+#ox	 nrg2iso
+#ox	 ntp-perl
+ntpdate
+#ox	 nut
+#ox	 nx
+#ox	 obexfs
+#ox	 obexftp
+#ox	 oddjob
+#ox	 p0f
+#ox	 p7zip
+#ox	 p7zip-plugins
+#ox	 pam_keyring
+#ox	 par2cmdline
+#ox	 pbzip2
+#ox	 portecle
+#ox	 powerman
+#ox	 powertop
+#ox	 prelude-manager
+#ox	 procinfo
+#ox	 puppet
+#ox	 pwgen
+#o	 qdbm
+#ox	 qstat
+#o	 radeontool
+#o	 rdesktop
+#ox	 rdiff-backup
+#ox	 rear
+#ox	 rmanage
+#ox	 rootsh
+#ox	 rsnapshot
+#ox	 sabayon
+#ox	 scrub
+#ox	 sec
+#ox	 shorewall
+#ox	 smart
+#ox	 smart-gui
+#ox	 snort
+#ox	 socat
+#ox	 stripesnoop
+#ox	 swaks
+#ox	 swatch
+#ox	 synaptic
+#ox	 syslog-ng
+#ox	 sysstat
+#ox	 testdisk
+#ox	 tiobench
+#ox	 tn5250
+#ox	 torque-client
+#ox	 torque-gui
+#ox	 tsclient
+#ox	 ttywatch
+#ox	 tunctl
+#ox	 unison213
+#ox	 unison227
+#ox	 upx
+#ox	 uucp
+#o	 vbetool
+#ox	 viaideinfo
+#ox	 vlock
+#ox	 vnstat
+#ox	 w_scan
+#ox	 wifiroamd
+#ox	 wine
+wireshark-gnome
+#ox	 wlassistant
+#ox	 x3270-x11
+xsel
+#ox	 xsupplicant
+#ox	 zidrav
+
+################################################################
+@text-internet
+################################################################
+
+#d	-bittorrent
+#d	-cadaver
+#d	-elinks
+#d	-fetchmail
+#d	-fpaste
+#d	-mutt
+#d	-slrn
+#ox	 abook
+#ox	 alpine
+#ox	 archivemail
+#ox	 argus
+#ox	 aria2
+#ox	 axel
+#ox	 centerim
+#ox	 cone
+#ox	 ctorrent
+#ox	 deletemail
+#ox	 ekg
+#ox	 ekg2
+#ox	 emacs-mew
+#ox	 epic
+#ox	 getmail
+#ox	 iperf
+#ox	 irssi
+#ox	 isync
+#ox	 libtranslate
+lynx
+#ox	 naim
+#ox	 ncftp
+#ox	 netstiff
+#ox	 ninja
+#ox	 nmh
+#ox	 offlineimap
+#ox	 pork
+#ox	 rss2email
+#ox	 rtorrent
+#ox	 sitecopy
+#ox	 snownews
+#ox	 tftp
+#ox	 tin
+#ox	 trickle
+w3m
+#ox	 websec
+#ox	 whatmask
+#ox	 xprobe2
+#ox	 yafc
+#ox	 youtube-dl
+
+################################################################
+@virtualization
+################################################################
+
+#m	-python-virtinst
+#d	-libvirt
+#d	-qemu-kvm
+#d	-virt-manager
+#d	-virt-viewer
+virt-top
+
+################################################################
+-@web-development
+################################################################
+
+#ox	 Django
+#ox	 TurboGears
+#ox	 ctemplate
+#ox	 gallery2
+#ox	 php-oauth
+#ox	 php-xmpphp
+#ox	 python-cherrypy
+#ox	 rubygem-rails
+#ox	 velocity
+
+################################################################
+@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-distcache
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_python
+#d	-mod_ssl
+#d	-php
+#d	-php-ldap
+#d	-php-mysql
+#d	-squid
+#d	-webalizer
+#ox	 Pound
+#ox	 apachetop
+#ox	 awstats
+#ox	 boa
+#ox	 cherokee
+#ox	 dap-server-cgi
+#ox	 drupal
+#ox	 drupal-cck
+#ox	 drupal-date
+#ox	 drupal-service_links
+#ox	 drupal-views
+#ox	 lighttpd
+#ox	 lighttpd-fastcgi
+#ox	 mediawiki
+#ox	 mod_auth_kerb
+#ox	 mod_auth_mysql
+#ox	 mod_auth_pgsql
+#ox	 mod_authz_ldap
+#ox	 mod_cband
+#ox	 mod_extract_forwarded
+#ox	 mod_fcgid
+#ox	 mod_geoip
+#ox	 mod_security
+#ox	 moin
+#ox	 moin-latex
+#ox	 namazu
+#ox	 ocspd
+#ox	 perl-HTML-Mason
+#ox	 perl-Kwiki
+#ox	 php-odbc
+#ox	 php-pecl-apc
+#ox	 php-pgsql
+#ox	 phpMyAdmin
+#ox	 phpldapadmin
+#ox	 tclhttpd
+#ox	 thttpd
+#ox	 tiquit
+#ox	 tomcat-native
+#o	 tomcat5
+#ox	 tomcat5-admin-webapps
+#ox	 tomcat5-webapps
+#ox	 vdr-wapd
+#ox	 vdradmin-am
+#ox	 wordpress
+
+################################################################
+-@window-managers
+################################################################
+
+#ox	 WindowMaker
+#ox	 bbkeys
+#ox	 blackbox
+#ox	 fluxbox
+#ox	 fluxconf
+#ox	 fvwm
+#ox	 hackedbox
+#ox	 icewm
+#ox	 matchbox-window-manager
+#ox	 obconf
+#ox	 obmenu
+#ox	 openbox
+#ox	 ratpoison
+#ox	 wmx
+#ox	 xcompmgr
+#ox	 xmonad
+
+################################################################
+-@x-software-development
+################################################################
+
+#m	-libICE-devel
+#m	-libX11-devel
+#m	-libXaw-devel
+#m	-libXfixes-devel
+#m	-libXt-devel
+#d	-SDL-devel
+#d	-Xaw3d-devel
+#d	-freetype-devel
+#d	-gd-devel
+#d	-giflib-devel
+#d	-libSM-devel
+#d	-libXScrnSaver-devel
+#d	-libXau-devel
+#d	-libXcomposite-devel
+#d	-libXcursor-devel
+#d	-libXdamage-devel
+#d	-libXdmcp-devel
+#d	-libXevie-devel
+#d	-libXext-devel
+#d	-libXfont-devel
+#d	-libXft-devel
+#d	-libXmu-devel
+#d	-libXrandr-devel
+#d	-libXrender-devel
+#d	-libXres-devel
+#d	-libXtst-devel
+#d	-libXvMC-devel
+#d	-libXxf86dga-devel
+#d	-libXxf86misc-devel
+#d	-libXxf86vm-devel
+#d	-libdmx-devel
+#d	-libdrm-devel
+#d	-libjpeg-devel
+#d	-libmng-devel
+#d	-libpng-devel
+#d	-libtiff-devel
+#d	-libxkbfile-devel
+#d	-mesa-libGL-devel
+#d	-netpbm-devel
+#d	-pixman-devel
+#dx	-xorg-x11-docs
+#d	-xorg-x11-xtrans-devel
+#d	-xrestop
+#ox	 icon-naming-utils
+#ox	 icon-slicer
+#ox	 libXp-devel
+#o	 mesa-libGLU-devel
+#ox	 xorg-x11-server-devel
+#ox	 xorg-x11-xbitmaps
+
+################################################################
+-@xfce-desktop
+################################################################
+
+#mx	-Thunar
+#mx	-desktop-backgrounds-compat
+#mx	-libxfce4menu
+#mx	-libxfce4util
+#mx	-libxfcegui4
+#mx	-xfce-utils
+#mx	-xfce4-panel
+#mx	-xfce4-session
+#mx	-xfce4-settings
+#mx	-xfconf
+#mx	-xfdesktop
+#mx	-xfwm4
+#dx	-PolicyKit-gnome
+#d	-gdm
+#dx	-mousepad
+#dx	-thunar-archive-plugin
+#dx	-thunar-volman
+#dx	-xarchiver
+#dx	-xfce4-appfinder
+#dx	-xfce4-icon-theme
+#dx	-xfce4-mixer
+#dx	-xfce4-session-engines
+#dx	-xfwm4-theme-nodoka
+#ox	 Terminal
+#ox	 orage
+#ox	 parole
+#ox	 ristretto
+#ox	 thunar-media-tags-plugin
+#ox	 thunar-shares-plugin
+#ox	 thunar-vcs-plugin
+#ox	 xfbib
+#ox	 xfburn
+#ox	 xfce4-battery-plugin
+#ox	 xfce4-cddrive-plugin
+#ox	 xfce4-cellmodem-plugin
+#ox	 xfce4-clipman-plugin
+#ox	 xfce4-cpugraph-plugin
+#ox	 xfce4-datetime-plugin
+#ox	 xfce4-dict
+#ox	 xfce4-dict-plugin
+#ox	 xfce4-diskperf-plugin
+#ox	 xfce4-eyes-plugin
+#ox	 xfce4-fsguard-plugin
+#ox	 xfce4-genmon-plugin
+#ox	 xfce4-mailwatch-plugin
+#ox	 xfce4-mount-plugin
+#ox	 xfce4-mpc-plugin
+#ox	 xfce4-netload-plugin
+#ox	 xfce4-notes-plugin
+#ox	 xfce4-notifyd
+#ox	 xfce4-places-plugin
+#ox	 xfce4-power-manager
+#ox	 xfce4-quicklauncher-plugin
+#ox	 xfce4-radio-plugin
+#ox	 xfce4-screenshooter
+#ox	 xfce4-screenshooter-plugin
+#ox	 xfce4-sensors-plugin
+#ox	 xfce4-smartbookmark-plugin
+#ox	 xfce4-stopwatch-plugin
+#ox	 xfce4-systemload-plugin
+#ox	 xfce4-taskmanager
+#ox	 xfce4-time-out-plugin
+#ox	 xfce4-timer-plugin
+#ox	 xfce4-verve-plugin
+#ox	 xfce4-volstatus-icon
+#ox	 xfce4-wavelan-plugin
+#ox	 xfce4-weather-plugin
+#ox	 xfce4-websearch-plugin
+#ox	 xfce4-xfapplet-plugin
+#ox	 xfce4-xfswitch-plugin
+#ox	 xfce4-xkb-plugin
+#ox	 xfmpc
+#ox	 xfprint
+#ox	 xfwm4-themes
+#c	?imsettings-xfce                 imsettings
+
+################################################################
+-@xfce-software-development
+################################################################
+
+#mx	-libxfce4util-devel
+#mx	-libxfcegui4-devel
+#dx	-Thunar-devel
+#dx	-exo-devel
+#dx	-libxfce4menu-devel
+#dx	-xfce4-panel-devel
+#dx	-xfconf-devel
+#ox	 xfce4-dev-tools
+#ox	 xfce4-session-devel
+

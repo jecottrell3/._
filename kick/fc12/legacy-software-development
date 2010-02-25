@@ -1,0 +1,10 @@
+################################################################
+-@legacy-software-development
+################################################################
+
+#dx	-compat-gcc-34
+#dx	-compat-gcc-34-c++
+#dx	-compat-gcc-34-g77
+#dx	-compat-libstdc++-296
+#dx	-compat-libstdc++-33
+

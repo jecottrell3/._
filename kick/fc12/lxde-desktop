@@ -1,0 +1,30 @@
+################################################################
+-@lxde-desktop
+################################################################
+
+#mx	-lxde-common
+#mx	-lxde-settings-daemon
+#mx	-lxmenu-data
+#mx	-lxpanel
+#mx	-lxsession-lite
+#mx	-openbox
+#mx	-pcmanfm
+#dx	-gpicview
+#dx	-leafpad
+#dx	-lxappearance
+#dx	-lxinput
+#dx	-lxrandr
+#dx	-lxsession-edit
+#dx	-lxshortcut
+#dx	-lxtask
+#dx	-lxterminal
+#dx	-obconf
+#dx	-slim
+#dx	-xarchiver
+#d	-xscreensaver-base
+#ox	 lxde-icon-theme
+#ox	 lxlauncher
+#ox	 lxmusic
+#ox	 obmenu
+#ox	 parcellite
+

@@ -1,0 +1,61 @@
+################################################################
+@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-distcache
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_python
+#d	-mod_ssl
+#d	-php
+#d	-php-ldap
+#d	-php-mysql
+#d	-squid
+#d	-webalizer
+#ox	 Pound
+#ox	 apachetop
+#ox	 awstats
+#ox	 boa
+#ox	 cherokee
+#ox	 dap-server-cgi
+#ox	 drupal
+#ox	 drupal-cck
+#ox	 drupal-date
+#ox	 drupal-service_links
+#ox	 drupal-views
+#ox	 lighttpd
+#ox	 lighttpd-fastcgi
+#ox	 mediawiki
+#ox	 mod_auth_kerb
+#ox	 mod_auth_mysql
+#ox	 mod_auth_pgsql
+#ox	 mod_authz_ldap
+#ox	 mod_cband
+#ox	 mod_extract_forwarded
+#ox	 mod_fcgid
+#ox	 mod_geoip
+#ox	 mod_security
+#ox	 moin
+#ox	 moin-latex
+#ox	 namazu
+#ox	 ocspd
+#ox	 perl-HTML-Mason
+#ox	 perl-Kwiki
+#ox	 php-odbc
+#ox	 php-pecl-apc
+#ox	 php-pgsql
+#ox	 phpMyAdmin
+#ox	 phpldapadmin
+#ox	 tclhttpd
+#ox	 thttpd
+#ox	 tiquit
+#ox	 tomcat-native
+#o	 tomcat5
+#ox	 tomcat5-admin-webapps
+#ox	 tomcat5-webapps
+#ox	 vdr-wapd
+#ox	 vdradmin-am
+#ox	 wordpress
+

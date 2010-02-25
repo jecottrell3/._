@@ -1,0 +1,38 @@
+################################################################
+-@mingw32
+################################################################
+
+#mx	-mingw32-binutils
+#mx	-mingw32-filesystem
+#mx	-mingw32-gcc
+#mx	-mingw32-runtime
+#mx	-mingw32-w32api
+#dx	-mingw32-crossreport
+#dx	-mingw32-nsis
+#dx	-wine
+#ox	 mingw32-SDL
+#ox	 mingw32-atk
+#ox	 mingw32-bzip2
+#ox	 mingw32-cairo
+#ox	 mingw32-dlfcn
+#ox	 mingw32-freetype
+#ox	 mingw32-gdbm
+#ox	 mingw32-gettext
+#ox	 mingw32-glib2
+#ox	 mingw32-iconv
+#ox	 mingw32-libgcrypt
+#ox	 mingw32-libgpg-error
+#ox	 mingw32-libjpeg
+#ox	 mingw32-libpng
+#ox	 mingw32-libxml2
+#ox	 mingw32-openssl
+#ox	 mingw32-pdcurses
+#ox	 mingw32-pixman
+#ox	 mingw32-proj
+#ox	 mingw32-pthreads
+#ox	 mingw32-readline
+#ox	 mingw32-sqlite
+#ox	 mingw32-termcap
+#ox	 mingw32-zlib
+#c	?mingw32-nsiswrapper             mingw32-nsis
+

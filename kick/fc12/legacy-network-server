@@ -1,0 +1,14 @@
+################################################################
+-@legacy-network-server
+################################################################
+
+#ox	 bootparamd
+#ox	 rarpd
+#ox	 rsh-server
+#ox	 rusers
+#ox	 rusers-server
+#ox	 rwho
+#ox	 talk-server
+#ox	 telnet-server
+#ox	 tftp-server
+

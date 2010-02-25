@@ -1,0 +1,14 @@
+################################################################
+@dns-server
+################################################################
+
+#m	-dnssec-conf
+-bind-chroot
+bind
+#ox	 dnsperf
+#ox	 ldns
+#ox	 nsd
+#ox	 pdns
+#ox	 pdns-recursor
+#ox	 unbound
+

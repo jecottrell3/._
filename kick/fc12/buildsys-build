@@ -1,0 +1,28 @@
+################################################################
+@buildsys-build
+################################################################
+
+#m	-bash
+#m	-bzip2
+#m	-coreutils
+#m	-cpio
+#m	-diffutils
+#m	-fedora-release
+#m	-findutils
+#m	-gawk
+#m	-gcc
+#m	-gcc-c++
+#m	-grep
+#m	-gzip
+#m	-info
+#m	-make
+#m	-patch
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-sed
+#m	-shadow-utils
+#m	-tar
+#m	-unzip
+#m	-util-linux-ng
+#m	-which
+

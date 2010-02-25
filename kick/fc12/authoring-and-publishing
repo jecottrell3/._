@@ -1,0 +1,36 @@
+################################################################
+-@authoring-and-publishing
+################################################################
+
+#dx	-docbook-slides
+#d	-docbook-style-dsssl
+#d	-docbook-style-xsl
+#d	-docbook-utils
+#dx	-docbook-utils-pdf
+#dx	-docbook5-schemas
+#dx	-docbook5-style-xsl
+#dx	-linuxdoc-tools
+#dx	-texlive
+#dx	-xhtml1-dtds
+#dx	-xmlto
+#ox	 BibTool
+#ox	 abcm2ps
+#ox	 conglomerate
+#ox	 dblatex
+#ox	 docbook2X
+#ox	 html401-dtds
+#ox	 kile
+#ox	 latex-mk
+#ox	 latexmk
+#ox	 lilypond
+#ox	 lout
+#ox	 ooo2txt
+#ox	 python-docutils
+#o	 scribus
+#ox	 tetex-prosper
+#ox	 txt2rss
+#ox	 w3c-markup-validator
+#ox	 xdvik
+#ox	 xmlcopyeditor
+#c	?tex-cm-lgc                      texlive
+

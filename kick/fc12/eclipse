@@ -1,0 +1,30 @@
+################################################################
+-@eclipse
+################################################################
+
+#m	-eclipse-cdt
+#m	-eclipse-jdt
+#d	-eclipse-callgraph
+#d	-eclipse-changelog
+#d	-eclipse-egit
+#d	-eclipse-mylyn
+#d	-eclipse-mylyn-java
+#d	-eclipse-oprofile
+#d	-eclipse-pde
+#d	-eclipse-pydev
+#d	-eclipse-rpm-editor
+#d	-eclipse-subclipse
+#d	-eclipse-valgrind
+#ox	 eclipse-cmakeed
+#ox	 eclipse-epic
+#ox	 eclipse-findbugs
+#ox	 eclipse-moreunit
+#ox	 eclipse-mylyn-trac
+#ox	 eclipse-photran
+#ox	 eclipse-phpeclipse
+#ox	 eclipse-quickrex
+#ox	 eclipse-rpmstubby
+#ox	 eclipse-shelled
+#ox	 eclipse-slide
+#ox	 eclipse-veditor
+

@@ -1,0 +1,54 @@
+################################################################
+-@x-software-development
+################################################################
+
+#m	-libICE-devel
+#m	-libX11-devel
+#m	-libXaw-devel
+#m	-libXfixes-devel
+#m	-libXt-devel
+#d	-SDL-devel
+#d	-Xaw3d-devel
+#d	-freetype-devel
+#d	-gd-devel
+#d	-giflib-devel
+#d	-libSM-devel
+#d	-libXScrnSaver-devel
+#d	-libXau-devel
+#d	-libXcomposite-devel
+#d	-libXcursor-devel
+#d	-libXdamage-devel
+#d	-libXdmcp-devel
+#d	-libXevie-devel
+#d	-libXext-devel
+#d	-libXfont-devel
+#d	-libXft-devel
+#d	-libXmu-devel
+#d	-libXrandr-devel
+#d	-libXrender-devel
+#d	-libXres-devel
+#d	-libXtst-devel
+#d	-libXvMC-devel
+#d	-libXxf86dga-devel
+#d	-libXxf86misc-devel
+#d	-libXxf86vm-devel
+#d	-libdmx-devel
+#d	-libdrm-devel
+#d	-libjpeg-devel
+#d	-libmng-devel
+#d	-libpng-devel
+#d	-libtiff-devel
+#d	-libxkbfile-devel
+#d	-mesa-libGL-devel
+#d	-netpbm-devel
+#d	-pixman-devel
+#dx	-xorg-x11-docs
+#d	-xorg-x11-xtrans-devel
+#d	-xrestop
+#ox	 icon-naming-utils
+#ox	 icon-slicer
+#ox	 libXp-devel
+#o	 mesa-libGLU-devel
+#ox	 xorg-x11-server-devel
+#ox	 xorg-x11-xbitmaps
+

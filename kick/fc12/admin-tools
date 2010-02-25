@@ -1,0 +1,32 @@
+################################################################
+@admin-tools
+################################################################
+
+#d	-authconfig-gtk
+#d	-gnome-packagekit
+#d	-system-config-boot
+#d	-system-config-date
+#d	-system-config-firewall
+#d	-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-lvm
+#d	-system-config-network
+#d	-system-config-users
+#ox	 cacti
+#ox	 dbench
+#ox	 etherape
+#ox	 ettercap-gtk
+#ox	 galternatives
+#ox	 gparted
+#ox	 gpointing-device-settings
+kpackagekit
+#ox	 lat
+#ox	 lshw-gui
+#ox	 luma
+#ox	 ntop
+#ox	 pessulus
+#ox	 qtparted
+#ox	 system-config-kickstart
+#ox	 system-config-rootpassword
+#ox	 yumex
+

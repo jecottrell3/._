@@ -1,0 +1,67 @@
+################################################################
+@graphics
+################################################################
+
+#d	-f-spot
+#d	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+-libsane-hpaio
+-xsane
+-xsane-gimp
+#o	 ImageMagick
+#ox	 Panini
+#ox	 agave
+#ox	 argyllcms
+#ox	 asciio
+#ox	 asymptote
+#ox	 blender
+#ox	 cbrpager
+#ox	 cinepaint
+#ox	 comix
+#o	 dcraw
+#o	 digikam
+#ox	 digikam-doc
+#ox	 fyre
+#ox	 gcolor2
+#ox	 geeqie
+#ox	 gifsicle
+#ox	 gifview
+#ox	 gipfel
+#ox	 gnome-scan
+#ox	 gpp
+#ox	 gqview
+#ox	 graphviz
+#ox	 gutenprint-plugin
+#ox	 gv
+#ox	 hugin
+#ox	 inkscape
+#ox	 ipe
+#ox	 k3d
+#o	 kdegraphics
+#o	 kipi-plugins
+#ox	 koffice-krita
+#ox	 kphotoalbum
+#ox	 makehuman
+#ox	 mirage
+#ox	 netpbm-progs
+#ox	 nip2
+#ox	 optipng
+#ox	 pstoedit
+#ox	 pydot
+#ox	 qiv
+#ox	 rawstudio
+#ox	 renrot
+#ox	 sane-frontends
+#ox	 scanbuttond
+#ox	 showimg
+#ox	 tachyon
+#ox	 tuxpaint
+#ox	 tzclock
+#ox	 ufraw
+#ox	 uniconvertor
+#ox	 viewnior
+#ox	 wings
+#ox	 xfig
+

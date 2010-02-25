@@ -1,0 +1,20 @@
+################################################################
+@fedora-packager
+################################################################
+
+#m	-bodhi-client
+#m	-bzr
+#m	-curl
+#m	-cvs
+#m	-fedora-packager
+#m	-git
+#m	-koji
+#m	-make
+#m	-mercurial
+#m	-mock
+#m	-plague-client
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-rpmdevtools
+#ox	 cpanspec
+

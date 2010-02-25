@@ -1,0 +1,21 @@
+################################################################
+-@window-managers
+################################################################
+
+#ox	 WindowMaker
+#ox	 bbkeys
+#ox	 blackbox
+#ox	 fluxbox
+#ox	 fluxconf
+#ox	 fvwm
+#ox	 hackedbox
+#ox	 icewm
+#ox	 matchbox-window-manager
+#ox	 obconf
+#ox	 obmenu
+#ox	 openbox
+#ox	 ratpoison
+#ox	 wmx
+#ox	 xcompmgr
+#ox	 xmonad
+

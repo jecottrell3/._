@@ -1,0 +1,14 @@
+################################################################
+-@xfce-software-development
+################################################################
+
+#mx	-libxfce4util-devel
+#mx	-libxfcegui4-devel
+#dx	-Thunar-devel
+#dx	-exo-devel
+#dx	-libxfce4menu-devel
+#dx	-xfce4-panel-devel
+#dx	-xfconf-devel
+#ox	 xfce4-dev-tools
+#ox	 xfce4-session-devel
+

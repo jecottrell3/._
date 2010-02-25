@@ -1,0 +1,13 @@
+################################################################
+@server-cfg
+################################################################
+
+#d	-cups-pk-helper
+#d	-system-config-httpd
+#d	-system-config-nfs
+#d	-system-config-printer
+#d	-system-config-samba
+#d	-system-config-services
+#ox	 system-config-bind
+#ox	 system-switch-mail-gnome
+

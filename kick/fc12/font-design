@@ -1,0 +1,42 @@
+################################################################
+-@font-design
+################################################################
+
+#mx	-fontforge
+#mx	-xgridfit
+#dx	-fontmatrix
+#dx	-fontpackages-devel
+#dx	-fonttools
+#dx	-fontypython
+#d	-ghostscript
+#d	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+#dx	-gnome-specimen
+#d	-gucharmap
+#dx	-inkscape
+#dx	-lcdf-typetools
+#dx	-perl-Font-TTF
+#d	-poppler-utils
+#dx	-xgridfit-doc
+#o	 bzr
+#o	 cvs
+#ox	 darcs
+#ox	 fontpackages-tools
+#ox	 freetype-demos
+#ox	 gbdfed
+#ox	 ghostscript-doc
+#ox	 ghostscript-gtk
+#ox	 giggle
+#o	 git
+#ox	 meld
+#o	 mercurial
+#ox	 nautilus-bzr
+#ox	 qgit
+#ox	 quilt
+#o	 scribus
+#o	 scribus-doc
+#o	 subversion
+#ox	 xmbdfed
+
