@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : file-roller
+Arch       : i386
+Version    : 2.16.0
+Release    : 2.fc6
+Size       : 3.5 M
+Repo       : installed
+Summary    : File Roller is a tool for viewing and creating archives
+URL        : http://ftp.gnome.org/pub/gnome/sources/file-roller/
+License    : GPL
+Description: File Roller is an application for creating and viewing archives
+           : files, such as tar files.
+

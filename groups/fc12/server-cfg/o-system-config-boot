@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : system-config-boot
+Arch       : i386
+Version    : 0.2.13
+Release    : 1.el5
+Size       : 133 k
+Repo       : installed
+Summary    : A graphical interface for configuring the boot loader
+URL        : http://fedora.redhat.com/
+License    : GPL
+Description: system-config-boot is a graphical user interface that allows
+           : the user to change the default boot entry of the system.
+

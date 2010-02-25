@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-dict-plugin
+Arch       : i386
+Version    : 0.2.1
+Release    : 1.el5.centos
+Size       : 42 k
+Repo       : extras
+Summary    : A Xfce panel plugin to query a Dict server
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-dict-plugin
+License    : GPL
+Description: With this plugin you can query a dictionary server (see RFC 2229)
+           : to search for the translation or explanation of a word. You can
+           : also choose a dictionary offered by the server to improve your
+           : search results.
+

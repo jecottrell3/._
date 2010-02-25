@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : sos
+Arch       : noarch
+Version    : 1.7
+Release    : 9.27.el5
+Size       : 532 k
+Repo       : installed
+Summary    : A set of tools to gather troubleshooting information from a system
+URL        : http://sos.108.redhat.com/
+License    : GPL
+Description: Sos is a set of tools that gathers information about system
+           : hardware and configuration. The information can then be used for
+           : diagnostic purposes and debugging. Sos is commonly used to help
+           : support technicians and developers.
+

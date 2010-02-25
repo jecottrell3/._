@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : postfix
+Arch       : i386
+Epoch      : 2
+Version    : 2.3.3
+Release    : 2.1.el5_2
+Size       : 3.6 M
+Repo       : base
+Summary    : Postfix Mail Transport Agent
+URL        : http://www.postfix.org
+License    : IBM Public License
+Description: Postfix is a Mail Transport Agent (MTA), supporting LDAP, SMTP AUTH
+           : (SASL), TLS
+

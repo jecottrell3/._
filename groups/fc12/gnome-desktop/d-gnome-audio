@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnome-audio
+Arch       : noarch
+Version    : 2.0.0
+Release    : 3.1.1
+Size       : 1.4 M
+Repo       : installed
+Summary    : Sounds for GNOME events.
+URL        : http://www.gnome.org
+License    : LGPL
+Description: The gnome-audio package contains sounds for the GNOME GUI desktop
+           : environment. If you are installing GNOME, you may want to install
+           : this package of complementary sounds.
+

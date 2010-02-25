@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : rpm
+Arch       : i386
+Version    : 4.4.2.3
+Release    : 18.el5
+Size       : 3.5 M
+Repo       : installed
+Summary    : The RPM package management system
+URL        : http://www.rpm.org/
+License    : GPLv2+
+Description: The RPM Package Manager (RPM) is a powerful command line driven
+           : package management system capable of installing, uninstalling,
+           : verifying, querying, and updating software packages. Each software
+           : package consists of an archive of files along with information
+           : about the package like its version, a description, etc.
+

@@ -1,0 +1,27 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : acpid
+Arch       : i386
+Version    : 1.0.4
+Release    : 9.el5
+Size       : 36 k
+Repo       : installed
+Summary    : ACPI Event Daemon
+URL        : http://acpid.sourceforge.net/
+License    : GPLv2+
+Description: acpid is a daemon that dispatches ACPI events to user-space
+           : programs.
+
+Available Packages
+Name       : acpid
+Arch       : i386
+Version    : 1.0.4
+Release    : 9.el5_4.2
+Size       : 24 k
+Repo       : updates
+Summary    : ACPI Event Daemon
+URL        : http://acpid.sourceforge.net/
+License    : GPLv2+
+Description: acpid is a daemon that dispatches ACPI events to user-space
+           : programs.
+

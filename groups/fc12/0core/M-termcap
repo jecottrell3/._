@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : termcap
+Arch       : noarch
+Epoch      : 1
+Version    : 5.5
+Release    : 1.20060701.1
+Size       : 788 k
+Repo       : installed
+Summary    : The terminal feature database used by certain applications.
+License    : Public Domain
+Description: The termcap package provides the /etc/termcap file.  /etc/termcap
+           : is a database which defines the capabilities of various terminals
+           : and terminal emulators.  Certain programs use the /etc/termcap file
+           : to access various features of terminals (the bell, colors, and
+           : graphics, etc.).
+

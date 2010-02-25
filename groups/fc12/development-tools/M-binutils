@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : binutils
+Arch       : i386
+Version    : 2.17.50.0.6
+Release    : 12.el5
+Size       : 6.8 M
+Repo       : installed
+Summary    : A GNU collection of binary utilities.
+URL        : http://sources.redhat.com/binutils
+License    : GPL
+Description: Binutils is a collection of binary utilities, including ar (for
+           : creating, modifying and extracting from archives), as (a family of
+           : GNU assemblers), gprof (for displaying call graph profile data), ld
+           : (the GNU linker), nm (for listing symbols from object files),
+           : objcopy (for copying and translating object files), objdump (for
+           : displaying information from object files), ranlib (for generating
+           : an index for the contents of an archive), size (for listing the
+           : section sizes of an object or archive file), strings (for listing
+           : printable strings from files), strip (for discarding symbols), and
+           : addr2line (for converting addresses to file and line).
+

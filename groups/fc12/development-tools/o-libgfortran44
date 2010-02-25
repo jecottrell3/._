@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libgfortran44
+Arch       : i386
+Version    : 4.4.0
+Release    : 6.el5
+Size       : 247 k
+Repo       : base
+Summary    : Fortran runtime for GCC 4.4 preview
+URL        : http://gcc.gnu.org
+License    : GPLv3+, GPLv3+ with exceptions and GPLv2+ with exceptions
+Description: This package contains Fortran shared library which is needed to run
+           : Fortran dynamically linked programs.
+

@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : setserial
+Arch       : i386
+Version    : 2.17
+Release    : 19.2.2
+Size       : 22 k
+Repo       : base
+Summary    : A utility for configuring serial ports.
+URL        : http://setserial.sourceforge.net/
+License    : GPL
+Description: Setserial is a basic system utility for displaying or setting
+           : serial port information. Setserial can reveal and allow you to
+           : alter the I/O port and IRQ that a particular serial device is
+           : using, and more.
+

@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : ecryptfs-utils
+Arch       : i386
+Version    : 75
+Release    : 5.el5
+Size       : 384 k
+Repo       : installed
+Summary    : The eCryptfs mount helper and support libraries
+URL        : http://launchpad.net/ecryptfs
+License    : GPLv2+
+Description: eCryptfs is a stacked cryptographic filesystem that ships in the
+           : Linux kernel. This package provides the mount helper and supporting
+           : libraries to perform key management and mount functions.
+           : 
+           : Install ecryptfs-utils if you would like to mount eCryptfs.
+

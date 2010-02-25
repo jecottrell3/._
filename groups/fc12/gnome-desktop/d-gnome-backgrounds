@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnome-backgrounds
+Arch       : noarch
+Version    : 2.15.92
+Release    : 1.fc6
+Size       : 1.2 M
+Repo       : installed
+Summary    : Desktop backgrounds packaged with the GNOME desktop
+URL        : http://www.gnome.org
+License    : GPL
+Description: The gnome-backgrounds package contains images and tiles
+           : to use for your desktop background which are packaged
+           : with the GNOME desktop.
+

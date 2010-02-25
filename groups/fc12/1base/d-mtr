@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : mtr
+Arch       : i386
+Epoch      : 2
+Version    : 0.71
+Release    : 3.1
+Size       : 88 k
+Repo       : installed
+Summary    : A network diagnostic tool.
+URL        : http://www.BitWizard.nl/mtr
+License    : GPL
+Description: Mtr is a network diagnostic tool that combines ping and traceroute
+           : into one program. Mtr provides two interfaces: an ncurses
+           : interface, useful for using Mtr from a telnet session; and a GTK+
+           : interface for X (provided in the mtr-gtk package).
+

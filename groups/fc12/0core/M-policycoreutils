@@ -1,0 +1,26 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : policycoreutils
+Arch       : i386
+Version    : 1.33.12
+Release    : 14.6.el5
+Size       : 2.0 M
+Repo       : installed
+Summary    : SELinux policy core utilities.
+License    : GPL
+Description: Security-enhanced Linux is a feature of the Linux? kernel and a
+           : number of utilities with enhanced security functionality designed
+           : to add mandatory access controls to Linux.  The Security-enhanced
+           : Linux kernel contains new architectural components originally
+           : developed to improve the security of the Flask operating system.
+           : These architectural components provide general support for the
+           : enforcement of many kinds of mandatory access control policies,
+           : including those based on the concepts of Type Enforcement?,
+           : Role-based Access Control, and Multi-level Security.
+           : 
+           : policycoreutils contains the policy core utilities that are
+           : required for basic operation of a SELinux system.  These utilities
+           : include load_policy to load policies, setfiles to label
+           : filesystems, newrole to switch roles, and run_init to run
+           : /etc/init.d scripts in the proper context.
+

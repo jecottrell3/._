@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : perl-XML-Grove
+Arch       : noarch
+Version    : 0.46alpha
+Release    : 29.1.1
+Size       : 67 k
+Repo       : base
+Summary    : Simple access to infoset of parsed XML, HTML, or SGML instances
+URL        : http://search.cpan.org/dist/XML-Grove/
+License    : Artistic
+Description: XML::Grove is a tree-based object model for accessing the
+           : information set of parsed or stored XML, HTML, or SGML instances.
+           : XML::Grove objects are Perl hashes and arrays where you access the
+           : properties of the objects using normal Perl syntax.
+

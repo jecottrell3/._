@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfdesktop
+Arch       : i386
+Version    : 4.4.2
+Release    : 1.el5.centos
+Size       : 2.7 M
+Repo       : extras
+Summary    : Desktop manager for the XFce Desktop Environment
+URL        : http://www.xfce.org/
+License    : GPLv2+
+Description: This package includes a desktop manager for the XFce Desktop
+           : Environment.
+

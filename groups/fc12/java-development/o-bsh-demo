@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : bsh-demo
+Arch       : i386
+Version    : 1.3.0
+Release    : 9jpp.1
+Size       : 92 k
+Repo       : installed
+Summary    : Demo for bsh
+URL        : http://www.beanshell.org/
+License    : LGPL
+Description: Demonstrations and samples for bsh.
+

@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : zsh
+Arch       : i386
+Version    : 4.2.6
+Release    : 3.el5
+Size       : 3.4 M
+Repo       : installed
+Summary    : A powerful interactive shell
+URL        : http://zsh.sunsite.dk/
+License    : BSD
+Description: The zsh shell is a command interpreter usable as an interactive
+           : login shell and as a shell script command processor.  Zsh resembles
+           : the ksh shell (the Korn shell), but includes many enhancements.
+           : Zsh supports command line editing, built-in spelling correction,
+           : programmable command completion, shell functions (with
+           : autoloading), a history mechanism, and more.
+

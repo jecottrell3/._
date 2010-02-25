@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : glx-utils
+Arch       : i386
+Version    : 6.5.1
+Release    : 7.7.el5
+Size       : 32 k
+Repo       : installed
+Summary    : GLX utilities
+URL        : http://www.mesa3d.org
+License    : MIT/X11
+Description: The glx-utils package provides the glxinfo and glxgears utilities.
+

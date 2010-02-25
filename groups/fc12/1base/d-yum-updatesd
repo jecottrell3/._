@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : yum-updatesd
+Arch       : noarch
+Epoch      : 1
+Version    : 0.9
+Release    : 2.el5
+Size       : 55 k
+Repo       : installed
+Summary    : Update notification daemon
+URL        : http://linux.duke.edu/yum/
+License    : GPLv2
+Description: yum-updatesd provides a daemon which checks for available updates
+           : and can notify you when they are available via email, syslog or
+           : dbus.
+

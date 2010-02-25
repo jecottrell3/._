@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : qt-ODBC
+Arch       : i386
+Epoch      : 1
+Version    : 3.3.6
+Release    : 23.el5
+Size       : 105 k
+Repo       : installed
+Summary    : ODBC drivers for Qt's SQL classes.
+URL        : http://www.troll.no
+License    : GPL/QPL
+Description: ODBC driver for Qt's SQL classes (QSQL)
+

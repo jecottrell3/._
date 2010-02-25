@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : libutempter
+Arch       : i386
+Version    : 1.1.4
+Release    : 4.el5
+Size       : 36 k
+Repo       : installed
+Summary    : A privileged helper for utmp/wtmp updates
+URL        : ftp://ftp.altlinux.org/pub/people/ldv/utempter
+License    : LGPL
+Description: This library provides interface for terminal emulators such as
+           : screen and xterm to record user sessions to utmp and wtmp files.
+

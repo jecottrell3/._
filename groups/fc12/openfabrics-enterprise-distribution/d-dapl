@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : dapl
+Arch       : i386
+Version    : 2.0.19
+Release    : 2.el5
+Size       : 156 k
+Repo       : base
+Summary    : Library providing access to the  DAT 1.2 and 2.0 APIs
+URL        : http://openfabrics.org/
+License    : Dual GPL/BSD/CPL
+Description: libdat and libdapl provide a userspace implementation of the DAT
+           : 1.2 and 2.0 API that is built to natively support InfiniBand/iWARP
+           : network technology.
+

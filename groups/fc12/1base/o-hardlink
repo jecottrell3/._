@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : hardlink
+Arch       : i386
+Epoch      : 1
+Version    : 1.0
+Release    : 1.27
+Size       : 10 k
+Repo       : installed
+Summary    : Create a tree of hardlinks
+License    : GPL
+Description: hardlink is used to create a tree of hard links.
+           : It's used by kernel installation to dramatically reduce the
+           : amount of diskspace used by each kernel package installed.
+

@@ -1,0 +1,31 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : xorg-x11-server-Xorg
+Arch       : i386
+Version    : 1.1.1
+Release    : 48.67.el5
+Size       : 8.2 M
+Repo       : installed
+Summary    : Xorg X server
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.org X11 is an open source implementation of the X Window System.
+           : It provides the basic low level functionality which full fledged
+           : graphical user interfaces (GUIs) such as GNOME and KDE are designed
+           : upon.
+
+Available Packages
+Name       : xorg-x11-server-Xorg
+Arch       : i386
+Version    : 1.1.1
+Release    : 48.67.el5_4.1
+Size       : 3.3 M
+Repo       : updates
+Summary    : Xorg X server
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.org X11 is an open source implementation of the X Window System.
+           : It provides the basic low level functionality which full fledged
+           : graphical user interfaces (GUIs) such as GNOME and KDE are designed
+           : upon.
+

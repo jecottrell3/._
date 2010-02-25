@@ -1,0 +1,33 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : krb5-server
+Arch       : i386
+Version    : 1.6.1
+Release    : 36.el5
+Size       : 1.1 M
+Repo       : installed
+Summary    : The KDC and related programs for Kerberos 5.
+URL        : http://web.mit.edu/kerberos/www/
+License    : MIT, freely distributable.
+Description: Kerberos is a network authentication system. The krb5-server
+           : package contains the programs that must be installed on a Kerberos
+           : 5 key distribution center (KDC).  If you are installing a Kerberos
+           : 5 KDC, you need to install this package (in other words, most
+           : people should NOT install this package).
+
+Available Packages
+Name       : krb5-server
+Arch       : i386
+Version    : 1.6.1
+Release    : 36.el5_4.1
+Size       : 905 k
+Repo       : updates
+Summary    : The KDC and related programs for Kerberos 5.
+URL        : http://web.mit.edu/kerberos/www/
+License    : MIT, freely distributable.
+Description: Kerberos is a network authentication system. The krb5-server
+           : package contains the programs that must be installed on a Kerberos
+           : 5 key distribution center (KDC).  If you are installing a Kerberos
+           : 5 KDC, you need to install this package (in other words, most
+           : people should NOT install this package).
+

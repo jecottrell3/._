@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : oddjob
+Arch       : i386
+Version    : 0.27
+Release    : 9.el5
+Size       : 117 k
+Repo       : installed
+Summary    : A D-BUS service which runs odd jobs on behalf of client
+           : applications
+URL        : http://people.redhat.com/nalin/oddjob/
+License    : BSD
+Description: oddjob is a D-BUS service which performs particular tasks for
+           : clients which connect to it and issue requests using the
+           : system-wide message bus.
+

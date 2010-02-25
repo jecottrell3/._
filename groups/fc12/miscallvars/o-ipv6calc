@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : ipv6calc
+Arch       : i386
+Version    : 0.61
+Release    : 1
+Size       : 598 k
+Repo       : base
+Summary    : IPv6 address format change and calculation utility
+URL        : http://www.deepspace6.net/projects/ipv6calc.html
+License    : GNU GPL version 2
+Description: ipv6calc is a small utility which formats and calculates IPv6
+           : addresses in different ways.
+           : 
+           : Install this package, if you want to extend the existing address
+           : detection on IPv6 initscript setup or make life easier in adding
+           : reverse IPv6 zones to DNS or using in DNS queries like
+           :  dig -t ANY `ipv6calc -r 3ffe:ffff:100::1/48`
+           : Many more format conversions are supported, see given URL for more.
+

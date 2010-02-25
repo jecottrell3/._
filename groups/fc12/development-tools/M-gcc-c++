@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gcc-c++
+Arch       : i386
+Version    : 4.1.2
+Release    : 46.el5
+Size       : 6.5 M
+Repo       : installed
+Summary    : C++ support for GCC
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: This package adds C++ support to the GNU Compiler Collection.
+           : It includes support for most of the current C++ specification,
+           : including templates and exception handling.
+
+Available Packages
+Name       : gcc-c++
+Arch       : i386
+Version    : 4.1.2
+Release    : 46.el5_4.2
+Size       : 3.4 M
+Repo       : updates
+Summary    : C++ support for GCC
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: This package adds C++ support to the GNU Compiler Collection.
+           : It includes support for most of the current C++ specification,
+           : including templates and exception handling.
+

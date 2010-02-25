@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : gnu-efi
+Arch       : i386
+Version    : 3.0c
+Release    : 1.1
+Size       : 100 k
+Repo       : base
+Summary    : Development Libraries and headers for EFI
+License    : GPL
+Description: This package contains development headers and libraries for
+           : developing applications that run under EFI (Extensible Firmware
+           : Interface).
+

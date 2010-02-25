@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : dvd+rw-tools
+Arch       : i386
+Version    : 7.0
+Release    : 1.el5
+Size       : 258 k
+Repo       : installed
+Summary    : Toolchain to master DVD+RW/+R media
+URL        : http://fy.chalmers.se/~appro/linux/DVD+RW/
+License    : GPL
+Description: Collection of tools to master DVD+RW/+R media. For further
+           : information see http://fy.chalmers.se/~appro/linux/DVD+RW/.
+

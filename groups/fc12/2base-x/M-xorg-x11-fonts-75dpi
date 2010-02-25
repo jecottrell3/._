@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : xorg-x11-fonts-75dpi
+Arch       : noarch
+Version    : 7.1
+Release    : 2.1.el5
+Size       : 2.9 M
+Repo       : installed
+Summary    : A set of 75dpi resolution fonts for the X Window System.
+URL        : http://www.x.org
+License    : Various licenses
+Description: A set of 75 dpi fonts used by the X window system.
+

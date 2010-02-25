@@ -1,0 +1,27 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : yum-fastestmirror
+Arch       : noarch
+Version    : 1.1.16
+Release    : 13.el5.centos
+Size       : 47 k
+Repo       : installed
+Summary    : Yum plugin which chooses fastest repository from a mirrorlist
+URL        : http://linux.duke.edu/yum/download/yum-utils/
+License    : GPLv2+
+Description: This plugin sorts each repository's mirrorlist by connection speed
+           : prior to downloading packages.
+
+Available Packages
+Name       : yum-fastestmirror
+Arch       : noarch
+Version    : 1.1.16
+Release    : 14.el5.centos.1
+Size       : 19 k
+Repo       : updates
+Summary    : Yum plugin which chooses fastest repository from a mirrorlist
+URL        : http://linux.duke.edu/yum/download/yum-utils/
+License    : GPLv2+
+Description: This plugin sorts each repository's mirrorlist by connection speed
+           : prior to downloading packages.
+

@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : talk
+Arch       : i386
+Version    : 0.17
+Release    : 29.2.2
+Size       : 25 k
+Repo       : installed
+Summary    : Talk client for one-on-one Internet chatting.
+License    : BSD
+Description: The talk package provides client programs for the Internet talk
+           : protocol, which allows you to chat with other users on different
+           : systems.  Talk is a communication program which copies lines from
+           : one terminal to the terminal of another user.
+           : 
+           : Install talk if you'd like to use talk for chatting with users on
+           : different systems.
+

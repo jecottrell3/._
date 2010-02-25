@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : mono-data-sybase
+Arch       : i386
+Version    : 1.2.4
+Release    : 2.el5.centos
+Size       : 177 k
+Repo       : extras
+Summary    : Sybase database connectivity for Mono
+URL        : http://www.mono-project.com/
+License    : GPL, LGPL, MIT X11
+Description: This package contains the ADO.NET Data provider for the Sybase
+           : database.
+

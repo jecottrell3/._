@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libstdc++44-devel
+Arch       : i386
+Version    : 4.4.0
+Release    : 6.el5
+Size       : 4.0 M
+Repo       : base
+Summary    : Header files and libraries for C++ development
+URL        : http://gcc.gnu.org
+License    : GPLv3+, GPLv3+ with exceptions and GPLv2+ with exceptions
+Description: This is the GNU implementation of the standard C++ libraries.  This
+           : package includes the header files and libraries needed for C++
+           : development. This includes rewritten implementation of STL.
+

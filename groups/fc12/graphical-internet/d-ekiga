@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : ekiga
+Arch       : i386
+Version    : 2.0.2
+Release    : 7.0.2
+Size       : 5.1 M
+Repo       : base
+Summary    : A Gnome based SIP/H323 teleconferencing application
+URL        : http://www.ekiga.org/
+License    : GPL
+Description: Ekiga is a tool to communicate with video and audio over the
+           : internet. It uses the standard SIP and H323 protocols.
+

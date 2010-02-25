@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : system-config-netboot
+Arch       : noarch
+Version    : 0.1.45.1
+Release    : 1.el5
+Size       : 431 k
+Repo       : installed
+Summary    : network booting/install configuration utility (GUI)
+URL        : http://www.redhat.com/
+License    : GPLv2+
+Description: system-config-netboot is a utility which allows you to configure
+           : diskless environments and network installations.
+

@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libart_lgpl-devel
+Arch       : i386
+Version    : 2.3.17
+Release    : 4
+Size       : 20 k
+Repo       : base
+Summary    : Libraries and headers for libart_lgpl
+URL        : http://www.gnome.org/
+License    : LGPL
+Description: 
+           : Graphics routines used by the GnomeCanvas widget and some other
+           : applications. libart renders vector paths and the like.
+

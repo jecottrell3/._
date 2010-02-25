@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : freetype-devel
+Arch       : i386
+Version    : 2.2.1
+Release    : 21.el5_3
+Size       : 146 k
+Repo       : base
+Summary    : FreeType development libraries and header files
+URL        : http://www.freetype.org
+License    : BSD/GPL dual license
+Description: The freetype-devel package includes the static libraries and header
+           : files for the FreeType font rendering engine.
+           : 
+           : Install freetype-devel if you want to develop programs which will
+           : use FreeType.
+

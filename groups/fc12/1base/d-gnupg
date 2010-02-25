@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnupg
+Arch       : i386
+Version    : 1.4.5
+Release    : 14
+Size       : 4.5 M
+Repo       : installed
+Summary    : A GNU utility for secure communication and data storage.
+URL        : http://www.gnupg.org/
+License    : GPL
+Description: GnuPG (GNU Privacy Guard) is a GNU utility for encrypting data and
+           : creating digital signatures. GnuPG has advanced key management
+           : capabilities and is compliant with the proposed OpenPGP Internet
+           : standard described in RFC2440. Since GnuPG doesn't use any patented
+           : algorithm, it is not compatible with any version of PGP2 (PGP2.x
+           : uses only IDEA for symmetric-key encryption, which is patented
+           : worldwide).
+

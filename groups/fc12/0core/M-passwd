@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : passwd
+Arch       : i386
+Version    : 0.73
+Release    : 1
+Size       : 23 k
+Repo       : installed
+Summary    : The passwd utility for setting/changing passwords using PAM
+License    : BSD
+Description: The passwd package contains a system utility (passwd) which sets
+           : and/or changes passwords, using PAM (Pluggable Authentication
+           : Modules).
+           : 
+           : To use passwd, you should have PAM installed on your system.
+

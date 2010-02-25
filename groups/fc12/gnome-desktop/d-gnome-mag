@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnome-mag
+Arch       : i386
+Version    : 0.13.1
+Release    : 1.fc6
+Size       : 247 k
+Repo       : installed
+Summary    : GNOME Magnifier
+URL        : http://www.gnome.org/
+License    : LGPL
+Description: Magnification library for AT-SPI based apps.
+

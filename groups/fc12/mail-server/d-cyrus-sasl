@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : cyrus-sasl
+Arch       : i386
+Version    : 2.1.22
+Release    : 5.el5
+Size       : 2.6 M
+Repo       : installed
+Summary    : The Cyrus SASL library.
+URL        : http://asg.web.cmu.edu/sasl/sasl-library.html
+License    : Freely Distributable
+Description: The cyrus-sasl package contains the Cyrus implementation of SASL.
+           : SASL is the Simple Authentication and Security Layer, a method for
+           : adding authentication support to connection-based protocols.
+

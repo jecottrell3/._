@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : ORBit2-devel
+Arch       : i386
+Version    : 2.14.3
+Release    : 5.el5
+Size       : 376 k
+Repo       : base
+Summary    : Development libraries, header files and utilities for ORBit
+URL        : http://www.gnome.org/projects/ORBit2/
+License    : LGPL/GPL
+Description: ORBit is a high-performance CORBA (Common Object Request Broker
+           : Architecture) ORB (object request broker) with support for the
+           : C language.
+           : 
+           : This package contains the header files, libraries and utilities
+           : necessary to write programs that use CORBA technology. If you want
+           : to write such programs, you'll also need to install the ORBIT
+           : package.
+

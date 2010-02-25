@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnome-netstatus
+Arch       : i386
+Version    : 2.12.0
+Release    : 5.el5
+Size       : 972 k
+Repo       : installed
+Summary    : Network status applet
+URL        : http://www.gnome.org
+License    : GPL
+Description: gnome-netstatus is an applet which provides information about a
+           : network interface on your panel.
+

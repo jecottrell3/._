@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : cdrdao
+Arch       : i386
+Version    : 1.2.1
+Release    : 2
+Size       : 1.1 M
+Repo       : installed
+Summary    : Writes audio CD-Rs in disk-at-once (DAO) mode.
+URL        : http://cdrdao.sourceforge.net/
+License    : GPL
+Description: Cdrdao records audio CD-Rs in disk-at-once (DAO) mode, based on a
+           : textual description of the CD contents. Recording in DAO mode
+           : writes the complete disc (lead-in, one or more tracks, and
+           : lead-out) in a single step. DAO allows full control over the length
+           : and the contents of pre-gaps, the pause areas between tracks.
+

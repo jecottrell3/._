@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : gnome-sharp
+Arch       : i386
+Version    : 2.16.0
+Release    : 5.el5.centos
+Size       : 412 k
+Repo       : extras
+Summary    : GTK+ and GNOME bindings for Mono
+URL        : ftp://ftp.gnome.org/pub/gnome/sources/gnome-sharp/2.16/
+License    : LGPL
+Description: This package provides a library that allows you to build
+           : fully native graphical GNOME applications using Mono. gnome-sharp
+           : extends gtk-sharp2 and adds bindings for gconf, libgnome,
+           : gnome-vfs, libart, gtkhtml, librsvg, and vte.
+

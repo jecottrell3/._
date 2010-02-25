@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : newt-perl
+Arch       : i386
+Version    : 1.08
+Release    : 9.2.2
+Size       : 202 k
+Repo       : installed
+Summary    : Perl bindings for the Newt library
+License    : Artistic
+Description: This package provides Perl bindings for the Newt widget
+           : library, which provides a color text mode user interface.
+

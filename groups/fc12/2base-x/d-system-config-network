@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : system-config-network
+Arch       : noarch
+Version    : 1.3.99.18
+Release    : 1.el5
+Size       : 2.3 M
+Repo       : installed
+Summary    : The GUI of the NEtwork Adminstration Tool
+URL        : http://fedora.redhat.com/projects/config-tools/redhat-config-network.html
+License    : GPL
+Description: This is the GUI of the network configuration tool,
+           : supporting Ethernet, Wireless, TokenRing, ADSL, ISDN and PPP.
+

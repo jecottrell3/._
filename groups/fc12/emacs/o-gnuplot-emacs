@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : gnuplot-emacs
+Arch       : i386
+Version    : 4.0.0
+Release    : 14.el5
+Size       : 92 k
+Repo       : base
+Summary    : Emacs bindings for the gnuplot main application
+URL        : http://www.gnuplot.info/
+License    : Redistributable, with restrictions
+Description: The gnuplot-emacs package contains the emacs related .el files so
+           : that gnuplot nicely interacts and integrates into emacs.
+

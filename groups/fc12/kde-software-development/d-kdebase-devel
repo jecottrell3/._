@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : kdebase-devel
+Arch       : i386
+Epoch      : 6
+Version    : 3.5.4
+Release    : 20.el5.centos
+Size       : 118 k
+Repo       : base
+Summary    : Development files for kdebase
+URL        : http://www.kde.org
+License    : GPL
+Description: Header files for developing applications using kdebase.
+           : Install kdebase-devel if you want to develop or compile Konqueror,
+           : Kate plugins or KWin styles.
+

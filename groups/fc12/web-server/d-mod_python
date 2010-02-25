@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : mod_python
+Arch       : i386
+Version    : 3.2.8
+Release    : 3.1
+Size       : 1.1 M
+Repo       : installed
+Summary    : An embedded Python interpreter for the Apache Web server.
+URL        : http://www.modpython.org/
+License    : Apache Software License
+Description: Mod_python is a module that embeds the Python language interpreter
+           : within the server, allowing Apache handlers to be written in
+           : Python.
+           : 
+           : Mod_python brings together the versatility of Python and the power
+           : of the Apache Web server for a considerable boost in flexibility
+           : and performance over the traditional CGI approach.
+

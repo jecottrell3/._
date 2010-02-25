@@ -1,0 +1,26 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : mailman
+Arch       : i386
+Epoch      : 3
+Version    : 2.1.9
+Release    : 4.el5
+Size       : 9.7 M
+Repo       : base
+Summary    : Mailing list manager with built in Web access.
+URL        : http://www.list.org/
+License    : GPL
+Description: Mailman is software to help manage email discussion lists, much
+           : like Majordomo and Smartmail. Unlike most similar products, Mailman
+           : gives each mailing list a webpage, and allows users to subscribe,
+           : unsubscribe, etc. over the Web. Even the list manager can
+           : administer his or her list entirely from the Web. Mailman also
+           : integrates most things people want to do with mailing lists,
+           : including archiving, mail <-> news gateways, and so on.
+           : 
+           : Documentation can be found in: /usr/share/doc/mailman-2.1.9
+           : 
+           : When the package has finished installing, you will need to perform
+           : some additional installation steps, these are described in:
+           : /usr/share/doc/mailman-2.1.9/INSTALL.REDHAT
+

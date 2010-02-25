@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : sysfsutils
+Arch       : i386
+Version    : 2.0.0
+Release    : 6
+Size       : 109 k
+Repo       : installed
+Summary    : sysfsutils, library interface to sysfs.
+License    : GPL
+Description: This package's purpose is to provide a set of utilities for
+           : interfacing with sysfs.
+

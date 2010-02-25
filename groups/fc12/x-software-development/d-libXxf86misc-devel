@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libXxf86misc-devel
+Arch       : i386
+Version    : 1.0.1
+Release    : 3.1
+Size       : 9.0 k
+Repo       : base
+Summary    : X.Org X11 libXxf86misc development package
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 libXxf86misc development package
+

@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gpart
+Arch       : i386
+Version    : 0.1h
+Release    : 3.1
+Size       : 72 k
+Repo       : installed
+Summary    : A program for recovering corrupt partition tables.
+License    : GPL
+Description: Gpart is a small tool which tries to guess what partitions are on a
+           : PC type harddisk in case the primary partition table was damaged.
+

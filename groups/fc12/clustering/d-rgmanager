@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : rgmanager
+Arch       : i386
+Version    : 2.0.52
+Release    : 1.el5.centos.2
+Size       : 291 k
+Repo       : updates
+Summary    : Open Source HA Resource Group Failover for CentOS Enterprise Linux
+License    : GPL,LGPL
+Description: Red Hat Resource Group Manager provides high availability of
+           : critical server applications in the event of planned or unplanned
+           : system downtime.
+

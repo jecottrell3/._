@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : mod_auth_mysql
+Arch       : i386
+Epoch      : 1
+Version    : 3.0.0
+Release    : 3.2.el5_3
+Size       : 43 k
+Repo       : installed
+Summary    : Basic authentication for the Apache web server using a MySQL
+           : database.
+URL        : http://modauthmysql.sourceforge.net/
+License    : Apache Software License
+Description: mod_auth_mysql can be used to limit access to documents served by a
+           : web server by checking data in a MySQL database.
+

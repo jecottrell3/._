@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : nmap
+Arch       : i386
+Epoch      : 2
+Version    : 4.11
+Release    : 1.1
+Size       : 2.3 M
+Repo       : installed
+Summary    : Network exploration tool and security scanner
+URL        : http://www.insecure.org/nmap/
+License    : GPL
+Description: Nmap is a utility for network exploration or security auditing.  It
+           : supports ping scanning (determine which hosts are up), many port
+           : scanning techniques (determine what services the hosts are
+           : offering), and TCP/IP fingerprinting (remote host operating system
+           : identification). Nmap also offers flexible target and port
+           : specification, decoy scanning, determination of TCP sequence
+           : predictability characteristics, reverse-identd scanning, and more.
+

@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-smartbookmark-plugin
+Arch       : i386
+Version    : 0.4.2
+Release    : 4.el5.centos
+Size       : 19 k
+Repo       : extras
+Summary    : Smart bookmarks for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-smartbookmark-plugin
+License    : GPL
+Description: A plugin which allows you to do a search directly on Internet on
+           : sites like Google or Red Hat Bugzilla. It allows you to send
+           : requests directly to your browser and perform custom searches.
+

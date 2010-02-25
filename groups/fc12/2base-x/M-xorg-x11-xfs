@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : xorg-x11-xfs
+Arch       : i386
+Epoch      : 1
+Version    : 1.0.2
+Release    : 4
+Size       : 111 k
+Repo       : installed
+Summary    : X.Org X11 xfs font server
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 xfs font server
+

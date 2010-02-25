@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : xorg-x11-xsm
+Arch       : i386
+Version    : 1.0.2
+Release    : 4.fc6
+Size       : 146 k
+Repo       : installed
+Summary    : X.Org X11 X Session Manager
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 X Session Manager
+

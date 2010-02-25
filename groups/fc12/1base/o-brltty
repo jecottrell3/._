@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : brltty
+Arch       : i386
+Version    : 3.7.2
+Release    : 1.fc6.1
+Size       : 651 k
+Repo       : base
+Summary    : Braille display driver for Linux/Unix.
+URL        : http://mielke.cc/brltty/
+License    : GPL
+Description: BRLTTY is a background process (daemon) which provides
+           : access to the Linux/Unix console (when in text mode)
+           : for a blind person using a refreshable braille display.
+           : It drives the braille display,
+           : and provides complete screen review functionality.
+           : Some speech capability has also been incorporated.
+

@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : file
+Arch       : i386
+Version    : 4.17
+Release    : 15.el5_3.1
+Size       : 1.6 M
+Repo       : installed
+Summary    : A utility for determining file types.
+URL        : http://www.darwinsys.com/file/
+License    : distributable
+Description: The file command is used to identify a particular file according to
+           : the type of data contained by the file.  File can identify many
+           : different file types, including ELF binaries, system libraries, RPM
+           : packages, and different graphics formats.
+           : 
+           : You should install the file package, since the file command is such
+           : a useful utility.
+

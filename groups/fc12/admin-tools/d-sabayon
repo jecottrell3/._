@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : sabayon
+Arch       : i386
+Version    : 2.12.4
+Release    : 6.el5
+Size       : 478 k
+Repo       : installed
+Summary    : Tool to maintain user profiles in a GNOME desktop
+URL        : http://www.gnome.org/projects/sabayon
+License    : GPL
+Description: Sabayon is a tool to help sysadmins and user change and maintain
+           : the default behaviour of the GNOME desktop. This package contains
+           : the graphical tools which a sysadmin use to manage Sabayon
+           : profiles.
+

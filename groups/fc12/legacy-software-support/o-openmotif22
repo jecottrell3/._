@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : openmotif22
+Arch       : i386
+Version    : 2.2.3
+Release    : 18
+Size       : 1.3 M
+Repo       : base
+Summary    : Open Motif runtime libraries and executables
+URL        : http://www.motifzone.net/
+License    : Open Group Public License
+Description: This is the Open Motif 2.2.3 runtime environment. It includes the
+           : Motif shared libraries, needed to run applications which are
+           : dynamically linked against Motif.
+

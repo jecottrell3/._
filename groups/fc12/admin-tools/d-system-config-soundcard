@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : system-config-soundcard
+Arch       : noarch
+Version    : 2.0.6
+Release    : 1.el5
+Size       : 1.6 M
+Repo       : installed
+Summary    : A graphical interface for detecting and configuring soundcards
+URL        : http://fedora.redhat.com/projects/config-tools/redhat-config-soundcard.html
+License    : GPL
+Description: system-config-soundcard is a graphical user interface that
+           : detects and configures the soundcard(s) on the system.
+

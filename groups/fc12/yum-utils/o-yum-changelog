@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : yum-changelog
+Arch       : noarch
+Version    : 1.1.16
+Release    : 14.el5.centos.1
+Size       : 18 k
+Repo       : updates
+Summary    : Yum plugin for viewing package changelogs before/after updating
+URL        : http://linux.duke.edu/yum/download/yum-utils/
+License    : GPLv2+
+Description: This plugin adds a command line option to allow viewing package
+           : changelog deltas before or after updating packages.
+

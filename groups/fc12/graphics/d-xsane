@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xsane
+Arch       : i386
+Version    : 0.991
+Release    : 5.el5
+Size       : 1.8 M
+Repo       : base
+Summary    : An X Window System front-end for the SANE scanner interface.
+URL        : http://www.xsane.org/
+License    : GPL
+Description: XSane is an X based interface for the SANE (Scanner Access Now
+           : Easy) library, which provides access to scanners, digital cameras,
+           : and other capture devices. XSane is written in GTK+ and provides
+           : control for performing the scan and then manipulating the captured
+           : image.
+

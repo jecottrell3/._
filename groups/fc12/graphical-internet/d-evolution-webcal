@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : evolution-webcal
+Arch       : i386
+Version    : 2.7.1
+Release    : 6
+Size       : 265 k
+Repo       : installed
+Summary    : A handler for webcal URIs
+License    : GPL
+Description: evolution-webcal is a small helper application that can be run when
+           : webcal URIs are clicked in web browsers.  It adds the calendar to
+           : your evolution-data-server, which will make the calendar appear in
+           : Evolution and in the gnome-panel's calendar.
+

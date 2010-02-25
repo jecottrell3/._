@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnome-media
+Arch       : i386
+Version    : 2.16.1
+Release    : 3.el5
+Size       : 5.2 M
+Repo       : installed
+Summary    : GNOME media programs.
+URL        : http://www.gnome.org
+License    : GPL
+Description: GNOME (GNU Network Object Model Environment) is a user-friendly set
+           : of GUI applications and desktop tools to be used in conjunction
+           : with a window manager for the X Window System. The gnome-media
+           : package will install media features like the GNOME CD player.
+

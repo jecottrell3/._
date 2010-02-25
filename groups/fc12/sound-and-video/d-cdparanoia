@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : cdparanoia
+Arch       : i386
+Version    : alpha9.8
+Release    : 27.2
+Size       : 90 k
+Repo       : installed
+Summary    : A Compact Disc Digital Audio (CDDA) extraction tool (or ripper).
+URL        : http://www.xiph.org/paranoia/index.html
+License    : GPL
+Description: Cdparanoia (Paranoia III) reads digital audio directly from a CD,
+           : then writes the data to a file or pipe in WAV, AIFC or raw 16 bit
+           : linear PCM format.  Cdparanoia doesn't contain any extra features
+           : (like the ones included in the cdda2wav sampling utility).
+           : Instead, cdparanoia's strength lies in its ability to handle a
+           : variety of hardware, including inexpensive drives prone to
+           : misalignment, frame jitter and loss of streaming during atomic
+           : reads.  Cdparanoia is also good at reading and repairing data from
+           : damaged CDs.
+

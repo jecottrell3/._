@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : hdparm
+Arch       : i386
+Version    : 6.6
+Release    : 2
+Size       : 74 k
+Repo       : installed
+Summary    : A utility for displaying and/or setting hard disk parameters.
+URL        : http://sourceforge.net/projects/hdparm/
+License    : BSD
+Description: Hdparm is a useful system utility for setting (E)IDE hard drive
+           : parameters.  For example, hdparm can be used to tweak hard drive
+           : performance and to spin down hard drives for power conservation.
+

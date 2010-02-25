@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : bluez-utils
+Arch       : i386
+Version    : 3.7
+Release    : 2.2.el5.centos
+Size       : 346 k
+Repo       : base
+Summary    : Bluetooth utilities
+URL        : http://www.bluez.org/
+License    : GPL
+Description: Bluetooth utilities (bluez-utils):
+           :         - hcitool
+           :         - hciattach
+           :         - hciconfig
+           :         - hcid
+           :         - l2ping
+           :         - start scripts (CentOS)
+           :         - pcmcia configuration files
+           : 
+           : The BLUETOOTH trademarks are owned by Bluetooth SIG, Inc., U.S.A.
+

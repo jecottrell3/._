@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : modcluster
+Arch       : i386
+Version    : 0.12.1
+Release    : 2.el5.centos
+Size       : 332 k
+Repo       : base
+Summary    : CentOS Linux Cluster Suite - remote management
+URL        : http://sources.redhat.com/cluster/conga
+License    : GPLv2
+Description: Management module for CentOS Linux Cluster Suite.
+

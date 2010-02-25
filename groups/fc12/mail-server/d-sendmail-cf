@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : sendmail-cf
+Arch       : i386
+Version    : 8.13.8
+Release    : 2.el5
+Size       : 311 k
+Repo       : base
+Summary    : The files needed to reconfigure Sendmail.
+License    : Sendmail
+Description: This package includes the configuration files you need to generate
+           : the sendmail.cf file distributed with the sendmail package. You
+           : will need the sendmail-cf package if you ever need to reconfigure
+           : and rebuild your sendmail.cf file.
+

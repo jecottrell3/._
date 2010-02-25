@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : lrzsz
+Arch       : i386
+Version    : 0.12.20
+Release    : 22.1
+Size       : 81 k
+Repo       : base
+Summary    : The lrz and lsz modem communications programs.
+URL        : http://www.ohse.de/uwe/software/lrzsz.html
+License    : GPL
+Description: Lrzsz (consisting of lrz and lsz) is a cosmetically modified
+           : zmodem/ymodem/xmodem package built from the public-domain version
+           : of the rzsz package. Lrzsz was created to provide a working GNU
+           : copylefted Zmodem solution for Linux systems.
+

@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : yum-utils
+Arch       : noarch
+Version    : 1.1.16
+Release    : 14.el5.centos.1
+Size       : 69 k
+Repo       : updates
+Summary    : Utilities based around the yum package manager
+URL        : http://linux.duke.edu/yum/download/yum-utils/
+License    : GPLv2+
+Description: yum-utils is a collection of utilities and examples for the yum
+           : package manager. It includes utilities by different authors that
+           : make yum easier and more powerful to use. These tools include:
+           : debuginfo-install, package-cleanup, repoclosure, repodiff,
+           : repo-graph, repomanage, repoquery, repo-rss, reposync, repotrack,
+           : verifytree, yum-builddep, yum-complete-transaction, yumdownloader,
+           : yum-debug-dump and yum-groups-manager.
+

@@ -1,0 +1,27 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : ruby-devel
+Arch       : i386
+Version    : 1.8.5
+Release    : 5.el5_3.7
+Size       : 1.5 M
+Repo       : installed
+Summary    : A Ruby development environment.
+URL        : http://www.ruby-lang.org/
+License    : Ruby License/GPL - see COPYING
+Description: Header files and libraries for building a extension library for the
+           : Ruby or an application embedded Ruby.
+
+Available Packages
+Name       : ruby-devel
+Arch       : i386
+Version    : 1.8.5
+Release    : 5.el5_4.8
+Size       : 556 k
+Repo       : updates
+Summary    : A Ruby development environment.
+URL        : http://www.ruby-lang.org/
+License    : Ruby License/GPL - see COPYING
+Description: Header files and libraries for building a extension library for the
+           : Ruby or an application embedded Ruby.
+

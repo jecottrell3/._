@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : ofed-docs
+Arch       : noarch
+Version    : 1.4.1
+Release    : 2.el5
+Size       : 158 k
+Repo       : base
+Summary    : OpenFabrics Enterprise Distribution documentation
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: Documentation from OFED 1.3
+

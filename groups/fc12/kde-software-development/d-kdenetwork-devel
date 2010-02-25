@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : kdenetwork-devel
+Arch       : i386
+Epoch      : 7
+Version    : 3.5.4
+Release    : 9.el5
+Size       : 98 k
+Repo       : base
+Summary    : Development files for kdenetwork
+URL        : http://www.kde.org
+License    : GPL
+Description: Development files for kdenetwork. Install kdenetwork-devel if you
+           : wish to develop or compile KDE networking applications.
+

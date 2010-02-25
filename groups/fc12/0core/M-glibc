@@ -1,0 +1,51 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : glibc
+Arch       : i686
+Version    : 2.5
+Release    : 42
+Size       : 12 M
+Repo       : installed
+Summary    : The GNU libc libraries.
+License    : LGPL
+Description: The glibc package contains standard libraries which are used by
+           : multiple programs on the system. In order to save disk space and
+           : memory, as well as to make upgrading easier, common system code is
+           : kept in one place and shared between programs. This particular
+           : package contains the most important sets of shared libraries: the
+           : standard C library and the standard math library. Without these two
+           : libraries, a Linux system will not function.
+
+Available Packages
+Name       : glibc
+Arch       : i386
+Version    : 2.5
+Release    : 42.el5_4.3
+Size       : 4.4 M
+Repo       : updates
+Summary    : The GNU libc libraries.
+License    : LGPL
+Description: The glibc package contains standard libraries which are used by
+           : multiple programs on the system. In order to save disk space and
+           : memory, as well as to make upgrading easier, common system code is
+           : kept in one place and shared between programs. This particular
+           : package contains the most important sets of shared libraries: the
+           : standard C library and the standard math library. Without these two
+           : libraries, a Linux system will not function.
+
+Name       : glibc
+Arch       : i686
+Version    : 2.5
+Release    : 42.el5_4.3
+Size       : 5.2 M
+Repo       : updates
+Summary    : The GNU libc libraries.
+License    : LGPL
+Description: The glibc package contains standard libraries which are used by
+           : multiple programs on the system. In order to save disk space and
+           : memory, as well as to make upgrading easier, common system code is
+           : kept in one place and shared between programs. This particular
+           : package contains the most important sets of shared libraries: the
+           : standard C library and the standard math library. Without these two
+           : libraries, a Linux system will not function.
+

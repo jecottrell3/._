@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : agg
+Arch       : i386
+Version    : 2.4
+Release    : 2.1
+Size       : 139 k
+Repo       : base
+Summary    : Anti-Grain Geometry
+URL        : http://www.antigrain.com
+License    : MIT
+Description: A High Quality Rendering Engine for C++
+

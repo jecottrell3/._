@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : wireshark-gnome
+Arch       : i386
+Version    : 1.0.8
+Release    : 1.el5_3.1
+Size       : 1.6 M
+Repo       : installed
+Summary    : Gnome desktop integration for wireshark and wireshark-usermode
+URL        : http://www.wireshark.org/
+License    : GPL
+Description: Contains wireshark for Gnome 2 and desktop integration file
+

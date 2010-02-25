@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libusb-devel
+Arch       : i386
+Version    : 0.1.12
+Release    : 5.1
+Size       : 96 k
+Repo       : base
+Summary    : Development files for libusb.
+URL        : http://sourceforge.net/projects/libusb/
+License    : LGPL
+Description: This package contains the header files and documentation needed to
+           : develop applications that use libusb.
+

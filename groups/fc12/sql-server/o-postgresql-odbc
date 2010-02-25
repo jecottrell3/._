@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : postgresql-odbc
+Arch       : i386
+Version    : 08.01.0200
+Release    : 3.1
+Size       : 480 k
+Repo       : installed
+Summary    : PostgreSQL ODBC driver.
+URL        : http://gborg.postgresql.org/project/psqlodbc
+License    : LGPL
+Description: This package includes the driver needed for applications to access
+           : a PostgreSQL system via ODBC (Open Database Connectivity).
+

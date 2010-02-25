@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : gtk-doc
+Arch       : noarch
+Version    : 1.7
+Release    : 1.fc6
+Size       : 111 k
+Repo       : base
+Summary    : API documentation generation tool for GTK+ and GNOME
+URL        : http://www.gtk.org/gtk-doc
+License    : LGPL
+Description: gtk-doc is a tool for generating API reference documentation.
+           : It is used for generating the documentation for GTK+, GLib
+           : and GNOME.
+

@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : mkbootdisk
+Arch       : i386
+Version    : 1.5.3
+Release    : 2.1
+Size       : 10 k
+Repo       : base
+Summary    : Creates a boot floppy disk for booting a system.
+License    : GPL
+Description: The mkbootdisk program creates a standalone boot floppy disk for
+           : booting the running system.  The created boot disk will look for
+           : the root filesystem on the device mentioned in /etc/fstab and
+           : includes an initial ramdisk image which will load any necessary
+           : SCSI modules for the system.
+

@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : systemtap
+Arch       : i386
+Version    : 0.9.7
+Release    : 5.el5
+Size       : 5.5 M
+Repo       : installed
+Summary    : Instrumentation System
+URL        : http://sourceware.org/systemtap/
+License    : GPLv2+
+Description: SystemTap is an instrumentation system for systems running Linux
+           : 2.6. Developers can write instrumentation to collect data on the
+           : operation of the system.
+
+Available Packages
+Name       : systemtap
+Arch       : i386
+Version    : 0.9.7
+Release    : 5.el5_4.1
+Size       : 2.2 M
+Repo       : updates
+Summary    : Instrumentation System
+URL        : http://sourceware.org/systemtap/
+License    : GPLv2+
+Description: SystemTap is an instrumentation system for systems running Linux
+           : 2.6. Developers can write instrumentation to collect data on the
+           : operation of the system.
+

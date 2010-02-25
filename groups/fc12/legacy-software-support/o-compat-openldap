@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : compat-openldap
+Arch       : i386
+Version    : 2.3.43_2.2.29
+Release    : 3.el5
+Size       : 256 k
+Repo       : base
+Summary    : OpenLDAP compatibility shared libraries.
+URL        : http://www.openldap.org/
+License    : OpenLDAP
+Description: OpenLDAP is an open source suite of LDAP (Lightweight Directory
+           : Access Protocol) applications and development tools.  The
+           : compat-openldap package includes older versions of the OpenLDAP
+           : shared libraries which may be required by some applications.
+

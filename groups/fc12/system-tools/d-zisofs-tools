@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : zisofs-tools
+Arch       : i386
+Version    : 1.0.6
+Release    : 3.2.2
+Size       : 22 k
+Repo       : installed
+Summary    : Utilities for creating compressed CD-ROM filesystems.
+URL        : http://www.kernel.org/pub/linux/utils/fs/zisofs/
+License    : GPL
+Description: A utility which works in combination with an appropriately patched
+           : version of mkisofs to allow the creation of compressed CD-ROM
+           : filesystems.
+

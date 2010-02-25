@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : curl-devel
+Arch       : i386
+Version    : 7.15.5
+Release    : 2.1.el5_3.5
+Size       : 307 k
+Repo       : base
+Summary    : Files needed for building applications with libcurl.
+URL        : http://curl.haxx.se/
+License    : MIT
+Description: cURL is a tool for getting files from FTP, HTTP, Gopher, Telnet,
+           : and Dict servers, using any of the supported protocols. The
+           : curl-devel package includes files needed for developing
+           : applications which can use cURL's capabilities internally.
+

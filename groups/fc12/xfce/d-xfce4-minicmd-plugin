@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-minicmd-plugin
+Arch       : i386
+Version    : 0.4
+Release    : 6.el5.centos.1
+Size       : 18 k
+Repo       : extras
+Summary    : Mini command-line plugin for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-minicmd-plugin
+License    : GPL
+Description: A mini command-line plugin for the Xfce panel. You can execute
+           : programs by typing their names in the widget and hitting Enter or
+           : Ctrl+Enter. The latter runs the command in a terminal. It maintains
+           : history which is shared with xfrun4. This history can be accessed
+           : by Up and Down keys.
+

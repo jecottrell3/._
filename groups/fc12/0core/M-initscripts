@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : initscripts
+Arch       : i386
+Version    : 8.45.30
+Release    : 2.el5.centos
+Size       : 5.2 M
+Repo       : installed
+Summary    : The inittab file and the /etc/init.d scripts.
+URL        : http://git.fedorahosted.org/git/initscripts.git
+License    : GPLv2 and GPLv2+
+Description: The initscripts package contains the basic system scripts used to
+           : boot your CentOS system, change runlevels, and shut the system down
+           : cleanly.  Initscripts also contains the scripts that activate and
+           : deactivate most network interfaces.
+

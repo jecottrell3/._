@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : system-config-keyboard
+Arch       : noarch
+Version    : 1.2.11
+Release    : 1.el5
+Size       : 193 k
+Repo       : installed
+Summary    : A graphical interface for modifying the keyboard
+URL        : http://fedora.redhat.com/projects/config-tools
+License    : GPL
+Description: system-config-keyboard is a graphical user interface that allows
+           : the user to change the default keyboard of the system.
+

@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-xkb-plugin
+Arch       : i386
+Version    : 0.4.3
+Release    : 1.el5.centos
+Size       : 72 k
+Repo       : extras
+Summary    : XKB layout switcher for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-xkb-plugin
+License    : BSD
+Description: Xfce XKB layout switch plugin for the Xfce panel. It displays the
+           : current keyboard layout, and refreshes when layout changes. The
+           : layout can be switched by simply clicking on the plugin. For now
+           : the keyboard layouts cannot be configured from the plugin itself,
+           : they should be set in the XF86Config file or some other way (e.g.
+           : setxkbmap).
+

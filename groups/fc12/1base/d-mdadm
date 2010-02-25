@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : mdadm
+Arch       : i386
+Version    : 2.6.9
+Release    : 2.el5
+Size       : 1.8 M
+Repo       : installed
+Summary    : mdadm controls Linux md devices (software RAID arrays)
+URL        : http://www.kernel.org/pub/linux/utils/raid/mdadm/
+License    : GPL
+Description: mdadm is used to create, manage, and monitor Linux MD (software
+           : RAID) devices.  As such, it provides similar functionality to the
+           : raidtools package.  However, mdadm is a single program, and it can
+           : perform almost all functions without a configuration file, though a
+           : configuration file can be used to help with some common tasks.
+

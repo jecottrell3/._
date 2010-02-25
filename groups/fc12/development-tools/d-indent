@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : indent
+Arch       : i386
+Version    : 2.2.9
+Release    : 14.fc6
+Size       : 187 k
+Repo       : installed
+Summary    : A GNU program for formatting C code.
+URL        : http://www.gnu.org/software/indent/
+License    : GPL
+Description: Indent is a GNU program for beautifying C code, so that it is
+           : easier to read.  Indent can also convert from one C writing style
+           : to a different one.  Indent understands correct C syntax and tries
+           : to handle incorrect C syntax.
+           : 
+           : Install the indent package if you are developing applications in C
+           : and you want a program to format your code.
+

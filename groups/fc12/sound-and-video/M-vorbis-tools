@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : vorbis-tools
+Arch       : i386
+Epoch      : 1
+Version    : 1.1.1
+Release    : 3.el5
+Size       : 507 k
+Repo       : installed
+Summary    : The Vorbis General Audio Compression Codec tools.
+URL        : http://www.xiph.org/
+License    : GPL
+Description: Ogg Vorbis is a fully open, non-proprietary, patent- and
+           : royalty-free, general-purpose compressed audio format for audio and
+           : music at fixed and variable bitrates from 16 to 128 kbps/channel.
+           : 
+           : The vorbis package contains an encoder, a decoder, a playback tool,
+           : and a comment editor.
+

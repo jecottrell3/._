@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : thunderbird
+Arch       : i386
+Version    : 2.0.0.22
+Release    : 2.el5.centos
+Size       : 45 M
+Repo       : installed
+Summary    : Mozilla Thunderbird mail/newsgroup client
+URL        : http://www.mozilla.org/projects/thunderbird/
+License    : MPL
+Description: Mozilla Thunderbird is a standalone mail and newsgroup client.
+

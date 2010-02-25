@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : orca
+Arch       : i386
+Version    : 1.0.0
+Release    : 5.el5
+Size       : 853 k
+Repo       : base
+Summary    : Flexible, extensible, and powerful assistive technology
+URL        : http://www.gnome.org/projects/orca/
+License    : LGPL
+Description: Orca is a flexible, extensible, and powerful assistive technology
+           : for people with visual impairments. Using various combinations of
+           : speech synthesis, braille, and magnification, Orca helps provide
+           : access to applications and toolkits that support the AT-SPI (e.g.,
+           : the GNOME desktop).
+

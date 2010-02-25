@@ -1,0 +1,23 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : lksctp-tools
+Arch       : i386
+Version    : 1.0.6
+Release    : 3.el5
+Size       : 69 k
+Repo       : base
+Summary    : User-space access to Linux Kernel SCTP
+URL        : http://lksctp.sourceforge.net
+License    : LGPL
+Description: This is the lksctp-tools package for Linux Kernel SCTP (Stream
+           : Control Transmission Protocol) Reference Implementation.
+           : 
+           : This package is intended to supplement the Linux Kernel SCTP
+           : Reference Implementation now available in the Linux kernel source
+           : tree in versions 2.5.36 and following.  For more information on
+           : LKSCTP see the package documentation README file, section titled
+           : "LKSCTP - Linux Kernel SCTP."
+           : 
+           : This package contains the base run-time library and command-line
+           : tools.
+

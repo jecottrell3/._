@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : system-config-cluster
+Arch       : noarch
+Version    : 1.0.57
+Release    : 1.5
+Size       : 293 k
+Repo       : base
+Summary    : system-config-cluster is a utility which allows you to manage
+           : cluster configuration in a graphical setting.
+URL        : http://www.redhat.com/
+License    : GPL
+Description: system-config-cluster is a utility which allows you to manage
+           : cluster configuuration in a graphical setting.
+

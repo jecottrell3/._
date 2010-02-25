@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : unifdef
+Arch       : i386
+Version    : 1.171
+Release    : 5.fc6
+Size       : 18 k
+Repo       : installed
+Summary    : Unifdef tool for removing ifdef'd lines
+URL        : http://www.freebsd.org/cgi/cvsweb.cgi/src/usr.bin/unifdef/
+License    : BSD
+Description: Unifdef is useful for removing ifdefed lines from a file while
+           : otherwise leaving the file alone. Unifdef acts on #ifdef, #ifndef,
+           : #else, and #endif lines, and it knows only enough about C and C++
+           : to know when one of these is inactive because it is inside a
+           : comment, or a single or double quote.
+

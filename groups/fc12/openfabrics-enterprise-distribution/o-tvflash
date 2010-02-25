@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : tvflash
+Arch       : i386
+Version    : 0.9.0
+Release    : 2.el5
+Size       : 43 k
+Repo       : base
+Summary    : Tool to manage Mellanox HCA firmware flash memory
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: tvflash is used to query and update the firmware flash memory
+           : attached to Mellanox InfiniBand HCAs.
+

@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : webalizer
+Arch       : i386
+Version    : 2.01_10
+Release    : 30.1
+Size       : 252 k
+Repo       : installed
+Summary    : A flexible Web server log file analysis program.
+URL        : http://www.mrunix.net/webalizer/
+License    : GPL
+Description: The Webalizer is a Web server log analysis program. It is designed
+           : to scan Web server log files in various formats and produce usage
+           : statistics in HTML format for viewing through a browser. It
+           : produces professional looking graphs which make analyzing when and
+           : where your Web traffic is coming from easy.
+

@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : amanda-server
+Arch       : i386
+Version    : 2.5.0p2
+Release    : 8.el5
+Size       : 1.1 M
+Repo       : installed
+Summary    : The server side of the AMANDA tape backup system.
+URL        : http://www.amanda.org
+License    : BSD
+Description: The amanda-server package should be installed on the AMANDA server,
+           : the machine attached to the device(s) (such as a tape drive) where
+           : backups will be written. You will also need to install the amanda
+           : package on the AMANDA server machine.  And, if the server is also
+           : to be backed up, the server also needs to have the amanda-client
+           : package installed.
+

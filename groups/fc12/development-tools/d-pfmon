@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : pfmon
+Arch       : i386
+Version    : 3.2
+Release    : 0.060926.5.el5
+Size       : 1.4 M
+Repo       : installed
+Summary    : a performance monitoring tool for Linux/ia64
+License    : GPL
+Description: This package contains pfmon 3.x, a tool to monitor performance
+           : using the Performance Monitor Unit (PMU). Pfmon can monitor
+           : standalone programs or the entire system on both UP and SMP Linux
+           : systems. This version
+           : of pfmon requires a kernel perfmon-2.x (found in 2.6 kernels)
+           : subsystem to function properly.
+

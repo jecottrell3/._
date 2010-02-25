@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : gconf-editor
+Arch       : i386
+Version    : 2.16.0
+Release    : 3.el5
+Size       : 277 k
+Repo       : base
+Summary    : Editor/admin tool for GConf
+URL        : http://www.gnome.org
+License    : GPL
+Description: gconf-editor allows you to browse and modify GConf configuration
+           : sources.
+

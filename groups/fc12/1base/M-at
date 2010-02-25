@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : at
+Arch       : i386
+Version    : 3.1.8
+Release    : 82.fc6
+Size       : 77 k
+Repo       : installed
+Summary    : Job spooling tools.
+License    : GPL
+Description: At and batch read commands from standard input or from a specified
+           : file. At allows you to specify that a command will be run at a
+           : particular time. Batch will execute commands when the system load
+           : levels drop to a particular level. Both commands use /bin/sh.
+           : 
+           : You should install the at package if you need a utility for
+           : time-oriented job control. Note: If it is a recurring job that will
+           : need to be repeated at the same time every day/week, etc. you
+           : should use crontab instead.
+

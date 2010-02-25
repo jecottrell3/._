@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : kernel-xen
+Arch       : i686
+Version    : 2.6.18
+Release    : 164.el5
+Size       : 43 M
+Repo       : installed
+Summary    : The Linux kernel compiled for Xen VM operations
+URL        : http://www.kernel.org/
+License    : GPLv2
+Description: This package includes a Xen hypervisor and a version of the Linux
+           : kernel which can run Xen VMs for privileged hosts and unprivileged
+           : paravirtualized hosts.
+
+Available Packages
+Name       : kernel-xen
+Arch       : i686
+Version    : 2.6.18
+Release    : 164.11.1.el5
+Size       : 17 M
+Repo       : updates
+Summary    : The Linux kernel compiled for Xen VM operations
+URL        : http://www.kernel.org/
+License    : GPLv2
+Description: This package includes a Xen hypervisor and a version of the Linux
+           : kernel which can run Xen VMs for privileged hosts and unprivileged
+           : paravirtualized hosts.
+

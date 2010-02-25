@@ -1,0 +1,35 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : tcsh
+Arch       : i386
+Version    : 6.14
+Release    : 14.el5
+Size       : 1.1 M
+Repo       : installed
+Summary    : An enhanced version of csh, the C shell.
+URL        : http://www.tcsh.org/
+License    : distributable
+Description: Tcsh is an enhanced but completely compatible version of csh, the C
+           : shell.  Tcsh is a command language interpreter which can be used
+           : both as an interactive login shell and as a shell script command
+           : processor. Tcsh includes a command line editor, programmable word
+           : completion, spelling correction, a history mechanism, job control
+           : and a C language like syntax.
+
+Available Packages
+Name       : tcsh
+Arch       : i386
+Version    : 6.14
+Release    : 14.el5_4.3
+Size       : 464 k
+Repo       : updates
+Summary    : An enhanced version of csh, the C shell.
+URL        : http://www.tcsh.org/
+License    : distributable
+Description: Tcsh is an enhanced but completely compatible version of csh, the C
+           : shell.  Tcsh is a command language interpreter which can be used
+           : both as an interactive login shell and as a shell script command
+           : processor. Tcsh includes a command line editor, programmable word
+           : completion, spelling correction, a history mechanism, job control
+           : and a C language like syntax.
+

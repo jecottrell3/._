@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : ibmasm
+Arch       : i386
+Version    : 3.0
+Release    : 9
+Size       : 16 k
+Repo       : base
+Summary    : IBM Advanced System Management Drivers
+URL        : http://www.ibm.com
+License    : GPL
+Description: This package contains the tools necessary to set up the IBM
+           : Advanced System Management Drivers
+

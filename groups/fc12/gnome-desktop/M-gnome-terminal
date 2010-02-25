@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnome-terminal
+Arch       : i386
+Version    : 2.16.0
+Release    : 5.3.el5
+Size       : 8.4 M
+Repo       : installed
+Summary    : GNOME Terminal
+URL        : http://www.gnome.org/
+License    : GPL
+Description: 
+           : GNOME terminal emulator application.
+

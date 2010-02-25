@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : redhat-logos
+Arch       : noarch
+Version    : 4.9.99
+Release    : 11.el5.centos
+Size       : 27 M
+Repo       : installed
+Summary    : CentOS-related icons and pictures.
+License    : Copyright ? 2003-2007 the CentOS Project.  All rights reserved.
+Description: The redhat-logos package (the "Package") contains files created by
+           : the CentOS Project to replace the Red Hat "Shadow Man" logo and
+           : RPM logo. The Red Hat "Shadow Man" logo, RPM, and the RPM logo are
+           : trademarks or registered trademarks of Red Hat, Inc.
+           : 
+           : The Package and CentOS logos (the "Marks") can only used as
+           : outlined in the included COPYING file. Please see that file for
+           : information on copying and redistribution of the CentOS Marks.
+

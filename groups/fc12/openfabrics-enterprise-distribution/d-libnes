@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libnes
+Arch       : i386
+Version    : 0.6
+Release    : 2.el5
+Size       : 12 k
+Repo       : base
+Summary    : NetEffect RNIC Userspace Driver
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: Userspace hardware driver for use with the libibverbs
+           : InfiniBand/iWARP verbs library.  This driver enables NetEffect
+           : iWARP capable ethernet devices.
+

@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : Xaw3d-devel
+Arch       : i386
+Version    : 1.5E
+Release    : 10.1
+Size       : 65 k
+Repo       : base
+Summary    : Header files and static libraries for development using Xaw3d.
+License    : MIT
+Description: Xaw3d is an enhanced version of the MIT Athena widget set for
+           : the X Window System.  Xaw3d adds a three-dimensional look to those
+           : applications with minimal or no source code changes. Xaw3d-devel
+           : includes the header files and static libraries for developing
+           : programs that take full advantage of Xaw3d's features.
+           : 
+           : You should install Xaw3d-devel if you are going to develop
+           : applications using the Xaw3d widget set.  You'll also need to
+           : install the Xaw3d package.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-screenshooter-plugin
+Arch       : i386
+Version    : 1.0.0
+Release    : 4.el5.centos
+Size       : 12 k
+Repo       : extras
+Summary    : Screenshot utility for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
+License    : BSD
+Description: The Screenshooter plugin allows you to take screenshots from the
+           : Xfce panel.
+

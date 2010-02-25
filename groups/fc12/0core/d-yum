@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : yum
+Arch       : noarch
+Version    : 3.2.22
+Release    : 20.el5.centos
+Size       : 3.2 M
+Repo       : installed
+Summary    : RPM installer/updater
+URL        : http://linux.duke.edu/yum/
+License    : GPLv2+
+Description: Yum is a utility that can check for and automatically download and
+           : install updated RPM packages. Dependencies are obtained and
+           : downloaded automatically prompting the user as necessary.
+

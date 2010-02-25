@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : syslinux
+Arch       : i386
+Version    : 3.11
+Release    : 4
+Size       : 1.3 M
+Repo       : installed
+Summary    : Simple kernel loader which boots from a FAT filesystem
+License    : GPL
+Description: SYSLINUX is a suite of bootloaders, currently supporting DOS FAT
+           : filesystems, Linux ext2/ext3 filesystems (EXTLINUX), PXE network
+           : boots (PXELINUX), or ISO 9660 CD-ROMs (ISOLINUX).  It also includes
+           : a tool, MEMDISK, which loads legacy operating systems from these
+           : media.
+

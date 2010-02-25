@@ -1,0 +1,12 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : sound-juicer
+Arch       : i386
+Version    : 2.16.0
+Release    : 3.el5
+Size       : 2.4 M
+Repo       : installed
+Summary    : Clean and lean CD ripper
+License    : GPL
+Description: GStreamer-based CD ripping tool. Saves audio CDs to Ogg/vorbis.
+

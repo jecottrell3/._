@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : arpwatch
+Arch       : i386
+Epoch      : 14
+Version    : 2.1a13
+Release    : 21.el5
+Size       : 462 k
+Repo       : installed
+Summary    : Network monitoring tools for tracking IP addresses on a network.
+URL        : http://www.tcpdump.org
+License    : BSD
+Description: The arpwatch package contains arpwatch and arpsnmp.  Arpwatch and
+           : arpsnmp are both network monitoring tools.  Both utilities monitor
+           : Ethernet or FDDI network traffic and build databases of Ethernet/IP
+           : address pairs, and can report certain changes via email.
+           : 
+           : Install the arpwatch package if you need networking monitoring
+           : devices which will automatically keep track of the IP addresses on
+           : your network.
+

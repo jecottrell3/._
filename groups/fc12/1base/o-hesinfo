@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : hesinfo
+Arch       : i386
+Version    : 3.1.0
+Release    : 1.1
+Size       : 8.1 k
+Repo       : base
+Summary    : Command-line Hesiod client.
+License    : MIT
+Description: Hesiod is a system which uses existing DNS functionality to provide
+           : access to databases of information that changes infrequently.  It
+           : is often used to distribute information kept in the /etc/passwd,
+           : /etc/group, and /etc/printcap files, among others.  The hesinfo
+           : package contains the hesinfo client program, which can be used to
+           : query Hesiod.
+

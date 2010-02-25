@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : util-linux
+Arch       : i386
+Version    : 2.13
+Release    : 0.52.el5
+Size       : 4.5 M
+Repo       : installed
+Summary    : A collection of basic system utilities.
+License    : distributable
+Description: The util-linux package contains a large variety of low-level system
+           : utilities that are necessary for a Linux system to function. Among
+           : others, Util-linux contains the fdisk configuration tool and the
+           : login program.
+
+Available Packages
+Name       : util-linux
+Arch       : i386
+Version    : 2.13
+Release    : 0.52.el5_4.1
+Size       : 1.8 M
+Repo       : updates
+Summary    : A collection of basic system utilities.
+License    : distributable
+Description: The util-linux package contains a large variety of low-level system
+           : utilities that are necessary for a Linux system to function. Among
+           : others, Util-linux contains the fdisk configuration tool and the
+           : login program.
+

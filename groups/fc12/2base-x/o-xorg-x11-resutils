@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : xorg-x11-resutils
+Arch       : i386
+Version    : 7.1
+Release    : 2.fc6
+Size       : 114 k
+Repo       : installed
+Summary    : X.Org X11 X resource utilities
+URL        : http://www.x.org
+License    : MIT/X11
+Description: A collection of utilities for managing X resources.
+

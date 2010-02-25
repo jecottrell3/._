@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libxfce4util
+Arch       : i386
+Version    : 4.4.2
+Release    : 1.el5.centos
+Size       : 79 k
+Repo       : extras
+Summary    : Utility library for the Xfce4 desktop environment
+URL        : http://www.xfce.org/
+License    : LGPLv2+
+Description: This package includes basic utility non-GUI functions for Xfce4.
+

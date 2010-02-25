@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libXrender-devel
+Arch       : i386
+Version    : 0.9.1
+Release    : 3.1
+Size       : 8.8 k
+Repo       : base
+Summary    : X.Org X11 libXrender development package
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 libXrender development package
+

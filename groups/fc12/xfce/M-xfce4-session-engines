@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-session-engines
+Arch       : i386
+Version    : 4.4.2
+Release    : 1.el5.centos
+Size       : 324 k
+Repo       : extras
+Summary    : Additional engines for xfce4-session
+URL        : http://www.xfce.org/
+License    : GPLv2+
+Description: Additional splash screen engines for the Xfce Session Manager.
+

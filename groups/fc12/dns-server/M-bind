@@ -1,0 +1,39 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : bind
+Arch       : i386
+Epoch      : 30
+Version    : 9.3.6
+Release    : 4.P1.el5
+Size       : 2.1 M
+Repo       : installed
+Summary    : The Berkeley Internet Name Domain (BIND) DNS (Domain Name System)
+           : server.
+URL        : http://www.isc.org/products/BIND/
+License    : BSD-like
+Description: BIND (Berkeley Internet Name Domain) is an implementation of the
+           : DNS (Domain Name System) protocols. BIND includes a DNS server
+           : (named), which resolves host names to IP addresses; a resolver
+           : library (routines for applications to use when interfacing with
+           : DNS); and tools for verifying that the DNS server is operating
+           : properly.
+
+Available Packages
+Name       : bind
+Arch       : i386
+Epoch      : 30
+Version    : 9.3.6
+Release    : 4.P1.el5_4.2
+Size       : 978 k
+Repo       : updates
+Summary    : The Berkeley Internet Name Domain (BIND) DNS (Domain Name System)
+           : server.
+URL        : http://www.isc.org/products/BIND/
+License    : BSD-like
+Description: BIND (Berkeley Internet Name Domain) is an implementation of the
+           : DNS (Domain Name System) protocols. BIND includes a DNS server
+           : (named), which resolves host names to IP addresses; a resolver
+           : library (routines for applications to use when interfacing with
+           : DNS); and tools for verifying that the DNS server is operating
+           : properly.
+

@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gtk2-engines
+Arch       : i386
+Version    : 2.8.0
+Release    : 3.el5
+Size       : 929 k
+Repo       : installed
+Summary    : Theme engines for GTK+ 2.0
+URL        : ftp://ftp.gnome.org/pub/GNOME/sources/gtk-engines
+License    : GPL
+Description: The gtk2-engines package contains shared objects and configuration
+           : files that implement a number of GTK+ theme engines. Theme engines
+           : provide different looks for GTK+, some of which resemble other
+           : toolkits or operating systems. This package is for GTK+ 2.0,
+           : the gtk+-engines package is for GTK+ 1.2.
+

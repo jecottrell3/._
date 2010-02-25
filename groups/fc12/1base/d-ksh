@@ -1,0 +1,31 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : ksh
+Arch       : i386
+Version    : 20080202
+Release    : 14.el5
+Size       : 2.8 M
+Repo       : installed
+Summary    : The Original ATT Korn Shell
+URL        : http://www.kornshell.com/
+License    : Common Public License Version 1.0
+Description: KSH-93 is the most recent version of the KornShell by David Korn of
+           : AT&T Bell Laboratories.
+           : KornShell is a shell programming language, which is upward
+           : compatible with "sh" (the Bourne Shell).
+
+Available Packages
+Name       : ksh
+Arch       : i386
+Version    : 20080202
+Release    : 14.el5_4.2
+Size       : 1.1 M
+Repo       : updates
+Summary    : The Original ATT Korn Shell
+URL        : http://www.kornshell.com/
+License    : Common Public License Version 1.0
+Description: KSH-93 is the most recent version of the KornShell by David Korn of
+           : AT&T Bell Laboratories.
+           : KornShell is a shell programming language, which is upward
+           : compatible with "sh" (the Bourne Shell).
+

@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : tpm-tools
+Arch       : i386
+Version    : 1.3.1
+Release    : 1.el5
+Size       : 120 k
+Repo       : base
+Summary    : Management tools for the TPM hardware
+URL        : http://trousers.sourceforge.net
+License    : CPL
+Description: tpm-tools is a group of tools to manage and utilize the Trusted
+           : Computing Group's TPM hardware. TPM hardware can create, store and
+           : use RSA keys securely (without ever being exposed in memory),
+           : verify a platform's software state using cryptographic hashes and
+           : more.
+

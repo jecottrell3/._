@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : perl-XML-SAX
+Arch       : noarch
+Version    : 0.14
+Release    : 5
+Size       : 75 k
+Repo       : base
+Summary    : XML-SAX Perl module
+URL        : http://search.cpan.org/dist/XML-SAX/
+License    : GPL or Artistic
+Description: XML-SAX Perl module.
+

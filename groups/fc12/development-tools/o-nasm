@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : nasm
+Arch       : i386
+Version    : 0.98.39
+Release    : 3.2.2
+Size       : 352 k
+Repo       : base
+Summary    : A portable x86 assembler which uses Intel-like syntax.
+URL        : http://nasm.sourceforge.net/
+License    : LGPL
+Description: NASM is the Netwide Assembler, a free portable assembler for the
+           : Intel 80x86 microprocessor series, using primarily the traditional
+           : Intel instruction mnemonics and syntax.
+

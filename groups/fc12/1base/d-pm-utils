@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : pm-utils
+Arch       : i386
+Version    : 0.99.3
+Release    : 10.el5.centos
+Size       : 109 k
+Repo       : installed
+Summary    : Power management utilities and scripts for CentOS
+License    : GPL
+Description: The pm-utils package contains utilities and scripts for Fedora Core
+           : useful for power management.
+

@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : freenx
+Arch       : i386
+Version    : 0.7.3
+Release    : 2.el5.centos
+Size       : 93 k
+Repo       : extras
+Summary    : Freenx application/thin-client server
+URL        : http://freenx.berlios.de
+License    : GPL
+Description: Freenx is an application/thin-client server based on nx technology.
+           : NoMachine nx is the next-generation X compression and roundtrip
+           : suppression scheme. It can operate remote X11 sessions over 56k
+           : modem dialup links or anything better. This package contains a free
+           : (GPL) implementation of the nxserver component.
+

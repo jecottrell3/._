@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : GConf2-devel
+Arch       : i386
+Version    : 2.14.0
+Release    : 9.el5
+Size       : 93 k
+Repo       : base
+Summary    : Headers and libraries for GConf development
+URL        : http://www.gnome.org
+License    : LGPL
+Description: GConf development package. Contains files needed for doing
+           : development using GConf.
+

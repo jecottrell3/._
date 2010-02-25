@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce-mcs-manager
+Arch       : i386
+Version    : 4.4.2
+Release    : 1.el5.centos
+Size       : 356 k
+Repo       : extras
+Summary    : Multi channel settings manager
+URL        : http://www.xfce.org/
+License    : LGPLv2+
+Description: This package includes a multi channel settings manager for Xfce4.
+

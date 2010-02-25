@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : amanda-client
+Arch       : i386
+Version    : 2.5.0p2
+Release    : 8.el5
+Size       : 267 k
+Repo       : installed
+Summary    : The client component of the AMANDA tape backup system.
+URL        : http://www.amanda.org
+License    : BSD
+Description: The Amanda-client package should be installed on any machine that
+           : will be backed up by AMANDA (including the server if it also needs
+           : to be backed up).  You will also need to install the amanda package
+           : on each AMANDA client machine.
+

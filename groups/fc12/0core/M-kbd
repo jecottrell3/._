@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : kbd
+Arch       : i386
+Version    : 1.12
+Release    : 21.el5
+Size       : 2.5 M
+Repo       : installed
+Summary    : Tools for configuring the console (keyboard, virtual terminals,
+           : etc.)
+License    : GPL
+Description: The kbd package contains tools for managing a Linux
+           : system's console's behavior, including the keyboard, the screen
+           : fonts, the virtual terminals and font files.
+

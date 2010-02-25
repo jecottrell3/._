@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : patchutils
+Arch       : i386
+Version    : 0.2.31
+Release    : 2.2.2
+Size       : 223 k
+Repo       : installed
+Summary    : A collection of programs for manipulating patch files
+URL        : http://cyberelk.net/tim/patchutils/
+License    : GPL
+Description: This is a collection of programs that can manipulate patch files in
+           : a variety of ways, such as interpolating between two pre-patches,
+           : combining two incremental patches, fixing line numbers in
+           : hand-edited patches, and simply listing the files modified by a
+           : patch.
+

@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : sox
+Arch       : i386
+Version    : 12.18.1
+Release    : 1
+Size       : 659 k
+Repo       : installed
+Summary    : A general purpose sound file conversion tool.
+URL        : http://sox.sourceforge.net/
+License    : GPL
+Description: SoX (Sound eXchange) is a sound file format converter SoX can
+           : convert between many different digitized sound formats and perform
+           : simple sound manipulation functions, including sound effects.
+

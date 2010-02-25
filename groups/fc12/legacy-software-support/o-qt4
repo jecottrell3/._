@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : qt4
+Arch       : i386
+Version    : 4.2.1
+Release    : 1
+Size       : 7.2 M
+Repo       : base
+Summary    : The shared library for the Qt GUI toolkit
+URL        : http://www.troll.no
+License    : GPL/QPL
+Description: Qt is a GUI software toolkit which simplifies the task of writing
+           : and maintaining GUI (Graphical User Interface) applications
+           : for the X Window System.
+           : 
+           : Qt is written in C++ and is fully object-oriented.
+           : 
+           : This package contains the shared library needed to run qt
+           : applications, as well as the README files for qt.
+

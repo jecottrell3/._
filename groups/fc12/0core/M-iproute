@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : iproute
+Arch       : i386
+Version    : 2.6.18
+Release    : 10.el5
+Size       : 2.0 M
+Repo       : installed
+Summary    : Advanced IP routing and network device configuration tools.
+URL        : http://linux-net.osdl.org/index.php/Iproute2
+License    : GNU GPL
+Description: The iproute package contains networking utilities (ip and rtmon,
+           : for example) which are designed to use the advanced networking
+           : capabilities of the Linux 2.4.x and 2.6.x kernel.
+

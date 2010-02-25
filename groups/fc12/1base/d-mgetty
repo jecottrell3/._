@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : mgetty
+Arch       : i386
+Version    : 1.1.33
+Release    : 9.fc6
+Size       : 440 k
+Repo       : base
+Summary    : A getty replacement for use with data and fax modems.
+URL        : http://www.leo.org/~doering/mgetty/index.html
+License    : GPL
+Description: The mgetty package contains a "smart" getty which allows logins
+           : over a serial line (i.e., through a modem).  If you're using a
+           : Class 2 or 2.0 modem, mgetty can receive faxes.  If you also need
+           : to send faxes, you'll need to install the sendfax program.
+           : 
+           : If you'll be dialing in to your system using a modem, you should
+           : install the mgetty package.  If you'd like to send faxes using
+           : mgetty and your modem, you'll need to install the mgetty-sendfax
+           : program.  If you need a viewer for faxes, you'll also need to
+           : install the mgetty-viewfax package.
+

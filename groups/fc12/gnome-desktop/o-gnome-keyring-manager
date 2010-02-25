@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : gnome-keyring-manager
+Arch       : i386
+Version    : 2.16.0
+Release    : 3.el5
+Size       : 218 k
+Repo       : base
+Summary    : Manager for passwords stored in gnome-keyring
+URL        : http://www.gnome.org/
+License    : GPL
+Description: gnome-keyring-manager is an application that lets you manage the
+           : passwords and other secrets you have saved in your keyring.
+

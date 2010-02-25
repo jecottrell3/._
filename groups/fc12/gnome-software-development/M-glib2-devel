@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : glib2-devel
+Arch       : i386
+Version    : 2.12.3
+Release    : 4.el5_3.1
+Size       : 1.2 M
+Repo       : base
+Summary    : The GIMP ToolKit (GTK+) and GIMP Drawing Kit (GDK) support library
+URL        : http://www.gtk.org
+License    : LGPL
+Description: The glib2-devel package includes the header files for
+           : version 2 of the GLib library.
+

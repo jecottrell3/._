@@ -1,0 +1,27 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : libvirt
+Arch       : i386
+Version    : 0.6.3
+Release    : 20.el5
+Size       : 7.1 M
+Repo       : installed
+Summary    : Library providing a simple API virtualization
+URL        : http://libvirt.org/
+License    : LGPLv2+
+Description: Libvirt is a C toolkit to interact with the virtualization
+           : capabilities of recent versions of Linux (and other OSes).
+
+Available Packages
+Name       : libvirt
+Arch       : i386
+Version    : 0.6.3
+Release    : 20.1.el5_4
+Size       : 1.9 M
+Repo       : updates
+Summary    : Library providing a simple API virtualization
+URL        : http://libvirt.org/
+License    : LGPLv2+
+Description: Libvirt is a C toolkit to interact with the virtualization
+           : capabilities of recent versions of Linux (and other OSes).
+

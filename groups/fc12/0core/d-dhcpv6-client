@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : dhcpv6-client
+Arch       : i386
+Version    : 1.0.10
+Release    : 17.el5
+Size       : 123 k
+Repo       : base
+Summary    : DHCPv6 client
+URL        : http://fedorahosted.org/dhcpv6/
+License    : LGPLv2+
+Description: Provides the client for the DHCPv6 protocol (RFC 3315) to support
+           : dynamic configuration of IPv6 addresses and parameters.
+

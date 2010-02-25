@@ -1,0 +1,31 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : openoffice.org-xsltfilter
+Arch       : i386
+Epoch      : 1
+Version    : 2.3.0
+Release    : 6.11.el5
+Size       : 257 k
+Repo       : installed
+Summary    : Extra xsltfilter module for openoffice.org
+URL        : http://www.openoffice.org/
+License    : LGPLv2 and LGPLv2+ and MPLv1.1 and BSD
+Description: The xsltfilter module for openoffice.org, provides additional
+           : docbook and xhtml export transforms. Install this to enable docbook
+           : export.
+
+Available Packages
+Name       : openoffice.org-xsltfilter
+Arch       : i386
+Epoch      : 1
+Version    : 2.3.0
+Release    : 6.11.el5_4.4
+Size       : 113 k
+Repo       : updates
+Summary    : Extra xsltfilter module for openoffice.org
+URL        : http://www.openoffice.org/
+License    : LGPLv2 and LGPLv2+ and MPLv1.1 and BSD
+Description: The xsltfilter module for openoffice.org, provides additional
+           : docbook and xhtml export transforms. Install this to enable docbook
+           : export.
+

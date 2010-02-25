@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : postgresql-docs
+Arch       : i386
+Version    : 8.1.11
+Release    : 1.el5_1.1
+Size       : 13 M
+Repo       : installed
+Summary    : Extra documentation for PostgreSQL
+URL        : http://www.postgresql.org/
+License    : BSD
+Description: The postgresql-docs package includes some additional documentation
+           : for PostgreSQL.  Currently, this includes the main documentation in
+           : PDF format, the FAQ, and source files for the PostgreSQL tutorial.
+
+Available Packages
+Name       : postgresql-docs
+Arch       : i386
+Version    : 8.1.18
+Release    : 2.el5_4.1
+Size       : 5.6 M
+Repo       : updates
+Summary    : Extra documentation for PostgreSQL
+URL        : http://www.postgresql.org/
+License    : BSD
+Description: The postgresql-docs package includes some additional documentation
+           : for PostgreSQL.  Currently, this includes the main documentation in
+           : PDF format, the FAQ, and source files for the PostgreSQL tutorial.
+

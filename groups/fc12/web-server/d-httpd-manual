@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : httpd-manual
+Arch       : i386
+Version    : 2.2.3
+Release    : 31.el5.centos
+Size       : 3.4 M
+Repo       : installed
+Summary    : Documentation for the Apache HTTP server.
+URL        : http://httpd.apache.org/
+License    : Apache Software License
+Description: The httpd-manual package contains the complete manual and
+           : reference guide for the Apache HTTP server. The information can
+           : also be found at http://httpd.apache.org/docs/2.2/.
+
+Available Packages
+Name       : httpd-manual
+Arch       : i386
+Version    : 2.2.3
+Release    : 31.el5.centos.2
+Size       : 812 k
+Repo       : updates
+Summary    : Documentation for the Apache HTTP server.
+URL        : http://httpd.apache.org/
+License    : Apache Software License
+Description: The httpd-manual package contains the complete manual and
+           : reference guide for the Apache HTTP server. The information can
+           : also be found at http://httpd.apache.org/docs/2.2/.
+

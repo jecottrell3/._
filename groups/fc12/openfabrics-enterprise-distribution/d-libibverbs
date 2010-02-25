@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libibverbs
+Arch       : i386
+Version    : 1.1.2
+Release    : 4.el5
+Size       : 44 k
+Repo       : base
+Summary    : Library providing access to InfiniBand/iWARP hardware verbs
+           : protocol
+URL        : http://www.openfabrics.org/downloads/
+License    : GPL/BSD
+Description: libibverbs is a library that allows userspace processes to use
+           : InfiniBand/iWARP "verbs" as described in the InfiniBand
+           : Architecture Specification.  This includes direct hardware access
+           : for fast path operations.
+           : 
+           : For this library to be useful, a device-specific plug-in module
+           : should also be installed.
+

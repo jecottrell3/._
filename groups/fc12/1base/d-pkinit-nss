@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : pkinit-nss
+Arch       : i386
+Version    : 0.7.6
+Release    : 1.el5
+Size       : 594 k
+Repo       : installed
+Summary    : PKINIT for MIT Kerberos
+URL        : http://people.redhat.com/~nalin/pkinit-nss/
+License    : LGPL
+Description: The pkinit-nss package implements the PKINIT standard for MIT
+           : Kerberos.  It does so using the Mozilla NSS library.
+

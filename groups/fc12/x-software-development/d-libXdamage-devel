@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libXdamage-devel
+Arch       : i386
+Version    : 1.0.3
+Release    : 2.1
+Size       : 6.7 k
+Repo       : base
+Summary    : X.Org X11 libXdamage development package
+URL        : http://www.x.org
+License    : MIT/X11
+Description: X.Org X11 libXdamage development package
+

@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : kdbg
+Arch       : i386
+Epoch      : 1
+Version    : 2.0.2
+Release    : 1.2.1
+Size       : 311 k
+Repo       : base
+Summary    : A GUI for gdb, the GNU debugger, and KDE.
+URL        : http://members.telecom.at/~johsixt/kdbg.html
+License    : GPL
+Description: KDbg is a K Desktop Environment (KDE) GUI for gdb, the GNU
+           : debugger. KDbg provides the programmer with an intuitive interface
+           : for setting breakpoints, inspecting variables, and stepping through
+           : code. KDbg requires X and KDE to be installed in order to run.
+

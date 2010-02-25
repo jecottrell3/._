@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : evince
+Arch       : i386
+Version    : 0.6.0
+Release    : 9.el5
+Size       : 2.7 M
+Repo       : installed
+Summary    : Document viewer
+URL        : http://www.gnome.org/projects/evince/
+License    : GPL
+Description: evince is a GNOME-based document viewer.
+

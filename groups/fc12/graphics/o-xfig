@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfig
+Arch       : i386
+Version    : 3.2.4
+Release    : 21.3.el5
+Size       : 4.6 M
+Repo       : base
+Summary    : An X Window System tool for drawing basic vector graphics.
+URL        : http://www.xfig.org/
+License    : Freeware
+Description: Xfig is an X Window System tool for creating basic vector graphics,
+           : including bezier curves, lines, rulers and more.  The resulting
+           : graphics can be saved, printed on PostScript printers or converted
+           : to a variety of other formats (e.g., X11 bitmaps, Encapsulated
+           : PostScript, LaTeX).
+           : 
+           : You should install xfig if you need a simple program to create
+           : vector graphics.
+

@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : rhdb-utils
+Arch       : i386
+Version    : 8.1.1
+Release    : 1.2.2.el5.centos
+Size       : 28 k
+Repo       : installed
+Summary    : Miscellaneous utilities for PostgreSQL - CentOS Edition.
+URL        : http://sources.redhat.com/rhdb/
+License    : GPL
+Description: This package contains miscellaneous, non-graphical tools developed
+           : for PostgreSQL - CentOS Edition.
+

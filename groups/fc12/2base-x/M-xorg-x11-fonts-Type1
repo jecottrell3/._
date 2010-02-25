@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : xorg-x11-fonts-Type1
+Arch       : noarch
+Version    : 7.1
+Release    : 2.1.el5
+Size       : 2.7 M
+Repo       : installed
+Summary    : Type1 fonts provided by the X Window System
+URL        : http://www.x.org
+License    : Various licenses
+Description: A collection of Type1 fonts which are part of the core X Window
+           : System distribution.
+

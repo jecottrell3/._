@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : x3270
+Arch       : i386
+Version    : 3.3.4p7
+Release    : 3.el5.4
+Size       : 162 k
+Repo       : base
+Summary    : An X Window System based IBM 3278/3279 terminal emulator
+URL        : http://www.geocities.com/SiliconValley/Peaks/7814
+License    : MIT
+Description: The x3270 package contains files needed for emulating the IBM
+           : 3278/3279 terminals, commonly used with mainframe applications.
+           : 
+           : You will also need to install a frontend for x3270. Available
+           : frontends are x3270-x11 (for the X Window System) and x3270-text
+           : (for text mode).
+

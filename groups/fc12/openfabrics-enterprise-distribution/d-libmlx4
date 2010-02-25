@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libmlx4
+Arch       : i386
+Version    : 1.0.1
+Release    : 2.el5
+Size       : 27 k
+Repo       : base
+Summary    : Mellanox ConnectX InfiniBand HCA Userspace Driver
+URL        : http://www.openfabrics.org/
+License    : GPL/BSD
+Description: Mellanox hardware driver for use with libibverbs user space verbs
+           : access library.  This driver supports Mellanox ConnectX
+           : architecture cards.
+

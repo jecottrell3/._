@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : texinfo
+Arch       : i386
+Version    : 4.8
+Release    : 14.el5
+Size       : 1.6 M
+Repo       : installed
+Summary    : Tools needed to create Texinfo format documentation files.
+URL        : http://www.gnu.org/software/texinfo/
+License    : GPL
+Description: Texinfo is a documentation system that can produce both online
+           : information and printed output from a single source file. The GNU
+           : Project uses the Texinfo file format for most of its documentation.
+           : 
+           : Install texinfo if you want a documentation system for producing
+           : both online and print documentation from the same source file
+           : and/or if you are going to write documentation for the GNU Project.
+

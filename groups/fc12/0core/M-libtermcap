@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : libtermcap
+Arch       : i386
+Version    : 2.0.8
+Release    : 46.1
+Size       : 11 k
+Repo       : installed
+Summary    : A basic system library for accessing the termcap database.
+URL        : ftp://metalab.unc.edu/pub/Linux/GCC/
+License    : LGPL
+Description: The libtermcap package contains a basic system library needed to
+           : access the termcap database.  The termcap library supports easy
+           : access to the termcap database, so that programs can output
+           : character-based displays in a terminal-independent manner.
+

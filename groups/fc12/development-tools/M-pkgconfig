@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : pkgconfig
+Arch       : i386
+Epoch      : 1
+Version    : 0.21
+Release    : 2.el5
+Size       : 107 k
+Repo       : installed
+Summary    : A tool for determining compilation options.
+License    : GPL
+Description: The pkgconfig tool determines compilation options. For each
+           : required library, it reads the configuration file and outputs the
+           : necessary compiler and linker flags.
+

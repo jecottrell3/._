@@ -1,0 +1,25 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : cpio
+Arch       : i386
+Version    : 2.6
+Release    : 23.el5
+Size       : 280 k
+Repo       : installed
+Summary    : A GNU archiving program.
+URL        : http://www.gnu.org/software/cpio/
+License    : GPL
+Description: GNU cpio copies files into or out of a cpio or tar archive.
+           : Archives are files which contain a collection of other files plus
+           : information about them, such as their file name, owner, timestamps,
+           : and access permissions.  The archive can be another file on the
+           : disk, a magnetic tape, or a pipe.  GNU cpio supports the following
+           : archive formats:  binary, old ASCII, new ASCII, crc, HPUX binary,
+           : HPUX old ASCII, old tar and POSIX.1 tar.  By default, cpio creates
+           : binary format archives, so that they are compatible with older cpio
+           : programs.  When it is extracting files from archives, cpio
+           : automatically recognizes which kind of archive it is reading and
+           : can read archives created on machines with a different byte-order.
+           : 
+           : Install cpio if you need a program to manage file archives.
+

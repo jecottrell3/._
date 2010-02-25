@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : system-config-printer
+Arch       : i386
+Version    : 0.7.32.10
+Release    : 1.el5
+Size       : 652 k
+Repo       : installed
+Summary    : A printer administration tool
+License    : GPL
+Description: system-config-printer is a graphical user interface that allows
+           : the user to configure a CUPS print server.
+

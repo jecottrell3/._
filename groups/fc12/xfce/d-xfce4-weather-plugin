@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-weather-plugin
+Arch       : i386
+Version    : 0.6.2
+Release    : 2.el5.centos
+Size       : 408 k
+Repo       : extras
+Summary    : Weather plugin for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-weather-plugin
+License    : BSD
+Description: A weather plugin for the Xfce panel. It shows the current
+           : temperature and weather condition, using weather data provided by
+           : xoap.weather.com.
+

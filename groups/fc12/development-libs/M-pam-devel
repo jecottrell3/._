@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : pam-devel
+Arch       : i386
+Version    : 0.99.6.2
+Release    : 6.el5
+Size       : 187 k
+Repo       : base
+Summary    : Files needed for developing PAM-aware applications and modules for
+           : PAM
+URL        : http://www.us.kernel.org/pub/linux/libs/pam/index.html
+License    : GPL or BSD
+Description: PAM (Pluggable Authentication Modules) is a system security tool
+           : that allows system administrators to set authentication policy
+           : without having to recompile programs that handle authentication.
+           : This package contains header files and static libraries used for
+           : building both PAM-aware applications and modules for use with PAM.
+

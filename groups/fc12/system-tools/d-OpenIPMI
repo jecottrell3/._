@@ -1,0 +1,33 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : OpenIPMI
+Arch       : i386
+Version    : 2.0.16
+Release    : 5.el5
+Size       : 285 k
+Repo       : installed
+Summary    : OpenIPMI (Intelligent Platform Management Interface) library and
+           : tools
+URL        : http://sourceforge.net/projects/openipmi/
+License    : GPL
+Description: The Open IPMI project aims to develop an open code base to allow
+           : access to platform information using Intelligent Platform
+           : Management Interface (IPMI). This package contains the tools of the
+           : OpenIPMI project.
+
+Available Packages
+Name       : OpenIPMI
+Arch       : i386
+Version    : 2.0.16
+Release    : 5.el5_4.1
+Size       : 156 k
+Repo       : updates
+Summary    : OpenIPMI (Intelligent Platform Management Interface) library and
+           : tools
+URL        : http://sourceforge.net/projects/openipmi/
+License    : GPL
+Description: The Open IPMI project aims to develop an open code base to allow
+           : access to platform information using Intelligent Platform
+           : Management Interface (IPMI). This package contains the tools of the
+           : OpenIPMI project.
+

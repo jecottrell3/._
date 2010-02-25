@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : docbook-style-xsl
+Arch       : noarch
+Version    : 1.69.1
+Release    : 5.1
+Size       : 9.3 M
+Repo       : installed
+Summary    : Norman Walsh's XSL stylesheets for DocBook XML.
+URL        : http://docbook.sourceforge.net/projects/xsl/
+License    : Distributable
+Description: These XSL stylesheets allow you to transform any DocBook XML
+           : document to other formats, such as HTML, FO, and XHMTL.  They are
+           : highly customizable.
+

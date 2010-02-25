@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : apmd
+Arch       : i386
+Epoch      : 1
+Version    : 3.2.2
+Release    : 5
+Size       : 73 k
+Repo       : base
+Summary    : Advanced Power Management (APM) BIOS utilities for laptops.
+License    : GPL
+Description: APMD is a set of programs for controlling the Advanced Power
+           : Management daemon and utilities found in most modern laptop
+           : computers. APMD can watch your notebook's battery and warn
+           : users when the battery is low. APMD is also capable of shutting
+           : down the PCMCIA sockets before a suspend.
+           : 
+           : Install the apmd package if you need to control the APM system
+           : on your laptop.
+

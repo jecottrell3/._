@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : crypto-utils
+Arch       : i386
+Version    : 2.3
+Release    : 2.el5
+Size       : 60 k
+Repo       : installed
+Summary    : SSL certificate and key management utilities
+License    : Various
+Description: This package provides tools for managing and generating
+           : SSL certificates and keys.
+

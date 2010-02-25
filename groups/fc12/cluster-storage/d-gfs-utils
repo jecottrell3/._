@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : gfs-utils
+Arch       : i386
+Version    : 0.1.20
+Release    : 1.el5
+Size       : 234 k
+Repo       : base
+Summary    : Utilities for managing the global filesystem (GFS)
+URL        : http://sources.redhat.com/cluster/
+License    : GPL
+Description: The gfs-utils package contains a number of utilities for creating,
+           : checking, modifying, and correcting any inconsistencies in GFS
+           : filesystems.
+

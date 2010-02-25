@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : mod_authz_ldap
+Arch       : i386
+Version    : 0.26
+Release    : 9.el5
+Size       : 187 k
+Repo       : installed
+Summary    : LDAP authorization module for the Apache HTTP Server
+URL        : http://authzldap.othello.ch/
+License    : BSD
+Description: The mod_authz_ldap package provides support for authenticating
+           : users of the Apache HTTP server against an LDAP database.
+           : mod_authz_ldap features the ability to authenticate users based on
+           : the SSL client certificate presented, and also supports password
+           : aging, and authentication based on role or by configured filters.
+

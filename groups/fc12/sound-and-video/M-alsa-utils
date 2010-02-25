@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : alsa-utils
+Arch       : i386
+Version    : 1.0.17
+Release    : 1.el5
+Size       : 1.6 M
+Repo       : installed
+Summary    : Advanced Linux Sound Architecture (ALSA) utilities
+URL        : http://www.alsa-project.org/
+License    : GPL
+Description: This package contains command line utilities for the Advanced Linux
+           : Sound Architecture (ALSA).
+

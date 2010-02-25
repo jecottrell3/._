@@ -1,0 +1,27 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : vsftpd
+Arch       : i386
+Version    : 2.0.5
+Release    : 16.el5
+Size       : 285 k
+Repo       : installed
+Summary    : vsftpd - Very Secure Ftp Daemon
+URL        : http://vsftpd.beasts.org/
+License    : GPL
+Description: vsftpd is a Very Secure FTP daemon. It was written completely from
+           : scratch.
+
+Available Packages
+Name       : vsftpd
+Arch       : i386
+Version    : 2.0.5
+Release    : 16.el5_4.1
+Size       : 140 k
+Repo       : updates
+Summary    : vsftpd - Very Secure Ftp Daemon
+URL        : http://vsftpd.beasts.org/
+License    : GPL
+Description: vsftpd is a Very Secure FTP daemon. It was written completely from
+           : scratch.
+

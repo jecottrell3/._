@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : lslk
+Arch       : i386
+Version    : 1.29
+Release    : 17
+Size       : 30 k
+Repo       : installed
+Summary    : A lock file lister.
+License    : Free
+Description: Lslk is a lock file lister.  Lslk attempts to list all of the locks
+           : on the executing system's local files (i.e., on the active inodes).
+           : 
+           : Install lslk if you need a utility for listing file locks.
+

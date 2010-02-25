@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : unixODBC-kde
+Arch       : i386
+Version    : 2.2.11
+Release    : 7.1
+Size       : 2.1 M
+Repo       : installed
+Summary    : KDE driver manager components for ODBC.
+URL        : http://www.unixODBC.org/
+License    : LGPL
+Description: This package contains components for the ODBCConfig and DataManager
+           : (KDE) components of unixODBC.
+

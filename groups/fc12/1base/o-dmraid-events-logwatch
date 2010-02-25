@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : dmraid-events-logwatch
+Arch       : i386
+Version    : 1.0.0.rc13
+Release    : 53.el5
+Size       : 20 k
+Repo       : base
+Summary    : dmraid logwatch-based email reporting
+URL        : http://people.redhat.com/heinzm/sw/dmraid
+License    : GPL
+Description: Provides device failure reporting via logwatch-based email
+           : reporting. Device failure reporting has to be activated manually by
+           : activating the /etc/cron.d/dmeventd-logwatch entry and by calling
+           : the dmevent_tool (see manual page for examples) for any active RAID
+           : sets.
+

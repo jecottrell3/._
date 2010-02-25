@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libhbaapi-devel
+Arch       : i386
+Version    : 2.2
+Release    : 4.el5
+Size       : 11 k
+Repo       : base
+Summary    : Development files for libhbaapi
+URL        : http://sourceforge.net/projects/hbaapi/
+License    : SNIA
+Description: The libhbaapi-devel package contains libraries and header files for
+           : developing applications that use libhbaapi.
+

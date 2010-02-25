@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : ntsysv
+Arch       : i386
+Version    : 1.3.30.1
+Release    : 2
+Size       : 20 k
+Repo       : installed
+Summary    : A tool to set the stop/start of system services in a runlevel.
+License    : GPL
+Description: Ntsysv provides a simple interface for setting which system
+           : services are started or stopped in various runlevels (instead of
+           : directly manipulating the numerous symbolic links in /etc/rc.d).
+           : Unless you specify a runlevel or runlevels on the command line (see
+           : the man page), ntsysv configures the current runlevel (5 if you're
+           : using X).
+

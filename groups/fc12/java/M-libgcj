@@ -1,0 +1,29 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : libgcj
+Arch       : i386
+Version    : 4.1.2
+Release    : 46.el5
+Size       : 40 M
+Repo       : installed
+Summary    : Java runtime library for gcc
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: The Java(tm) runtime library. You will need this package to run
+           : your Java programs compiled using the Java compiler from GNU
+           : Compiler Collection (gcj).
+
+Available Packages
+Name       : libgcj
+Arch       : i386
+Version    : 4.1.2
+Release    : 46.el5_4.2
+Size       : 16 M
+Repo       : updates
+Summary    : Java runtime library for gcc
+URL        : http://gcc.gnu.org
+License    : GPL
+Description: The Java(tm) runtime library. You will need this package to run
+           : your Java programs compiled using the Java compiler from GNU
+           : Compiler Collection (gcj).
+

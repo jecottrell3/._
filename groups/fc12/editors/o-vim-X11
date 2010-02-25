@@ -1,0 +1,24 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : vim-X11
+Arch       : i386
+Epoch      : 2
+Version    : 7.0.109
+Release    : 6.el5
+Size       : 2.9 M
+Repo       : installed
+Summary    : The VIM version of the vi editor for the X Window System.
+License    : freeware
+Description: VIM (VIsual editor iMproved) is an updated and improved version of
+           : the vi editor.  Vi was the first real screen-based editor for UNIX,
+           : and is still very popular.  VIM improves on vi by adding new
+           : features: multiple windows, multi-level undo, block highlighting
+           : and more. VIM-X11 is a version of the VIM editor which will run
+           : within the X Window System.  If you install this package, you can
+           : run VIM as an X application with a full GUI interface and mouse
+           : support.
+           : 
+           : Install the vim-X11 package if you'd like to try out a version of
+           : vi with graphics and mouse capabilities.  You'll also need to
+           : install the vim-common package.
+

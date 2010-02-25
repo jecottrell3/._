@@ -1,0 +1,37 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : net-snmp-utils
+Arch       : i386
+Epoch      : 1
+Version    : 5.3.2.2
+Release    : 7.el5
+Size       : 342 k
+Repo       : installed
+Summary    : Network management utilities using SNMP, from the NET-SNMP project.
+URL        : http://net-snmp.sourceforge.net/
+License    : BSDish
+Description: The net-snmp-utils package contains various utilities for use with
+           : the NET-SNMP network management project.
+           : 
+           : Install this package if you need utilities for managing your
+           : network using the SNMP protocol. You will also need to install the
+           : net-snmp package.
+
+Available Packages
+Name       : net-snmp-utils
+Arch       : i386
+Epoch      : 1
+Version    : 5.3.2.2
+Release    : 7.el5_4.2
+Size       : 185 k
+Repo       : updates
+Summary    : Network management utilities using SNMP, from the NET-SNMP project.
+URL        : http://net-snmp.sourceforge.net/
+License    : BSDish
+Description: The net-snmp-utils package contains various utilities for use with
+           : the NET-SNMP network management project.
+           : 
+           : Install this package if you need utilities for managing your
+           : network using the SNMP protocol. You will also need to install the
+           : net-snmp package.
+

@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : mono-nunit-devel
+Arch       : i386
+Version    : 1.2.4
+Release    : 2.el5.centos
+Size       : 5.2 k
+Repo       : extras
+Summary    : pkgconfig for nunit
+URL        : http://www.mono-project.com/
+License    : GPL, LGPL, MIT X11
+Description: Development files for nunit
+

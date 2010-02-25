@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : vino
+Arch       : i386
+Version    : 2.13.5
+Release    : 7.el5
+Size       : 1.1 M
+Repo       : installed
+Summary    : A remote desktop system for GNOME
+URL        : http://www.gnome.org
+License    : GPL
+Description: Vino is a VNC server for GNOME. It allows remote users to
+           : connect to a running GNOME session using VNC.
+

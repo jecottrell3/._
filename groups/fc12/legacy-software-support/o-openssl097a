@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : openssl097a
+Arch       : i386
+Version    : 0.9.7a
+Release    : 9.el5_2.1
+Size       : 826 k
+Repo       : base
+Summary    : The OpenSSL toolkit
+URL        : http://www.openssl.org/
+License    : BSDish
+Description: The OpenSSL toolkit provides support for secure communications
+           : between machines. OpenSSL includes a certificate management tool
+           : and shared libraries which provide various cryptographic algorithms
+           : and protocols.
+

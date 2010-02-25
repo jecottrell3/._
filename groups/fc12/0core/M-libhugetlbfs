@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : libhugetlbfs
+Arch       : i386
+Version    : 1.3
+Release    : 3.el5
+Size       : 35 k
+Repo       : base
+Summary    : Library to access the Huge TLB Filesystem
+URL        : http://libhugetlbfs.sourceforge.net
+License    : LGPLv2+
+Description: The libhugetlbfs library interacts with the Linux hugetlbfs to make
+           : large pages available to applications in a transparent manner.
+

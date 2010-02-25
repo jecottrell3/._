@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : authd
+Arch       : i386
+Version    : 1.4.3
+Release    : 14
+Size       : 43 k
+Repo       : base
+Summary    : a RFC 1413 ident protocol daemon
+License    : GPL
+Description: authd is a small and fast RFC 1413 ident protocol daemon
+           : with both xinetd server and interactive modes that
+           : supports IPv6 and IPv4 as well as the more popular features
+           : of pidentd.
+

@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : automake
+Arch       : noarch
+Version    : 1.9.6
+Release    : 2.1
+Size       : 1.2 M
+Repo       : installed
+Summary    : A GNU tool for automatically creating Makefiles.
+URL        : http://sources.redhat.com/automake
+License    : GPL
+Description: Automake is a tool for automatically generating `Makefile.in'
+           : files compliant with the GNU Coding Standards.
+           : 
+           : You should install Automake if you are developing software and
+           : would like to use its ability to automatically generate GNU
+           : standard Makefiles. If you install Automake, you will also need to
+           : install GNU's Autoconf package.
+

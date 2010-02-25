@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : mono-nunit
+Arch       : i386
+Version    : 1.2.4
+Release    : 2.el5.centos
+Size       : 119 k
+Repo       : extras
+Summary    : NUnit Testing Framework
+URL        : http://www.mono-project.com/
+License    : GPL, LGPL, MIT X11
+Description: NUnit is a unit-testing framework for all .Net languages. Initially
+           : ported from JUnit, the current release, version 2.2, is the fourth
+           : major release of this Unit based unit testing tool for Microsoft
+           : .NET. It is written entirely in C# and  has been completely
+           : redesigned to take advantage of many .NET language features, for
+           : example custom attributes and other reflection related
+           : capabilities. NUnit brings xUnit to all .NET languages.
+

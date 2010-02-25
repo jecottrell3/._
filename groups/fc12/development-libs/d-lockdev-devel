@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : lockdev-devel
+Arch       : i386
+Version    : 1.0.1
+Release    : 10
+Size       : 15 k
+Repo       : base
+Summary    : The header files and a static library for the lockdev library.
+License    : LGPL
+Description: The lockdev library provides a reliable way to put an exclusive
+           : lock on devices using both FSSTND and SVr4 methods. The
+           : lockdev-devel package contains the development headers and a static
+           : library.
+

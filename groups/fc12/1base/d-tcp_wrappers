@@ -1,0 +1,20 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : tcp_wrappers
+Arch       : i386
+Version    : 7.6
+Release    : 40.7.el5
+Size       : 241 k
+Repo       : installed
+Summary    : A security tool which acts as a wrapper for TCP daemons.
+URL        : ftp://ftp.porcupine.org/pub/security/index.html
+License    : Distributable
+Description: The tcp_wrappers package provides small daemon programs which can
+           : monitor and filter incoming requests for systat, finger, FTP,
+           : telnet, rlogin, rsh, exec, tftp, talk and other network services.
+           : 
+           : Install the tcp_wrappers program if you need a security tool for
+           : filtering incoming network services requests.
+           : 
+           : This version also supports IPv6.
+

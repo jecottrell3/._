@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xfce4-notes-plugin
+Arch       : i386
+Version    : 1.6.0
+Release    : 2.el5.centos
+Size       : 52 k
+Repo       : extras
+Summary    : Notes plugin for the Xfce panel
+URL        : http://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin
+License    : GPLv2+
+Description: This plugin provides sticky notes for your desktop. You can create
+           : a note by clicking on the customizable icon with the middle button
+           : of your mouse, show/hide the notes using the left one, edit the
+           : titlebar, change the notes background color and much more.
+

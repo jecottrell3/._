@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : openCryptoki
+Arch       : i386
+Version    : 2.2.4
+Release    : 22.el5_4.2
+Size       : 330 k
+Repo       : updates
+Summary    : Implementation of Cryptoki v2.11 for IBM Crypto Hardware
+URL        : http://oss.software.ibm.com/developerworks/opensource/opencryptoki
+License    : Other License(s), see package
+Description: The PKCS#11 Version 2.11 api implemented for the IBM Crypto cards.
+           : This package includes support for the IBM 4758 Cryptographic
+           : CoProcessor (with the PKCS#11 firmware loaded) and the IBM eServer
+           : Cryptographic Accelerator (FC 4960 on pSeries)
+

@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : coolkey
+Arch       : i386
+Version    : 1.1.0
+Release    : 6.el5
+Size       : 89 k
+Repo       : base
+Summary    : CoolKey PKCS #11 module
+URL        : http://directory.fedora.redhat.com/wiki/CoolKey
+License    : LGPL
+Description: Linux Driver support for the CoolKey and CAC products.
+

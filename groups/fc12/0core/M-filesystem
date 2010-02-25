@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : filesystem
+Arch       : i386
+Version    : 2.4.0
+Release    : 2.el5.centos
+Size       : 0.0 
+Repo       : installed
+Summary    : The basic directory layout for a Linux system.
+License    : Public Domain
+Description: The filesystem package is one of the basic packages that is
+           : installed on a CentOS Linux system. Filesystem contains the basic
+           : directory layout for a Linux operating system, including the
+           : correct permissions for the directories.
+

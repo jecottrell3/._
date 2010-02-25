@@ -1,0 +1,15 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gnome-nettool
+Arch       : i386
+Version    : 2.16.0
+Release    : 1.fc6
+Size       : 1.2 M
+Repo       : installed
+Summary    : A GNOME interface for various networking tools
+URL        : http://www.gnome.org
+License    : GPL
+Description: GNOME Nettool is a set of front-ends to various networking
+           : command-line tools, like ping, netstat, ifconfig, whois,
+           : traceroute, finger.
+

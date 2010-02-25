@@ -1,0 +1,14 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : kmod-gfs
+Arch       : i686
+Version    : 0.1.34
+Release    : 2.el5
+Size       : 147 k
+Repo       : base
+Summary    : gfs kernel module(s)
+URL        : http://sources.redhat.com/cluster
+License    : GPL
+Description: This package provides the gfs kernel modules built for the Linux
+           : kernel 2.6.18-159.el5 for the i686 family of processors.
+

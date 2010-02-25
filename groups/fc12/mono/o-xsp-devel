@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xsp-devel
+Arch       : i386
+Version    : 1.2.1
+Release    : 1.el5.centos
+Size       : 3.8 k
+Repo       : extras
+Summary    : Development files for xsp
+URL        : http://www.mono-project.com/ASP.NET
+License    : BSD
+Description: Development files for xsp
+

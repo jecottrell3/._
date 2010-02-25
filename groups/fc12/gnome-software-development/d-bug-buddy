@@ -1,0 +1,19 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : bug-buddy
+Arch       : i386
+Epoch      : 1
+Version    : 2.16.0
+Release    : 2.el5
+Size       : 449 k
+Repo       : base
+Summary    : A bug reporting utility for GNOME
+URL        : http://ftp.gnome.org/pub/GNOME/sources/bug-buddy/
+License    : GPL
+Description: Bug-buddy is a bug reporting utility for the GNOME desktop GUI
+           : environment. Bug-buddy can obtain a stack trace from a core file or
+           : crashed application; it can determine the versions of packages
+           : installed on your system; it can be started from gmc (by
+           : double-clicking on a core file) and from the crash dialog; and it
+           : supports the GNOME, KDE, Debian, and Ximian bug tracking systems.
+

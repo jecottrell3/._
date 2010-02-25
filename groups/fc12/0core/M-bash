@@ -1,0 +1,18 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : bash
+Arch       : i386
+Version    : 3.2
+Release    : 24.el5
+Size       : 5.1 M
+Repo       : installed
+Summary    : The GNU Bourne Again shell (bash) version 3.2
+URL        : http://www.gnu.org/software/bash
+License    : GPLv2+
+Description: The GNU Bourne Again shell (Bash) is a shell or command language
+           : interpreter that is compatible with the Bourne shell (sh). Bash
+           : incorporates useful features from the Korn shell (ksh) and the C
+           : shell (csh). Most sh scripts can be run by bash without
+           : modification. This package (bash) contains bash version 3.2, which
+           : improves POSIX compliance over previous versions.
+

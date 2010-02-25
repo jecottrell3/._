@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : epic
+Arch       : i386
+Epoch      : 4
+Version    : 2.4
+Release    : 1
+Size       : 2.1 M
+Repo       : installed
+Summary    : An ircII chat client.
+URL        : http://www.epicsol.org/
+License    : Distributable
+Description: EPIC (Enhanced Programmable ircII Client) is an advanced ircII chat
+           : client.  Chat clients connect to servers around the world, enabling
+           : you to chat with other people.
+

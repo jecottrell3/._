@@ -1,0 +1,31 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : kernel
+Arch       : i686
+Version    : 2.6.18
+Release    : 164.el5
+Size       : 41 M
+Repo       : installed
+Summary    : The Linux kernel (the core of the Linux operating system)
+URL        : http://www.kernel.org/
+License    : GPLv2
+Description: The kernel package contains the Linux kernel (vmlinuz), the core of
+           : any Linux operating system.  The kernel handles the basic functions
+           : of the operating system:  memory allocation, process allocation,
+           : device input and output, etc.
+
+Available Packages
+Name       : kernel
+Arch       : i686
+Version    : 2.6.18
+Release    : 164.11.1.el5
+Size       : 16 M
+Repo       : updates
+Summary    : The Linux kernel (the core of the Linux operating system)
+URL        : http://www.kernel.org/
+License    : GPLv2
+Description: The kernel package contains the Linux kernel (vmlinuz), the core of
+           : any Linux operating system.  The kernel handles the basic functions
+           : of the operating system:  memory allocation, process allocation,
+           : device input and output, etc.
+

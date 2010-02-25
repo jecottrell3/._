@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : gimp-print-plugin
+Arch       : i386
+Version    : 4.2.7
+Release    : 22.2.el5
+Size       : 95 k
+Repo       : installed
+Summary    : GIMP plug-in for gimp-print
+URL        : http://gimp-print.sourceforge.net/
+License    : GPL
+Description: This package contains the gimp-print GIMP plug-in.
+

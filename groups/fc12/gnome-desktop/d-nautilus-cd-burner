@@ -1,0 +1,13 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : nautilus-cd-burner
+Arch       : i386
+Version    : 2.16.0
+Release    : 7.el5
+Size       : 1.7 M
+Repo       : installed
+Summary    : Easy to use CD burning for Gnome
+License    : LGPL/GPL
+Description: An easy to use CD burning package, well integrated with
+           : Nautilus and the Gnome desktop.
+

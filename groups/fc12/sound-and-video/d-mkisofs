@@ -1,0 +1,22 @@
+Loaded plugins: fastestmirror
+Installed Packages
+Name       : mkisofs
+Arch       : i386
+Epoch      : 9
+Version    : 2.01
+Release    : 10.7.el5
+Size       : 1.4 M
+Repo       : installed
+Summary    : Creates an image of an ISO9660 filesystem.
+URL        : http://cdrecord.berlios.de/old/private/cdrecord.html
+License    : GPL
+Description: The mkisofs program is used as a pre-mastering program; i.e., it
+           : generates the ISO9660 filesystem.  Mkisofs takes a snapshot of
+           : a given directory tree and generates a binary image of the tree
+           : which will correspond to an ISO9660 filesystem when written to
+           : a block device.  Mkisofs is used for writing CD-ROMs, and includes
+           : support for creating bootable El Torito CD-ROMs.
+           : 
+           : Install the mkisofs package if you need a program for writing
+           : CD-ROMs.
+

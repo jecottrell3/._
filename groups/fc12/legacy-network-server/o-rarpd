@@ -1,0 +1,21 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : rarpd
+Arch       : i386
+Version    : ss981107
+Release    : 22.2.2
+Size       : 15 k
+Repo       : base
+Summary    : The RARP daemon.
+License    : GPL
+Description: RARP (Reverse Address Resolution Protocol) is a protocol which
+           : allows individual devices on an IP network to get their own IP
+           : addresses from the RARP server.  Some machines (e.g. SPARC boxes)
+           : use this protocol instead of e.g. DHCP to query their IP addresses
+           : during network bootup. Linux kernels up to 2.2 used to provide a
+           : kernel daemon for this service, but since 2.3 kernels it is served
+           : by this userland daemon.
+           : 
+           : You should install rarpd if you want to set up a RARP server on
+           : your network.
+

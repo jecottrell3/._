@@ -1,0 +1,17 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : perl-LDAP
+Arch       : noarch
+Epoch      : 1
+Version    : 0.33
+Release    : 3.fc6
+Size       : 316 k
+Repo       : base
+Summary    : LDAP Perl module
+URL        : http://search.cpan.org/dist/perl-ldap/
+License    : GPL or Artistic
+Description: Net::LDAP is a collection of modules that implements a LDAP
+           : services API for Perl programs. The module may be used to search
+           : directories or perform maintenance functions such as adding,
+           : deleting or modifying entries.
+

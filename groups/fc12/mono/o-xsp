@@ -1,0 +1,16 @@
+Loaded plugins: fastestmirror
+Available Packages
+Name       : xsp
+Arch       : i386
+Version    : 1.2.1
+Release    : 1.el5.centos
+Size       : 233 k
+Repo       : extras
+Summary    : A small web server that hosts ASP.NET
+URL        : http://www.mono-project.com/ASP.NET
+License    : BSD
+Description: 
+           : XSP is a standalone web server written in C#  that can be used to
+           : run ASP.NET applications as well as a set of pages, controls and
+           : web services that you can use to experience ASP.NET.
+
