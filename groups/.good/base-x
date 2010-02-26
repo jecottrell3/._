@@ -1,8 +1,0 @@
-@base-x
--linuxwacom
--synaptics
--wdaemon
-switchdesk
-xorg-x11-resutils
-xorg-x11-xfs-utils
-xorg-x11-xsm

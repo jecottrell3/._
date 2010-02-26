@@ -1,5 +1,0 @@
-@admin-tools
--setroubleshoot
-system-config-kickstart
-system-config-netboot
-system-config-netboot-cmd

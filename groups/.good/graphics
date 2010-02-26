@@ -1,6 +1,0 @@
-@graphics
--dcraw
--sane-frontends
--xsane
--xsane-gimp
--libsane-hpaio

@@ -1,8 +1,0 @@
-@dialup
-#M	-ppp
-#d	-isdn4k-utils
-#d	-lrzsz
-#d	-minicom
-#d	-wvdial
-#o	efax
-#o	statserial

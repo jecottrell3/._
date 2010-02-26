@@ -1,6 +1,0 @@
-@ruby
-#M	-ruby
-#d	-ruby-devel
-#d	-ruby-mode
-#o	eruby
-#o	ruby-ri

@@ -1,8 +1,0 @@
-title TD-INSTALL
-	root (hd0,0)
-	kernel /cos54iso/vmlinuz ks=hd:sda14:/home/kick/yoko-TD-dev.ks
-	initrd /cos54iso/initrd.img
-title TD-CentOS-5.4-DEV
-	root (hd0,11)
-	chainloader +1
-	savedefault

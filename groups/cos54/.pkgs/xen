@@ -1,8 +1,0 @@
-@xen
-#M	-kernel-xen
-#M	-xen
-#d	-gnome-applet-vm
-#d	-libvirt
-#d	-virt-manager
-#d	-virt-viewer
-#o	Virtualization-en-US
