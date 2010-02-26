@@ -1,8 +1,8 @@
 #! /bin/sh -x
 
 sub=${1:+/$1}
-uid=${2:-6654}
-gid=${3:-6654}
+uid=${2:-654}
+gid=${3:-654}
 rbj=${4:-rbj}
 
 dir=/home/$rbj$sub
