@@ -1,0 +1,10 @@
+#! /bin/sh -x
+
+HOST=${1?'missing HOST'}
+USER=${2:-$USER}
+
+cat ~/.ssh/identity.pub | ssh -AX root@$HOST tee -a /root/.ssh/authorized_keys
+
+rsync -vax /home/$USER/._ root@$HOST:/tmp
+
+ssh -AX root@$HOST

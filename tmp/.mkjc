@@ -3,7 +3,7 @@
 sub=${1:+/$1}
 uid=${2:-654}
 gid=${3:-654}
-rbj=${4:-rbj}
+rbj=${4:-jcottrell}
 
 dir=/home/$rbj$sub
 
@@ -11,7 +11,7 @@ grep $rbj /etc/group ||
 groupadd -g $gid $rbj
 
 grep $rbj /etc/passwd ||
-useradd -u $uid -g $gid -G wheel -c 'Root Boy Jim' -m \
+useradd -u $uid -g $gid -G wheel -c 'Jim Cottrell' -m \
 	-d $dir -s /bin/bash \
 	-p '$1$W4V.6jvA$lVqS2WtLVws8CXUr7Mhwc0' $rbj
 

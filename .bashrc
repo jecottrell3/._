@@ -66,6 +66,25 @@ alias	lq='ls -FACsR'
 alias	lr='ls -FAlsR'
 alias	lt='ls -FAltr'
 alias	loop='mount -o loop'
+
+export	ROOT='cn=root,o=ss'
+export	LDAP='cn=ldap,o=ss'
+export	JC='uid=jcottrell,ou=people,o=ss'
+export	BS='uid=bseitz,ou=people,o=ss'
+export	JH='uid=jhairr,ou=people,o=ss'
+export	GC='uid=gchavez,ou=people,o=ss'
+export	EM='uid=emoody,ou=people,o=ss'
+export	DP='uid=dpathak,ou=people,o=ss'
+export	RW='uid=rwaters,ou=people,o=ss'
+export	BB='uid=bbryner,ou=people,o=ss'
+export	BJ='uid=bjohnson,ou=people,o=ss'
+
+alias	lds="ldapsearch -x -Z -b o=ss -D"
+alias	lda="ldapadd    -x -Z -b o=ss -D"
+alias	ldm="ldapmodify -x -Z -b o=ss -D"
+alias	ldk="ldapdelete -x -Z -b o=ss -D"
+alias	ldp="ldappasswd -x -Z	     -D"
+
 alias	m=less mr='less -r'
 alias	md='mkdir'	mp='mkdir -p'
 alias	mn='make -n'
