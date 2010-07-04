@@ -1,0 +1,101 @@
+test -f .debug && echo .alias
+#################################################################
+#	COMPLEX ALIASES
+#################################################################
+
+for x in $RBJ/.fns/*
+do
+	source  $x
+done
+
+#################################################################
+#	SHELL ALIASES
+#################################################################
+
+alias	a=alias ua=unalias us=unset
+alias	ag='alias | egrep'
+alias	eg='env   | egrep'
+alias	e=echo		en='echo -n'
+alias	h='fc -l'	r='fc -s'
+alias	path='echo $PATH | tr : \\012'
+alias	t=type
+alias	vp='vi ~/.bash_profile; source ~/.bash_profile'
+alias	vb='vi ~/.bashrc;       source ~/.bashrc'
+alias	va='vi ~/.alias;        source ~/.alias'
+alias	vc='vi ~/.complete;     source ~/.complete'
+alias	x='for x in'
+alias	y='fg %-'
+alias	zz=suspend
+
+function c() { cd    $* | ls -FAC; }
+function u() { cd ../$* | ls -FAC; }
+function s() { cd $(echo "$PWD" | sed "s%$1%$2%"); }
+
+function loudly() { echo "$@"; eval "$@"; }
+function npv() { while sleep 10; do pkill npviewer.bin; done & }
+
+#################################################################
+#	SIMPLE ALIASES
+#################################################################
+
+alias	  1='sha1sum   -c'	  5='md5sum     -c'
+alias	256='sha256sum -c'	512='sha512sum  -c'
+
+alias	cg='chgrp'	cn='chown'
+alias	cm='chmod'	cx='chmod a+x'
+
+alias	d='rm -i'
+alias	dm='less +/"^diff.*"' im='less +/"^Index: .*"'
+alias	dh='df -h'	uh='du -h'
+alias	g='egrep --color=auto' gc='egrep --color=always'
+function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
+function i { set -x; eval "$1=$PWD"; set +x; }
+alias	j='jobs -l'	jj='jobs -l'
+alias	kp='cp -p'	kr='cp -pr'
+
+alias	kh='kill -HUP'	ki='kill -INT'
+alias	kq='kill -QUIT'	kk='kill -KILL'
+alias	k1='kill -USR1'	k2='kill -USR2'
+alias	kt='kill -TERM'	ka='kill -ALRM'
+alias	kc='kill -CONT'	ks='kill -STOP'
+
+alias	 l='ls -FAC'
+alias	la='ls -Fals'
+alias	lh='ls -FAlsh'
+alias	ll='ls -FAls'
+alias	lq='ls -FACsR'
+alias	lr='ls -FAlsR'
+alias	lt='ls -FAltr'
+
+alias	loop='mount -o loop'
+
+alias	lds="ldapsearch -x -Z -b o=ss -D"
+alias	lda="ldapadd    -x -Z -b o=ss -D"
+alias	ldm="ldapmodify -x -Z -b o=ss -D"
+alias	ldk="ldapdelete -x -Z -b o=ss -D"
+alias	ldp="ldappasswd -x -Z	     -D"
+
+alias	m=less		mr='less -r'
+alias	md='mkdir'	mp='mkdir -p'
+alias	rd='rmdir'	rp='rmdir -p'
+alias	mm='mv -i'	mu='mv -u'
+alias	mn='make -n'
+alias	mo='sudo  mount' mz='sudo  mount -av'
+alias	um='sudo umount' uz='sudo umount -av'
+alias	ns=nslookup
+alias	p='ps -ef | egrep'
+alias	pd=pushd	po=popd
+
+alias	rbj='chown -R rbj:rbj'
+alias	 jc='chown -R jcottrell:jcottrell'
+
+alias	sb='sudo bash'
+alias	sl='ln -s'
+alias	ss='ssh -qAX'
+alias	sun12x22='setfont sun12x22'
+alias	sx='exec ssh-agent bash -l'
+
+alias	ud='diff -u'	dr='diff -r'
+alias	rsync='rsync -C' vax='rsync -Cvax' pax='rsync -CPax'
+
+#################################################################

@@ -1,0 +1,44 @@
+test -f .debug && echo .alia/package
+#################################################################
+#	PACKAGING -- RPM
+#################################################################
+
+alias	ivh='rpm -ivh'	uvh='rpm -Uvh'
+
+alias	qc=' rpm -qc'	qd='  rpm -qd' 
+alias	qf=' rpm -qf'	qp='  rpm -qp' 
+alias	q='  rpm -q'	qa='  rpm -qa'
+alias	qi=' rpm -qi'	qai=' rpm -qai'
+alias	qil='rpm -qil'	qail='rpm -qail'
+
+alias	qwr='rpm -q --whatrequires'
+alias	qwp='rpm -q --whatprovides'
+
+for x in ba bb bc bi bl bs
+do
+	eval alias $x="'rpmbuild -$x'"
+done
+
+#################################################################
+#	PACKAGING -- YUM
+#################################################################
+
+alias	yc=' yum clean'		ys=' yum search'
+alias	yi=' yum install'	ygi='yum groupinstall'
+alias	iy=' yum install -y'	igy='yum groupinstall -y'
+alias	yl=' yum list'		ygl='yum grouplist'
+alias	yn=' yum info'		ygn='yum groupinfo'
+alias	yr=' yum remove'	ygr='yum groupremove'
+alias	yu=' yum update'	ygu='yum groupupdate'
+
+alias	yct=yum-complete-transaction
+alias	ypc=package-cleanup
+
+alias	problems='  package-cleanup --problems'
+alias	leaves='    package-cleanup --leaves'
+alias	orphans='   package-cleanup --orphans'
+alias	dupes='     package-cleanup --dupes'
+alias	cleandupes='package-cleanup --cleandupes'
+alias	oldkernels='package-cleanup --oldkernels'
+
+#################################################################

@@ -1,0 +1,34 @@
+test -f .debug && echo .prompt
+#################################################################
+#	PROMPTING
+#################################################################
+
+test -f          /etc/DIR_COLORS.lightbgcolor &&
+eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
+
+case $(tty) in
+(/dev/tty*)	LT=1 DK=0;;	# dark 
+(/dev/pts/*)	LT=0 DK=1;;	# lite 
+esac
+
+ID=$(PATH=/usr/local/bin:$PATH id -u)
+BG=$SHLVL
+case $BG in
+([67])		HI=0 FG=0;;	# lite BG
+([012345])	HI=1 FG=7;;
+esac
+
+case $ID.$BG in
+(0.[2367])	HI="7;1";;
+(0.[0145])	HI="7";;	# dark BG
+esac
+
+PS8=': \t \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \w ;
+: [\#:$?:\j] \$; '
+
+PS9=': \t [\#:$?:\j] \w;
+: \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
+
+PS1=$PS8
+
+#################################################################

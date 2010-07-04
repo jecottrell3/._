@@ -8,7 +8,8 @@ $n = $d = 0;					# do not rm or rmdir
 $b = $q = 0;					# nobeep & noquiet
 $e = 0;						# always equal
 $z = 0;						# sizes  equal
-$a = 0;						# dont rm @
+$a = 0;						# dont rm ._
+$S = 0;						# dont spare .svn, CVS
 $U = $G = $M = 0;				# same owner, group, mode
 $BELL='';
 
@@ -19,7 +20,7 @@ sub usage	#	USAGE
 {
     die("@_
 
-usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-a] [-c] [-U] [-G] [-M] src dst
+usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-a] [-c] [-U] [-G] [-M] [-S] src dst
 	-q	quiet
 	-b	beep if different
 	-n	no file removed
@@ -31,6 +32,7 @@ usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-a] [-c] [-U] [-G] [-M] src dst
 	-U	require same uid
 	-G	require same gid
 	-M	require same mode
+	-S	recurse in .svn and CVS too
 
 Recursive Compare and Remove SRC relative to DST
 SRC and DST may be relative or absolute pathnames
@@ -63,12 +65,13 @@ sub main	#	MAIN PROGRAM
 	/-n/ && ++$n && next option;		# no rm
 	/-e/ && ++$e && next option;		# always equal
 	/-z/ && ++$z && next option;		# sizes  equal
-	/-a/ && ++$a && next option;		# rm @ files too
+	/-a/ && ++$a && next option;		# rm ._ files too
 	/-c/ && ++$c && next option;		# show created files too
 	/-U/ && ++$U && next option;		# same uid
 	/-O/ && ++$U && next option;		# alias
 	/-G/ && ++$G && next option;		# same gid
 	/-M/ && ++$M && next option;		# same mode
+	/-S/ && ++$S && next option;		# enter .svn and CVS
     
 	&usage("unknown option: $_");		# complain
    
@@ -280,7 +283,7 @@ sub RR		#	RECURSIVE ENGINE
 	if ($dst_type eq 'D')
 	{
 	    &action('KEEP', 'D!')		# Special Dir
-	    	if ($file eq '.svn' || $file eq 'CVS');
+	    	if (!$S && ($file eq '.svn' || $file eq 'CVS'));
 	    &action('INFO', '\\\\');		# enter dir
 	    &RR($src_file, $dst_file, ".$lvl"); # recurse
 	    &action('INFO', &rmdir($file) ?

@@ -1,0 +1,102 @@
+test -f .debug && echo .complete
+#################################################################
+#	BASH COMPLETIONS -- cheat sheet
+#################################################################
+
+# complete [-abcdefgjksuv] [-o comp-option] [-A action] [-G globpat]
+# 	[-W wordlist] [-P prefix] [-S suffix]
+# 	[-X filterpat] [-F function] [-C command] name [name ...]
+# complete -pr [name ...]
+# 
+# -p	print
+# -r name	remove
+# -o opt	options
+# -G	globpat
+# -W	wordlist
+# -C	results from command
+# -F	results from function
+# -X	filterpat
+# -P	prefix to add
+# -S	suffix to add
+# -A	action
+# 	-a alias
+# 	   arrayvar
+# 	   binding
+# 	-b builtin
+# 	-c command
+# 	-d dirs
+# 	   disabled
+# 	   enabled Names of enabled shell builtins.
+# 	-e export  Names of exported shell variables.
+# 	-f file    File names.
+# 	   function
+# 	-g group   Group names.
+# 	   helptopic
+# 	   hostname
+# 	-j job     Job names, if job control is active.
+# 	-k keyword Shell  reserved words.
+# 	   running Names of running jobs, if job control is active.
+# 	-s service Service names.  May also be specified as -s.
+# 	   setopt  Valid  arguments  for  the  -o option to the set
+# 	   shopt   Shell option names  as  accepted  by  the  shopt
+# 	   signal  Signal names.
+# 	   stopped Names of stopped jobs, if job control is active.
+# 	-u user    User names.  May also be specified as -u.
+# 	-v variable
+#
+#################################################################
+#	BASH COMPLETIONS
+#################################################################
+
+complete -A helptopic		help
+complete -A hostname		ss ssh sftp
+complete -A hostname		rsh telnet rlogin ftp ping xping host traceroute nslookup dig
+complete -A hostname		rxterm rxterm3 rxvt2
+complete -A setopt		set
+complete -A service		chkconfig service
+complete -A shopt		shopt
+complete -A signal		kill
+complete -A stopped	-P '%'	bg
+
+complete -a			unalias alias
+
+complete -b			builtin enable
+
+complete -c			command
+complete -c			man
+complete -c			nohup exec nice eval trace strace gdb
+complete -c			type
+complete -c			sudo
+
+complete -d			cd
+complete -d			find
+complete -d			mkdir rmdir
+complete -d			pushd
+
+complete -e			printenv env
+
+complete -f			. source
+complete -f -X '!*.+(gif|jpg|jpeg|GIF|JPG|JPEG|bmp)'	xv
+complete -f -X '!*.+(gz|tgz|Z)'	gunzip gzcat zcat zmore
+complete -f -X '!*.+(htm|html)'	links w3m lynx
+complete -f -X '!*.+(mp3|MP3)'	mpg123
+complete -f -X '!*.+(pdf|PDF)'	acroread4
+complete -f -X '!*.+(ps|PS)'	gs gv ghostview psselect pswrap
+complete -f -X '!*.bz2'		bunzip2 bzcat
+complete -f -X '!*.pl'		perl perl5
+complete -f -X '!*.texi*'	makeinfo texi2dvi texi2html
+complete -f -X '!*.zip'		unzip
+complete -f -X '*.Z'		compress
+complete -f -X '*.bz2'		bzip2
+complete -f -X '*.gz'		gzip
+
+complete -g			chgrp groupdel groupmod
+
+complete -j		-P '%'	fg jobs disown
+
+complete -u			chown userdel usermod su
+
+complete -v			unset 
+complete -v -S = -o nospace	export local readonly declare typeset
+
+#################################################################
