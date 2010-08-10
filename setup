@@ -21,6 +21,7 @@ while read x
 do
 	case $x in
 	(.|..)		continue;;
+	(.svn)		continue;;
 	(CVS)		continue;;
 	(.profile)	continue;;
 	(setup)		continue;;
