@@ -38,6 +38,7 @@ export	ID=$(PATH=/usr/local/bin:$PATH id -u)
 export	LESS=-MQcdeisj11
 export	LANG=C LOCALE=C LC_ALL=C
 export	VERSION_CONTROL=numbered
+export	INPUTRC=$HOME/.inputrc
 export	EDITOR=vi
 
 export	PNY=/pny/CVR
