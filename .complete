@@ -67,6 +67,7 @@ complete -c			man
 complete -c			nohup exec nice eval trace strace gdb
 complete -c			type
 complete -c			sudo
+complete -c			if then else while do time
 
 complete -d			cd
 complete -d			find
