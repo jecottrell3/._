@@ -16,6 +16,6 @@ do
 	grep $NEW $FILE ||
 	{
 		cp -p $FILE $FILE.old
-		sed "/^$OLD/{;h;s//$NEW/;p;g;}" $FILE.old > $FILE
+		sed "/^$OLD/{p;s//$NEW/;}" $FILE.old > $FILE
 	}
 done
