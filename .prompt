@@ -13,6 +13,8 @@ esac
 
 ID=$(PATH=/usr/local/bin:$PATH id -u)
 BG=$SHLVL
+BG=$(tty | tr -dc 0-9)
+((BG %= 8))
 case $BG in
 ([67])		HI=0 FG=0;;	# lite BG
 ([012345])	HI=1 FG=7;;
