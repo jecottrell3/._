@@ -81,7 +81,7 @@ alias	m=less		mr='less -r'
 alias	md='mkdir'	mp='mkdir -p'
 alias	rd='rmdir'	rp='rmdir -p'
 alias	mm='mv -i'	mu='mv -u'
-alias	mn='make -n'
+alias	mn='make -n'	mi='make install'
 alias	mo='sudo  mount' mz='sudo  mount -av'
 alias	um='sudo umount' uz='sudo umount -av'
 alias	ns=nslookup
@@ -98,6 +98,7 @@ alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 
 alias	ud='diff -u'	dr='diff -r'
-alias	rsync='rsync -C' vax='rsync -Cvax' pax='rsync -CPax'
+alias	rax='rsync  -vax'	 rs='rsync -C'
+alias	vax='rsync -Cvax'	pax='rsync -CPax'
 
 #################################################################

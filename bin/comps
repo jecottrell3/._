@@ -1,14 +1,18 @@
 #! /usr/bin/perl
 
 ################################################################
-# usage:  comps NAME
+# old usage:  comps NAME	old usage specifies subdir
+# new usage:  comps		new usagw inside of subdir
 
 # expects:	.xml		points to a comps.xml file
 # expects:	.rpm		points to a directory of rpms
 
 # creates:	NAME/		directory of group files
-# creates:	NAME/group	kickstart packages in group
 # creates:	NAME/.lang	aggregate of language groups
+# creates:	NAME/.list	helper script
+# creates:	NAME/group	kickstart packages in group
+# creates:	NAME/.group	container for each group
+# creates:	NAME/.group/pkg	rpm detail of each package
 
 # Lines in the Group files are M, D, O, C for
 # Mandatory, Default, Optional, and Conditional
@@ -16,7 +20,7 @@
 ################################################################
 
 $DIST='CentOS';
-$VER='5.4';
+$VER='5.5';
 
 $banner = '#' x 64;
 
@@ -40,6 +44,7 @@ $banner = '#' x 64;
 $rpm =    -d '.rpm'   or warn("No .rpm directory\n");
 open(STDIN, "<.xml")  or die("Missing .xml file\n");
 open(LANG , ">.lang") or die;
+open(LIST , ">.list") or die;
 
 sub id;
 sub lang;
@@ -50,6 +55,8 @@ sub item;
 ################################################################
 #	Main Routine: read lines and process interesting ones
 ################################################################
+
+printf LIST "#! /bin/sh -x\n";
 
 line:
 while (<STDIN>)
@@ -62,6 +69,9 @@ while (<STDIN>)
 	/<packagereq /	and item;
 	/<category>/	and last;
 }
+
+printf LIST "\n: END\n";
+close LANG; close LIST;
 
 ################################################################
 #	Switch to Language Mode
@@ -105,9 +115,17 @@ sub group
 sub splat
 {
 	$M = $N;
-	$M =~ s/^(core)$/0$1/;
-	$M =~ s/^(base)$/1$1/;
-	$M =~ s/^(base-x)$/2$1/;
+	for ($M)
+	{
+		s/^(core)$/0$1/;
+		s/^(base)$/1$1/;
+		s/^(base-x)$/2$1/;
+		s/openfabrics-enterprise-distribution/OFED/;
+		s/engineering-and-scientific/ENG-SCI/;
+		s/authoring-and-publishing/AUTH-PUB/;
+		s/software/SW/;
+		s/development/DEV/;
+	}
 
 	if ($norm) {
 		open(NORM, ">$M") or
@@ -123,7 +141,7 @@ sub splat
 
 	map	# existance test
 		{ $X{$_} = $rpm ? (<.rpm/$_-*.rpm>)[0] ? '' : 'x' : 'q'; }
-		keys(%M), keys(%D), keys(%O);
+		keys(%M), keys(%D), keys(%O); # /
 
 	map { print("#m$X{$_}\t-$_\n"); } sort(keys(%M));
 	map { print("#d$X{$_}\t-$_\n"); } sort(keys(%D));
@@ -132,7 +150,19 @@ sub splat
 
 	print("\n");
 	close(NORM) if $norm;
+	return unless  $norm;
 
+	select LIST;
+	printf "\nmkdir -p .$M\n";
+	$QILP = "rpm -qilp .rpm/%s-[0-9]*.rpm > .$M/%s%s\n";
+	print(": Mandatory\n")		if %M; $TYPE='+';
+	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%M));
+	print(": Default\n")		if %D; $TYPE=',';
+	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%D));
+	print(": Optional\n")		if %O; $TYPE='-';
+	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%O));
+	print(": Conditional\n")	if %C; $TYPE='?';
+	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%C));
 	next line;
 }
 
@@ -148,6 +178,7 @@ sub item
 	$D{$1} = $1 if m%type="default">(.*)</>%;
 	$O{$1} = $1 if m%type="optional">(.*)</>%;
 	$C{$2} = $1 if m%type="conditional" requires="(.*)">(.*)</>%;
+
 	next line;
 }
 
