@@ -7,7 +7,7 @@
 #! /bin/sh
 P=/dev/ROOT
 
-echo 1>/root/pre.log 2>&1
+exec 1>/root/pre.log 2>&1
 set -x
 mkdir /p
 mount $P /p
@@ -22,6 +22,10 @@ cd /p
 	done
 cd /
 umount /p
+
+%post --nochroot
+
+cp /root/pre.log /mnt/sysimage/root
 
 ################################################################
 ####	Package Selection

@@ -15,9 +15,13 @@ network --bootproto dhcp --hostname HOST
 
 #clearpart --linux
 
-part /     --fstype ext3 --noformat --onpart ROOT --fsoptions="noatime"
-part /home --fstype ext3 --noformat --onpart HOME --fsoptions="noatime"
-part /dist --fstype ext3 --noformat --onpart DIST --fsoptions="noatime"
-#art /repo --fstype ext3 --noformat --onpart REPO --fsoptions="noatime"
-part swap                --noformat --onpart SWAP
+define(`EXT3',   `--fstype ext3')dnl
+define(`ONPART', `--noformat --onpart')dnl
+define(`FSOPTS', `--fsoptions=noatime,noauto')dnl
+
+ifdef(`ROOT', `part /     EXT3 ONPART ROOT FSOPTS')
+ifdef(`HOME', `part /home EXT3 ONPART HOME FSOPTS')
+ifdef(`DIST', `part /dist EXT3 ONPART DIST FSOPTS')
+ifdef(`REPO', `part /repo EXT3 ONPART REPO FSOPTS')
+ifdef(`SWAP', `part swap       ONPART SWAP')
 

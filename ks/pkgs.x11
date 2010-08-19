@@ -42,10 +42,10 @@
 #d	-xorg-x11-apps
 #d	-xorg-x11-twm
 #d	-xterm
-#o	 switchdesk
-#o	 xorg-x11-resutils
+switchdesk
+xorg-x11-resutils
 #o	 xorg-x11-server-Xnest
 #o	 xorg-x11-server-Xvfb
-#o	 xorg-x11-xfs-utils
-#o	 xorg-x11-xsm
+xorg-x11-xfs-utils
+xorg-x11-xsm
 

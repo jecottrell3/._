@@ -1,4 +1,3 @@
-
 ################################################################
 @core
 ################################################################
@@ -24,7 +23,7 @@
 #m	-kbd
 #m	-kudzu
 #m	-libgcc
-#m	-libhugetlbfs
+-libhugetlbfs
 #m	-libtermcap
 #m	-mkinitrd
 #m	-passwd
@@ -46,12 +45,14 @@
 #m	-vim-minimal
 #d	-dhclient
 -dhcpv6-client
-#d	-ecryptfs-utils
+-ecryptfs-utils
 -elilo
 -gnu-efi
 #d	-grub
 #d	-openssh-clients
 #d	-openssh-server
+-ppc64-utils
+-s390utils
 -ppc64-utils
 -s390utils
 #d	-sysfsutils
@@ -60,5 +61,5 @@
 #d	-yum
 Deployment_Guide-en-US
 #o	 freeipmi
-rsyslog
+#o	 rsyslog
 

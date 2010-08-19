@@ -85,7 +85,7 @@
 #d	-pam_ccreds
 #d	-pam_krb5
 #d	-pam_passwdqc
--pam_pkcs11
+#d	-pam_pkcs11
 #d	-pam_smb
 #d	-pax
 -pcmciautils
@@ -117,7 +117,7 @@
 #d	-talk
 #d	-tcp_wrappers
 #d	-tcpdump
--tcsh
+#d	-tcsh
 #d	-telnet
 #d	-time
 #d	-tree
@@ -129,32 +129,41 @@
 #d	-which
 -wireless-tools
 #d	-words
--ypbind
+#d	-ypbind
 -yum-rhn-plugin
 #d	-yum-updatesd
 #d	-zip
 #o	 aide
-#o	 authd
+-authd
 #o	 bridge-utils
-#o	 brltty
+-brltty
 #o	 convmv
+#o	 cpufreq-utils
 #o	 device-mapper-multipath
+#o	 dmraid-events-logwatch
+#o	 fcoe-utils
+fipscheck
+fuse
+#o	 fuse-libs
 gpart
 hardlink
 #o	 hesinfo
 #o	 hfsutils
-#ox	 iscsi-initiator-utils
+#o	 iscsi-initiator-utils
 #o	 kexec-tools
-#o	 keyutils
+keyutils
 #ox	 lha
+#o	 libhbaapi
+#o	 libhbalinux
 #ox	 libica
 #ox	 netconfig
+nfs4-acl-tools
 #o	 openCryptoki
 #ox	 openssl-ibmca
-#o	 openswan
+openswan
 #o	 squashfs-tools
 star
 #o	 tpm-tools
 #o	 trousers
-#o	 x86info
-
+x86info
+ 
