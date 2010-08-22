@@ -9,7 +9,7 @@ COMMON=Head Disk LVM Pre pkgs.core Post
 all:	${ALL}
 
 install:	all
-	cp book-*.ks /vfat
+	cp -v book-*.ks /vfat
 
 clean:
 	rm -rf ${ALL}

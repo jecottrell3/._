@@ -15,18 +15,19 @@ network --bootproto dhcp --hostname HOST
 
 #clearpart --linux
 
-define(`EXT3',    `--fstype ext3')dnl
-define(`VFAT',    `--fstype vfat')dnl
-define(`ONPART',  `--noformat --onpart')dnl
-define(`NOATIME', `--fsoptions=noatime')dnl
-define(`NOAUTO',  `NOATIME,noauto')dnl
+define(`EXT3',     `--fstype ext3')dnl
+define(`VFAT',     `--fstype vfat')dnl
+define(`ONPART',   `--noformat --onpart')dnl
+define(`EXISTING', `--noformat --useexisting')dnl
+define(`NOATIME',  `--fsoptions=noatime')dnl
+define(`NOAUTO',   `NOATIME,noauto')dnl
 
 part /boot EXT3 ONPART sdb1 NOATIME
-part /home EXT3 ONPART sdb2 NOAUTO
-part /vfat VFAT ONPART sdb3 NOAUTO
-part pv.4       ONPART sdb4
-volgroup mybook --noformat --useexisting pv.4
-logvol /   EXT3 --name=core --vgname=mybook --size=10240 --label=CORE
+part /home EXT3 ONPART sdb2 NOATIME
+part /vfat VFAT ONPART sdb3 NOATIME
+part pv.4       ONPART sdb4 NOATIME
+volgroup mybook EXISTING pv.4
+logvol /   EXT3 EXISTING --name=TYPE --vgname=mybook
 
 dnl ifdef(`ROOT', `part /     EXT3 ONPART ROOT FSOPTS')
 dnl ifdef(`HOME', `part /home EXT3 ONPART HOME FSOPTS')

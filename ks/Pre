@@ -9,6 +9,8 @@ P=/dev/ROOT
 
 exec 1>/root/pre.log 2>&1
 set -x
+: ================================
+lvm vgchange -a y
 mkdir /p
 mount $P /p
 cd /p
@@ -20,8 +22,14 @@ cd /p
 		mv *    .$x
 		break
 	done
+	test -d .$x && cd .$x &&
+	for x in lost+found dist
+	do
+		test -d $x && mv $x ..
+	done
 cd /
 umount /p
+: ================================
 
 %post --nochroot
 
@@ -33,3 +41,5 @@ cp /root/pre.log /mnt/sysimage/root
 
 %packages NOBASE
 
+subversion
+vim-enhanced

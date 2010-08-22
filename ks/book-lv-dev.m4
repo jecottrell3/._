@@ -1,10 +1,10 @@
 dnl
-dnl	MyBook LVM Core dnl
+dnl	MyBook LVM Dev dnl
 dnl
 define(`HOST', `book')dnl
 define(`LABEL', `J1')dnl
-define(`TYPE', `core')dnl
-define(`GFX',  `text')dnl
+define(`TYPE', `dev')dnl
+define(`GFX',  `graphical')dnl
 dnl
 define(`ISO',  `sdb2')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
@@ -16,19 +16,17 @@ dnl define(`VFAT', `sdb3')dnl
 dnl define(`DIST', `sda1')dnl
 dnl define(`SWAP', `sda15')dnl
 dnl
-define(`NOBASE', `--nobase')dnl
-define(`XCONFIG', `skipx')dnl
+define(`NOBASE', `')dnl
+define(`XCONFIG', `xconfig --startxonboot --resolution=1600x900 --depth=24')dnl
 dnl
 include(`Head')dnl
 dnl include(`net')dnl
 include(`LVM')dnl
 include(`Pre')dnl
 include(`pkgs.core')dnl
-gpm
-ntsysv
-setuptool
-man
-man-pages
+include(`pkgs.base')dnl
+include(`pkgs.x11')dnl
+include(`pkgs.dev')dnl
 dnl include(`Post')dnl
 dnl
 dnl	END

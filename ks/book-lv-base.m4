@@ -1,9 +1,9 @@
 dnl
-dnl	MyBook LVM Core dnl
+dnl	MyBook LVM Base dnl
 dnl
 define(`HOST', `book')dnl
 define(`LABEL', `J1')dnl
-define(`TYPE', `core')dnl
+define(`TYPE', `base')dnl
 define(`GFX',  `text')dnl
 dnl
 define(`ISO',  `sdb2')dnl
@@ -16,7 +16,7 @@ dnl define(`VFAT', `sdb3')dnl
 dnl define(`DIST', `sda1')dnl
 dnl define(`SWAP', `sda15')dnl
 dnl
-define(`NOBASE', `--nobase')dnl
+define(`NOBASE', `')dnl
 define(`XCONFIG', `skipx')dnl
 dnl
 include(`Head')dnl
@@ -24,11 +24,7 @@ dnl include(`net')dnl
 include(`LVM')dnl
 include(`Pre')dnl
 include(`pkgs.core')dnl
-gpm
-ntsysv
-setuptool
-man
-man-pages
+include(`pkgs.base')dnl
 dnl include(`Post')dnl
 dnl
 dnl	END
