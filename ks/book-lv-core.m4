@@ -29,7 +29,7 @@ ntsysv
 setuptool
 man
 man-pages
-dnl include(`Post')dnl
+include(`Post')dnl
 dnl
 dnl	END
 dnl

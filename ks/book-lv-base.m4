@@ -25,7 +25,7 @@ include(`LVM')dnl
 include(`Pre')dnl
 include(`pkgs.core')dnl
 include(`pkgs.base')dnl
-dnl include(`Post')dnl
+include(`Post')dnl
 dnl
 dnl	END
 dnl

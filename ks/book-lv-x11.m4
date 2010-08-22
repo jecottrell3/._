@@ -26,7 +26,7 @@ include(`Pre')dnl
 include(`pkgs.core')dnl
 include(`pkgs.base')dnl
 include(`pkgs.x11')dnl
-dnl include(`Post')dnl
+include(`Post')dnl
 dnl
 dnl	END
 dnl

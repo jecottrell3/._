@@ -2,7 +2,7 @@
 ####	Finalization
 ################################################################
 
-%post --log=/mnt/sysimage/root/post.log
+%post --log=/root/post.log
 
 #! /bin/sh -x
 
@@ -10,12 +10,16 @@ set -x
 set -x
 exec 2>&1
 
-#exec 1>/tmp/post 2>&1
+mkdir -p /svn
+mount -v /home
 
 date
 cd /root
-ln -s /home/rbj/._ .
+ln -s /home/jcottrell/._ .
 . ._/setup
+
+tmp/.mkjc cos5
+tmp/.mkrbj
 
 date
 echo makewhatis -v
@@ -26,7 +30,8 @@ echo updatedb -v
 mount   -av
 
 date
-rsync -vax /home/kick/dist/. /
+test  -d   /boot/dist/. &&
+rsync -vax /boot/dist/. /
 date
 
 ################################################################

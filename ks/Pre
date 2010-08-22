@@ -41,5 +41,8 @@ cp /root/pre.log /mnt/sysimage/root
 
 %packages NOBASE
 
+m4
+make
 subversion
 vim-enhanced
+

@@ -4,7 +4,7 @@ dnl
 define(`HOST', `book')dnl
 define(`LABEL', `J1')dnl
 define(`TYPE', `dev')dnl
-define(`GFX',  `graphical')dnl
+define(`GFX',  `text')dnl
 dnl
 define(`ISO',  `sdb2')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
@@ -27,7 +27,7 @@ include(`pkgs.core')dnl
 include(`pkgs.base')dnl
 include(`pkgs.x11')dnl
 include(`pkgs.dev')dnl
-dnl include(`Post')dnl
+include(`Post')dnl
 dnl
 dnl	END
 dnl

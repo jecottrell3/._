@@ -27,7 +27,8 @@ part /home EXT3 ONPART sdb2 NOATIME
 part /vfat VFAT ONPART sdb3 NOATIME
 part pv.4       ONPART sdb4 NOATIME
 volgroup mybook EXISTING pv.4
-logvol /   EXT3 EXISTING --name=TYPE --vgname=mybook
+logvol /   EXT3 EXISTING    NOATIME --name=TYPE --vgname=mybook
+dnl part swap       ONPART /dev/mybook/myswap
 
 dnl ifdef(`ROOT', `part /     EXT3 ONPART ROOT FSOPTS')
 dnl ifdef(`HOME', `part /home EXT3 ONPART HOME FSOPTS')
