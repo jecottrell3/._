@@ -58,7 +58,8 @@ complete -A shopt		shopt
 complete -A signal		kill
 complete -A stopped	-P '%'	bg
 
-complete -a			unalias alias
+complete -a			unalias
+complete -a -S = -o nospace	alias
 
 complete -b			builtin enable
 
@@ -69,7 +70,7 @@ complete -c			type
 complete -c			sudo
 complete -c			if then else while do time
 
-complete -d			cd
+#omplete -d			cd
 complete -d			find
 complete -d			mkdir rmdir
 complete -d			pushd
@@ -78,7 +79,7 @@ complete -e			printenv env
 
 complete -f			. source
 complete -f -X '!*.+(gif|jpg|jpeg|GIF|JPG|JPEG|bmp)'	xv
-complete -f -X '!*.+(gz|tgz|Z)'	gunzip gzcat zcat zmore
+#omplete -f -X '!*.+(gz|tgz|Z)'	gunzip gzcat zcat zmore
 complete -f -X '!*.+(htm|html)'	links w3m lynx
 complete -f -X '!*.+(mp3|MP3)'	mpg123
 complete -f -X '!*.+(pdf|PDF)'	acroread4
