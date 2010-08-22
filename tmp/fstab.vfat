@@ -1,1 +1,1 @@
-LABEL=VFAT	/vfat		vfat	uid=6654,gid=6654,shortname=mixed 0 0
+LABEL=VFAT	/vfat		vfat	uid=654,gid=654,shortname=mixed 0 0
