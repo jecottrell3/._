@@ -16,7 +16,11 @@ mount -v /home
 date
 cd /root
 ln -s /home/jcottrell/._ .
+
+set +x; echo \
 . ._/setup
+. ._/setup
+set -x
 
 tmp/.mkjc cos5
 tmp/.mkrbj
@@ -30,8 +34,8 @@ echo updatedb -v
 mount   -av
 
 date
-test  -d   /boot/dist/. &&
-rsync -vax /boot/dist/. /
+test  -d   /dist/. &&
+rsync -vax /dist/. /
 date
 
 ################################################################

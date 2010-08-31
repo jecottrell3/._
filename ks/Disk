@@ -15,13 +15,16 @@ network --bootproto dhcp --hostname HOST
 
 #clearpart --linux
 
-define(`EXT3',   `--fstype ext3')dnl
-define(`ONPART', `--noformat --onpart')dnl
-define(`FSOPTS', `--fsoptions=noatime,noauto')dnl
+define(`EXT3',     `--fstype ext3')dnl
+define(`VFAT',     `--fstype vfat')dnl
+define(`ONPART',   `--noformat --onpart')dnl
+define(`EXISTING', `--noformat --useexisting')dnl
+define(`NOATIME',  `--fsoptions=noatime')dnl
+define(`NOAUTO',   `NOATIME,noauto')dnl
 
-ifdef(`ROOT', `part /     EXT3 ONPART ROOT FSOPTS')
-ifdef(`HOME', `part /home EXT3 ONPART HOME FSOPTS')
-ifdef(`DIST', `part /dist EXT3 ONPART DIST FSOPTS')
-ifdef(`REPO', `part /repo EXT3 ONPART REPO FSOPTS')
+ifdef(`ROOT', `part /     EXT3 ONPART ROOT NOATIME')
+ifdef(`HOME', `part /home EXT3 ONPART HOME NOATIME')
+ifdef(`DIST', `part /dist EXT3 ONPART DIST NOATIME')
+ifdef(`REPO', `part /repo EXT3 ONPART REPO NOATIME')
 ifdef(`SWAP', `part swap       ONPART SWAP')
 
