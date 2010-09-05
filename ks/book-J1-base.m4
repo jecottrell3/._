@@ -1,8 +1,8 @@
 dnl
-dnl	MyBook J1 Core dnl
+dnl	MyBook JB Core dnl
 dnl
 define(`HOST', `book')dnl
-define(`LABEL', `J1')dnl
+define(`LABEL', `JB')dnl
 define(`TYPE', `base')dnl
 define(`GFX',  `text')dnl
 dnl

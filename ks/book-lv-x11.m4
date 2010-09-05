@@ -2,7 +2,7 @@ dnl
 dnl	MyBook LVM X11 dnl
 dnl
 define(`HOST', `book')dnl
-define(`LABEL', `J1')dnl
+define(`LABEL', `JB')dnl
 define(`TYPE', `x11')dnl
 define(`GFX',  `graphical')dnl
 dnl
@@ -10,7 +10,7 @@ define(`ISO',  `sdb2')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
 define(`ORDER',  `sdb,sda')dnl
 dnl
-define(`ROOT', `mybook/TYPE')dnl
+define(`ROOT', `book/TYPE')dnl
 dnl define(`HOME', `sdb2')dnl
 dnl define(`VFAT', `sdb3')dnl
 dnl define(`DIST', `sda1')dnl
