@@ -1,0 +1,58 @@
+* Partition Based Linux
+
+Over the years, certain patters emerged. You get four Primary Partitions
+total, one of which can be an Extended one containing Logical Partitions.
+Most systems (Windows, BSD, SOlaris) only work on Primaries, so Linux ends
+up on the Logicals. You get 16 partitions total, but Zero is the whole
+disk (/dev/hda). I usually end up with P1, P2, P3, and E4 containing
+L5 thru L15.
+
+Whenever I have two disks, I partition them the same, up until the point
+where the sizes differ. I always use the last (L15, but sometimes I end
+up with less than 15 partitions) as the SWAP space. There is of course
+a Rescue Linux, and a common /home that is shared by all Linux distros.
+
+The Rescue Linux and /home usually precede the swap partition. All the
+other partitions are usually the same size, usually a multiple of 8G.
+
+Windows often uses P1, altho some systems have a small Diagnostic or
+Restore partition on P1, so P2 is Windows. The next partition I usually
+use as a VFAT partition so I can shuttle files back and forth bewteen
+Windows and Linux. Newer Linx distros can read and write NTFS now, but
+the habit remains. P4 is usually Extended, but I have been known to make
+P3 be the Extended one and put the Rescue Linux directly on P4.
+
+* Partition Labels
+
+Windows can label its partitions, and Linux uses the E2LABEL program
+for that purpose. I initially used the names A1-A15 and B1-B15. Later,
+I went to Hex, so that [AB][1-9A-F] would be the regexp matching a
+partition label.
+
+Subsequent disks were C, D, etc. So the first character was the Disk
+Name, and the second was the Partition Number. A further refinement was
+subsituting the Function for the Number. Thus, AS, BH, and CR were the
+swap, home, and rescue partitions on disks A, B, and C. Sometimes the
+Home partition would be on the same partition as the Rescue Partition,
+in which case it was an H partition instead of an R one, because everyone
+mounts /home.
+
+* New Disk Types
+
+At the time I reached Disk H I also bought my first SATA drive, so that
+became disk S. I have a second which is obviously Disk T. I also bought a
+small USB powered drive, a Western Digitital Passport which became Disk P,
+and I now have a second, obvsiously Disk Q. I also have a WD USB Mybook,
+named Disk K.
+
+I name USB drives by the size, so 1G1 is the first partition on a 1G
+stick, and 4G2 is the second one on a 4G stick. If I have another stick
+of the same size, I just bump the G to an H, so 1H3 is the third partition
+on the second 1G flash drive. Actually, I have been moving away from
+partitions on flash drives, using the whole device as a filesystem. So
+1J would be the name of the 4th 1G flash drive I own. I so have a few
+smaller ones too; they are called 256M and 512M. How original.
+
+Sometimes I break the pattern. My subversion repository is on a 1G drive
+with the label SVN.
+

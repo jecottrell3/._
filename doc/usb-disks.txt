@@ -1,0 +1,38 @@
+	 8G	 120G	 500G	 500G	129/160	   1T
+	Tuff	P/Pass	129/160129/160129/160129/160129/160129/160Q/Blue	K/Book	  Mojo 	Disk T
+1		B   2.4		B  40
+2		V   2.4	129/160129/160	B  40
+3		H  32		V   6.4
+4		L  80	L	L 400
+
+Disk /dev/sdc: 500.1 GB, 500107862016 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1   *           2        5001    40162500   83  Linux
+/dev/sdc2            5002       10001    40162500   83  Linux
+/dev/sdc3           10002       10801     6426000    c  W95 FAT32 (LBA)
+/dev/sdc4           10802       60801   401625000   8e  Linux LVM
+
+Disk /dev/sde: 500.1 GB, 500107862016 bytes
+255 heads, 63 sectors/track, 60801 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sde1               2       25001   200812500   83  Linux
+/dev/sde3           50002       55001    40162500    c  W95 FAT32 (LBA)
+sk /dev/sdc: 500.1 GB, 500107862016 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1   *           2        5001    40162500   83  Linux
+/dev/sdc2            5002       10001    40162500   83  Linux
+/dev/sdc3           10002       10801     6426000    c  W95 FAT32 (LBA)
+/dev/sdc4           10802       60801   401625000   8e  Linux LVM
+
+Disk /dev/sde: 500.1 GB, 500107862016 bytes
+255 heads, 63 sectors/track, 60801 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sde1               2       25001   200812500   83  Linux
+/dev/sde3           50002       55001    40162500    c  W95 FAT32 (LBA)
+/dev/sde4   *       55002      

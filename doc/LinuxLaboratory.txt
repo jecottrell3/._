@@ -1,0 +1,79 @@
+* INTRODUCTION
+
+I came to the PC world rather late, in 1999. Being a UNIX person, I
+obviously disdained Microsoft, and avoided WIndows as long as possible. I
+also had Real Computers to play with At Work, generally UNIX Workstations
+and servers, so I also looked down on anything I could actually afford.
+
+However by the time I finally broke down and bought a PC, I was starting
+to develop an interest in Linux. When I heard about the possibility of
+Dual Boot systems, I decided to go further and load as many different
+OS as possible. A second disk made this even more rediculously possible.
+
+At the time this included not only Windows 98 and many Linux Distros,
+but BeOS and the three (now more) flavors of BSD (net, open, and free)
+and Open SOlaris. I since moved on to WIndows XP, but BeOS is dead,
+and my interest in BSD and OpenSolaris has waned, so it's pretty much
+just Linux and the odd Windows piece here.
+
+This essay is a journey thru the organization of my systems and the major
+steps along the way as well as some of the thoughts behind them. The
+two major divisions in my organization are Partition Based and LVM
+Based syetems. The LVM system also supports Virualization well, but VMs
+can also reside in Partitions.
+
+I will also discuss Installation Methods as well.
+
+* My Systems
+
+My first system was custom built from TCP in Gaithersbug, with the
+proviso that all the parts needed to be supported by Linux, or they
+would be returnable. It had 64M of memory, and at that time memory was
+$1/M. I had two 13G disks at $100 each, a CDROM and a JAZ drive for backup
+(I never used it much), a Linux compatible modem, keyboard, mouse, and
+a nice 20" monitor which was a bargain at $300. I think I had a 400Mz
+Pentium, and an ASUS P3 motherboard, and the whole setup cost me about
+$1800. See what I mean about turning up my nose at what I could afford?
+
+My next few computer purchases were Gateway eMachines from Best Buy.
+It turns out that you can buy a whole system for about half the component
+price when there is a sale if you fill out the stupid rebates.
+
+My next two computers were hand-me-downs from Work. Then a few
+motherboards died, so I ended up replacing them along with the CPUs.
+
+I recently bought a really nice motherboard with a Quad AMD that supports
+Hardware Virtualization, so I will be writing about that someday.
+
+* Partitioning
+
+I think I told TCP to load Windows into a 1G partition, so I was free
+to carve up the rest of the disk. I bought Partition Magic to make
+this easier.  It can also resize and move partitions in arbitrary ways,
+altho it only seems to do so with the M$ types (FAT, VFAT, NTFS) rather
+than Linux ones.
+
+I don't recall how I allocated the partitions, but one thing that carried
+over from my days of using Solaris Disk Labels is that I liked my labels
+to look simple, lining up on even boundaries of hundreds or thousands of
+cylinders. If I wanted a 20G partition, I would allocate 2500 cylinders
+(one cylinder (255 heads x 63 sectors x 512 bytes ~ 8G) instead of asking
+for 20G and getting random numbers in my labels. You will see this later.
+
+* Booting
+
+Partition Magic also cames with Boot Magic to manage the boot process.
+Boot Magic formed my later concept of booting. When enabled, it installs
+itself in the MBR, and then chains to the boot code of each partition.
+
+Windows installs it's boot code in both places, and Linux gives you the
+option. From now on, assume that every OS writes its boot code into its
+own partition rather than the MBR. The sole exception is the Rescue Linux
+that exists mostly as a Boot Manager as well as to fix any problems.
+
+it's amazing what you can do once you have a working GRUB on a disk.
+
+Linux used to use LILO more often than GRUB. This doesn't really matter,
+but now GRUB is king, and I'd just as soon forget LILO, so I won't mention
+it further.
+
