@@ -23,7 +23,7 @@ cd /p
 		break
 	done
 	test -d .$x && cd .$x &&
-	for x in lost+found dist jcottrell
+	for x in lost+found dist jcottrell CentOS
 	do
 		test -d $x && mv $x ..
 	done
@@ -43,6 +43,7 @@ cp /root/pre.log /mnt/sysimage/root
 
 m4
 make
-#subversion
-#vim-enhanced
+rsync
+subversion
+vim-enhanced
 
