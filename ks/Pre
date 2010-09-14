@@ -10,6 +10,8 @@ P=/dev/ROOT
 exec 1>/root/pre.log 2>&1
 set -x
 : ================================
+: Host: HOST Label: LABEL Type: TYPE
+: ================================
 lvm vgchange -a y
 mkdir /p
 mount $P /p
