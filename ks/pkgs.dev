@@ -103,11 +103,38 @@ emacs
 vim-X11
 
 ################################################################
+@engineering-and-scientific
+################################################################
+
+#d	-gnuplot
+#d	-units
+#o	 lam
+#o	 lapack
+#o	 pvm
+
+################################################################
 @ftp-server
 ################################################################
 
 vsftpd
 xferstats
+
+################################################################
+@graphical-internet
+################################################################
+
+-ekiga
+-evolution
+-evolution-connector
+-evolution-webcal
+#d	-firefox
+-gnome-themes
+-java-1.4.2-gcj-compat-plugin
+#d	-nspluginwrapper
+#d	-pidgin	
+gftp
+thunderbird
+xchat
 
 ################################################################
 @java
