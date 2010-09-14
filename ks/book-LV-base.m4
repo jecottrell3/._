@@ -2,7 +2,7 @@ dnl
 dnl	MyBook LVM Base dnl
 dnl
 define(`HOST', `book')dnl
-define(`LABEL', `JB')dnl
+define(`LABEL', `LV')dnl
 define(`TYPE', `base')dnl
 define(`GFX',  `text')dnl
 dnl
@@ -10,7 +10,7 @@ define(`ISO',  `sdb2')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
 define(`ORDER',  `sdb,sda')dnl
 dnl
-define(`ROOT', `book/TYPE')dnl
+define(`ROOT', `HOST/TYPE')dnl
 dnl define(`HOME', `sdb2')dnl
 dnl define(`VFAT', `sdb3')dnl
 dnl define(`DIST', `sda1')dnl

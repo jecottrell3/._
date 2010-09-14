@@ -1,5 +1,5 @@
 dnl
-dnl	Passport PB Core dnl
+dnl	Passport PB Dev dnl
 dnl
 define(`HOST', `pass')dnl
 define(`LABEL', `PB')dnl

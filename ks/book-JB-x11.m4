@@ -1,5 +1,5 @@
 dnl
-dnl	MyBook JB Core dnl
+dnl	MyBook JB X11 dnl
 dnl
 define(`HOST', `book')dnl
 define(`LABEL', `JB')dnl

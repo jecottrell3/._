@@ -1,5 +1,5 @@
 dnl
-dnl	MyBook JB Core dnl
+dnl	MyBook JB Dev dnl
 dnl
 define(`HOST', `book')dnl
 define(`LABEL', `JB')dnl
