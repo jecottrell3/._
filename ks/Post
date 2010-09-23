@@ -11,7 +11,8 @@ set -x
 exec 2>&1
 
 mkdir -p /svn
-mount -v /home
+# mount -v /home
+mount --bind /boot /home
 
 : :::::::::::::::::::::
 : Get RBJ Environment :
@@ -19,9 +20,9 @@ mount -v /home
 
 date
 cd /root
-ln -s /home/jcottrell/._ .
 env | sort -o env.log
 export HOME=/root
+ln -s /home/jcottrell/._ .
 
 set +x; echo \
 . ._/setup
@@ -40,8 +41,8 @@ tmp/.mkrbj
 : :::::::::::::::::::::::::::::::
 
 date
-test  -d   /dist/. &&
-rsync -vax /dist/. /
+test  -d   /home/dist/. &&
+rsync -vax /home/dist/. /
 
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::

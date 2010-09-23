@@ -3,7 +3,7 @@
 ################################################################
 
 install
-harddrive --partition=sdb1 --dir=/CentOS/5.5/i386/cd
+harddrive --partition=sdb2 --dir=/CentOS/5.5/i386/cd
 text
 lang en_US.UTF-8
 keyboard us
@@ -19,13 +19,13 @@ bootloader --location=partition --driveorder=sdb,sda
 ####    Use DHCP -- fix later
 ################################################################
 
-network --bootproto dhcp --hostname mybook
+network --bootproto dhcp --hostname book
 
 ################################################################
 ####	Partitions	#### WARNING #### FORMATS AUTOMATICALLY
 ################################################################
 
-part / --fstype ext3 --onpart sdb2 --fsoptions=noatime --label=JH
+part / --fstype ext3 --onpart sdb1 --fsoptions=noatime --label=JR
 
 ################################################################
 ####	Package Selection

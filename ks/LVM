@@ -22,8 +22,8 @@ define(`EXISTING', `--noformat --useexisting')dnl
 define(`NOATIME',  `--fsoptions=noatime')dnl
 define(`NOAUTO',   `NOATIME,noauto')dnl
 
-part /boot EXT3 ONPART sdb1 NOATIME
-part /home EXT3 ONPART sdb2 NOATIME
+part /resq EXT3 ONPART sdb1 NOATIME
+part /boot EXT3 ONPART sdb2 NOATIME
 part /vfat VF32 ONPART sdb3 NOAUTO
 part pv.4       ONPART sdb4
 volgroup HOST   EXISTING pv.4
