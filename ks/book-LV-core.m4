@@ -1,34 +1,21 @@
 dnl
-dnl	MyBook LVM Core dnl
+dnl	Book LVM Core dnl
 dnl
-define(`HOST', `book')dnl
+include(`Host/Book')dnl
+dnl
 define(`LABEL', `LV')dnl
 define(`TYPE', `core')dnl
-define(`GFX',  `text')dnl
-dnl
-define(`ISO',  `sdb1')dnl
-define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
-define(`ORDER',  `sdb,sda')dnl
-dnl
 define(`ROOT', `HOST/TYPE')dnl
-dnl define(`HOME', `sdb2')dnl
-dnl define(`VFAT', `sdb3')dnl
-dnl define(`DIST', `sda1')dnl
-dnl define(`SWAP', `sda15')dnl
-dnl
-define(`NOBASE', `--nobase')dnl
 define(`XCONFIG', `skipx')dnl
+define(`NOBASE', `--nobase')dnl
 dnl
 include(`Head')dnl
 dnl include(`net')dnl
 include(`LVM')dnl
 include(`Pre')dnl
+dnl
 include(`pkgs.core')dnl
-gpm
-ntsysv
-setuptool
-man
-man-pages
+dnl
 include(`Post')dnl
 dnl
 dnl	END
