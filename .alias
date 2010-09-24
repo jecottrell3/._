@@ -28,8 +28,8 @@ alias	x='for x in'
 alias	y='fg %-'
 alias	zz=suspend
 
-function c() { cd    $* | ls -FAC; }
-function u() { cd ../$* | ls -FAC; }
+function c() { cd    $* && ls -FAC; }
+function u() { cd ../$* && ls -FAC; }
 function s() { cd $(echo "$PWD" | sed "s%$1%$2%"); }
 
 function loudly() { echo "$@"; eval "$@"; }
