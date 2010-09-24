@@ -1,0 +1,65 @@
+################################################################
+@core
+################################################################
+
+#m	-SysVinit
+#m	-authconfig
+#m	-basesystem
+#m	-bash
+#m	-centos-release
+#m	-centos-release-notes
+#m	-coreutils
+#m	-cpio
+#m	-e2fsprogs
+#m	-ed
+#m	-file
+#m	-filesystem
+#m	-glibc
+#m	-hdparm
+#m	-initscripts
+#m	-iproute
+-iprutils
+#m	-iputils
+#m	-kbd
+#m	-kudzu
+#m	-libgcc
+-libhugetlbfs
+#m	-libtermcap
+#m	-mkinitrd
+#m	-passwd
+-policycoreutils
+#m	-prelink
+#m	-procps
+#m	-readline
+#m	-redhat-logos
+-rootfiles
+#m	-rpm
+-selinux-policy-targeted
+-setools
+-setserial
+#m	-setup
+#m	-shadow-utils
+#m	-sysklogd
+#m	-termcap
+#m	-util-linux
+#m	-vim-minimal
+#d	-dhclient
+-dhcpv6-client
+-ecryptfs-utils
+-elilo
+-gnu-efi
+#d	-grub
+#d	-openssh-clients
+#d	-openssh-server
+-ppc64-utils
+-s390utils
+-ppc64-utils
+-s390utils
+#d	-sysfsutils
+#d	-udftools
+-yaboot
+#d	-yum
+Deployment_Guide-en-US
+#o	 freeipmi
+#o	 rsyslog
+

@@ -1,0 +1,25 @@
+`#' BEGIN __file__
+################################
+`####' HOST LABEL TYPE Kickstart ####
+################################
+
+include(`Head')dnl
+include(`net')dnl
+dnl include(`Disk')dnl
+dnl include(`Pre')dnl
+dnl include(`pkgs.core')dnl
+dnl include(`Post')dnl
+
+dnl define(`getall', `ifelse(`$#', `0', , `$#', `1', `include(`$1')
+dnl ', `include(`$1')
+dnl getall(shift($@))')')
+
+define(`getall', `include(`$1')dnl
+ifelse(`$#', `1', , `getall(shift($@))')')
+
+getall(PKGS)
+
+################################
+`#'  END  __file__
+dnl
+m4exit(`0')

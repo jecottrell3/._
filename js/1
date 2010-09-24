@@ -1,0 +1,14 @@
+m4trace: -1- define
+m4trace: -1- defn
+m4trace: -2- defn
+m4trace: -1- incall
+m4trace: -1- foreach
+m4trace: -1- patsubst
+m4trace: -1- sinclude
+m4trace: -1- ifelse
+m4trace: -2- defn
+m4trace: -1- incdir
+m4trace: -1- foreach
+m4trace: -1- patsubst
+m4trace: -1- sinclude
+m4trace: -1- ifelse

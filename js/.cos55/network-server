@@ -1,0 +1,17 @@
+################################################################
+-@network-server
+################################################################
+
+#d	-cyrus-sasl
+#o	 amanda-server
+#o	 dhcp
+#o	 dhcpv6
+#o	 freeradius
+#o	 krb5-server
+#o	 openldap-servers
+#o	 privoxy
+#o	 quagga
+#o	 radvd
+#o	 vnc-server
+#o	 ypserv
+

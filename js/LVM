@@ -1,0 +1,38 @@
+################################################################
+####    Use DHCP -- fix later
+################################################################
+
+network --bootproto dhcp --hostname HOST
+#network --nodns --gateway=1.2.3.4
+#network --device eth0 --ip=1.2.3.6 --netmask=255.255.255.0
+#network --nameserver=68.87.73.242
+#network --nameserver=68.87.71.226
+#network --nameserver=68.87.64.196
+
+################################################################
+####	Partitions
+################################################################
+
+#clearpart --linux
+
+define(`EXT3',     `--fstype ext3')dnl
+define(`VF32',     `--fstype vfat')dnl
+define(`ONPART',   `--noformat --onpart')dnl
+define(`EXISTING', `--noformat --useexisting')dnl
+define(`NOATIME',  `--fsoptions=noatime')dnl
+define(`NOAUTO',   `NOATIME,noauto')dnl
+
+part /boot EXT3 ONPART sdb1 NOATIME
+part /home EXT3 ONPART sdb2 NOATIME
+part /vfat VF32 ONPART sdb3 NOAUTO
+part pv.4       ONPART sdb4
+volgroup HOST   EXISTING pv.4
+logvol /   EXT3 EXISTING    --name=TYPE --vgname=HOST
+dnl part swap       ONPART /dev/mybook/myswap
+
+dnl ifdef(`ROOT', `part /     EXT3 ONPART ROOT FSOPTS')
+dnl ifdef(`HOME', `part /home EXT3 ONPART HOME FSOPTS')
+dnl ifdef(`DIST', `part /dist EXT3 ONPART DIST FSOPTS')
+dnl ifdef(`REPO', `part /repo EXT3 ONPART REPO FSOPTS')
+dnl ifdef(`SWAP', `part swap       ONPART SWAP')
+

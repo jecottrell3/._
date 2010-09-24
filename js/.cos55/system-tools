@@ -1,0 +1,54 @@
+################################################################
+-@system-tools
+################################################################
+
+#d	-OpenIPMI
+#d	-bluez-gnome
+#d	-bluez-hcidump
+#dx	-ckermit
+#d	-hwbrowser
+#d	-net-snmp-libs
+#d	-nmap
+#d	-ntp
+#dx	-open
+#d	-openldap-clients
+#d	-samba-client
+#d	-screen
+#d	-vnc
+#d	-xdelta
+#d	-zisofs-tools
+#d	-zsh
+#o	 adjtimex
+#o	 am-utils
+#o	 amanda-client
+#o	 arptables_jf
+#o	 arpwatch
+#o	 audit
+#o	 avahi-tools
+#o	 createrepo
+#o	 dstat
+#o	 dtach
+#o	 festival
+#o	 gnome-nettool
+#o	 gnutls-utils
+#o	 iptraf
+#o	 lslk
+#o	 lsscsi
+#o	 mc
+#o	 mrtg
+#o	 mt-st
+#o	 mtx
+#o	 net-snmp-utils
+#o	 nmap-frontend
+#o	 rdesktop
+#o	 sblim-gather
+#o	 sblim-wbemcli
+#o	 sysstat
+#o	 tn5250
+#o	 tsclient
+#o	 uucp
+#o	 uuidd
+#o	 vlock
+#o	 wireshark-gnome
+#o	 x3270
+
