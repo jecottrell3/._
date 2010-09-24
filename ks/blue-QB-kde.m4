@@ -6,7 +6,7 @@ define(`LABEL', `QB')dnl
 define(`TYPE', `kde')dnl
 define(`GFX',  `text')dnl
 dnl
-define(`ISO',  `sdb2')dnl
+define(`ISO',  `sdb1')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
 define(`ORDER',  `sdb,sda')dnl
 dnl

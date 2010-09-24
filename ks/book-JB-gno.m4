@@ -7,7 +7,7 @@ include(`pkgs.app')dnl
 define(`TYPE', `gno')dnl
 define(`GFX',  `graphical')dnl
 dnl
-define(`ISO',  `sdb2')dnl
+define(`ISO',  `sdb1')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
 define(`ORDER',  `sdb,sda')dnl
 dnl
