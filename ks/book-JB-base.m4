@@ -1,8 +1,8 @@
 dnl
-dnl	MyBook JB Base dnl
+dnl	MyBook JH Base dnl
 dnl
 define(`HOST', `book')dnl
-define(`LABEL', `JB')dnl
+define(`LABEL', `JH')dnl
 define(`TYPE', `base')dnl
 define(`GFX',  `text')dnl
 dnl
@@ -10,7 +10,7 @@ define(`ISO',  `sdb1')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
 define(`ORDER',  `sdb,sda')dnl
 dnl
-define(`ROOT', `sdb1')dnl
+define(`ROOT', `sdb2')dnl
 dnl define(`DIST', `sda1')dnl
 dnl define(`HOME', `sda14')dnl
 dnl define(`SWAP', `sda15')dnl

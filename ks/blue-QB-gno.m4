@@ -1,8 +1,8 @@
 dnl
-dnl	Blueport QB Gnome dnl
+dnl	Blueport QH Gnome dnl
 dnl
 define(`HOST', `blue')dnl
-define(`LABEL', `QB')dnl
+define(`LABEL', `QH')dnl
 define(`TYPE', `gno')dnl
 define(`GFX',  `text')dnl
 dnl
@@ -10,9 +10,9 @@ define(`ISO',  `sdb1')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
 define(`ORDER',  `sdb,sda')dnl
 dnl
-define(`ROOT', `sdb1')dnl
+define(`ROOT', `sdb2')dnl
 dnl define(`DIST', `sda1')dnl
-define(`HOME', `sdb2')dnl
+dnl define(`HOME', `sdb2')dnl
 define(`VFAT', `sdb3')dnl
 dnl
 define(`NOBASE', `')dnl

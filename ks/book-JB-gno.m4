@@ -1,9 +1,8 @@
 dnl
-dnl	MyBook JB Gnome dnl
+dnl	MyBook JH Gnome dnl
 dnl
 define(`HOST', `book')dnl
-define(`LABEL', `JB')dnl
-include(`pkgs.app')dnl
+define(`LABEL', `JH')dnl
 define(`TYPE', `gno')dnl
 define(`GFX',  `graphical')dnl
 dnl
@@ -11,7 +10,7 @@ define(`ISO',  `sdb1')dnl
 define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
 define(`ORDER',  `sdb,sda')dnl
 dnl
-define(`ROOT', `sdb1')dnl
+define(`ROOT', `sdb2')dnl
 dnl define(`DIST', `sda1')dnl
 dnl define(`HOME', `sda14')dnl
 dnl define(`SWAP', `sda15')dnl
@@ -28,6 +27,7 @@ include(`pkgs.base')dnl
 include(`pkgs.x11')dnl
 include(`pkgs.dev')dnl
 include(`pkgs.srv')dnl
+include(`pkgs.app')dnl
 include(`pkgs.kde')dnl
 dnl include(`Post')dnl
 dnl
