@@ -11,8 +11,17 @@ set -x
 exec 2>&1
 
 mkdir -p /svn
-# mount -v /home
-mount --bind /boot /home
+
+: :::::::::::::::::::::
+: Link Important Dirs :
+: :::::::::::::::::::::
+
+for dir in jcottrell dist
+do
+	test -d /boot/$dir &&
+	ln -s   /boot/$dir /
+	ln -s      ../$dir /home
+done
 
 : :::::::::::::::::::::
 : Get RBJ Environment :

@@ -22,10 +22,14 @@ define(`EXISTING', `--noformat --useexisting')dnl
 define(`NOATIME',  `--fsoptions=noatime')dnl
 define(`NOAUTO',   `NOATIME,noauto')dnl
 
-ifdef(`ROOT', `part /     EXT3 ONPART ROOT NOATIME')
-ifdef(`HOME', `part /home EXT3 ONPART HOME NOATIME')
-ifdef(`VFAT', `part /vfat VF32 ONPART VFAT NOAUTO')
-ifdef(`DIST', `part /dist EXT3 ONPART DIST NOATIME')
-ifdef(`REPO', `part /repo EXT3 ONPART REPO NOATIME')
-ifdef(`SWAP', `part swap       ONPART SWAP')
+part /resq EXT3 ONPART sdb1 NOAUTO
+part /     EXT3 ONPART sdb2 NOATIME
+part /vfat VF32 ONPART sdb3 NOAUTO
+
+dnl ifdef(`ROOT', `part /     EXT3 ONPART ROOT NOATIME')
+dnl ifdef(`HOME', `part /home EXT3 ONPART HOME NOATIME')
+dnl ifdef(`VFAT', `part /vfat VF32 ONPART VFAT NOAUTO')
+dnl ifdef(`DIST', `part /dist EXT3 ONPART DIST NOATIME')
+dnl ifdef(`REPO', `part /repo EXT3 ONPART REPO NOATIME')
+dnl ifdef(`SWAP', `part swap       ONPART SWAP')
 

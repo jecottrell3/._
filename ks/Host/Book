@@ -1,0 +1,10 @@
+dnl
+dnl	Black 500G Mybook Common Definitions
+dnl
+include(`Host/Pass')dnl		Just Like Black Passport
+dnl
+define(`HOST', `book')dnl	Different Host
+define(`LABEL', `JH')dnl	Different Label
+dnl
+dnl	END
+dnl
