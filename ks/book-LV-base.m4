@@ -1,22 +1,15 @@
 dnl
 dnl	Book LVM Base dnl
 dnl
-include(`Host/Book')dnl
+include(`Host/book')dnl
+include(`Type/base')dnl
 dnl
 define(`LABEL', `LV')dnl
-define(`TYPE', `base')dnl
-define(`ROOT', `HOST/TYPE')dnl
-define(`XCONFIG', `skipx')dnl
 dnl
-include(`Head')dnl
-dnl include(`net')dnl
-include(`LVM')dnl
-include(`Pre')dnl
+include(`Main')dnl
 dnl
 include(`pkgs.core')dnl
 include(`pkgs.base')dnl
-dnl
-include(`Post')dnl
 dnl
 dnl	END
 dnl

@@ -1,16 +1,12 @@
 dnl
 dnl	Pass LVM Gnome dnl
 dnl
-include(`Host/Pass')dnl
+include(`Host/pass')dnl
+include(`Type/gno')dnl
 dnl
 define(`LABEL', `LV')dnl
-define(`TYPE', `gno')dnl
-define(`ROOT', `HOST/TYPE')dnl
 dnl
-include(`Head')dnl
-dnl include(`net')dnl
-include(`LVM')dnl
-include(`Pre')dnl
+include(`Main')dnl
 dnl
 include(`pkgs.core')dnl
 include(`pkgs.base')dnl
@@ -19,8 +15,6 @@ include(`pkgs.dev')dnl
 include(`pkgs.srv')dnl
 include(`pkgs.app')dnl
 include(`pkgs.gno')dnl
-dnl
-include(`Post')dnl
 dnl
 dnl	END
 dnl
