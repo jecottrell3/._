@@ -1,0 +1,8 @@
+title TB-INSTALL
+	root (hd0,0)
+	kernel /cos54iso/vmlinuz ks=hd:sda14:/home/kick/yoko-TB-base.ks
+	initrd /cos54iso/initrd.img
+title TB-CentOS-5.4-BASE
+	root (hd0,10)
+	chainloader +1
+	savedefault

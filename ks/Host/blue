@@ -1,0 +1,10 @@
+dnl
+dnl	Blue 500G Passport Common Definitions
+dnl
+include(`Host/default')dnl
+dnl
+define(`HOST', `blue')dnl
+define(`LABEL',`QH')dnl
+dnl
+dnl	END
+dnl

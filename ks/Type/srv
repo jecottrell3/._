@@ -1,0 +1,2 @@
+define(`TYPE', `srv')dnl
+define(`PKGS', `core,base,x11,dev,srv')dnl

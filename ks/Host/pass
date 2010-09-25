@@ -1,0 +1,10 @@
+dnl
+dnl	Black 120G Passport Common Definitions
+dnl
+include(`Host/default')dnl
+dnl
+define(`HOST', `pass')dnl
+define(`LABEL', `PH')dnl
+dnl
+dnl	END
+dnl

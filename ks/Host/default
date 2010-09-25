@@ -1,0 +1,35 @@
+dnl
+dnl	Default Definitions
+dnl
+define(`UTC',  `--utc')dnl
+define(`GFX',  `text')dnl
+define(`NOBASE', `')dnl
+define(`MONITOR', `--resolution=1600x900 --depth=24')dnl
+define(`XCONFIG', `xconfig --startxonboot MONITOR')dnl
+dnl
+dnl	Source Media (split to OS/xxx)
+dnl
+define(`ISO',  `sdb1')dnl
+define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
+define(`ORDER',`sdb,sda')dnl
+dnl
+dnl	Default Disk Partitions
+dnl
+define(`RESQ', `sdb1')dnl
+define(`ROOT', `sdb2')dnl
+dnl define(`HOME', `sdxx')dnl
+define(`VFAT', `sdb3')dnl
+define(`PV4',  `sdb4')dnl
+dnl
+dnl	Common Disk Definitions
+dnl
+define(`EXT3',     `--fstype ext3')dnl
+define(`VF32',     `--fstype vfat')dnl
+define(`ONPART',   `--noformat --onpart')dnl
+define(`EXISTING', `--noformat --useexisting')dnl
+define(`NOATIME',  `--fsoptions=noatime')dnl
+define(`NOAUTO',   `NOATIME,noauto')dnl
+define(`VFOPTS',   `--fsoptions=uid=654,gid=654,shortname=mixed,noauto')dnl
+dnl
+dnl	END
+dnl

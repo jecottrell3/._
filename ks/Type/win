@@ -1,0 +1,2 @@
+define(`TYPE', `win')dnl
+define(`PKGS', `core,base,x11,dev,srv,app,kde,gno')dnl
