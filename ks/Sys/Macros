@@ -33,7 +33,7 @@ define(`VFOPTS',   `--fsoptions=uid=654,gid=654,shortname=mixed,noauto')dnl
 dnl
 dnl	End Processing
 dnl
-define(`getall', `include(`pkgs.$1')dnl
+define(`getall', `include(`Pkgs/$1')dnl
 ifelse(`$#', `1', , `$0(shift($@))')')dnl
 m4wrap(`include(`Main')')dnl
 dnl
