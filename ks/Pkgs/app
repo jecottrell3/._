@@ -1,0 +1,65 @@
+################################################################
+@graphics
+################################################################
+
+#d	-ImageMagick
+-dcraw
+#d	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-print-plugin
+#d	-netpbm-progs
+-sane-frontends
+-xsane
+-xsane-gimp
+#o	 agg
+#o	 kdegraphics
+libsane-hpaio
+#o	 xfig
+
+################################################################
+@office
+################################################################
+
+#d	-evince
+#d	-openoffice.org-calc
+#d	-openoffice.org-draw
+#d	-openoffice.org-graphicfilter
+#d	-openoffice.org-impress
+#d	-openoffice.org-math
+#d	-openoffice.org-writer
+#d	-openoffice.org-xsltfilter
+#d	-planner
+#ox	 inkscape
+#o	 jpilot
+#o	 kdepim
+#o	 openoffice.org-base
+#o	 openoffice.org-emailmerge
+#o	 openoffice.org-javafilter
+#o	 openoffice.org-pyuno
+#o	 openoffice.org-testtools
+#o	 taskjuggler
+#o	 tetex-xdvi
+
+################################################################
+@sound-and-video
+################################################################
+
+#m	-alsa-utils
+#m	-sox
+#m	-vorbis-tools
+#d	-cdda2wav
+#d	-cdparanoia
+#d	-cdrdao
+#d	-cdrecord
+#d	-mkisofs
+#d	-rhythmbox
+#d	-sound-juicer
+#d	-totem
+#dx	-totem-mozplugins
+#o	 dvgrab
+k3b
+kdemultimedia
+mikmod
+xcdroast
+
