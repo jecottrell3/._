@@ -21,14 +21,15 @@ define(`ONPART',   `--noformat --onpart')dnl
 define(`EXISTING', `--noformat --useexisting')dnl
 define(`NOATIME',  `--fsoptions=noatime')dnl
 define(`NOAUTO',   `NOATIME,noauto')dnl
+define(`VFOPTS',   `--fsoptions=uid=654,gid=654,shortname=mixed,noauto')dnl
 
 part /resq EXT3 ONPART sdb1 NOAUTO
 part /     EXT3 ONPART sdb2 NOATIME
-part /vfat VF32 ONPART sdb3 NOAUTO
+part /vfat VF32 ONPART sdb3 VFOPTS
 
 dnl ifdef(`ROOT', `part /     EXT3 ONPART ROOT NOATIME')
 dnl ifdef(`HOME', `part /home EXT3 ONPART HOME NOATIME')
-dnl ifdef(`VFAT', `part /vfat VF32 ONPART VFAT NOAUTO')
+dnl ifdef(`VFAT', `part /vfat VF32 ONPART VFAT VFOPTS')
 dnl ifdef(`DIST', `part /dist EXT3 ONPART DIST NOATIME')
 dnl ifdef(`REPO', `part /repo EXT3 ONPART REPO NOATIME')
 dnl ifdef(`SWAP', `part swap       ONPART SWAP')

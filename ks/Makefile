@@ -24,7 +24,8 @@ BLUE=${BLUE1} ${BLUE2} ${BLUE3} ${BLUE4}
 ALL=${BOOK} ${PASS} ${BLUE}
 AND=${YOKO}
 
-COMMON1=Head Disk LVM Pre Post pkgs.core
+COMMON0=Host/default 
+COMMON1=Host/default Main Head DISK Pre Post pkgs.core
 COMMON2=${COMMON1} pkgs.base pkgs.x11 pkgs.dev pkgs.srv
 
 all:	pass blue book
@@ -34,7 +35,7 @@ blue:	${BLUE}
 book:	${BOOK}
 
 install:	all
-	rsync -v *.init *.ks /vfat
+	rsync -v *.init *.ks /vfat/ks
 
 clean:
 	rm -rf ${ALL}
@@ -43,70 +44,65 @@ new:	clean all
 
 ${INIT}: ${COMMON1}
 
-yoko-TA-core.ks: ${COMMON1} 
-yoko-TB-base.ks: ${COMMON1} pkgs.base
-yoko-TC-x11.ks:  ${COMMON1} pkgs.base pkgs.x11
-yoko-TD-dev.ks:  ${COMMON1} pkgs.base pkgs.x11 pkgs.dev
+book-JH-core.ks: ${COMMON1} Host/book Type/core 
+book-JH-base.ks: ${COMMON1} Host/book Type/base pkgs.base
+book-JH-x11.ks:  ${COMMON1} Host/book Type/x11  pkgs.base pkgs.x11
+book-JH-dev.ks:  ${COMMON1} Host/book Type/dev  pkgs.base pkgs.x11 pkgs.dev
 
-book-JH-core.ks: ${COMMON1} 
-book-JH-base.ks: ${COMMON1} pkgs.base
-book-JH-x11.ks:  ${COMMON1} pkgs.base pkgs.x11
-book-JH-dev.ks:  ${COMMON1} pkgs.base pkgs.x11 pkgs.dev
+book-JH-srv.ks:  ${COMMON2} Host/book Type/srv 
+book-JH-kde.ks:  ${COMMON2} Host/book Type/kde  pkgs.app  pkgs.kde
+book-JH-gno.ks:  ${COMMON2} Host/book Type/gno  pkgs.app           pkgs.gno
+book-JH-win.ks:  ${COMMON2} Host/book Type/win  pkgs.app  pkgs.kde pkgs.gno
 
-book-JH-srv.ks:  ${COMMON2}
-book-JH-kde.ks:  ${COMMON2} pkgs.app  pkgs.kde
-book-JH-gno.ks:  ${COMMON2} pkgs.app           pkgs.gno
-book-JH-win.ks:  ${COMMON2} pkgs.app  pkgs.kde pkgs.gno
+book-LV-core.ks: ${COMMON1} Host/book Type/core 
+book-LV-base.ks: ${COMMON1} Host/book Type/base pkgs.base
+book-LV-x11.ks:  ${COMMON1} Host/book Type/x11  pkgs.base pkgs.x11
+book-LV-dev.ks:  ${COMMON1} Host/book Type/dev  pkgs.base pkgs.x11 pkgs.dev
 
-book-LV-core.ks: ${COMMON1} 
-book-LV-base.ks: ${COMMON1} pkgs.base
-book-LV-x11.ks:  ${COMMON1} pkgs.base pkgs.x11
-book-LV-dev.ks:  ${COMMON1} pkgs.base pkgs.x11 pkgs.dev
+book-LV-srv.ks:  ${COMMON2} Host/book Type/srv 
+book-LV-kde.ks:  ${COMMON2} Host/book Type/kde  pkgs.app  pkgs.kde
+book-LV-gno.ks:  ${COMMON2} Host/book Type/gno  pkgs.app           pkgs.gno
+book-LV-win.ks:  ${COMMON2} Host/book Type/win  pkgs.app  pkgs.kde pkgs.gno
 
-book-LV-srv.ks:  ${COMMON2}
-book-LV-kde.ks:  ${COMMON2} pkgs.app  pkgs.kde
-book-LV-gno.ks:  ${COMMON2} pkgs.app           pkgs.gno
-book-LV-win.ks:  ${COMMON2} pkgs.app  pkgs.kde pkgs.gno
+pass-PH-core.ks: ${COMMON1} Host/pass Type/core 
+pass-PH-base.ks: ${COMMON1} Host/pass Type/base pkgs.base
+pass-PH-x11.ks:  ${COMMON1} Host/pass Type/x11  pkgs.base pkgs.x11
+pass-PH-dev.ks:  ${COMMON1} Host/pass Type/dev  pkgs.base pkgs.x11 pkgs.dev
 
-pass-PH-core.ks: ${COMMON1} 
-pass-PH-base.ks: ${COMMON1} pkgs.base
-pass-PH-x11.ks:  ${COMMON1} pkgs.base pkgs.x11
-pass-PH-dev.ks:  ${COMMON1} pkgs.base pkgs.x11 pkgs.dev
+pass-PH-srv.ks:  ${COMMON2} Host/pass Type/srv 
+pass-PH-kde.ks:  ${COMMON2} Host/pass Type/kde  pkgs.app  pkgs.kde
+pass-PH-gno.ks:  ${COMMON2} Host/pass Type/gno  pkgs.app           pkgs.gno
+pass-PH-win.ks:  ${COMMON2} Host/pass Type/win  pkgs.app  pkgs.kde pkgs.gno
 
-pass-PH-srv.ks:  ${COMMON2}
-pass-PH-kde.ks:  ${COMMON2} pkgs.app  pkgs.kde
-pass-PH-gno.ks:  ${COMMON2} pkgs.app           pkgs.gno
-pass-PH-win.ks:  ${COMMON2} pkgs.app  pkgs.kde pkgs.gno
+pass-LV-core.ks: ${COMMON1} Host/pass Type/core 
+pass-LV-base.ks: ${COMMON1} Host/pass Type/base pkgs.base
+pass-LV-x11.ks:  ${COMMON1} Host/pass Type/x11  pkgs.base pkgs.x11
+pass-LV-dev.ks:  ${COMMON1} Host/pass Type/dev  pkgs.base pkgs.x11 pkgs.dev
 
-pass-LV-core.ks: ${COMMON1} 
-pass-LV-base.ks: ${COMMON1} pkgs.base
-pass-LV-x11.ks:  ${COMMON1} pkgs.base pkgs.x11
-pass-LV-dev.ks:  ${COMMON1} pkgs.base pkgs.x11 pkgs.dev
+pass-LV-srv.ks:  ${COMMON2} Host/pass Type/srv 
+pass-LV-kde.ks:  ${COMMON2} Host/pass Type/kde  pkgs.app  pkgs.kde
+pass-LV-gno.ks:  ${COMMON2} Host/pass Type/gno  pkgs.app           pkgs.gno
+pass-LV-win.ks:  ${COMMON2} Host/pass Type/win  pkgs.app  pkgs.kde pkgs.gno
 
-pass-LV-srv.ks:  ${COMMON2}
-pass-LV-kde.ks:  ${COMMON2} pkgs.app  pkgs.kde
-pass-LV-gno.ks:  ${COMMON2} pkgs.app           pkgs.gno
-pass-LV-win.ks:  ${COMMON2} pkgs.app  pkgs.kde pkgs.gno
+blue-PH-core.ks: ${COMMON1} Host/blue Type/core 
+blue-PH-base.ks: ${COMMON1} Host/blue Type/base pkgs.base
+blue-PH-x11.ks:  ${COMMON1} Host/blue Type/x11  pkgs.base pkgs.x11
+blue-PH-dev.ks:  ${COMMON1} Host/blue Type/dev  pkgs.base pkgs.x11 pkgs.dev
 
-blue-PH-core.ks: ${COMMON1} 
-blue-PH-base.ks: ${COMMON1} pkgs.base
-blue-PH-x11.ks:  ${COMMON1} pkgs.base pkgs.x11
-blue-PH-dev.ks:  ${COMMON1} pkgs.base pkgs.x11 pkgs.dev
+blue-PH-srv.ks:  ${COMMON2} Host/blue Type/srv 
+blue-PH-kde.ks:  ${COMMON2} Host/blue Type/kde  pkgs.app  pkgs.kde
+blue-PH-gno.ks:  ${COMMON2} Host/blue Type/gno  pkgs.app           pkgs.gno
+blue-PH-win.ks:  ${COMMON2} Host/blue Type/win  pkgs.app  pkgs.kde pkgs.gno
 
-blue-PH-srv.ks:  ${COMMON2}
-blue-PH-kde.ks:  ${COMMON2} pkgs.app  pkgs.kde
-blue-PH-gno.ks:  ${COMMON2} pkgs.app           pkgs.gno
-blue-PH-win.ks:  ${COMMON2} pkgs.app  pkgs.kde pkgs.gno
+blue-LV-core.ks: ${COMMON1} Host/blue Type/core 
+blue-LV-base.ks: ${COMMON1} Host/blue Type/base pkgs.base
+blue-LV-x11.ks:  ${COMMON1} Host/blue Type/x11  pkgs.base pkgs.x11
+blue-LV-dev.ks:  ${COMMON1} Host/blue Type/dev  pkgs.base pkgs.x11 pkgs.dev
 
-blue-LV-core.ks: ${COMMON1} 
-blue-LV-base.ks: ${COMMON1} pkgs.base
-blue-LV-x11.ks:  ${COMMON1} pkgs.base pkgs.x11
-blue-LV-dev.ks:  ${COMMON1} pkgs.base pkgs.x11 pkgs.dev
-
-blue-LV-srv.ks:  ${COMMON2}
-blue-LV-kde.ks:  ${COMMON2} pkgs.app  pkgs.kde
-blue-LV-gno.ks:  ${COMMON2} pkgs.app           pkgs.gno
-blue-LV-win.ks:  ${COMMON2} pkgs.app  pkgs.kde pkgs.gno
+blue-LV-srv.ks:  ${COMMON2} Host/blue Type/srv 
+blue-LV-kde.ks:  ${COMMON2} Host/blue Type/kde  pkgs.app  pkgs.kde
+blue-LV-gno.ks:  ${COMMON2} Host/blue Type/gno  pkgs.app           pkgs.gno
+blue-LV-win.ks:  ${COMMON2} Host/blue Type/win  pkgs.app  pkgs.kde pkgs.gno
 
 %.ks:	%.m4
 	m4 $< > $@
