@@ -1,0 +1,90 @@
+`#' BEGIN __file__
+################################################################
+####	Finalization
+################################################################
+
+%post --log=/root/post.log
+
+#! /bin/sh -x
+
+set -x
+set -x
+exec 2>&1
+
+mkdir -p /svn
+
+: :::::::::::::::::::::
+: Link Important Dirs :
+: :::::::::::::::::::::
+
+for dir in jcottrell dist
+do
+	test -d /boot/$dir &&
+	ln -s   /boot/$dir /
+	ln -s      ../$dir /home
+done
+
+: :::::::::::::::::::::
+: Get RBJ Environment :
+: :::::::::::::::::::::
+
+date
+cd /root
+env | sort -o env.log
+export `HOME'=/root
+ln -s /home/jcottrell/._ .
+
+set +x; echo \
+. ._/setup
+. ._/setup
+set -x
+
+: ::::::::::::::::::::::::::::::
+: :: Create JCOTTRELL and RBJ ::
+: ::::::::::::::::::::::::::::::
+
+tmp/.mkjc cos5
+tmp/.mkrbj
+
+: :::::::::::::::::::::::::::::::
+: :: Distribute Standard Files ::
+: :::::::::::::::::::::::::::::::
+
+date
+test  -d   /home/dist/. &&
+rsync -vax /home/dist/. /
+
+: ::::::::::::::::::::::::::
+: :: Make Whatis Database ::
+: ::::::::::::::::::::::::::
+
+date
+echo makewhatis -v
+
+: ::::::::::::::::::::::::::
+: :: Make Locate Database ::
+: ::::::::::::::::::::::::::
+
+date
+umount  -av
+echo updatedb -v
+mount   -av
+date
+
+: ::::::::::::::
+: :: END Post ::
+: ::::::::::::::
+
+################################################################
+####	Package Selection
+################################################################
+
+%packages NOBASE
+
+m4
+make
+rsync
+subversion
+vim-enhanced
+
+`#' END   __file__

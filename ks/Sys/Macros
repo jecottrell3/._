@@ -1,3 +1,4 @@
+`#' BEGIN __file__
 dnl
 dnl	Default Definitions
 dnl
@@ -7,35 +8,35 @@ define(`NOBASE', `')dnl
 define(`MONITOR', `--resolution=1600x900 --depth=24')dnl
 define(`XCONFIG', `xconfig --startxonboot MONITOR')dnl
 dnl
-dnl	Source Media (split to OS/xxx)
-dnl
-define(`ISO',  `sdb1')dnl
-define(`DIR',  `/CentOS/5.5/i386/dvd')dnl
-define(`ORDER',`sdb,sda')dnl
-dnl
-dnl	Default Disk Partitions
-dnl
-define(`RESQ', `sdb1')dnl
-define(`ROOT', `sdb2')dnl
-dnl define(`HOME', `sdxx')dnl
-define(`VFAT', `sdb3')dnl
-define(`PV4',  `sdb4')dnl
-dnl
-dnl	Common Disk Definitions
-dnl
-define(`EXT3',     `--fstype ext3')dnl
-define(`VF32',     `--fstype vfat')dnl
-define(`ONPART',   `--noformat --onpart')dnl
-define(`EXISTING', `--noformat --useexisting')dnl
-define(`NOATIME',  `--fsoptions=noatime')dnl
-define(`NOAUTO',   `NOATIME,noauto')dnl
-define(`VFOPTS',   `--fsoptions=uid=654,gid=654,shortname=mixed,noauto')dnl
-dnl
 dnl	End Processing
 dnl
-define(`getall', `include(`Pkgs/$1')dnl
+dnl Append to $1 rest of $@
+dnl
+define(`append', `define(`$1', defn(`$1')`,shift($@)')')dnl
+dnl
+dnl Get All Packages from TAG Directory
+dnl
+define(`TAG',          `Pkgs')dnl FOR NOW
+define(`getall', `include(TAG`/$1')dnl should be TAG
 ifelse(`$#', `1', , `$0(shift($@))')')dnl
-m4wrap(`include(`Main')')dnl
+dnl
+m4wrap(`include(`Sys/Generate')')dnl
+dnl
+dnl	UNUSED MACROS
+dnl
+dnl For Each $@ substitute for {} into $1
+dnl
+dnl	define(`foreach', `patsubst(`$1', `{}', `$2')
+dnl	ifelse(`$#', `2', , `$0(`$1', shift(shift($@)))')')dnl
+dnl
+dnl Include all
+dnl
+dnl	define(`incall', `foreach(`sinclude<`cos55/{}'>
+dnl	', $@)')dnl
+dnl
+dnl	define(`incdir', `foreach(`sinclude<`$1/{}'>
+dnl	', shift($@))')dnl
 dnl
 dnl	END
 dnl
+`#' END   __file__

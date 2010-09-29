@@ -1,10 +1,12 @@
+`#' BEGIN __file__
 dnl
 dnl	Black 500G Mybook Common Definitions
 dnl
-include(`Host/default')dnl
+include(`Host/pass')dnl
 dnl
 define(`HOST', `book')dnl
 define(`LABEL',`JH')dnl
 dnl
 dnl	END
 dnl
+`#' END   __file__

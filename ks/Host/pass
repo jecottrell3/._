@@ -1,10 +1,16 @@
+`#' BEGIN __file__
 dnl
 dnl	Black 120G Passport Common Definitions
 dnl
-include(`Host/default')dnl
+include(`Sys/Macros')dnl
 dnl
 define(`HOST', `pass')dnl
 define(`LABEL', `PH')dnl
 dnl
+define(`DISK', `usb')dnl 
+define(`NET',  `dhcp')dnl
+define(`OS',   `cos55')dnl
+dnl
 dnl	END
 dnl
+`#' END   __file__

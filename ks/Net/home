@@ -1,0 +1,20 @@
+`#' BEGIN __file__
+define(`Static',	`--bootproto static --noipv6')dnl
+define(`Hostname',	`--hostname HOST')dnl
+define(`Ethernet',	`--device eth0')dnl
+define(`Network',	`1.2.3')dnl
+dnl define(`Address',	`--ip 1.2.3.99')dnl	from HOST
+define(`Gateway',	`--gateway 1.2.3.4')dnl
+define(`NetMask',	`--netmask 255.255.255.0')dnl
+define(`DNS',		`--nameserver 8.8.8.8')dnl
+define(`DNS1',		`--nameserver 68.87.73.242')dnl
+define(`DNS2',		`--nameserver 68.87.71.226')dnl
+define(`DNS3',		`--nameserver 68.87.64.196')dnl
+################################################################
+####    HOME Network
+################################################################
+
+network Hostname Gateway DNS
+network Static Ethernet Address NetMask
+
+`#' END   __file__

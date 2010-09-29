@@ -1,0 +1,19 @@
+`#' BEGIN __file__
+################################################################
+`####'	HOST LABEL TYPE Kickstart
+################################################################
+
+install
+harddrive --partition=ISO --dir=ISODIR
+GFX
+lang en_US.UTF-8
+keyboard us
+XCONFIG
+rootpw --iscrypted $1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1
+firewall --enabled --port=22:tcp
+authconfig --enableshadow --enablemd5 --enablelocauthorize
+selinux --disabled
+timezone UTC America/New_York
+bootloader --location=partition --driveorder=ORDER
+
+`#' END   __file__

@@ -1,0 +1,17 @@
+`#' BEGIN __file__
+dnl
+dnl	Yoko Common Definitions
+dnl
+include(`Sys/Macros')dnl
+dnl
+define(`HOST', `yoko')dnl
+define(`LABEL', `TH')dnl
+dnl
+define(`OS',   `cos55')dnl
+define(`NET',  `home')dnl
+define(`Address',  `1.2.3.9')dnl
+define(`DISK', `sata')dnl 
+dnl
+dnl	END
+dnl
+`#' END   __file__
