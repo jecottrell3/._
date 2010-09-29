@@ -1,0 +1,17 @@
+`#' BEGIN __file__
+dnl
+dnl	PATA Disk Partitions
+dnl
+dnl PATA disk is hda
+dnl ISO may be on external USB
+dnl
+dnl need to fix the NOAUTO attributes
+dnl in case ISO is elsewhere.
+dnl
+define(`ISO',	`sda1')dnl External
+define(`ISO',	`hda1')dnl Internal
+define(`RESQ',	`hda1')dnl
+define(`ROOT',	`hda2')dnl
+define(`VFAT',	`hda3')dnl
+define(`PV4',	`hda4')dnl
+`#' END   __file__
