@@ -1,3 +1,5 @@
+`#' BEGIN __file__
 define(`TYPE', `base')dnl
 define(`XCONFIG', `skipx')dnl
 define(`PKGS', `core,base')dnl
+`#' END   __file__

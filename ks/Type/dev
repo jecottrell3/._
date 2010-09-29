@@ -1,2 +1,4 @@
+`#' BEGIN __file__
 define(`TYPE', `dev')dnl
 define(`PKGS', `core,base,x11,dev')dnl
+`#' END   __file__

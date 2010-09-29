@@ -1,4 +1,6 @@
+`#' BEGIN __file__
 define(`TYPE', `core')dnl
 define(`XCONFIG', `skipx')dnl
 define(`NOBASE', `--nobase')dnl
 define(`PKGS', `core')dnl
+`#' END   __file__
