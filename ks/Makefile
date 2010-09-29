@@ -1,3 +1,5 @@
+VPATH=m4
+
 YOKO=yoko-TA-core.ks yoko-TB-base.ks yoko-TC-x11.ks yoko-TD-dev.ks
                                                                     
 INIT=pass.init blue.init book.init                         
@@ -24,12 +26,13 @@ BLUE=${BLUE1} ${BLUE2} ${BLUE3} ${BLUE4}
 ALL=${BOOK} ${PASS} ${BLUE}
 AND=${YOKO}
 
+S=Sys
 H=Host
 T=Type
 P=Pkgs
 
-COMMON0=Host/default 
-COMMON1=Host/default Main Head DISK Pre Post $P/core
+COMMON0=$S/Macros 
+COMMON1=$S/Macros $S/Generate $S/Head $S/Disk $S/Pre $S/Post $P/core
 COMMON2=${COMMON1} $P/base $P/x11 $P/dev $P/srv
 
 all:	pass blue book

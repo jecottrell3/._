@@ -1,8 +1,0 @@
-include(`Head')dnl
-dnl include(`net')dnl
-include(`DISK')dnl
-include(`Pre')dnl
-include(`Post')dnl
-dnl
-getall(PKGS)dnl
-
