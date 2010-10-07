@@ -13,4 +13,5 @@ define(`RESQ',	`sdb1')dnl
 define(`ROOT',	`sdb2')dnl
 define(`VFAT',	`sdb3')dnl
 define(`PV4',	`sdb4')dnl
+define(`ORDER',	`sdb,sda')dnl
 `#' END   __file__

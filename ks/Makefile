@@ -29,7 +29,7 @@ AND=${YOKO}
 S=Sys
 H=Host
 T=Type
-P=Pkgs
+P=cos55
 
 COMMON0=$S/Macros 
 COMMON1=$S/Macros $S/Generate $S/Head $S/Disk $S/Pre $S/Post $P/core

@@ -17,7 +17,7 @@ mkdir -p /svn
 : Link Important Dirs :
 : :::::::::::::::::::::
 
-for dir in jcottrell dist
+for dir in jcottrell # dist
 do
 	test -d /boot/$dir &&
 	ln -s   /boot/$dir /
@@ -50,9 +50,10 @@ tmp/.mkrbj
 : :: Distribute Standard Files ::
 : :::::::::::::::::::::::::::::::
 
+DIST=/home/jcottrell/._/dist
 date
-test  -d   /home/dist/. &&
-rsync -vax /home/dist/. /
+test  -d   $DIST/. &&
+rsync -vax $DIST/. /
 
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::

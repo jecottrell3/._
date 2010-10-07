@@ -10,6 +10,7 @@ dnl
 define(`DISK', `usb')dnl 
 define(`NET',  `dhcp')dnl
 define(`OS',   `cos55')dnl
+define(`OS',   `fc13')dnl
 dnl
 dnl	END
 dnl
