@@ -1,5 +1,5 @@
 `#' BEGIN __file__
-include(`OS/'OS)dnl
+dnl	include(`OS/'OS)dnl
 include(`Disk/'DISK)dnl
 dnl
 include(`Sys/Head')dnl

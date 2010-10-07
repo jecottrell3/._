@@ -53,7 +53,7 @@ tmp/.mkrbj
 DIST=/home/jcottrell/._/dist
 date
 test  -d   $DIST/. &&
-rsync -vax $DIST/. /
+rsync -Cvax $DIST/. /
 
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::
