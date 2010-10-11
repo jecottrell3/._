@@ -3,3 +3,5 @@ set ignorecase
 set hlsearch
 set incsearch
 set bg=light
+
+map \ :n<CR>

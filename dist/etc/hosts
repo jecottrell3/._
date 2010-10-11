@@ -1,0 +1,12 @@
+127.0.0.1 localhost.localdomain	  localhost  lh
+::1       localhost6.localdomain6 localhost6 lh6
+1.2.3.2  romo romo.homerj 0012179cd39f linksys-wga54g
+1.2.3.3  robo robo.homerj 000d0baf8026 buffalo-wli-tx4-g54hp
+1.2.3.4  roto roto.homerj 0014bf16471d linksys-wrt54g
+1.2.3.5  polo polo.homerj 008077859e6f brother-hl-2070n lp
+1.2.3.6  bogo bogo.homerj 00223fdc0ccf netgear-wpn311 0013d4151761 realtek-rtl8139
+1.2.3.7  mojo mojo.homerj 0004614359fa	tmp-on-loco
+1.2.3.8  loco loco.homerj 0004614359fa	out-of-service
+1.2.3.9  yoko yoko.homerj 001731840cea realtek-rtl8139
+1.2.3.10 fono fono.homerj 000475e61037 3com 0007e9f23b73 intel-pro100ve
+1.2.3.11 vodo vodo.homerj 00226bbe09fc linksys-lne100tx

@@ -45,7 +45,7 @@ alias	256='sha256sum -c'	512='sha512sum  -c'
 alias	cg='chgrp'	cn='chown'
 alias	cm='chmod'	cx='chmod a+x'
 
-alias	d='rm -i'
+alias	d='rm -i'	rfv='rm -rfv'
 alias	dm='less +/"^diff.*"' im='less +/"^Index: .*"'
 alias	dh='df -h'	uh='du -h'
 alias	g='egrep --color=auto' gc='egrep --color=always'

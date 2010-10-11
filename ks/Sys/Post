@@ -55,6 +55,11 @@ date
 test  -d   $DIST/. &&
 rsync -Cvax $DIST/. /
 
+cd /etc
+grep CentOS issue &&
+mv issue.cos55 issue
+cd /root
+
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::
 : ::::::::::::::::::::::::::
