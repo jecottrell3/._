@@ -1,0 +1,16 @@
+`#' BEGIN __file__
+dnl
+dnl	Dell Optiplex 960
+dnl
+include(`Sys/Macros')dnl
+dnl
+define(`HOST', `zell')dnl
+define(`LABEL', `ZH')dnl
+dnl
+define(`DISK', `sata')dnl 
+define(`NET',  `seas')dnl
+define(`Address',  `128.164.156.167')dnl
+dnl
+dnl	END
+dnl
+`#' END   __file__
