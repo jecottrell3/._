@@ -3,7 +3,7 @@ default=0
 timeout=5
 #splashimage=(hd0,12)/boot/grub/splash.xpm.gz
 #hiddenmenu
-color	white/brown
+color	white/brown yellow/blue
 
 title	MAIN
 	rootnoverify (hd0)
@@ -94,17 +94,3 @@ title	blue-LV-fc13-WIN  KICKSTART
 	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-win.ks
 	initrd /iso.fc13/initrd.img
 	
-title	PASS-INIT-KICKSTART
-	root (hd1,1)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/pass.init
-	initrd /iso.fc13/initrd.img
-	
-title	BLUE-INIT-KICKSTART
-	root (hd1,1)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue.init
-	initrd /iso.fc13/initrd.img
-	
-title	BOOK-INIT-KICKSTART
-	root (hd1,1)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/book.init
-	initrd /iso.fc13/initrd.img

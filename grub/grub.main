@@ -1,15 +1,15 @@
-title YOKO
-	root (hd0,13)
-	savedefault
-	configfile /boot/grub/grub.yoko
-
 title COS55
-	root (hd0,13)
+	root (hd0,0)
 	savedefault
 	configfile /boot/grub/grub.cos55
 
 title FC13
-	root (hd0,13)
+	root (hd0,0)
 	savedefault
 	configfile /boot/grub/grub.fc13
 	
+title RESCUE
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/grub.init
+
