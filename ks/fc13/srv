@@ -1,0 +1,204 @@
+################################################################
+@hardware-support
+################################################################
+
+#d	-alsa-firmware
+#d	-ar9170-firmware
+#d	-atmel-firmware
+#d	-b43-fwcutter
+#d	-b43-openfwwf
+#d	-ipw2100-firmware
+#d	-ipw2200-firmware
+#d	-ivtv-firmware
+#d	-iwl1000-firmware
+#d	-iwl3945-firmware
+#d	-iwl4965-firmware
+#d	-iwl5000-firmware
+#d	-iwl5150-firmware
+#d	-iwl6000-firmware
+#d	-libertas-usb8388-firmware
+#d	-printer-filters
+#d	-ql2100-firmware
+#d	-ql2200-firmware
+#d	-ql23xx-firmware
+#d	-ql2400-firmware
+#d	-ql2500-firmware
+#d	-rt61pci-firmware
+#d	-rt73usb-firmware
+#d	-ueagle-atm4-firmware
+#d	-usb_modeswitch
+#d	-zd1211-firmware
+#ox	 acpi
+#ox	 acpitool
+#ox	 cmospwd
+#o	 ctapi-cyberjack
+#o	 ctapi-cyberjack-pcsc
+#ox	 ctapi-cyberjack-tools
+#ox	 firmware-addon-dell
+#o	 gpsd
+#ox	 gpsd-clients
+#o	 gypsy
+#ox	 hddtemp
+hdparm
+#ox	 i8kutils
+#ox	 iscan-firmware
+#ox	 isight-firmware-tools
+#ox	 libifp
+#ox	 lsscsi
+#ox	 multican
+#o	 openct
+#ox	 opensc
+#ox	 s3switch
+#ox	 tpb
+
+################################################################
+@mail-server
+################################################################
+
+#d	-cyrus-sasl
+#d	-dovecot
+#d	-sendmail
+#d	-sendmail-cf
+#d	-spamassassin
+#ox	 amavisd-new
+#ox	 clamav
+#ox	 clamav-data
+#ox	 clamav-milter
+#ox	 crm114
+#ox	 cyrus-imapd
+#ox	 dbmail
+#ox	 enemies-of-carlotta
+esmtp
+#o	 exim
+#ox	 exim-clamav
+#ox	 exim-doc
+#ox	 imp
+#ox	 mailman
+#ox	 milter-regex
+#ox	 mlmmj
+#o	 postfix
+#ox	 pyzor
+#ox	 roundcubemail
+#ox	 spamass-milter
+#o	 spambayes
+#ox	 sqlgrey
+#ox	 squirrelmail
+#ox	 up-imapproxy
+#ox	 uw-imap
+
+################################################################
+@mysql
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-libdbi-dbd-mysql
+#d	-mysql-connector-odbc
+#d	-mysql-server
+#d	-perl-DBD-MySQL
+#d	-unixODBC
+#ox	 mod_auth_mysql
+#ox	 mysql-bench
+#ox	 mysql-devel
+#ox	 mysqlreport
+#ox	 mysqltuner
+php-mysql
+#o	 qt-mysql
+#ox	 qt3-MySQL
+
+################################################################
+@smb-server
+################################################################
+
+#m	-samba
+#m	-samba-client
+#d	-cifs-utils
+#d	-system-config-samba
+
+################################################################
+@sql-server
+################################################################
+
+#m	-postgresql
+#d	-PyGreSQL
+#d	-libdbi-dbd-pgsql
+#d	-perl-DBD-Pg
+#d	-postgresql-server
+#d	-rhdb-utils
+#d	-unixODBC
+#ox	 postgresql-contrib
+#ox	 postgresql-docs
+#ox	 postgresql-jdbc
+#ox	 postgresql-odbc
+#ox	 postgresql-test
+#ox	 qt-odbc
+#ox	 qt-postgresql
+#ox	 qt3-ODBC
+#ox	 qt3-PostgreSQL
+#ox	 tcl-pgtcl
+#ox	 unixODBC-kde
+
+################################################################
+@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-distcache
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_python
+#d	-mod_ssl
+#d	-php
+#d	-php-ldap
+#d	-php-mysql
+#d	-squid
+#d	-webalizer
+#ox	 Pound
+#ox	 apachetop
+#ox	 awstats
+#ox	 boa
+#ox	 cherokee
+#ox	 dap-server-cgi
+#ox	 drupal
+#ox	 drupal-calendar
+#ox	 drupal-cck
+#ox	 drupal-date
+#ox	 drupal-service_links
+#ox	 drupal-views
+#ox	 drupal-workspace
+#ox	 lighttpd
+#ox	 lighttpd-fastcgi
+#ox	 mediawiki
+#ox	 mod_auth_kerb
+#ox	 mod_auth_mysql
+#ox	 mod_auth_pgsql
+#ox	 mod_authz_ldap
+#ox	 mod_cband
+#ox	 mod_extract_forwarded
+#ox	 mod_fcgid
+#ox	 mod_geoip
+#ox	 mod_security
+#ox	 moin
+#ox	 moin-latex
+#ox	 namazu
+#ox	 ocspd
+#ox	 perl-HTML-Mason
+#ox	 perl-Kwiki
+#ox	 php-odbc
+#ox	 php-pecl-apc
+#ox	 php-pgsql
+#ox	 phpMyAdmin
+#ox	 phpldapadmin
+#ox	 pootle
+#ox	 tclhttpd
+#ox	 thttpd
+#ox	 tiquit
+#ox	 tomcat-native
+tomcat5
+#ox	 tomcat5-admin-webapps
+#ox	 tomcat5-webapps
+#ox	 vdr-wapd
+#ox	 vdradmin-am
+#ox	 wordpress
+

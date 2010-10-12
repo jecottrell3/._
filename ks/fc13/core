@@ -1,0 +1,53 @@
+################################################################
+@core
+################################################################
+
+#m	-acl
+#m	-attr
+#m	-audit
+#m	-authconfig
+#m	-basesystem
+#m	-bash
+#m	-coreutils
+#m	-cpio
+#m	-cronie
+#m	-cronie-anacron
+#m	-dhclient
+#m	-e2fsprogs
+#m	-fedora-release
+#m	-file
+#m	-filesystem
+#m	-glibc
+#m	-initscripts
+#m	-iproute
+-iprutils
+#m	-iptables
+-iptables-ipv6
+#m	-iputils
+#m	-kbd
+#m	-libgcc
+#m	-ncurses
+#m	-openssh-server
+#m	-passwd
+#m	-policycoreutils
+#m	-procps
+#m	-readline
+#m	-rootfiles
+#m	-rpm
+#m	-rsyslog
+#m	-selinux-policy-targeted
+#m	-setserial
+#m	-setup
+#m	-shadow-utils
+#m	-sudo
+#m	-util-linux-ng
+#m	-vim-minimal
+#m	-yum
+-efibootmgr
+#d	-grub
+-ppc64-utils
+-s390utils
+#d	-sendmail
+-silo
+-yaboot
+

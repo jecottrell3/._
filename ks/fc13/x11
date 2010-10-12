@@ -1,0 +1,72 @@
+################################################################
+@base-x
+################################################################
+
+#m	-xorg-x11-drivers
+#m	-xorg-x11-server-Xorg
+#m	-xorg-x11-xauth
+#m	-xorg-x11-xinit
+#d	-abrt-desktop
+#d	-authconfig-gtk
+#d	-cups-pk-helper
+#d	-desktop-backgrounds-basic
+#d	-firstboot
+#d	-glx-utils
+#d	-gnome-packagekit
+#d	-krb5-auth-dialog
+#d	-openssh-askpass
+#d	-plymouth-system-theme
+#d	-policycoreutils-gui
+#d	-setroubleshoot
+#d	-smolt-firstboot
+#d	-system-config-date
+#d	-system-config-firewall
+#d	-system-config-network
+#d	-system-config-printer
+#d	-system-config-services
+#d	-system-config-users
+#d	-xorg-x11-utils
+#ox	 alltray
+#ox	 aterm
+#ox	 bitmap-console-fonts
+#ox	 bitmap-fangsongti-fonts
+#ox	 bitmap-fixed-fonts
+#ox	 bitmap-lucida-typewriter-fonts
+#ox	 devilspie
+#o	 gdm
+#ox	 gxmessage
+#ox	 lilyterm
+#ox	 lxpanel
+#ox	 roxterm
+#ox	 rss-glx
+#ox	 rss-glx-xscreensaver
+#ox	 rxvt
+#ox	 sakura
+#ox	 slim
+#ox	 switchdesk
+#ox	 system-config-display
+#ox	 system-switch-displaymanager
+#ox	 termit
+#ox	 tigervnc-server
+#ox	 ucs-miscfixed-fonts
+#ox	 uim-gtk2
+#ox	 workrave
+#ox	 xclip
+#ox	 xdaliclock
+#ox	 xguest
+#ox	 xkeycaps
+#ox	 xlockmore
+xorg-x11-apps
+xorg-x11-resutils
+#ox	 xorg-x11-server-Xnest
+#ox	 xorg-x11-server-Xvfb
+#ox	 xorg-x11-twm
+#ox	 xorg-x11-xfs
+#ox	 xorg-x11-xfs-utils
+#ox	 xorg-x11-xsm
+xscreensaver
+xscreensaver-base
+xscreensaver-extras
+xscreensaver-gl-extras
+xterm
+
