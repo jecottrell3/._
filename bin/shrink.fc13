@@ -1,0 +1,49 @@
+#! /bin/sh
+
+DVD=CentOS-5.5-i386-bin-DVD.iso
+DVD=Fedora-13-i386-DVD.iso
+
+keep() { mv -f $* ../keep; }
+nuke() { mv -f $* ../delete; }
+
+mkdir -p keep delete
+
+cd Packages
+
+keep *-en-*
+
+nuke aspell-??-*
+nuke autocorr-??-*
+nuke eclipse-nls-??-*
+nuke hunspell-??-*
+nuke hyphen-??-*
+nuke man-pages-??-*
+nuke mythes-??-*
+nuke openoffice.org-langpack-*
+
+nuke ibus-*
+
+keep dejavu-*
+keep ghostscript-*
+keep liberation-*
+keep openoffice.org-*
+keep stix-*
+keep urw-*
+
+nuke *-fonts-*
+
+nuke kde-l10n-*
+
+nuke m17n-*
+
+mv -f ../keep/* .
+
+cd ..
+
+rm -rf delete
+rmdir  keep
+
+mkisofs -o ../rbj/$DVD \
+-b isolinux/isolinux.bin -c isolinux/boot.cat \
+-no-emul-boot -boot-load-size 4 -boot-info-table \
+-R -J -V "Fedora 13 Abridged" -T .

@@ -1,0 +1,42 @@
+#! /bin/sh
+
+DVD=CentOS-5.5-i386-bin-DVD.iso
+
+mkdir -p keep delete
+
+mv -f RELEASE-NOTES-en*	keep
+mv -f RELEASE-NOTES*	delete
+mv -f keep/* .
+
+cd NOTES
+mv -f RELEASE-NOTES-en*		../keep
+mv -f RELEASE-NOTES-U?-en*	../keep
+mv -f RELEASE-NOTES-*		../delete
+mv -f ../keep/* .
+
+cd ..
+
+cd CentOS
+
+mv -f *-en-*	../keep
+mv -f GConf2*	../keep
+mv -f [CDGV]*	../delete
+mv -f aspell-??-*	../delete
+mv -f fonts-*	../delete
+mv -f kde-i18n-*	../delete
+mv -f m17n-*	../delete
+mv -f man-pages-??-*	../delete
+mv -f openoffice.org-langpack-*	../delete
+mv -f scim-*	../delete
+
+mv -f ../keep/* .
+
+cd ..
+
+rm -rf delete
+rmdir  keep
+
+mkisofs -o ../rbj/$DVD \
+-b isolinux/isolinux.bin -c isolinux/boot.cat \
+-no-emul-boot -boot-load-size 4 -boot-info-table \
+-R -J -V "CentOS 5.5 Abridged" -T .

@@ -44,6 +44,6 @@ alias	svs=' svn status'
 alias	svsv='svn status -v'
 alias	svu=' svn up'
 alias	svuk='svn unlock'
-alias	svz=' svn clean'
+alias	svz=' svn cleanup'
 
 #################################################################

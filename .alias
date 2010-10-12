@@ -86,10 +86,12 @@ alias	mo='sudo  mount' mz='sudo  mount -av'
 alias	um='sudo umount' uz='sudo umount -av'
 alias	ns=nslookup
 alias	p='ps -ef | egrep'
+alias	pie='perl -pi -e'
 alias	pd=pushd	po=popd
 
-alias	rbj='chown -R rbj:rbj'
-alias	 jc='chown -R jcottrell:jcottrell'
+alias	root='chown         root:root'
+alias	 rbj='chown -R       rbj:rbj'
+alias	  jc='chown -R jcottrell:jcottrell'
 
 alias	sb='sudo bash'
 alias	sl='ln -s'

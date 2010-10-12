@@ -1,0 +1,105 @@
+Tokens: name, `string', or special character.
+
+* changequote(`[', `]') # left and right
+
+Names: Letter, Digits, or `_'. 
+
+* changeword(`regexp') # RE is `[_a-zA-Z][_a-zA-Z0-9]*'
+
+Comments: # comment <NL>
+
+* changecom(`left', `rite') # `#' and `NL'
+
+Macros: Name or Name(Arg1, ..., ArgN)
+
+Name   # no args
+Name() # one blank arg
+
+Too Few  Args: missing are blank
+Too Many Args: extras ignored
+
+Leading  Unquoted Whitespace: never  part of argument
+Trailing Unquoted Whitespace: always part of argument
+
+* define(`macro', `expansion') # void
+
+Args: can be referenced as $1 to $N
+
+$0 is macro name
+$# is number of args
+$* is all args separated by commas
+$@ is same with all args quoted
+
+* undefine(`macro') # void
+
+* defn(`macro') # quoted definition of macro
+
+* pushdef(`macro', `expansion')
+* popdef(`macro')
+
+* indir(`macro', `args', ...)
+* builtin(`macro', `args', ...)
+
+* ifdef(`macro', `true', `false')
+
+* ifelse(`comment') # one arg is ignored
+* ifelse(`s1', `s2', `equal', `unequal')
+* ifelse(`s1', `s2', `equal 12',
+*        `s3', `s4', `equal 34',
+*        `s5', `s6', `equal 56') # etc
+
+* shift(`args', ...) # all but first arg
+
+* dumpdef(`names', ...) # to STDERR
+* traceon(`names', ...) # to STDERR
+* traceoff(`names', ...) # to STDERR
+* debugmode(`flags')
+* debugfile(`file')
+
+* dnl # delete up to newline
+
+* m4wrap(`eof text')
+
+*  include(`file')
+* sinclude(`file') # ok if not found
+
+* divert # same as divert(`0')
+* divert(`number')
+* divert(`-1') # diverrs to nowhere
+
+* undivert # all diversions
+* undivert(`numbers', ...)
+* undivert(`file')
+
+* divnum # current diversion number
+
+* cleardivert(`numbers', ...)
+
+* len(`string) # length
+* index(`string', `substring') # -1 if not found
+
+* regexp(`string', `match') # like index
+* regexp(`string', `match', `replace') # replace ONLY
+* substr(`string', `start', `length')
+* translit(`string', `from', `to')
+* patsubst(`string', `match', `replace') # substitute
+* format(`string', `args', ...)
+
+* incr(`num')
+* decr(`num')
+* eval(`exp')
+
+*  sysval # exit status
+*  syscmd(`cmd args') # empty string
+* esyscmd(`cmd args') # expands to output
+
+* maketemp(`/tmp/fooXXXXXX')
+* errprint (`MESSAGE', ...)
+* m4exit(`status')
+
+* __file__
+* __line__
+
+
+
+
