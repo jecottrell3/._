@@ -1,31 +1,39 @@
-#boot=/dev/hda
 default=0
 timeout=5
 #splashimage=(hd0,12)/boot/grub/splash.xpm.gz
 #hiddenmenu
-color	white/red yellow/blue
+color	yellow/red white/blue
 
 title	MAIN
 	rootnoverify (hd0)
 	chainloader +1
 
-title	PASS-INIT-KICKSTART
-	root (hd0,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass.init
+title	SATA to USB Generic Rescue Initialize
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/rescue.init
 	initrd /iso.cos55/initrd.img
 	
-title	BLUE-INIT-KICKSTART
-	root (hd0,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/blue.init
-	initrd /iso.cos55/initrd.img
-	
-title	BOOK-INIT-KICKSTART
-	root (hd0,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/book.init
-	initrd /iso.cos55/initrd.img
-
-title	INITIALIZE RESCUE
+title	USB to SATA Generic Rescue Initialize
 	root (hd0,0)
 	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/rescue.init
 	initrd /iso.cos55/initrd.img
-
+	
+title	USB to SATA DELL-250G AUTOMATIC Rescue Initialize
+	root (hd0,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/dell-250G.init
+	initrd /iso.cos55/initrd.img
+	
+title	OLD PASS-INIT-KICKSTART
+	root (hd1,1)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass.init
+	initrd /iso.cos55/initrd.img
+	
+title	OLD BLUE-INIT-KICKSTART
+	root (hd1,1)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/blue.init
+	initrd /iso.cos55/initrd.img
+	
+title	OLD BOOK-INIT-KICKSTART
+	root (hd1,1)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/book.init
+	initrd /iso.cos55/initrd.img

@@ -1,0 +1,33 @@
+#boot=/dev/sdb1
+default=2
+timeout=5
+splashimage=(hd0,0)/boot/splash/splash.gb
+#plashimage=(hd0,0)/boot/grub/splash.xpm.gz
+#hiddenmenu
+
+title PR Passport RESQ CentOS 5.5
+	root (hd0,0)
+	savedefault
+	kernel /boot/vmlinuz-2.6.18-194.el5 ro root=LABEL=PR
+	initrd /boot/initrd-2.6.18-194.el5.img
+
+title PH Passport LVM Partition
+	root (hd0,1)
+	savedefault
+	chainloader +1
+
+title PL Passport LVM CentOS 5.5
+	root (hd0,1)
+	savedefault
+	configfile /cos55/grub/grub.conf
+
+title PL Passport LVM Fedora 13
+	root (hd0,1)
+	savedefault
+	configfile /fc13/grub/grub.conf
+
+title INITIALIZE RESCUE
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/grub.init
+

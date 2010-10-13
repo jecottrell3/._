@@ -1,96 +1,58 @@
-#boot=/dev/hda
-default=0
+#boot=/dev/sdb2
+default=saved
 timeout=5
-#splashimage=(hd0,12)/boot/grub/splash.xpm.gz
+splashimage=(hd0,1)/boot.cos55/splash/splash.rg
 #hiddenmenu
-color	white/magenta yellow/blue
 
-title	MAIN
-	rootnoverify (hd0)
+title PR  CentOS 5.5 RESQ
+	rootnoverify (hd0,0)
 	chainloader +1
 
-title	PASS-ASK-COS55
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz method=hd:sdb1:/CentOS/5.5/i386/cd
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-CORE KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-core.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-BASE KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-base.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-X11  KICKSTART
-	root (hd1,1)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-x11.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-DEV  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-dev.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-SRV  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-srv.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-KDE  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-kde.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-GNO  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-gno.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-PB-cos55-WIN  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-win.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-CORE KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-core.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-BASE KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-base.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-X11  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-x11.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-DEV  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-dev.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-SRV  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-srv.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-KDE  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-kde.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-GNO  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-gno.ks
-	initrd /iso.cos55/initrd.img
-	
-title	PASS-LV-cos55-WIN  KICKSTART
-	root (hd1,0)
-	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-win.ks
-	initrd /iso.cos55/initrd.img
-	
+title LVM CentOS 5.5 CORE
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/core
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+
+title LVM CentOS 5.5 BASE
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/base
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+
+title LVM CentOS 5.5 X11
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/x11
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+
+title LVM CentOS 5.5 DEVO
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/dev
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+
+title LVM CentOS 5.5 SERVER
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/srv
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+
+title LVM CentOS 5.5 KDE
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/kde
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+
+title LVM CentOS 5.5 GNOME
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/gno
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+
+title LVM CentOS 5.5 BOTH
+	root (hd0,1)
+	savedefault
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/win
+	initrd /boot.cos55//initrd-2.6.18-194.el5.img
+

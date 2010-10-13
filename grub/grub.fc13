@@ -1,96 +1,47 @@
-#boot=/dev/hda
-default=0
+default=saved
 timeout=5
-#splashimage=(hd0,12)/boot/grub/splash.xpm.gz
+splashimage=(hd0,1)/boot.fc13/grub/splash.xpm.gz
 #hiddenmenu
-color	white/brown yellow/blue
+#
+# options: rhgb quiet 
 
-title	MAIN
-	rootnoverify (hd0)
-	chainloader +1
+title Fedora 13 core
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-core rd_LVM_LV=pass/core rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
-title	blue-ASK-FC13
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz method=hd:sda2:/Fedora/13/i386/cd
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-CORE KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-core.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-BASE KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-base.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-X11  KICKSTART
-	root (hd1,1)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-x11.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-DEV  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-dev.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-SRV  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-srv.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-KDE  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-kde.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-GNO  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-gno.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-PB-fc13-WIN  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-PB-fc13-win.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-CORE KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-core.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-BASE KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-base.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-X11  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-x11.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-DEV  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-dev.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-SRV  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-srv.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-KDE  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-kde.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-GNO  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-gno.ks
-	initrd /iso.fc13/initrd.img
-	
-title	blue-LV-fc13-WIN  KICKSTART
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/blue-LV-fc13-win.ks
-	initrd /iso.fc13/initrd.img
-	
+title Fedora 13 base
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-base rd_LVM_LV=pass/base rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us quiet
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
+
+title Fedora 13 x11
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-x11 rd_LVM_LV=pass/x11 rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
+
+title Fedora 13 dev
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-dev rd_LVM_LV=pass/dev rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
+
+title Fedora 13 srv
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-srv rd_LVM_LV=pass/srv rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
+
+title Fedora 13 kde
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-kde rd_LVM_LV=pass/kde rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
+
+title Fedora 13 gno
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-gno rd_LVM_LV=pass/gno rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
+
+title Fedora 13 win
+	root (hd0,1)
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-win rd_LVM_LV=pass/win rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
+

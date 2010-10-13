@@ -1,0 +1,96 @@
+#boot=/dev/hda
+default=0
+timeout=5
+#splashimage=(hd0,12)/boot/grub/splash.xpm.gz
+#hiddenmenu
+color	white/magenta
+
+title	MAIN
+	rootnoverify (hd0)
+	chainloader +1
+
+title	PASS-ASK-COS55
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz method=hd:sdb1:/CentOS/5.5/i386/cd
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-CORE Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-core.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-BASE Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-base.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-X11  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-x11.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-DEV  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-dev.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-SRV  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-srv.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-KDE  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-kde.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-GNO  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-gno.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-PB-cos55-WIN  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-PB-cos55-win.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-CORE Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-core.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-BASE Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-base.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-X11  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-x11.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-DEV  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-dev.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-SRV  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-srv.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-KDE  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-kde.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-GNO  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-gno.ks
+	initrd /iso.cos55/initrd.img
+	
+title	PASS-LV-cos55-WIN  Kickstart
+	root (hd1,0)
+	kernel /iso.cos55/vmlinuz ks=hd:sdb3:/ks/pass-LV-cos55-win.ks
+	initrd /iso.cos55/initrd.img
+	
