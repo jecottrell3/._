@@ -1,0 +1,116 @@
+################################################################
+####	Dell 250G INITIALIZE (boot, vfat, resq/home, lvm)
+################################################################
+
+install
+harddrive --partition=sdb1 --dir=/CentOS/5.5/i386/cd
+text
+lang en_US.UTF-8
+keyboard us
+skipx
+rootpw --iscrypted $1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1
+firewall --enabled --port=22:tcp
+authconfig --enableshadow --enablemd5 --enablelocauthorize
+selinux --disabled
+timezone --utc America/New_York
+bootloader --location=partition --driveorder=sda,sdb
+
+################################################################
+####    Use DHCP -- fix later
+################################################################
+
+network --bootproto dhcp --hostname rescue
+
+################################################################
+####	Partitions	#### WARNING #### FORMATS AUTOMATICALLY
+################################################################
+
+part /     --fstype ext3 --onpart sda1 --fsoptions=noatime --label=XR
+part /home --fstype ext3 --onpart sda2 --fsoptions=noatime --label=XH
+part /vfat --fstype vfat --onpart sda3 --fsoptions=uid=654,gid=654,shortname=mixed --noformat
+
+################################################################
+####	ACTUALLY *DO* THE PARTITIONING
+################################################################
+
+%pre
+
+/sbin/sfdisk /dev/sda <<EOF
+# partition table of /dev/sda
+unit: sectors
+
+/dev/sda1 : start=  6409935, size= 80325000, Id=83, bootable
+/dev/sda2 : start= 86734935, size= 80325000, Id=83
+/dev/sda3 : start=       63, size=  6409872, Id=de
+/dev/sda4 : start=167059935, size=321219675, Id=8e
+
+EOF
+
+################################################################
+####	INSTALL GRUB TO MBR
+################################################################
+
+%post
+
+/sbin/grub-install /dev/sda
+
+################################################################
+####	Package Selection
+################################################################
+
+%packages 
+
+################################################################
+@core
+################################################################
+
+-iprutils
+-libhugetlbfs
+-policycoreutils
+-rootfiles
+-selinux-policy-targeted
+-setools
+-setserial
+-dhcpv6-client
+-ecryptfs-utils
+-elilo
+-gnu-efi
+-ppc64-utils
+-s390utils
+-ppc64-utils
+-s390utils
+-yaboot
+
+################################################################
+@base
+################################################################
+
+-amtu
+-apmd
+-authd
+-bluez-utils
+-brltty
+-ccid
+-conman
+-coolkey
+-elsa
+-ibmasm
+-irda-utils
+-longrun
+-mcelog
+-mgetty
+-mkbootdisk
+-numactl
+-pcmciautils
+-prctl
+-quota
+-rhel-instnum
+-rhn-check
+-rhn-setup
+-rng-utils
+-rp-pppoe
+-specspo
+-sysreport
+-vconfig
+-wireless-tools
+-yum-rhn-plugin

@@ -3,7 +3,7 @@ default=0
 timeout=5
 #splashimage=(hd0,12)/boot/grub/splash.xpm.gz
 #hiddenmenu
-color	white/magenta
+color	white/magenta yellow/blue
 
 title	MAIN
 	rootnoverify (hd0)
