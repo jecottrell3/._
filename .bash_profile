@@ -48,4 +48,8 @@ export	CVS_RSH=/usr/bin/ssh
 
 export	CMMI=https://192.168.21.31/repos/cmmi
 
+export	  M1=--max-size=1M	  G1=--max-size=1G
+export	 M10=--max-size=10M	 G10=--max-size=10G
+export	M100=--max-size=100M	G100=--max-size=100G
+
 #################################################################
