@@ -1,0 +1,15 @@
+#! /bin/sh
+
+VG=${1?'missing VG'}
+
+pvcreate	/dev/sda4
+vgcreate $VG	/dev/sda4
+vgchange $VG -ay
+
+for x in core bin x11 dev srv kde gno win
+do
+	lvcreate -L 10G -n $x $VG
+	mke2fs -jvL $x /dev/$VG/$x
+done
+lvcreate -L 2G -n swap $VG
+mkswap -L swap /dev/$VG/swap

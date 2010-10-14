@@ -1,0 +1,20 @@
+#! /bin/sh
+
+cat <<EOF >>/etc/fstab
+/dev/sdb1	/r		ext3	noatime,noauto	0 0
+/dev/sdb2	/h		ext3	noatime,noauto	0 0
+/dev/sdb3	/v	vfat	uid=654,gid=654,shortname=mixed,noauto 0 0
+EOF
+
+for x in r h v
+do mkdir -p $x; mount $x; done
+
+rsync -vax /v/ks /vfat
+rsync -vax /h/jcottrell /home
+rsync -vax /r/CentOS / --max-size=100M
+rsync -vax /r/CentOS / &
+#sync -vax /r/Fedora / --max-size=100M
+#sync -vax /r/Fedora / &
+
+rsync -vax /home/jcottrell/._/splash /boot
+rsync -vax /home/jcottrell/._/grub   /boot
