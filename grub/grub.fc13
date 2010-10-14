@@ -5,43 +5,47 @@ splashimage=(hd0,1)/boot.fc13/grub/splash.xpm.gz
 #
 # options: rhgb quiet 
 
+title MAIN
+	rootnoverify (hd0)
+	chainloader +1
+
 title Fedora 13 core
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-core rd_LVM_LV=pass/core rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-core rd_LVM_LV=zell/core rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
 title Fedora 13 base
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-base rd_LVM_LV=pass/base rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us quiet
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-base rd_LVM_LV=zell/base rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us quiet
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
 title Fedora 13 x11
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-x11 rd_LVM_LV=pass/x11 rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-x11 rd_LVM_LV=zell/x11 rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
 title Fedora 13 dev
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-dev rd_LVM_LV=pass/dev rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-dev rd_LVM_LV=zell/dev rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
 title Fedora 13 srv
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-srv rd_LVM_LV=pass/srv rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-srv rd_LVM_LV=zell/srv rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
 title Fedora 13 kde
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-kde rd_LVM_LV=pass/kde rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-kde rd_LVM_LV=zell/kde rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
 title Fedora 13 gno
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-gno rd_LVM_LV=pass/gno rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-gno rd_LVM_LV=zell/gno rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 
 title Fedora 13 win
 	root (hd0,1)
-	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/pass-win rd_LVM_LV=pass/win rd_LVM_LV=pass/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
+	kernel /boot.fc13/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=/dev/mapper/zell-win rd_LVM_LV=zell/win rd_LVM_LV=zell/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
 	initrd /boot.fc13/initramfs-2.6.33.3-85.fc13.i686.PAE.img
 

@@ -1,58 +1,56 @@
-#boot=/dev/sdb2
 default=saved
 timeout=5
-splashimage=(hd0,1)/boot.cos55/splash/splash.rg
-#hiddenmenu
+splashimage=(hd0,1)/boot.cos55/splash/splash.gr
 
-title PR  CentOS 5.5 RESQ
-	rootnoverify (hd0,0)
+title MAIN
+	rootnoverify (hd0)
 	chainloader +1
 
-title LVM CentOS 5.5 CORE
+title LV CentOS 5.5 CORE
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/core
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/core
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 
-title LVM CentOS 5.5 BASE
+title LV CentOS 5.5 BASE
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/base
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/base
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 
-title LVM CentOS 5.5 X11
+title LV CentOS 5.5 X11
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/x11
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/x11
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 
-title LVM CentOS 5.5 DEVO
+title LV CentOS 5.5 DEVO
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/dev
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/dev
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 
-title LVM CentOS 5.5 SERVER
+title LV CentOS 5.5 SERVER
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/srv
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/srv
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 
-title LVM CentOS 5.5 KDE
+title LV CentOS 5.5 KDE
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/kde
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/kde
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 
-title LVM CentOS 5.5 GNOME
+title LV CentOS 5.5 GNOME
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/gno
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/gno
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 
-title LVM CentOS 5.5 BOTH
+title LV CentOS 5.5 BOTH
 	root (hd0,1)
 	savedefault
-	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/pass/win
+	kernel /boot.cos55/vmlinuz-2.6.18-194.el5 ro root=/dev/zell/win
 	initrd /boot.cos55//initrd-2.6.18-194.el5.img
 

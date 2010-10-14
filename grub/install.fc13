@@ -8,88 +8,88 @@ title	MAIN
 	rootnoverify (hd0)
 	chainloader +1
 
-title	blue-ASK-fc13
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz method=hd:sdb1:/Fedora/13/i386/cd
+title	zell-ASK-fc13
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz method=hd:sda1:/Fedora/13/i386/cd
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-CORE Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-core.ks
+title	zell-LV-fc13-CORE Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-core.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-BASE Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-base.ks
+title	zell-LV-fc13-BASE Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-base.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-X11  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-x11.ks
+title	zell-LV-fc13-X11  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-x11.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-DEV  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-dev.ks
+title	zell-LV-fc13-DEV  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-dev.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-SRV  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-srv.ks
+title	zell-LV-fc13-SRV  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-srv.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-KDE  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-kde.ks
+title	zell-LV-fc13-KDE  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-kde.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-GNO  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-gno.ks
+title	zell-LV-fc13-GNO  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-gno.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-PB-fc13-WIN  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-PB-fc13-win.ks
+title	zell-LV-fc13-WIN  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-LV-fc13-win.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-CORE Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-core.ks
+title	zell-ZH-fc13-CORE Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-core.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-BASE Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-base.ks
+title	zell-ZH-fc13-BASE Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-base.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-X11  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-x11.ks
+title	zell-ZH-fc13-X11  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-x11.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-DEV  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-dev.ks
+title	zell-ZH-fc13-DEV  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-dev.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-SRV  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-srv.ks
+title	zell-ZH-fc13-SRV  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-srv.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-KDE  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-kde.ks
+title	zell-ZH-fc13-KDE  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-kde.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-GNO  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-gno.ks
+title	zell-ZH-fc13-GNO  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-gno.ks
 	initrd /iso.fc13/initrd.img
 	
-title	blue-LV-fc13-WIN  Kickstart
-	root (hd1,0)
-	kernel /iso.fc13/vmlinuz ks=hd:sdb3:/ks/blue-LV-fc13-win.ks
+title	zell-ZH-fc13-WIN  Kickstart
+	root (hd0,0)
+	kernel /iso.fc13/vmlinuz ks=hd:sda3:/ks/zell-ZH-fc13-win.ks
 	initrd /iso.fc13/initrd.img
 	

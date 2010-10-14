@@ -1,14 +1,14 @@
 default=2
 timeout=5
-splashimage=(hd0,0)/boot/splash/splash.gb
+splashimage=(hd0,0)/boot/splash/splash.rb
 
-title PR Passport RESQ CentOS 5.5
+title YR Yell RESQ CentOS 5.5
 	root (hd0,0)
 	savedefault
-	kernel /boot/vmlinuz-2.6.18-194.el5 ro root=LABEL=PR
+	kernel /boot/vmlinuz-2.6.18-194.el5 ro root=LABEL=YR
 	initrd /boot//initrd-2.6.18-194.el5.img
 
-title PH Passport HOME
+title YH Yell HOME
 	root (hd0,1)
 	savedefault
 	chainloader +1
