@@ -14,10 +14,9 @@ dnl Append to $1 rest of $@
 dnl
 define(`append', `define(`$1', defn(`$1')`,shift($@)')')dnl
 dnl
-dnl Get All Packages from TAG Directory
+dnl Get All Packages from OS_TAG Directory
 dnl
-define(`TAG',          `Pkgs')dnl FOR NOW
-define(`getall', `include(TAG`/$1')dnl should be TAG
+define(`getall', `include(OS_TAG`/$1')dnl
 ifelse(`$#', `1', , `$0(shift($@))')')dnl
 dnl
 m4wrap(`include(`Sys/Generate')')dnl

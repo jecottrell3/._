@@ -17,12 +17,14 @@ mkdir -p /svn
 : Link Important Dirs :
 : :::::::::::::::::::::
 
-for dir in jcottrell # dist
+for dir in jcottrell
 do
-	test -d /boot/$dir &&
-	ln -s   /boot/$dir /
-	ln -s      ../$dir /home
+	if test -d /boot/$dir
+	then ln -s /boot/$dir /home
+	else ln -s ../$dir    /home
 done
+
+ln -s /dev/HOST /myvg
 
 : :::::::::::::::::::::
 : Get RBJ Environment :
@@ -48,16 +50,23 @@ tmp/.mkrbj
 
 : :::::::::::::::::::::::::::::::
 : :: Distribute Standard Files ::
+: ::   Tailor to Environment   ::
 : :::::::::::::::::::::::::::::::
 
 DIST=/home/jcottrell/._/dist
 date
-test  -d   $DIST/. &&
-rsync -Cvax $DIST/. /
+test  -d    $DIST/. &&
+rsync -Cvrp $DIST/. /
 
 cd /etc
+
 grep CentOS issue &&
-mv issue.cos55 issue
+cp -v issue.cos55 issue
+
+grep seas.gwu.edu resolv.conf &&
+cp -v hosts.seas hosts ||
+cp -v hosts.home hosts
+
 cd /root
 
 : ::::::::::::::::::::::::::

@@ -33,10 +33,10 @@ mv -f ../keep/* .
 
 cd ..
 
-rm -rf delete
-rmdir  keep
+mv delete ../delete.$$
+rmdir keep
 
-mkisofs -o ../rbj/$DVD \
+echo mkisofs -o ../$DVD \
 -b isolinux/isolinux.bin -c isolinux/boot.cat \
 -no-emul-boot -boot-load-size 4 -boot-info-table \
 -R -J -V "CentOS 5.5 Abridged" -T .

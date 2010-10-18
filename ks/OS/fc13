@@ -7,5 +7,4 @@ define(`OS_MEDIA',	`dvd')dnl
 define(`ISODIR',	`/OS_NAME/OS_VERSION/OS_ARCH/OS_MEDIA')dnl
 dnl
 define(`DISK',		`sata')dnl	Fedora always uses SATA!
-define(`TAG',		OS_TAG)dnl
 `#' END   __file__

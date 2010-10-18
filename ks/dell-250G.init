@@ -33,9 +33,13 @@ part /vfat --fstype vfat --onpart sda3 --fsoptions=uid=654,gid=654,shortname=mix
 ####	ACTUALLY *DO* THE PARTITIONING
 ################################################################
 
-%pre
+%pre 
+#! /bin/sh -x
 
-/sbin/sfdisk /dev/sda <<EOF
+exec 1>/tmp/pre.log 2>&1
+set -x
+
+/usr/sbin/sfdisk /dev/sda <<EOF
 # partition table of /dev/sda
 unit: sectors
 
@@ -50,15 +54,50 @@ EOF
 ####	INSTALL GRUB TO MBR
 ################################################################
 
-%post
+%post --nochroot
+#! /bin/sh -x
+
+cp /tmp/pre.log /mnt/sysimage/root
+cp /tmp/ks.cfg  /mnt/sysimage/root
+
+%post --log=/root/post.log
+#! /bin/sh -x
+
+exec 2>&1
+set -x
+
+export HOME=/root; cd /root
 
 /sbin/grub-install /dev/sda
+
+mkdir -p /svn
+mkdir -p /r; mount /dev/sdb1 /r
+mkdir -p /h; mount /dev/sdb2 /h
+mkdir -p /v; mount /dev/sdb3 /v
+df -h
+
+rsync -vax /v/ks /vfat
+rsync -vax /h/jcottrell /home
+rsync -vax /r/CentOS / #-max-size=1M
+#sync -vax /r/Fedora / --max-size=3G
+
+ln -s CentOS/5.5/i386/isolinux /iso.cos55
+ln -s  Fedora/13/i386/isolinux /iso.fc13
+ln -s /home/jcottrell/._ /root
+
+mkdir -p /home/boot.cos55
+mkdir -p /home/boot.fc13
 
 ################################################################
 ####	Package Selection
 ################################################################
 
 %packages 
+
+m4
+make
+#subversion
+#vim-enhanced
 
 ################################################################
 @core

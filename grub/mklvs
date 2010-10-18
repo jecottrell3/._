@@ -1,15 +1,17 @@
 #! /bin/sh
 
-VG=${1?'missing VG'}
+VG=${1:-$(hostname)}
 
-pvcreate	/dev/sda4
-vgcreate $VG	/dev/sda4
-vgchange $VG -ay
+loudly() { echo "$@"; eval "$@"; }
 
-for x in core bin x11 dev srv kde gno win
+loudly pvcreate	/dev/sda4
+loudly vgcreate $VG	/dev/sda4
+loudly vgchange $VG -ay
+
+for x in core base x11 dev srv kde gno win
 do
-	lvcreate -L 10G -n $x $VG
-	mke2fs -jvL $x /dev/$VG/$x
+	loudly lvcreate -L 10G -n $x $VG
+	loudly mke2fs -jvL $x /dev/$VG/$x \> /dev/null
 done
-lvcreate -L 2G -n swap $VG
-mkswap -L swap /dev/$VG/swap
+loudly lvcreate -L 2G -n swap $VG
+loudly mkswap -L swap /dev/$VG/swap

@@ -26,7 +26,7 @@ cd /p
 		break
 	done
 	test -d .$x && cd .$x &&
-	for x in lost+found dist jcottrell CentOS
+	for x in lost+found jcottrell CentOS Fedora
 	do
 		test -d $x && mv $x ..
 	done

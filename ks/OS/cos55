@@ -5,9 +5,4 @@ define(`OS_VERSION',	`5.5')dnl
 define(`OS_ARCH',	`i386')dnl
 define(`OS_MEDIA',	`dvd')dnl
 define(`ISODIR',	`/OS_NAME/OS_VERSION/OS_ARCH/OS_MEDIA')dnl
-dnl
-dnl	For Now
-dnl
-dnl	define(`OS_TAG',	`Pkgs')dnl
-define(`TAG',		OS_TAG)dnl
 `#' END   __file__
