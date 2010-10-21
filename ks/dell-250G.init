@@ -81,8 +81,10 @@ rsync -vax /h/jcottrell /home
 rsync -vax /r/CentOS / #-max-size=1M
 #sync -vax /r/Fedora / --max-size=3G
 
-ln -s CentOS/5.5/i386/isolinux /iso.cos55
-ln -s  Fedora/13/i386/isolinux /iso.fc13
+ln -s CentOS/5.5/i386/isolinux   /iso-cos55
+ln -s CentOS/5.5/x86_64/isolinux /iso+cos55
+ln -s Fedora/13/i386/isolinux    /iso-fc13
+ln -s Fedora/13/x86_64/isolinux  /iso+fc13
 ln -s /home/jcottrell/._ /root
 
 mkdir -p /home/boot.cos55
