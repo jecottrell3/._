@@ -4,12 +4,13 @@ VG=${1:-$(hostname)}
 
 loudly() { echo "$@"; eval "$@"; }
 
-loudly pvcreate	/dev/sda4
-loudly vgcreate $VG	/dev/sda4
-loudly vgchange $VG -ay
+{
+	loudly pvcreate		/dev/sda4 &&
+	loudly vgcreate $VG	/dev/sda4 &&
+	loudly vgchange $VG -ay
+} || exit $?
 
 for x in core base x11 dev srv kde gno win
-do
 	loudly lvcreate -L 10G -n $x $VG
 	loudly mke2fs -jvL $x /dev/$VG/$x \> /dev/null
 done
