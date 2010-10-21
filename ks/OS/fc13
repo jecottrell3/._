@@ -2,9 +2,9 @@
 define(`OS_TAG',	`fc13')dnl
 define(`OS_NAME',	`Fedora')dnl
 define(`OS_VERSION',	`13')dnl
-define(`OS_ARCH',	`i386')dnl
+dnl	define(`ARCH',	`i386')dnl
 define(`OS_MEDIA',	`dvd')dnl
-define(`ISODIR',	`/OS_NAME/OS_VERSION/OS_ARCH/OS_MEDIA')dnl
+define(`ISODIR',	`/OS_NAME/OS_VERSION/ARCH/OS_MEDIA')dnl
 dnl
 define(`DISK',		`sata')dnl	Fedora always uses SATA!
 `#' END   __file__

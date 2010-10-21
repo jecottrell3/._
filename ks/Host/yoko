@@ -9,6 +9,8 @@ define(`LABEL', `TH')dnl
 dnl
 define(`OS',   `cos55')dnl
 define(`NET',  `home')dnl
+define(`ARCH', `x86_64')dnl
+dnl
 define(`Address',  `1.2.3.9')dnl
 define(`DISK', `sata')dnl 
 dnl

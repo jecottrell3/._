@@ -2,7 +2,7 @@
 define(`OS_TAG',	`cos55')dnl
 define(`OS_NAME',	`CentOS')dnl
 define(`OS_VERSION',	`5.5')dnl
-define(`OS_ARCH',	`i386')dnl
+dnl	define(`ARCH',	`i386')dnl
 define(`OS_MEDIA',	`dvd')dnl
-define(`ISODIR',	`/OS_NAME/OS_VERSION/OS_ARCH/OS_MEDIA')dnl
+define(`ISODIR',	`/OS_NAME/OS_VERSION/ARCH/OS_MEDIA')dnl
 `#' END   __file__

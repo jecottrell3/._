@@ -9,6 +9,7 @@ define(`LABEL', `PH')dnl
 dnl
 define(`DISK', `usb')dnl 
 define(`NET',  `dhcp')dnl
+define(`ARCH', `i386')dnl
 dnl
 dnl	END
 dnl

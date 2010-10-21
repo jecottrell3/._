@@ -9,7 +9,10 @@ define(`LABEL', `YH')dnl
 dnl
 define(`DISK', `sata')dnl 
 define(`NET',  `seas')dnl
-define(`Address',  `128.164.156.171')dnl
+define(`ARCH', `x86_64')dnl
+dnl
+define(`ADDRESS',  `128.164.156.171')dnl
+define(`MONITOR', `--resolution=1680x1050 --depth=24')dnl
 dnl
 dnl	END
 dnl
