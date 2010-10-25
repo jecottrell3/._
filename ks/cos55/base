@@ -146,7 +146,7 @@
 fipscheck
 fuse
 #o	 fuse-libs
-gpart
+-gpart
 hardlink
 #o	 hesinfo
 #o	 hfsutils

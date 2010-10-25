@@ -1,20 +1,65 @@
 127.0.0.1 localhost.localdomain	  localhost  lh
 ::1       localhost6.localdomain6 localhost6 lh6
 
-128.164.156.0	net   net.seas  net.seas.gwu.edu
+255.255.252.0	nm156
+128.164.156.0	net156
 128.164.156.167	yell yell.seas yell.seas.gwu.edu
 128.164.156.171	zell zell.seas zell.seas.gwu.edu
-128.164.156.254	gw   gw.seas   gw.seas.gwu.edu
-128.164.156.255	all  all.seas  all.seas.gwu.edu
-#
-# GWU NS
-#
-128.164.141.12	ns2 ns2.gwu.edu
-161.253.152.50	ns3 ns3.gwu.edu
-#
-# SEAS NS
-#
-128.164.144.144	a.ns.seas.gwu.edu.
-128.164.219.9	b.ns.seas.gwu.edu.
+128.164.156.254	gw156
+128.164.156.255	all156
 
-
+255.255.255.128	nm219
+128.164.219.0	net219
+128.164.219.1	gw219
+128.164.219.50	node17
+128.164.219.51	lom17
+128.164.219.80	node32
+128.164.219.81	lom32
+128.164.219.82	node33 kick ks
+128.164.219.83	lom33
+128.164.219.84	node34 marco1
+128.164.219.85	lom34
+128.164.219.86	node35 marco2
+128.164.219.87	lom35
+128.164.219.126	sw219 gsm7248 netgear
+128.164.219.127	all219
+#
+128.164.219.50  node17.grid.seas.gwu.edu        00144fe69d98
+128.164.219.52  node18.grid.seas.gwu.edu        00144fe6a5fc
+128.164.219.54  node19.grid.seas.gwu.edu        00144fe69c74
+128.164.219.56  node20.grid.seas.gwu.edu        00144fe6ef84
+128.164.219.58  node21.grid.seas.gwu.edu        00144fe6ef50
+128.164.219.60  node22.grid.seas.gwu.edu        00144fe6a698
+128.164.219.62  node23.grid.seas.gwu.edu        00144fd247f0
+128.164.219.64  node24.grid.seas.gwu.edu        00144fe6a714
+128.164.219.66  node25.grid.seas.gwu.edu        00144fcd922c
+128.164.219.68  node26.grid.seas.gwu.edu        00144fd247a8
+128.164.219.70  node27.grid.seas.gwu.edu        00144fe6a858
+128.164.219.72  node28.grid.seas.gwu.edu        00144fc2615c
+128.164.219.74  node29.grid.seas.gwu.edu        00144fe6e448
+128.164.219.76  node30.grid.seas.gwu.edu        00144fe6a824
+128.164.219.78  node31.grid.seas.gwu.edu        00144fd25d7c
+128.164.219.80  node32.grid.seas.gwu.edu        00144f46a814
+128.164.219.82  node33.grid.seas.gwu.edu
+128.164.219.84  node34.grid.seas.gwu.edu
+128.164.219.86  node35.grid.seas.gwu.edu
+#
+128.164.219.51  node17.lom.seas.gwu.edu         00144fe65ccf
+128.164.219.53  node18.lom.seas.gwu.edu         00144fe6593e
+128.164.219.55  node19.lom.seas.gwu.edu         00144fe6575c
+128.164.219.57  node20.lom.seas.gwu.edu         00144fd6ade1
+128.164.219.59  node21.lom.seas.gwu.edu         00144fe65cd2
+128.164.219.61  node22.lom.seas.gwu.edu         00144fe65cc6
+128.164.219.63  node23.lom.seas.gwu.edu         00144fcd8d07
+128.164.219.65  node24.lom.seas.gwu.edu         00144fe65ccc
+128.164.219.67  node25.lom.seas.gwu.edu         00144fcd8cec
+128.164.219.69  node26.lom.seas.gwu.edu         00144fcd831a
+128.164.219.71  node27.lom.seas.gwu.edu         00144fe666cc
+128.164.219.73  node28.lom.seas.gwu.edu         00144faa16e5
+128.164.219.75  node29.lom.seas.gwu.edu         00144fe659b7
+128.164.219.77  node30.lom.seas.gwu.edu         00144fe6593b
+128.164.219.79  node31.lom.seas.gwu.edu         00144faf3813
+128.164.219.81  node32.lom.seas.gwu.edu         00144fe666d0
+128.164.219.83  node33.lom.seas.gwu.edu
+128.164.219.85  node34.lom.seas.gwu.edu
+128.164.219.87  node35.lom.seas.gwu.edu
