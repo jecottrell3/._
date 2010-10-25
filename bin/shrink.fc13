@@ -1,13 +1,38 @@
 #! /bin/sh
 
-DVD=CentOS-5.5-i386-bin-DVD.iso
-DVD=Fedora-13-i386-DVD.iso
+DIST=Fedora-13
+DVD32=$DIST-i386-DVD.iso
+DVD64=$DIST-x86_64-DVD.iso
+DVD=UNKNOWN
 
-keep() { mv -f $* ../keep; }
-nuke() { mv -f $* ../delete; }
+showhow()
+{
+	cat <<EOF
+mkisofs -o ../$1 \
+-b isolinux/isolinux.bin -c isolinux/boot.cat \
+-no-emul-boot -boot-load-size 4 -boot-info-table \
+-R -J -V "$DIST $2-bit Abridged" -T .
 
-mkdir -p keep delete
+implantisomd5 ../$1
+checkisomd5 --verbose ../$1
+EOF
+	exit
+}
 
+case $1 in
+(32)	showhow $DVD32 $1;;
+(64)	showhow $DVD64 $1;;
+esac
+
+loudly() { echo "$@"; eval "$@"; }
+
+grab() { loudly mv -f    $UP/keep/* .; }
+keep() { loudly mv -f $* $UP/keep; }
+nuke() { loudly mv -f $* $UP/delete; }
+
+loudly mkdir -p keep delete
+
+UP=..
 cd Packages
 
 keep *-en-*
@@ -22,6 +47,8 @@ nuke mythes-??-*
 nuke openoffice.org-langpack-*
 
 nuke ibus-*
+nuke kde-l10n-*
+nuke m17n-*
 
 keep dejavu-*
 keep ghostscript-*
@@ -33,18 +60,18 @@ keep xorg-*
 
 nuke *-fonts-*
 
-nuke kde-l10n-*
-
-nuke m17n-*
-
-mv -f ../keep/* .
+grab
 
 cd ..
 
-mv delete ../delete.$$
-rmdir keep
+loudly mv delete ../delete.$$
+loudly rmdir keep
 
-echo mkisofs -o ../$DVD \
--b isolinux/isolinux.bin -c isolinux/boot.cat \
--no-emul-boot -boot-load-size 4 -boot-info-table \
--R -J -V "Fedora 13 Abridged" -T .
+cat <<EOF
+############################
+: Type one of the following:
+:	$0 32
+:	$0 64
+: ...for further directions.
+############################
+EOF
