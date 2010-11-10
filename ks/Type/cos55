@@ -1,0 +1,4 @@
+`#' BEGIN __file__
+define(`TYPE', `cos55')dnl
+define(`PKGS', `cos55')dnl
+`#' END   __file__

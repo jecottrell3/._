@@ -11,7 +11,8 @@ define(`DISK', `sata')dnl
 define(`NET',  `rack5')dnl
 define(`ARCH', `x86_64')dnl
 dnl
-define(`ADDRESS',  `128.164.219.82')dnl
+define(`SERVER',  `128.164.219.82')dnl
+define(`ADDRESS', `128.164.219.82')dnl
 define(`XCONFIG', `skipx')dnl
 dnl
 dnl	END

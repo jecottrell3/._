@@ -1,0 +1,15 @@
+`#' BEGIN __file__
+dnl
+dnl	SunFire Grid Rack 5 Nodes 17-32
+dnl
+include(`Host/kick')dnl
+dnl
+define(`HOST', `grid')dnl
+define(`LABEL', `GH')dnl
+dnl
+define(`NET',  `noname')dnl
+define(`METHOD', `HTTP')dnl
+dnl
+dnl	END
+dnl
+`#' END   __file__

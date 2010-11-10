@@ -52,6 +52,9 @@ $X-kde.ks:  $Z $T/kde  $O/app  $O/kde
 $X-gno.ks:  $Z $T/gno  $O/app         $O/gno
 $X-win.ks:  $Z $T/win  $O/app  $O/kde $O/gno
 
+
+grid-cos55.ks:	grid-cos55.m4 $Y
+
 every::		pass blue book yell zell
 
 pass::;		${MAKE} H=$@ PH LV
