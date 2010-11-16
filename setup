@@ -9,7 +9,7 @@
 # [4] previous versions saved in ~/.save.$$
 ################################################################
 
-SAVE=.save.$$
+SAVE=.save.$(date +%%H%M)
 INIT=._
 
 test -d $INIT || return
@@ -27,7 +27,13 @@ do
 	(setup)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
-	(.?)	test -f $x || cp $INIT/$x .
+	(.ssh)	test -e $x && mv .ssh $SAVE
+		mkdir .ssh
+		(cd   .ssh && ln -s ../._/.ssh/* .)
+		rm    .ssh/authorized_keys
+		cp ._/.ssh/authorized_keys .ssh
+			continue;;
+	(.?)	test -f $x || cp -r $INIT/$x .
 			continue;;
 	esac
 
