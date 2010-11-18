@@ -17,8 +17,10 @@ alias	ag='alias | egrep'
 alias	eg='env   | egrep'
 alias	e=echo		en='echo -n'
 alias	h='fc -l'	r='fc -s'
-alias	path='echo $PATH | tr : \\012'
+alias	   path='echo $PATH    | tr : \\012'
+alias	manpath='echo $MANPATH | tr : \\012'
 alias	t=type
+alias	t=type			fn='declare -f'
 alias	vf='vi /etc/fstab'	vk='vi ~/.ssh/known_hosts'
 alias	vp='vi ~/.bash_profile; source ~/.bash_profile'
 alias	vb='vi ~/.bashrc;       source ~/.bashrc'
@@ -26,7 +28,7 @@ alias	va='vi ~/.alias;        source ~/.alias'
 alias	vc='vi ~/.complete;     source ~/.complete'
 alias	x='for x in'
 alias	y='fg %-'
-alias	zz=suspend
+alias	zz=suspend		zzz='suspend -f'
 
 function c() { cd    $* && ls -FAC; }
 function u() { cd ../$* && ls -FAC; }
@@ -47,8 +49,8 @@ alias	cm='chmod'	cx='chmod a+x'
 
 alias	d='rm -i'	rfv='rm -rfv'
 alias	dm='less +/"^diff.*"' im='less +/"^Index: .*"'
-alias	dh='df -h'	uh='du -h'
-alias	g='egrep --color=auto' gc='egrep --color=always'
+alias	dh='df -h'	uh='du -h'	df='df -k'
+alias	g='egrep'	v='egrep -v'
 function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
 alias	j='jobs -l'	jj='jobs -l'
@@ -60,7 +62,7 @@ alias	k1='kill -USR1'	k2='kill -USR2'
 alias	kt='kill -TERM'	ka='kill -ALRM'
 alias	kc='kill -CONT'	ks='kill -STOP'
 
-alias	ls='ls --color=auto'
+#lias	ls='ls --color=auto'
 alias	 l='ls -FAC'
 alias	la='ls -Fals'
 alias	lh='ls -FAlsh'
@@ -94,7 +96,7 @@ alias	 rbj='chown -R       rbj:rbj'
 alias	  jc='chown -R jcottrell:jcottrell'
 
 alias	sa='ssh-add'
-alias	sb='sudo bash'
+alias	sb='sudo bash -l'
 alias	sl='ln -s'
 alias	ss='ssh -qAX'
 alias	sun12x22='setfont sun12x22.psfu.gz'

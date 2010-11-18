@@ -11,9 +11,11 @@ case $(tty) in
 (/dev/pts/*)	LT=0 DK=1;;	# lite 
 esac
 
-ID=$(PATH=/usr/local/bin:$PATH id -u)
+#D=$(PATH=/usr/local/bin:$PATH id -u)
+#D=$(id | sed 's/).*//;s/.*)//')
+ID=$(id | sed 's/(.*//;s/.*=//')
 BG=$SHLVL
-BG=$(tty | tr -dc 0-9)
+BG=$(tty | tr -dc 0123456789)
 ((BG %= 8))
 case $BG in
 ([267])		HI=0 FG=0;;	# lite BG

@@ -34,7 +34,8 @@ done
 #	ENVIRONMENT VARIABLES
 #################################################################
 
-export	ID=$(PATH=/usr/local/bin:$PATH id -u)
+#xport	ID=$(PATH=/usr/local/bin:$PATH id -u)
+export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQcdeisj11
 export	LANG=C LOCALE=C LC_ALL=C
 export	VERSION_CONTROL=numbered
