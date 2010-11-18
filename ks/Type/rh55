@@ -1,0 +1,7 @@
+`#' BEGIN __file__
+#
+# RHEL 5.5 on the Grid
+#
+define(`TYPE', `rh55')dnl
+define(`PKGS', `rh55')dnl
+`#' END   __file__

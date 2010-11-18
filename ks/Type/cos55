@@ -1,4 +1,7 @@
 `#' BEGIN __file__
+#
+# CentOS 5.5 on the Grid
+#
 define(`TYPE', `cos55')dnl
 define(`PKGS', `cos55')dnl
 `#' END   __file__
