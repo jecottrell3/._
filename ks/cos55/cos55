@@ -496,6 +496,7 @@ mpitests-mvapich2
 mpitests-openmpi
 mvapich
 mvapich2
+openmpi-devel
 
 ################################################################
 @admin-tools
