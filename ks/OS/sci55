@@ -1,6 +1,6 @@
 `#' BEGIN __file__
-define(`OS_TAG',	`cos55')dnl
-define(`OS_NAME',	`CentOS')dnl
+define(`OS_TAG',	`sci55')dnl
+define(`OS_NAME',	`Scientific')dnl
 define(`OS_VERSION',	`5.5')dnl
 define(`OS_MEDIA',	`dvd')dnl
 define(`ISODIR',	`/OS_NAME/OS_VERSION/ARCH/OS_MEDIA')dnl

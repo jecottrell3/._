@@ -1,8 +1,7 @@
 `#' BEGIN __file__
-define(`OS_TAG',	`fc13')dnl
+define(`OS_TAG',	`fc14')dnl
 define(`OS_NAME',	`Fedora')dnl
-define(`OS_VERSION',	`13')dnl
-dnl	define(`ARCH',	`i386')dnl
+define(`OS_VERSION',	`14')dnl
 define(`OS_MEDIA',	`dvd')dnl
 define(`ISODIR',	`/OS_NAME/OS_VERSION/ARCH/OS_MEDIA')dnl
 dnl

@@ -1,0 +1,20 @@
+`#' BEGIN __file__
+################################################################
+@kde-desktop
+################################################################
+
+#m	-arts
+#m	-kdebase
+#d	-desktop-printing
+-im-chooser
+#d	-kdeaccessibility
+#d	-kdeaddons
+#d	-kdeartwork
+#d	-kdegraphics
+#d	-kdemultimedia
+#d	-kdenetwork
+#d	-kdepim
+#d	-kdeutils
+kdeadmin
+
+`#' END   __file__
