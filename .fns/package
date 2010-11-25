@@ -23,6 +23,27 @@ done
 #	PACKAGING -- YUM
 #################################################################
 
+ypbind        ypchfn        ypmatch       yppush        ypset
+ypc           ypchsh        yppasswd      ypserv        yptest
+ypcat         ypdomainname  yppoll        ypserv_test   ypwhich
+
+#alias	yc=ypcat	yk='ypcat -k'
+#alias	ym=ypmatch	yw=ypwhich
+#alias	yb=ypbind	ys=ypset
+#alias	yv=ypserv	yo=yppoll
+#alias	yu=yppush	yx=ypxfr
+#alias	yg=ypgrep
+alias	Y=ypgrep	W='ypwhich -m'
+
+function ypgrep
+{
+	typeset map=$1; shift
+	case $map in
+	(auto*) ypcat -k $map;;
+	(*)     ypcat    $map;;
+	esac | grep "$@"
+}
+
 alias	yc=' yum clean'		ys=' yum search'
 alias	yi=' yum install'	ygi='yum groupinstall'
 alias	iy=' yum install -y'	igy='yum groupinstall -y'

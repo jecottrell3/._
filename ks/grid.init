@@ -36,7 +36,7 @@ logvol /cos55 --vgname=grid --name=cos55 --size=20000 --fstype ext3 --fsoptions=
 logvol /rh55  --vgname=grid --name=rh55  --size=20000 --fstype ext3 --fsoptions=noatime
 logvol /rh60  --vgname=grid --name=rh60  --size=20000 --fstype ext3 --fsoptions=noatime
 logvol /fc14  --vgname=grid --name=fc14  --size=20000 --fstype ext3 --fsoptions=noatime
-logvol /sci   --vgname=grid --name=sci   --size=20000 --fstype ext3 --fsoptions=noatime
+logvol /sci55 --vgname=grid --name=sci55 --size=20000 --fstype ext3 --fsoptions=noatime
 
 ################################################################
 ####    ACTUALLY *DO* THE PARTITIONING
@@ -89,7 +89,7 @@ exec 2>&1
 lvm vgchange -a y
 ln -s /dev/grid /myvg
 
-for dir in cos55 rh55 rh60 fc14 sci
+for dir in cos55 rh55 rh60 fc14 sci55
 do
 	e2label /myvg/$dir $dir
 done
@@ -101,8 +101,8 @@ mkdir -p /svn
 : :::::::::::::::::::::
 
 JC=jcottrell
-mkdir -p                     /home/$JC
-rsync -vax /svn/jcottrell/._ /home/$JC
+mkdir -p               /home/$JC
+rsync -vax /svn/$JC/._ /home/$JC
 ln -s /boot/$JC /home
 umount /svn
 
@@ -114,7 +114,7 @@ date
 cd /root
 env | sort -o env.log
 export HOME=/root
-ln -s /home/jcottrell/._ .
+ln -s /home/$JC/._ .
 
 set +x; echo \
 . ._/setup
@@ -125,16 +125,25 @@ set -x
 : :: Create JCOTTRELL and RBJ ::
 : ::::::::::::::::::::::::::::::
 
+date
 tmp/.mkjc cos5
 tmp/.mkrbj
+
+cd /home/$JC/cos5
+ln -s ../._ .
+
+set +x; echo \
+. ._/setup
+. ._/setup
+set -x
 
 : :::::::::::::::::::::::::::::::
 : :: Distribute Standard Files ::
 : ::   Tailor to Environment   ::
 : :::::::::::::::::::::::::::::::
 
-DIST=/home/jcottrell/._/dist
 date
+DIST=/home/$JC/._/dist
 test  -d    $DIST/. &&
 rsync -Cvrp $DIST/. /
 

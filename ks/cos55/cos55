@@ -1,12 +1,35 @@
+####################################
+####	GRID REQUIREMENTS	####
+####################################
+
+kernel
+kernel-devel
+kernel-headers
+
+glibc
+glibc-devel
+glibc-headers
+
+glib2
+glib2-devel
+
+gcc
+libgcc
+
+gcc-c++
+libstdc++
+libstdc++-devel
+
+gcc-gfortran
+libgfortran
+
 tcl
 tcl-devel
 tk
 tk-devel
+
 dmidecode
 binutils-devel
-libstdc++
-libstdc++-devel
-libgfortran
 
 ################################################################
 @core
@@ -99,7 +122,7 @@ libgfortran
 #m	-tmpwatch
 #m	-traceroute
 #m	-vixie-cron
-#d	-NetworkManager
+-NetworkManager
 #d	-acpid
 -amtu
 #d	-anacron
@@ -179,7 +202,7 @@ libgfortran
 #d	-sendmail
 #d	-setarch
 #d	-setuptool
-#d	-smartmontools
+-smartmontools
 #d	-sos
 -specspo
 #d	-stunnel
@@ -312,7 +335,7 @@ hardlink
 ################################################################
 
 #m	-bzip2-devel
--glibc-devel
+glibc-devel
 #m	-libtermcap-devel
 #m	-ncurses-devel
 #m	-pam-devel
@@ -455,12 +478,12 @@ unifdef
 
 #d	-gnuplot
 #d	-units
-lam
+#o	 lam
 #o	 lapack
 #o	 pvm
 
 ################################################################
-@openfabrics-enterprise-distribution
+-@openfabrics-enterprise-distribution
 ################################################################
 
 #d	-dapl
@@ -482,30 +505,30 @@ lam
 #d	-openmpi
 #d	-perftest
 #d	-qperf
-ibsim
-mstflint
-opensm
-qlvnictools
-srptools
-tvflash
+#o	 ibsim
+#o	 mstflint
+#o	 opensm
+#o	 qlvnictools
+#o	 srptools
+#o	 tvflash
 
-libmthca
-mpi-selector
-mpitests-mvapich
-mpitests-mvapich2
-mpitests-openmpi
-mvapich
-mvapich2
-openmpi-devel
+#libmthca
+#mpi-selector
+#mpitests-mvapich
+#mpitests-mvapich2
+#mpitests-openmpi
+#mvapich
+#mvapich2
+#openmpi-devel
 
 ################################################################
-@admin-tools
+-@admin-tools
 ################################################################
 
 #d	-authconfig-gtk
 #d	-pirut
 #d	-sabayon
-#d	-setroubleshoot
+-setroubleshoot
 #d	-system-config-date
 #d	-system-config-kdump
 #d	-system-config-keyboard
@@ -515,9 +538,9 @@ openmpi-devel
 #d	-system-config-rootpassword
 #d	-system-config-soundcard
 #d	-system-config-users
-system-config-kickstart
-system-config-netboot
-system-config-netboot-cmd
+#o	 system-config-kickstart
+#o	 system-config-netboot
+#o	 system-config-netboot-cmd
 
 ################################################################
 -@cluster-storage
@@ -612,7 +635,7 @@ vim-X11
 #m	-GConf2-devel
 #m	-ORBit2-devel
 #m	-atk-devel
-#m	-glib2-devel
+glib2-devel
 #m	-gnome-vfs2-devel
 #m	-gtk2-devel
 #m	-libbonobo-devel
@@ -923,7 +946,7 @@ iptables
 #o	 netlabel_tools
 #o	 openhpi
 #o	 openmotif
-#o	 procinfo
+procinfo
 #ox	 salinfo
 #o	 sg3_utils
 syslinux
@@ -1018,7 +1041,7 @@ syslinux
 #o	 ruby-ri
 
 ################################################################
-@server-cfg
+-@server-cfg
 ################################################################
 
 #d	-system-config-httpd
@@ -1027,7 +1050,7 @@ syslinux
 #d	-system-config-samba
 #d	-system-config-securitylevel
 #d	-system-config-services
-system-config-bind
+#o	 system-config-bind
 #o	 system-config-boot
 #o	 system-switch-mail-gnome
 

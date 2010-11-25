@@ -19,7 +19,7 @@ alias	lvrs=lvresize
 #lias	lvs=lvs
 alias	lvsc=lvscan
 #################################################################
-#	LOGICAL VOLUME COMMANDS
+#	PHYSICAL VOLUME COMMANDS
 #################################################################
 alias	pvch=pvchange
 #lias	pvck=pvck
@@ -31,7 +31,7 @@ alias	pvrs=pvresize
 #lias	pvs=pvs
 alias	pvsc=pvscan
 #################################################################
-#	LOGICAL VOLUME COMMANDS
+#	VOLUME GROUP COMMANDS
 #################################################################
 alias	vgcb=vgcfgbackup
 alias	vgcr=vgcfgrestore
@@ -52,4 +52,6 @@ alias	vgmv=vgrename
 #lias	vgs=vgs
 alias	vgsc=vgscan
 alias	vgsp=vgsplit
+#################################################################
+#	TODO: mdadm commands
 #################################################################
