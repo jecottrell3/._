@@ -4,4 +4,5 @@
 #
 define(`TYPE', `gno')dnl
 define(`PKGS', `core,base,x11,dev,srv,app,gno')dnl
+define(`PKGS', `all')dnl
 `#' END   __file__

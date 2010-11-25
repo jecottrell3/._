@@ -10,8 +10,10 @@ set -o	ignoreeof
 
 alias	rbj='source .rbj'
 export	RBJ=~/._
+export	J=jcottrel		JC=jcottrell
+export	Y=128.164.156.167	Z=128.164.156.171
 
-for file in /etc/profile .init .profile .vars .bashrc
+for file in /etc/profile .init .vars .bashrc
 do
 	test -f $file &&
 	source  $file

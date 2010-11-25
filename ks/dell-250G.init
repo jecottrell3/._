@@ -25,30 +25,30 @@ network --bootproto dhcp --hostname rescue
 ####	Partitions	#### WARNING #### FORMATS AUTOMATICALLY
 ################################################################
 
-part /     --fstype ext3 --onpart sda1 --fsoptions=noatime --label=XR
-part /home --fstype ext3 --onpart sda2 --fsoptions=noatime --label=XH
+part /     --fstype ext3 --onpart sda1 --fsoptions=noatime --noformat
+part /home --fstype ext3 --onpart sda2 --fsoptions=noatime --noformat
 part /vfat --fstype vfat --onpart sda3 --fsoptions=uid=654,gid=654,shortname=mixed --noformat
 
 ################################################################
 ####	ACTUALLY *DO* THE PARTITIONING
 ################################################################
 
-%pre 
-#! /bin/sh -x
-
-exec 1>/tmp/pre.log 2>&1
-set -x
-
-/usr/sbin/sfdisk /dev/sda <<EOF
-# partition table of /dev/sda
-unit: sectors
-
-/dev/sda1 : start=  6409935, size= 80325000, Id=83, bootable
-/dev/sda2 : start= 86734935, size= 80325000, Id=83
-/dev/sda3 : start=       63, size=  6409872, Id=de
-/dev/sda4 : start=167059935, size=321219675, Id=8e
-
-EOF
+#@%pre 
+#@#! /bin/sh -x
+#@
+#@exec 1>/tmp/pre.log 2>&1
+#@set -x
+#@
+#@/usr/sbin/sfdisk /dev/sda <<EOF
+#@# partition table of /dev/sda
+#@unit: sectors
+#@
+#@/dev/sda1 : start=  6409935, size= 80325000, Id=83, bootable
+#@/dev/sda2 : start= 86734935, size= 80325000, Id=83
+#@/dev/sda3 : start=       63, size=  6409872, Id=de
+#@/dev/sda4 : start=167059935, size=321219675, Id=8e
+#@
+#@EOF
 
 ################################################################
 ####	INSTALL GRUB TO MBR
@@ -57,7 +57,7 @@ EOF
 %post --nochroot
 #! /bin/sh -x
 
-cp /tmp/pre.log /mnt/sysimage/root
+#@cp /tmp/pre.log /mnt/sysimage/root
 cp /tmp/ks.cfg  /mnt/sysimage/root
 
 %post --log=/root/post.log
@@ -98,8 +98,8 @@ mkdir -p /home/boot.fc13
 
 m4
 make
-subversion
-vim-enhanced
+#@subversion
+#@vim-enhanced
 
 ################################################################
 @core
