@@ -1,0 +1,120 @@
+#! /bin/sh
+
+DIST=Fedora-14
+DVD32=$DIST-i386-DVD.iso
+DVD64=$DIST-x86_64-DVD.iso
+DVD=UNKNOWN
+
+showhow()
+{
+	cat <<EOF
+mkisofs -o ../$1 \
+-b isolinux/isolinux.bin -c isolinux/boot.cat \
+-no-emul-boot -boot-load-size 4 -boot-info-table \
+-R -J -V "$DIST $2-bit Abridged" -T .
+
+implantisomd5 ../$1
+checkisomd5 --verbose ../$1
+EOF
+	exit
+}
+
+case $1 in
+(32)	showhow $DVD32 $1;;
+(64)	showhow $DVD64 $1;;
+esac
+
+loudly() { echo "$@"; eval "$@"; }
+loudly() {            eval "$@"; }
+
+grab() { loudly mv -f    $UP/keep/* .; }
+keep() { loudly mv -f $* $UP/keep; }
+nuke() { loudly mv -f $* $UP/delete; }
+
+loudly mkdir -p keep delete fonts
+
+UP=..
+cd Packages
+
+keep *-en-*
+
+nuke aspell-??-*
+nuke autocorr-??-*
+nuke eclipse-nls-??-*
+nuke hunspell-??-*
+nuke hyphen-[a-z]*
+nuke man-pages-??-*
+nuke mythes-??-*
+nuke openoffice.org-langpack-*
+
+nuke ibus-*
+nuke kde-l10n-*
+nuke m17n-*
+
+grab
+
+keep dejavu-*
+keep ghostscript-*
+keep liberation-*
+keep openoffice.org-*
+keep stix-*
+keep urw-*
+keep xorg-*
+
+mv *-fonts-* ../fonts
+cd ../fonts
+
+keep artwiz-*
+keep oflb-*
+
+nuke baekmuk-*
+nuke bpg-*
+nuke cjkuni-*
+nuke culmus-*
+nuke gdouros-*
+nuke gfs-*
+nuke ipa-*
+nuke hanazono-*
+nuke japanese-*
+nuke jomolhari-*
+nuke kacst-*
+nuke kanjistrokeorders-*
+nuke khmeros-*
+nuke lohit-*
+nuke mgopen-*
+nuke motoya-*
+nuke myanmar3-*
+nuke paktype-*
+nuke pothana2000-*
+nuke samyak-*
+nuke sarai-*
+nuke sazanami-*
+nuke senamirmir-*
+nuke sil-*
+nuke smc-*
+nuke thai-*
+nuke un-*
+nuke vlgothic-*
+nuke wqy-*
+
+# The rest aren't worth bothering with
+
+keep *
+
+cd ../Packages
+
+grab
+
+cd ..
+
+loudly mv delete ../delete.$$
+loudly rmdir keep fonts
+
+cat <<EOF
+############################
+: Type one of the following:
+:	$0 32
+:	$0 64
+: ...for further directions.
+############################
+EOF

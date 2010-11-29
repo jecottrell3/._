@@ -1,0 +1,22 @@
+# source this file
+# echo ARGS: $# "$@"
+ARGS="$*"
+OFS=$IFS
+IFS="$IFS:"
+set $PATH
+path=$1
+shift
+for dir
+do
+	test -d $dir || continue
+	case :$path: in
+	(*:$dir:*)	continue;;
+	(*)	path=$path:$dir
+	esac
+done
+IFS=$OFS
+echo \
+PATH=$path
+PATH=$path
+set -- $ARGS
+# echo ARGS: $# "$@"
