@@ -1,65 +1,83 @@
 127.0.0.1 localhost.localdomain	  localhost  lh
 ::1       localhost6.localdomain6 localhost6 lh6
 
-255.255.252.0	nm156
+# GWU NET/HOSTS
+
+128.164.0.0	gwu.edu
+128.164.144.144	dns1.seas.gwu.edu dns1
+128.164.219.9	dns2.seas.gwu.edu dns2
+128.164.127.199	ntpfb1.nit.gwu.edu ntpfb1 ntp1
+128.164.130.199	ntpfb2.nit.gwu.edu ntpfb2 ntp2
+128.164.141.11	 ns.gwu.edu ns1 ns
+128.164.141.12	ns2.gwu.edu ns2
+161.253.152.50	ns3.gwu.edu ns3
+128.164.255.255	gwu.all
+
+# SEAS Servers
+
+128.164.156.32   ambrose.seas.gwu.edu ambrose  nis0 nis
+128.164.144.169 ambrose1.seas.gwu.edu ambrose1 nis1
+128.164.144.167 ambrose2.seas.gwu.edu ambrose2 nis2
+128.164.144.136    titan.seas.gwu.edu titan    nfs
+
+# SEAS PC NET
+
+255.255.252.0	 nm156
 128.164.156.0	net156
-128.164.156.167	yell yell.seas yell.seas.gwu.edu
-128.164.156.171	zell zell.seas zell.seas.gwu.edu
-128.164.156.254	gw156
+128.164.156.167	yell yell.seas yell.seas.gwu.edu jim1
+128.164.156.171	zell zell.seas zell.seas.gwu.edu jim2
+128.164.156.254	 gw156
 128.164.156.255	all156
 
-255.255.255.128	nm219
+# SEAS Server Net
+
+255.255.255.128	 nm219
 128.164.219.0	net219
-128.164.219.1	gw219
-128.164.219.50	node17
-128.164.219.51	lom17
-128.164.219.80	node32
-128.164.219.81	lom32
-128.164.219.82	node33 kick ks
-128.164.219.83	lom33
-128.164.219.84	node34 marco1
-128.164.219.85	lom34
-128.164.219.86	node35 marco2
-128.164.219.87	lom35
-128.164.219.126	sw219 gsm7248 netgear
+128.164.219.1	 gw219
+128.164.219.125	 ql219 ql9024  qlogic
+128.164.219.126	 sw219 gsm7248 netgear
 128.164.219.127	all219
-#
-128.164.219.50  node17.grid.seas.gwu.edu        00144fe69d98
-128.164.219.52  node18.grid.seas.gwu.edu        00144fe6a5fc
-128.164.219.54  node19.grid.seas.gwu.edu        00144fe69c74
-128.164.219.56  node20.grid.seas.gwu.edu        00144fe6ef84
-128.164.219.58  node21.grid.seas.gwu.edu        00144fe6ef50
-128.164.219.60  node22.grid.seas.gwu.edu        00144fe6a698
-128.164.219.62  node23.grid.seas.gwu.edu        00144fd247f0
-128.164.219.64  node24.grid.seas.gwu.edu        00144fe6a714
-128.164.219.66  node25.grid.seas.gwu.edu        00144fcd922c
-128.164.219.68  node26.grid.seas.gwu.edu        00144fd247a8
-128.164.219.70  node27.grid.seas.gwu.edu        00144fe6a858
-128.164.219.72  node28.grid.seas.gwu.edu        00144fc2615c
-128.164.219.74  node29.grid.seas.gwu.edu        00144fe6e448
-128.164.219.76  node30.grid.seas.gwu.edu        00144fe6a824
-128.164.219.78  node31.grid.seas.gwu.edu        00144fd25d7c
-128.164.219.80  node32.grid.seas.gwu.edu        00144f46a814
-128.164.219.82  node33.grid.seas.gwu.edu
-128.164.219.84  node34.grid.seas.gwu.edu
-128.164.219.86  node35.grid.seas.gwu.edu
-#
-128.164.219.51  node17.lom.seas.gwu.edu         00144fe65ccf
-128.164.219.53  node18.lom.seas.gwu.edu         00144fe6593e
-128.164.219.55  node19.lom.seas.gwu.edu         00144fe6575c
-128.164.219.57  node20.lom.seas.gwu.edu         00144fd6ade1
-128.164.219.59  node21.lom.seas.gwu.edu         00144fe65cd2
-128.164.219.61  node22.lom.seas.gwu.edu         00144fe65cc6
-128.164.219.63  node23.lom.seas.gwu.edu         00144fcd8d07
-128.164.219.65  node24.lom.seas.gwu.edu         00144fe65ccc
-128.164.219.67  node25.lom.seas.gwu.edu         00144fcd8cec
-128.164.219.69  node26.lom.seas.gwu.edu         00144fcd831a
-128.164.219.71  node27.lom.seas.gwu.edu         00144fe666cc
-128.164.219.73  node28.lom.seas.gwu.edu         00144faa16e5
-128.164.219.75  node29.lom.seas.gwu.edu         00144fe659b7
-128.164.219.77  node30.lom.seas.gwu.edu         00144fe6593b
-128.164.219.79  node31.lom.seas.gwu.edu         00144faf3813
-128.164.219.81  node32.lom.seas.gwu.edu         00144fe666d0
-128.164.219.83  node33.lom.seas.gwu.edu
-128.164.219.85  node34.lom.seas.gwu.edu
-128.164.219.87  node35.lom.seas.gwu.edu
+
+# New GRID
+
+128.164.219.50 node17.grid 00144fe69d98 node17
+128.164.219.52 node18.grid 00144fe6a5fc node18
+128.164.219.54 node19.grid 00144fe69c74 node19
+128.164.219.56 node20.grid 00144fe6ef84 node20
+128.164.219.58 node21.grid 00144fe6ef50 node21
+128.164.219.60 node22.grid 00144fe6a698 node22
+128.164.219.62 node23.grid 00144fd247f0 node23
+128.164.219.64 node24.grid 00144fe6a714 node24
+128.164.219.66 node25.grid 00144fcd922c node25
+128.164.219.68 node26.grid 00144fd247a8 node26
+128.164.219.70 node27.grid 00144f9aa496 node27
+128.164.219.72 node28.grid 00144fd2615c node28
+128.164.219.74 node29.grid 00144fe6e448 node29
+128.164.219.76 node30.grid 00144fe6a824 node30
+128.164.219.78 node31.grid 00144fd25d7c node31
+128.164.219.80 node32.grid 00144fe6a814 node32
+128.164.219.82 node33.grid 00144fe6a61c node33 kick
+128.164.219.84 node34.grid 00144fd274e4 node34 marco1
+128.164.219.86 node35.grid 00144fcd928c node35 marco2
+
+# New Grid ILOM
+
+128.164.219.51 ilom17.grid 00144fe65ccf ilom17
+128.164.219.53 ilom18.grid 00144fe6593e ilom18
+128.164.219.55 ilom19.grid 00144fe6575c ilom19
+128.164.219.57 ilom20.grid 00144fd6ade1 ilom20
+128.164.219.59 ilom21.grid 00144fe65cd2 ilom21
+128.164.219.61 ilom22.grid 00144fe65cc6 ilom22
+128.164.219.63 ilom23.grid 00144fcd8d07 ilom23
+128.164.219.65 ilom24.grid 00144fe65ccc ilom24
+128.164.219.67 ilom25.grid 00144fcd8cec ilom25
+128.164.219.69 ilom26.grid 00144fcd831a ilom26
+128.164.219.71 ilom27.grid 0021286cd3bc ilom27
+128.164.219.73 ilom28.grid 00144faa16e5 ilom28
+128.164.219.75 ilom29.grid 00144fe659b7 ilom29
+128.164.219.77 ilom30.grid 00144fe6593b ilom30
+128.164.219.79 ilom31.grid 00144faf3813 ilom31
+128.164.219.81 ilom32.grid 00144fe666d0 ilom32
+128.164.219.83 ilom33.grid 00144fe6574a ilom33
+128.164.219.85 ilom34.grid 00144fcd8cf5 ilom34
+128.164.219.87 ilom35.grid 00144fcd8cd7 ilom35
