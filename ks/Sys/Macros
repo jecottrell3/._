@@ -2,6 +2,7 @@
 dnl
 dnl	Default Definitions
 dnl
+define(`AUTH', `')dnl
 define(`SERVER', `128.164.219.82')dnl
 define(`HD', `harddrive --partition=ISO --dir=ISODIR')dnl
 define(`NFS', `nfs      --server=SERVER --dir=ISODIR')dnl

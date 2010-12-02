@@ -21,7 +21,7 @@ for dir in jcottrell
 do
 	if test -d /boot/$dir
 	then ln -s /boot/$dir /home
-	else ln -s ../$dir    /home
+# ????	else ln -s ../$dir    /home
 	fi
 done
 
@@ -35,7 +35,9 @@ date
 cd /root
 env | sort -o env.log
 export `HOME'=/root
-ln -s /home/jcottrell/._ .
+test -d /boot/jcottrell/._   &&
+ln -s   /boot/jcottrell/._ . ||
+ln -s   /home/jcottrell/._ .
 
 set +x; echo \
 . ._/setup
@@ -55,6 +57,7 @@ tmp/.mkrbj
 : :::::::::::::::::::::::::::::::
 
 DIST=/home/jcottrell/._/dist
+DIST=/boot/jcottrell/._/dist
 date
 test  -d    $DIST/. &&
 rsync -Cvrp $DIST/. /
@@ -67,6 +70,10 @@ cp -v issue.cos55 issue
 grep seas.gwu.edu resolv.conf &&
 cp -v hosts.seas hosts ||
 cp -v hosts.home hosts
+
+# done by DHCP
+#grep seas.gwu.edu resolv.conf &&
+#cp -v ntp.seas ntp.conf
 
 cd /root
 
@@ -113,6 +120,14 @@ umount  -av
 echo updatedb -v
 mount   -av
 date
+
+: ::::::::::::::::
+: :: DNS Config ::
+: ::::::::::::::::
+
+cd /etc/sysconfig/network-scripts
+grep seas.gwu.edu resolv.conf &&
+echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-eth2
 
 : ::::::::::::::
 : :: END Post ::

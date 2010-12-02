@@ -10,6 +10,12 @@ dnl
 define(`NET',  `noname')dnl
 define(`METHOD', `HTTP')dnl
 dnl
+define(`SEAS', `seas.gwu.edu')dnl
+define(`AUTH1', `--disablecache --enablepreferdns')dnl
+define(`AUTH2', `--enablenis --nisdomain=seasNIS')dnl
+define(`AUTH3', `--nisserver=ambrose.SEAS,ambrose2.SEAS')dnl
+define(`AUTH', `AUTH1 AUTH2 AUTH3')dnl
+dnl
 dnl	END
 dnl
 `#' END   __file__

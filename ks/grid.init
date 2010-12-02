@@ -67,8 +67,8 @@ mount
 cp /tmp/pre.log /mnt/sysimage/root
 cp /tmp/ks.cfg  /mnt/sysimage/root
 
-mkdir -p                   /mnt/sysimage/svn
-mount 128.164.219.82:/boot /mnt/sysimage/svn
+mkdir -p                   /mnt/sysimage/svn	# for later
+mount 128.164.219.82:/boot /mnt/sysimage/svn	# wrong, but easy
 
 ################################################################
 ####	Finalization
@@ -81,11 +81,15 @@ mount 128.164.219.82:/boot /mnt/sysimage/svn
 set -x
 set -x
 exec 2>&1
+cd /root
+env | sort -o env.log
+export HOME=/root
 
 : ::::::::::::::::::::::
 : Label LVM Partitions :
 : ::::::::::::::::::::::
 
+date
 lvm vgchange -a y
 ln -s /dev/grid /myvg
 
@@ -96,41 +100,50 @@ done
 
 mkdir -p /svn
 
-: :::::::::::::::::::::
-: Link Important Dirs :
-: :::::::::::::::::::::
-
-JC=jcottrell
-mkdir -p               /home/$JC
-rsync -vax /svn/$JC/._ /home/$JC
-ln -s /boot/$JC /home
-umount /svn
-
-: :::::::::::::::::::::
-: Get RBJ Environment :
-: :::::::::::::::::::::
+: ::::::::::::::::
+: Get RBJ Files ::
+: ::::::::::::::::
 
 date
-cd /root
-env | sort -o env.log
-export HOME=/root
-ln -s /home/$JC/._ .
+JC=jcottrell
+mkdir -p              /home/$JC
+rsync -ax /svn/$JC/._ /home/$JC
+umount /svn	# can we do this?
+
+: ::::::::::::::::::::::::::::::::::::
+: :: Create JCOTTRELL and RBJ Users ::
+: ::::::::::::::::::::::::::::::::::::
+
+date
+cd /home/$JC
+._/tmp/.mkjc cos5
+._/tmp/.mkrbj
+
+rm -rf           /boot/$JC
+ln -s  /home/$JC /boot/$JC
+
+: :::::::::::::::::::::::::::::
+: Get RBJ Environment for RBJ :
+: :::::::::::::::::::::::::::::
+
+mkdir -p cos5
+cd       cos5
+ln -s ../._
 
 set +x; echo \
 . ._/setup
 . ._/setup
 set -x
 
+chown -R $JC:$JC /home/$JC
+
 : ::::::::::::::::::::::::::::::
-: :: Create JCOTTRELL and RBJ ::
+: Get RBJ Environment for ROOT :
 : ::::::::::::::::::::::::::::::
 
 date
-tmp/.mkjc cos5
-tmp/.mkrbj
-
-cd /home/$JC/cos5
-ln -s ../._ .
+cd /root
+ln -s /boot/$JC/._ .
 
 set +x; echo \
 . ._/setup
@@ -143,7 +156,7 @@ set -x
 : :::::::::::::::::::::::::::::::
 
 date
-DIST=/home/$JC/._/dist
+DIST=/boot/$JC/._/dist
 test  -d    $DIST/. &&
 rsync -Cvrp $DIST/. /
 
@@ -152,11 +165,18 @@ cd /etc
 grep CentOS issue &&
 cp -v issue.cos55 issue
 
-grep seas.gwu.edu resolv.conf &&
-cp -v hosts.seas hosts ||
-cp -v hosts.home hosts
+cp -v hosts.seas hosts
+# Done via DHCP
+#cp -v   ntp.seas ntp.conf
 
 cd /root
+
+: ::::::::::::::::::::::::::::::
+: :: Add Chainload Boot Entry ::
+: ::::::::::::::::::::::::::::::
+
+cd /boot/grub
+cp -v grub.grid grub.conf
 
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::

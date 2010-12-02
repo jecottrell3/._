@@ -53,6 +53,7 @@ $X-gno.ks:  $Z $T/gno  $O/app         $O/gno
 $X-win.ks:  $Z $T/win  $O/app  $O/kde $O/gno
 
 
+grid:	grid-cos55.ks
 grid-cos55.ks:	grid-cos55.m4 $Y
 
 every::		pass blue book yell zell

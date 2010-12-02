@@ -11,7 +11,7 @@ keyboard us
 XCONFIG
 rootpw --iscrypted $1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1
 firewall --enabled --port=22:tcp
-authconfig --enableshadow --enablemd5 --enablelocauthorize
+authconfig --enableshadow --enablemd5 --enablelocauthorize AUTH
 selinux --disabled
 timezone UTC America/New_York
 bootloader --location=partition --driveorder=ORDER
