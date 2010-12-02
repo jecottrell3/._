@@ -6,6 +6,7 @@ gid=${3:-654}
 rbj=${4:-jcottrell}
 
 dir=/home/$rbj$sub
+dir=/boot/$rbj$sub
 
 grep $rbj /etc/group ||
 groupadd -g $gid $rbj
@@ -21,3 +22,6 @@ useradd -u $uid -g $gid $SUDO -c 'Jim Cottrell' -m \
 mkdir -p	$dir
 chown $rbj:$rbj	$dir
 chmod 2755	$dir
+
+usermod -a -G 20 root	# SEAS
+usermod -a -G 20 $rbj	# SEAS

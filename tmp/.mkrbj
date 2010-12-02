@@ -11,6 +11,12 @@ grep $OLD group ||
 	exit 1
 }
 
+grep $NEW group &&
+{
+	echo $NEW already added
+	exit 1
+}
+
 for FILE in group passwd shadow
 do
 	grep $NEW $FILE ||
@@ -19,3 +25,5 @@ do
 		sed "/^$OLD/{p;s//$NEW/;}" $FILE.old > $FILE
 	}
 done
+
+perl -pi -e 's/(jcottrell$)/$1,rbj/' /etc/group
