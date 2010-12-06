@@ -9,7 +9,7 @@
 # [4] previous versions saved in ~/.save.$$
 ################################################################
 
-SAVE=.save.$(date +%%H%M)
+SAVE=.save.$(date +%H%M)
 INIT=._
 
 test -d $INIT || return

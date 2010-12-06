@@ -48,6 +48,10 @@ logvol /sci55 --vgname=grid --name=sci55 --size=20000 --fstype ext3 --fsoptions=
 exec 1>/tmp/pre.log 2>&1
 set -x
 
+: :::::::::::::::::::::
+: Partition the Disk :
+: :::::::::::::::::::::
+
 /usr/sbin/sfdisk /dev/sda <<EOF
 
 # partition table of /dev/sda
@@ -59,8 +63,17 @@ unit: sectors
 /dev/sda4 : start= 22507065, size=262646685, Id=8e
 EOF
 
+: ::::::::::::::::::::::
+: :: Show Environment ::
+: ::::::::::::::::::::::
+
 df 
 mount
+env | sort
+
+: :::::::::::::
+: :: END Pre ::
+: :::::::::::::
 
 %post --nochroot
 
@@ -131,8 +144,8 @@ cd       cos5
 ln -s ../._
 
 set +x; echo \
-. ._/setup
-. ._/setup
+HOME=$PWD . ._/setup
+HOME=$PWD . ._/setup
 set -x
 
 chown -R $JC:$JC /home/$JC

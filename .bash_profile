@@ -12,6 +12,7 @@ alias	rbj='source .rbj'
 export	RBJ=~/._
 export	J=jcottrel		JC=jcottrell
 export	Y=128.164.156.167	Z=128.164.156.171
+export BG=$RANDOM
 
 for file in /etc/profile .init .vars .bashrc
 do
