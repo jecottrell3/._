@@ -67,38 +67,42 @@ cd /etc
 grep CentOS issue &&
 cp -v issue.cos55 issue
 
-grep seas.gwu.edu resolv.conf &&
+grep seas.gwu.edu /etc/resolv.conf &&
 cp -v hosts.seas hosts ||
 cp -v hosts.home hosts
 
-# done by DHCP
-#grep seas.gwu.edu resolv.conf &&
-#cp -v ntp.seas ntp.conf
-
 cd /root
+
+: ::::::::::::::::
+: :: DNS Config ::
+: ::::::::::::::::
+
+cd /etc/sysconfig/network-scripts
+grep seas.gwu.edu /etc/resolv.conf &&
+echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-eth2
 
 : :::::::::::::::::
 : :: Demon Seeds ::
 : :::::::::::::::::
 
 chkconfig anacron	off # always up
-chkconfig avahi-demon	off # no need
+#hkconfig avahi-demon	off # no need
 chkconfig cups		off # no need
 chkconfig firstboot	off # done via kickstart
 chkconfig ip6tables	off # no ip6
 chkconfig iptables	off # FIX LATER
 chkconfig mcstrans	off # no selinux
 chkconfig mdmonitor	off # no RAID
-chkconfig pscd		off # NUKE
+chkconfig pcscd		off # NUKE
 #hkconfig rpcgssd	xx  # ???
 #hkconfig rpcidmapd	xx  # ???
 #hkconfig rpcsvcgssd	xx  # ???
 chkconfig rawdevices	off # NUKE
 chkconfig restorecond	off # no selinux
-chkconfig smartd	off # grid disks not SMART
-chkconfig setroubleshoot off # no selinux
+#hkconfig smartd	off # grid disks not SMART
+#hkconfig setroubleshoot off # no selinux
 chkconfig xfs		off # no X11
-chkconfig xinetd	off # obsolete
+#hkconfig xinetd	off # obsolete
 
 chkconfig nfs		on # need NFS
 chkconfig ntpd		on # need Time
@@ -120,14 +124,6 @@ umount  -av
 echo updatedb -v
 mount   -av
 date
-
-: ::::::::::::::::
-: :: DNS Config ::
-: ::::::::::::::::
-
-cd /etc/sysconfig/network-scripts
-grep seas.gwu.edu resolv.conf &&
-echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-eth2
 
 : ::::::::::::::
 : :: END Post ::

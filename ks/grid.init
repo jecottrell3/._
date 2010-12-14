@@ -96,7 +96,7 @@ set -x
 exec 2>&1
 cd /root
 env | sort -o env.log
-export HOME=/root
+export `HOME'=/root
 
 : ::::::::::::::::::::::
 : Label LVM Partitions :
@@ -119,8 +119,8 @@ mkdir -p /svn
 
 date
 JC=jcottrell
-mkdir -p              /home/$JC
-rsync -ax /svn/$JC/._ /home/$JC
+mkdir -p              /boot/$JC
+rsync -ax /svn/$JC/._ /boot/$JC
 umount /svn	# can we do this?
 
 : ::::::::::::::::::::::::::::::::::::
@@ -128,27 +128,30 @@ umount /svn	# can we do this?
 : ::::::::::::::::::::::::::::::::::::
 
 date
-cd /home/$JC
+cd /boot/$JC
 ._/tmp/.mkjc cos5
 ._/tmp/.mkrbj
-
-rm -rf           /boot/$JC
-ln -s  /home/$JC /boot/$JC
 
 : :::::::::::::::::::::::::::::
 : Get RBJ Environment for RBJ :
 : :::::::::::::::::::::::::::::
 
-mkdir -p cos5
 cd       cos5
 ln -s ../._
 
 set +x; echo \
-HOME=$PWD . ._/setup
-HOME=$PWD . ._/setup
+`HOME'=$PWD . ._/setup
+`HOME'=$PWD . ._/setup
 set -x
 
 chown -R $JC:$JC /home/$JC
+
+: ::::::::::::::::::
+: Move RBJ Account :
+: ::::::::::::::::::
+
+mv     /boot/$JC /home
+ln -s  /home/$JC /boot
 
 : ::::::::::::::::::::::::::::::
 : Get RBJ Environment for ROOT :
@@ -175,14 +178,18 @@ rsync -Cvrp $DIST/. /
 
 cd /etc
 
-grep CentOS issue &&
 cp -v issue.cos55 issue
-
 cp -v hosts.seas hosts
-# Done via DHCP
-#cp -v   ntp.seas ntp.conf
 
 cd /root
+
+: ::::::::::::::::
+: :: DNS Config ::
+: ::::::::::::::::
+
+cd /etc/sysconfig/network-scripts
+grep seas.gwu.edu /etc/resolv.conf &&
+echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-eth2
 
 : ::::::::::::::::::::::::::::::
 : :: Add Chainload Boot Entry ::
@@ -196,7 +203,7 @@ cp -v grub.grid grub.conf
 : ::::::::::::::::::::::::::
 
 date
-echo makewhatis -v
+makewhatis -v
 
 : ::::::::::::::::::::::::::
 : :: Make Locate Database ::
@@ -204,7 +211,7 @@ echo makewhatis -v
 
 date
 umount  -av
-echo updatedb -v
+updatedb -v
 mount   -av
 date
 

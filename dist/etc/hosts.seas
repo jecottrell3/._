@@ -1,24 +1,46 @@
 127.0.0.1 localhost.localdomain	  localhost  lh
 ::1       localhost6.localdomain6 localhost6 lh6
 
-# GWU NET/HOSTS
+# Notable GWU NET HOSTS
 
-128.164.0.0	gwu.edu
-128.164.144.144	dns1.seas.gwu.edu dns1
-128.164.219.9	dns2.seas.gwu.edu dns2
+255.255.0.0	 nm.gwu.edu
+128.164.0.0	net.gwu.edu
 128.164.127.199	ntpfb1.nit.gwu.edu ntpfb1 ntp1
 128.164.130.199	ntpfb2.nit.gwu.edu ntpfb2 ntp2
 128.164.141.11	 ns.gwu.edu ns1 ns
 128.164.141.12	ns2.gwu.edu ns2
 161.253.152.50	ns3.gwu.edu ns3
-128.164.255.255	gwu.all
+128.164.255.255	all.gwu.edu
 
-# SEAS Servers
+# Notable SEAS Servers
 
-128.164.156.32   ambrose.seas.gwu.edu ambrose  nis0 nis
-128.164.144.169 ambrose1.seas.gwu.edu ambrose1 nis1
-128.164.144.167 ambrose2.seas.gwu.edu ambrose2 nis2
-128.164.144.136    titan.seas.gwu.edu titan    nfs
+128.164.144.144	    dns1.seas.gwu.edu dns1
+128.164.219.9	    dns2.seas.gwu.edu dns2
+128.164.156.32	 ambrose.seas.gwu.edu ambrose  nis0 nis
+128.164.144.169	ambrose1.seas.gwu.edu ambrose1 nis1
+128.164.144.167	ambrose2.seas.gwu.edu ambrose2 nis2
+128.164.144.136	   titan.seas.gwu.edu titan    nfs
+128.164.144.140	  hobbes.seas.gwu.edu
+128.164.144.172	gridmaster.seas.gwu.edu gm
+128.164.144.165	seas-dc1.seas.gwu.edu dc1 ad1
+128.164.144.173	seas-dc2.seas.gwu.edu dc2 ad2
+128.164.139.4	seas-dc3.seas.gwu.edu dc3 ad3
+128.164.139.2	seas-dc4.seas.gwu.edu dc4 ad4
+128.164.219.17	ac1.land.seas.gwu.edu dc5 ad5 ac1
+
+# SEAS G Street NET
+
+255.255.255.0	 nm156
+128.164.156.0	net156
+128.164.159.254	 gw156
+128.164.159.255	all156
+
+# SEAS Server NET
+
+255.255.255.192	 nm156
+128.164.144.128	net156
+128.164.144.254	 gw156
+128.164.144.191	all156
 
 # SEAS PC NET
 
@@ -26,8 +48,8 @@
 128.164.156.0	net156
 128.164.156.167	yell yell.seas yell.seas.gwu.edu jim1
 128.164.156.171	zell zell.seas zell.seas.gwu.edu jim2
-128.164.156.254	 gw156
-128.164.156.255	all156
+128.164.159.254	 gw156
+128.164.159.255	all156
 
 # SEAS Server Net
 
@@ -57,8 +79,8 @@
 128.164.219.78 node31.grid 00144fd25d7c node31
 128.164.219.80 node32.grid 00144fe6a814 node32
 128.164.219.82 node33.grid 00144fe6a61c node33 kick
-128.164.219.84 node34.grid 00144fd274e4 node34 marco1
-128.164.219.86 node35.grid 00144fcd928c node35 marco2
+128.164.219.84 node34.grid 00144fd274e4 node34 trix
+128.164.219.86 lnxrt01.cflab 00144fcd928c
 
 # New Grid ILOM
 
@@ -72,8 +94,8 @@
 128.164.219.65 ilom24.grid 00144fe65ccc ilom24
 128.164.219.67 ilom25.grid 00144fcd8cec ilom25
 128.164.219.69 ilom26.grid 00144fcd831a ilom26
-128.164.219.71 ilom27.grid 0021286cd3bc ilom27
-128.164.219.73 ilom28.grid 00144faa16e5 ilom28
+128.164.219.71 ilom27.grid 0021286cd3c1 ilom27
+128.164.219.73 ilom28.grid 0021286cd3bc ilom28
 128.164.219.75 ilom29.grid 00144fe659b7 ilom29
 128.164.219.77 ilom30.grid 00144fe6593b ilom30
 128.164.219.79 ilom31.grid 00144faf3813 ilom31
@@ -81,3 +103,22 @@
 128.164.219.83 ilom33.grid 00144fe6574a ilom33
 128.164.219.85 ilom34.grid 00144fcd8cf5 ilom34
 128.164.219.87 ilom35.grid 00144fcd8cd7 ilom35
+
+# New GRID Infiniband Hosts
+
+10.5.0.17 node17-ib.grid 0011750000ff55a1 node17-ib
+10.5.0.18 node18-ib.grid 0011750000ff58fe node18-ib
+10.5.0.19 node19-ib.grid 0011750000ff593c node19-ib
+10.5.0.20 node20-ib.grid 0011750000ff561f node20-ib
+10.5.0.21 node21-ib.grid 0011750000ff55f2 node21-ib
+10.5.0.22 node22-ib.grid 0011750000ff5651 node22-ib
+10.5.0.23 node23-ib.grid 0011750000ff566b node23-ib
+10.5.0.24 node24-ib.grid 0011750000ff5660 node24-ib
+10.5.0.25 node25-ib.grid 0011750000ff56aa node25-ib
+10.5.0.26 node26-ib.grid 0011750000ff56cc node26-ib
+10.5.0.27 node27-ib.grid 0011750000ff55c4 node27-ib
+10.5.0.28 node28-ib.grid 0011750000ff5647 node28-ib
+10.5.0.29 node29-ib.grid 0011750000ff55ac node29-ib
+10.5.0.30 node30-ib.grid 0011750000ff55f3 node30-ib
+10.5.0.31 node31-ib.grid 0011750000ff5690 node31-ib
+10.5.0.32 node32-ib.grid 0011750000ff58d5 node32-ib

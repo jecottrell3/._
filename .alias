@@ -73,11 +73,18 @@ alias	lt='ls -FAltr'
 
 alias	loop='mount -o loop'
 
-alias	lds="ldapsearch -x -Z -b o=ss -D"
-alias	lda="ldapadd    -x -Z -b o=ss -D"
-alias	ldm="ldapmodify -x -Z -b o=ss -D"
-alias	ldk="ldapdelete -x -Z -b o=ss -D"
-alias	ldp="ldappasswd -x -Z	     -D"
+REALM=SEAS.GWU.EDU
+BASE='DC=seas,DC=gwu,DC=edu'
+JCUS="CN=James Cottrell,CN=Users,$BASE"
+JCDA="CN=Jim Cottrell,OU=SEASCF,$BASE"
+PDC=seas-dc1.seas.gwu.edu
+read PASS < ~/.pass
+
+alias	lds="ldapsearch -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
+alias	lda="ldapadd    -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
+alias	ldm="ldapmodify -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
+alias	ldk="ldapdelete -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
+alias	ldp="ldappasswd -x -D $JCDA"
 
 alias	m=less		mr='less -r'
 alias	md='mkdir'	mp='mkdir -p'

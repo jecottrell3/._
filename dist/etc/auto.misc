@@ -7,6 +7,7 @@
 
 cd		-fstype=iso9660,ro,nosuid,nodev	:/dev/cdrom
 *		-fstype=auto,noatime		:/dev/&
+#
 core		-fstype=auto,noatime		:/myvg/&
 base		-fstype=auto,noatime		:/myvg/&
 x11		-fstype=auto,noatime		:/myvg/&
@@ -17,6 +18,13 @@ gno		-fstype=auto,noatime		:/myvg/&
 win		-fstype=auto,noatime		:/myvg/&
 xen		-fstype=auto,noatime		:/myvg/&
 kvm		-fstype=auto,noatime		:/myvg/&
+#
+resq		-fstype=auto,noatime		:/myvg/&
+cos55		-fstype=auto,noatime		:/myvg/&
+sci55		-fstype=auto,noatime		:/myvg/&
+rh55		-fstype=auto,noatime		:/myvg/&
+rh60		-fstype=auto,noatime		:/myvg/&
+fc14		-fstype=auto,noatime		:/myvg/&
 
 # the following entries are samples to pique your imagination
 #linux		-ro,soft,intr		ftp.example.org:/pub/linux
