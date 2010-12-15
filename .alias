@@ -78,6 +78,8 @@ BASE='DC=seas,DC=gwu,DC=edu'
 JCUS="CN=James Cottrell,CN=Users,$BASE"
 JCDA="CN=Jim Cottrell,OU=SEASCF,$BASE"
 PDC=seas-dc1.seas.gwu.edu
+PASS=bogus
+test -f     ~/.pass &&
 read PASS < ~/.pass
 
 alias	lds="ldapsearch -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"

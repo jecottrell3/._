@@ -96,7 +96,7 @@ set -x
 exec 2>&1
 cd /root
 env | sort -o env.log
-export `HOME'=/root
+export HOME=/root
 
 : ::::::::::::::::::::::
 : Label LVM Partitions :
@@ -140,8 +140,8 @@ cd       cos5
 ln -s ../._
 
 set +x; echo \
-`HOME'=$PWD . ._/setup
-`HOME'=$PWD . ._/setup
+HOME=$PWD . ._/setup
+HOME=$PWD . ._/setup
 set -x
 
 chown -R $JC:$JC /home/$JC
