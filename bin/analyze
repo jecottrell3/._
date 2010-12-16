@@ -1,3 +1,0 @@
-#! /bin/sh -x
-exec analyze.9.05 -AUQ hp-core.$1 hp-ux.$1 > analyze.$1
-

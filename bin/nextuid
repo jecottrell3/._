@@ -1,3 +1,0 @@
-#!/bin/sh
-
-niscat passwd.org_dir | sort -t: +2 | tail -20

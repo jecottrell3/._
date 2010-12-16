@@ -1,2 +1,0 @@
-#! /bin/sh -x
-exec cp -i .forward /user/$1
