@@ -1,0 +1,2 @@
+#! /bin/sh
+test $HOSTNAME = node17.grid.seas.gwu.edu
