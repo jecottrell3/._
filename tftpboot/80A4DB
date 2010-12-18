@@ -1,0 +1,56 @@
+DEFAULT menu.c32
+PROMPT 0
+# default grid-base
+# prompt 1
+TIMEOUT 60
+DISPLAY boot.msg
+F1 boot.msg
+F2 options.msg
+F3 general.msg
+F4 param.msg
+F5 rescue.msg
+MENU TITLE Grid Install
+#LABEL menu.c32
+#  MENU LABEL menu.c32
+#  KERNEL menu.c32
+LABEL        INITIALIZE
+  MENU LABEL INITIALIZE
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img ks=nfs:128.164.219.82:/tftpboot/grid.init ksdevice=eth2
+LABEL        linux
+  MENU LABEL linux
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img
+LABEL        text
+  MENU LABEL text
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img text
+LABEL        grid-core
+  MENU LABEL grid-core
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img ks=nfs:128.164.219.82:/tftpboot/grid-core.ks ksdevice=eth2
+LABEL        grid-base
+  MENU LABEL grid-base
+  MENU default
+  KERNEL vmlinuz
+LABEL        grid-Scientific
+  MENU LABEL grid-Scientific
+  MENU default
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img ks=nfs:128.164.219.82:/tftpboot/grid-sci55.ks ksdevice=eth2
+LABEL        Grid-Fedora-14
+  MENU LABEL Grid-Fedora-14
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img ks=nfs:128.164.219.82:/tftpboot/grid-fc14.ks ksdevice=eth2
+LABEL        Grid-RHEL-5.5
+  MENU LABEL Grid-RHEL-5.5
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img ks=nfs:128.164.219.82:/tftpboot/grid-rhel55.ks ksdevice=eth2
+LABEL        Grid-RHEL-6.0
+  MENU LABEL Grid-RHEL-6.0
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img ks=nfs:128.164.219.82:/tftpboot/grid-rhel60.ks ksdevice=eth2
+LABEL        Grid-CentOS-5.5
+  MENU LABEL Grid-CentOS-5.5
+  KERNEL vmlinuz
+  APPEND initrd=initrd.img ks=nfs:128.164.219.82:/tftpboot/grid-cos55.ks ksdevice=eth2

@@ -1,0 +1,468 @@
+################################################################
+####	grid base Rescue Kickstart
+################################################################
+
+install
+#harddrive --partition=sda1 --dir=/CentOS/5.5/x86_64/dvd
+nfs --server=128.164.219.82 --dir=/repo/CentOS/5.5/x86_64
+text
+lang en_US.UTF-8
+keyboard us
+skipx
+rootpw --iscrypted $1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1
+firewall --enabled --port=22:tcp
+authconfig --enableshadow --enablemd5 --enablelocauthorize
+selinux --disabled
+timezone --utc America/New_York
+bootloader --location=mbr --driveorder=sda
+
+################################################################
+####    SEAS Network
+################################################################
+
+network --bootproto dhcp --device eth2 --noipv6
+
+################################################################
+####	Partitions
+################################################################
+
+part   /     --fstype ext3 --onpart sda1 --fsoptions=noatime --label=resq
+part   /home --fstype ext3 --onpart sda2 --fsoptions=noatime --label=boot
+part   /vfat --fstype ext3 --onpart sda3 --fsoptions=noatime --label=vfat
+part          pv.4         --onpart sda4
+volgroup grid pv.4
+logvol swap   --vgname=grid --name=swap  --size=20000 --fstype swap
+logvol /cos55 --vgname=grid --name=cos55 --size=20000 --fstype ext3 --fsoptions=noatime
+logvol /rh55  --vgname=grid --name=rh55  --size=20000 --fstype ext3 --fsoptions=noatime
+logvol /rh60  --vgname=grid --name=rh60  --size=20000 --fstype ext3 --fsoptions=noatime
+logvol /fc14  --vgname=grid --name=fc14  --size=20000 --fstype ext3 --fsoptions=noatime
+logvol /sci55 --vgname=grid --name=sci55 --size=20000 --fstype ext3 --fsoptions=noatime
+
+################################################################
+####    ACTUALLY *DO* THE PARTITIONING
+################################################################
+
+%pre
+#! /bin/sh -x
+
+exec 1>/tmp/pre.log 2>&1
+set -x
+
+: :::::::::::::::::::::
+: Partition the Disk :
+: :::::::::::::::::::::
+
+/usr/sbin/sfdisk /dev/sda <<EOF
+
+# partition table of /dev/sda
+unit: sectors
+
+/dev/sda1 : start=       63, size= 16081002, Id=83, bootable
+/dev/sda2 : start= 16081065, size=  3213000, Id=83
+/dev/sda3 : start= 19294065, size=  3213000, Id=83
+/dev/sda4 : start= 22507065, size=262646685, Id=8e
+EOF
+
+: ::::::::::::::::::::::
+: :: Show Environment ::
+: ::::::::::::::::::::::
+
+df 
+mount
+env | sort
+
+: :::::::::::::
+: :: END Pre ::
+: :::::::::::::
+
+%post --nochroot
+
+cp /tmp/pre.log /mnt/sysimage/root
+cp /tmp/ks.cfg  /mnt/sysimage/root
+
+mkdir -p                   /mnt/sysimage/svn	# for later
+mount 128.164.219.82:/boot /mnt/sysimage/svn	# wrong, but easy
+
+################################################################
+####	Finalization
+################################################################
+
+%post --log=/root/post.log
+
+#! /bin/sh -x
+
+set -x
+set -x
+exec 2>&1
+cd /root
+env | sort -o env.log
+export HOME=/root
+
+: ::::::::::::::::::::::
+: Label LVM Partitions :
+: ::::::::::::::::::::::
+
+date
+lvm vgchange -a y
+ln -s /dev/grid /myvg
+
+for dir in cos55 rh55 rh60 fc14 sci55
+do
+	e2label /myvg/$dir $dir
+done
+
+mkdir -p /svn
+
+: ::::::::::::::::
+: Get RBJ Files ::
+: ::::::::::::::::
+
+date
+JC=jcottrell
+mkdir -p              /boot/$JC
+rsync -ax /svn/$JC/._ /boot/$JC
+umount /svn	# can we do this?
+
+: ::::::::::::::::::::::::::::::::::::
+: :: Create JCOTTRELL and RBJ Users ::
+: ::::::::::::::::::::::::::::::::::::
+
+date
+cd /boot/$JC
+._/tmp/.mkjc cos5
+._/tmp/.mkrbj
+
+: :::::::::::::::::::::::::::::
+: Get RBJ Environment for RBJ :
+: :::::::::::::::::::::::::::::
+
+cd       cos5
+ln -s ../._
+
+set +x; echo \
+HOME=$PWD . ._/setup
+HOME=$PWD . ._/setup
+set -x
+
+chown -R $JC:$JC /home/$JC
+
+: ::::::::::::::::::
+: Move RBJ Account :
+: ::::::::::::::::::
+
+mv     /boot/$JC /home
+ln -s  /home/$JC /boot
+
+: ::::::::::::::::::::::::::::::
+: Get RBJ Environment for ROOT :
+: ::::::::::::::::::::::::::::::
+
+date
+cd /root
+ln -s /boot/$JC/._ .
+
+set +x; echo \
+. ._/setup
+. ._/setup
+set -x
+
+: :::::::::::::::::::::::::::::::
+: :: Distribute Standard Files ::
+: ::   Tailor to Environment   ::
+: :::::::::::::::::::::::::::::::
+
+date
+DIST=/boot/$JC/._/dist
+test  -d    $DIST/. &&
+rsync -Cvrp $DIST/. /
+
+cd /etc
+
+cp -v issue.cos55 issue
+cp -v hosts.seas hosts
+
+cd /root
+
+: ::::::::::::::::
+: :: DNS Config ::
+: ::::::::::::::::
+
+cd /etc/sysconfig/network-scripts
+grep seas.gwu.edu /etc/resolv.conf &&
+echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-eth2
+
+: ::::::::::::::::::::::::::::::
+: :: Add Chainload Boot Entry ::
+: ::::::::::::::::::::::::::::::
+
+cd /boot/grub
+cp -v grub.grid grub.conf
+
+: ::::::::::::::::::::::::::
+: :: Make Whatis Database ::
+: ::::::::::::::::::::::::::
+
+date
+makewhatis -v
+
+: ::::::::::::::::::::::::::
+: :: Make Locate Database ::
+: ::::::::::::::::::::::::::
+
+date
+umount  -av
+updatedb -v
+mount   -av
+date
+
+: ::::::::::::::
+: :: END Post ::
+: ::::::::::::::
+
+################################################################
+####	Package Selection
+################################################################
+
+%packages 
+
+m4
+make
+rsync
+subversion
+vim-enhanced
+
+################################################################
+@core
+################################################################
+
+#m	-SysVinit
+#m	-authconfig
+#m	-basesystem
+#m	-bash
+#m	-centos-release
+#m	-centos-release-notes
+#m	-coreutils
+#m	-cpio
+#m	-e2fsprogs
+#m	-ed
+#m	-file
+#m	-filesystem
+#m	-glibc
+#m	-hdparm
+#m	-initscripts
+#m	-iproute
+-iprutils
+#m	-iputils
+#m	-kbd
+#m	-kudzu
+#m	-libgcc
+-libhugetlbfs
+#m	-libtermcap
+#m	-mkinitrd
+#m	-passwd
+-policycoreutils
+#m	-prelink
+#m	-procps
+#m	-readline
+#m	-redhat-logos
+-rootfiles
+#m	-rpm
+-selinux-policy-targeted
+-setools
+-setserial
+#m	-setup
+#m	-shadow-utils
+#m	-sysklogd
+#m	-termcap
+#m	-util-linux
+#m	-vim-minimal
+#d	-dhclient
+-dhcpv6-client
+-ecryptfs-utils
+-elilo
+-gnu-efi
+#d	-grub
+#d	-openssh-clients
+#d	-openssh-server
+-ppc64-utils
+-s390utils
+-ppc64-utils
+-s390utils
+#d	-sysfsutils
+#d	-udftools
+-yaboot
+#d	-yum
+Deployment_Guide-en-US
+#o	 freeipmi
+#o	 rsyslog
+
+# END   cos55/core
+# BEGIN cos55/base
+################################################################
+@base
+################################################################
+
+#m	-acl
+#m	-at
+#m	-attr
+#m	-authconfig
+#m	-bc
+#m	-bind-utils
+#m	-bzip2
+#m	-crontabs
+#m	-cyrus-sasl-plain
+#m	-libutempter
+#m	-logrotate
+#m	-lsof
+#m	-mailcap
+#m	-man
+#m	-ntsysv
+#m	-parted
+#m	-pciutils
+#m	-psacct
+-quota
+-rhel-instnum
+#m	-system-config-securitylevel-tui
+#m	-tmpwatch
+#m	-traceroute
+#m	-vixie-cron
+#d	-NetworkManager
+#d	-acpid
+-amtu
+#d	-anacron
+-apmd
+#d	-aspell
+#d	-aspell-en
+#d	-autofs
+-bluez-utils
+-ccid
+-conman
+-coolkey
+#d	-cpuspeed
+#d	-crash
+#d	-cryptsetup-luks
+#d	-dmraid
+#d	-dos2unix
+#d	-dosfstools
+#d	-dump
+#d	-eject
+-elsa
+#d	-fbset
+#d	-finger
+#d	-firstboot-tui
+#d	-ftp
+#d	-gnupg
+#d	-gpm
+-ibmasm
+#d	-ipsec-tools
+#d	-iptstate
+-irda-utils
+#d	-irqbalance
+#d	-jwhois
+#d	-krb5-workstation
+#d	-ksh
+#d	-lftp
+#d	-libaio
+#d	-logwatch
+-longrun
+#d	-m2crypto
+#d	-man-pages
+-mcelog
+#d	-mdadm
+-mgetty
+#d	-microcode_ctl
+-mkbootdisk
+#d	-mlocate
+#d	-mtools
+#d	-mtr
+#d	-nano
+#d	-nc
+#d	-nfs-utils
+#d	-nss_db
+#d	-nss_ldap
+-numactl
+#d	-oddjob
+#d	-pam_ccreds
+#d	-pam_krb5
+#d	-pam_passwdqc
+#d	-pam_pkcs11
+#d	-pam_smb
+#d	-pax
+-pcmciautils
+#d	-pinfo
+#d	-pkinit-nss
+#d	-pm-utils
+-prctl
+#d	-rdate
+#d	-rdist
+#d	-readahead
+#d	-redhat-lsb
+-rhn-check
+-rhn-setup
+-rng-utils
+-rp-pppoe
+#d	-rsh
+#d	-rsync
+#d	-sendmail
+#d	-setarch
+#d	-setuptool
+#d	-smartmontools
+#d	-sos
+-specspo
+#d	-stunnel
+#d	-sudo
+#d	-symlinks
+-sysreport
+#d	-system-config-network-tui
+#d	-talk
+#d	-tcp_wrappers
+#d	-tcpdump
+#d	-tcsh
+#d	-telnet
+#d	-time
+#d	-tree
+#d	-unix2dos
+#d	-unzip
+#d	-usbutils
+-vconfig
+#d	-wget
+#d	-which
+-wireless-tools
+#d	-words
+#d	-ypbind
+-yum-rhn-plugin
+#d	-yum-updatesd
+#d	-zip
+#o	 aide
+-authd
+#o	 bridge-utils
+-brltty
+#o	 convmv
+#o	 cpufreq-utils
+#o	 device-mapper-multipath
+#o	 dmraid-events-logwatch
+#o	 fcoe-utils
+fipscheck
+fuse
+#o	 fuse-libs
+-gpart
+hardlink
+#o	 hesinfo
+#o	 hfsutils
+#o	 iscsi-initiator-utils
+#o	 kexec-tools
+keyutils
+#ox	 lha
+#o	 libhbaapi
+#o	 libhbalinux
+#ox	 libica
+#ox	 netconfig
+nfs4-acl-tools
+#o	 openCryptoki
+#ox	 openssl-ibmca
+openswan
+#o	 squashfs-tools
+star
+#o	 tpm-tools
+#o	 trousers
+x86info
