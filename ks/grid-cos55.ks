@@ -72,7 +72,7 @@ P=/dev/grid/cos55
 exec 1>/tmp/pre.log 2>&1
 set -x
 : ================================
-: Host: grid Label: LV Type: cos55
+: Host: grid Label: LV Sys: OS Type: cos55
 : ================================
 lvm vgchange -a y
 mkdir /p
@@ -82,6 +82,7 @@ cd /p
 	for x in 0 1 2 3 4 5 6 7 8 9
 	do
 		test -d .$x && continue
+		echo Saving into .$x
 		mkdir   .$x
 		mv *    .$x
 		break
@@ -93,6 +94,7 @@ cd /p
 	done
 cd /
 umount /p
+lvm vgchange -a n
 : ================================
 
 %post --nochroot

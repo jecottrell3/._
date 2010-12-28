@@ -9,6 +9,7 @@ define(`LABEL', `GH')dnl
 dnl
 define(`NET',  `noname')dnl
 define(`METHOD', `HTTP')dnl
+define(`ETHER',`eth2')dnl
 dnl
 define(`SEAS', `seas.gwu.edu')dnl
 define(`AUTH1', `--disablecache --enablepreferdns')dnl

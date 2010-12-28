@@ -6,6 +6,7 @@ T=Type
 H=yell
 L=LV
 O=cos55
+O=fc14
 
 X=$H-$L-$O
 
@@ -35,7 +36,7 @@ Host/yoko:	Disk/sata Net/home;	touch $@
 Host/zell:	Disk/sata Net/seas;	touch $@
 Host/yell:	Disk/sata Net/seas;	touch $@
 
-OS/fc13:	Disk/sata;		touch $@
+OS/fc14:	Disk/sata;		touch $@
 
 Y=$G Host/$H OS/$O $O/core
 Z=$Y $O/base $O/x11 $O/dev $O/srv
@@ -64,15 +65,15 @@ book::;		${MAKE} H=$@ JH LV
 yell::;		${MAKE} H=$@ YH LV
 zell::;		${MAKE} H=$@ ZH LV
 
-PH::;		${MAKE} H=$H L=$@ cos55 fc13
-QH::;		${MAKE} H=$H L=$@ cos55 fc13
-JH::;		${MAKE} H=$H L=$@ cos55 fc13
-YH::;		${MAKE} H=$H L=$@ cos55 fc13
-ZH::;		${MAKE} H=$H L=$@ cos55 fc13
-LV::;		${MAKE} H=$H L=$@ cos55 fc13
+PH::;		${MAKE} H=$H L=$@ cos55 fc14
+QH::;		${MAKE} H=$H L=$@ cos55 fc14
+JH::;		${MAKE} H=$H L=$@ cos55 fc14
+YH::;		${MAKE} H=$H L=$@ cos55 fc14
+ZH::;		${MAKE} H=$H L=$@ cos55 fc14
+LV::;		${MAKE} H=$H L=$@ cos55 fc14
 
 cos55::;	${MAKE} H=$H L=$L O=$@
-fc13::;		${MAKE} H=$H L=$L O=$@
+fc14::;		${MAKE} H=$H L=$L O=$@
 
 %.ks:	%.m4
 	m4 $< > $@

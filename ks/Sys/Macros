@@ -11,6 +11,7 @@ define(`HTTP', `url       --url=http://SERVER/ISODIR')dnl
 define(`METHOD', `HD')dnl
 define(`UTC',  `--utc')dnl
 define(`GFX',  `text')dnl
+define(`ETHER',`eth0')dnl
 define(`NOBASE', `')dnl
 define(`MONITOR', `--resolution=1600x900 --depth=24')dnl
 define(`XCONFIG', `xconfig --startxonboot MONITOR')dnl

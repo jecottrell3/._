@@ -1,7 +1,7 @@
 `#' BEGIN __file__
 define(`Static',	`--bootproto static --noipv6')dnl
 define(`Hostname',	`--hostname HOST')dnl
-define(`Ethernet',	`--device eth0')dnl
+define(`Ethernet',	`--device ETHER')dnl
 define(`Network',	`128.164.156')dnl
 dnl define(`ADDRESS',	`--ip 128.164.156.x')dnl	from HOST
 define(`Gateway',	`--gateway 128.164.159.254')dnl
@@ -16,6 +16,6 @@ define(`DNS3',		`--nameserver 68.87.64.196')dnl
 
 #network Hostname Gateway DNS
 #network Static Ethernet ADDRESS NetMask
-network --bootproto dhcp --hostname HOST --noipv6
+network Ethernet --bootproto dhcp --hostname HOST --noipv6
 
 `#' END   __file__

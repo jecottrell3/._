@@ -15,12 +15,12 @@
 #m	-logrotate
 #m	-lsof
 #m	-mailcap
-#m	-man
+#m	-man-db
 #m	-ntsysv
 #m	-parted
 #m	-pciutils
 #m	-psacct
--quota
+#m	-quota
 #m	-tmpwatch
 #m	-traceroute
 #d	-PackageKit-yum-plugin
@@ -58,25 +58,23 @@
 #d	-nc
 #d	-nfs-utils
 #d	-nss_db
-#d	-nss_ldap
 #d	-ntfs-3g
 #d	-ntfsprogs
 -numactl
 #d	-openssh-clients
-#d	-pam_ccreds
 #d	-pam_krb5
 #d	-pam_passwdqc
-#d	-pam_pkcs11
-#d	-pam_smb
+-pam_pkcs11
 -pcmciautils
 #d	-perf
+#d	-pinfo
 #d	-pm-utils
 -prctl
 #d	-prelink
 #d	-rdate
 #d	-rdist
 #d	-readahead
--rng-utils
+-rng-tools
 #d	-rsh
 #d	-rsync
 #d	-sendmail
@@ -95,15 +93,15 @@
 #d	-telnet
 #d	-time
 #d	-tree
-#d	-unix2dos
 #d	-unzip
 #d	-usbutils
-#d	-vconfig
+-vconfig
 #d	-wget
 #d	-which
-#d	-wireless-tools
+-wireless-tools
 #d	-words
-#d	-ypbind
+-ypbind
+-yum-langpacks
 #d	-yum-presto
 #d	-yum-utils
 #d	-zip
@@ -127,8 +125,11 @@ gpm
 #ox	 mgetty
 #ox	 mkbootdisk
 #o	 mtools
+#ox	 nss-pam-ldapd
+#ox	 pam_ccreds
+#ox	 pam_ldap
+#ox	 pam_smb
 #ox	 pax
-#ox	 pinfo
 #ox	 redhat-lsb
 #o	 reiserfs-utils
 #ox	 squashfs-tools
@@ -136,7 +137,6 @@ gpm
 #o	 tcsh
 #ox	 x86info
 #o	 xfsprogs
-#ox	 yum-langpacks
 #ox	 yum-updatesd
 #c	?aspell-en                       aspell
 #c	?hunspell-en                     hunspell

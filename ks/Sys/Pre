@@ -11,7 +11,7 @@ P=/dev/ROOT
 exec 1>/tmp/pre.log 2>&1
 set -x
 : ================================
-: Host: HOST Label: LABEL Type: TYPE
+: Host: HOST Label: LABEL Sys: OS_TAG Type: TYPE
 : ================================
 lvm vgchange -a y
 mkdir /p
@@ -21,6 +21,7 @@ cd /p
 	for x in 0 1 2 3 4 5 6 7 8 9
 	do
 		test -d .$x && continue
+		echo Saving into .$x
 		mkdir   .$x
 		mv *    .$x
 		break
@@ -32,6 +33,7 @@ cd /p
 	done
 cd /
 umount /p
+lvm vgchange -a n
 : ================================
 
 %post --nochroot

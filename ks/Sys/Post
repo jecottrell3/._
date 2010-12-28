@@ -11,7 +11,7 @@ set -x
 set -x
 exec 2>&1
 
-mkdir -p /svn
+mkdir -p /svn /resq /vfat
 
 : :::::::::::::::::::::
 : Link Important Dirs :
@@ -74,39 +74,47 @@ cp -v hosts.home hosts
 cd /root
 
 : ::::::::::::::::
-: :: DNS Config ::
+: :: `DNS' Config ::
 : ::::::::::::::::
 
 cd /etc/sysconfig/network-scripts
 grep seas.gwu.edu /etc/resolv.conf &&
-echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-eth2
+echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-ETHER
 
 : :::::::::::::::::
 : :: Demon Seeds ::
 : :::::::::::::::::
 
-chkconfig anacron	off # always up
-#hkconfig avahi-demon	off # no need
-chkconfig cups		off # no need
-chkconfig firstboot	off # done via kickstart
-chkconfig ip6tables	off # no ip6
-chkconfig iptables	off # FIX LATER
-chkconfig mcstrans	off # no selinux
-chkconfig mdmonitor	off # no RAID
-chkconfig pcscd		off # NUKE
-#hkconfig rpcgssd	xx  # ???
-#hkconfig rpcidmapd	xx  # ???
-#hkconfig rpcsvcgssd	xx  # ???
-chkconfig rawdevices	off # NUKE
-chkconfig restorecond	off # no selinux
-#hkconfig smartd	off # grid disks not SMART
-#hkconfig setroubleshoot off # no selinux
-chkconfig xfs		off # no X11
-#hkconfig xinetd	off # obsolete
-
-chkconfig nfs		on # need NFS
-chkconfig ntpd		on # need Time
-chkconfig ypbind	on # need Time
+chkconfig --list | while read svc junk
+do
+	case $svc in
+		(anacron)	chkconfig $svc off;; # always up
+		(avahi-demon)	chkconfig $svc off;; # no need
+		(cups)		chkconfig $svc on ;; # no need
+		(firstboot)	chkconfig $svc off;; # done via kickstart
+		(ip6tables)	chkconfig $svc off;; # no ip6
+		(iptables)	chkconfig $svc off;; # FIX LATER
+		(mcstrans)	chkconfig $svc off;; # no selinux
+		(mdmonitor)	chkconfig $svc off;; # no RAID
+		(network)	chkconfig $svc on ;; # NEED
+		(netfs)		chkconfig $svc off;; # no NFS
+		(nfs)		chkconfig $svc off;; # no NFS
+		(nfslock)	chkconfig $svc off;; # no NFS
+		(ntpd)		chkconfig $svc on ;; # need Time
+		(pcscd)		chkconfig $svc off;; # NUKE
+		(rawdevices)	chkconfig $svc off;; # NUKE
+		(restorecond)	chkconfig $svc off;; # no selinux
+		(rpcbind)	chkconfig $svc off;; # no
+		(rpcgssd)	chkconfig $svc off;; # no
+		(rpcidmapd)	chkconfig $svc off;; # no
+		(rpcsvcgssd)	chkconfig $svc off;; # no
+		(setroubleshoot)chkconfig $svc off;; # no selinux
+		(smartd)	chkconfig $svc off;; # grid disks not SMART
+#		(xfs)		chkconfig $svc off;; # no X11
+		(xinetd)	chkconfig $svc off;; # obsolete
+		(ypbind)	chkconfig $svc off;; # no YP
+	esac
+done
 
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::

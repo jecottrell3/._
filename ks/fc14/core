@@ -29,14 +29,14 @@
 #m	-ncurses
 #m	-openssh-server
 #m	-passwd
-#m	-policycoreutils
+-policycoreutils
 #m	-procps
 #m	-readline
-#m	-rootfiles
+-rootfiles
 #m	-rpm
 #m	-rsyslog
-#m	-selinux-policy-targeted
-#m	-setserial
+-selinux-policy-targeted
+-setserial
 #m	-setup
 #m	-shadow-utils
 #m	-sudo
@@ -49,5 +49,6 @@
 -s390utils
 #d	-sendmail
 -silo
+#d	-upstart-sysvinit
 -yaboot
 
