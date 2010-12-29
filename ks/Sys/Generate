@@ -12,6 +12,6 @@ getall(PKGS)dnl
 dnl
 dnl	END
 dnl
-%end
+PCTEND
 
 `#' END   __file__

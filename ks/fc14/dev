@@ -1,0 +1,799 @@
+################################################################
+@development-tools
+################################################################
+
+#m	-autoconf
+#m	-automake
+#m	-binutils
+#m	-bison
+#m	-flex
+#m	-gcc
+#m	-gcc-c++
+#m	-gdb
+#m	-gettext
+#m	-libtool
+#m	-make
+#m	-pkgconfig
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-strace
+-automake14
+-automake15
+-automake16
+-automake17
+#d	-byacc
+#d	-ccache
+#d	-cscope
+#d	-ctags
+#d	-cvs
+#d	-diffstat
+#d	-doxygen
+#d	-elfutils
+#d	-gcc-gfortran
+#d	-git
+#d	-indent
+#d	-intltool
+#d	-ltrace
+#d	-oprofile
+#d	-oprofile-gui
+#d	-patchutils
+#d	-python-ldap
+#d	-rcs
+#d	-subversion
+#d	-swig
+#d	-sysprof
+#d	-systemtap
+#d	-texinfo
+#d	-valgrind
+#ox	 CodeAnalyst-gui
+#ox	 ElectricFence
+#ox	 Sprog
+#ox	 abicheck
+#ox	 alex
+#ox	 alleyoop
+#oxxx	aplus-fsf
+#ox	 archmage
+#ox	 asa
+#ox	 astyle
+#ox	 bigloo
+#ox	 bugzilla
+#ox	 buildbot
+bzr
+#ox	 bzr-explorer
+#ox	 check
+#ox	 clips
+#ox	 clips-devel
+#ox	 clips-doc
+#ox	 clips-emacs
+#ox	 clips-xclips
+#ox	 clipsmm-devel
+#ox	 clipsmm-doc
+#ox	 clisp
+cmake
+#ox	 cmucl
+#ox	 coan
+#ox	 codeblocks
+#ox	 colordiff
+#ox	 coredumper
+#ox	 cpan-upload
+#ox	 cpanspec
+#ox	 cppunit
+#ox	 cproto
+#ox	 crossvc
+#ox	 curry
+#ox	 cvs2cl
+#ox	 cvs2svn
+#ox	 cvsgraph
+#ox	 cvsps
+#ox	 cvsweb
+#ox	 darcs
+#ox	 dejagnu
+#ox	 ecl
+#ox	 elfinfo
+#ox	 email2trac
+#ox	 epydoc
+#ox	 eric
+#ox	 erlang
+#ox	 expect
+#ox	 flasm
+#ox	 fpc
+#ox	 frysk
+#ox	 frysk-gnome
+#ox	 ftnchek
+#ox	 gambas2-ide
+#ox	 gauche
+#ox	 gcc-gnat
+#ox	 gcc-objc
+#ox	 gcl
+#ox	 gcl-emacs
+#ox	 gcl-xemacs
+#ox	 gforth
+#ox	 ghc
+#ox	 giggle
+#ox	 git-cola
+#ox	 gnu-smalltalk
+#ox	 gphpedit
+#ox	 gprolog
+#ox	 gpsim
+#ox	 gputils
+#ox	 gtranslator
+#ox	 happy
+#ox	 highlight
+#ox	 hugs98
+#ox	 iasl
+#ox	 imake
+#ox	 insight
+#ox	 ipython
+#ox	 jam
+koji
+#ox	 koji-hub
+#ox	 koji-web
+#ox	 kuipc
+#ox	 lazarus
+#ox	 lcov
+#ox	 libdwarf-tools
+#ox	 lightning
+#ox	 livecd-tools
+lua
+#ox	 lush
+#ox	 mach
+#ox	 manedit
+#ox	 mantis
+#ox	 mcrypt
+#ox	 meld
+#ox	 memtest86+
+mercurial
+#ox	 mlton
+mock
+#ox	 monodevelop
+#ox	 monotone
+#ox	 mr
+#ox	 nasm
+#ox	 nemiver
+#ox	 nqc
+#ox	 nqc-doc
+#ox	 ocaml
+#ox	 oorexx
+#ox	 parrot
+#ox	 patchy
+#ox	 pax-utils
+#ox	 perl-perlmenu
+#ox	 perltidy
+#ox	 php-pear-PHP-CodeSniffer
+#ox	 pikdev
+#ox	 pl
+#oxxx	plague
+#oxxx	plague-client
+#ox	 plt-scheme
+#ox	 polyml
+#ox	 pscan
+#ox	 pungi
+pylint
+#ox	 q
+#ox	 qgit
+#ox	 quilt
+#ox	 rapidsvn
+#ox	 regexxer
+#ox	 revisor
+#ox	 robodoc
+rpmdevtools
+rpmlint
+#ox	 sbcl
+#ox	 scanmem
+#ox	 scons
+#ox	 sigscheme
+#ox	 splint
+#ox	 srecord
+#ox	 subcommander
+#ox	 subversion-svn2cl
+#ox	 svnmailer
+#ox	 sysconftool
+#ox	 tailor
+#ox	 tclpro
+#ox	 tkcon
+#ox	 tkcvs
+#ox	 tla
+#ox	 tolua++
+#ox	 trac
+#ox	 trac-git-plugin
+#ox	 trac-mercurial-plugin
+#ox	 translate-toolkit
+#ox	 ucblogo
+#ox	 utrac
+#ox	 virtaal
+#ox	 wxGlade
+#ox	 xbsql
+#ox	 xfce4-dev-tools
+#ox	 yap
+#ox	 yasm
+#ox	 zzuf
+
+################################################################
+@admin-tools
+################################################################
+
+-authconfig-gtk
+-gnome-packagekit
+#d	-system-config-boot
+#d	-system-config-date
+#d	-system-config-firewall
+#d	-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-lvm
+#d	-system-config-network
+#d	-system-config-users
+#ox	 cacti
+#ox	 dbench
+#ox	 etherape
+#ox	 ettercap-gtk
+#ox	 galternatives
+#ox	 gparted
+#ox	 gpointing-device-settings
+kpackagekit
+#ox	 lat
+#ox	 lshw-gui
+#ox	 luma
+#ox	 ntop
+#ox	 pessulus
+#ox	 qtparted
+#ox	 system-config-kickstart
+#ox	 system-config-rootpassword
+#ox	 yumex
+
+################################################################
+@buildsys-build
+################################################################
+
+#m	-bash
+#m	-bzip2
+#m	-coreutils
+#m	-cpio
+#m	-diffutils
+#m	-fedora-release
+#m	-findutils
+#m	-gawk
+#m	-gcc
+#m	-gcc-c++
+#m	-grep
+#m	-gzip
+#m	-info
+#m	-make
+#m	-patch
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-sed
+#m	-shadow-utils
+#m	-tar
+#m	-unzip
+#m	-util-linux-ng
+#m	-which
+
+################################################################
+@critical-path-base
+################################################################
+
+#m	-NetworkManager
+-anaconda
+#m	-createrepo
+#m	-dash
+#m	-dracut
+#m	-firstboot
+#m	-gcc-c++
+#m	-kernel
+-livecd-tools
+-mash
+-pungi
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-yum
+
+################################################################
+@dns-server
+################################################################
+
+-bind-chroot
+bind
+#ox	 dnsperf
+#ox	 ldns
+#ox	 nsd
+#ox	 pdns
+#ox	 pdns-recursor
+#ox	 unbound
+
+################################################################
+@eclipse
+################################################################
+
+#m	-eclipse-cdt
+#m	-eclipse-jdt
+#d	-eclipse-callgraph
+#d	-eclipse-changelog
+#d	-eclipse-collabnet-merge
+#d	-eclipse-dtp
+#d	-eclipse-egit
+#d	-eclipse-mylyn
+#d	-eclipse-mylyn-java
+#d	-eclipse-oprofile
+#d	-eclipse-pde
+#d	-eclipse-pydev
+#d	-eclipse-rpm-editor
+#d	-eclipse-subclipse
+#d	-eclipse-valgrind
+#ox	 eclipse-cmakeed
+#ox	 eclipse-dltk-ruby
+#ox	 eclipse-dltk-tcl
+#ox	 eclipse-epic
+#ox	 eclipse-findbugs
+#ox	 eclipse-moreunit
+#ox	 eclipse-mylyn-trac
+#ox	 eclipse-photran
+#ox	 eclipse-phpeclipse
+#ox	 eclipse-quickrex
+#ox	 eclipse-rpmstubby
+#ox	 eclipse-shelled
+#ox	 eclipse-slide
+#ox	 eclipse-texlipse
+#ox	 eclipse-veditor
+
+################################################################
+@editors
+################################################################
+
+#d	-vim-enhanced
+#ox	 cssed
+emacs
+#ox	 emacs-auctex
+#ox	 emacs-bbdb
+#ox	 emacs-ess
+#ox	 emacs-muse
+#ox	 emacs-vm
+#ox	 geany
+#ox	 gobby
+#ox	 jed
+joe
+#ox	 leafpad
+#ox	 nedit
+#ox	 pida
+#ox	 poedit
+#ox	 psgml
+#ox	 scite
+#ox	 scribes
+#ox	 scribes-templates
+#ox	 vim-X11
+#ox	 xemacs
+#ox	 xemacs-ess
+#ox	 xemacs-muse
+#ox	 xemacs-packages-extra
+#ox	 xmlcopyeditor
+#ox	 zile
+
+################################################################
+@fedora-packager
+################################################################
+
+#m	-bodhi-client
+#m	-bzr
+#m	-curl
+#m	-cvs
+#m	-fedora-easy-karma
+#m	-fedora-packager
+#m	-git
+#m	-koji
+#m	-make
+#m	-mercurial
+#m	-mock
+#m	-plague-client
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-rpmdevtools
+#ox	 cpanspec
+
+################################################################
+@filesystems
+################################################################
+
+#m	-btrfs-progs
+#m	-dosfstools
+#m	-e2fsprogs
+#m	-gfs2-utils
+#m	-jfsutils
+#m	-ntfsprogs
+#m	-reiserfs-utils
+#m	-xfsprogs
+
+################################################################
+@ftp-server
+################################################################
+
+#m	-vsftpd
+#ox	 proftpd
+#ox	 pure-ftpd
+#ox	 xferstats
+
+################################################################
+@java
+################################################################
+
+#m	-java-1.5.0-gcj
+#m	-libgcj
+#d	-java-1.6.0-openjdk
+#d	-java-1.6.0-openjdk-plugin
+
+################################################################
+@network-server
+################################################################
+
+#d	-cyrus-sasl
+#ox	 389-ds-base
+#ox	 amanda-server
+#ox	 cobbler
+#ox	 ctrlproxy
+#ox	 dhcp
+dnsmasq
+#ox	 ejabberd
+#ox	 flumotion
+#ox	 freenx-server
+#ox	 freeradius
+#ox	 fwknop
+#ox	 icecast
+#ox	 ipxripd
+#ox	 jabberd
+#ox	 kannel
+#ox	 koan
+#ox	 krb5-server
+#ox	 netatalk
+#ox	 nsd
+#ox	 oidentd
+#ox	 openldap-servers
+openswan
+#ox	 polipo
+#ox	 privoxy
+#ox	 puppet-server
+#ox	 quagga
+#ox	 radvd
+#ox	 rbldnsd
+#ox	 rinetd
+#ox	 sobby
+#ox	 tigervnc-server
+#ox	 torque-server
+#ox	 ucarp
+#ox	 ushare
+#ox	 vnc-reflector
+#ox	 vtun
+#ox	 xl2tpd
+#ox	 ypserv
+#ox	 znc
+
+################################################################
+@online-docs
+################################################################
+
+#c	?system-config-date-docs         system-config-date
+#c	?system-config-nfs-docs          system-config-nfs
+#c	?system-config-samba-docs        system-config-samba
+#c	?system-config-services-docs     system-config-services
+#c	?system-config-users-docs        system-config-users
+
+################################################################
+@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+#m	-ghostscript-cups
+-bluez-cups
+#d	-cups-pk-helper
+#d	-foomatic
+#d	-foomatic-db-ppds
+#d	-foomatic-filters
+#d	-gutenprint
+#d	-gutenprint-cups
+#d	-hpijs
+-hplip
+#d	-mpage
+#d	-paps
+#d	-printer-filters
+#d	-samba-client
+#d	-system-config-printer
+#d	-system-config-printer-udev
+#ox	 a2ps
+#ox	 cups-pdf
+#ox	 enscript
+
+################################################################
+@ruby
+################################################################
+
+#m	-ruby
+-ruby-devel
+#ox	 eruby
+#ox	 ruby-ri
+
+################################################################
+@server-cfg
+################################################################
+
+#d	-cups-pk-helper
+#d	-system-config-httpd
+#d	-system-config-nfs
+#d	-system-config-printer
+#d	-system-config-samba
+#d	-system-config-services
+#ox	 system-config-bind
+#ox	 system-switch-mail-gnome
+
+################################################################
+@system-tools
+################################################################
+
+#d	-BackupPC
+#d	-NetworkManager-openconnect
+#d	-NetworkManager-openvpn
+#d	-NetworkManager-vpnc
+#d	-bonnie++
+#d	-cifs-utils
+#d	-jigdo
+#d	-nmap
+#d	-ntfs-3g
+#d	-ntp
+#d	-openconnect
+#d	-openldap-clients
+#d	-openswan
+#d	-openvpn
+#d	-samba-client
+#d	-screen
+#d	-tigervnc
+#d	-vpnc
+#d	-xdelta
+#d	-yum-utils
+#d	-zisofs-tools
+#d	-zsh
+PackageKit-command-not-found
+#ox	 aide
+#ox	 aircrack-ng
+#ox	 airsnort
+#ox	 am-utils
+#ox	 amanda-client
+#ox	 apcupsd
+#ox	 apcupsd-gui
+#ox	 apg
+#ox	 apt
+#ox	 arc
+#ox	 arj
+#ox	 arptables_jf
+#ox	 arpwatch
+#ox	 autofs
+#ox	 avahi-tools
+#ox	 bash-completion
+#ox	 bochs
+#ox	 cabextract
+#ox	 catfish
+#ox	 cfengine
+#ox	 chrpath
+#ox	 conman
+#ox	 connect-proxy
+#ox	 convmv
+#ox	 crack
+#ox	 crash
+createrepo
+#ox	 dar
+#ox	 ddclient
+#ox	 denyhosts
+#ox	 dkms
+#ox	 dnrd
+#ox	 dstat
+#ox	 dtach
+#o	 ebtables
+#ox	 ed2k_hash
+#ox	 eiciel
+#ox	 emelfm2
+#o	 enca
+#ox	 environment-modules
+#ox	 epylog
+#ox	 etherbat
+#ox	 ettercap
+#ox	 fatsort
+#ox	 fcron
+#ox	 fdupes
+#ox	 fedora-package-config-apt
+#ox	 fedora-package-config-smart
+#o	 festival
+#ox	 foremost
+#ox	 freeze
+#o	 fuse
+#ox	 fwbuilder
+#ox	 fwknop
+#ox	 fwrestart
+#ox	 ganglia
+#o	 geoclue
+#ox	 ghasher
+#ox	 ghex
+#ox	 gigolo
+#ox	 gkrellm
+#ox	 gnokii
+#ox	 gnome-nettool
+#ox	 gnutls-utils
+#ox	 greadelf
+#ox	 grepmail
+#o	 gssdp
+#ox	 gtkhash
+#ox	 gtklp
+#ox	 gtkterm
+#o	 gupnp
+#ox	 gxemul
+#ox	 hercules
+#ox	 hfsplus-tools
+#ox	 htop
+#ox	 hyperestraier
+#ox	 ibmonitor
+#ox	 iftop
+#ox	 inadyn-mt
+#ox	 incron
+#ox	 iotop
+#ox	 ip6sic
+#ox	 ipsec-tools
+#ox	 iptraf
+#ox	 ircp-tray
+#ox	 isic
+#ox	 jfbterm
+#ox	 john
+#ox	 kdirstat
+#ox	 keychain
+#ox	 ksmarttray
+#ox	 limph
+#ox	 lirc
+#ox	 liveusb-creator
+#ox	 lslk
+lzop
+#ox	 macchanger
+mc
+#ox	 mmv
+#ox	 mrtg
+#ox	 mtx
+#ox	 munin
+#ox	 nagios
+#ox	 net-snmp-utils
+#ox	 netgo
+#ox	 nethogs
+#ox	 netstat-nat
+#ox	 nfswatch
+#ox	 nmap-frontend
+#ox	 noip
+#ox	 nomarch
+#ox	 nrg2iso
+#ox	 ntp-perl
+ntpdate
+#ox	 nut
+#ox	 nx
+#ox	 obexfs
+#o	 obexftp
+#ox	 oddjob
+#ox	 oddjob-mkhomedir
+#ox	 p0f
+#ox	 p7zip
+#ox	 p7zip-plugins
+#ox	 par2cmdline
+#ox	 pbzip2
+#ox	 portecle
+#ox	 powerman
+#ox	 powertop
+#ox	 prelude-manager
+#ox	 procinfo
+#ox	 puppet
+#ox	 pwgen
+#ox	 qdbm
+#ox	 qstat
+radeontool
+rdesktop
+#ox	 rdiff-backup
+#ox	 rear
+#ox	 remmina
+#ox	 rmanage
+#ox	 rootsh
+#ox	 rsnapshot
+#ox	 sabayon
+#ox	 scrub
+#ox	 sec
+#ox	 shorewall
+#ox	 smart
+#ox	 smart-gui
+#ox	 snort
+#ox	 socat
+#ox	 stripesnoop
+#ox	 swaks
+#ox	 swatch
+#ox	 synaptic
+#ox	 syslog-ng
+#ox	 sysstat
+#ox	 testdisk
+#ox	 tiobench
+#ox	 tn5250
+#ox	 torque-client
+#ox	 torque-gui
+#ox	 tsclient
+#ox	 ttywatch
+#ox	 tunctl
+#ox	 unison213
+#ox	 unison227
+#ox	 upx
+#ox	 uucp
+#ox	 vbetool
+#ox	 viaideinfo
+#ox	 vlock
+#ox	 vnstat
+#ox	 w_scan
+#ox	 wifiroamd
+#oxxx	wine
+#o	 wireshark-gnome
+#ox	 wlassistant
+#ox	 x3270-x11
+#ox	 xmobar
+xsel
+#ox	 xsupplicant
+#ox	 zidrav
+
+################################################################
+@text-internet
+################################################################
+
+#d	-bittorrent
+#d	-cadaver
+#d	-elinks
+#d	-fetchmail
+#d	-fpaste
+#d	-mutt
+-slrn
+#ox	 abook
+#ox	 alpine
+#ox	 archivemail
+#ox	 argus
+#ox	 aria2
+#ox	 axel
+#ox	 centerim
+#ox	 cone
+#ox	 ctorrent
+#ox	 deletemail
+#ox	 ekg
+#ox	 ekg2
+#ox	 emacs-mew
+#ox	 epic
+#ox	 getmail
+#ox	 iperf
+#ox	 irssi
+#ox	 isync
+#ox	 libtranslate
+lynx
+#ox	 maildirproc
+#ox	 naim
+ncftp
+#ox	 netstiff
+#ox	 ninja
+#ox	 nmh
+#ox	 offlineimap
+#ox	 pork
+#ox	 rss2email
+#ox	 rtorrent
+#ox	 sitecopy
+#ox	 snownews
+#ox	 tftp
+#ox	 tin
+#ox	 trickle
+w3m
+#ox	 websec
+#ox	 whatmask
+#ox	 xprobe2
+#ox	 yafc
+#ox	 youtube-dl
+
+################################################################
+-@virtualization
+################################################################
+
+#m	-python-virtinst
+#d	-libvirt
+#d	-qemu-kvm
+#d	-virt-manager
+#d	-virt-viewer
+#o	 virt-top
+
+################################################################

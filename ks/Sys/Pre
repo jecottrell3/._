@@ -6,19 +6,22 @@
 %pre
 
 #! /bin/sh
-P=/dev/ROOT
 
 exec 1>/tmp/pre.log 2>&1
 set -x
+P=/dev/ROOT
 : ================================
 : Host: HOST Label: LABEL Sys: OS_TAG Type: TYPE
 : ================================
+
 lvm vgchange -a y
 mkdir /p
 mount $P /p
 cd /p
-	test -d root &&
-	for x in 0 1 2 3 4 5 6 7 8 9
+
+set +x
+if test -d root
+then	for x in 0 1 2 3 4 5 6 7 8 9
 	do
 		test -d .$x && continue
 		echo Saving into .$x
@@ -26,19 +29,27 @@ cd /p
 		mv *    .$x
 		break
 	done
-	test -d .$x && cd .$x &&
+
+	cd .$x &&
 	for x in lost+found jcottrell CentOS Fedora
 	do
 		test -d $x && mv $x ..
 	done
+
+else	echo No Old System Found
+fi
+set -x
+
 cd /
 umount /p
 lvm vgchange -a n
 : ================================
 
+PCTEND
 %post --nochroot
 
 cp /tmp/pre.log /mnt/sysimage/root
 cp /tmp/ks.cfg  /mnt/sysimage/root
+PCTEND
 
 `#' END   __file__

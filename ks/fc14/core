@@ -29,13 +29,13 @@
 #m	-ncurses
 #m	-openssh-server
 #m	-passwd
--policycoreutils
+#mj		-policycoreutils
 #m	-procps
 #m	-readline
 -rootfiles
 #m	-rpm
 #m	-rsyslog
--selinux-policy-targeted
+#mj		-selinux-policy-targeted
 -setserial
 #m	-setup
 #m	-shadow-utils

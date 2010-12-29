@@ -48,7 +48,7 @@ set -x
 : :: Create JCOTTRELL and RBJ ::
 : ::::::::::::::::::::::::::::::
 
-tmp/.mkjc cos5
+tmp/.mkjc OS_RBJ
 tmp/.mkrbj
 
 : :::::::::::::::::::::::::::::::
@@ -85,13 +85,15 @@ echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-ETHER
 : :: Demon Seeds ::
 : :::::::::::::::::
 
-chkconfig --list | while read svc junk
+chkconfig --list | tee /root/svc.log |
+while read svc junk
 do
+	continue
 	case $svc in
 		(anacron)	chkconfig $svc off;; # always up
 		(avahi-demon)	chkconfig $svc off;; # no need
 		(cups)		chkconfig $svc on ;; # no need
-		(firstboot)	chkconfig $svc off;; # done via kickstart
+(firstboot)	chkconfig $svc on;; # done via kickstart
 		(ip6tables)	chkconfig $svc off;; # no ip6
 		(iptables)	chkconfig $svc off;; # FIX LATER
 		(mcstrans)	chkconfig $svc off;; # no selinux
@@ -136,6 +138,7 @@ date
 : ::::::::::::::
 : :: END Post ::
 : ::::::::::::::
+PCTEND
 
 ################################################################
 ####	Package Selection

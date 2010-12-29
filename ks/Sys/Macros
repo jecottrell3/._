@@ -15,6 +15,7 @@ define(`ETHER',`eth0')dnl
 define(`NOBASE', `')dnl
 define(`MONITOR', `--resolution=1600x900 --depth=24')dnl
 define(`XCONFIG', `xconfig --startxonboot MONITOR')dnl
+define(`PCTEND', `')dnl
 dnl
 dnl	End Processing
 dnl
