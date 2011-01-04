@@ -1,3 +1,4 @@
+xorg-x11-fonts-misc
 ################################################################
 @base-x
 ################################################################
@@ -15,8 +16,8 @@
 #d	-krb5-auth-dialog
 #d	-openssh-askpass
 #d	-plymouth-system-theme
-#dj		-policycoreutils-gui
-#dj		-setroubleshoot
+-policycoreutils-gui
+-setroubleshoot
 #d	-smolt-firstboot
 #d	-system-config-date
 #d	-system-config-firewall

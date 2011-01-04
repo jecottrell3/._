@@ -29,10 +29,10 @@
 #d	-diffstat
 #d	-doxygen
 #d	-elfutils
-#d	-gcc-gfortran
+-gcc-gfortran
 #d	-git
 #d	-indent
-#d	-intltool
+-intltool
 #d	-ltrace
 #d	-oprofile
 #d	-oprofile-gui
@@ -229,7 +229,7 @@ rpmlint
 #ox	 galternatives
 #ox	 gparted
 #ox	 gpointing-device-settings
-kpackagekit
+#o	kpackagekit
 #ox	 lat
 #ox	 lshw-gui
 #ox	 luma
@@ -301,7 +301,7 @@ bind
 #ox	 unbound
 
 ################################################################
-@eclipse
+-@eclipse
 ################################################################
 
 #m	-eclipse-cdt
@@ -341,7 +341,7 @@ bind
 
 #d	-vim-enhanced
 #ox	 cssed
-emacs
+#o	emacs
 #ox	 emacs-auctex
 #ox	 emacs-bbdb
 #ox	 emacs-ess
@@ -475,7 +475,7 @@ openswan
 #c	?system-config-users-docs        system-config-users
 
 ################################################################
-@printing
+-@printing
 ################################################################
 
 #m	-cups

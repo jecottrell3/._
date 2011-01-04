@@ -9,15 +9,15 @@
 #d	-b43-openfwwf
 #d	-ipw2100-firmware
 #d	-ipw2200-firmware
-#d	-ivtv-firmware
+-ivtv-firmware
 #d	-iwl1000-firmware
 #d	-iwl3945-firmware
 #d	-iwl4965-firmware
 #d	-iwl5000-firmware
 #d	-iwl5150-firmware
 #d	-iwl6000-firmware
+#d	-iwl6050-firmware
 #d	-libertas-usb8388-firmware
-#d	-printer-filters
 #d	-ql2100-firmware
 #d	-ql2200-firmware
 #d	-ql23xx-firmware
@@ -25,7 +25,6 @@
 #d	-ql2500-firmware
 #d	-rt61pci-firmware
 #d	-rt73usb-firmware
-#d	-ueagle-atm4-firmware
 #d	-usb_modeswitch
 #d	-zd1211-firmware
 #ox	 acpi
@@ -49,42 +48,6 @@ hdparm
 #o	 openct
 #ox	 opensc
 #ox	 s3switch
-#ox	 tpb
-
-################################################################
-@mail-server
-################################################################
-
-#d	-cyrus-sasl
-#d	-dovecot
-#d	-sendmail
-#d	-sendmail-cf
-#d	-spamassassin
-#ox	 amavisd-new
-#ox	 clamav
-#ox	 clamav-data
-#ox	 clamav-milter
-#ox	 crm114
-#ox	 cyrus-imapd
-#ox	 dbmail
-#ox	 enemies-of-carlotta
-esmtp
-#o	 exim
-#ox	 exim-clamav
-#ox	 exim-doc
-#ox	 imp
-#ox	 mailman
-#ox	 milter-regex
-#ox	 mlmmj
-#o	 postfix
-#ox	 pyzor
-#ox	 roundcubemail
-#ox	 spamass-milter
-#o	 spambayes
-#ox	 sqlgrey
-#ox	 squirrelmail
-#ox	 up-imapproxy
-#ox	 uw-imap
 
 ################################################################
 @mysql
@@ -105,6 +68,46 @@ esmtp
 php-mysql
 #o	 qt-mysql
 #ox	 qt3-MySQL
+
+################################################################
+@perl
+################################################################
+
+#mx	-perl-core
+#dx	-cpan-upload
+#dx	-git-cpan-patch
+#dx	-perltidy
+#ox	 eclipse-epic
+#ox	 parrot
+#ox	 perl-Task-Catalyst
+#ox	 vim-perl-support
+#ox	 vim-perl-tt2
+
+################################################################
+@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+#m	-ghostscript-cups
+-bluez-cups
+#d	-cups-pk-helper
+#d	-foomatic
+#d	-foomatic-db-ppds
+#d	-foomatic-filters
+#d	-gutenprint
+#d	-gutenprint-cups
+-hpijs
+-hplip
+#d	-mpage
+#d	-paps
+#d	-printer-filters
+#d	-samba-client
+#d	-system-config-printer
+#d	-system-config-printer-udev
+#ox	 a2ps
+#ox	 cups-pdf
+#ox	 enscript
 
 ################################################################
 @smb-server
@@ -159,7 +162,7 @@ php-mysql
 #ox	 awstats
 #ox	 boa
 #ox	 cherokee
-#ox	 dap-server-cgi
+#ox	 dap-server
 #ox	 drupal
 #ox	 drupal-calendar
 #ox	 drupal-cck
@@ -195,7 +198,7 @@ php-mysql
 #ox	 thttpd
 #ox	 tiquit
 #ox	 tomcat-native
-tomcat5
+#o	 tomcat5
 #ox	 tomcat5-admin-webapps
 #ox	 tomcat5-webapps
 #ox	 vdr-wapd

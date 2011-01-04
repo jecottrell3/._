@@ -4,5 +4,6 @@
 #
 define(`TYPE', `x11')dnl
 define(`GFX',  `graphical')dnl
+define(`XCONFIG', `xconfig MONITOR')dnl
 define(`PKGS', `core,base,x11')dnl
 `#' END   __file__

@@ -20,7 +20,7 @@
 #m	-parted
 #m	-pciutils
 #m	-psacct
-#m	-quota
+-quota
 #m	-tmpwatch
 #m	-traceroute
 #d	-PackageKit-yum-plugin
@@ -41,7 +41,7 @@
 #d	-fprintd-pam
 #d	-ftp
 #d	-gnupg2
-#d	-hunspell
+-hunspell
 #d	-iptstate
 -irda-utils
 #d	-irqbalance
