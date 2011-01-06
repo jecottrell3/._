@@ -47,9 +47,9 @@ nuke man-pages-??-*
 nuke mythes-??-*
 nuke openoffice.org-langpack-*
 
-nuke ibus-*
+#uke ibus-*
 nuke kde-l10n-*
-nuke m17n-*
+#uke m17n-*
 
 grab
 

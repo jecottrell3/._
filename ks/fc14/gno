@@ -1,5 +1,5 @@
 ################################################################
--@critical-path-gnome
+@critical-path-gnome
 ################################################################
 
 #m	-control-center
@@ -28,7 +28,7 @@
 #d	-pulseaudio-module-x11
 
 ################################################################
--@gnome-desktop
+@gnome-desktop
 ################################################################
 
 #m	-control-center
@@ -44,7 +44,7 @@
 #d	-NetworkManager-gnome
 #d	-NetworkManager-openconnect
 #d	-NetworkManager-openvpn
-#d	-NetworkManager-pptp
+-NetworkManager-pptp
 #d	-NetworkManager-vpnc
 #d	-PackageKit-command-not-found
 #d	-PackageKit-gtk-module
@@ -68,7 +68,7 @@
 #d	-gedit
 #d	-gnome-applets
 #d	-gnome-backgrounds
-#d	-gnome-bluetooth
+-gnome-bluetooth
 #d	-gnome-color-manager
 #d	-gnome-disk-utility
 #d	-gnome-games
@@ -76,7 +76,7 @@
 #d	-gnome-icon-theme-extras
 #d	-gnome-icon-theme-symbolic
 #d	-gnome-media
-#d	-gnome-pilot
+-gnome-pilot
 #d	-gnome-power-manager
 #d	-gnome-screensaver
 #d	-gnome-system-monitor
@@ -85,7 +85,7 @@
 #d	-gnome-user-share
 #d	-gnome-utils
 #d	-gnote
-#d	-gok
+-gok
 #d	-gtk2-engines
 #d	-gucharmap
 #d	-gvfs-archive
@@ -95,7 +95,7 @@
 #d	-mousetweaks
 #d	-nautilus-sendto
 #d	-notification-daemon
-#d	-orca
+-orca
 #d	-pulseaudio-module-gconf
 #d	-pulseaudio-module-x11
 #d	-pyatspi
@@ -181,8 +181,8 @@
 #ox	 xscreensaver-extras-gss
 #ox	 xscreensaver-gl-extras-gss
 #c	?gtk3-engines                    gtk3
-#c	?ibus-gtk2                       ibus
-#c	?ibus-gtk3                       gtk3
+-ibus-gtk2
+-ibus-gtk3
 #c	?libcanberra-gtk3                gtk3
 #c	?pinentry-gtk                    pinentry
 #c	?scim-bridge-gtk                 scim

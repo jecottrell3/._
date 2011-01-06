@@ -65,7 +65,7 @@
 #ox	 kde-plasma-xbar
 #ox	 kde-plasma-yawp
 #ox	 kdeadmin
-kdeartwork
+#ox	kdeartwork
 #ox	 kdeartwork-sounds
 #ox	 kdeartwork-wallpapers
 #ox	 kdebase-workspace-googlegadgets
@@ -109,7 +109,7 @@ kdeartwork
 #ox	 uim-qt3
 #ox	 yakuake
 #c	?gstreamer-plugins-good          gstreamer
-#c	?ibus-qt                         ibus
+-ibus-qt
 #c	?pinentry-qt                     pinentry
 #c	?scim-bridge-qt                  scim
 
