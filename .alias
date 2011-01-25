@@ -101,3 +101,4 @@ alias	rax='rsync  -vax'	 rs='rsync -C'
 alias	vax='rsync -Cvax'	pax='rsync -CPax'
 
 #################################################################
+alias qaz
