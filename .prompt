@@ -17,8 +17,8 @@ ID=$(id | sed 's/(.*//;s/.*=//')
 # BG=$SHLVL
 # BG=$(tty | tr -dc 0123456789)
 # BG=$RANDOM
+((BG %= 7))
 ((BG++))
-((BG %= 8))
 case $BG in
 ([267])		HI=0 FG=0;;	# lite BG
 ([01345])	HI=1 FG=7;;
