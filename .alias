@@ -48,7 +48,9 @@ alias	cg='chgrp'	cn='chown'
 alias	cm='chmod'	cx='chmod a+x'
 
 alias	d='rm -i'	rfv='rm -rfv'
-alias	dm='less +/"^diff.*"' im='less +/"^Index: .*"'
+alias	dm='less +/"^diff.*"'
+alias	im='less +/"^Index: .*"'
+alias	ym='less +/".*[<>|].*"'
 alias	dh='df -h'	uh='du -h'	df='df -k'
 alias	g='egrep'	v='egrep -v'
 function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
@@ -96,9 +98,8 @@ alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 
-alias	ud='diff -u'	dr='diff -r'
+alias	ud='diff -u'	dr='diff -r'	dy='diff -y'
 alias	rax='rsync  -vax'	 rs='rsync -C'
 alias	vax='rsync -Cvax'	pax='rsync -CPax'
 
 #################################################################
-alias qaz
