@@ -28,12 +28,13 @@ do
 	 (*~)		continue;;
 	(.*~)		continue;;
 	(.ssh)	test -e $x && mv .ssh $SAVE
-		mkdir .ssh
-		(cd   .ssh && ln -s  ../._/.ssh/* .)
-		rm    .ssh/authorized_keys
-		cp ._/.ssh/authorized_keys .ssh
-		rm    .ssh/known_hosts
-		cp ._/.ssh/known_hosts     .ssh
+		rsync -aC ._/.ssh .
+		#@ mkdir .ssh
+		#@ (cd   .ssh && ln -s  ../._/.ssh/* .)
+		#@ rm    .ssh/authorized_keys
+		#@ cp ._/.ssh/authorized_keys .ssh
+		#@ rm    .ssh/known_hosts
+		#@ cp ._/.ssh/known_hosts     .ssh
 			continue;;
 	(.?)	test -f $x || cp -r $INIT/$x .
 			continue;;

@@ -44,6 +44,8 @@ export	LANG=C LOCALE=C LC_ALL=C
 export	VERSION_CONTROL=numbered
 export	INPUTRC=$HOME/.inputrc
 export	EDITOR=vi
+export	TTY=$(tty | tr -dc 0123456789)
+
 
 export	PNY=/pny/CVR
 export	SVN=/svn

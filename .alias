@@ -92,7 +92,7 @@ alias	  jc='chown -R jcottrell:jcottrell'
 alias	sa='ssh-add'
 alias	sb='sudo bash -l'
 alias	sl='ln -s'
-alias	ss='ssh -qAX'	sj='ssh -AX -l jcottrel'
+alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 
