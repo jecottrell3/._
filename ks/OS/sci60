@@ -1,0 +1,11 @@
+`#' BEGIN __file__
+define(`OS_TAG',	`sci60')dnl
+define(`OS_RBJ',	`sci6')dnl
+define(`OS_NAME',	`Scientific')dnl
+define(`OS_VERSION',	`6.0')dnl
+define(`OS_MEDIA',	`dvd')dnl
+define(`ISODIR',	`/OS_NAME/OS_VERSION/ARCH/OS_MEDIA')dnl
+#
+define(`PCTEND', `%end')dnl		6.0 needs %end
+define(`MONITOR', `')dnl		6.0 has no res/depth
+`#' END   __file__

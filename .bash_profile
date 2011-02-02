@@ -10,7 +10,7 @@ do	RBJ=$dir/$user/._
 	test -d $RBJ && break 2
 done
 done
-echo RBJ is $RBJ
+: echo RBJ is $RBJ
 
 chmod a+rx $HOME
 test  -d   $HOME/.ssh     &&

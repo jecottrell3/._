@@ -7,6 +7,7 @@ H=yell
 L=LV
 O=cos55
 O=fc14
+O=sci60
 
 X=$H-$L-$O
 
