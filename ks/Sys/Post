@@ -123,7 +123,8 @@ done
 : ::::::::::::::::::::::::::
 
 date
-echo makewhatis -v
+test -f /.db &&
+makewhatis -v
 
 : ::::::::::::::::::::::::::
 : :: Make Locate Database ::
@@ -131,7 +132,8 @@ echo makewhatis -v
 
 date
 umount  -av
-echo updatedb -v
+test -f /.db &&
+updatedb -v
 mount   -av
 date
 

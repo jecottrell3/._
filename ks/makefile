@@ -23,6 +23,7 @@ clean:
 	rm -rf *.ks
 
 new:	clean all
+cool:	clean all install
 
 G=$S/Generate
 
