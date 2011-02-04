@@ -1,0 +1,98 @@
+#! /bin/sh
+
+DATE=2011-01-21
+HEAD=SL-6
+TAIL=DVD1.iso
+DVD32=$HEAD-i386-$DATE-$TAIL
+DVD64=$HEAD-x86_64-$DATE-$TAIL
+DVD=UNKNOWN
+
+showhow()
+{
+	cat <<EOF
+mkisofs -o ../$1 \
+-b isolinux/isolinux.bin -c isolinux/boot.cat \
+-no-emul-boot -boot-load-size 4 -boot-info-table \
+-R -J -V "$HEAD $2-bit Abridged" -T .
+
+implantisomd5 ../$1
+checkisomd5 --verbose ../$1
+EOF
+	exit
+}
+
+case $1 in
+(32)	showhow $DVD32 $1;;
+(64)	showhow $DVD64 $1;;
+esac
+
+loudly() { : echo "'$*'"; eval "$@"; }
+
+grab() { loudly mv -f      $UP/keep/* .; }
+keep() { loudly mv -f "$@" $UP/keep; }
+nuke() { loudly mv -f "$@" $UP/delete; }
+
+loudly mkdir -p keep delete
+
+: @ UP=.
+: @ keep RELEASE-NOTES-en*
+: @ nuke RELEASE-NOTES*
+: @ grab
+
+UP=..
+
+: @ cd NOTES
+
+: @ keep RELEASE-NOTES-en*
+: @ keep RELEASE-NOTES-U?-en*
+
+: @ nuke RELEASE-NOTES-*
+
+: @ grab
+
+: @ cd ..
+
+cd Packages
+
+keep *-en-*
+
+nuke autocorr-*
+nuke hunspell-??-*
+nuke hunspell-???-*
+nuke hyphen-??-*
+nuke mythes-*
+
+nuke eclipse-nls-??-*
+
+: @ nuke fonts-*
+
+nuke ibus-*
+
+nuke kde-i18n-*
+nuke kde-l10n-*
+
+keep m17n-lib-*
+keep m17n-db-1*
+keep m17n-db-datafiles-*
+keep m17n-db-devel-*
+
+nuke m17n-*
+
+nuke man-pages-??-*
+nuke openoffice.org-langpack-*
+
+grab
+
+cd ..
+
+loudly mv delete ../delete.$$
+loudly rmdir keep
+
+cat <<EOF
+############################
+: Type one of the following:
+:	$0 32
+:	$0 64
+: ...for further directions.
+############################
+EOF

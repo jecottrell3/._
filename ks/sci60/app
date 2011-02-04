@@ -1,0 +1,160 @@
+################################################################
+@eclipse
+################################################################
+
+#m	-eclipse-cdt
+#m	-eclipse-jdt
+#d	-eclipse-callgraph
+#d	-eclipse-changelog
+#d	-eclipse-mylyn
+#d	-eclipse-mylyn-java
+#d	-eclipse-oprofile
+#d	-eclipse-rpm-editor
+#d	-eclipse-subclipse
+#d	-eclipse-valgrind
+#o	 eclipse-mylyn-cdt
+#o	 eclipse-mylyn-pde
+#o	 eclipse-mylyn-trac
+#o	 eclipse-mylyn-webtasks
+#o	 eclipse-mylyn-wikitext
+#o	 eclipse-pde
+eclipse-subclipse-graph
+
+################################################################
+@graphical-admin-tools
+################################################################
+
+#m	-dbus
+#d	-authconfig-gtk
+#d	-gnome-disk-utility
+#d	-gnome-packagekit
+#d	-system-config-firewall
+#d	-system-config-kdump
+#d	-system-config-keyboard
+#d	-system-config-services
+#d	-system-config-users
+#o	 audit-viewer
+#o	 firstaidkit-gui
+#o	 policycoreutils-gui
+#o	 sabayon
+#o	 setroubleshoot
+system-config-kickstart
+system-config-lvm
+#c	?system-config-services-docs     system-config-services
+#c	?system-config-users-docs        system-config-users
+
+################################################################
+@graphics
+################################################################
+
+#m	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+#d	-gutenprint-plugin
+-libsane-hpaio
+-sane-backends-libs-gphoto2
+-sane-frontends
+-xsane
+-xsane-gimp
+ImageMagick
+#o	 dcraw
+#o	 inkscape
+netpbm-progs
+xfig
+
+################################################################
+-@internet-applications
+################################################################
+
+#d	-ekiga
+#d	-evolution
+#d	-evolution-help
+#d	-evolution-mapi
+pidgin
+#o	 evolution-exchange
+thunderbird
+#o	 xchat
+
+################################################################
+@internet-browser
+################################################################
+
+#d	-firefox
+#d	-nspluginwrapper
+#d	-totem-mozplugin
+
+################################################################
+@office-suite
+################################################################
+
+#d	-openoffice.org-calc
+#d	-openoffice.org-draw
+#d	-openoffice.org-graphicfilter
+#d	-openoffice.org-impress
+#d	-openoffice.org-math
+#d	-openoffice.org-writer
+#d	-openoffice.org-xsltfilter
+#o	 openoffice.org-base
+#o	 openoffice.org-emailmerge
+#o	 openoffice.org-headless
+#o	 openoffice.org-javafilter
+#o	 openoffice.org-ogltrans
+#o	 openoffice.org-presentation-minimizer
+#o	 openoffice.org-report-builder
+#o	 openoffice.org-wiki-publisher
+planner
+taskjuggler
+#c	?openoffice.org-langpack-en      openoffice.org-core
+
+################################################################
+@remote-desktop-clients
+################################################################
+
+rdesktop
+#o	 spice-client
+#o	 spice-xpi
+tigervnc
+tsclient
+vinagre
+
+################################################################
+@virtualization
+################################################################
+
+#m	-qemu-kvm
+qemu-kvm-tools
+
+################################################################
+@virtualization-client
+################################################################
+
+#m	-python-virtinst
+#m	-virt-manager
+#m	-virt-viewer
+#d	-virt-top
+
+################################################################
+@virtualization-platform
+################################################################
+
+#m	-libvirt
+#m	-libvirt-client
+#o	 fence-virtd-libvirt
+#o	 fence-virtd-multicast
+#o	 fence-virtd-serial
+#o	 libvirt-cim
+#o	 libvirt-java
+#o	 libvirt-qpid
+perl-Sys-Virt
+
+################################################################
+@virtualization-tools
+################################################################
+
+#d	-libguestfs
+libguestfs-java
+libguestfs-mount
+libguestfs-tools
+virt-v2v
+

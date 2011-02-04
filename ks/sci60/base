@@ -1,0 +1,135 @@
+################################################################
+@base
+################################################################
+
+#m	-alsa-utils
+#m	-at
+#m	-authconfig
+#m	-bc
+#m	-bind-utils
+#m	-crontabs
+#m	-cyrus-sasl-plain
+#m	-dbus
+#m	-ed
+#m	-file
+#m	-logrotate
+#m	-lsof
+#m	-man
+#m	-ntsysv
+#m	-parted
+#m	-pciutils
+#m	-psacct
+-quota
+-setserial
+#m	-sl-indexhtml
+#m	-tmpwatch
+#m	-traceroute
+#d	-acpid
+#d	-b43-fwcutter
+#d	-blktrace
+#d	-bridge-utils
+#d	-bzip2
+#d	-cpuspeed
+#d	-cryptsetup-luks
+#d	-dmraid
+#d	-dosfstools
+#d	-eject
+#d	-ethtool
+#d	-fprintd-pam
+#d	-gnupg2
+#d	-hunspell
+#d	-irqbalance
+#d	-kexec-tools
+#d	-libaio
+#d	-lvm2
+#d	-man-pages
+#d	-man-pages-overrides
+#d	-mdadm
+#d	-microcode_ctl
+#d	-mlocate
+#d	-mtr
+#d	-nano
+#d	-openssh-clients
+#d	-pam_passwdqc
+-pcmciautils
+#d	-pinfo
+#d	-plymouth
+#d	-pm-utils
+#d	-prelink
+#d	-rdate
+#d	-readahead
+#d	-rfkill
+-rng-tools
+#d	-rsync
+#d	-setuptool
+#d	-sl-release-notes
+#d	-smartmontools
+#d	-sos
+#d	-strace
+#d	-sysstat
+#d	-system-config-firewall-tui
+#d	-system-config-network-tui
+#d	-systemtap-runtime
+#d	-tcpdump
+-tcsh
+#d	-time
+#d	-unzip
+#d	-usbutils
+-vconfig
+#d	-vim-enhanced
+#d	-wget
+#d	-which
+#d	-wireless-tools
+#d	-words
+#d	-xz
+#d	-yum-utils
+#d	-zip
+#o	 abrt-addon-ccpp
+#o	 abrt-addon-kerneloops
+#o	 abrt-addon-python
+#o	 abrt-cli
+#o	 abrt-plugin-sosreport
+#o	 brltty
+#o	 cpufrequtils
+#o	 dos2unix
+#o	 dumpet
+#o	 ecryptfs-utils
+#o	 edac-utils
+genisoimage
+gpm
+#o	 kabi-yum-plugins
+kernel-doc
+logwatch
+#o	 mkbootdisk
+#o	 mtools
+#o	 ncurses-term
+#o	 nss_db
+#o	 oddjob
+#o	 pax
+#o	 python-dmidecode
+#o	 python-volume_key
+#o	 rsyslog-gnutls
+#o	 rsyslog-gssapi
+#o	 rsyslog-relp
+#o	 sgpio
+#o	 sox
+#o	 squashfs-tools
+#o	 star
+#o	 tunctl
+#o	 udftools
+#o	 unix2dos
+#o	 uuidd
+#o	 volume_key
+#o	 wodim
+#o	 x86info
+yum-plugin-aliases
+yum-plugin-changelog
+yum-plugin-downloadonly
+yum-plugin-protect-packages
+yum-plugin-security
+yum-plugin-tmprepo
+yum-plugin-verify
+yum-plugin-versionlock
+yum-presto
+zsh
+

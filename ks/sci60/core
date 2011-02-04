@@ -1,0 +1,70 @@
+################################################################
+@core
+################################################################
+
+#m	-acl
+#m	-aic94xx-firmware
+#m	-atmel-firmware
+#m	-attr
+#m	-audit
+#m	-b43-openfwwf
+#m	-basesystem
+#m	-bash
+#m	-bfa-firmware
+#m	-coreutils
+#m	-cpio
+#m	-cronie
+#m	-dhclient
+#m	-e2fsprogs
+#m	-filesystem
+#m	-glibc
+#m	-initscripts
+#m	-iproute
+#m	-iptables
+-iptables-ipv6
+#m	-iputils
+#m	-ipw2100-firmware
+#m	-ipw2200-firmware
+-ivtv-firmware
+#m	-iwl1000-firmware
+#m	-iwl3945-firmware
+#m	-iwl4965-firmware
+#m	-iwl5000-firmware
+#m	-iwl5150-firmware
+#m	-iwl6000-firmware
+#m	-iwl6050-firmware
+#m	-kbd
+#m	-kernel-firmware
+#m	-libertas-usb8388-firmware
+#m	-ncurses
+#m	-openssh-server
+#m	-passwd
+-policycoreutils
+#m	-postfix
+#m	-procps
+#m	-ql2100-firmware
+#m	-ql2200-firmware
+#m	-ql23xx-firmware
+#m	-ql2400-firmware
+#m	-ql2500-firmware
+-rootfiles
+#m	-rpm
+#m	-rsyslog
+#m	-rt61pci-firmware
+#m	-rt73usb-firmware
+-selinux-policy-targeted
+#m	-setup
+#m	-shadow-utils
+#m	-sudo
+#m	-util-linux-ng
+#m	-vim-minimal
+#m	-xorg-x11-drv-ati-firmware
+#m	-yum
+#m	-zd1211-firmware
+-efibootmgr
+#d	-grub
+#o	 dracut-fips
+#o	 dracut-network
+#o	 rhnsd
+#o	 yum-rhn-plugin
+

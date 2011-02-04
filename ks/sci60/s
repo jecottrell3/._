@@ -1,0 +1,17 @@
+@backup-client
+@backup-server
+@cifs-file-server
+@directory-client
+@directory-server
+@ftp-server
+@mysql
+@mysql-client
+@php
+@postgresql
+@postgresql-client
+@print-server
+@print-client
+@scientific
+@technical-writing
+@web-server
+@web-servlet
