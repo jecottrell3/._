@@ -1,4 +1,5 @@
 (setq keyboard-translation-table nil)
+;;;; $Id$
 ;;;;(set-input-mode nil t)
 ;;;;(set-input-mode  t  t)
 
