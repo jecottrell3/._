@@ -22,8 +22,10 @@ do
 	grep $NEW $FILE ||
 	{
 		cp -p $FILE $FILE.old
-		sed "/^$OLD/{p;s//$NEW/;}" $FILE.old > $FILE
+# jc, rbj	sed "/^$OLD/{p;s//$NEW/;}"   $FILE.old > $FILE
+# rbj, jc	sed "/^$OLD/{h;s//$NEW/;G;}" $FILE.old > $FILE
+		sed "/^$OLD/{h;s//$NEW/;G;}" $FILE.old > $FILE
 	}
 done
 
-perl -pi -e 's/(jcottrell$)/$1,rbj/' /etc/group
+perl -pi -e "s/($OLD\$)/\$1,$NEW/" group
