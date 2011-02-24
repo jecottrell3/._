@@ -60,11 +60,13 @@ class Head:
 				  ' --enablelocauthorize ' + self.auth,
 			'selinux --disabled',
 			'firstboot --disabled',
-			'timezone ' + self.utc + ' America/New_York',
-			'bootloader --location=partition' --driveorder=' + self.order,
+			'timezone %s America/New_York' % self.utc,
+			'bootloader --location=partition --driveorder=' + self.order,
 			'# END head',
 			''
 		]);
+
+def tweak(ks): pass
 
 #################################################################
 

@@ -64,5 +64,4 @@ def customize(k, tag):
 	s.tag  = tag
 	items[tag](k, s)
 	k.head.isopath = s.isopath(k.head.arch)
-	print s
 	return `s`
