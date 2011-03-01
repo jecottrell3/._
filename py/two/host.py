@@ -1,77 +1,104 @@
-class Host:
-	pass
+#! /usr/bin/python
+# $Id$
+#################################################################
+#	Generic Host Object -- aso build Net and Disk objects
+#################################################################
 
-# USB Portable Disks
+import	nets	# , disk
 
-def port(k):
-	k.head.arch = 'i386'
-	k.head.order= 'sdb,sda'
+class Host(object):
 
-def blue(k): port(k)
+	#########################################################
+	#	Constructor -- switch by Host Name
+	#########################################################
 
-def book(k): port(k)
+	def __init__(self, ks, name):
+		self.ks = ks
+		self.name = name
+		items[name](ks, self)
+		
+	#########################################################
+	#	Represent -- just comment for the output
+	#########################################################
+
+	def __repr__(self): return '# Host %s\n' % self.name
+
+#################################################################
+#	USB Portable Disks
+#################################################################
+
+def port(ks, self):
+	ks.head.arch = 'i386'
+	ks.head.order= 'sdb,sda'
+	ks.head.isopart = 'sdb1'
+
+	ks.nets = nets.Dhcp(self.name)
+#	ks.disk = disk.USB(self.name)
+
+def blue(ks, self): port(ks, self)
+
+def book(ks, self): port(ks, self)
+
+#################################################################
+#	Generic Host Object -- aso build Net and Disk objects
+#################################################################
 
 # SEAS 156 DHCP
+# SEAS 156 Static
 
-def yell(k):
-	k.head.monitor = '--resolution=1680x1050 --depth=24'
+def yell(ks, self):
+	ks.head.monitor = '--resolution=1680x1050 --depth=24'
+#	ks.nets = nets.Dhcp(self.name)
+	ks.nets = nets.Seas156(self.name, '156.167')
 
-def zell(k):
-	k.head.monitor = '--resolution=1920x1200 --depth=24'
+def zell(ks, self):
+	ks.head.monitor = '--resolution=1920x1200 --depth=24'
+#	ks.nets = nets.Dhcp(self.name)
+	ks.nets = nets.Seas156(self.name, '156.171')
 
 # SEAS 219 Static
 
-def kick(k):
-	k.head.monitor = None
-	k.nets.area = 'seas219'
-	k.nets.addr = '.82'
+def kick(ks, self):
+	ks.head.monitor = None
+	ks.nets = nets.Seas219(self.name, '82')
 
 # SEAS 219 DHCP
 
-def grid(k):
-	k.head.monitor = None
+def grid(ks, self):
+	ks.head.monitor = None
 
-	k.head.auth = (
+	ks.head.auth = (
 		' --disablecache --enablepreferdns' +
 		' --enablenis --nisdomain=seasNIS'  +
 		' --nisserver=ambrose.SEAS,ambrose2.SEAS'
 	)
-	k.nets.area = 'noname'
-	k.nets.ether= 'eth2'
+	ks.nets = nets.Dhcp(None)
+	ks.nets.ether= 'eth2'
 
-# HOMERJ
+#################################################################
+#	HOMERJ -- RBJ Home Network
+#################################################################
 
-def bogo(k):
-	k.HorS = 'hd'
-	k.head.arch = 'i386'
-	k.nets.area = 'homerj'
-	k.nets.addr = '.6'
+def bogo(ks, self, addr=6):
+	ks.HorS = 'hd'
+	ks.head.arch = 'i386'
+	ks.nets = nets.HomerJ(self.name, '6')
 
-def mojo(k):
-	k.HorS = 'hd'
-	k.head.arch = 'i386'
-	k.nets.area = 'homerj'
-	k.nets.addr = '.7'
+def mojo(ks, self): bogo(ks, self, 7)
 
-def loco(k):
-	k.nets.area = 'homerj'
-	k.nets.addr = '.8'
+def loco(ks, self):
+	ks.nets = nets.HomerJ(self.name, '8')	# 64 bit
 
-def yoko(k):
-	k.nets.area = 'homerj'
-	k.nets.addr = '.9'
+def yoko(ks, self):
+	ks.nets = nets.HomerJ(self.name, '9')	# 64 bit
 
-def fono(k):
-	k.HorS = 'hd'
-	k.head.arch = 'i386'
-	k.nets.area = 'homerj'
-	k.nets.addr = '.10'
+def fono(ks, self): bogo(ks, self, 10)
 
-def vodo(k):
-	k.HorS = 'hd'
-	k.head.arch = 'i386'
-	k.nets.area = 'homerj'
-	k.nets.addr = '.11'
+def vodo(ks, self): bogo(ks, self, 11)
+
+#################################################################
+#	Switch Table
+#################################################################
 
 items = {}
 
@@ -81,8 +108,8 @@ for h in ('port', 'blue', 'book', 'yell', 'zell', 'kick', 'grid',
 	  ):
 	items[h] = eval(h)
 
-def customize(k, name):
-	k.head.hostname = name
-	items[name](k)
-	return '# Host: %s\n' % name
+#################################################################
+#	UNIT TEST
+#################################################################
+
 
