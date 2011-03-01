@@ -1,86 +1,131 @@
 #! /usr/bin/python
-
+# $Id$
 #################################################################
-#	Networks
+#	Default Network Object
 #################################################################
 
-net = None
+class Net(object):
 
-class Nets:
-	area	= 'dhcp'
-	ether	= 'eth0' 				# or 'eth2'
+	# Class Variables: defaults
+
+	name	= 'noname'
+	ether	= 'eth0'
 	proto	= 'dhcp'
+	host	= None
 	work	= None
 	addr	= None
 	gate	= None
-	mask	= '255.255.255.0'
-	dns	= '8.8.8.8'
+	mask	= '255.255.255.0'	# /24 = Class C
+	dns	= '8.8.8.8'		# Google
 
-	def __init__(self, name=None):
-		self.hostname = name
+	# Initialize: store hostname if given
+
+	def __init__(self, host=None, addr=None):
+		self.host = host
+		self.addr = addr	# for inheritance?
+
+	# Represent: return kickstart network line
 
 	def __repr__(self):
 		rep = 'network --noipv6 --device=' + self.ether
 		rep = rep + ' --bootproto=' + self.proto
-		if (self.hostname):
-			rep = rep + ' --hostname='+ self.hostname
+
+		if (self.host):
+			rep = rep + ' --hostname='+ self.host
+
 		if (self.addr):
+			#print self.work, self.addr, self.mask
 			rep = rep + ' --ip='      + self.work + self.addr
 			rep = rep + ' --gateway=' + self.work + self.gate
 			rep = rep + ' --netmask=' + self.mask
 			rep = rep + ' --nameserver=' + self.dns
+
 		return '\n'.join([
-			'# BEG Net ' + self.area,
+			'# BEG Net ' + self.name,
 			rep,
-			'# END Net ' + self.area,
+			'# END Net ' + self.name,
 			''
 		])
 
-def noname(net):
-	net.hostname = None
+#################################################################
+
+#################################################################
+#	DHCP is the Default
+#################################################################
 
-def dhcp(net): pass
+class Dhcp(Net):
+	def __init__(self, host=None, addr=None):
+		self.host = host
+		self.addr = addr
+		if (host): self.name = 'dhcp'
 
-def seas156(net):
-	net.proto='static'
-	net.work = '128.164.156'
-	net.gate = '.254'
-	net.mask = '255.255.252.0'
-	net.dns  = '128.164.141.12'
+#################################################################
+#	RBJ Home Network
+#################################################################
 
-def seas219(net):
-	net.proto='static'
-	net.ether='eth2'
-	net.work = '128.164.219'
-	net.gate = '.1'
-	net.mask = '255.255.255.128'
-	net.dns  = '128.164.219.82'
+class HomerJ(Net):
+	def __init__(self, host, addr):
+		self.host = host
+		self.addr = addr
+		self.name = 'homerJ'
+		self.proto='static'
+		self.work = '1.2.3.'
+		self.gate = '4'
 
-def homerj(net):
-	net.proto='static'
-	net.work = '1.2.3'
-	net.gate = '.4'
+#################################################################
+#	SEAS Net 15[6789]
+#################################################################
 
-items = {}
+class Seas156(Net):
+	def __init__(self, host, addr):
+		self.host = host
+		self.addr = addr
+		self.name = 'seas156'
+		self.proto='static'
+		self.mask = '255.255.252.0'	# /22
+		self.work = '128.164.'		# 15[6789]
+		self.gate = '159.254'		# highest
+		self.dns  = '128.164.141.12'	# ns2.gwu.edu
 
-for n in ('noname', 'dhcp', 'seas156', 'seas219', 'homerj'):
-	items[n] = eval(n)
+#################################################################
+
+#################################################################
+#	SEAS Net 219
+#################################################################
 
-def tweak(ks):
-	net = ks.nets
-	net.hostname = ks.head.hostname
-	items[net.area](net)
+class Seas219(Net):
+	def __init__(self, host, addr):
+		self.host = host
+		self.addr = addr
+		self.name = 'seas219'
+		self.ether='eth0'
+		self.proto='static'
+		self.mask = '255.255.255.128'	# /25
+		self.work = '128.164.219.'	# 0-127
+		self.gate = '1'			# lowest
+		self.dns  = '128.164.219.82'	# kick
 
+#################################################################
+#	RACK 5 uses ETH2 on Net 219
+#################################################################
+
+class Rack5(Seas219):
+	def __init__(self, host, addr):
+		super(Rack5, self).__init__(host, addr)
+		self.ether='eth2'
+		self.name = 'rack5'
+
+#################################################################
+#	UNIT TEST
 #################################################################
 
 if __name__ == '__main__':
-	class Host: name = 'HOST'
 
-	Host.name = 'NoName'
-	noname(); net.splat()
-	Host.name = 'DhCp'
-	dhcp(); net.splat()
-	Host.name = 'Seas'
-	seas(); net.splat()
-	Host.name = 'HomerJ'
-	homerj(); net.splat()
+	n = Dhcp(None);                     print `n`
+	n = Dhcp('DhCp');                   print `n`
+	n = Seas156('SEAS-156',	'157.158'); print `n`
+	n = Seas219('vdi02',	'3'      ); print `n`
+	n =   Rack5('node27',	'27'     ); print `n`
+	n = HomerJ('yoyo',	'45'     ); print `n`
+
+#################################################################
