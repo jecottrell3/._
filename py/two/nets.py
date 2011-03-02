@@ -30,10 +30,10 @@ class Net(object):
 		rep = 'network --noipv6 --device=' + self.ether
 		rep = rep + ' --bootproto=' + self.proto
 
-		if (self.host):
+		if self.host:
 			rep = rep + ' --hostname='+ self.host
 
-		if (self.addr):
+		if self.addr:
 			#print self.work, self.addr, self.mask
 			rep = rep + ' --ip='      + self.work + self.addr
 			rep = rep + ' --gateway=' + self.work + self.gate
@@ -41,9 +41,9 @@ class Net(object):
 			rep = rep + ' --nameserver=' + self.dns
 
 		return '\n'.join([
-			'# BEG Net ' + self.name,
+			'#### BEG Net ' + self.name + ' ####',
 			rep,
-			'# END Net ' + self.name,
+			'#### END Net ' + self.name + ' ####',
 			''
 		])
 
@@ -57,7 +57,7 @@ class Dhcp(Net):
 	def __init__(self, host=None, addr=None):
 		self.host = host
 		self.addr = addr
-		if (host): self.name = 'dhcp'
+		if host: self.name = 'dhcp'
 
 #################################################################
 #	RBJ Home Network

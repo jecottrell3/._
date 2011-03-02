@@ -1,3 +1,53 @@
+#! /usr/bin/python
+# $Id$
+#################################################################
+#	Generic Partition Object -- also build Disk object
+#################################################################
+
+import	disk
+
+class Part(object):
+
+	#########################################################
+	#	Constructor -- switch by Partition Name
+	#########################################################
+
+	def __init__(self, ks, name):
+		self.ks = ks
+		self.name = name
+		#items[name](ks, self)
+		if (name == 'LV'):
+			logical(ks, self)
+		else:	primary(ks, self)
+		
+	#########################################################
+	#	Represent -- just comment for the output
+	#########################################################
+
+	def __repr__(self): return '# Part %s\n' % self.name
+
+#################################################################
+#	LVM Partitions
+#################################################################
+
+def logical(ks, self):
+	ks.disk = disk.LVM(ks.head.disk, ks.host.name)
+
+	#ks.head.isopart = ks.dk(1)
+	#ks.disk.vg   = ks.head.hostname
+	#ks.disk.root = ks.disk.vg + '/' + part
+
+#################################################################
+#	Primary Partitions
+#################################################################
+
+def primary(ks, self):
+	ks.disk = disk.ATA(ks.head.disk, self.name)
+
+#################################################################
+#	Host to Partition Table
+#################################################################
+
 pt = {  'yell': 'YH', 'zell': 'ZH',			# SEAS 156
 	'grid': 'GH', 'kick': 'KH',			# SEAS 219
 	'port': 'PH', 'blue': 'QH', 'book': 'JH',	# USB
@@ -5,43 +55,17 @@ pt = {  'yell': 'YH', 'zell': 'ZH',			# SEAS 156
 	'mojo': 'FH', 'fono': 'DH', 'vodo': 'VH',	# HOME
 }
 
-class Part: pass
+#################################################################
+#	UNIT TEST
+#################################################################
 
-def lvm(ks, part):
-	ks.head.isopart = ks.dk(1)
-	ks.disk.vg   = ks.head.hostname
-	ks.disk.root = ks.disk.vg + '/' + part
 
-def pata(ks, part):
-	ks.HorS		= 'hd'
-	ks.head.order	= ks.dk()
-	ks.head.isopart	= ks.dk(1)
-	ks.disk.root	= ks.dk(2)
-
-def sata(ks, part):
-	ks.disk.root = ks.dk(2)
-
-def usb(ks, part):
-	ks.AorB		= 'b'
-	ks.head.isopart = ks.dk(1)
-	ks.disk.root	= ks.dk(2)
-
+#################################################################
+# junk
+lvm = sata = pata = usb = None
 LV =			lvm
 YH = ZH = GH = KH =	sata
 SH = TH =		sata
 HH = FH = DH = VH =	pata
 PH = QH = JH =		usb
 
-items = {}
-
-for p in ('LV', 'PH', 'QH', 'JH',
-	  'YH', 'ZH', 'GH', 'KH',
-	  'SH', 'TH', 'HH',
-	  'FH', 'DH', 'VH', 
-	  ):
-	items[p] = eval(p)
-
-def customize(ks, part):
-	"""Do Partition Customization"""
-	items[part](ks, part)
-	return '# Part %s\n' % part

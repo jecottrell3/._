@@ -43,9 +43,9 @@ class Kick:
 		#elf.prep = prep.Prep()
 		#elf.post = post.Post()
 		#elf.pkgs = pkgs.Pkgs()
-		#elf.syst = syst.Syst(self, s)	# mostly presets
-		#elf.part = part.Part(self, p)	# do before host
-		self.host = host.Host(self, h)	# implies net/disk
+		self.host = host.Host(self, h)	# implies net
+		self.syst = syst.Syst(self, s)	# mostly presets
+		self.part = part.Part(self, p)	# implies disk
 		#elf.type = type.Type(self, t)	# implies pkgs
 
 	#########################################################
@@ -76,7 +76,7 @@ class Kick:
 		return '\n'.join([
 			`self.head`,
 			`self.nets`,
-			#`self.disk`,
+			`self.disk`,
 			#`self.prep`,
 			#`self.post`,
 			#`self.pkgs`,
@@ -87,11 +87,11 @@ class Kick:
 #	Generate All Possible KS Files over 4 Dimensions
 #################################################################
 
-p = 'P'; s = 'S'; t = 'T'
+h = 'H'; p = 'P'; s = 'S'; t = 'T'
 
 for		h in  host.items.keys():
-#  for		p in  ( 'LV', part.pt[h] ):
-#    for		s in  syst.items.keys():
+  for		p in  ( 'LV', part.pt[h] ):
+    for		s in  syst.items.keys():
 #      for	t in  type.items.keys():
 
 	name = 'out/' + '-'.join([h, p, s, t]) + '.ks'
