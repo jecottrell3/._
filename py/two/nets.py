@@ -121,11 +121,11 @@ class Rack5(Seas219):
 
 if __name__ == '__main__':
 
-	n = Dhcp(None);                     print `n`
-	n = Dhcp('DhCp');                   print `n`
-	n = Seas156('SEAS-156',	'157.158'); print `n`
-	n = Seas219('vdi02',	'3'      ); print `n`
-	n =   Rack5('node27',	'27'     ); print `n`
-	n = HomerJ('yoyo',	'45'     ); print `n`
+	print Dhcp(None)	#                     print `n`
+	print Dhcp('DhCp')	#                   print `n`
+	print Seas156('SEAS-156',	'157.158')	# print `n`
+	print Seas219('vdi02',	'3'      )	# print `n`
+	print   Rack5('node27',	'27'     )	# print `n`
+	print HomerJ('yoyo',	'45'     )	# print `n`
 
 #################################################################

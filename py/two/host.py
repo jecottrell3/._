@@ -15,6 +15,7 @@ class Host(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name = name
+		ks.prep.vars['host'] += name
 		items[name](ks, self)
 		
 	#########################################################
@@ -71,6 +72,7 @@ def kick(ks, self):
 # SEAS 219 DHCP
 
 def grid(ks, self):
+	ks.head.inst = 'http'
 	ks.head.monitor = None
 	ks.head.auth = (
 		' --disablecache --enablepreferdns' +

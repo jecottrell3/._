@@ -11,7 +11,10 @@ class Head:
 	rootpw	= '$1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1'
 	auth	= ''
 	utc	= '--utc'		
+	name	= 'CentOS'
+	vers	= '5.5'
 	arch	= 'x86_64'
+	media	= 'dvd'
 	disk	= 'sda'					# sdb,sda for USB
 	order	= None					# sdb,sda for USB
 	isopart = None
@@ -56,16 +59,18 @@ class Head:
 
 	# Initialization
 
-	def __init__(self, inst='hd'):
-		self.inst = inst
-		self.method = self[inst]
+	def __init__(self): # , inst='hd'):
+		# self.inst = inst
+		# self.method = self[inst]
+		pass
 
 	# Representation
 
 	def __repr__(self):
 		if (not self.order):   self.order   = self.disk
 		if (not self.isopart): self.isopart = self.disk + '1'
-		self.isopath = '/'.join([self.isopath, self.arch, 'dvd'])
+		self.isopath = '/'.join(['', self.name, self.vers, self.arch, self.media])
+		self.method = self[self.inst]
 		return '\n'.join([
 			'#### BEG head ' + self.inst + ' ####',
 			'install',

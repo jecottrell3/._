@@ -28,7 +28,7 @@ class LVM(Disk):
 		self.name = 'LV'
 		self.disk = disk
 		self.vg = host
-		self.lv = type
+		#elf.lv = type	# customized by type
 
 	def __repr__(self):
 		dk = self.disk
