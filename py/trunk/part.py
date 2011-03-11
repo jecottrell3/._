@@ -1,47 +1,49 @@
+#! /usr/bin/python
+# $Id: part.py 171 2011-03-04 01:50:35Z rbj $
+
+import disk
+
+#################################################################
+#	Generic Partition Object -- also build Disk object
+#################################################################
+
+class Part(object):
+
+	#########################################################
+	#	Constructor -- switch by Partition Name
+	#########################################################
+
+	def __init__(self, ks, name):
+		self.ks = ks
+		self.name = name
+		ks.prep.vars['part'] += name
+		#items[name](ks, self)
+		dk = ks.head.disk
+		if (name == 'LV'):
+			ks.disk = disk.LVM(dk, ks.host.name)
+		else:	ks.disk = disk.ATA(dk,         name)
+		
+	#########################################################
+	#	Represent -- just comment for the output
+	#########################################################
+
+	def __repr__(self): return '# Part %s\n' % self.name
+
+#################################################################
+#	Host to Partition Table
+#################################################################
+
 pt = {  'yell': 'YH', 'zell': 'ZH',			# SEAS 156
 	'grid': 'GH', 'kick': 'KH',			# SEAS 219
 	'port': 'PH', 'blue': 'QH', 'book': 'JH',	# USB
-	'loco': 'SH', 'yoko': 'TH', 'bogo': 'HH',	# HOME
-	'mojo': 'FH', 'fono': 'DH', 'vodo': 'VH',	# HOME
+	'loco': 'SH', 'yoko': 'TH', 'bogo': 'HH',	# HOMERJ
+	'mojo': 'FH', 'fono': 'DH', 'vodo': 'VH',	# HOMERJ
 }
 
-class Part: pass
+#################################################################
+#	UNIT TEST
+#################################################################
 
-def lvm(ks, part):
-	ks.head.isopart = ks.dk(1)
-	ks.disk.vg   = ks.head.hostname
-	ks.disk.root = ks.disk.vg + '/' + part
+None
 
-def pata(ks, part):
-	ks.HorS		= 'hd'
-	ks.head.order	= ks.dk()
-	ks.head.isopart	= ks.dk(1)
-	ks.disk.root	= ks.dk(2)
-
-def sata(ks, part):
-	ks.disk.root = ks.dk(2)
-
-def usb(ks, part):
-	ks.AorB		= 'b'
-	ks.head.isopart = ks.dk(1)
-	ks.disk.root	= ks.dk(2)
-
-LV =			lvm
-YH = ZH = GH = KH =	sata
-SH = TH =		sata
-HH = FH = DH = VH =	pata
-PH = QH = JH =		usb
-
-items = {}
-
-for p in ('LV', 'PH', 'QH', 'JH',
-	  'YH', 'ZH', 'GH', 'KH',
-	  'SH', 'TH', 'HH',
-	  'FH', 'DH', 'VH', 
-	  ):
-	items[p] = eval(p)
-
-def customize(ks, part):
-	"""Do Partition Customization"""
-	items[part](ks, part)
-	return '# Part %s\n' % part
+#################################################################
