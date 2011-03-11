@@ -13,11 +13,11 @@ done
 done
 : echo RBJ is $RBJ
 
-chmod a+rx $HOME
-test  -d   $HOME/.ssh     &&
-chmod og-w $HOME/.ssh     &&
-chmod 600  $HOME/.ssh/id* &&
-chmod 644  $HOME/.ssh/id*.pub
+chmod a+rx    $HOME
+test  -d      $HOME/.ssh     &&
+chmod -R og-w $HOME/.ssh     &&
+chmod 600     $HOME/.ssh/id* &&
+chmod 644     $HOME/.ssh/id*.pub
 
 set -o	ignoreeof
 

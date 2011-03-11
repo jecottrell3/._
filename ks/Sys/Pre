@@ -42,7 +42,9 @@ set -x
 
 cd /
 umount /p
+sync; sleep 2
 lvm vgchange -a n
+sync; sleep 2
 : ================================
 
 PCTEND

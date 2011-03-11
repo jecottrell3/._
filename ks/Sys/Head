@@ -6,6 +6,8 @@
 install
 METHOD
 GFX
+key a1ae3991a1aa7439
+autostep --autoscreenshot
 lang en_US.UTF-8
 keyboard us
 XCONFIG
