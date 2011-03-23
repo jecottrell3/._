@@ -15,6 +15,7 @@ class Host(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name = name
+		ks.prep.host = name
 		ks.prep.vars['host'] += name
 		items[name](ks, self)
 		

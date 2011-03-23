@@ -13,6 +13,8 @@ class Type(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name  = name
+		ks.pkgs.type = name
+		ks.prep.type = name
 		ks.prep.vars['type'] += name
 		ks.disk.lv = name
 		if name not in items: name = 'base'

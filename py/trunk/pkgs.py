@@ -25,7 +25,12 @@ class Pkgs(object):
 	def __repr__(self):
 		rep = ''
 		for pkg in self.todo:
-			rep = rep + '# Pkgs: %s/%s\n' % (self.syst, pkg)
+			name = '%s/%s' % (self.syst, pkg)
+			fd = open(name, 'r')
+			rep += '# BEG Pkgs: %s\n' % name
+			rep += fd.read()
+			rep += '# END Pkgs: %s\n' % name
+			fd.close()
 
 		return '\n'.join([
 			'#### BEG Pkg %s/%s ####' % (self.syst, self.type),

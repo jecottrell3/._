@@ -6,6 +6,10 @@
 
 class Prep(object):
 
+	host = 'HOST'
+	type = 'TYPE'
+	root = 'ROOT'
+	part = 'XX'
 	pctend = '%end'
 
 	#########################################################
@@ -18,6 +22,7 @@ class Prep(object):
 			'part': 'PART=',
 			'syst': 'SYST=',
 			'type': 'TYPE=',
+			'root': 'ROOT=',
 		}
 
 	#########################################################
@@ -26,10 +31,16 @@ class Prep(object):
 
 	def defs(self):
 		vars = self.vars
+
+		if self.part == 'LV':
+			vars['root'] += self.host + '/' +  self.type
+		else:	vars['root'] += self.root
+
 		return  '\n'.join([
 			'cat > /tmp/ks.env <<EOF',
 			'\n'.join(vars.values()),
 			'EOF',
+			'source /tmp/ks.env',
 			####reduce(lambda x,y: x + ('%s\n' % (y, vars[y])),
 			####	vars.values(), '') + 'EOF',
 			''
@@ -40,6 +51,12 @@ class Prep(object):
 	#########################################################
 
 	def script(self):
+		fd = open('Pre', 'r')
+		rep =  fd.read();
+		fd.close()
+		return rep
+
+	def oldscript(self):
 		return '\n'.join([
 			'##############################',
 			'#### PRE SCRIPT GOES HERE ####',

@@ -16,9 +16,11 @@ class Part(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name = name
+		ks.prep.part = name
 		ks.prep.vars['part'] += name
 		#items[name](ks, self)
 		dk = ks.head.disk
+		ks.prep.root = dk + '2'
 		if (name == 'LV'):
 			ks.disk = disk.LVM(dk, ks.host.name)
 		else:	ks.disk = disk.ATA(dk,         name)

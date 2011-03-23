@@ -36,7 +36,7 @@ class Head:
 
 	def hd(self):
 		return 'harddrive --partition=' + self.isopart + \
-			' --directory=' + self.isopath 
+			' --dir=' + self.isopath 
 
 	method	= hd					# install function
 

@@ -24,6 +24,12 @@ class Post(object):
 	#########################################################
 
 	def script(self):
+		fd = open('Post', 'r')
+		rep =  fd.read();
+		fd.close()
+		return rep
+
+	def oldscript(self):
 		return '\n'.join([
 			'###############################',
 			'#### POST SCRIPT GOES HERE ####',
@@ -54,7 +60,7 @@ set -x
 set -x
 exec 2>&1
 
-.	/root/ks.env
+source	/root/ks.env
 """,
 			self.script(),
 			self.pctend,
