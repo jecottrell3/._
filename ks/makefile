@@ -68,15 +68,17 @@ book::;		${MAKE} H=$@ JH LV
 yell::;		${MAKE} H=$@ YH LV
 zell::;		${MAKE} H=$@ ZH LV
 
-PH::;		${MAKE} H=$H L=$@ cos55 fc14
-QH::;		${MAKE} H=$H L=$@ cos55 fc14
-JH::;		${MAKE} H=$H L=$@ cos55 fc14
-YH::;		${MAKE} H=$H L=$@ cos55 fc14
-ZH::;		${MAKE} H=$H L=$@ cos55 fc14
-LV::;		${MAKE} H=$H L=$@ cos55 fc14
+PH::;		${MAKE} H=$H L=$@ cos55 fc14 sci60 rh60
+QH::;		${MAKE} H=$H L=$@ cos55 fc14 sci60 rh60
+JH::;		${MAKE} H=$H L=$@ cos55 fc14 sci60 rh60
+YH::;		${MAKE} H=$H L=$@ cos55 fc14 sci60 rh60
+ZH::;		${MAKE} H=$H L=$@ cos55 fc14 sci60 rh60
+LV::;		${MAKE} H=$H L=$@ cos55 fc14 sci60 rh60
 
 cos55::;	${MAKE} H=$H L=$L O=$@
 fc14::;		${MAKE} H=$H L=$L O=$@
+sci60::;	${MAKE} H=$H L=$L O=$@
+rh60::;		${MAKE} H=$H L=$L O=$@
 
 %.ks:	%.m4
 	m4 $< > $@

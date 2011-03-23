@@ -1,4 +1,5 @@
 # BEGIN m4/grid-cos55.m4
+# Grid Kickstart File for CentOS 5.5
 # BEGIN Host/grid
 # BEGIN Host/kick
 # BEGIN Sys/Macros
@@ -18,12 +19,14 @@
 # END   Disk/sata
 # BEGIN Sys/Head
 ################################################################
-####	grid LV cos55 Kickstart
+####	grid LV cos55 cos55 Kickstart
 ################################################################
 
 install
 url       --url=http://128.164.219.82//CentOS/5.5/x86_64/dvd
 text
+key a1ae3991a1aa7439
+autostep --autoscreenshot
 lang en_US.UTF-8
 keyboard us
 skipx
@@ -31,6 +34,7 @@ rootpw --iscrypted $1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1
 firewall --enabled --port=22:tcp
 authconfig --enableshadow --enablemd5 --enablelocauthorize --disablecache --enablepreferdns --enablenis --nisdomain=seasNIS --nisserver=ambrose.seas.gwu.edu,ambrose2.seas.gwu.edu
 selinux --disabled
+firstboot --disabled
 timezone --utc America/New_York
 bootloader --location=partition --driveorder=sda,sdb
 
@@ -40,7 +44,7 @@ bootloader --location=partition --driveorder=sda,sdb
 ####   	Use DHCP, accept hostname too
 #################################################################
 
-network --bootproto dhcp --noipv6
+network --device eth2 --bootproto dhcp --noipv6
 
 # END   Net/noname
 # BEGIN Sys/Disk
@@ -67,19 +71,22 @@ part /vfat --fstype vfat --noformat --onpart sda3 --fsoptions=uid=654,gid=654,sh
 %pre
 
 #! /bin/sh
-P=/dev/grid/cos55
 
 exec 1>/tmp/pre.log 2>&1
 set -x
+P=/dev/grid/cos55
 : ================================
-: Host: grid Label: LV Sys: OS Type: cos55
+: Host: grid Label: LV Sys: cos55 Type: cos55
 : ================================
+
 lvm vgchange -a y
 mkdir /p
 mount $P /p
 cd /p
-	test -d root &&
-	for x in 0 1 2 3 4 5 6 7 8 9
+
+set +x
+if test -d root
+then	for x in 0 1 2 3 4 5 6 7 8 9
 	do
 		test -d .$x && continue
 		echo Saving into .$x
@@ -87,20 +94,30 @@ cd /p
 		mv *    .$x
 		break
 	done
-	test -d .$x && cd .$x &&
+
+	cd .$x &&
 	for x in lost+found jcottrell CentOS Fedora
 	do
 		test -d $x && mv $x ..
 	done
+
+else	echo No Old System Found
+fi
+set -x
+
 cd /
 umount /p
+sync; sleep 2
 lvm vgchange -a n
+sync; sleep 2
 : ================================
+
 
 %post --nochroot
 
 cp /tmp/pre.log /mnt/sysimage/root
 cp /tmp/ks.cfg  /mnt/sysimage/root
+
 
 # END   Sys/Pre
 # BEGIN Sys/Post
@@ -116,7 +133,7 @@ set -x
 set -x
 exec 2>&1
 
-mkdir -p /svn
+mkdir -p /svn /resq /vfat
 
 : :::::::::::::::::::::
 : Link Important Dirs :
@@ -190,35 +207,46 @@ echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-eth2
 : :: Demon Seeds ::
 : :::::::::::::::::
 
-chkconfig anacron	off # always up
-#hkconfig avahi-demon	off # no need
-chkconfig cups		off # no need
-chkconfig firstboot	off # done via kickstart
-chkconfig ip6tables	off # no ip6
-chkconfig iptables	off # FIX LATER
-chkconfig mcstrans	off # no selinux
-chkconfig mdmonitor	off # no RAID
-chkconfig pcscd		off # NUKE
-#hkconfig rpcgssd	xx  # ???
-#hkconfig rpcidmapd	xx  # ???
-#hkconfig rpcsvcgssd	xx  # ???
-chkconfig rawdevices	off # NUKE
-chkconfig restorecond	off # no selinux
-#hkconfig smartd	off # grid disks not SMART
-#hkconfig setroubleshoot off # no selinux
-chkconfig xfs		off # no X11
-#hkconfig xinetd	off # obsolete
-
-chkconfig nfs		on # need NFS
-chkconfig ntpd		on # need Time
-chkconfig ypbind	on # need Time
+chkconfig --list | tee /root/svc.log |
+while read svc junk
+do
+	continue
+	case $svc in
+		(anacron)	chkconfig $svc off;; # always up
+		(avahi-demon)	chkconfig $svc off;; # no need
+		(cups)		chkconfig $svc on ;; # no need
+(firstboot)	chkconfig $svc on;; # done via kickstart
+		(ip6tables)	chkconfig $svc off;; # no ip6
+		(iptables)	chkconfig $svc off;; # FIX LATER
+		(mcstrans)	chkconfig $svc off;; # no selinux
+		(mdmonitor)	chkconfig $svc off;; # no RAID
+		(network)	chkconfig $svc on ;; # NEED
+		(netfs)		chkconfig $svc off;; # no NFS
+		(nfs)		chkconfig $svc off;; # no NFS
+		(nfslock)	chkconfig $svc off;; # no NFS
+		(ntpd)		chkconfig $svc on ;; # need Time
+		(pcscd)		chkconfig $svc off;; # NUKE
+		(rawdevices)	chkconfig $svc off;; # NUKE
+		(restorecond)	chkconfig $svc off;; # no selinux
+		(rpcbind)	chkconfig $svc off;; # no
+		(rpcgssd)	chkconfig $svc off;; # no
+		(rpcidmapd)	chkconfig $svc off;; # no
+		(rpcsvcgssd)	chkconfig $svc off;; # no
+		(setroubleshoot)chkconfig $svc off;; # no selinux
+		(smartd)	chkconfig $svc off;; # grid disks not SMART
+#		(xfs)		chkconfig $svc off;; # no X11
+		(xinetd)	chkconfig $svc off;; # obsolete
+		(ypbind)	chkconfig $svc off;; # no YP
+	esac
+done
 
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::
 : ::::::::::::::::::::::::::
 
 date
-echo makewhatis -v
+test -f /.db &&
+makewhatis -v
 
 : ::::::::::::::::::::::::::
 : :: Make Locate Database ::
@@ -226,13 +254,15 @@ echo makewhatis -v
 
 date
 umount  -av
-echo updatedb -v
+test -f /.db &&
+updatedb -v
 mount   -av
 date
 
 : ::::::::::::::
 : :: END Post ::
 : ::::::::::::::
+
 
 ################################################################
 ####	Package Selection
@@ -1516,6 +1546,7 @@ tftp
 #d	-virt-manager
 #d	-virt-viewer
 #o	 Virtualization-en-US
+
 
 
 # END   Sys/Generate
