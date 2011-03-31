@@ -89,16 +89,16 @@ for		h in  host.items.keys():
     for		s in  syst.items.keys():
       for	t in  type.items.keys():
 
-	if h == 'grid':
+	if h in [ 'grid', 'vdi01', 'vdi02', 'vdi03']:
 		if (p, t) != ('LV', 'core'): continue
-		name = 'grid-' + s; t = s
+		name = h + '-' + s; t = s
 	else:	name = '-'.join([h, p, s, t])
 
 	print	name, s, t
 
 	ks = Kick(h, p, s, t)
 
-	out = open('out/'  + name + '.ks', 'w')
+	out = open('ks/'  + name + '.ks', 'w')
 	out.write('# BEG ' + name + '\n')
 	out.write(`ks`)
 	out.write('# END ' + name + '\n')

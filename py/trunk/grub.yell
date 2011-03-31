@@ -1,0 +1,66 @@
+default=0
+timeout=5
+splashimage=(hd0,0)/boot/splash/splash.rb
+
+title RESQ CentOS 5.5
+	root (hd0,0)
+	savedefault
+	kernel /boot/vmlinuz-2.6.18-194.32.1.el5 ro root=LABEL=YR
+	initrd /boot/initrd-2.6.18-194.32.1.el5.img
+
+title HOME First Boot
+	root (hd0,1)
+	savedefault
+	chainloader +1
+
+title MENU BOOT
+	root (hd0,1)
+
+title .... CentOS 5.5
+	root (hd0,1)
+	savedefault
+	configfile /cos5564/grub/grub.cos55
+
+title .... Fedora 14
+	root (hd0,1)
+	savedefault
+	configfile /fc1464/grub/grub.fc14
+
+title .... Scientific 6.0
+	root (hd0,1)
+	savedefault
+	configfile /sci6064/grub/grub.sci60
+
+title .... RedHat 6.0
+	root (hd0,1)
+	savedefault
+	configfile /rh6064/grub/grub.rh60
+
+title MENU INSTALL
+	root (hd0,1)
+
+title .... CentOS 5.5
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/install.cos55
+
+title .... Fedora 14
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/install.fc14
+
+title .... Scientific 6.0
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/install.sci60
+
+title .... RedHat 6.0
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/install.rh60
+
+title .... Rescue
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/grub.init
+

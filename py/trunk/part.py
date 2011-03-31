@@ -37,6 +37,7 @@ class Part(object):
 
 pt = {  'yell': 'YH', 'zell': 'ZH',			# SEAS 156
 	'grid': 'GH', 'kick': 'KH',			# SEAS 219
+	'vdi01':'VH', 'vdi02':'VH', 'vdi03':'VH', 	# SEAS 219
 	'port': 'PH', 'blue': 'QH', 'book': 'JH',	# USB
 	'loco': 'SH', 'yoko': 'TH', 'bogo': 'HH',	# HOMERJ
 	'mojo': 'FH', 'fono': 'DH', 'vodo': 'VH',	# HOMERJ

@@ -65,10 +65,17 @@ def zell(ks, self):
 
 # SEAS 219 Static
 
-def kick(ks, self):
+def kick(ks, self, adr='82'):
 	ks.head.monitor = None
-	ks.nets = nets.Rack5(self.name, '82')
+	ks.nets = nets.Rack5(self.name, adr)
 	sata(ks)
+
+def vdi01(ks, self, adr='2'):
+	kick(ks, self, adr)
+	ks.head.inst = 'http'
+
+def vdi02(ks, self): vdi01(ks, self, '3')
+def vdi03(ks, self): vdi01(ks, self, '4')
 
 # SEAS 219 DHCP
 
@@ -117,6 +124,7 @@ items = {}
 
 for h in ('port', 'blue', 'book', 'yell', 'zell', 'kick', 'grid',
 	  'loco', 'yoko', 'bogo', 'mojo', 'fono', 'vodo',
+	  'vdi01', 'vdi02', 'vdi03',
 	  ):
 	items[h] = eval(h)
 
