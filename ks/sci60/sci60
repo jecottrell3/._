@@ -1,0 +1,315 @@
+################################################################
+@backup-client
+################################################################
+
+#m	-amanda-client
+bacula-client
+
+################################################################
+@backup-server
+################################################################
+
+#m	-amanda-server
+#o	 mt-st
+#o	 mtx
+
+################################################################
+@cifs-file-server
+################################################################
+
+#m	-samba
+
+################################################################
+@directory-client
+################################################################
+
+#d	-ipa-client
+#d	-oddjob-mkhomedir
+#d	-sssd
+#d	-ypbind
+certmonger
+hesinfo
+krb5-appl-clients
+krb5-pkinit-openssl
+krb5-workstation
+ldapjdk
+nscd
+nss-pam-ldapd
+openldap-clients
+pam_krb5
+pam_ldap
+samba-winbind
+
+################################################################
+@directory-server
+################################################################
+
+krb5-server
+krb5-server-ldap
+migrationtools
+openldap-servers
+samba
+ypserv
+
+################################################################
+@ftp-server
+################################################################
+
+#m	-vsftpd
+xferstats
+
+################################################################
+-@mail-server
+################################################################
+
+#d	-dovecot
+#d	-postfix
+#d	-spamassassin
+#o	 cyrus-imapd
+#o	 dovecot-mysql
+#o	 dovecot-pgsql
+#o	 dovecot-pigeonhole
+#o	 mailman
+#o	 sendmail
+#o	 sendmail-cf
+
+################################################################
+-@misc-sl
+################################################################
+
+#o	 SL_desktop_tweaks
+#o	 SL_enable_serialconsole
+#o	 SL_enable_serialconsole-1152
+#o	 SL_enable_serialconsole-192
+#o	 SL_enable_serialconsole-384
+#ox	 SL_no_colorls
+#o	 SL_password_for_singleuser
+#o	 revisor
+
+################################################################
+@mysql
+################################################################
+
+#m	-mysql-server
+mysql-bench
+mysql-test
+
+################################################################
+@mysql-client
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-mysql-connector-odbc
+libdbi-dbd-mysql
+#o	 mysql-connector-java
+perl-DBD-MySQL
+
+################################################################
+-@performance
+################################################################
+
+#m	-blktrace
+#m	-sysstat
+#d	-dstat
+#d	-iotop
+#d	-latencytop
+#d	-oprofile
+#d	-perf
+#d	-powertop
+#d	-seekwatcher
+#o	 oprofile-jit
+#o	 papi
+#o	 sdparm
+#o	 sg3_utils
+#o	 tuned
+#o	 tuned-utils
+
+################################################################
+@php
+################################################################
+
+#m	-php
+#d	-php-gd
+#d	-php-pdo
+#d	-php-pear
+#d	-php-xml
+php-ldap
+php-mysql
+php-odbc
+php-pecl-apc
+php-pecl-memcache
+php-pgsql
+php-soap
+php-xmlrpc
+
+################################################################
+@postgresql
+################################################################
+
+#m	-postgresql-server
+#d	-postgresql-docs
+postgresql-contrib
+postgresql-plperl
+postgresql-plpython
+postgresql-pltcl
+postgresql-test
+rhdb-utils
+
+################################################################
+@postgresql-client
+################################################################
+
+#m	-postgresql
+#d	-PyGreSQL
+#d	-postgresql-odbc
+#d	-python-psycopg2
+libdbi-dbd-pgsql
+perl-DBD-Pg
+postgresql-jdbc
+tcl-pgtcl
+
+################################################################
+@print-server
+@print-client
+################################################################
+
+#m	-cups
+#m	-cups-pk-helper
+#m	-enscript
+#m	-printer-filters
+#d	-foomatic
+#d	-foomatic-db-ppds
+#d	-gutenprint
+#d	-gutenprint-cups
+-hpijs
+#d	-paps
+#d	-system-config-printer
+#d	-system-config-printer-udev
+#o	 hplip
+#o	 hplip-gui
+
+################################################################
+@scientific
+################################################################
+
+#d	-gnuplot
+#d	-units
+#o	 atlas
+#o	 lapack
+#o	 mpich2
+#o	 mpitests-mvapich
+#o	 mpitests-mvapich2
+#o	 mpitests-openmpi
+#o	 mvapich
+#o	 mvapich2
+#o	 numpy
+#o	 openmpi
+
+################################################################
+-@system-management
+################################################################
+
+#o	 OpenIPMI
+#o	 freeipmi
+#o	 freeipmi-bmc-watchdog
+#o	 freeipmi-ipmidetectd
+#o	 ipmitool
+#o	 openhpi
+#o	 openhpi-subagent
+#o	 watchdog
+
+################################################################
+-@system-management-messaging-client
+################################################################
+
+#m	-qmf
+#m	-qpid-cpp-client
+#d	-python-qmf
+#d	-python-qpid
+#d	-qpid-tools
+#o	 python-saslwrapper
+#o	 qpid-tests
+#o	 ruby-qmf
+#o	 ruby-qpid
+
+################################################################
+-@system-management-messaging-server
+################################################################
+
+#m	-qpid-cpp-server
+
+################################################################
+-@system-management-wbem
+################################################################
+
+#d	-openwsman-client
+#d	-sblim-sfcb
+#d	-sblim-wbemcli
+#d	-wsmancli
+#o	 openwsman-server
+#o	 sblim-cim-client
+#o	 sblim-cim-client2
+#o	 sblim-cmpi-dhcp
+#o	 sblim-cmpi-dns
+#o	 sblim-cmpi-fsvol
+#o	 sblim-cmpi-network
+#o	 sblim-cmpi-nfsv3
+#o	 sblim-cmpi-nfsv4
+#o	 sblim-cmpi-params
+#o	 sblim-cmpi-samba
+#o	 sblim-cmpi-sysfs
+#o	 sblim-cmpi-syslog
+#o	 sblim-gather
+#o	 sblim-gather-provider
+#o	 sblim-indication_helper
+#o	 sblim-smis-hba
+#o	 sblim-tools-libra
+#o	 tog-pegasus
+
+################################################################
+@technical-writing
+################################################################
+
+#m	-docbook-slides
+#m	-docbook-style-xsl
+#m	-docbook-utils
+#m	-docbook5-schemas
+#m	-docbook5-style-xsl
+#d	-xmlto
+#o	 docbook-utils-pdf
+texinfo
+#o	 xmlto-tex
+xmltoman
+
+################################################################
+@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_ssl
+#d	-mod_wsgi
+#d	-webalizer
+certmonger
+libmemcached
+memcached
+mod_auth_kerb
+mod_auth_mysql
+mod_auth_pgsql
+mod_authz_ldap
+mod_nss
+perl-CGI
+perl-CGI-Session
+perl-Cache-Memcached
+python-memcached
+squid
+
+################################################################
+@web-servlet
+################################################################
+
+#m	-tomcat6
+

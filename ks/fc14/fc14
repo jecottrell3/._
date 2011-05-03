@@ -1,0 +1,207 @@
+################################################################
+@hardware-support
+################################################################
+
+#d	-alsa-firmware
+#d	-ar9170-firmware
+#d	-atmel-firmware
+#d	-b43-fwcutter
+#d	-b43-openfwwf
+#d	-ipw2100-firmware
+#d	-ipw2200-firmware
+-ivtv-firmware
+#d	-iwl1000-firmware
+#d	-iwl3945-firmware
+#d	-iwl4965-firmware
+#d	-iwl5000-firmware
+#d	-iwl5150-firmware
+#d	-iwl6000-firmware
+#d	-iwl6050-firmware
+#d	-libertas-usb8388-firmware
+#d	-ql2100-firmware
+#d	-ql2200-firmware
+#d	-ql23xx-firmware
+#d	-ql2400-firmware
+#d	-ql2500-firmware
+#d	-rt61pci-firmware
+#d	-rt73usb-firmware
+#d	-usb_modeswitch
+#d	-zd1211-firmware
+#ox	 acpi
+#ox	 acpitool
+#ox	 cmospwd
+#o	 ctapi-cyberjack
+#o	 ctapi-cyberjack-pcsc
+#ox	 ctapi-cyberjack-tools
+#ox	 firmware-addon-dell
+#o	 gpsd
+#ox	 gpsd-clients
+#o	 gypsy
+#ox	 hddtemp
+hdparm
+#ox	 i8kutils
+#ox	 iscan-firmware
+#ox	 isight-firmware-tools
+#ox	 libifp
+#ox	 lsscsi
+#ox	 multican
+#o	 openct
+#ox	 opensc
+#ox	 s3switch
+
+################################################################
+@mysql
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-libdbi-dbd-mysql
+#d	-mysql-connector-odbc
+#d	-mysql-server
+#d	-perl-DBD-MySQL
+#d	-unixODBC
+#ox	 mod_auth_mysql
+#ox	 mysql-bench
+#ox	 mysql-devel
+#ox	 mysqlreport
+#ox	 mysqltuner
+php-mysql
+#o	 qt-mysql
+#ox	 qt3-MySQL
+
+################################################################
+@perl
+################################################################
+
+#mx	-perl-core
+#dx	-cpan-upload
+#dx	-git-cpan-patch
+#dx	-perltidy
+#ox	 eclipse-epic
+#ox	 parrot
+#ox	 perl-Task-Catalyst
+#ox	 vim-perl-support
+#ox	 vim-perl-tt2
+
+################################################################
+@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+#m	-ghostscript-cups
+-bluez-cups
+#d	-cups-pk-helper
+#d	-foomatic
+#d	-foomatic-db-ppds
+#d	-foomatic-filters
+#d	-gutenprint
+#d	-gutenprint-cups
+-hpijs
+-hplip
+#d	-mpage
+#d	-paps
+#d	-printer-filters
+#d	-samba-client
+#d	-system-config-printer
+#d	-system-config-printer-udev
+#ox	 a2ps
+#ox	 cups-pdf
+#ox	 enscript
+
+################################################################
+@smb-server
+################################################################
+
+#m	-samba
+#m	-samba-client
+#d	-cifs-utils
+#d	-system-config-samba
+
+################################################################
+@sql-server
+################################################################
+
+#m	-postgresql
+#d	-PyGreSQL
+#d	-libdbi-dbd-pgsql
+#d	-perl-DBD-Pg
+#d	-postgresql-server
+#d	-rhdb-utils
+#d	-unixODBC
+#ox	 postgresql-contrib
+#ox	 postgresql-docs
+#ox	 postgresql-jdbc
+#ox	 postgresql-odbc
+#ox	 postgresql-test
+#ox	 qt-odbc
+#ox	 qt-postgresql
+#ox	 qt3-ODBC
+#ox	 qt3-PostgreSQL
+#ox	 tcl-pgtcl
+#ox	 unixODBC-kde
+
+################################################################
+@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-distcache
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_python
+#d	-mod_ssl
+#d	-php
+#d	-php-ldap
+#d	-php-mysql
+#d	-squid
+#d	-webalizer
+#ox	 Pound
+#ox	 apachetop
+#ox	 awstats
+#ox	 boa
+#ox	 cherokee
+#ox	 dap-server
+#ox	 drupal
+#ox	 drupal-calendar
+#ox	 drupal-cck
+#ox	 drupal-date
+#ox	 drupal-service_links
+#ox	 drupal-views
+#ox	 drupal-workspace
+#ox	 lighttpd
+#ox	 lighttpd-fastcgi
+#ox	 mediawiki
+#ox	 mod_auth_kerb
+#ox	 mod_auth_mysql
+#ox	 mod_auth_pgsql
+#ox	 mod_authz_ldap
+#ox	 mod_cband
+#ox	 mod_extract_forwarded
+#ox	 mod_fcgid
+#ox	 mod_geoip
+#ox	 mod_security
+#ox	 moin
+#ox	 moin-latex
+#ox	 namazu
+#ox	 ocspd
+#ox	 perl-HTML-Mason
+#ox	 perl-Kwiki
+#ox	 php-odbc
+#ox	 php-pecl-apc
+#ox	 php-pgsql
+#ox	 phpMyAdmin
+#ox	 phpldapadmin
+#ox	 pootle
+#ox	 tclhttpd
+#ox	 thttpd
+#ox	 tiquit
+#ox	 tomcat-native
+#o	 tomcat5
+#ox	 tomcat5-admin-webapps
+#ox	 tomcat5-webapps
+#ox	 vdr-wapd
+#ox	 vdradmin-am
+#ox	 wordpress
+

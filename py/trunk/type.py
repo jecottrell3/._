@@ -17,8 +17,9 @@ class Type(object):
 		ks.prep.type = name
 		ks.prep.vars['type'] += name
 		ks.disk.lv = name
-		if name not in items: name = 'base'
-		items[name](ks)
+		if name not in items:
+			generic(ks, name)
+		else:	items[name](ks)
 		
 	#########################################################
 	#	Represent -- just comment for the output
@@ -31,10 +32,14 @@ class Type(object):
 #	Type Customization -- Build on the Previous Entry
 #################################################################
 
-def core(ks):
-	ks.pkgs.nobase = ' --nobase'
-	ks.pkgs.todo = ['core']
+def generic(ks, name):
+	ks.pkgs.todo = [name]
 	ks.head.monitor = None
+
+def core(ks):
+	generic(ks, 'core')
+	ks.pkgs.nobase = ' --nobase'
+	ks.head.gfx = 'text'
 
 def base(ks):
 	core(ks)

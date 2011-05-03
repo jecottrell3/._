@@ -36,7 +36,8 @@ class LVM(Disk):
 			'#### BEG Disk ' + self.vg + ' ####',
 			' '.join(['part /resq', EXT3, ONPART, dk + `1`, NOAUTO	]),
 			' '.join(['part /boot', EXT3, ONPART, dk + `2`, NOATIME	]),
-			' '.join(['part /vfat', VFAT, ONPART, dk + `3`, VFOPTS	]),
+#### NO MORE VFAT ####	' '.join(['part /vfat', VFAT, ONPART, dk + `3`, VFOPTS	]),
+			' '.join(['part /dist', EXT3, ONPART, dk + `3`, NOAUTO	]),
 			' '.join(['part pv.4               ', ONPART, dk + `4`]),
 			' '.join(['volgroup', '%15s' % self.vg, EXISTING, 'pv.4']),
 			' '.join(['logvol /  ', EXT3, EXISTING, NOATIME, self.VGLV()]),
@@ -60,7 +61,8 @@ class ATA(Disk):
 			'#### BEG Disk ' + self.name + ' ####',
 			' '.join(['part /resq', EXT3, ONPART, dk + `1`, NOAUTO	]),
 			' '.join(['part /    ', EXT3, ONPART, dk + `2`, NOATIME	]),
-			' '.join(['part /vfat', VFAT, ONPART, dk + `3`, VFOPTS	]),
+#### NO MORE VFAT ####	' '.join(['part /vfat', VFAT, ONPART, dk + `3`, VFOPTS	]),
+			' '.join(['part /dist', EXT3, ONPART, dk + `3`, NOAUTO	]),
 			'#### END Disk ' + self.name + ' ####',
 			''
 		])

@@ -36,7 +36,7 @@ class Head:
 
 	def hd(self):
 		return 'harddrive --partition=' + self.isopart + \
-			' --dir=' + self.isopath 
+			' --dir=' + self.isopath + '/' + self.media
 
 	method	= hd					# install function
 
@@ -46,10 +46,10 @@ class Head:
 		return 'nfs --server='     + self.server + \
 			' --path=' + self.isopath 
 	def ftp(self):
-		return 'uri --uri=ftp://'  + self.server + \
+		return 'url --url=ftp://'  + self.server + \
 			'/repo/'   + self.isopath 
 	def http(self):
-		return 'uri --uri=http://' + self.server + \
+		return 'url --url=http://' + self.server + \
 			'/repo/'   + self.isopath 
 
 	# Indexing -- convert string to attribute
@@ -69,7 +69,7 @@ class Head:
 	def __repr__(self):
 		if (not self.order):   self.order   = self.disk
 		if (not self.isopart): self.isopart = self.disk + '1'
-		self.isopath = '/'.join(['', self.name, self.vers, self.arch, self.media])
+		self.isopath = '/'.join(['', self.name, self.vers, self.arch])
 		self.method = self[self.inst]
 		return '\n'.join([
 			'#### BEG head ' + self.inst + ' ####',

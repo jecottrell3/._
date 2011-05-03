@@ -106,3 +106,12 @@ alias	rax='rsync  -vax'	 rs='rsync -C'
 alias	vax='rsync -Cvax'	pax='rsync -CPax'
 
 #################################################################
+#	For Cloning CDs
+#################################################################
+
+alias L='lsof /dev/scd0'
+alias P='pkill kio_audio'
+alias K='k3b'
+alias S='pm-suspend'
+
+#################################################################
