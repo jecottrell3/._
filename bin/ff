@@ -3,13 +3,13 @@
 DIR=
 OPT=
 ACT=-print
-DOIT=eval
+DOIT=exec
 
-while :
+while : $# $*
 do
 	case $1 in
 	('')	break;;				# DONE
-	(-\?)	exec ${PAGER:-more} $0;;	# HELP
+	(-\?)	exec ${PAGER:-less} $0;;	# HELP
 	(-j)	DOIT=echo;		shift 1;; # DEBUG
 	(-[amc])OPT="$OPT ${1}time '$2'";	shift 2;; # Times
 	(-e)	OPT="$OPT -empty";	shift 1;; # Empty
@@ -26,8 +26,9 @@ do
 	(-y)	OPT="$OPT -newer '$2'";	shift 2;; # Younger
 	(-z)	OPT="$OPT -size  '$2'";	shift 2;; # Size Matters
 	(-o)	OPT="$OPT -o";		shift 1;; # Logical OR
-	(-x)	OPT="$OPT -xdev";	shift 1;; # Cross Device
+	(-1)	OPT="$OPT -xdev";	shift 1;; # One File System
 	(-rm)	OPT="$OPT -delete";	shift 1;; # Remove
+	(-x)	shift; ACT="-exec $@ +"; break ;; # New Exec
 	(-ls)	ACT="-ls";		shift 1;; # List
 	(-k)	ACT="-printf '%k\t%f\n'";   shift 1;; # Size/File
 	(-w)	ACT="-printf '%k\t%h/%f\n'";shift 1;; # Size/Whole
