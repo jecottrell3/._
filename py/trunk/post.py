@@ -24,7 +24,7 @@ class Post(object):
 	#########################################################
 
 	def script(self):
-		fd = open('Post', 'r')
+		fd = open('data/Post', 'r')
 		rep =  fd.read();
 		fd.close()
 		return rep

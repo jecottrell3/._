@@ -58,11 +58,13 @@ def sci55(ks, self):
 	self.rbj  = 'sci5'
 
 def sci60(ks, self):
+	ks.head.monitor = ''
 	self.name = 'Scientific'
 	self.vers = '6.0'
 	self.rbj  = 'sci6'
 
 def rh60(ks, self):
+	ks.head.monitor = ''
 	self.name = 'RedHat'
 	self.vers = '6.0'
 	self.rbj  = 'rh6'

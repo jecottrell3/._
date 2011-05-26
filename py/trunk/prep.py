@@ -7,9 +7,11 @@
 class Prep(object):
 
 	host = 'HOST'
+	part = 'XX'
+	syst = 'SYST'
 	type = 'TYPE'
 	root = 'ROOT'
-	part = 'XX'
+	site = 'SITE'
 	pctend = '%end'
 
 	#########################################################
@@ -23,6 +25,7 @@ class Prep(object):
 			'syst': 'SYST=',
 			'type': 'TYPE=',
 			'root': 'ROOT=',
+			'site': 'SITE=',
 		}
 
 	#########################################################
@@ -51,18 +54,10 @@ class Prep(object):
 	#########################################################
 
 	def script(self):
-		fd = open('Pre', 'r')
+		fd = open('data/Pre', 'r')
 		rep =  fd.read();
 		fd.close()
 		return rep
-
-	def oldscript(self):
-		return '\n'.join([
-			'##############################',
-			'#### PRE SCRIPT GOES HERE ####',
-			'##############################',
-			''
-		])
 
 	#########################################################
 	#	Represent: return kickstart network line

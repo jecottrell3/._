@@ -102,7 +102,17 @@ title   %(host)s-%(part)s-%(syst)s-%(type)s Kickstart Install
 #################################################################
 
 #################################################################
-#	Generate All Possible GRUB Boot and Install files
+#      Type Table Mapping
+#################################################################
+
+tt = {	'core': '5',    'base': '6',
+	'x11':  '7',    'dev':  '8',
+	'srv':  '9',    'kde':  'A',
+	'gno':  'B',    'win':  'C',
+}
+
+#################################################################
+#      Generate All Possible KS Files over 4 Dimensions
 #################################################################
 
 h = 'H'; p = 'P'; s = 'S'; t = 'T'	# for debugging
@@ -116,6 +126,8 @@ for		h in  hosts:
   for		p in  ( 'LV', pt[h] ):
     for		s in  systs:
       for	t in  types:
+
+	if p[0] in 'TH': p = p[0] + tt[t]
 
 	if h in [ 'grid', 'vdi01', 'vdi02', 'vdi03']:
 		if (p, t) != ('LV', 'core'): continue
@@ -138,9 +150,9 @@ for		h in  hosts:
 
 for		h in  hosts:
     for		s in  systs:
-	x = 'cat MAIN.boot tmp/%s-*%s*.boot > grub/%s-%s.boot' % (h,s,h,s)
+	x = 'cat data/MAIN.boot tmp/%s-*%s*.boot > grub/%s-%s.boot' % (h,s,h,s)
 	print  x; system(x)
-	x = 'cat MAIN.inst tmp/%s-*%s*.inst > grub/%s-%s.inst' % (h,s,h,s)
+	x = 'cat data/MAIN.inst tmp/%s-*%s*.inst > grub/%s-%s.inst' % (h,s,h,s)
 	print  x; system(x)
 	
 #################################################################

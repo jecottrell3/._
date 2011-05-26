@@ -50,7 +50,8 @@ def x11(ks):
 	save = ks.head.monitor
 	base(ks)
 	ks.head.monitor = save
-	ks.head.gfx = 'graphics'
+	ks.head.gfx = 'graphical'
+	ks.head.startx = ' --startxonboot'
 	ks.pkgs.todo.extend(['x11'])
 
 def dev(ks):
@@ -62,13 +63,19 @@ def srv(ks):
 	dev(ks)
 	ks.pkgs.todo.extend(['srv'])
 
-def kde(ks):
+def app(ks):	# helper
 	srv(ks)
-	ks.pkgs.todo.extend(['app', 'kde'])
+	ks.head.gfx = 'graphical'
+	ks.head.startx = ' --startxonboot'
+	ks.pkgs.todo.extend(['app'])
+
+def kde(ks):
+	app(ks)
+	ks.pkgs.todo.extend(['kde'])
 
 def gno(ks):
-	srv(ks)
-	ks.pkgs.todo.extend(['app', 'gno'])
+	app(ks)
+	ks.pkgs.todo.extend(['gno'])
 
 def win(ks):
 	kde(ks)

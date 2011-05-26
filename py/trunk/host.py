@@ -30,7 +30,7 @@ class Host(object):
 #################################################################
 
 def usb(ks):
-        ks.head.disk	= 'sdb'
+        pata(ks, 'sdb')
         ks.head.order	= 'sdb,sda'
 
 def port(ks, self):			# Black 120G PassPort
@@ -43,22 +43,33 @@ def blue(ks, self): port(ks, self)	# Blue 500G PassPort
 def book(ks, self): port(ks, self)	# 500G MyBook
 
 #################################################################
+#	Hosts which use MetaDisk
+#################################################################
+
+def meta(ks): pata(ks, 'md')
+
+def mojo(ks, self, addr=7):
+	ks.head.arch = 'i386'
+	ks.nets = nets.HomerJ(self.name, '7')
+	meta(ks)
+
+#################################################################
 #	Hosts which use SATA
 #################################################################
 
 # SEAS 156 DHCP
 # SEAS 156 Static
 
-def sata(ks): ks.head.disk = 'sda'
+def sata(ks): pata(ks, 'sda')
 
 def yell(ks, self):
-	ks.head.monitor = '--resolution=1680x1050 --depth=24'
+	ks.head.monitor = ' --resolution=1680x1050 --depth=24'
 #	ks.nets = nets.Dhcp(self.name)
 	ks.nets = nets.Seas156(self.name, '156.167')
 	sata(ks)
 
 def zell(ks, self):
-	ks.head.monitor = '--resolution=1920x1200 --depth=24'
+	ks.head.monitor = ' --resolution=1920x1200 --depth=24'
 #	ks.nets = nets.Dhcp(self.name)
 	ks.nets = nets.Seas156(self.name, '156.171')
 	sata(ks)
@@ -95,10 +106,14 @@ def grid(ks, self):
 #	HOMERJ -- RBJ Home Network
 #################################################################
 
-def pata(ks): ks.head.disk = 'hda'
+def pata(ks, disk='hda'):
+	ks.head.disk = disk
+	ks.prep.vars['site'] += ks.nets.site
 
 def bogo(ks, self, addr=6):	# TEMPLATE + wifi
 	ks.head.arch = 'i386'
+	ks.head.server = '1.2.3.9'
+	ks.head.inst = 'nfs'
 	ks.nets = nets.HomerJ(self.name, '6')
 	pata(ks)
 
@@ -112,7 +127,7 @@ def yoko(ks, self):
 
 # for illustration purposes only
 
-def mojo(ks, self): bogo(ks, self, 7)	# two MD mirrored disks
+#ef mojo(ks, self): bogo(ks, self, 7)	# two MD mirrored disks
 def fono(ks, self): bogo(ks, self, 10)	# James Windows, 2 disks, 2 nets
 def vodo(ks, self): bogo(ks, self, 11)	# Movie Windows
 

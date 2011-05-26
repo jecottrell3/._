@@ -16,14 +16,15 @@ class Part(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name = name
+		root = '0RHXV56789ABCDE'.find(name[1])
 		ks.prep.part = name
 		ks.prep.vars['part'] += name
 		#items[name](ks, self)
 		dk = ks.head.disk
-		ks.prep.root = dk + '2'
+		ks.prep.root = dk + `root`
 		if (name == 'LV'):
 			ks.disk = disk.LVM(dk, ks.host.name)
-		else:	ks.disk = disk.ATA(dk,         name)
+		else:	ks.disk = disk.ATA(dk,         name, root)
 		
 	#########################################################
 	#	Represent -- just comment for the output

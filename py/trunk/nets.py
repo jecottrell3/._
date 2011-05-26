@@ -55,6 +55,7 @@ class Net(object):
 
 class Dhcp(Net):
 	def __init__(self, host=None, addr=None):
+		self.site = 'dhcp'
 		self.host = host
 		self.addr = addr
 		if host: self.name = 'dhcp'
@@ -65,6 +66,7 @@ class Dhcp(Net):
 
 class HomerJ(Net):
 	def __init__(self, host, addr):
+		self.site = 'home'
 		self.host = host
 		self.addr = addr
 		self.name = 'homerJ'
@@ -78,6 +80,7 @@ class HomerJ(Net):
 
 class Seas156(Net):
 	def __init__(self, host, addr):
+		self.site = 'seas'
 		self.host = host
 		self.addr = addr
 		self.name = 'seas156'
@@ -95,6 +98,7 @@ class Seas156(Net):
 
 class Seas219(Net):
 	def __init__(self, host, addr):
+		self.site = 'seas'
 		self.host = host
 		self.addr = addr
 		self.name = 'seas219'
@@ -111,6 +115,7 @@ class Seas219(Net):
 
 class Rack5(Seas219):
 	def __init__(self, host, addr):
+		self.site = 'seas'
 		super(Rack5, self).__init__(host, addr)
 		self.ether='eth2'
 		self.name = 'rack5'

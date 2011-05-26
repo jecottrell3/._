@@ -40,7 +40,7 @@ class Kick:
 
 		self.host = host.Host(self, h)	# implies net
 		self.syst = syst.Syst(self, s)	# mostly presets
-		self.part = part.Part(self, p)	# implies disk
+		self.part = part.Part(self, p)  # implies disk
 		self.type = type.Type(self, t)	# implies pkgs
 
 	#########################################################
@@ -79,6 +79,16 @@ class Kick:
 		])
 
 #################################################################
+#	Type Table Mapping
+#################################################################
+
+tt = {	'core':	'5',	'base':	'6',
+	'x11':	'7',	'dev':	'8',
+	'srv':	'9',	'kde':	'A',
+	'gno':	'B',	'win':	'C',
+}
+
+#################################################################
 #	Generate All Possible KS Files over 4 Dimensions
 #################################################################
 
@@ -88,6 +98,8 @@ for		h in  host.items.keys():
   for		p in  ( 'LV', part.pt[h] ):
     for		s in  syst.items.keys():
       for	t in  type.items.keys():
+
+	if p[0] in 'TH': p = p[0] + tt[t]
 
 	if h in [ 'grid', 'vdi01', 'vdi02', 'vdi03']:
 		if (p, t) != ('LV', 'core'): continue
