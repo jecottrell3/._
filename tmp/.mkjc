@@ -9,20 +9,20 @@ gid=${5:-654}
 dir=/home/$rbj$sub
 dir=$top/$rbj$sub
 
-grep $rbj /etc/group ||
+grep $rbj: /etc/group ||
 groupadd -g $gid $rbj
 
 grep wheel /etc/group && SUDO='-G wheel' # Red Hat
 grep sudo  /etc/group && SUDO='-G sudo'  # Ubuntu
 
-grep $rbj /etc/passwd ||
+grep $rbj: /etc/passwd ||
 {
 	mkdir -p	$dir
 	chown $uid:$gid	$dir
 	chmod 2755	$dir
 
 	useradd -u $uid -g $gid $SUDO -c 'Jim Cottrell' \
-		-d $dir -s /bin/bash \
+		-o -d $dir -s /bin/bash \
 		-p '$1$W4V.6jvA$lVqS2WtLVws8CXUr7Mhwc0' $rbj
 }
 usermod -a -G 20 root	# SEAS

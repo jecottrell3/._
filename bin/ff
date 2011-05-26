@@ -3,7 +3,7 @@
 DIR=
 OPT=
 ACT=-print
-DOIT=exec
+DOIT=eval
 
 while : $# $*
 do
