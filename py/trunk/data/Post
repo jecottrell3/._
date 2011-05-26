@@ -2,34 +2,36 @@
 : :: BEG Post ::
 : ::::::::::::::
 
-mkdir -p /svn /resq /vfat
+mkdir -p /svn /resq /vfat /conf
 
-: :::::::::::::::::::::
-: Link Important Dirs :
-: :::::::::::::::::::::
+: :::::::::::::::::::::::::
+: :: Link Important Dirs ::
+: ::  just RBJ home dir  ::
+: :::::::::::::::::::::::::
 
 for dir in jcottrell
 do
-	if test -d /boot/$dir
-	then ln -s /boot/$dir /home
-# ????	else ln -s ../$dir    /home
-	fi
+	case $PART in
+	(LV)	ln -s ../boot/$dir /home;; # P2 is /boot, LV is /home
+	(?H)	ln -s      ../$dir /home;; # P2 is /,     P2 is /home
+	(??)	ln -s ../home/$dir /boot;; # P2 is /home, P? is /boot
+	esac
 done
 
 ln -s /dev/$HOST /myvg
 
-: :::::::::::::::::::::
-: Get RBJ Environment :
-: :::::::::::::::::::::
+: :::::::::::::::::::::::::
+: :: Get RBJ Environment ::
+: :::::::::::::::::::::::::
 
 date
 cd /root
+chmod -R a+rX .
 env | sort -o env.log
 export HOME=/root
-test -d /boot/jcottrell/._   &&
-ln -s   /boot/jcottrell/._ . ||
-ln -s   /home/jcottrell/._ .
+ln -s /boot/jcottrell/._ /root
 
+export	SSH_AUTH_SOCK=Not-During-Kickstart
 set +x; echo \
 . ._/setup
 . ._/setup
@@ -52,7 +54,6 @@ tmp/.mkrbj
 : ::   Tailor to Environment   ::
 : :::::::::::::::::::::::::::::::
 
-DIST=/home/jcottrell/._/dist
 DIST=/boot/jcottrell/._/dist
 date
 test  -d    $DIST/. &&
@@ -60,12 +61,17 @@ rsync -Cvrp $DIST/. /
 
 cd /etc
 
-grep CentOS issue &&
-cp -v issue.cos55 issue
+for file in issue sudoers hosts
+do
+	test -f	$file.$SYST &&
+	cp   -v	$file.$SYST $file
 
-grep seas.gwu.edu /etc/resolv.conf &&
-cp -v hosts.seas hosts ||
-cp -v hosts.home hosts
+	test -f	$file.$SITE &&
+	cp   -v	$file.$SITE $file
+done
+
+test -f				/etc/sysconfig/desktop ||
+echo DISPLAYMANAGER=XDM >>	/etc/sysconfig/desktop
 
 cd /root
 
@@ -74,8 +80,8 @@ cd /root
 : ::::::::::::::::
 
 cd /etc/sysconfig/network-scripts
-grep seas.gwu.edu /etc/resolv.conf &&
-echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-ETHER
+#### grep seas.gwu.edu /etc/resolv.conf &&
+#### echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-ETHER
 
 : :::::::::::::::::
 : :: Demon Seeds ::
@@ -84,35 +90,37 @@ echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-ETHER
 chkconfig --list | tee /root/svc.log |
 while read svc junk
 do
-	continue
+	set +x; continue
 	case $svc in
 		(anacron)	chkconfig $svc off;; # always up
 		(avahi-demon)	chkconfig $svc off;; # no need
-		(cups)		chkconfig $svc on ;; # no need
-(firstboot)	chkconfig $svc on;; # done via kickstart
+#		(cups)		chkconfig $svc on ;; # no need
+		(firstboot)	chkconfig $svc on;;  # done via kickstart
 		(ip6tables)	chkconfig $svc off;; # no ip6
-		(iptables)	chkconfig $svc off;; # FIX LATER
+#		(iptables)	chkconfig $svc off;; # FIX LATER
 		(mcstrans)	chkconfig $svc off;; # no selinux
 		(mdmonitor)	chkconfig $svc off;; # no RAID
 		(network)	chkconfig $svc on ;; # NEED
-		(netfs)		chkconfig $svc off;; # no NFS
-		(nfs)		chkconfig $svc off;; # no NFS
-		(nfslock)	chkconfig $svc off;; # no NFS
+#		(netfs)		chkconfig $svc off;; # no NFS
+#		(nfs)		chkconfig $svc off;; # no NFS
+#		(nfslock)	chkconfig $svc off;; # no NFS
 		(ntpd)		chkconfig $svc on ;; # need Time
 		(pcscd)		chkconfig $svc off;; # NUKE
 		(rawdevices)	chkconfig $svc off;; # NUKE
 		(restorecond)	chkconfig $svc off;; # no selinux
-		(rpcbind)	chkconfig $svc off;; # no
-		(rpcgssd)	chkconfig $svc off;; # no
-		(rpcidmapd)	chkconfig $svc off;; # no
-		(rpcsvcgssd)	chkconfig $svc off;; # no
+#		(rpcbind)	chkconfig $svc off;; # no
+#		(rpcgssd)	chkconfig $svc off;; # no
+#		(rpcidmapd)	chkconfig $svc off;; # no
+#		(rpcsvcgssd)	chkconfig $svc off;; # no
 		(setroubleshoot)chkconfig $svc off;; # no selinux
 		(smartd)	chkconfig $svc off;; # grid disks not SMART
 #		(xfs)		chkconfig $svc off;; # no X11
 		(xinetd)	chkconfig $svc off;; # obsolete
 		(ypbind)	chkconfig $svc off;; # no YP
+		(*)		chkconfig $svc --list;; # ask/tell
 	esac
 done
+set -x
 
 : ::::::::::::::::::::::::::
 : :: Make Whatis Database ::

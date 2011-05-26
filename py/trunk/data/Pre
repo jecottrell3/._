@@ -1,6 +1,6 @@
-:::::::::::::::::::::::::
-: Save Previous Systems :
-:::::::::::::::::::::::::
+: :::::::::::::::::::::::::::
+: :: Save Previous Systems ::
+: :::::::::::::::::::::::::::
 
 P=/dev/$ROOT
 lvm vgchange -a y
@@ -35,6 +35,6 @@ sync; sleep 2
 lvm vgchange -a n
 sync; sleep 2
 
-:::::::::::
-: END PRE :
-:::::::::::
+: :::::::::::::
+: :: END PRE ::
+: :::::::::::::
