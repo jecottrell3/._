@@ -1,0 +1,414 @@
+################################################################
+@development
+################################################################
+
+#m	-autoconf
+#m	-automake
+#m	-binutils
+#m	-bison
+#m	-flex
+#m	-gcc
+#m	-gcc-c++
+#m	-gettext
+#m	-libtool
+#m	-make
+#m	-patch
+#m	-pkgconfig
+#m	-redhat-rpm-config
+#m	-rpm-build
+#d	-byacc
+#d	-cscope
+#d	-ctags
+#d	-cvs
+#d	-diffstat
+#d	-doxygen
+#d	-elfutils
+-gcc-gfortran
+#d	-git
+#d	-indent
+-intltool
+#d	-patchutils
+#d	-rcs
+#d	-subversion
+#d	-swig
+#d	-systemtap
+#o	 ElectricFence
+#o	 ant
+#o	 babel
+bzr
+chrpath
+cmake
+#o	 compat-gcc-34
+#o	 compat-gcc-34-c++
+#o	 compat-gcc-34-g77
+dejagnu
+expect
+#o	 gcc-gnat
+#o	 gcc-java
+#o	 gcc-objc
+#o	 gcc-objc++
+imake
+#o	 jpackage-utils
+libstdc++-docs
+mercurial
+#o	 mod_dav_svn
+nasm
+perltidy
+python-docs
+rpmdevtools
+rpmlint
+#o	 systemtap-sdt-devel
+#o	 systemtap-server
+
+################################################################
+-@additional-devel
+################################################################
+
+#d	-GConf2-devel
+#d	-alsa-lib-devel
+#d	-audit-libs-devel
+#d	-binutils-devel
+#d	-boost-devel
+#d	-bzip2-devel
+#d	-cyrus-sasl-devel
+#d	-dbus-glib-devel
+#d	-elfutils-devel
+#d	-elfutils-libelf-devel
+#d	-evolution-data-server-devel
+#d	-gnome-desktop-devel
+#d	-gnome-keyring-devel
+#d	-gstreamer-devel
+#d	-gvfs-devel
+#d	-hmaccalc
+#d	-java-1.6.0-openjdk-devel
+#d	-libacl-devel
+#d	-libattr-devel
+#d	-libcanberra-devel
+#d	-libcap-ng-devel
+#d	-libcgroup-devel
+#d	-libcurl-devel
+#d	-libgnome-devel
+#d	-libnotify-devel
+#d	-librsvg2-devel
+#d	-libselinux-devel
+#d	-libsoup-devel
+#d	-mysql-devel
+#d	-perl-ExtUtils-MakeMaker
+#d	-perl-devel
+#d	-polkit-devel
+#d	-postgresql-devel
+#d	-pulseaudio-libs-devel
+#d	-pygtk2-devel
+#d	-python-devel
+#d	-readline-devel
+#d	-sqlite-devel
+#o	 PyQt4-devel
+#o	 SDL-devel
+#o	 cups-devel
+#o	 e2fsprogs-devel
+#o	 expat-devel
+#o	 fuse-devel
+#o	 gmp-devel
+#o	 gnutls-devel
+#o	 gstreamer-plugins-base-devel
+#o	 httpd-devel
+#o	 hunspell-devel
+#o	 iptables-devel
+#o	 junit
+#o	 kdebase-devel
+#o	 kdebase-workspace-devel
+#o	 kdegraphics-devel
+#o	 kdelibs-apidocs
+#o	 kdelibs-devel
+#o	 kdemultimedia-devel
+#o	 kdenetwork-devel
+#o	 kdepim-devel
+#o	 kdepimlibs-devel
+#o	 kdesdk-devel
+#o	 libXau-devel
+#o	 libXaw-devel
+#o	 libXinerama-devel
+#o	 libXmu-devel
+#o	 libXpm-devel
+#o	 libXrandr-devel
+#o	 libaio-devel
+#o	 libblkid-devel
+#o	 libbonobo-devel
+#o	 libcap-devel
+#o	 libdrm-devel
+#o	 libgcrypt-devel
+#o	 libglade2-devel
+#o	 libgnomeui-devel
+#o	 libgudev1-devel
+#o	 libhugetlbfs-devel
+#o	 libibverbs-devel
+#o	 libnl-devel
+#o	 libtiff-devel
+#o	 libtopology-devel
+#o	 libudev-devel
+#o	 libusb-devel
+#o	 libuuid-devel
+#o	 libxslt-devel
+#o	 net-snmp-devel
+#o	 numactl-devel
+#o	 openmotif-devel
+#o	 papi-devel
+#o	 pcre-devel
+#o	 perl-Test-Pod
+#o	 perl-Test-Pod-Coverage
+#o	 popt-devel
+#o	 sane-backends-devel
+#o	 startup-notification-devel
+#o	 tcl-devel
+#o	 tcp_wrappers-devel
+#o	 tk-devel
+#o	 unique-devel
+#o	 unixODBC-devel
+#o	 xorg-x11-proto-devel
+#o	 xz-devel
+
+################################################################
+@buildsys-build
+################################################################
+
+#m	-bash
+#m	-bzip2
+#m	-coreutils
+#m	-cpio
+#m	-diffutils
+#m	-findutils
+#m	-gawk
+#m	-gcc
+#m	-gcc-c++
+#m	-grep
+#m	-gzip
+#m	-info
+#m	-make
+#m	-patch
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-sed
+#m	-shadow-utils
+#m	-sl-release
+#m	-tar
+#m	-unzip
+#m	-util-linux-ng
+#m	-which
+
+################################################################
+@debugging
+################################################################
+
+#m	-gdb
+#m	-kexec-tools
+#m	-latrace
+#m	-report
+#m	-strace
+#m	-systemtap-runtime
+#d	-cas
+#d	-crash
+#d	-crash-trace-command
+#d	-elfutils
+#d	-ltrace
+#d	-trace-cmd
+#d	-valgrind
+abrt-addon-ccpp
+abrt-addon-python
+abrt-cli
+flightrecorder
+gdb-gdbserver
+glibc-utils
+lslk
+memtest86+
+#o	 systemtap-client
+#o	 systemtap-initscript
+
+################################################################
+-@desktop-debugging
+################################################################
+
+#d	-report-gtk
+#o	 abrt-desktop
+#o	 abrt-gui
+#o	 bltk
+#o	 oprofile-gui
+#o	 systemtap-grapher
+#o	 xrestop
+
+################################################################
+@emacs
+################################################################
+
+#m	-emacs
+ctags-etags
+#o	 emacs-auctex
+emacs-gnuplot
+emacs-nox
+
+################################################################
+@hardware-monitoring
+################################################################
+
+#d	-mcelog
+#d	-smartmontools
+#o	 edac-utils
+#o	 lm_sensors
+
+################################################################
+@java-platform
+################################################################
+
+#m	-java-1.6.0-openjdk
+
+################################################################
+@legacy-unix
+################################################################
+
+#d	-xinetd
+#o	 authd
+#o	 cups-lpd
+#o	 dump
+finger
+#o	 finger-server
+#o	 krb5-appl-servers
+ksh
+mksh
+#o	 ncompress
+#o	 rsh
+#o	 rsh-server
+#o	 rusers
+#o	 rusers-server
+#o	 rwho
+#o	 talk
+#o	 talk-server
+tcp_wrappers
+telnet
+#o	 telnet-server
+tftp
+
+################################################################
+@network-tools
+################################################################
+
+#m	-tcpdump
+#d	-nc
+#d	-openswan
+#o	 NetworkManager-openswan
+#o	 arptables_jf
+arpwatch
+dropwatch
+#o	 ebtables
+iptraf
+iptstate
+#o	 lksctp-tools
+#o	 mipv6-daemon
+#o	 mrtg
+#o	 netlabel_tools
+nmap
+stunnel
+wireshark
+
+################################################################
+@perl-runtime
+################################################################
+
+#m	-perl
+#d	-perl-Crypt-SSLeay
+#d	-perl-XML-Dumper
+#d	-perl-XML-Grove
+#d	-perl-XML-Twig
+#d	-perl-core
+#o	 perl-DBD-SQLite
+#o	 perl-Date-Calc
+#o	 perl-Date-Manip
+#o	 perl-Frontier-RPC
+#o	 perl-LDAP
+#o	 perl-suidperl
+
+################################################################
+-@php
+################################################################
+
+#m	-php
+#d	-php-gd
+#d	-php-pdo
+#d	-php-pear
+#d	-php-xml
+#o	 php-ldap
+#o	 php-mysql
+#o	 php-odbc
+#o	 php-pecl-apc
+#o	 php-pecl-memcache
+#o	 php-pgsql
+#o	 php-soap
+#o	 php-xmlrpc
+
+################################################################
+-@repos
+################################################################
+
+#o	adobe-release
+#o	atrpms-repo
+#o	elrepo-release
+#o	epel-release
+#o	rpmforge-release
+
+################################################################
+@scalable-file-systems
+################################################################
+
+#m	-xfsprogs
+#d	-xfsdump
+
+################################################################
+@scientific
+################################################################
+
+#d	-gnuplot
+#d	-units
+#o	 atlas
+#o	 lapack
+#o	 mpich2
+#o	 mpitests-mvapich
+#o	 mpitests-mvapich2
+#o	 mpitests-openmpi
+#o	 mvapich
+#o	 mvapich2
+#o	 numpy
+#o	 openmpi
+
+################################################################
+-@spins
+################################################################
+
+#d	-livecd-tools
+#d	-liveusb-creator
+#d	-python-imgcreate
+#d	-revisor
+#d	-revisor-cli
+#d	-revisor-gui
+#o	 revisor-isolinux
+#o	 revisor-rebrand
+#o	 revisor-reuseinstaller
+#o	 revisor-unity-scripts
+
+################################################################
+@system-admin-tools
+################################################################
+
+#o	 conman
+crypto-utils
+dtach
+hardlink
+#o	 lsscsi
+mc
+#o	 mgetty
+rdist
+rrdtool
+screen
+scrub
+symlinks
+tree
+vlock
+xdelta
+
