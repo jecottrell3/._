@@ -95,18 +95,18 @@ tt = {	'core':	'5',	'base':	'6',
 # h = 'H'; p = 'P'; s = 'S'; t = 'T'	# for debugging
 
 for		h in  host.items.keys():
-  for		p in  ( 'LV', part.pt[h] ):
+  for		p in  (part.pt[h]).split(' '):
     for		s in  syst.items.keys():
       for	t in  type.items.keys():
 
-	if p[0] in 'TH': p = p[0] + tt[t]
+	# if p[0] in 'TH': p = p[0] + tt[t]
 
 	if h in [ 'grid', 'vdi01', 'vdi02', 'vdi03']:
 		if (p, t) != ('LV', 'core'): continue
 		name = h + '-' + s; t = s
 	else:	name = '-'.join([h, p, s, t])
 
-	print	name, s, t
+	print	name, p, s, t
 
 	ks = Kick(h, p, s, t)
 

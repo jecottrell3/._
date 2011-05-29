@@ -16,7 +16,7 @@ class Part(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name = name
-		root = '0RHXV56789ABCDE'.find(name[1])
+		root = 'ZRHCV5678901234'.find(name[1])
 		ks.prep.part = name
 		ks.prep.vars['part'] += name
 		#items[name](ks, self)
@@ -36,12 +36,14 @@ class Part(object):
 #	Host to Partition Table
 #################################################################
 
-pt = {  'yell': 'YH', 'zell': 'ZH',			# SEAS 156
-	'grid': 'GH', 'kick': 'KH',			# SEAS 219
-	'vdi01':'VH', 'vdi02':'VH', 'vdi03':'VH', 	# SEAS 219
-	'port': 'PH', 'blue': 'QH', 'book': 'JH',	# USB
-	'loco': 'SH', 'yoko': 'TH', 'bogo': 'HH',	# HOMERJ
-	'mojo': 'FH', 'fono': 'DH', 'vodo': 'VH',	# HOMERJ
+pt = {  'yell': 'LV YH', 'zell': 'LV ZH',		# SEAS 156
+	'grid': 'LV GH', 'kick': 'LV KH',		# SEAS 219
+	'vdi01':'LV VH', 'vdi02':'LV VH', 'vdi03':'LV VH', # SEAS 219
+	'port': 'LV PH', 'blue': 'LV QH', 'book': 'LV JH', # USB
+	'loco': 'LV SH', 'mojo': 'LV FH',		# HOMERJ LVM
+	'fono': 'DH',    'vodo': 'VH',		 	# HOMERJ fake
+	'yoko': 'TH T5 T6 T7 T8 T9 T0 T1 T2 T3 T4', 	# HOMERJ PART
+	'bogo': 'HH H5 H6 H7 H8 H9 H0 H1 H2 H3 H4', 	# HOMERJ PART
 }
 
 #################################################################
