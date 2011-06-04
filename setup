@@ -28,24 +28,11 @@ do
 	(setup)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
-	(.ssh)	test -e $x && mv .ssh $SAVE
-		rsync -aC ._/.ssh .
-		#@ mkdir .ssh
-		#@ (cd   .ssh && ln -s  ../._/.ssh/* .)
-		#@ rm    .ssh/authorized_keys
-		#@ cp ._/.ssh/authorized_keys .ssh
-		#@ rm    .ssh/known_hosts
-		#@ cp ._/.ssh/known_hosts     .ssh
-			continue;;
-	(.?)	test -f $x || cp -r $INIT/$x .
-			continue;;
+	(.ssh)	test -e $x && mv $x $SAVE; rsync -rC ._/$x .;;
+	(*)	test -e	$x && mv $x $SAVE; ln -s  $INIT/$x .;;
 	esac
-
-	test -e	$x &&
-	mv	$x $SAVE
-	ln -s	$INIT/$x .
 done
 
-source .bash_profile
+source ./.bash_profile
 
 ################################################################
