@@ -106,7 +106,7 @@ def grid(ks, self):
 #	HOMERJ -- RBJ Home Network
 #################################################################
 
-def pata(ks, disk='hda'):
+def pata(ks, disk):
 	ks.head.disk = disk
 	ks.prep.vars['site'] += ks.nets.site
 
@@ -114,8 +114,11 @@ def bogo(ks, self, addr=6):	# TEMPLATE + wifi
 	ks.head.arch = 'i386'
 	ks.head.server = '1.2.3.9'
 	ks.head.inst = 'nfs'
+	ks.head.resq = 14
+	ks.head.home = 13
+	ks.head.conf = -1
 	ks.nets = nets.HomerJ(self.name, '6')
-	pata(ks)
+	pata(ks, 'hda')
 
 def loco(ks, self):
 	ks.nets = nets.HomerJ(self.name, '8')	# 64 bit + wifi

@@ -118,12 +118,13 @@ tt = {	'core': '5',    'base': '6',
 h = 'H'; p = 'P'; s = 'S'; t = 'T'	# for debugging
 
 from host import items; hosts = items
-from part import pt
+from part import h2p
 from syst import items; systs = items
 from type import items; types = items
 
 for		h in  hosts:
-  for		p in  ( 'LV', pt[h] ):
+  for		p in  h2p[h].split(' '):
+
     for		s in  systs:
       for	t in  types:
 

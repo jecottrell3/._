@@ -59,12 +59,14 @@ def sci55(ks, self):
 
 def sci60(ks, self):
 	ks.head.monitor = ''
+	ks.head.disk = 's' + ks.head.disk[1:]	# always sd
 	self.name = 'Scientific'
 	self.vers = '6.0'
 	self.rbj  = 'sci6'
 
 def rh60(ks, self):
 	ks.head.monitor = ''
+	ks.head.disk = 's' + ks.head.disk[1:]	# always sd
 	self.name = 'RedHat'
 	self.vers = '6.0'
 	self.rbj  = 'rh6'

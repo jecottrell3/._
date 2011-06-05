@@ -95,7 +95,7 @@ tt = {	'core':	'5',	'base':	'6',
 # h = 'H'; p = 'P'; s = 'S'; t = 'T'	# for debugging
 
 for		h in  host.items.keys():
-  for		p in  (part.pt[h]).split(' '):
+  for		p in  (part.h2p[h]).split(' '):
     for		s in  syst.items.keys():
       for	t in  type.items.keys():
 

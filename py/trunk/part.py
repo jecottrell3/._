@@ -17,6 +17,9 @@ class Part(object):
 		self.ks = ks
 		self.name = name
 		root = 'ZRHCV5678901234'.find(name[1])
+		resq = ks.head.resq
+		home = ks.head.home
+		conf = ks.head.conf
 		ks.prep.part = name
 		ks.prep.vars['part'] += name
 		#items[name](ks, self)
@@ -24,7 +27,7 @@ class Part(object):
 		ks.prep.root = dk + `root`
 		if (name == 'LV'):
 			ks.disk = disk.LVM(dk, ks.host.name)
-		else:	ks.disk = disk.ATA(dk,         name, root)
+		else:	ks.disk = disk.ATA(dk,         name, root, resq, home, conf)
 		
 	#########################################################
 	#	Represent -- just comment for the output
@@ -36,7 +39,7 @@ class Part(object):
 #	Host to Partition Table
 #################################################################
 
-pt = {  'yell': 'LV YH', 'zell': 'LV ZH',		# SEAS 156
+h2p = {	'yell': 'LV YH', 'zell': 'LV ZH',		# SEAS 156
 	'grid': 'LV GH', 'kick': 'LV KH',		# SEAS 219
 	'vdi01':'LV VH', 'vdi02':'LV VH', 'vdi03':'LV VH', # SEAS 219
 	'port': 'LV PH', 'blue': 'LV QH', 'book': 'LV JH', # USB

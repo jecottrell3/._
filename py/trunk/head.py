@@ -16,6 +16,9 @@ class Head:
 	arch	= 'x86_64'
 	media	= 'dvd'
 	disk	= 'sda'					# sdb,sda for USB
+	resq	= 1
+	home	= 2
+	conf	= 3
 	order	= None					# sdb,sda for USB
 	isopart = None
 	isopath	= '/OS/VER/ARCH/MEDIA'
@@ -44,7 +47,7 @@ class Head:
 
 	def nfs(self):
 		return	'nfs --server='		+ self.server + \
-			' --path=/repo'		+ self.isopath+ '/files'
+			' --dir=/repo'		+ self.isopath+ '/files'
 	def ftp(self):
 		return	'url --url=ftp://'	+ self.server + \
 			'/repo'			+ self.isopath+ '/files'
@@ -68,7 +71,7 @@ class Head:
 
 	def __repr__(self):
 		if (not self.order):   self.order   = self.disk
-		if (not self.isopart): self.isopart = self.disk + '1'
+		if (not self.isopart): self.isopart = self.disk + `self.resq`
 		self.isopath = '/'.join(['', self.name, self.vers, self.arch])
 		self.method = self[self.inst]
 		return '\n'.join([

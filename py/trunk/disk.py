@@ -51,27 +51,35 @@ class LVM(Disk):
 
 class ATA(Disk):
 
-	def __init__(self, disk, name, part=2):
+	def __init__(self, disk, name, root=2, resq=1, home=2, conf=3):
 		self.name = name
 		self.disk = disk
-		self.part = part
+		self.root = root
+		self.resq = resq
+		self.home = home
+		self.conf = conf
 
 	def __repr__(self):
 		disk = self.disk
-		root = disk + `self.part`
+		root = disk + `self.root`
+		resq = disk + `self.resq`
+		home = disk + `self.home`
+		conf = disk + `abs(self.conf)`
 
-		if self.part == 2: home = ''
+		if self.root == self.home: home = ''
 		else:	home = ' '.join(
-			['part /home', EXT3, ONPART, disk + `2`, NOATIME
+			['part /home', EXT3, ONPART, home, NOATIME
 			])
+
+		if self.conf > 0:
+			conf = ' '.join(['part /conf',EXT3,ONPART, conf, NOAUTO])
+		else:	conf = ' '.join(['part /vfat',VFAT,ONPART, conf, VFOPTS])
 
 		return '\n'.join([
 			'#### BEG Disk ' + self.name + ' ####',
-			' '.join(['part /    ',EXT3,ONPART, root    ,NOATIME]),
-			' '.join(['part /resq',EXT3,ONPART, disk+`1`,NOAUTO]),
-			home,
-#### NO MORE VFAT ####	' '.join(['part /vfat',VFAT,ONPART, disk+`3`,VFOPTS]),
-			' '.join(['part /conf',EXT3,ONPART, disk+`3`,NOAUTO]),
+			' '.join(['part /    ',EXT3,ONPART, root, NOATIME]),
+			' '.join(['part /resq',EXT3,ONPART, resq, NOAUTO]),
+			home, conf,
 			'#### END Disk ' + self.name + ' ####',
 			''
 		])

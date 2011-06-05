@@ -11,6 +11,7 @@ class Prep(object):
 	syst = 'SYST'
 	type = 'TYPE'
 	root = 'ROOT'
+	home = 'HOME'
 	site = 'SITE'
 	pctend = '%end'
 
@@ -25,6 +26,7 @@ class Prep(object):
 			'syst': 'SYST=',
 			'type': 'TYPE=',
 			'root': 'ROOT=',
+			'home': 'HOME=',
 			'site': 'SITE=',
 		}
 
