@@ -25,9 +25,10 @@ class Part(object):
 		#items[name](ks, self)
 		dk = ks.head.disk
 		ks.prep.root = dk + `root`
+		host = ks.host.name
 		if (name == 'LV'):
-			ks.disk = disk.LVM(dk, ks.host.name)
-		else:	ks.disk = disk.ATA(dk,         name, root, resq, home, conf)
+			ks.disk = disk.LVM(dk, ks.host.name, ks.head.ide)
+		else:	ks.disk = disk.ATA(dk, name, root, resq, home, conf)
 		
 	#########################################################
 	#	Represent -- just comment for the output
@@ -43,7 +44,7 @@ h2p = {	'yell': 'LV YH', 'zell': 'LV ZH',		# SEAS 156
 	'grid': 'LV GH', 'kick': 'LV KH',		# SEAS 219
 	'vdi01':'LV VH', 'vdi02':'LV VH', 'vdi03':'LV VH', # SEAS 219
 	'port': 'LV PH', 'blue': 'LV QH', 'book': 'LV JH', # USB
-	'loco': 'LV SH', 'mojo': 'LV FH',		# HOMERJ LVM
+	'loco': 'LV SH', 'mojo': 'LV',			# HOMERJ LVM
 	'fono': 'DH',    'vodo': 'VH',		 	# HOMERJ fake
 	'yoko': 'TH T5 T6 T7 T8 T9 T0 T1 T2 T3 T4', 	# HOMERJ PART
 	'bogo': 'HH H5 H6 H7 H8 H9 H0 H1 H2 H3 H4', 	# HOMERJ PART

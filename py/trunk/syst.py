@@ -7,13 +7,13 @@
 class Syst(object):
 
 	#########################################################
-	#	Defaults -- use CentOS 64-Bit
+	#	Defaults -- use CentOS 5.6 64-Bit
 	#########################################################
 
 	name = 'CentOS'
-	vers = '5.5'
+	vers = '5.6'
 #	arch = 'x86_64'		# set by host.py
-#	media= 'dvd'		# constant?
+#	media= 'dvd'		# set by harddrive
 	tag  = 'cos55'
 	rbj  = 'cos5'
 
@@ -49,34 +49,58 @@ class Syst(object):
 #	Customize System Object
 #################################################################
 
-def cos55(ks, self):
+def cos55(ks, self):		# DELETE SOON
+	self.name = 'CentOS'
+	self.vers = '5.5'
+	self.rbj  = 'cos5'
 	ks.pkgs.pctend = ks.prep.pctend = ks.post.pctend = '#end'
+	ks.head.ide = 'hd'
 
-def sci55(ks, self):
+def cos56(ks, self):
+	self.name = 'CentOS'
+	self.vers = '5.6'
+	self.rbj  = 'cos5'
+	ks.pkgs.pctend = ks.prep.pctend = ks.post.pctend = '#end'
+	ks.head.ide = 'hd'
+
+def sci55(ks, self):		# DELETE SOON
 	cos55(ks, self)
 	self.name = 'Scientific'
 	self.rbj  = 'sci5'
 
-def sci60(ks, self):
-	ks.head.monitor = ''
-	ks.head.disk = 's' + ks.head.disk[1:]	# always sd
+def sci56(ks, self):
+	cos56(ks, self)
 	self.name = 'Scientific'
+	self.rbj  = 'sci5'
+
+def cos60(ks, self):
+	cos56(ks, self)
 	self.vers = '6.0'
+	self.rbj  = 'cos6'
+	ks.pkgs.pctend = ks.prep.pctend = ks.post.pctend = '%end'
+	ks.head.monitor = ''
+
+	ks.head.ide = 'sd'
+	if ks.head.isopart:
+	   ks.head.isopart = 's' + ks.head.isopart[1:]	# hd becomes sd
+	if ks.head.disk[0] =='h':
+	   ks.head.disk    = 's' + ks.head.disk[1:]	# hd becomes sd
+
+def sci60(ks, self):
+	cos60(ks, self)
+	self.name = 'Scientific'
 	self.rbj  = 'sci6'
 
 def rh60(ks, self):
-	ks.head.monitor = ''
-	ks.head.disk = 's' + ks.head.disk[1:]	# always sd
+	cos60(ks, self)
 	self.name = 'RedHat'
-	self.vers = '6.0'
 	self.rbj  = 'rh6'
 
-def fc14(ks, self):
-	ks.head.monitor = ''
-	ks.head.disk = 's' + ks.head.disk[1:]	# always sd
+def fc15(ks, self):
+	cos60(ks, self)
 	self.name = 'Fedora'
-	self.vers = '14'
-	self.rbj  = 'fc14'
+	self.vers = '15'
+	self.rbj  = 'fc15'
 
 #################################################################
 #	Switch Table
@@ -84,7 +108,7 @@ def fc14(ks, self):
 
 items = {}
 
-for s in ('cos55', 'sci55', 'fc14', 'sci60', 'rh60'):
+for s in ( 'cos55', 'cos56', 'sci55', 'fc15', 'sci60', 'rh60' ):
 	items[s] = eval(s)
 
 #################################################################
@@ -98,7 +122,7 @@ if __name__ == '__main__':
 	ks.head.disk = 'xdc'
 
 	print Syst(ks, 'cos55')
-	print Syst(ks, 'fc14')
+	print Syst(ks, 'fc15')
 	print Syst(ks, 'sci60')
 	print Syst(ks, 'rh60')
 

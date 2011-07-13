@@ -19,6 +19,13 @@ title %(host)s %(part)s CentOS 5.5 %(type)s
         kernel /%(syst)s64/vmlinuz-2.6.18-194.el5 ro root=%(root)s
         initrd /%(syst)s64//initrd-2.6.18-194.el5.img
 """,
+	'cos56':	"""
+title %(host)s %(part)s CentOS 5.6 %(type)s
+        root (hd0,1)
+        savedefault
+        kernel /%(syst)s64/vmlinuz-2.6.18-194.el5 ro root=%(root)s
+        initrd /%(syst)s64//initrd-2.6.18-194.el5.img
+""",
 	'sci55':	"""
 title %(host)s %(part)s Scientific 5.5 %(type)s
         root (hd0,1)
@@ -33,8 +40,8 @@ title %(host)s %(part)s Scientific 6.0 %(type)s
         kernel /%(syst)s64/vmlinuz-2.6.18-194.SCI6 ro root=%(root)s
         initrd /%(syst)s64//initrd-2.6.18-194.SCI6.img
 """,
-	'fc14':		"""
-title %(host)s %(part)s Fedora 13 %(type)s
+	'fc15':		"""
+title %(host)s %(part)s Fedora 15 %(type)s
         root (hd0,1)
         savedefault
         kernel /%(syst)s64/vmlinuz-2.6.33.3-85.fc13.i686.PAE ro root=%(root)s rd_LVM_LV=%(host)s/%(type)s rd_LVM_LV=%(host)s/swap rd_NO_LUKS rd_NO_MD rd_NO_DM LANG=en_US.UTF-8 SYSFONT=latarcyrheb-sun16 KEYTABLE=us rhgb quiet
@@ -105,10 +112,10 @@ title   %(host)s-%(part)s-%(syst)s-%(type)s Kickstart Install
 #      Type Table Mapping
 #################################################################
 
-tt = {	'core': '5',    'base': '6',
+t2p = {	'core': '5',    'base': '6',
 	'x11':  '7',    'dev':  '8',
-	'srv':  '9',    'kde':  'A',
-	'gno':  'B',    'win':  'C',
+	'srv':  '9',    'kde':  '0',
+	'gno':  '1',    'win':  '2',
 }
 
 #################################################################
@@ -128,7 +135,7 @@ for		h in  hosts:
     for		s in  systs:
       for	t in  types:
 
-	if p[0] in 'TH': p = p[0] + tt[t]
+	if p[0] in 'TH': p = p[0] + t2p[t]
 
 	if h in [ 'grid', 'vdi01', 'vdi02', 'vdi03']:
 		if (p, t) != ('LV', 'core'): continue

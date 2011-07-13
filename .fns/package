@@ -15,6 +15,8 @@ alias	qil='rpm -qil'	qail='rpm -qail'
 alias	qwr='rpm -q --whatrequires'
 alias	qwp='rpm -q --whatprovides'
 
+qq() { rpm -qi $* | less +/'^Name.*'; }
+
 for x in ba bb bc bi bl bs
 do
 	eval alias $x="'rpmbuild -$x'"

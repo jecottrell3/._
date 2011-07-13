@@ -10,7 +10,7 @@ class Pkgs(object):
 	syst = 'cos5'
 	type = 'base'
 	nobase = ''
-	pctend = '#end'
+	pctend = '%end'
 
 	#########################################################
 	# Initialize: store hostname if given

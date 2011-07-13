@@ -49,6 +49,7 @@ def book(ks, self): port(ks, self)	# 500G MyBook
 def meta(ks): pata(ks, 'md')
 
 def mojo(ks, self, addr=7):
+	ks.head.isopart = 'hdb4'
 	ks.head.arch = 'i386'
 	ks.nets = nets.HomerJ(self.name, '7')
 	meta(ks)

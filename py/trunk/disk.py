@@ -12,7 +12,7 @@ VFOPTS	= '--fsoptions=uid=654,gid=654,shortname=mixed,noauto'
 NOATIME	= '--fsoptions=noatime'
 NOAUTO	= NOATIME + ',noauto'
 
-class Disk: pass
+class Disk: ide = 'hd'
 
 #################################################################
 #	LVM Disk Subclass
@@ -24,23 +24,34 @@ class LVM(Disk):
  		return ('--name=' + self.lv +
  		     ' --vgname=' + self.vg)
 
-	def __init__(self, disk, host, type='LVname'):
+	def __init__(self, disk, host, ide):
 		self.name = 'LV'
 		self.disk = disk
-		self.vg = host
-		self.lv = type	# customized by type
+		self.vg   = host
+		self.lv   = 'type'	# customized by type
+		self.ide  = ide
 
 	def __repr__(self):
-		dk = self.disk
+		disk = self.disk
+		resq = disk + '1'
+		boot = disk + '2'
+		
+		if self.vg == 'mojo':
+			phys = disk + '3'; conf = self.ide + 'a4'
+		else:
+			conf = disk + '3'; phys = disk + '4'
+
+		resq = ' '.join(['part /resq', EXT3, ONPART, resq, NOAUTO])
+		boot = ' '.join(['part /boot', EXT3, ONPART, boot, NOATIME])
+		conf = ' '.join(['part /conf', EXT3, ONPART, conf, NOAUTO])
+
+		pv   = ' '.join(['part pv                 ', ONPART, phys])
+		vg   = ' '.join(['volgroup', '%15s' % self.vg, EXISTING, 'pv'])
+		root = ' '.join(['logvol /  ', EXT3, EXISTING, NOATIME,
+								self.VGLV()])
 		return '\n'.join([
 			'#### BEG Disk ' + self.vg + ' ####',
-			' '.join(['part /resq', EXT3, ONPART, dk + `1`, NOAUTO	]),
-			' '.join(['part /boot', EXT3, ONPART, dk + `2`, NOATIME	]),
-#### NO MORE VFAT ####	' '.join(['part /vfat', VFAT, ONPART, dk + `3`, VFOPTS	]),
-			' '.join(['part /conf', EXT3, ONPART, dk + `3`, NOAUTO	]),
-			' '.join(['part pv.4               ', ONPART, dk + `4`]),
-			' '.join(['volgroup', '%15s' % self.vg, EXISTING, 'pv.4']),
-			' '.join(['logvol /  ', EXT3, EXISTING, NOATIME, self.VGLV()]),
+			resq, boot, conf, pv, vg, root,
 			'#### END Disk ' + self.vg + ' ####',
 			''
 		])
@@ -66,20 +77,19 @@ class ATA(Disk):
 		home = disk + `self.home`
 		conf = disk + `abs(self.conf)`
 
+		root = ' '.join(['part /    ', EXT3, ONPART, root, NOATIME])
+		resq = ' '.join(['part /resq', EXT3, ONPART, resq, NOAUTO])
+
 		if self.root == self.home: home = ''
-		else:	home = ' '.join(
-			['part /home', EXT3, ONPART, home, NOATIME
-			])
+		else:	home = ' '.join(['part /home',EXT3,ONPART,home,NOATIME])
 
 		if self.conf > 0:
-			conf = ' '.join(['part /conf',EXT3,ONPART, conf, NOAUTO])
-		else:	conf = ' '.join(['part /vfat',VFAT,ONPART, conf, VFOPTS])
+			conf = ' '.join(['part /conf',EXT3,ONPART,conf,NOAUTO])
+		else:	conf = ' '.join(['part /vfat',VFAT,ONPART,conf,VFOPTS])
 
 		return '\n'.join([
 			'#### BEG Disk ' + self.name + ' ####',
-			' '.join(['part /    ',EXT3,ONPART, root, NOATIME]),
-			' '.join(['part /resq',EXT3,ONPART, resq, NOAUTO]),
-			home, conf,
+			root, resq, home, conf,
 			'#### END Disk ' + self.name + ' ####',
 			''
 		])

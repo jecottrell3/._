@@ -33,6 +33,9 @@ do
 	esac
 done
 
+pwd
+ls -l  .bash_profile
+ls -lL .bash_profile
 source ./.bash_profile
 
 ################################################################
