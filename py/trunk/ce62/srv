@@ -1,0 +1,232 @@
+################################################################
+@backup-client
+################################################################
+
+#m	-amanda-client
+bacula-client
+
+################################################################
+@backup-server
+################################################################
+
+#m	-amanda-server
+#o	 mt-st
+#o	 mtx
+
+################################################################
+@cifs-file-server
+################################################################
+
+#m	-samba
+tdb-tools
+
+################################################################
+-@desktop-debugging
+################################################################
+
+#d	-abrt-desktop
+#o	 abrt-gui
+#o	 bltk
+#o	 oprofile-gui
+#o	 systemtap-grapher
+#o	 xrestop
+
+################################################################
+@directory-client
+################################################################
+
+#d	-ipa-client
+#d	-oddjob-mkhomedir
+#d	-sssd
+#d	-ypbind
+certmonger
+hesinfo
+krb5-appl-clients
+krb5-pkinit-openssl
+krb5-workstation
+ldapjdk
+nscd
+nss-pam-ldapd
+openldap-clients
+pam_krb5
+pam_ldap
+samba-winbind
+
+################################################################
+@directory-server
+################################################################
+
+krb5-server
+krb5-server-ldap
+migrationtools
+openldap-servers
+samba
+ypserv
+
+################################################################
+@ftp-server
+################################################################
+
+#m	-vsftpd
+xferstats
+
+################################################################
+@mail-server
+################################################################
+
+#d	-dovecot
+#d	-postfix
+#d	-spamassassin
+cyrus-imapd
+dovecot-mysql
+dovecot-pgsql
+dovecot-pigeonhole
+mailman
+sendmail
+sendmail-cf
+
+################################################################
+@mysql
+################################################################
+
+#m	-mysql-server
+mysql-bench
+mysql-test
+
+################################################################
+@mysql-client
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-mysql-connector-odbc
+libdbi-dbd-mysql
+#o	 mysql-connector-java
+perl-DBD-MySQL
+
+################################################################
+@network-file-system-client
+################################################################
+
+#d	-autofs
+#d	-cifs-utils
+#d	-nfs-utils
+#d	-nfs4-acl-tools
+#d	-samba-client
+#o	 cachefilesd
+
+################################################################
+@network-server
+################################################################
+
+bind
+#o	 bind-chroot
+bind-dyndb-ldap
+dhcp
+dnsmasq
+freeradius
+quagga
+radvd
+rsyslog-gnutls
+rsyslog-gssapi
+rsyslog-mysql
+rsyslog-pgsql
+rsyslog-relp
+syslinux
+tftp-server
+
+################################################################
+@nfs-file-server
+################################################################
+
+#m	-nfs-utils
+#m	-nfs4-acl-tools
+
+################################################################
+@postgresql
+################################################################
+
+#m	-postgresql-server
+#d	-postgresql-docs
+postgresql-contrib
+postgresql-plperl
+postgresql-plpython
+postgresql-pltcl
+postgresql-test
+rhdb-utils
+
+################################################################
+@postgresql-client
+################################################################
+
+#m	-postgresql
+#d	-PyGreSQL
+#d	-postgresql-odbc
+#d	-python-psycopg2
+libdbi-dbd-pgsql
+perl-DBD-Pg
+postgresql-jdbc
+tcl-pgtcl
+
+################################################################
+@server-platform
+################################################################
+
+#m	-db4
+#m	-dbus-libs
+#m	-glibc
+#m	-krb5-libs
+#m	-libgcc
+#m	-libstdc++
+#m	-ncurses-libs
+#m	-nss
+#m	-openldap
+#m	-openssl
+#m	-pam
+#m	-redhat-lsb
+#m	-zlib
+
+################################################################
+-@server-platform-devel
+################################################################
+
+#m	-db4-devel
+#m	-dbus-devel
+#m	-glibc-devel
+#m	-krb5-devel
+#m	-libstdc++-devel
+#m	-libvirt-devel
+#m	-libvirt-java-devel
+#m	-ncurses-devel
+#m	-nss-devel
+#m	-openldap-devel
+#m	-openssl-devel
+#m	-pam-devel
+#m	-zlib-devel
+
+################################################################
+@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_ssl
+#d	-mod_wsgi
+#d	-webalizer
+certmonger
+libmemcached
+memcached
+mod_auth_kerb
+mod_auth_mysql
+mod_auth_pgsql
+mod_authz_ldap
+mod_nss
+mod_revocator
+perl-CGI
+perl-CGI-Session
+perl-Cache-Memcached
+python-memcached
+squid
+
