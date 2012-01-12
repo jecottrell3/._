@@ -3,6 +3,7 @@
 sub=${1:+/$1}
 rbj=${2:-jcottrell}
 top=${3:-/boot}
+top=${3:-/home}
 uid=${4:-654}
 gid=${5:-654}
 

@@ -58,6 +58,14 @@ def mojo(ks, self, addr=7):
 #	Hosts which use SATA
 #################################################################
 
+# Zimmerman
+
+def jec3(ks, self):
+	ks.head.monitor = ' --resolution=1680x1050 --depth=24'
+#	ks.nets = nets.Dhcp(self.name)
+	ks.nets = nets.Zai(self.name, '50.13')
+	sata(ks)
+
 # SEAS 156 DHCP
 # SEAS 156 Static
 
@@ -142,7 +150,7 @@ def vodo(ks, self): bogo(ks, self, 11)	# Movie Windows
 items = {}
 
 for h in ('port', 'blue', 'book', 'yell', 'zell', 'kick', 'grid',
-	  'loco', 'yoko', 'bogo', 'mojo', 'fono', 'vodo',
+	  'loco', 'yoko', 'bogo', 'mojo', 'fono', 'vodo', 'jec3',
 	  'vdi01', 'vdi02', 'vdi03',
 	  ):
 	items[h] = eval(h)

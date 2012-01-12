@@ -10,6 +10,7 @@ class Net(object):
 
 	name	= 'noname'
 	ether	= 'eth0'
+	uther	= None
 	proto	= 'dhcp'
 	host	= None
 	work	= None
@@ -73,6 +74,23 @@ class HomerJ(Net):
 		self.proto='static'
 		self.work = '1.2.3.'
 		self.gate = '4'
+
+#################################################################
+#	Zimmerman Net 192.168.{50,51,17}
+#################################################################
+
+class Zai(Net):
+	def __init__(self, host, addr):
+		self.site = 'zai'
+		self.host = host
+		self.addr = addr
+		self.name = 'zai'
+		self.uther = 'em1'
+		self.proto='static'
+		self.mask = '255.255.255.0'	# /22
+		self.work = '192.168.'		# 15[6789]
+		self.gate = '50.1'		# highest
+		self.dns  = '192.168.17.36'	# also 17.15
 
 #################################################################
 #	SEAS Net 15[6789]

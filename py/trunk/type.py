@@ -14,9 +14,9 @@ class Type(object):
 		self.ks = ks
 		self.name  = name
 		ks.pkgs.type = name
-		ks.prep.type = name
 		ks.prep.vars['type'] += name
-		ks.disk.lv = name
+		ks.prep.lv = \
+		ks.disk.lv = ks.syst.tag + '_' + name
 		if name not in items:
 			generic(ks, name)
 		else:	items[name](ks)
@@ -61,13 +61,15 @@ def dev(ks):
 
 def srv(ks):
 	dev(ks)
+	ks.head.monitor = None
+#	ks.head.startx = ''
 	ks.pkgs.todo.extend(['srv'])
 
 def app(ks):	# helper
-	srv(ks)
-	ks.head.gfx = 'graphical'
-	ks.head.startx = ' --startxonboot'
-	ks.pkgs.todo.extend(['app'])
+	x11(ks)
+#	ks.head.gfx = 'graphical'
+#	ks.head.startx = ' --startxonboot'
+	ks.pkgs.todo.extend(['dev', 'srv', 'app'])
 
 def kde(ks):
 	app(ks)
@@ -87,8 +89,8 @@ def win(ks):
 
 items = {}
 
-for t in ('core', 'base', 'x11', 'dev',
-	'srv', 'kde', 'gno', 'win'):
+for t in (	'core', 'base', 'x11', 'dev',
+		'srv',  'kde',  'gno', 'win'):
 	items[t] = eval(t)
 
 #################################################################

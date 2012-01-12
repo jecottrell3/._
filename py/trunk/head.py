@@ -17,8 +17,8 @@ class Head:
 	media	= 'dvd'
 	disk	= 'sda'					# sdb,sda for USB
 	resq	= 1
-	home	= 2
-	conf	= 3
+	boot	= 2
+	home	= 3
 	order	= None					# sdb,sda for USB
 	isopart = None
 	isopath	= '/OS/VER/ARCH/MEDIA'
@@ -86,7 +86,7 @@ class Head:
 			'firewall --enabled --port=22:tcp',
 			'authconfig --enableshadow --enablemd5' +
 				  ' --enablelocauthorize ' + self.auth,
-			'selinux --disabled',
+			'selinux --permissive',
 			'firstboot --disabled',
 			'timezone %s America/New_York' % self.utc,
 			'bootloader --location=partition --driveorder=' + self.order,

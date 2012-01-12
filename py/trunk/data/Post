@@ -2,21 +2,22 @@
 : :: BEG Post ::
 : ::::::::::::::
 
-mkdir -p /svn /resq /vfat /conf
+mkdir -p /svn /grub
 
 : :::::::::::::::::::::::::
 : :: Link Important Dirs ::
 : ::  just RBJ home dir  ::
 : :::::::::::::::::::::::::
 
-for dir in jcottrell
-do
-	case $PART in
-	(LV)	ln -s ../boot/$dir /home;; # P2 is /boot, LV is /home
-	(?H)	ln -s      ../$dir /home;; # P2 is /,     P2 is /home
-	(??)	ln -s ../home/$dir /boot;; # P2 is /home, P? is /boot
-	esac
-done
+# OBSOLETE: RBJ now in /home which is always P3
+# OBSOLETE:	for dir in jcottrell
+# OBSOLETE:	do
+# OBSOLETE:		case $PART in
+# OBSOLETE:	(LV)	ln -s ../boot/$dir /home;; # P2 is /boot, LV is /home
+# OBSOLETE:	(?H)	ln -s      ../$dir /home;; # P2 is /,     P2 is /home
+# OBSOLETE:	(??)	ln -s ../home/$dir /boot;; # P2 is /home, P? is /boot
+# OBSOLETE:		esac
+# OBSOLETE:	done
 
 ln -s /dev/$HOST /myvg
 
@@ -27,9 +28,10 @@ ln -s /dev/$HOST /myvg
 date
 cd /root
 chmod -R a+rX .
+: Flags: $-
 env | sort -o env.log
 export HOME=/root
-ln -s /boot/jcottrell/._ /root
+ln -s /home/jcottrell/._ /root
 
 export	SSH_AUTH_SOCK=Not-During-Kickstart
 set +x; echo \
@@ -73,7 +75,7 @@ done
 test -f				/usr/sbin/gdm ||
 test -f				/usr//bin/kdm ||
 test -f				/etc/sysconfig/desktop ||
-echo DISPLAYMANAGER=XDM >>	/etc/sysconfig/desktop
+echo 'DISPLAYMANAGER=XDM' >>	/etc/sysconfig/desktop
 
 cd /root
 

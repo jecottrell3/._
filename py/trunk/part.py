@@ -16,10 +16,10 @@ class Part(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name = name
-		root = 'ZRHCV5678901234'.find(name[1])
+		root = 'zRBJe5678901234'.find(name[1])
 		resq = ks.head.resq
+		boot = ks.head.boot
 		home = ks.head.home
-		conf = ks.head.conf
 		ks.prep.part = name
 		ks.prep.vars['part'] += name
 		#items[name](ks, self)
@@ -28,7 +28,7 @@ class Part(object):
 		host = ks.host.name
 		if (name == 'LV'):
 			ks.disk = disk.LVM(dk, ks.host.name, ks.head.ide)
-		else:	ks.disk = disk.ATA(dk, name, root, resq, home, conf)
+		else:	ks.disk = disk.ATA(dk, name, root, resq, boot, home)
 		
 	#########################################################
 	#	Represent -- just comment for the output
@@ -40,14 +40,14 @@ class Part(object):
 #	Host to Partition Table
 #################################################################
 
-h2p = {	'yell': 'LV YH', 'zell': 'LV ZH',		# SEAS 156
-	'grid': 'LV GH', 'kick': 'LV KH',		# SEAS 219
-	'vdi01':'LV VH', 'vdi02':'LV VH', 'vdi03':'LV VH', # SEAS 219
-	'port': 'LV PH', 'blue': 'LV QH', 'book': 'LV JH', # USB
-	'loco': 'LV SH', 'mojo': 'LV',			# HOMERJ LVM
-	'fono': 'DH',    'vodo': 'VH',		 	# HOMERJ fake
-	'yoko': 'TH T5 T6 T7 T8 T9 T0 T1 T2 T3 T4', 	# HOMERJ PART
-	'bogo': 'HH H5 H6 H7 H8 H9 H0 H1 H2 H3 H4', 	# HOMERJ PART
+h2p = {	'yell': 'LV YB', 'zell': 'LV ZB',		# SEAS 156
+	'grid': 'LV GB', 'kick': 'LV KB',		# SEAS 219
+	'vdi01':'LV VB', 'vdi02':'LV VB', 'vdi03':'LV VB', # SEAS 219
+	'port': 'LV PB', 'blue': 'LV QB', 'book': 'LV JB', # USB
+	'loco': 'LV SB', 'mojo': 'LV',			# HOMERJ LVM
+	'fono': 'DB',    'vodo': 'VB',    'jec3': 'LV',	# HOMERJ fake
+	'yoko': 'TB T5 T6 T7 T8 T9 T0 T1 T2 T3 T4', 	# HOMERJ PART
+	'bogo': 'HB H5 H6 H7 H8 H9 H0 H1 H2 H3 H4', 	# HOMERJ PART
 }
 
 #################################################################

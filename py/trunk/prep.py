@@ -4,6 +4,8 @@
 #	Default %pre Script
 #################################################################
 
+NL = '\n'
+
 class Prep(object):
 
 	host = 'HOST'
@@ -38,12 +40,12 @@ class Prep(object):
 		vars = self.vars
 
 		if self.part == 'LV':
-			vars['root'] += self.host + '/' +  self.type
+			vars['root'] += self.host + '/' +  self.lv
 		else:	vars['root'] += self.root
 
-		return  '\n'.join([
+		return  NL.join([
 			'cat > /tmp/ks.env <<EOF',
-			'\n'.join(vars.values()),
+			NL.join(vars.values()),
 			'EOF',
 			'source /tmp/ks.env',
 			####reduce(lambda x,y: x + ('%s\n' % (y, vars[y])),
@@ -66,7 +68,7 @@ class Prep(object):
 	#########################################################
 
 	def __repr__(self):
-		return '\n'.join([
+		return NL.join([
 			'#### BEG Pre ####',
 """
 %pre

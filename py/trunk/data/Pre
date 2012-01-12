@@ -13,7 +13,7 @@ if test -d root
 then	for x in 0 1 2 3 4 5 6 7 8 9
 	do
 		test -d .$x && continue
-		echo Saving into .$x
+		echo === Saving into .$x ===
 		mkdir   .$x
 		mv *    .$x
 		break
@@ -25,7 +25,7 @@ then	for x in 0 1 2 3 4 5 6 7 8 9
 		test -d $x && mv $x ..
 	done
 
-else	echo No Old System Found
+else	echo === No Old System Found ===
 fi
 set -x
 

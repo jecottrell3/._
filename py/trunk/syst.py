@@ -11,11 +11,11 @@ class Syst(object):
 	#########################################################
 
 	name = 'CentOS'
-	vers = '5.6'
+	vers = '5.5'
 #	arch = 'x86_64'		# set by host.py
 #	media= 'dvd'		# set by harddrive
-	tag  = 'cos55'
-	rbj  = 'cos5'
+	tag  = 'ce55'
+	rbj  = 'ce5'
 
 	#########################################################
 	#	Constructor -- switch by System Name
@@ -49,34 +49,53 @@ class Syst(object):
 #	Customize System Object
 #################################################################
 
-def cos55(ks, self):		# DELETE SOON
+def ce55(ks, self):		# DELETE SOON
 	self.name = 'CentOS'
 	self.vers = '5.5'
-	self.rbj  = 'cos5'
+	self.tag  = 'ce55'
+	self.rbj  = 'ce5'
 	ks.pkgs.pctend = ks.prep.pctend = ks.post.pctend = '#end'
 	ks.head.ide = 'hd'
 
-def cos56(ks, self):
-	self.name = 'CentOS'
+def ce56(ks, self):
+	ce55(ks,self)
 	self.vers = '5.6'
-	self.rbj  = 'cos5'
-	ks.pkgs.pctend = ks.prep.pctend = ks.post.pctend = '#end'
-	ks.head.ide = 'hd'
+	self.tag  = 'ce56'
 
-def sci55(ks, self):		# DELETE SOON
-	cos55(ks, self)
+def ce57(ks, self):
+	ce55(ks,self)
+	self.vers = '5.7'
+	self.tag  = 'ce57'
+
+def sl55(ks, self):		# DELETE SOON
+	ce55(ks, self)
 	self.name = 'Scientific'
-	self.rbj  = 'sci5'
+	self.tag  = 'sl55'
+	self.rbj  = 'sl5'
 
-def sci56(ks, self):
-	cos56(ks, self)
-	self.name = 'Scientific'
-	self.rbj  = 'sci5'
+def sl56(ks, self):
+	sl55(ks, self)
+	self.vers = '5.6'
+	self.tag  = 'sl56'
 
-def cos60(ks, self):
-	cos56(ks, self)
-	self.vers = '6.0'
-	self.rbj  = 'cos6'
+def sl57(ks, self):
+	sl55(ks, self)
+	self.vers = '5.7'
+	self.tag  = 'sl57'
+
+def rh55(ks, self):
+	ce55(ks, self)
+	self.name = 'RedHat'
+	self.tag  = 'rh55'
+	self.rbj  = 'rh5'
+
+def ce60(ks, self):
+	ce56(ks, self)
+	self.vers = '6.2'
+	self.tag  = 'ce62'
+	self.rbj  = 'ce6'
+
+	if ks.nets.uther: ks.nets.ether = ks.nets.uther
 	ks.pkgs.pctend = ks.prep.pctend = ks.post.pctend = '%end'
 	ks.head.monitor = ''
 
@@ -86,21 +105,35 @@ def cos60(ks, self):
 	if ks.head.disk[0] =='h':
 	   ks.head.disk    = 's' + ks.head.disk[1:]	# hd becomes sd
 
-def sci60(ks, self):
-	cos60(ks, self)
+def ce62(ks, self):
+	ce60(ks, self)
+	self.vers = '6.2'
+	self.tag  = 'ce62'
+
+def sl60(ks, self):
+	ce60(ks, self)
 	self.name = 'Scientific'
-	self.rbj  = 'sci6'
+	self.tag  = 'sl60'
+	self.rbj  = 'sl6'
 
 def rh60(ks, self):
-	cos60(ks, self)
+	ce60(ks, self)
 	self.name = 'RedHat'
+	self.tag  = 'rh60'
 	self.rbj  = 'rh6'
 
 def fc15(ks, self):
-	cos60(ks, self)
+	ce60(ks, self)
 	self.name = 'Fedora'
 	self.vers = '15'
+	self.tag  = 'fc15'
 	self.rbj  = 'fc15'
+
+def fc16(ks, self):
+	fc15(ks, self)
+	self.vers = '16'
+	self.tag  = 'fc16'
+	self.rbj  = 'fc16'
 
 #################################################################
 #	Switch Table
@@ -108,7 +141,9 @@ def fc15(ks, self):
 
 items = {}
 
-for s in ( 'cos55', 'cos56', 'sci55', 'fc15', 'sci60', 'rh60' ):
+for s in (	'ce55', 'ce56', 'ce57', 'ce62',
+		'sl55', 'sl56', 'sl57', 'sl60',
+		'fc15', 'fc16', 'rh55', 'rh60'):
 	items[s] = eval(s)
 
 #################################################################
@@ -121,9 +156,9 @@ if __name__ == '__main__':
 	ks.head = ks.pkgs = ks.prep = ks.post = dummy()
 	ks.head.disk = 'xdc'
 
-	print Syst(ks, 'cos55')
+	print Syst(ks, 'ce55')
 	print Syst(ks, 'fc15')
-	print Syst(ks, 'sci60')
+	print Syst(ks, 'sl60')
 	print Syst(ks, 'rh60')
 
 #################################################################

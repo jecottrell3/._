@@ -4,8 +4,9 @@
 #	Generic Disk Object
 #################################################################
 
+SP = ' '; NL = '\n'
 EXT3	= '--fstype ext3'
-VFAT	= '--fstype vfat'
+VFAT	= '--fstype vfat'		# consider deleting
 ONPART	= '--noformat --onpart'
 EXISTING= '--noformat --useexisting'
 VFOPTS	= '--fsoptions=uid=654,gid=654,shortname=mixed,noauto'
@@ -32,26 +33,28 @@ class LVM(Disk):
 		self.ide  = ide
 
 	def __repr__(self):
+
 		disk = self.disk
 		resq = disk + '1'
 		boot = disk + '2'
+		home = disk + '3'
 		
 		if self.vg == 'mojo':
-			phys = disk + '3'; conf = self.ide + 'a4'
+			phys = disk + '3'; home = self.ide + 'b4'
 		else:
-			conf = disk + '3'; phys = disk + '4'
+			phys = disk + '4'; home = disk + '3'
 
-		resq = ' '.join(['part /resq', EXT3, ONPART, resq, NOAUTO])
-		boot = ' '.join(['part /boot', EXT3, ONPART, boot, NOATIME])
-		conf = ' '.join(['part /conf', EXT3, ONPART, conf, NOAUTO])
+		resq = SP.join(['part /resq', EXT3, ONPART, resq, NOATIME])
+		boot = SP.join(['part /boot', EXT3, ONPART, boot, NOATIME])
+		home = SP.join(['part /home', EXT3, ONPART, home, NOATIME])
 
-		pv   = ' '.join(['part pv                 ', ONPART, phys])
-		vg   = ' '.join(['volgroup', '%15s' % self.vg, EXISTING, 'pv'])
-		root = ' '.join(['logvol /  ', EXT3, EXISTING, NOATIME,
+		pv   = SP.join(['part pv.0               ', ONPART, phys])
+		vg   = SP.join(['volgroup', '%15s'%self.vg, EXISTING, 'pv.0'])
+		root = SP.join(['logvol /  ', EXT3, EXISTING, NOATIME,
 								self.VGLV()])
-		return '\n'.join([
+		return NL.join([
 			'#### BEG Disk ' + self.vg + ' ####',
-			resq, boot, conf, pv, vg, root,
+			resq, boot, home, pv, vg, root,
 			'#### END Disk ' + self.vg + ' ####',
 			''
 		])
@@ -62,34 +65,34 @@ class LVM(Disk):
 
 class ATA(Disk):
 
-	def __init__(self, disk, name, root=2, resq=1, home=2, conf=3):
+	def __init__(self, disk, name, root=2, resq=1, grub=2, home=3):
 		self.name = name
 		self.disk = disk
 		self.root = root
 		self.resq = resq
+		self.grub = grub
 		self.home = home
-		self.conf = conf
 
 	def __repr__(self):
 		disk = self.disk
 		root = disk + `self.root`
 		resq = disk + `self.resq`
 		home = disk + `self.home`
-		conf = disk + `abs(self.conf)`
+		grub = disk + `abs(self.grub)`
 
-		root = ' '.join(['part /    ', EXT3, ONPART, root, NOATIME])
-		resq = ' '.join(['part /resq', EXT3, ONPART, resq, NOAUTO])
+		root = SP.join(['part /    ', EXT3, ONPART, root, NOATIME])
+		resq = SP.join(['part /resq', EXT3, ONPART, resq, NOAUTO])
 
-		if self.root == self.home: home = ''
-		else:	home = ' '.join(['part /home',EXT3,ONPART,home,NOATIME])
+		if self.root == self.grub: grub = ''
+		else:	grub = SP.join(['part /grub',EXT3,ONPART,grub,NOATIME])
 
-		if self.conf > 0:
-			conf = ' '.join(['part /conf',EXT3,ONPART,conf,NOAUTO])
-		else:	conf = ' '.join(['part /vfat',VFAT,ONPART,conf,VFOPTS])
+		if self.home > 0:
+			home = SP.join(['part /home',EXT3,ONPART,home,NOAUTO])
+		else:	home = SP.join(['part /home',VFAT,ONPART,home,VFOPTS])
 
-		return '\n'.join([
+		return NL.join([
 			'#### BEG Disk ' + self.name + ' ####',
-			root, resq, home, conf,
+			root, resq, grub, home,
 			'#### END Disk ' + self.name + ' ####',
 			''
 		])
@@ -99,8 +102,11 @@ class ATA(Disk):
 #################################################################
 
 if __name__ == '__main__':
-	print LVM('hda', 'kick')
-	print ATA('sdb', 'QH')
-	print ATA('zdc', 'T5', 5)
+	print LVM('md' , 'mojo', 'hd')
+	print LVM('hda', 'kick', 'HDA')
+	print LVM('sda', 'jec3', 'SDA')
+	print ATA('sdb', 'QB', 2, 1, 2, 3)
+	print ATA('ydc', 'T5', 5, 1, 2, 3)
+	print ATA('zdc', 'T6', 6, 1, 2,-3)
 
 #################################################################
