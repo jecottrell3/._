@@ -7,7 +7,7 @@
 class Syst(object):
 
 	#########################################################
-	#	Defaults -- use CentOS 5.6 64-Bit
+	#	Defaults -- use CentOS 5.5
 	#########################################################
 
 	name = 'CentOS'
@@ -24,12 +24,13 @@ class Syst(object):
 	def __init__(self, ks, tag):
 		self.ks = ks
 		self.tag = tag
+		self.rbj = tag			# redundant
 		ks.prep.vars['syst'] += tag
 		items[tag](ks, self)		# customize
 		ks.head.name = self.name	# export
 		ks.head.vers = self.vers
 		ks.pkgs.syst = tag
-		ks.post.rbj  = self.rbj 
+		ks.post.rbj  = self.tag		# was self.rbj
 		
 	#########################################################
 	#	Represent -- just comment for the output
@@ -151,10 +152,14 @@ for s in (	'ce55', 'ce56', 'ce57', 'ce62',
 #################################################################
 
 if __name__ == '__main__':
-	class dummy: pass
-	ks      = dummy()
-	ks.head = ks.pkgs = ks.prep = ks.post = dummy()
+	class Dummy(object): pass
+	ks      = Dummy()
+	ks.head = ks.pkgs = ks.prep = ks.post = ks.nets = Dummy()
+	ks.head.isopart = 'z9'
 	ks.head.disk = 'xdc'
+	ks.prep.vars = {}
+	ks.prep.vars['syst'] = ''
+	ks.nets.uther = 'pendragon'
 
 	print Syst(ks, 'ce55')
 	print Syst(ks, 'fc15')
