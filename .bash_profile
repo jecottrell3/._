@@ -51,8 +51,9 @@ done
 #################################################################
 
 case "$SSH_AUTH_SOCK" in
-('')	eval $(ssh-agent) && ssh-add;;
+('')	eval $(ssh-agent);;
 esac
+ssh-add -l > /dev/null || ssh-add
 
 #xport	ID=$(PATH=/usr/local/bin:$PATH id -u) # BAD for Solaris
 export	ID=$(id | sed 's/).*//;s/.*(//')
