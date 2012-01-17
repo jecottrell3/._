@@ -1,0 +1,36 @@
+# OBSOLETE but Useful Templates
+
+default=saved
+timeout=5
+#plashimage=(hd0,0)/grub/splash.xpm.gz
+splashimage=(hd0,0)/boot/splash/xpm.hlm
+
+title Z0 TOP
+	root (hd0)
+	chainloader +1
+
+title MENU Install CentOS 5.5
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/ce55.inst
+
+title MENU Install CentOS 6.2
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/ce62.inst
+
+title MENU Install Scientific Linux 5.5
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/sl55.inst
+
+title MENU Install Fedora 16
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/fc16.inst
+
+title MENU Install Red Hat 6.0
+	root (hd0,0)
+	savedefault
+	configfile /boot/grub/rh60.inst
+
