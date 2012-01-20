@@ -84,10 +84,11 @@ def sl57(ks, self):
 	self.vers = '5.7'
 	self.tag  = 'sl57'
 
-def rh55(ks, self):
+def rh57(ks, self):
 	ce55(ks, self)
 	self.name = 'RedHat'
-	self.tag  = 'rh55'
+	self.vers = '5.7'
+	self.tag  = 'rh57'
 	self.rbj  = 'rh5'
 
 def ce60(ks, self):
@@ -144,7 +145,7 @@ items = {}
 
 for s in (	'ce55', 'ce56', 'ce57', 'ce62',
 		'sl55', 'sl56', 'sl57', 'sl60',
-		'fc15', 'fc16', 'rh55', 'rh60'):
+		'fc15', 'fc16', 'rh57', 'rh60'):
 	items[s] = eval(s)
 
 #################################################################

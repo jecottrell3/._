@@ -16,6 +16,7 @@ class Head:
 	arch	= 'x86_64'
 	media	= 'dvd'
 	disk	= 'sda'					# sdb,sda for USB
+	key 	= '--skip'
 	resq	= 1
 	boot	= 2
 	home	= 3
@@ -79,6 +80,7 @@ class Head:
 			'install',
 			self.method(self),
 			self.gfx,
+			'key ' + self.key,
 			'lang en_US.UTF-8',
 			'keyboard us',
 			self.xconfig(),

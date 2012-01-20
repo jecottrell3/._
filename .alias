@@ -13,20 +13,20 @@ done
 #	SHELL ALIASES
 #################################################################
 
-alias	a=alias ua=unalias us=unset
+alias	a=alias		ua=unalias	us=unset
 alias	ag='alias | egrep'
 alias	eg='env   | egrep'
 alias	e=echo		en='echo -n'
 alias	h='fc -l'	r='fc -s'
-alias	   path='echo $PATH    | tr : \\012'
+alias	   path='echo    $PATH | tr : \\012'
 alias	manpath='echo $MANPATH | tr : \\012'
-alias	t=type
 alias	t=type			fn='declare -f'
 alias	vk='vi ~/.ssh/known_hosts'
-alias	vp='vi ~/.bash_profile; source ~/.bash_profile'
-alias	vb='vi ~/.bashrc;       source ~/.bashrc'
-alias	va='vi ~/.alias;        source ~/.alias'
-alias	vc='vi ~/.complete;     source ~/.complete'
+alias	vp='vi ~/.bash_profile;	source ~/.bash_profile'
+alias	vb='vi ~/.bashrc;	source ~/.bashrc'
+alias	va='vi ~/.alias;	source ~/.alias'
+alias	vc='vi ~/.complete;	source ~/.complete'
+alias	vr='vi ~/.prompt;	source ~/.prompt'
 alias	vf='sudo vi /etc/fstab'	vs='su -c visudo'
 alias	x='for x in'
 alias	y='fg %-'
@@ -102,7 +102,8 @@ alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 
-alias	ud='diff -u'	dr='diff -r'	dy='diff -y'
+alias	ud='diff -u'		dr='diff -r'
+alias	ur='diff -ur'		dy='diff -y'
 alias	rax='rsync  -vax'	 rs='rsync -C'
 alias	vax='rsync -Cvax'	pax='rsync -CPax'
 
