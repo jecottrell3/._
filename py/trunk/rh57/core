@@ -32,7 +32,7 @@
 #m	-redhat-logos
 #m	-redhat-release
 #m	-redhat-release-notes
-#m	-rootfiles
+-rootfiles
 #m	-rpm
 #m	-selinux-policy-targeted
 #m	-setools
@@ -50,6 +50,6 @@
 #d	-udftools
 
 #o	 ecryptfs-utils
-#o	 rsyslog
+rsyslog
 #o	 sgpio
 

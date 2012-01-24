@@ -41,14 +41,14 @@
 -conman
 -coolkey
 #d	-cpuspeed
-#d	-crash
-#d	-cryptsetup-luks
+-crash
+-cryptsetup-luks
 #d	-dhclient
 -dhcpv6-client
 #d	-dmraid
 #d	-dos2unix
 #d	-dosfstools
-#d	-dump
+-dump
 #d	-eject
 #d	-fbset
 #d	-finger
@@ -70,8 +70,8 @@
 #d	-man-pages
 #d	-man-pages-overrides
 #d	-mcelog
-#d	-mdadm
-#d	-mgetty
+-mdadm
+-mgetty
 #d	-microcode_ctl
 -mkbootdisk
 #d	-mlocate
@@ -83,14 +83,14 @@
 #d	-nfs-utils
 #d	-nss-tools
 #d	-nss_db
-#d	-nss_ldap
+-nss_ldap
 -numactl
 #d	-openssh-clients
 #d	-openssh-server
 #d	-pam_ccreds
 #d	-pam_krb5
 #d	-pam_passwdqc
--pam_pkcs11
+#d	-pam_pkcs11
 #d	-pam_smb
 #d	-pax
 -pcmciautils
@@ -100,12 +100,12 @@
 #d	-rdate
 #d	-rdist
 #d	-readahead
-#d	-redhat-lsb
+-redhat-lsb
 #d	-rhn-check
 #d	-rhn-setup
 -rng-utils
 -rp-pppoe
-#d	-rsh
+-rsh
 #d	-rsync
 #d	-sendmail
 #d	-setarch
@@ -141,7 +141,7 @@
 #d	-yum-updatesd
 #d	-zip
 
-#o	 aide
+aide
 #o	 authd
 #o	 bridge-utils
 #o	 brltty
@@ -161,16 +161,16 @@ hardlink
 #o	 hfsutils
 #o	 iscsi-initiator-utils
 #o	 kexec-tools
-#o	 keyutils
+keyutils
 #o	 libhbaapi
 #o	 libhbalinux
 #o	 nfs4-acl-tools
 #o	 openCryptoki
-#o	 openscap
-#o	 openswan
+openscap
+openswan
 #o	 squashfs-tools
 #o	 sssd
-#o	 star
+star
 #o	 tpm-tools
 #o	 trousers
 #o	 x86info
