@@ -1,0 +1,20 @@
+test -f .debug && echo .domain
+# $Id$
+#################################################################
+#	Do Domain Specific Customization
+#################################################################
+
+  HOST=$(hostname -s)
+DOMAIN=$(hostname -d)
+  FQDN=$(hostname -f)
+    IP=$(hostname -i)
+
+export H=$HOST D=$DOMAIN
+
+case $FQDN in
+(*.homerj)		: homerj;;
+(*.msc.fema.gov)	: zai;;
+(*)	: not special;;
+esac
+
+#################################################################

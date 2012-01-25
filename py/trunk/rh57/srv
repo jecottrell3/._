@@ -1,0 +1,360 @@
+################################################################
+-@authoring-and-publishing
+################################################################
+
+#d	-docbook-slides
+#d	-docbook-style-dsssl
+#d	-docbook-style-xsl
+#d	-docbook-utils
+#d	-docbook-utils-pdf
+#d	-linuxdoc-tools
+#d	-tetex
+#d	-xhtml1-dtds
+#d	-xmlto
+#o	 tetex-xdvi
+
+################################################################
+-@admin-tools
+################################################################
+
+#d	-authconfig-gtk
+#d	-pirut
+#d	-sabayon
+#d	-setroubleshoot
+#d	-system-config-date
+#d	-system-config-kdump
+#d	-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-lvm
+#d	-system-config-netboot
+#d	-system-config-network
+#d	-system-config-rootpassword
+#d	-system-config-soundcard
+#d	-system-config-users
+#o	 system-config-kickstart
+#o	 tunctl
+
+################################################################
+-@ftp-server
+################################################################
+
+#m	-vsftpd
+#o	 xferstats
+
+################################################################
+-@gnome-desktop
+################################################################
+
+#m	-control-center
+#m	-gnome-applets
+#m	-gnome-panel
+#m	-gnome-session
+#m	-gnome-terminal
+#m	-metacity
+#m	-nautilus
+#m	-yelp
+#d	-NetworkManager-gnome
+#d	-alacarte
+#d	-at-spi
+#d	-desktop-printing
+#d	-dvd+rw-tools
+#d	-eog
+#d	-esc
+#d	-evince
+#d	-file-roller
+#d	-gedit
+#d	-gnome-audio
+#d	-gnome-backgrounds
+#d	-gnome-mag
+#d	-gnome-netstatus
+#d	-gnome-power-manager
+#d	-gnome-screensaver
+#d	-gnome-system-monitor
+#d	-gnome-themes
+#d	-gnome-user-docs
+#d	-gnome-utils
+#d	-gnome-vfs2-smb
+#d	-gnome-volume-manager
+#d	-gok
+#d	-gtk2-engines
+#d	-gtkhtml3
+#d	-im-chooser
+#d	-nautilus-cd-burner
+#d	-nautilus-open-terminal
+#d	-notification-daemon
+#d	-orca
+#d	-sabayon-apply
+#d	-vino
+#o	 dasher
+#o	 gconf-editor
+#o	 gnome-bluetooth
+#o	 gnome-keyring-manager
+#o	 hal-gnome
+#o	 pinentry-gtk
+
+################################################################
+-@graphical-internet
+################################################################
+
+#d	-firefox
+#d	-nspluginwrapper
+#o	 gftp
+#o	 kdewebdev
+#o	 xchat
+
+################################################################
+-@graphics
+################################################################
+
+#d	-ImageMagick
+#d	-dcraw
+#d	-netpbm-progs
+#d	-sane-frontends
+#d	-xsane
+#o	 agg
+#o	 gimp
+#o	 gimp-data-extras
+#o	 gimp-help
+#o	 libsane-hpaio
+#o	 xfig
+
+################################################################
+-@java
+################################################################
+
+#m	-java-1.4.2-gcj-compat
+#m	-libgcj
+
+################################################################
+-@java-development
+################################################################
+
+#m	-java-1.4.2-gcj-compat-devel
+#d	-bsh
+#d	-bsh-javadoc
+#d	-bsh-manual
+#d	-java-1.4.2-gcj-compat-src
+#d	-xmlrpc
+#d	-xmlrpc-javadoc
+#o	 bsh-demo
+
+################################################################
+-@kde-desktop
+################################################################
+
+#m	-arts
+#m	-kdebase
+#d	-desktop-printing
+#d	-im-chooser
+#d	-kdeaccessibility
+#d	-kdeartwork
+#d	-kdenetwork
+#d	-kdeutils
+#o	 kdeadmin
+#o	 pinentry-qt
+
+################################################################
+-@kvm
+################################################################
+
+#m	-etherboot-zroms
+#m	-etherboot-zroms-kvm
+#m	-kmod-kvm
+#m	-kvm
+#m	-kvm-qemu-img
+#d	-Virtualization-en-US
+#d	-libvirt
+#d	-virt-manager
+#d	-virt-viewer
+#o	 etherboot-pxes
+#o	 etherboot-roms
+#o	 etherboot-roms-kvm
+#o	 gpxe-roms-qemu
+#o	 iasl
+#o	 kvm-tools
+#o	 libcmpiutil
+#o	 libvirt-cim
+#o	 qspice
+#o	 qspice-libs-devel
+
+################################################################
+-@mail-server
+################################################################
+
+#d	-cyrus-sasl
+#d	-dovecot
+#d	-sendmail
+#d	-sendmail-cf
+#d	-spamassassin
+#o	 cyrus-imapd
+#o	 cyrus-imapd-perl
+#o	 exim
+#o	 exim-doc
+#o	 mailman
+#o	 postfix
+#o	 squirrelmail
+
+################################################################
+-@mysql
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-libdbi-dbd-mysql
+#d	-mysql-connector-odbc
+#d	-mysql-server
+#d	-perl-DBD-MySQL
+#d	-unixODBC
+#o	 mod_auth_mysql
+#o	 mysql-bench
+#o	 mysql-devel
+#o	 php-mysql
+#o	 qt-MySQL
+
+################################################################
+-@network-server
+################################################################
+
+#d	-cyrus-sasl
+#o	 amanda-server
+#o	 dhcp
+#o	 dhcpv6
+#o	 dnsmasq
+#o	 freeradius
+#o	 krb5-server
+#o	 openldap-servers
+#o	 openldap-servers-overlays
+#o	 privoxy
+#o	 quagga
+#o	 radvd
+#o	 vnc-server
+#o	 ypserv
+
+################################################################
+-@office
+################################################################
+
+#d	-evince
+#o	 tetex-xdvi
+
+################################################################
+-@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+#d	-a2ps
+#d	-enscript
+#d	-hal-cups-utils
+#d	-hplip
+#d	-samba-client
+#d	-system-config-printer
+#o	 bluez-utils-cups
+#o	 hplip3
+#o	 wacomexpresskeys
+
+################################################################
+-@server-cfg
+################################################################
+
+#d	-system-config-httpd
+#d	-system-config-nfs
+#d	-system-config-printer
+#d	-system-config-samba
+#d	-system-config-securitylevel
+#d	-system-config-services
+#o	 system-config-bind
+#o	 system-config-boot
+#o	 system-switch-mail-gnome
+
+################################################################
+-@smb-server
+################################################################
+
+#m	-samba
+#m	-samba-client
+#d	-system-config-samba
+
+################################################################
+-@sound-and-video
+################################################################
+
+#m	-alsa-utils
+#m	-sox
+#m	-vorbis-tools
+#d	-cdda2wav
+#d	-cdparanoia
+#d	-cdrdao
+#d	-cdrecord
+#d	-mkisofs
+#d	-sound-juicer
+#o	 dvgrab
+#o	 mikmod
+#o	 xcdroast
+
+################################################################
+-@sql-server
+################################################################
+
+#m	-postgresql
+#d	-perl-DBD-Pg
+#d	-postgresql-python
+#d	-postgresql-server
+#d	-rhdb-utils
+#d	-unixODBC
+#o	 libdbi-dbd-pgsql
+#o	 postgresql-contrib
+#o	 postgresql-docs
+#o	 postgresql-jdbc
+#o	 postgresql-odbc
+#o	 postgresql-pl
+#o	 postgresql-tcl
+#o	 postgresql-test
+#o	 qt-ODBC
+#o	 unixODBC-kde
+
+################################################################
+-@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-distcache
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_python
+#d	-mod_ssl
+#d	-php
+#d	-php-ldap
+#d	-squid
+#d	-tux
+#d	-webalizer
+#o	 mod_auth_kerb
+#o	 mod_auth_mysql
+#o	 mod_auth_pgsql
+#o	 mod_authz_ldap
+#o	 mod_nss
+#o	 mod_revocator
+#o	 php-mysql
+#o	 php-odbc
+#o	 php-pear
+#o	 php-pgsql
+#o	 tomcat5
+#o	 tomcat5-admin-webapps
+#o	 tomcat5-webapps
+
+################################################################
+-@xen
+################################################################
+
+#m	-kernel-xen
+#m	-xen
+#d	-Virtualization-en-US
+#d	-gnome-applet-vm
+#d	-libvirt
+#d	-virt-manager
+#d	-virt-viewer
+#o	 libcmpiutil
+#o	 libvirt-cim
+#o	 perl-Sys-Virt
+

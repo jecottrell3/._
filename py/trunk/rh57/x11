@@ -1,40 +1,40 @@
 ################################################################
--@base-x
+@base-x
 ################################################################
 
--bitmap-fonts
--desktop-backgrounds-basic
--xorg-x11-drivers
--xorg-x11-fonts-100dpi
-	-xorg-x11-fonts-75dpi
--xorg-x11-fonts-ISO8859-1-100dpi
-	-xorg-x11-fonts-ISO8859-1-75dpi
--xorg-x11-fonts-Type1
--xorg-x11-fonts-misc
--xorg-x11-fonts-truetype
--xorg-x11-server-Xorg
--xorg-x11-xauth
--xorg-x11-xfs
--xorg-x11-xinit
-#d
--authconfig-gtk
--bitstream-vera-fonts
--dejavu-lgc-fonts
+#m	-bitmap-fonts
+#m	-desktop-backgrounds-basic
+#m	-xorg-x11-drivers
+#m	-xorg-x11-fonts-100dpi
+-xorg-x11-fonts-75dpi
+#m	-xorg-x11-fonts-ISO8859-1-100dpi
+-xorg-x11-fonts-ISO8859-1-75dpi
+#m	-xorg-x11-fonts-Type1
+#m	-xorg-x11-fonts-misc
+#m	-xorg-x11-fonts-truetype
+#m	-xorg-x11-server-Xorg
+#m	-xorg-x11-xauth
+#m	-xorg-x11-xfs
+#m	-xorg-x11-xinit
+
+#d	-authconfig-gtk
+#d	-bitstream-vera-fonts
+#d	-dejavu-lgc-fonts
 -firstboot
--freeglut
+#d	-freeglut
 -gdm
--glx-utils
-	-krb5-auth-dialog
--liberation-fonts
-	-linuxwacom
--openssh-askpass
+#d	-glx-utils
+-krb5-auth-dialog
+#d	-liberation-fonts
+-linuxwacom
+#d	-openssh-askpass
 -pirut
 -policycoreutils-gui
--rhgb
+#d	-rhgb
 -rhn-setup-gnome
 -subscription-manager-firstboot
 -subscription-manager-gnome
-	-synaptics
+-synaptics
 -system-config-date
 -system-config-display
 -system-config-network
@@ -42,20 +42,20 @@
 -system-config-services
 -system-config-soundcard
 -system-config-users
--vnc-server
-	-wdaemon
--xorg-x11-apps
--xorg-x11-twm
--xterm
+#d	-vnc-server
+-wdaemon
+#d	-xorg-x11-apps
+#d	-xorg-x11-twm
+#d	-xterm
 
-#o	 libpciaccess
-#o	 switchdesk
-#o	 xorg-x11-resutils
+libpciaccess
+switchdesk
+xorg-x11-resutils
 #o	 xorg-x11-server-Xnest
 #o	 xorg-x11-server-Xvfb
-#o	 xorg-x11-utils
-#o	 xorg-x11-xdm
-#o	 xorg-x11-xfs-utils
-#o	 xorg-x11-xfwp
-#o	 xorg-x11-xsm
+xorg-x11-utils
+xorg-x11-xdm
+xorg-x11-xfs-utils
+xorg-x11-xfwp
+xorg-x11-xsm
 

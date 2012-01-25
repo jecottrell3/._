@@ -1,5 +1,5 @@
 all:		gen
-install:	copy
+install:	gen copy
 
 ks:
 	mkdir ks
@@ -7,8 +7,8 @@ ks:
 gen:	ks
 	./kick.py
 
-copy:	gen
-	rsync -vax ks /home
+copy:
+	rsync -Crvp ks /home
 
 clean:
 	rm -f ks/*

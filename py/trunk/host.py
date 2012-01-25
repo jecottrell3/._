@@ -149,9 +149,12 @@ def vodo(ks, self): bogo(ks, self, 11)	# Movie Windows
 
 items = {}
 
-for h in ('port', 'blue', 'book', 'yell', 'zell', 'kick', 'grid',
-	  'loco', 'yoko', 'bogo', 'mojo', 'fono', 'vodo', 'jec3',
-	  'vdi01', 'vdi02', 'vdi03',
+for h in ('port', 'blue', 'book',
+	# 'yell', 'zell', 'kick', 'grid',
+	  'loco', 'yoko', 'bogo', 'mojo', 
+	# 'fono', 'vodo',
+	  'jec3',
+	# 'vdi01', 'vdi02', 'vdi03',
 	  ):
 	items[h] = eval(h)
 
