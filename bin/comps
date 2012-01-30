@@ -24,27 +24,13 @@ $VER='5.5';
 
 $banner = '#' x 64;
 
-#$xml = $ARGV[0] || "comps.xml";
+$XML = ".xml$ARGV[0]";
+$RPM = ".rpm$ARGV[0]";
 
-#($dir = $xml) =~ s/\.xml$//;	# nuke suffix
-#($xml = $dir) =~ s/$/.xml/;	# add  suffix
-#($pkg = $dir) =~ s/$/.pkg/;	# add  suffix
-
-#warn("$dir, $xml, $pkg\n");	# DEBUG
-
-# $dir =~ s%.*/%%;
-# $dir =~ s/\.xml$//;
-# $repo = $ARGV[1] || "/repo/$DIST/$VER/i386/$DIST";
-
-#-d $dir || mkdir($dir) or die;
-
-#@xml = stat $xml;
-#warn("$xml @xml\n");		# DEBUG
-
-$rpm =    -d '.rpm'   or warn("No .rpm directory\n");
-open(STDIN, "<.xml")  or die("Missing .xml file\n");
-open(LANG , ">.lang") or die;
-open(LIST , ">.list") or die;
+$rpm =    -d "$RPM"   or warn("No .rpm directory\n");
+open(STDIN, "<$XML")  or die("Missing $XML file\n");
+open(LANG , ">>.lang") or die;
+open(LIST , ">>.list") or die;
 
 sub id;
 sub lang;
@@ -128,8 +114,8 @@ sub splat
 	}
 
 	if ($norm) {
-		open(NORM, ">$M") or
-	die(   "open(NORM,  >$M ): $!\n");
+		open(NORM, ">>$M") or
+	die(   "open(NORM,  >>$M ): $!\n");
 		select NORM;
 	} else {
 		select LANG;
@@ -140,7 +126,7 @@ sub splat
 	print("$banner\n\n");
 
 	map	# existance test
-		{ $X{$_} = $rpm ? (<.rpm/$_-*.rpm>)[0] ? '' : 'x' : 'q'; }
+		{ $X{$_} = $rpm ? (<$RPM/$_-*.rpm>)[0] ? '' : 'x' : 'q'; }
 		keys(%M), keys(%D), keys(%O); # /
 
 	map { print("#m$X{$_}\t-$_\n"); } sort(keys(%M));
@@ -154,7 +140,7 @@ sub splat
 
 	select LIST;
 	printf "\nmkdir -p .$M\n";
-	$QILP = "rpm -qilp .rpm/%s-[0-9]*.rpm > .$M/%s%s\n";
+	$QILP = "rpm -qilp $RPM/%s-[0-9]*.rpm > .$M/%s%s\n";
 	print(": Mandatory\n")		if %M; $TYPE='+';
 	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%M));
 	print(": Default\n")		if %D; $TYPE=',';
