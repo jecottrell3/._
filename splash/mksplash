@@ -1,27 +1,31 @@
 #! /usr/bin/perl
 
+$splash = shift || 'splash';
+$in = "$splash.xpm";
+
 sub fixline
 {
 	local($r, $g, $b) = @_;
 	local($l, $m, $h);
-	return unless /^(". c #)(..)(..)(..)(".*)$/;
-warn("args: $r, $g, $b, $_");
+	return unless /^(".\sc #)(..)(..)(..)(".*)$/;
+# warn("args: $r, $g, $b, $_");
 	($a, $l, $m, $h, $z) = ($1, $2, $3, $4, $5);
-warn("vars: $a, $l, $m, $h, $z\n");
+# warn("vars: $a, $l, $m, $h, $z\n");
 	eval("\$r=\$$r");
 	eval("\$g=\$$g");
 	eval("\$b=\$$b");
-warn("repl: $r, $g, $b\n");
+# warn("repl: $r, $g, $b\n");
 	$_ = "$a$r$g$b$z\n";
 }
 
-open(STDIN, "<splash.xpm") or die;
+open(STDIN, "<$in") or die;
 
 for $r (qw(l m h)) {
 for $g (qw(l m h)) {
 for $b (qw(l m h)) {
 	$rgb="$r$g$b";
-	open($rgb, ">xpm.$rgb") or die;
+	$out = "$splash.$rgb";
+	open($rgb, ">$out") or die;
 }}}
 
 while ($line = <>) {
