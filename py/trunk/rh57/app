@@ -1,0 +1,164 @@
+policycoreutils-gui
+rhn-setup-gnome
+subscription-manager-firstboot
+subscription-manager-gnome
+################################################################
+@admin-tools
+################################################################
+
+#d	-authconfig-gtk
+#d	-pirut
+#d	-sabayon
+#d	-setroubleshoot
+#d	-system-config-date
+-system-config-kdump
+-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-lvm
+#d	-system-config-netboot
+#d	-system-config-network
+#d	-system-config-rootpassword
+#d	-system-config-soundcard
+#d	-system-config-users
+system-config-kickstart
+#o	 tunctl
+
+################################################################
+@graphical-internet
+################################################################
+
+#d	-firefox
+#d	-nspluginwrapper
+gftp
+#o	 kdewebdev
+xchat
+
+################################################################
+@graphics
+################################################################
+
+#d	-ImageMagick
+-dcraw
+#d	-netpbm-progs
+-sane-frontends
+-xsane
+#o	 agg
+gimp
+gimp-data-extras
+gimp-help
+#o	 libsane-hpaio
+xfig
+
+################################################################
+-@java
+################################################################
+
+#m	-java-1.4.2-gcj-compat
+#m	-libgcj
+
+################################################################
+-@java-development
+################################################################
+
+#m	-java-1.4.2-gcj-compat-devel
+#d	-bsh
+#d	-bsh-javadoc
+#d	-bsh-manual
+#d	-java-1.4.2-gcj-compat-src
+#d	-xmlrpc
+#d	-xmlrpc-javadoc
+#o	 bsh-demo
+
+################################################################
+@kvm
+################################################################
+
+#m	-etherboot-zroms
+#m	-etherboot-zroms-kvm
+#m	-kmod-kvm
+#m	-kvm
+#m	-kvm-qemu-img
+#d	-Virtualization-en-US
+#d	-libvirt
+#d	-virt-manager
+#d	-virt-viewer
+#o	 etherboot-pxes
+#o	 etherboot-roms
+#o	 etherboot-roms-kvm
+#o	 gpxe-roms-qemu
+#o	 iasl
+kvm-tools
+#o	 libcmpiutil
+#o	 libvirt-cim
+qspice
+#o	 qspice-libs-devel
+
+################################################################
+@office
+################################################################
+
+#d	-evince
+#o	 tetex-xdvi
+
+################################################################
+@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+#d	-a2ps
+#d	-enscript
+#d	-hal-cups-utils
+-hplip
+#d	-samba-client
+#d	-system-config-printer
+#o	 bluez-utils-cups
+#o	 hplip3
+#o	 wacomexpresskeys
+
+################################################################
+@server-cfg
+################################################################
+
+#d	-system-config-httpd
+#d	-system-config-nfs
+#d	-system-config-printer
+#d	-system-config-samba
+#d	-system-config-securitylevel
+#d	-system-config-services
+system-config-bind
+#o	 system-config-boot
+system-switch-mail-gnome
+
+################################################################
+@sound-and-video
+################################################################
+
+#m	-alsa-utils
+#m	-sox
+#m	-vorbis-tools
+#d	-cdda2wav
+#d	-cdparanoia
+#d	-cdrdao
+#d	-cdrecord
+#d	-mkisofs
+-sound-juicer
+#o	 dvgrab
+#o	 mikmod
+xcdroast
+
+################################################################
+@xen
+################################################################
+
+#mx	-kernel-xen
+#m	-xen
+#d	-Virtualization-en-US
+-gnome-applet-vm
+#d	-libvirt
+#d	-virt-manager
+#d	-virt-viewer
+#o	 libcmpiutil
+#o	 libvirt-cim
+#o	 perl-Sys-Virt
+

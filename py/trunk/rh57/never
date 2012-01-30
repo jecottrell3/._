@@ -166,61 +166,6 @@
 #d	-joystick
 
 ################################################################
--@gnome-software-development
-################################################################
-
-#m	-GConf2-devel
-#m	-ORBit2-devel
-#m	-atk-devel
-#m	-glib2-devel
-#m	-gnome-vfs2-devel
-#m	-gtk2-devel
-#m	-libbonobo-devel
-#m	-libbonoboui-devel
-#m	-libglade2-devel
-#m	-libgnome-devel
-#m	-libgnomecanvas-devel
-#m	-libgnomeui-devel
-#m	-pango-devel
-#d	-at-spi-devel
-#d	-bug-buddy
-#d	-devhelp
-#d	-eel2-devel
-#d	-evolution-data-server-devel
-#d	-gail-devel
-#d	-glade2
-#d	-gnome-desktop-devel
-#d	-gnome-panel-devel
-#d	-gtk-doc
-#d	-hal-devel
-#d	-libart_lgpl-devel
-#d	-libgnomeprintui22-devel
-#d	-libgtop2-devel
-#d	-pygtk2-devel
-#o	 gob2
-#o	 libgconf-java
-#o	 libglade-java
-#o	 libgnome-java
-#o	 libgtk-java
-
-################################################################
--@kde-software-development
-################################################################
-
-#m	-arts-devel
-#m	-kdelibs-devel
-#m	-qt-devel
-#d	-PyQt-devel
-#d	-kdbg
-#d	-kdebase-devel
-#d	-kdenetwork-devel
-#d	-kdesdk
-#d	-kdeutils-devel
-#d	-kdevelop
-#d	-qt-designer
-#o	 kdesdk-devel
-
-################################################################
 -@legacy-software-development
 ################################################################
 
@@ -276,6 +221,36 @@
 
 #d	-cman
 #d	-gfs2-utils
+
+################################################################
+-@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-distcache
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_python
+#d	-mod_ssl
+#d	-php
+#d	-php-ldap
+#d	-squid
+#d	-tux
+#d	-webalizer
+#o	 mod_auth_kerb
+#o	 mod_auth_mysql
+#o	 mod_auth_pgsql
+#o	 mod_authz_ldap
+#o	 mod_nss
+#o	 mod_revocator
+#o	 php-mysql
+#o	 php-odbc
+#o	 php-pear
+#o	 php-pgsql
+#o	 tomcat5
+#o	 tomcat5-admin-webapps
+#o	 tomcat5-webapps
 
 ################################################################
 -@x-software-development
