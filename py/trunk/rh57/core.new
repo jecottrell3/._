@@ -1,0 +1,54 @@
+rsync
+################################################################
+@core
+################################################################
+
+#m	-SysVinit
+#m	-authconfig
+#m	-basesystem
+#m	-bash
+#m	-coreutils
+#m	-cpio
+#m	-e2fsprogs
+#m	-ed
+#m	-file
+#m	-filesystem
+#m	-glibc
+#m	-hdparm
+#m	-hmaccalc
+#m	-initscripts
+#m	-iproute
+#m	-iputils
+#m	-kbd
+#m	-kudzu
+#m	-libgcc
+-libhugetlbfs
+#m	-libtermcap
+#m	-mkinitrd
+#m	-passwd
+#m	-policycoreutils
+#m	-prelink
+#m	-procps
+#m	-readline
+#m	-redhat-logos
+#m	-redhat-release
+#m	-redhat-release-notes
+#m	-rootfiles
+#m	-rpm
+#m	-selinux-policy-targeted
+#m	-setools
+-setserial
+#m	-setup
+#m	-shadow-utils
+#m	-sysklogd
+#m	-termcap
+#m	-util-linux
+#m	-vim-minimal
+#d	-Deployment_Guide-en-US
+#d	-grub
+#d	-sysfsutils
+#d	-udftools
+#o	 ecryptfs-utils
+#o	 rsyslog
+#o	 sgpio
+
