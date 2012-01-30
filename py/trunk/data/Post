@@ -57,6 +57,7 @@ tmp/.mkrbj
 : :::::::::::::::::::::::::::::::
 
 DIST=/boot/jcottrell/._/dist
+DIST=/home/jcottrell/._/dist
 date
 test  -d    $DIST/. &&
 rsync -Cvrp $DIST/. /

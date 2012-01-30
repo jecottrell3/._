@@ -51,7 +51,7 @@ def x11(ks):
 	base(ks)
 	ks.head.monitor = save
 	ks.head.gfx = 'graphical'
-	ks.head.startx = ' --startxonboot'
+#	ks.head.startx = ' --startxonboot'
 	ks.pkgs.todo.extend(['x11'])
 
 def dev(ks):
@@ -67,8 +67,7 @@ def srv(ks):
 
 def app(ks):	# helper
 	x11(ks)
-#	ks.head.gfx = 'graphical'
-#	ks.head.startx = ' --startxonboot'
+	ks.head.startx = ' --startxonboot'
 	ks.pkgs.todo.extend(['dev', 'srv', 'app'])
 
 def kde(ks):
@@ -78,10 +77,11 @@ def kde(ks):
 def gno(ks):
 	app(ks)
 	ks.pkgs.todo.extend(['gno'])
+	ks.head.gfx = 'text'
 
 def win(ks):
-	kde(ks)
-	ks.pkgs.todo.extend(['gno'])
+	gno(ks)
+	ks.pkgs.todo.extend(['kde'])
 
 #################################################################
 #	Type Switch Table

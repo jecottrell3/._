@@ -36,6 +36,11 @@ class Head:
 
 	# Madness to the Methods
 
+# repo --name=Server         --baseurl=file:///tmp/isomedia/Server
+# repo --name=VT             --baseurl=file:///tmp/isomedia/VT
+# repo --name=Cluster        --baseurl=file:///tmp/isomedia/Cluster
+# repo --name=ClusterStorage --baseurl=file:///tmp/isomedia/ClusterStorage
+
 	def cdrom(self): return 'cdrom'
 
 	def hd(self):

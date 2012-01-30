@@ -28,7 +28,8 @@ class Net(object):
 	# Represent: return kickstart network line
 
 	def __repr__(self):
-		rep = 'network --noipv6 --device=' + self.ether
+#		rep = 'network --noipv6 --device=' + self.ether
+		rep = 'network --device=' + self.ether
 		rep = rep + ' --bootproto=' + self.proto
 
 		if self.host:
