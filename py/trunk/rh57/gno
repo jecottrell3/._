@@ -6,7 +6,7 @@ system-config-display
 #sound-juicer
 #gnome-applet-vm
 ################################################################
--@gnome-software-development
+#@gnome-software-development
 ################################################################
 
 #m	-GConf2-devel
@@ -78,7 +78,7 @@ system-config-display
 #d	-gnome-vfs2-smb
 #d	-gnome-volume-manager
 -gok
-#d	-gtk2-engines
+-gtk2-engines
 #d	-gtkhtml3
 -im-chooser
 #d	-nautilus-cd-burner

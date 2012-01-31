@@ -79,7 +79,7 @@
 
 ################################################################
 @development-tools
-###############################################################
+################################################################
 
 #m	-autoconf
 #m	-automake
@@ -139,7 +139,7 @@ imake
 #o	 java-1.6.0-openjdk-devel
 #o	 libgfortran44
 #o	 memtest86+
-#o	 nasm
+nasm
 pexpect
 python-docs
 unifdef
@@ -171,7 +171,7 @@ unifdef
 #d	-vim-enhanced
 emacs
 emacs-nox
-#o	 gnuplot-emacs
+gnuplot-emacs
 #o	 nedit
 vim-X11
 
@@ -185,11 +185,11 @@ vim-X11
 #o	 booty
 #o	 busybox-anaconda
 #o	 convmv
-iptables
-iptables-devel
-iptables-ipv6
-ipv6calc
-iscsi-initiator-utils
+#o	 iptables
+#o	 iptables-devel
+#o	 iptables-ipv6
+#o	 ipv6calc
+#o	 iscsi-initiator-utils
 joe
 kernel
 #o	 kernel-xen
@@ -232,16 +232,15 @@ ruby-ri
 #d	-xdelta
 #d	-zisofs-tools
 #d	-zsh
-
 #o	 OpenIPMI-gui
 #o	 adjtimex
 #o	 am-utils
-#o	 amanda-client
+amanda-client
 #o	 arptables_jf
 arpwatch
 #o	 audit
 #o	 avahi-tools
-#o	 blktrace
+blktrace
 createrepo
 dstat
 dtach
@@ -253,9 +252,9 @@ gnutls-utils
 iptraf
 #o	 ktune
 lslk
-#o	 lsscsi
+lsscsi
 mc
-#o	 mrtg
+mrtg
 #o	 mt-st
 #o	 mtx
 net-snmp-utils
@@ -281,8 +280,8 @@ watchdog
 
 #d	-cadaver
 #d	-elinks
--fetchmail
--mutt
+#d	-fetchmail
+#d	-mutt
 -slrn
 #o	 epic
 lynx

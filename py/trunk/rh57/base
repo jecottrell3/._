@@ -1,3 +1,4 @@
+subversion
 ################################################################
 @base
 ################################################################
@@ -70,7 +71,7 @@
 #d	-man-pages
 #d	-man-pages-overrides
 #d	-mcelog
--mdadm
+#d	-mdadm
 -mgetty
 #d	-microcode_ctl
 -mkbootdisk
@@ -83,7 +84,7 @@
 #d	-nfs-utils
 #d	-nss-tools
 #d	-nss_db
--nss_ldap
+#d	-nss_ldap
 -numactl
 #d	-openssh-clients
 #d	-openssh-server
