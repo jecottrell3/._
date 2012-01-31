@@ -29,6 +29,7 @@ class Syst(object):
 		items[tag](ks, self)		# customize
 		ks.head.name = self.name	# export
 		ks.head.vers = self.vers
+		ks.head.tag  = self.tag
 		ks.pkgs.syst = tag
 		ks.post.rbj  = self.tag		# was self.rbj
 		

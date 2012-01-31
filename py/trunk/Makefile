@@ -8,7 +8,7 @@ gen:	ks
 	./kick.py
 
 copy:
-	rsync -Crvp ks /home
+	rsync -crvp ks /home
 
 clean:
 	rm -f ks/*

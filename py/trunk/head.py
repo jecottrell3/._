@@ -4,6 +4,13 @@
 #	Generic Header Object
 #################################################################
 
+def rh57_repos():
+	res = ''
+	for repo in ('Server', 'VT', 'Cluster', 'ClusterStorage'):
+		res += """
+repo --name=%-15s --baseurl=file:///tmp/isomedia/%s""" % (repo, repo)
+	return res
+
 class Head:
 
 	inst	= 'hd'					# install method
@@ -36,16 +43,13 @@ class Head:
 
 	# Madness to the Methods
 
-# repo --name=Server         --baseurl=file:///tmp/isomedia/Server
-# repo --name=VT             --baseurl=file:///tmp/isomedia/VT
-# repo --name=Cluster        --baseurl=file:///tmp/isomedia/Cluster
-# repo --name=ClusterStorage --baseurl=file:///tmp/isomedia/ClusterStorage
-
 	def cdrom(self): return 'cdrom'
 
 	def hd(self):
-		return 'harddrive --partition=' + self.isopart + \
+		res = 'harddrive --partition=' + self.isopart + \
 			' --dir=' + self.isopath + '/' + self.media
+		if self.tag == 'rh57': res += rh57_repos()
+		return res
 
 	method	= hd					# install function
 
