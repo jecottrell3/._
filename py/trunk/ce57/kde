@@ -1,0 +1,37 @@
+################################################################
+-@kde-software-development
+################################################################
+
+#m	-arts-devel
+#m	-kdelibs-devel
+#m	-qt-devel
+#d	-PyQt-devel
+#d	-kdbg
+#d	-kdebase-devel
+#d	-kdegraphics-devel
+#d	-kdenetwork-devel
+#d	-kdepim-devel
+#d	-kdesdk
+#d	-kdeutils-devel
+#d	-kdevelop
+#d	-qt-designer
+#o	 kdesdk-devel
+
+################################################################
+-@kde-desktop
+################################################################
+
+#m	-arts
+#m	-kdebase
+#d	-desktop-printing
+#d	-im-chooser
+#d	-kdeaccessibility
+#d	-kdeaddons
+#d	-kdeartwork
+#d	-kdegraphics
+#d	-kdemultimedia
+#d	-kdenetwork
+#d	-kdepim
+#d	-kdeutils
+#o	 kdeadmin
+
