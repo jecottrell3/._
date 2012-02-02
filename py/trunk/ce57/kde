@@ -1,5 +1,5 @@
 ################################################################
--@kde-software-development
+#@kde-software-development
 ################################################################
 
 #m	-arts-devel
@@ -18,20 +18,20 @@
 #o	 kdesdk-devel
 
 ################################################################
--@kde-desktop
+@kde-desktop
 ################################################################
 
 #m	-arts
 #m	-kdebase
 #d	-desktop-printing
-#d	-im-chooser
+-im-chooser
 #d	-kdeaccessibility
 #d	-kdeaddons
 #d	-kdeartwork
-#d	-kdegraphics
+-kdegraphics
 #d	-kdemultimedia
 #d	-kdenetwork
-#d	-kdepim
+-kdepim
 #d	-kdeutils
-#o	 kdeadmin
+kdeadmin
 
