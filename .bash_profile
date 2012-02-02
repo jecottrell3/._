@@ -7,7 +7,6 @@ test -f .debug && echo .bash_profile
    for user in $USER rbj jcottrell jcottrel
 do for dir in /boot /home
 do	RBJ=$dir/$user/._
-	RBJ=$dir/$user/rbj
 	test -d $RBJ && break 2
 done
 done
@@ -22,9 +21,7 @@ chmod 644     $HOME/.ssh/id*.pub
 set -o	ignoreeof
 
 alias	rbj='source .rbj'
-export	RBJ=~/._
 export	J=jcottrel		JC=jcottrell
-export	Y=128.164.156.167	Z=128.164.156.171
 export BG=$RANDOM
 
 for file in /etc/profile $RBJ/.init $RBJ/.vars $RBJ/.bashrc

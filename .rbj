@@ -1,2 +1,2 @@
-source /home/rbj/._/.bash_profile
-source /home/rbj/._/.bashrc
+source $RBJ/.bash_profile
+source $RBJ/.bashrc
