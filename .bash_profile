@@ -9,8 +9,9 @@ do for dir in /boot /home
 do	RBJ=$dir/$user/._
 	test -d $RBJ && break 2
 done
+	RBJ=/not-found
 done
-: echo RBJ is $RBJ
+export	RBJ
 
 chmod a+rx    $HOME
 test  -d      $HOME/.ssh     &&

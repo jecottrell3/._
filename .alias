@@ -26,6 +26,7 @@ alias	vp='vi ~/.bash_profile;	source ~/.bash_profile'
 alias	vb='vi ~/.bashrc;	source ~/.bashrc'
 alias	va='vi ~/.alias;	source ~/.alias'
 alias	vc='vi ~/.complete;	source ~/.complete'
+alias	vd='vi ~/.domain;	source ~/.domain'
 alias	vr='vi ~/.prompt;	source ~/.prompt'
 alias	vf='sudo vi /etc/fstab'	vs='su -c visudo'
 alias	x='for x in'
@@ -107,14 +108,5 @@ alias	ud='diff -u'		dr='diff -r'
 alias	ur='diff -ur'		dy='diff -y'
 alias	rax='rsync  -vax'	 rs='rsync -C'
 alias	vax='rsync -Cvax'	pax='rsync -CPax'
-
-#################################################################
-#	For Cloning CDs
-#################################################################
-
-alias L='lsof /dev/scd0'
-alias P='pkill kio_audio'
-alias K='k3b'
-alias S='pm-suspend'
 
 #################################################################

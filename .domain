@@ -12,8 +12,17 @@ DOMAIN=$(hostname -d)
 export H=$HOST D=$DOMAIN
 
 case $FQDN in
-(*.homerj)		: homerj;;
-(*.msc.fema.gov)	: zai;;
+(*.homerj)
+#       For Cloning CDs
+	alias	L='lsof /dev/scd0'
+	alias	P='pkill kio_audio'
+	alias	K='k3b'
+	alias	S='pm-suspend'
+	;;
+(*.msc.fema.gov)	: zai
+	alias	C='ssh -AX callisto'
+	alias	V='ssh -AX VANGUARD'
+	;;
 (*)	: not special;;
 esac
 
