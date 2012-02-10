@@ -280,7 +280,7 @@ sub run
 {
     $_[0] & 1 && close(STDIN);			# bit mask
     $_[0] & 2 && close(STDOUT);			# of files
-    shift & 4 && close(STDERR);			# to close
+    (shift) & 4 && close(STDERR);			# to close
     exec(@_) || die("exec(@_): $!\n");		# run or die
 }
 
@@ -512,3 +512,5 @@ exit(&main);
 # mode: perl
 # comment-column: 48
 # End:
+02/06 13:37:29 jec3[16192]: atops bin/atops
+02/06 13:37:32 jec3[16192]:  0 chars, 1 lines, 0 pages
