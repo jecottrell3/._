@@ -61,7 +61,7 @@ def mojo(ks, self, addr=7):
 # Zimmerman
 
 def jec3(ks, self):
-	ks.head.monitor = ' --resolution=1680x1050 --depth=24'
+	ks.head.monitor = ' --resolution=1920x1080 --depth=24'
 #	ks.nets = nets.Dhcp(self.name)
 	ks.nets = nets.Zai(self.name, '50.13')
 	sata(ks)

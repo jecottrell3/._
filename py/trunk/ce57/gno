@@ -1,3 +1,8 @@
+rhythmbox
+sound-juicer
+totem
+totem-mozplugin
+pidgin
 ################################################################
 -@gnome-software-development
 ################################################################
@@ -37,7 +42,7 @@
 #o	 libgtk-java
 
 ################################################################
--@gnome-desktop
+@gnome-desktop
 ################################################################
 
 #m	-control-center
@@ -48,13 +53,13 @@
 #m	-metacity
 #m	-nautilus
 #m	-yelp
-#d	-NetworkManager-gnome
+-NetworkManager-gnome
 #d	-alacarte
 #d	-at-spi
 #d	-desktop-printing
 #d	-dvd+rw-tools
 #d	-eog
-#d	-esc
+-esc
 #d	-evince
 #d	-file-roller
 #d	-gedit
@@ -64,7 +69,7 @@
 #d	-gnome-mag
 #d	-gnome-media
 #d	-gnome-netstatus
-#d	-gnome-pilot
+-gnome-pilot
 #d	-gnome-power-manager
 #d	-gnome-screensaver
 #d	-gnome-system-monitor
@@ -75,22 +80,22 @@
 #d	-gnome-vfs2-smb
 #d	-gnome-volume-manager
 -gnopernicus
-#d	-gok
+-gok
 #d	-gtk2-engines
 #d	-gtkhtml3
 #d	-hal-gnome
-#d	-im-chooser
+-im-chooser
 #d	-nautilus-cd-burner
 #d	-nautilus-open-terminal
 #d	-nautilus-sendto
 -notify-daemon
-#d	-orca
+-orca
 #d	-sabayon-apply
 #d	-vino
 #o	 compiz
 #o	 dasher
-#o	 gconf-editor
+gconf-editor
 #o	 gnome-bluetooth
-#o	 gnome-keyring-manager
+gnome-keyring-manager
 #o	 gnome-pilot-conduits
 

@@ -1,77 +1,12 @@
 ################################################################
-#@admin-tools
-################################################################
-
-#d	-authconfig-gtk
-#d	-pirut
-#d	-sabayon
-#d	-setroubleshoot
-#d	-system-config-date
-#d	-system-config-kdump
-#d	-system-config-keyboard
-#d	-system-config-language
-#d	-system-config-lvm
-#d	-system-config-network
-#d	-system-config-rootpassword
-#d	-system-config-soundcard
-#d	-system-config-users
-#o	 system-config-kickstart
-#o	 system-config-netboot
-#o	 system-config-netboot-cmd
-
-################################################################
-#@ftp-server
+@ftp-server
 ################################################################
 
 #m	-vsftpd
 #o	 xferstats
 
 ################################################################
-#@games
-################################################################
-
-#d	-gnome-games
-#d	-joystick
-#o	 kdegames
-
-################################################################
-#@graphical-internet
-################################################################
-
-#d	-ekiga
-#d	-evolution
-#d	-evolution-connector
-#d	-evolution-webcal
-#d	-firefox
-#d	-gnome-themes
--java-1.4.2-gcj-compat-plugin
-#d	-nspluginwrapper
-#d	-pidgin
-#o	 gftp
-#o	 thunderbird
-#o	 xchat
-
-################################################################
-#@graphics
-################################################################
-
-#d	-ImageMagick
-#d	-dcraw
-#d	-gimp
-#d	-gimp-data-extras
-#d	-gimp-help
-#d	-gimp-print-plugin
-#d	-netpbm-progs
-#d	-sane-frontends
-#d	-xsane
-#d	-xsane-gimp
-#o	 agg
-#o	 kdegraphics
-#o	 libsane-hpaio
-#o	 xfig
-
-################################################################
-#@java
+@java
 ################################################################
 
 #m	-java-1.4.2-gcj-compat
@@ -93,41 +28,7 @@
 #o	 bsh-demo
 
 ################################################################
-#@kvm
-################################################################
-
-#m	-celt051
-#m	-etherboot-zroms
-#m	-etherboot-zroms-kvm
-#m	-kmod-kvm
-#m	-kvm
-#m	-kvm-qemu-img
-#m	-log4cpp
-#m	-qcairo
-#m	-qffmpeg-libs
-#m	-qpixman
-#m	-qspice-libs
-#d	-libvirt
-#d	-virt-manager
-#d	-virt-viewer
-#o	 Virtualization-en-US
-#o	 celt051-devel
-#o	 etherboot-pxes
-#o	 etherboot-roms
-#o	 etherboot-roms-kvm
-#o	 iasl
-#o	 kvm-tools
-#o	 libcmpiutil
-#o	 libvirt-cim
-#o	 log4cpp-devel
-#o	 qcairo-devel
-#o	 qffmpeg-devel
-#o	 qpixman-devel
-#o	 qspice
-#o	 qspice-libs-devel
-
-################################################################
-#@mail-server
+@mail-server
 ################################################################
 
 #d	-cyrus-sasl
@@ -135,16 +36,16 @@
 #d	-sendmail
 #d	-sendmail-cf
 #d	-spamassassin
-#o	 cyrus-imapd
-#o	 exim
-#o	 exim-doc
-#o	 mailman
+cyrus-imapd
+exim
+exim-doc
+mailman
 #ox	 perl-Cyrus
-#o	 postfix
-#o	 squirrelmail
+postfix
+squirrelmail
 
 ################################################################
-#@mysql
+@mysql
 ################################################################
 
 #m	-mysql
@@ -154,69 +55,31 @@
 #d	-mysql-server
 #d	-perl-DBD-MySQL
 #d	-unixODBC
-#o	 mod_auth_mysql
-#o	 mysql-bench
+mod_auth_mysql
+mysql-bench
 #o	 mysql-devel
-#o	 php-mysql
-#o	 qt-MySQL
+php-mysql
+qt-MySQL
 
 ################################################################
-#@network-server
+@network-server
 ################################################################
 
 #d	-cyrus-sasl
-#o	 amanda-server
-#o	 dhcp
+amanda-server
+dhcp
 #o	 dhcpv6
 #o	 freeradius
-#o	 krb5-server
-#o	 openldap-servers
-#o	 privoxy
+krb5-server
+openldap-servers
+privoxy
 #o	 quagga
 #o	 radvd
-#o	 vnc-server
+vnc-server
 #o	 ypserv
 
 ################################################################
-#@office
-################################################################
-
-#d	-evince
-#d	-openoffice.org-calc
-#d	-openoffice.org-draw
-#d	-openoffice.org-graphicfilter
-#d	-openoffice.org-impress
-#d	-openoffice.org-math
-#d	-openoffice.org-writer
-#d	-openoffice.org-xsltfilter
-#d	-planner
-#ox	 inkscape
-#o	 jpilot
-#o	 kdepim
-#o	 openoffice.org-base
-#o	 openoffice.org-emailmerge
-#o	 openoffice.org-javafilter
-#o	 openoffice.org-pyuno
-#o	 openoffice.org-testtools
-#o	 taskjuggler
-#o	 tetex-xdvi
-
-################################################################
-#@server-cfg
-################################################################
-
-#d	-system-config-httpd
-#d	-system-config-nfs
--system-config-printer-gui
-#d	-system-config-samba
-#d	-system-config-securitylevel
-#d	-system-config-services
-#o	 system-config-bind
-#o	 system-config-boot
-#o	 system-switch-mail-gnome
-
-################################################################
-#@smb-server
+@smb-server
 ################################################################
 
 #m	-samba
@@ -224,30 +87,7 @@
 #d	-system-config-samba
 
 ################################################################
-#@sound-and-video
-################################################################
-
-#m	-alsa-utils
-#m	-sox
-#m	-vorbis-tools
-#d	-cdda2wav
-#d	-cdparanoia
-#d	-cdrdao
-#d	-cdrecord
-#d	-mkisofs
-#d	-rhythmbox
-#d	-sound-juicer
-#d	-totem
-#totem-mozplugin
--totem-mozplugins
-#o	 dvgrab
-#o	 k3b
-#o	 kdemultimedia
-#o	 mikmod
-#o	 xcdroast
-
-################################################################
-#@sql-server
+@sql-server
 ################################################################
 
 #m	-postgresql
@@ -256,19 +96,19 @@
 #d	-postgresql-server
 #d	-rhdb-utils
 #d	-unixODBC
-#o	 libdbi-dbd-pgsql
-#o	 postgresql-contrib
-#o	 postgresql-docs
+libdbi-dbd-pgsql
+postgresql-contrib
+postgresql-docs
 #o	 postgresql-jdbc
-#o	 postgresql-odbc
-#o	 postgresql-pl
-#o	 postgresql-tcl
-#o	 postgresql-test
-#o	 qt-ODBC
-#o	 unixODBC-kde
+postgresql-odbc
+postgresql-pl
+postgresql-tcl
+postgresql-test
+qt-ODBC
+unixODBC-kde
 
 ################################################################
-#@web-server
+@web-server
 ################################################################
 
 #m	-httpd
@@ -284,29 +124,17 @@
 #d	-tux
 #d	-webalizer
 #ox	 httpd-suexec
-#o	 mod_auth_kerb
-#o	 mod_auth_mysql
-#o	 mod_auth_pgsql
-#o	 mod_authz_ldap
-#o	 mod_nss
-#o	 mod_revocator
-#o	 php-mysql
-#o	 php-odbc
-#o	 php-pear
-#o	 php-pgsql
+mod_auth_kerb
+mod_auth_mysql
+mod_auth_pgsql
+mod_authz_ldap
+mod_nss
+mod_revocator
+php-mysql
+php-odbc
+php-pear
+php-pgsql
 #o	 tomcat5
 #o	 tomcat5-admin-webapps
 #o	 tomcat5-webapps
-
-################################################################
-#@xen
-################################################################
-
-#m	-kernel-xen
-#m	-xen
-#d	-gnome-applet-vm
-#d	-libvirt
-#d	-virt-manager
-#d	-virt-viewer
-#o	 Virtualization-en-US
 

@@ -1,3 +1,4 @@
+kdegames
 ################################################################
 #@kde-software-development
 ################################################################
@@ -26,7 +27,7 @@
 #d	-desktop-printing
 -im-chooser
 #d	-kdeaccessibility
-#d	-kdeaddons
+-kdeaddons
 #d	-kdeartwork
 -kdegraphics
 #d	-kdemultimedia
