@@ -87,6 +87,7 @@ def sl57(ks, self):
 
 def rh57(ks, self):
 	ce55(ks, self)
+	ks.head.key = 'key --skip'
 	self.name = 'RedHat'
 	self.vers = '5.7'
 	self.tag  = 'rh57'

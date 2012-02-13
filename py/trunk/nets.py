@@ -72,6 +72,7 @@ class HomerJ(Net):
 		self.host = host
 		self.addr = addr
 		self.name = 'homerJ'
+		self.uther = 'p10p1'
 		self.proto='static'
 		self.work = '1.2.3.'
 		self.gate = '4'
