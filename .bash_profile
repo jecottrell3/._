@@ -53,11 +53,12 @@ case "$SSH_AUTH_SOCK" in
 esac
 ssh-add -l > /dev/null || ssh-add
 
-#xport	ID=$(PATH=/usr/local/bin:$PATH id -u) # BAD for Solaris
 export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQcdeisj11
 export	LANG=C LOCALE=C LC_ALL=C
 export	VERSION_CONTROL=numbered
+export	HISTCONTROL=ignoreboth
+export	HISTIGNORE=?	# any single letter
 export	INPUTRC=$HOME/.inputrc
 test -x /usr/bin/vim &&
 export	  EDITOR=vim ||

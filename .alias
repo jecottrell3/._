@@ -55,6 +55,8 @@ alias	dm='less +/"^diff.*"'
 alias	im='less +/"^Index: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -h'	uh='du -h'	df='df -k'
+alias	 grep='egrep --color=auto'
+alias	egrep='egrep --color=auto'
 alias	g='egrep'	gi='egrep -i'
 alias	v='egrep -v'	gl='egrep -l'
 function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
