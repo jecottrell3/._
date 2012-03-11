@@ -1,0 +1,7 @@
+default=0
+timeout=5
+color yellow/blue white/magenta
+
+title   MAIN
+        rootnoverify (hd0)
+        chainloader +1
