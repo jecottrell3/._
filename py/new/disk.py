@@ -35,8 +35,8 @@ class LVM(Disk):
 	def __repr__(self):
 
 		disk = self.disk
-		resq = disk + '1'
-		boot = disk + '2'
+		resq = disk + '2'
+		boot = disk + '1'
 		home = disk + '3'
 		
 		if self.vg == 'mojo':
@@ -65,7 +65,7 @@ class LVM(Disk):
 
 class ATA(Disk):
 
-	def __init__(self, disk, name, root=2, resq=1, grub=2, home=3):
+	def __init__(self, disk, name, root=1, resq=2, grub=1, home=3):
 		self.name = name
 		self.disk = disk
 		self.root = root
@@ -75,10 +75,10 @@ class ATA(Disk):
 
 	def __repr__(self):
 		disk = self.disk
-		root = disk + `self.root`
-		resq = disk + `self.resq`
-		home = disk + `self.home`
-		grub = disk + `abs(self.grub)`
+		root = disk +     `self.root`
+		resq = disk +     `self.resq`
+		home = disk + `abs(self.home)`
+		grub = disk +     `self.grub`
 
 		root = SP.join(['part /    ', EXT3, ONPART, root, NOATIME])
 		resq = SP.join(['part /resq', EXT3, ONPART, resq, NOAUTO])
@@ -105,8 +105,8 @@ if __name__ == '__main__':
 	print LVM('md' , 'mojo', 'hd')
 	print LVM('hda', 'kick', 'HDA')
 	print LVM('sda', 'jec3', 'SDA')
-	print ATA('sdb', 'QB', 2, 1, 2, 3)
-	print ATA('ydc', 'T5', 5, 1, 2, 3)
-	print ATA('zdc', 'T6', 6, 1, 2,-3)
+	print ATA('sdb', 'QB', 1, 2, 1, 3)
+	print ATA('ydc', 'Y5', 5, 2, 1, 3)
+	print ATA('zdc', 'Z6', 6, 2, 1,-3)
 
 #################################################################

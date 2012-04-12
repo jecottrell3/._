@@ -69,6 +69,11 @@ def ce57(ks, self):
 	self.vers = '5.7'
 	self.tag  = 'ce57'
 
+def ce58(ks, self):
+	ce55(ks,self)
+	self.vers = '5.8'
+	self.tag  = 'ce58'
+
 def sl55(ks, self):		# DELETE SOON
 	ce55(ks, self)
 	self.name = 'Scientific'
@@ -145,7 +150,7 @@ def fc16(ks, self):
 
 items = {}
 
-for s in (	'ce55', 'ce56', 'ce57', 'ce62',
+for s in (	'ce55', 'ce56', 'ce57', 'ce58', 'ce62',
 		'sl55', 'sl56', 'sl57', 'sl60',
 		'fc15', 'fc16', 'rh57', 'rh60'):
 	items[s] = eval(s)

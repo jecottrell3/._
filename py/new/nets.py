@@ -30,7 +30,7 @@ class Net(object):
 	def __repr__(self):
 #		rep = 'network --noipv6 --device=' + self.ether
 		rep = 'network --device=' + self.ether
-		rep = rep + ' --bootproto=' + self.proto
+		rep = rep + ' --onboot=yes --bootproto=' + self.proto
 
 		if self.host:
 			rep = rep + ' --hostname='+ self.host

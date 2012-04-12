@@ -4,21 +4,6 @@
 
 mkdir -p /svn /grub
 
-: :::::::::::::::::::::::::
-: :: Link Important Dirs ::
-: ::  just RBJ home dir  ::
-: :::::::::::::::::::::::::
-
-# OBSOLETE: RBJ now in /home which is always P3
-# OBSOLETE:	for dir in jcottrell
-# OBSOLETE:	do
-# OBSOLETE:		case $PART in
-# OBSOLETE:	(LV)	ln -s ../boot/$dir /home;; # P2 is /boot, LV is /home
-# OBSOLETE:	(?H)	ln -s      ../$dir /home;; # P2 is /,     P2 is /home
-# OBSOLETE:	(??)	ln -s ../home/$dir /boot;; # P2 is /home, P? is /boot
-# OBSOLETE:		esac
-# OBSOLETE:	done
-
 ln -s /dev/$HOST /myvg
 
 : :::::::::::::::::::::::::
@@ -30,6 +15,10 @@ cd /root
 chmod -R a+rX .
 : Flags: $-
 env | sort -o env.log
+mount		>> mount.log
+mount -av	>> mount.log
+mount		>> mount.log
+
 export HOME=/root
 ln -s /home/jcottrell/._ /root
 

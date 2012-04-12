@@ -81,7 +81,7 @@ class Head:
 
 	def __repr__(self):
 		if (not self.order):   self.order   = self.disk
-		if (not self.isopart): self.isopart = self.disk + `self.resq`
+		if (not self.isopart): self.isopart = self.disk + `self.home`
 		self.isopath = '/'.join(['', self.name, self.vers, self.arch])
 		self.method = self[self.inst]
 		return '\n'.join([

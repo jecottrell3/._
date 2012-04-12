@@ -7,8 +7,11 @@ ks:
 gen:	ks
 	./kick.py
 
+grub:
+	rsync -crvp ks /grub
+
 copy:
-	rsync -crvp ks /home
+	rsync -crvp ks /boot
 
 clean:
 	rm -f ks/*

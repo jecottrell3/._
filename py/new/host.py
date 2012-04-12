@@ -58,6 +58,19 @@ def mojo(ks, self, addr=7):
 #	Hosts which use SATA
 #################################################################
 
+# Irides
+
+def jec5(ks, self):
+#	ks.head.arch = 'i386'
+#	ks.head.monitor = ' --depth=24'
+	ks.nets = nets.Dhcp(self.name)
+	sata(ks)
+
+def jec7(ks, self):
+#	ks.head.monitor = ' --resolution=1920x1080 --depth=24'
+	ks.nets = nets.Dhcp(self.name)
+	sata(ks)
+
 # Zimmerman
 
 def jec3(ks, self):
@@ -153,7 +166,7 @@ for h in ('port', 'blue', 'book',
 	# 'yell', 'zell', 'kick', 'grid',
 	  'loco', 'yoko', 'bogo', 'mojo', 
 	# 'fono', 'vodo',
-	  'jec3',
+	  'jec3', 'jec5', 'jec7', 
 	# 'vdi01', 'vdi02', 'vdi03',
 	  ):
 	items[h] = eval(h)

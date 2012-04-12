@@ -45,7 +45,8 @@ h2p = {	'yell': 'LV YB', 'zell': 'LV ZB',		# SEAS 156
 	'vdi01':'LV VB', 'vdi02':'LV VB', 'vdi03':'LV VB', # SEAS 219
 	'port': 'LV PB', 'blue': 'LV QB', 'book': 'LV JB', # USB
 	'loco': 'LV',    'mojo': 'LV',			# HOMERJ LVM
-	'fono': 'DB',    'vodo': 'VB',    'jec3': 'LV',	# HOMERJ fake
+	'fono': 'DB',    'vodo': 'VB',			# HOMERJ fake
+	'jec3': 'LV',    'jec5': 'LV',    'jec7': 'LV', # ZAI, Irides
 	'yoko': 'TB T5 T6 T7 T8 T9 T0 T1 T2 T3 T4', 	# HOMERJ PART
 	'bogo': 'HB H5 H6 H7 H8 H9 H0 H1 H2 H3 H4', 	# HOMERJ PART
 }
