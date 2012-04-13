@@ -8,7 +8,10 @@ test -f          /etc/DIR_COLORS.lightbgcolor &&
 eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
 
 case $(tty) in
-(/dev/tty*)	LT=1 DK=0;;	# dark 
+(/dev/tty*)	LT=1 DK=0
+	test -f          /etc/DIR_COLORS &&
+	eval $(dircolors /etc/DIR_COLORS)
+		;;	# dark 
 (/dev/pts/*)	LT=0 DK=1;;	# lite 
 esac
 

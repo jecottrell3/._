@@ -103,6 +103,7 @@ alias	sb='sudo bash -l'
 alias	sb="sudo bash --rcfile $RBJ/.bash_profile"
 alias	sl='ln -s'	su='su -p'
 alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
+alias	22='ssh -AX -p 2201'	2cp='scp -P 2201'
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 

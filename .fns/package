@@ -26,11 +26,11 @@ done
 #	PACKAGING -- YUM
 #################################################################
 
-alias	yc=' sudo yum clean'		ys=' sudo yum search'
+alias	yc=' sudo yum clean'		ys=' yum search'
 alias	yi=' sudo yum install'		ygi='sudo yum groupinstall'
 alias	iy=' sudo yum install -y'	igy='sudo yum groupinstall -y'
-alias	yl=' sudo yum list'		ygl='sudo yum grouplist'
-alias	yn=' sudo yum info'		ygn='sudo yum groupinfo'
+alias	yl='      yum list'		ygl='     yum grouplist'
+alias	yn='      yum info'		ygn='     yum groupinfo'
 alias	yr=' sudo yum remove'		ygr='sudo yum groupremove'
 alias	yu=' sudo yum update'		ygu='sudo yum groupupdate'
 

@@ -8,4 +8,4 @@ Googlecode: pA7wx9GW6Dx7
 machine code.google.com login JECottrell3@gmail.com password pA7wx9GW6Dx7
 
 checkout:
-svn checkout https://rbj-svn.googlecode.com/svn/trunk/ rbj-svn --username JECottrell3@gmail.com
+svn checkout https://rbj-svn.googlecode.com/svn ._ --username JECottrell3@gmail.com

@@ -5,9 +5,9 @@ test -f .debug && echo .domain
 #################################################################
 
   HOST=$(hostname -s)
-DOMAIN=$(hostname -d)
-  FQDN=$(hostname -f)
-    IP=$(hostname -i)
+#DOMAIN=$(hostname -d)
+#  FQDN=$(hostname -f)
+#    IP=$(hostname -i)
 
 export H=$HOST D=$DOMAIN
 
