@@ -3,7 +3,7 @@
 ################################################################
 
 #m	-vsftpd
-#o	 xferstats
+xferstats
 
 ################################################################
 @java
@@ -13,7 +13,7 @@
 #m	-libgcj
 
 ################################################################
-#@java-development
+# @java-development
 ################################################################
 
 #m	-java-1.4.2-gcj-compat-devel
@@ -37,10 +37,10 @@
 #d	-sendmail-cf
 #d	-spamassassin
 cyrus-imapd
+cyrus-imapd-perl
 exim
 exim-doc
 mailman
-#ox	 perl-Cyrus
 postfix
 squirrelmail
 
@@ -57,7 +57,8 @@ squirrelmail
 #d	-unixODBC
 mod_auth_mysql
 mysql-bench
-#o	 mysql-devel
+mysql-connector-odbc64
+mysql-devel
 php-mysql
 qt-MySQL
 
@@ -69,9 +70,11 @@ qt-MySQL
 amanda-server
 dhcp
 #o	 dhcpv6
+dnsmasq
 #o	 freeradius
 krb5-server
 openldap-servers
+openldap-servers-overlays
 privoxy
 #o	 quagga
 #o	 radvd
@@ -99,8 +102,9 @@ vnc-server
 libdbi-dbd-pgsql
 postgresql-contrib
 postgresql-docs
-#o	 postgresql-jdbc
+postgresql-jdbc
 postgresql-odbc
+postgresql-odbc64
 postgresql-pl
 postgresql-tcl
 postgresql-test
@@ -123,7 +127,6 @@ unixODBC-kde
 #d	-squid
 #d	-tux
 #d	-webalizer
-#ox	 httpd-suexec
 mod_auth_kerb
 mod_auth_mysql
 mod_auth_pgsql

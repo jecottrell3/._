@@ -1,6 +1,7 @@
 kdegames
+kdewebdev
 ################################################################
-#@kde-software-development
+# @kde-software-development
 ################################################################
 
 #m	-arts-devel
@@ -34,5 +35,6 @@ kdegames
 #d	-kdenetwork
 -kdepim
 #d	-kdeutils
-kdeadmin
+#o	 kdeadmin
+#o	 pinentry-qt
 

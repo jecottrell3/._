@@ -6,9 +6,9 @@ bitmap-fonts
 desktop-backgrounds-basic
 xorg-x11-drivers
 xorg-x11-fonts-100dpi
--xorg-x11-fonts-75dpi
+#xorg-x11-fonts-75dpi
 xorg-x11-fonts-ISO8859-1-100dpi
--xorg-x11-fonts-ISO8859-1-75dpi
+#xorg-x11-fonts-ISO8859-1-75dpi
 xorg-x11-fonts-Type1
 xorg-x11-fonts-misc
 xorg-x11-fonts-truetype
@@ -16,21 +16,21 @@ xorg-x11-server-Xorg
 xorg-x11-xauth
 xorg-x11-xfs
 xorg-x11-xinit
+
 authconfig-gtk
 bitstream-vera-fonts
 dejavu-lgc-fonts
 #Gnome	-firstboot
+freeglut
 #Gnome	-gdm
-#5.8 freeglut
 glx-utils
 -krb5-auth-dialog
-#5.8 launchmail
-#5.8 liberation-fonts
+launchmail
+liberation-fonts
 -linuxwacom
 openssh-askpass
 #Gnome	-pirut
--pup
-#5.8 policycoreutils-gui
+#policycoreutils-gui
 rhgb
 -rhn-setup-gnome
 -subscription-manager-firstboot
@@ -39,17 +39,16 @@ rhgb
 #Gnome	-system-config-date
 #Gnome	-system-config-display
 #Gnome	-system-config-network
--system-config-printer-gui
-#Gnome	-system-config-services
+system-config-printer
+system-config-services
 #Gnome	-system-config-soundcard
-#Gnome	-system-config-users
+system-config-users
 vnc-server
 -wdaemon
 xorg-x11-apps
 xorg-x11-twm
 xterm
 
-#o	 ibmasm-xinput
 #o	 libpciaccess
 switchdesk
 xorg-x11-resutils
@@ -58,11 +57,11 @@ xorg-x11-resutils
 xorg-x11-utils
 xorg-x11-xdm
 xorg-x11-xfs-utils
-#o	 xorg-x11-xfwp
-#o	 xorg-x11-xsm
+xorg-x11-xfwp
+xorg-x11-xsm
 
 ################################################################
--@x-software-development
+# @x-software-development
 ################################################################
 
 #m	-libICE-devel

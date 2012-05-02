@@ -1,3 +1,4 @@
+rsync
 ################################################################
 @core
 ################################################################
@@ -44,12 +45,11 @@
 #m	-termcap
 #m	-util-linux
 #m	-vim-minimal
-
 #m	-yum
+
 #d	-dhclient
 -dhcpv6-client
 #d	-ecryptfs-utils
--gnu-efi
 #d	-grub
 #d	-openssh-clients
 #d	-rsyslog
@@ -57,3 +57,5 @@
 #d	-udftools
 
 Deployment_Guide-en-US
+#o	 sgpio
+

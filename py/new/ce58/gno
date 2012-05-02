@@ -1,10 +1,15 @@
+#Gnome Stuff from X11
+firstboot
+gdm
+pirut
+system-config-display
+system-config-boot
 rhythmbox
 sound-juicer
 totem
 totem-mozplugin
-pidgin
 ################################################################
--@gnome-software-development
+# @gnome-software-development
 ################################################################
 
 #m	-GConf2-devel
@@ -15,6 +20,7 @@ pidgin
 #m	-gtk2-devel
 #m	-libbonobo-devel
 #m	-libbonoboui-devel
+#m	-libglade-java
 #m	-libglade2-devel
 #m	-libgnome-devel
 #m	-libgnomecanvas-devel
@@ -29,6 +35,7 @@ pidgin
 #d	-glade2
 #d	-gnome-desktop-devel
 #d	-gnome-panel-devel
+#d	-gnome-pilot-devel
 #d	-gtk-doc
 #d	-hal-devel
 #d	-libart_lgpl-devel
@@ -53,6 +60,7 @@ pidgin
 #m	-metacity
 #m	-nautilus
 #m	-yelp
+
 -NetworkManager-gnome
 #d	-alacarte
 #d	-at-spi
@@ -79,23 +87,24 @@ pidgin
 #d	-gnome-utils
 #d	-gnome-vfs2-smb
 #d	-gnome-volume-manager
--gnopernicus
 -gok
 #d	-gtk2-engines
 #d	-gtkhtml3
-#d	-hal-gnome
 -im-chooser
 #d	-nautilus-cd-burner
 #d	-nautilus-open-terminal
 #d	-nautilus-sendto
--notify-daemon
+#d	-notification-daemon
 -orca
-#d	-sabayon-apply
+-sabayon-apply
 #d	-vino
-#o	 compiz
+
+compiz
 #o	 dasher
 gconf-editor
 #o	 gnome-bluetooth
 gnome-keyring-manager
 #o	 gnome-pilot-conduits
+hal-gnome
+pinentry-gtk
 

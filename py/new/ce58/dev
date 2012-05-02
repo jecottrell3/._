@@ -9,13 +9,14 @@
 #d	-docbook-utils-pdf
 #d	-linuxdoc-tools
 #d	-tetex
-#d	-xhtml1-dtds
+xhtml1-dtds
 #d	-xmlto
+
 scribus
 tetex-xdvi
 
 ################################################################
-#@development-libs
+# @development-libs
 ################################################################
 
 #m	-bzip2-devel
@@ -59,10 +60,12 @@ tetex-xdvi
 #d	-rpm-devel
 #d	-slang-devel
 #d	-sysfsutils
+#d	-xmlsec1
 #d	-xmlsec1-devel
 #d	-xulrunner-devel
 #o	 fipscheck-devel
 #o	 fuse-devel
+#o	 gsl
 #o	 libassuan-devel
 #o	 libhbaapi-devel
 #o	 libksba
@@ -111,7 +114,6 @@ tetex-xdvi
 #m	-redhat-rpm-config
 #m	-rpm-build
 #m	-strace
--strace64
 
 -automake14
 -automake15
@@ -126,27 +128,24 @@ tetex-xdvi
 -dogtail
 #d	-doxygen
 #d	-elfutils
--frysk
 -gcc-gfortran
 #d	-indent
 #d	-ltrace
 #d	-oprofile
 #d	-patchutils
--pfmon
 #d	-pstack
 #d	-python-ldap
 #d	-rcs
 #d	-splint
 #d	-subversion
 #d	-swig
-#d	-systemtap
+-systemtap
 #d	-texinfo
 #d	-valgrind
--valgrind-callgrind
 
-#o	 ElectricFence
+ElectricFence
 cmake
-#ox	 ddd
+cvs-inetd
 dejagnu
 expect
 #o	 gcc-gnat
@@ -161,6 +160,7 @@ imake
 #o	 memtest86+
 #o	 nasm
 pexpect
+python-docs
 unifdef
 
 ################################################################
@@ -169,6 +169,7 @@ unifdef
 
 #d	-gnuplot
 #d	-units
+
 #o	 lam
 #o	 lapack
 #o	 pvm
@@ -184,20 +185,16 @@ unifdef
 @editors
 ################################################################
 
-#d	-vim-enhanced
-emacs
-vim-X11
-
-################################################################
-#@emacs
-################################################################
-
-#m	-emacs
-#d	-emacs-leim
-#d	-emacspeak
+-emacs-leim
+-emacspeak
 #d	-psgml
-#o	 emacs-nox
-#o	 gnuplot-emacs
+#d	-vim-enhanced
+
+emacs
+emacs-nox
+gnuplot-emacs
+#o	 nedit
+vim-X11
 
 ################################################################
 @miscallvars
@@ -208,7 +205,6 @@ vim-X11
 #o	 bitmap-fonts-cjk
 #o	 booty
 #o	 busybox-anaconda
-#ox	 cachefilesd
 #o	 convmv
 iptables
 #o	 iptables-devel
@@ -217,14 +213,14 @@ iptables
 #o	 iscsi-initiator-utils
 joe
 kernel
-#ox	 kernel-kdump
 #o	 kernel-xen
 #o	 lksctp-tools
 #o	 netlabel_tools
 #o	 openhpi
+#o	 openhpi-subagent
 #o	 openmotif
+#o	 pdksh
 procinfo
-#ox	 salinfo
 #o	 sg3_utils
 syslinux
 #o	 xorg-x11-drv-qxl
@@ -235,14 +231,18 @@ syslinux
 
 #m	-cups
 #m	-ghostscript
+
 #d	-a2ps
 #d	-enscript
 #d	-hal-cups-utils
--hplip3
+-hplip
 #d	-paps
 #d	-samba-client
 #d	-system-config-printer
+
 #o	 bluez-utils-cups
+#o	 hplip3
+#o	 wacomexpresskeys
 
 ################################################################
 @ruby
@@ -258,16 +258,13 @@ ruby-ri
 @system-tools
 ################################################################
 
-#d	-OpenIPMI
+#d	-OpenIPMI-tools
 -bluez-gnome
 -bluez-hcidump
--ckermit
 #d	-dmidecode
--hwbrowser
 #d	-net-snmp-libs
 #d	-nmap
 #d	-ntp
--open
 #d	-openldap-clients
 #d	-samba-client
 #d	-screen
@@ -276,20 +273,26 @@ ruby-ri
 #d	-zisofs-tools
 #d	-zsh
 
+OpenIPMI-gui
 #o	 adjtimex
 #o	 am-utils
 amanda-client
 #o	 arptables_jf
 arpwatch
 #o	 audit
-#o	 avahi-tools
+avahi-tools
+#o	 blktrace
 createrepo
 dstat
 dtach
+e4fsprogs
 #o	 festival
 #o	 gnome-nettool
 gnutls-utils
+#o	hwbrowser
+iotop
 iptraf
+#o	 ktune
 lslk
 #o	 lsscsi
 mc
@@ -298,15 +301,19 @@ mrtg
 #o	 mtx
 net-snmp-utils
 nmap-frontend
+#o	 pinentry
 #o	 rdesktop
+#o	 sblim-cmpi-dhcp
 #o	 sblim-gather
 #o	 sblim-wbemcli
 sysstat
 #o	 tn5250
+#o	 tog-pegasus
 #o	 tsclient
 #o	 uucp
 uuidd
 vlock
+#o	 watchdog
 #o	 wireshark-gnome
 #o	 x3270
 
@@ -318,7 +325,8 @@ vlock
 #d	-elinks
 #d	-fetchmail
 -mutt
-#d	-slrn
+-slrn
+
 #o	 epic
 lynx
 tftp
