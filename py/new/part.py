@@ -16,7 +16,7 @@ class Part(object):
 	def __init__(self, ks, name):
 		self.ks = ks
 		self.name = name
-		root = 'zRBJe5678901234'.find(name[1])
+		root = 'zBRJe5678901234'.find(name[1])
 		resq = ks.head.resq
 		boot = ks.head.boot
 		home = ks.head.home

@@ -54,7 +54,7 @@ class LVM(Disk):
 								self.VGLV()])
 		return NL.join([
 			'#### BEG Disk ' + self.vg + ' ####',
-			resq, boot, home, pv, vg, root,
+			boot, resq, home, pv, vg, root,
 			'#### END Disk ' + self.vg + ' ####',
 			''
 		])

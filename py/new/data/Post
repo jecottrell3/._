@@ -2,7 +2,7 @@
 : :: BEG Post ::
 : ::::::::::::::
 
-mkdir -p /svn /grub
+mkdir -p /svn /grub /resq
 
 ln -s /dev/$HOST /myvg
 
@@ -45,7 +45,6 @@ tmp/.mkrbj
 : ::   Tailor to Environment   ::
 : :::::::::::::::::::::::::::::::
 
-DIST=/boot/jcottrell/._/dist
 DIST=/home/jcottrell/._/dist
 date
 test  -d    $DIST/. &&

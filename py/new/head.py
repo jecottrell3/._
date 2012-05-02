@@ -4,7 +4,7 @@
 #	Generic Header Object
 #################################################################
 
-def rh57_repos():
+def rh58_repos():
 	res = ''
 	for repo in ('Server', 'VT', 'Cluster', 'ClusterStorage'):
 		res += """
@@ -24,8 +24,8 @@ class Head:
 	media	= 'dvd'
 	disk	= 'sda'					# sdb,sda for USB
 	key 	= '#key --skip'
-	resq	= 1
-	boot	= 2
+	boot	= 1
+	resq	= 2
 	home	= 3
 	order	= None					# sdb,sda for USB
 	isopart = None
@@ -48,7 +48,7 @@ class Head:
 	def hd(self):
 		res = 'harddrive --partition=' + self.isopart + \
 			' --dir=' + self.isopath + '/' + self.media
-		if self.tag == 'rh57': res += rh57_repos()
+		if self.tag == 'rh58': res += rh58_repos()
 		return res
 
 	method	= hd					# install function

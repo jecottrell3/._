@@ -13,9 +13,16 @@ if test -d root
 then	for x in 0 1 2 3 4 5 6 7 8 9
 	do
 		test -d .$x && continue
-		echo === Saving into .$x ===
-		mkdir   .$x
-		mv *    .$x
+		if test -e .erase
+		then
+			echo === Erasing Old System === &&
+			rm -rf .erase * &
+		else
+			echo === Saving into .$x ===
+			mkdir   .$x
+			mv *    .$x
+		fi
+		mklost+found
 		break
 	done
 

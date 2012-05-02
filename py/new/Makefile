@@ -11,7 +11,7 @@ grub:
 	rsync -crvp ks /grub
 
 copy:
-	rsync -crvp ks /boot
+	rsync -crvp ks /resq
 
 clean:
 	rm -f ks/*

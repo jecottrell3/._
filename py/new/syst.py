@@ -64,10 +64,12 @@ def ce56(ks, self):
 	self.vers = '5.6'
 	self.tag  = 'ce56'
 
-def ce57(ks, self):
+# RHEL 5.7 is BROKEN
+
+def ce58(ks, self):
 	ce55(ks,self)
-	self.vers = '5.7'
-	self.tag  = 'ce57'
+	self.vers = '5.8'
+	self.tag  = 'ce58'
 
 def ce58(ks, self):
 	ce55(ks,self)
@@ -85,17 +87,17 @@ def sl56(ks, self):
 	self.vers = '5.6'
 	self.tag  = 'sl56'
 
-def sl57(ks, self):
+def sl58(ks, self):
 	sl55(ks, self)
-	self.vers = '5.7'
-	self.tag  = 'sl57'
+	self.vers = '5.8'
+	self.tag  = 'sl58'
 
-def rh57(ks, self):
+def rh58(ks, self):
 	ce55(ks, self)
 	ks.head.key = 'key --skip'
 	self.name = 'RedHat'
-	self.vers = '5.7'
-	self.tag  = 'rh57'
+	self.vers = '5.8'
+	self.tag  = 'rh58'
 	self.rbj  = 'rh5'
 
 def ce60(ks, self):
@@ -150,9 +152,9 @@ def fc16(ks, self):
 
 items = {}
 
-for s in (	'ce55', 'ce56', 'ce57', 'ce58', 'ce62',
-		'sl55', 'sl56', 'sl57', 'sl60',
-		'fc15', 'fc16', 'rh57', 'rh60'):
+for s in (	'ce55', 'ce56', 'ce58', 'ce62',
+		'sl55', 'sl56', 'sl58', 'sl60',
+		'fc15', 'fc16', 'rh58', 'rh60'):
 	items[s] = eval(s)
 
 #################################################################
