@@ -1,68 +1,68 @@
 default=saved
 timeout=5
-splashimage=(hd0,1)/boot/splash/xpm.mhh
+splashimage=(hd0,1)/boot/splash/ce5.mhm
 
 title TOP
-	root(hd0)
+	root (hd0)
 	chainloader +1
 
 title MENU Install CentOS 6.2 TEXT
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz method=hd:sda3:/.CE62 expert text
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz method=hd:sda3:/.ce62 expert text
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 MANUAL
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz method=hd:sda3:/.CE62 expert
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz method=hd:sda3:/.ce62 expert
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 core
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-core.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-core.ks
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 base
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-base.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-base.ks
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 x11
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-x11.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-x11.ks
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 dev
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-dev.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-dev.ks
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 srv
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-srv.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-srv.ks
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 kde
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-kde.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-kde.ks
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 gno
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-gno.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-gno.ks
+	initrd /.ce62/isolinux/initrd.img
 
 title MENU Install CentOS 6.2 win
-	root (hd0,1)
+	root (hd0,2)
 	savedefault
-	kernel /.CE62/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce62-win.ks
-	initrd /.CE62/isolinux/initrd.img
+	kernel /.ce62/isolinux/vmlinuz ks=hd:sda2:/ks/jec3-LV-ce62-win.ks
+	initrd /.ce62/isolinux/initrd.img
 

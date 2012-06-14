@@ -1,48 +1,43 @@
 * Partitions
 
-P1	/resq normally
-	/ for Rescue Linux
-P2	/boot normally
+P1/XB	/boot normally
 	/grub for Rescue
-P3	/home
+P2/XR	/resq normally
+	/ for Rescue Linux
+	Kickstart Files
+P3/XJ	/home
+	ISO Files
+
+P1 tends to be small, cramped for space
+P2 also small, exploded can be on LVM
+P3 big ... /home and ISOs
 
 * Directories
 
-P1 needs to be small, cramped for space
-P3 also cramped, exploded can be on LVM
-
-P1			Top Dir: / or /resq
-    boot		Rescue /boot
-    grub		Rescue Grubs
-    splash		Cool Splash for All
-    CentOS/5.7/x86_64	CentOS 5.7 64 Bit Distro
-		cd		Downloaded CDs and Checksums
-P1/.CE57 ->	files -> dvd
-		dvd		Downloaded DVDs
-		    isolinux	Needed for Boot
-		    images	Needed for Boot
-
-Alternatively, .CE57 just points to top  directory and files and dvd
-point to . and i* are in top directory. Whatever is easiest.
-
-P2			Top Dir: /boot or /grub
+P1			Top Dir: /boot or /grub
     .CE57		Relocated Boot Files
 	grub		Relocated grub
 	vmlinuz-*	Relocated kernel
 	initrd-*.img	Relocated initrd generic
 	initrd-*.type	Specific initrd
 
+P2			Top Dir: / or /resq
+    boot		Rescue /boot
+	    grub	Rescue Grubs
+	    splash	Cool Splash for All
+    ks			Kickstart Files
+
 P3			Top Dir: /home
     jcottrell		ME
-    ks			Kickstart Files
-    CentOS/5.7/x86_64	Top Dir
-	cd		As Above
-	dvd		As Above
-	    isolinux	-> ../files/isolinux
-	    images	-> ../files/images
-.CE57->	files		Exploded Files
+    CentOS/5.7/x86_64	CentOS 5.7 64 Bit Distro
+	cd		Downloaded CDs and Checksums
+	dvd		Downloaded DVDs
+.CE57->	files		Expanded DVD
 	    isolinux	Needed for Boot
 	    images	Needed for Boot
+	    CentOS	Packages
+	    Packages	Packages
+	    repolist	Install Magic
 	comps		Analysis Done Here
 
 .CE57	ALWAYS points to where isolinux is, therefore
@@ -58,10 +53,10 @@ P4			LVM
 
 grub.conf	Master File, chains to everything else
 	P0 TOP		Chainloader to MBR
-	P1 RESQ		Boots Rescue Linux
-	P2 First	Boots Newly Installed System
-	Boot XXNN	Configfile to P2/.XXNN/grub/grub.conf
-	Inst XXNN	Configfile to P1/boot/grub/grub.XXNN
+	P1 First	Boots Newly Installed System
+	P2 RESQ		Boots Rescue Linux
+	Boot XXNN	Configfile to P1/.XXNN/grub/grub.conf
+	Inst XXNN	Configfile to P2/boot/grub/grub.XXNN
 
 grub.XXNN	Menu for Installing XXNN Variants
 grub.boot	OBSOLETE: Was Menu for all Boots

@@ -1,56 +1,68 @@
 default=saved
 timeout=5
-splashimage=(hd0,0)/boot/splash/xpm.mhm
+splashimage=(hd0,1)/boot/splash/ce5.mhh
 
 title TOP
-	root(hd0)
+	root (hd0)
 	chainloader +1
 
+title MENU Install CentOS 5.8 TEXT
+	root (hd0,2)
+	savedefault
+	kernel /.ce58/isolinux/vmlinuz method=hd:hda3:/.ce58 expert text
+	initrd /.ce58/isolinux/initrd.img
+
+title MENU Install CentOS 5.8 MANUAL
+	root (hd0,2)
+	savedefault
+	kernel /.ce58/isolinux/vmlinuz method=hd:hda3:/.ce58 expert
+	initrd /.ce58/isolinux/initrd.img
+
 title MENU Install CentOS 5.8 core
-	root (hd0,0)
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz cehd:sda1:/ks/jec3-LV-ce58-core.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-core.ks
+	initrd /.ce58/isolinux/initrd.img
 
-title MENU Install CentOS 5.5 base
-	root (hd0,0)
+title MENU Install CentOS 5.8 base
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce58-base.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-base.ks
+	initrd /.ce58/isolinux/initrd.img
 
-title MENU Install CentOS 5.5 x11
-	root (hd0,0)
+title MENU Install CentOS 5.8 x11
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce58-x11.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-x11.ks
+	initrd /.ce58/isolinux/initrd.img
 
-title MENU Install CentOS 5.5 dev
-	root (hd0,0)
+title MENU Install CentOS 5.8 dev
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce58-dev.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-dev.ks
+	initrd /.ce58/isolinux/initrd.img
 
-title MENU Install CentOS 5.5 srv
-	root (hd0,0)
+title MENU Install CentOS 5.8 srv
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce58-srv.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-srv.ks
+	initrd /.ce58/isolinux/initrd.img
 
-title MENU Install CentOS 5.5 kde
-	root (hd0,0)
+title MENU Install CentOS 5.8 kde
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce58-kde.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-kde.ks
+	initrd /.ce58/isolinux/initrd.img
 
-title MENU Install CentOS 5.5 gno
-	root (hd0,0)
+title MENU Install CentOS 5.8 gno
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce58-gno.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-gno.ks
+	initrd /.ce58/isolinux/initrd.img
 
-title MENU Install CentOS 5.5 win
-	root (hd0,0)
+title MENU Install CentOS 5.8 win
+	root (hd0,2)
 	savedefault
-	kernel /.CE58/isolinux/vmlinuz ks=hd:sda1:/ks/jec3-LV-ce58-win.ks
-	initrd /.CE58/isolinux/initrd.img
+	kernel /.ce58/isolinux/vmlinuz ks=hd:hda2:/ks/jec3-LV-ce58-win.ks
+	initrd /.ce58/isolinux/initrd.img
 
