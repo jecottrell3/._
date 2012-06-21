@@ -43,7 +43,7 @@ class Part(object):
 h2p = {	'yell': 'LV YB', 'zell': 'LV ZB',		# SEAS 156
 	'grid': 'LV GB', 'kick': 'LV KB',		# SEAS 219
 	'vdi01':'LV VB', 'vdi02':'LV VB', 'vdi03':'LV VB', # SEAS 219
-	'port': 'LV PB', 'blue': 'LV QB', 'book': 'LV JB', # USB
+	'noir': 'LV PB', 'blue': 'LV QB', 'book': 'LV JB', # USB
 	'loco': 'LV',    'mojo': 'LV',			# HOMERJ LVM
 	'fono': 'DB',    'vodo': 'VB',			# HOMERJ fake
 	'jec3': 'LV',    'jec5': 'LV',    'jec7': 'LV', # ZAI, Irides

@@ -33,14 +33,14 @@ def usb(ks):
         pata(ks, 'sdb')
         ks.head.order	= 'sdb,sda'
 
-def port(ks, self):			# Black 120G PassPort
+def noir(ks, self):			# Black 120G PassPort
 	ks.head.arch = 'i386'
 	ks.nets = nets.Dhcp(self.name)
 	usb(ks)
 
-def blue(ks, self): port(ks, self)	# Blue 500G PassPort
+def blue(ks, self): noir(ks, self)	# Blue 500G PassPort
 
-def book(ks, self): port(ks, self)	# 500G MyBook
+def book(ks, self): noir(ks, self)	# 500G MyBook
 
 #################################################################
 #	Hosts which use MetaDisk
@@ -71,13 +71,18 @@ def jec7(ks, self):
 	ks.nets = nets.Dhcp(self.name)
 	sata(ks)
 
-# Zimmerman
+# was Zimmerman
+# now Multiplan
 
 def jec3(ks, self):
+	ks.head.arch = 'i386'
+	ks.head.media = 'cd'
+	ks.head.media = 'dvd'
 	ks.head.monitor = ' --resolution=1920x1080 --depth=24'
-#	ks.nets = nets.Dhcp(self.name)
-	ks.nets = nets.Zai(self.name, '50.13')
-	sata(ks)
+	ks.head.monitor = ' --depth=24'
+	ks.nets = nets.Dhcp(self.name)
+#	ks.nets = nets.Zai(self.name, '50.13')
+	pata(ks, 'hda')
 
 # SEAS 156 DHCP
 # SEAS 156 Static
@@ -162,7 +167,7 @@ def vodo(ks, self): bogo(ks, self, 11)	# Movie Windows
 
 items = {}
 
-for h in ('port', 'blue', 'book',
+for h in ('noir', 'blue', 'book',
 	# 'yell', 'zell', 'kick', 'grid',
 	  'loco', 'yoko', 'bogo', 'mojo', 
 	# 'fono', 'vodo',
