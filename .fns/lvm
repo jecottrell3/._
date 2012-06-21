@@ -55,5 +55,19 @@ alias	vgmv=vgrename
 alias	vgsc=vgscan
 alias	vgsp=vgsplit
 #################################################################
+#	Quick Aliases
+#################################################################
+
+alias	p0='pvchange -x n'	v0='vgchange -a n'	l0='lvchange -a n'
+alias	p1='pvchange -x y'	v1='vgchange -a y'	l1='lvchange -a y'
+alias	p2='pvdisplay'    	v2='vgdisplay'    	l2='lvdisplay'
+alias	p3='pvscan'    		v3='vgscan'    		l3='lvscan'
+alias	p4='pvcreate'   	v4='vgcreate'    	l4='lvcreate -L'
+alias	p5='pvresize'   	v5='vgresize'    	l5='lvresize -L'
+alias	p6='pvrename'   	v6='vgrename'    	l6='lvrename'
+alias	p7='pvremove'   	v7='vgremove'    	l7='lvremove'
+
+#################################################################
 #	TODO: mdadm commands
 #################################################################
+
