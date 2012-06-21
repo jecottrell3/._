@@ -1,0 +1,46 @@
+P1:	/boot	XB
+
+	boot ->	.
+	grub/					TEMP
+	initramfs-*				TEMP Init
+	vmlinuz-*				TEMP Linux
+	.RH62					Red Hat 6.2 x64
+		grub/
+			grub.conf		Installed Version
+		initramfs-*
+		vmlinuz-*
+	.ce58					CentOS 5.8 i386
+
+P2:	/resq	XR
+
+	boot/					RESQ Boot
+		splash				Common Dir
+			rh.xxx			RedHat Art
+			ce.xxx			CentOS Art
+		grub/				RESQ grub
+			device.map		Master Map
+			grub.conf		Master Grub
+			grub.ce58		Install Grub
+			grub.rh62		Install Grub
+			splash.xpm.gz		Moved to splash
+		initramfs-*			RESQ Init
+		vmlinuz-*			RESQ Linux
+
+	grub/	Mount Point
+	home/	Mount Point
+	misc/					AutoFS Devices
+	pass/					AutoFS Pass
+	book/					AutoFS Book
+	blue/					AutoFS Blue
+	resq ->	.
+	root/					RESQ Root
+	svn/	Mount Point
+
+P3:	/home	XJ
+		CentOS/6.2/x86_64/{cd,dvd,files,comps}
+		jcottrell/			My Home
+			._			Container
+			ce5			CentOS 5.x Subdir
+			ce6			CentOS 6.x Subdir
+			rh5			RedHat 5.x Subdir
+			rh6			RedHat 6.x Subdir
