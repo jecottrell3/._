@@ -30,6 +30,7 @@ class Head:
 	order	= None					# sdb,sda for USB
 	isopart = None
 	isopath	= '/OS/VER/ARCH/MEDIA'
+	sep	= '_'
 
 	# X Configuration
 

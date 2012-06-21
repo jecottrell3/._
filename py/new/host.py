@@ -30,11 +30,12 @@ class Host(object):
 #################################################################
 
 def usb(ks):
+	ks.head.arch = 'i386'
+	ks.head.sep  = '+'
         pata(ks, 'sdb')
         ks.head.order	= 'sdb,sda'
 
 def noir(ks, self):			# Black 120G PassPort
-	ks.head.arch = 'i386'
 	ks.nets = nets.Dhcp(self.name)
 	usb(ks)
 

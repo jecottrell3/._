@@ -16,7 +16,7 @@ class Type(object):
 		ks.pkgs.type = name
 		ks.prep.vars['type'] += name
 		ks.prep.lv = \
-		ks.disk.lv = ks.syst.tag + '_' + name
+		ks.disk.lv = ks.syst.tag + ks.head.sep + name
 		if name not in items:
 			generic(ks, name)
 		else:	items[name](ks)
