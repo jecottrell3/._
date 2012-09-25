@@ -5,11 +5,11 @@ test -f .debug && echo .bash_profile
 #################################################################
 
    for user in $USER rbj jcottrell jcottrel
-do for dir in /boot /home
+do for dir in /home
 do	RBJ=$dir/$user/._
 	test -d $RBJ && break 2
 done
-	RBJ=/not-found
+	RBJ=$HOME/._
 done
 export	RBJ
 
