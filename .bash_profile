@@ -4,7 +4,7 @@ test -f .debug && echo .bash_profile
 #	BASH PROFILE
 #################################################################
 
-   for user in $USER rbj jcottrell jcottrel
+   for user in $USER rbj jcottrell jcottrel cottrell
 do for dir in /home
 do	RBJ=$dir/$user/._
 	test -d $RBJ && break 2
@@ -13,11 +13,11 @@ done
 done
 export	RBJ
 
-chmod a+rx    $HOME
-test  -d      $HOME/.ssh     &&
-chmod -R og-w $HOME/.ssh     &&
-chmod 600     $HOME/.ssh/id* &&
-chmod 644     $HOME/.ssh/id*.pub
+#chmod a+rx    $HOME
+#test  -d      $HOME/.ssh     &&
+#chmod -R og-w $HOME/.ssh     &&
+#chmod 600     $HOME/.ssh/id* &&
+#chmod 644     $HOME/.ssh/id*.pub
 
 set -o	ignoreeof
 
@@ -48,10 +48,12 @@ done
 #	ENVIRONMENT VARIABLES
 #################################################################
 
-case "$SSH_AUTH_SOCK" in
-('')	eval $(ssh-agent);;
-esac
-ssh-add -l > /dev/null || ssh-add
+#set | sort -o .set-$(date +%T)
+#env | sort -o .env-$(date +%T)
+#case "$SSH_AUTH_SOCK" in
+#('')	eval $(ssh-agent);;
+#esac
+#ssh-add -l > /dev/null || ssh-add
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQcdeisj11

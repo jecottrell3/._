@@ -28,7 +28,8 @@ alias	va='vi ~/.alias;	source ~/.alias'
 alias	vc='vi ~/.complete;	source ~/.complete'
 alias	vd='vi ~/.domain;	source ~/.domain'
 alias	vr='vi ~/.prompt;	source ~/.prompt'
-alias	vf='sudo vi /etc/fstab'	vs='su -c visudo'
+alias	vv='vi ~/.vars;		source ~/.vars'
+alias	vf='sudo vi /etc/fstab'	vs='sudo visudo'
 alias	x='for x in'
 alias	y='fg %-'
 alias	zz=suspend		zzz='suspend -f'
@@ -59,6 +60,9 @@ alias	 grep='egrep --color=auto'
 alias	egrep='egrep --color=auto'
 alias	g='egrep'	gi='egrep -i'
 alias	v='egrep -v'	gl='egrep -l'
+function gg { egrep $* /etc/group; }
+function gh { egrep $* /etc/hosts; }
+function gp { egrep $* /etc/passwd; }
 function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
 alias	j='jobs -l'	jj='jobs -l'
@@ -98,9 +102,10 @@ alias	 rbj='sudo chown -R       rbj:rbj'
 alias	  jc='sudo chown -R jcottrell:jcottrell'
 
 alias	 sa='ssh-add -l || ssh-add'
-alias	sad='ssh-add -D'
+alias	sad='ssh-add -D'	sal='ssh-add -l'
 alias	sb='sudo bash -l'
-alias	sb="sudo bash --rcfile $RBJ/.bash_profile"
+alias	sb="sudo -E bash --rcfile $RBJ/.bash_profile"
+alias	xs="xsudo -E bash --rcfile $RBJ/.bash_profile"
 alias	sl='ln -s'	su='su -p'
 alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
 alias	22='ssh -AX -p 2201'	2cp='scp -P 2201'
