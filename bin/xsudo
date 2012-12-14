@@ -1,0 +1,96 @@
+#!/bin/sh
+
+# Wrap sudo to pass XAUTHORITY cookies through at the same time as
+# allowing privalidges to a user in one sudo session. This relies on the
+# -C flag added "recently", version 1.7 and above, and now in major
+# distributions. The sudoers file needs to include the
+# closefrom_override option.
+
+# ARF 5 Nov 2008
+# ARF 19 July 2012
+
+USAGE="$0 <most-sudo-arguments>"
+
+# set sudo correctly.
+#PATH=/usr/local/opt/sudo/bin:$PATH
+SUDO=sudo
+
+error () { echo >&2 "$@"; exit 1; }
+
+# Check there is a display
+[ -z "$DISPLAY" ] && error "warning: DISPLAY is not set!"
+RDISPLAY=`echo $DISPLAY | sed -e "s/localhost/unix/"`
+
+# Extra flags to support passing the xauth data.
+FLAGS="-C 5"
+
+# What to do after we have done the sudo.
+while [ $# != 0 ]
+do
+	case "$1" in
+	-X)
+		shift 1
+		#set -x
+
+		# Create a new xauthority file and add the information
+		export XAUTHORITY=`mktemp /tmp/xauth.XXXXXX` || error 'Cannot write to /tmp'
+		xauth merge - <&3
+		: 3>&-
+
+		# The default command
+		[ "$#" = 0 ] && set "$SHELL"
+
+		trap '/bin/rm -f $XAUTHORITY' 0
+
+		# start the command
+		"$@"
+
+		# clean up
+		/bin/rm -f $XAUTHORITY
+		exit
+	;;
+
+	-u)	FLAGS="$FLAGS $1 $2"; shift 2;;
+	-g)	FLAGS="$FLAGS $1 $2"; shift 2;;
+	-D)	FLAGS="$FLAGS $1 $2"; shift 2;;
+	-p)	FLAGS="$FLAGS $1 $2"; shift 2;;
+
+	-b)	FLAGS="$FLAGS $1"; shift 1;;
+	-P)	FLAGS="$FLAGS $1"; shift 1;;
+	-S)	FLAGS="$FLAGS $1"; shift 1;;
+	-n)	FLAGS="$FLAGS $1"; shift 1;;
+	-k)	FLAGS="$FLAGS $1"; shift 1;;
+	-b)	FLAGS="$FLAGS $1"; shift 1;;
+	-H)	FLAGS="$FLAGS $1"; shift 1;;
+	-s)	FLAGS="$FLAGS $1"; shift 1;;
+	-E)	FLAGS="$FLAGS $1"; shift 1;;
+
+	-h)	error $USAGE ;;
+	-C)	error 'This conflicts with $0 internals';;
+
+	--)	break ;;
+
+	-*)	error "Unknown flag $1
+	$USAGE" ;;
+
+	*)	break ;;
+
+	esac
+done
+
+# FD 4 becomes stdin too
+exec 4<&0
+
+# Extract the infomation and pass it through sudo.
+xauth extract - "$RDISPLAY" | {
+
+    # FD 3 becomes xauth output
+    # FD 0 becomes stdin again
+    # FD 4 is closed
+
+    exec 3<&0 0<&4 4>&- "$SUDO" $FLAGS "$0" -X "$@"
+
+    #exec 3>&0 0>&4 4>&-
+    #exec "$SUDO" $FLAGS "$0" -X "$@"
+}
+

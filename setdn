@@ -1,5 +1,5 @@
 #! /must/source/this/file
-# $Id$
+# $Id: setup 195 2011-07-13 13:32:27Z rbj $
 ################################################################
 #	Initialize Environment
 ################################################################
@@ -10,12 +10,15 @@
 # [4] previous versions saved in ~/.save.$$
 ################################################################
 
-SAVE=.save.$(date +%H%M)
+SAVE=${SAVE:-${1:?'No Save Directory'}}
+REST=.rest.$(date +%H%M)
+
 INIT=._
 
 test -d $INIT || return
+test -d $SAVE || return
 
-mkdir -p $SAVE
+mkdir -p $REST
 
 ls -a ._/. |
 while read x
@@ -29,9 +32,10 @@ do
 	(setdn)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
-	(.ssh)	test -e $x && mv $x $SAVE; rsync -rC ._/$x .;;
-	(*)	test -e	$x && mv $x $SAVE; ln -s  $INIT/$x .;;
+	(*)	test -e	$x       && mv $x $REST;;
+		test -e	$SAVE/$x && mv $SAVE/$x .;;
 	esac
+
 done
 
 pwd

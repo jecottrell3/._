@@ -20,10 +20,28 @@ case $FQDN in
 	alias	S='pm-suspend'
 	;;
 (*.nih.gov)
-	alias	k1='ssh-add -s opensc-pkcs11.so' 
+	# moved from .bash_profile
+	for path in /opt/openssh-dcb-5.8p1/bin
+	do
+		test -d $path || continue
+		case :$PATH: in
+		(*:$path:*)     continue;;
+		(*)             PATH=$path:$PATH;;
+		esac
+	done
+
 	alias	k0='ssh-add -e opensc-pkcs11.so' 
+	alias	k1='ssh-add -s opensc-pkcs11.so' 
 	alias	k2='k0;k1'
+	alias	k3='k4;k5'
+	alias	k4='ssh-add -e libcoolkeypk11.so' 
+	alias	k5='ssh-add -s libcoolkeypk11.so' 
 	alias	pc='polka circulate'
+
+	export  VP=/var/polka
+	export          VPE=$VP/etc
+	export  PRINTER=chessie
+	export  LPDEST=$PRINTER
 	;;
 (*)	: not special;;
 esac

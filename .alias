@@ -53,6 +53,11 @@ alias	cm='chmod'	cx='chmod a+x'
 
 alias	d='rm -i'	rfv='rm -rfv'
 alias	dm='less +/"^diff.*"'
+function rude()
+{
+	diff -ru $* |
+	less +/"^(diff|Only).*"
+}
 alias	im='less +/"^Index: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -h'	uh='du -h'	df='df -k'
@@ -104,8 +109,9 @@ alias	  jc='sudo chown -R jcottrell:jcottrell'
 alias	 sa='ssh-add -l || ssh-add'
 alias	sad='ssh-add -D'	sal='ssh-add -l'
 alias	sb='sudo bash -l'
-alias	sb="sudo -E bash --rcfile $RBJ/.bash_profile"
+alias	sb="sudo  -E bash --rcfile $RBJ/.bash_profile"
 alias	xs="xsudo -E bash --rcfile $RBJ/.bash_profile"
+alias	sir='lsb_release -sir'
 alias	sl='ln -s'	su='su -p'
 alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
 alias	22='ssh -AX -p 2201'	2cp='scp -P 2201'

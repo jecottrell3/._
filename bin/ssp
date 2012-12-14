@@ -1,0 +1,6 @@
+#! /usr/bin/perl -p
+#	open  ARGV,  "cat -n|";
+BEGIN	{ open STDOUT, "| fmt"; } 
+END	{ close STDOUT; }
+s/$/\n/;
+

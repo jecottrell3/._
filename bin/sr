@@ -1,0 +1,36 @@
+#! /bin/sh
+
+SHEL=sh		ENVY=	ARGS=
+SHEL=ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
+SHEL=zsh	ENVY=	ARGS=	# "  ZDOTDIR=$HOME"
+SHEL=bash	ENVY=	ARGS=-l	# "--rcfile=$HOME/.bash_profile"
+
+# Collect the ssh flags.
+flags='-tAX'
+while [ $# != 0 ]
+do
+	case "$1" in
+		-s)	SHEL=sh   ENVY=;				shift;;
+		-k)	SHEL=ksh  ENVY="ENV=$HOME/.env" ARGS=-k;	shift;;
+		-z)	SHEL=zsh  ENVY="ZDOTDIR=$HOME";			shift;;
+		-b)	SHEL=bash ENVY= ARGS=-l; shift;;
+#			ARGS="--rcfile $HOME/.bash_profile";		shift;;
+		-*)	flags="$flags $1" ; shift ;;
+		*)	break ;;
+	esac
+done
+
+if [ $# -lt 1 ]
+then
+	echo "$0 <host>" >&2
+	exit 2
+fi
+
+host="$1"; shift
+
+[ $# = 0 ] && set -- $SHEL $ARGS
+
+echo $#, $1, $2, $3, $4
+
+set -x
+exec ssh $flags "root@$host" "HOME=$HOME SHELL=$SHEL $@"

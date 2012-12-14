@@ -1,10 +1,11 @@
+cd $HOME
 test -f .debug && echo .bash_profile
 # $Id$
 #################################################################
 #	BASH PROFILE
 #################################################################
 
-   for user in $USER rbj jcottrell jcottrel cottrell
+   for user in $USER cottrell rbj jcottrell jcottrel
 do for dir in /home
 do	RBJ=$dir/$user/._
 	test -d $RBJ && break 2
@@ -13,11 +14,11 @@ done
 done
 export	RBJ
 
-#chmod a+rx    $HOME
-#test  -d      $HOME/.ssh     &&
-#chmod -R og-w $HOME/.ssh     &&
-#chmod 600     $HOME/.ssh/id* &&
-#chmod 644     $HOME/.ssh/id*.pub
+#hmod a+rx    $HOME
+#est  -d      $HOME/.ssh     &&
+#hmod -R og-w $HOME/.ssh     &&
+#hmod 600     $HOME/.ssh/id* &&
+#hmod 644     $HOME/.ssh/id*.pub
 
 set -o	ignoreeof
 
@@ -81,3 +82,9 @@ export  M1000=--max-size=1000M K10=--max-size=10K G1000=--max-size=1000G
 export M10000=--max-size=10000M K1=--max-size=1K G10000=--max-size=10000G
 
 #################################################################
+
+case $USER@$HOST in
+(root@strudel)
+	echo Adding Strudel Master Key
+	ssh-add /root/.ssh/id_dsa;;
+esac
