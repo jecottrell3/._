@@ -1,1 +1,0 @@
-/resq/Scientific/6.0/x86_64/Packages

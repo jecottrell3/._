@@ -1,13 +1,10 @@
-def tweak(ks): pass
-
-class Post:
-	pass
-
 #! /usr/bin/python
 # $Id: post.py 171 2011-03-04 01:50:35Z rbj $
 #################################################################
 #	Default Network Object
 #################################################################
+
+def center(text): return ('#' * 16 + text + '#' * 16)
 
 class Post(object):
 
@@ -29,21 +26,14 @@ class Post(object):
 		fd.close()
 		return rep
 
-	def oldscript(self):
-		return '\n'.join([
-			'###############################',
-			'#### POST SCRIPT GOES HERE ####',
-			'###############################',
-			''
-		])
-
 	#########################################################
 	# Represent: return kickstart network line
 	#########################################################
 
 	def __repr__(self):
 		return '\n'.join([
-			'#### BEG Post ####',
+			center(' BEG Post '),
+#			'#### BEG Post ####',
 """
 %post --nochroot
 
@@ -56,6 +46,7 @@ cp /tmp/ks.env  /mnt/sysimage/root
 %post --log=/root/post.log
 #! /bin/sh -x
 
+FLAGS=x$-
 set -x
 set -x
 exec 2>&1
@@ -64,7 +55,8 @@ source	/root/ks.env
 """,
 			self.script(),
 			self.pctend,
-			'#### END Post ####',
+			center(' BEG Post '),
+#			'#### END Post ####',
 			''
 		])
 

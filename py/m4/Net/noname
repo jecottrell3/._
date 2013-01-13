@@ -1,8 +1,0 @@
-`#' BEGIN __file__
-#################################################################
-####   	Use DHCP, accept hostname too
-#################################################################
-
-network --device ETHER --bootproto dhcp --noipv6
-
-`#' END   __file__

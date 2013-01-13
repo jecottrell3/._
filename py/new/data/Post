@@ -1,14 +1,18 @@
-: ::::::::::::::
-: :: BEG Post ::
-: ::::::::::::::
+yell() { set +x;NAP=$1;shift;echo $* $(date)> /dev/tty1;sleep $NAP;set -x; }
 
-mkdir -p /svn /grub /resq
+yell 0 ::::::::::::::
+yell 0 :: BEG Post ::
+yell 1 ::::::::::::::
 
-ln -s /dev/$HOST /myvg
+cd /
+mkdir -p svn grub resq
+mklost+found
 
-: :::::::::::::::::::::::::
-: :: Get RBJ Environment ::
-: :::::::::::::::::::::::::
+ln -s dev/$HOST myvg
+
+yell 0 :::::::::::::::::::::::::
+yell 0 :: Get RBJ Environment ::
+yell 1 :::::::::::::::::::::::::
 
 date
 cd /root
@@ -28,9 +32,9 @@ set +x; echo \
 . ._/setup
 set -x
 
-: ::::::::::::::::::::::::::::::
-: :: Create JCOTTRELL and RBJ ::
-: ::::::::::::::::::::::::::::::
+yell 0 ::::::::::::::::::::::::::::::
+yell 0 :: Create JCOTTRELL and RBJ ::
+yell 1 ::::::::::::::::::::::::::::::
 
 case $SYST in
 (fc1?)	ARG=$SYST;;
@@ -40,10 +44,10 @@ esac
 tmp/.mkjc $ARG
 tmp/.mkrbj
 
-: :::::::::::::::::::::::::::::::
-: :: Distribute Standard Files ::
-: ::   Tailor to Environment   ::
-: :::::::::::::::::::::::::::::::
+yell 0 :::::::::::::::::::::::::::::::
+yell 0 :: Distribute Standard Files ::
+yell 0 ::   Tailor to Environment   ::
+yell 1 :::::::::::::::::::::::::::::::
 
 DIST=/home/jcottrell/._/dist
 date
@@ -68,17 +72,17 @@ echo 'DISPLAYMANAGER=XDM' >>	/etc/sysconfig/desktop
 
 cd /root
 
-: ::::::::::::::::
-: :: DNS Config ::
-: ::::::::::::::::
+yell 0 ::::::::::::::::
+yell 0 :: DNS Config ::
+yell 1 ::::::::::::::::
 
 cd /etc/sysconfig/network-scripts
 #### grep seas.gwu.edu /etc/resolv.conf &&
 #### echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-ETHER
 
-: :::::::::::::::::
-: :: Demon Seeds ::
-: :::::::::::::::::
+yell 0 :::::::::::::::::
+yell 0 :: Demon Seeds ::
+yell 1 :::::::::::::::::
 
 chkconfig --list | tee /root/svc.log |
 while read svc junk
@@ -115,17 +119,17 @@ do
 done
 set -x
 
-: ::::::::::::::::::::::::::
-: :: Make Whatis Database ::
-: ::::::::::::::::::::::::::
+yell 0 ::::::::::::::::::::::::::
+yell 0 :: Make Whatis Database ::
+yell 1 ::::::::::::::::::::::::::
 
 date
 test -f /.db &&
 makewhatis -v
 
-: ::::::::::::::::::::::::::
-: :: Make Locate Database ::
-: ::::::::::::::::::::::::::
+yell 0 ::::::::::::::::::::::::::
+yell 0 :: Make Locate Database ::
+yell 1 ::::::::::::::::::::::::::
 
 date
 umount  -av
@@ -134,6 +138,7 @@ updatedb -v
 mount   -av
 date
 
-: ::::::::::::::
-: :: END Post ::
-: ::::::::::::::
+yell 0 ::::::::::::::
+yell 0 :: END Post ::
+yell 5 ::::::::::::::
+

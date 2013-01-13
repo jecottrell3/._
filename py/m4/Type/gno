@@ -1,8 +1,0 @@
-`#' BEGIN __file__
-#
-#	Generic Gnome Flavor
-#
-define(`TYPE', `gno')dnl
-define(`PKGS', `all')dnl
-define(`PKGS', `core,base,x11,dev,srv,app,gno')dnl
-`#' END   __file__

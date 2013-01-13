@@ -1,7 +1,0 @@
-`#' BEGIN __file__
-#
-# Scientific Linux 5.5 on the Grid
-#
-define(`TYPE', `sci55')dnl
-define(`PKGS', `sci55')dnl
-`#' END   __file__

@@ -16,13 +16,12 @@ then	for x in 0 1 2 3 4 5 6 7 8 9
 		if test -e .erase
 		then
 			echo === Erasing Old System === &&
-			rm -rf .erase * &
+			rm -rf *
 		else
 			echo === Saving into .$x ===
 			mkdir   .$x
 			mv *    .$x
 		fi
-		mklost+found
 		break
 	done
 
@@ -38,9 +37,9 @@ set -x
 
 cd /
 umount /p
-sync; sleep 2
+sync; usleep 2002002
 lvm vgchange -a n
-sync; sleep 2
+sync; usleep 2002002
 
 : :::::::::::::
 : :: END PRE ::

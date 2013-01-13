@@ -1,7 +1,0 @@
-`#' BEGIN __file__
-#
-# Fedora 14 on the Grid
-#
-define(`TYPE', `fc14')dnl
-define(`PKGS', `fc14')dnl
-`#' END   __file__

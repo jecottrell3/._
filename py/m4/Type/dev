@@ -1,8 +1,0 @@
-`#' BEGIN __file__
-#
-#	Generic Development Flavor
-#
-define(`TYPE', `dev')dnl
-define(`XCONFIG', `xconfig MONITOR')dnl
-define(`PKGS', `core,base,x11,dev')dnl
-`#' END   __file__

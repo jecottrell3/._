@@ -1,7 +1,0 @@
-`#' BEGIN __file__
-#
-# CentOS 6.0 on the Grid
-#
-define(`TYPE', `cos60')dnl
-define(`PKGS', `cos60')dnl
-`#' END   __file__

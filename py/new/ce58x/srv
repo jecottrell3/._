@@ -1,0 +1,140 @@
+################################################################
+@ftp-server
+################################################################
+
+#m	-vsftpd
+#o	 xferstats
+
+################################################################
+@java
+################################################################
+
+#m	-java-1.4.2-gcj-compat
+#m	-libgcj
+
+################################################################
+#@java-development
+################################################################
+
+#m	-java-1.4.2-gcj-compat-devel
+#m	-java-1.4.2-gcj-compat-javadoc
+#d	-bsh
+#d	-bsh-javadoc
+#d	-bsh-manual
+#d	-java-1.4.2-gcj-compat-src
+#d	-ldapjdk
+#d	-xmlrpc
+#d	-xmlrpc-javadoc
+#o	 bsh-demo
+
+################################################################
+@mail-server
+################################################################
+
+#d	-cyrus-sasl
+#d	-dovecot
+#d	-sendmail
+#d	-sendmail-cf
+#d	-spamassassin
+cyrus-imapd
+exim
+exim-doc
+mailman
+#ox	 perl-Cyrus
+postfix
+squirrelmail
+
+################################################################
+@mysql
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-libdbi-dbd-mysql
+#d	-mysql-connector-odbc
+#d	-mysql-server
+#d	-perl-DBD-MySQL
+#d	-unixODBC
+mod_auth_mysql
+mysql-bench
+#o	 mysql-devel
+php-mysql
+qt-MySQL
+
+################################################################
+@network-server
+################################################################
+
+#d	-cyrus-sasl
+amanda-server
+dhcp
+#o	 dhcpv6
+#o	 freeradius
+krb5-server
+openldap-servers
+privoxy
+#o	 quagga
+#o	 radvd
+vnc-server
+#o	 ypserv
+
+################################################################
+@smb-server
+################################################################
+
+#m	-samba
+#m	-samba-client
+#d	-system-config-samba
+
+################################################################
+@sql-server
+################################################################
+
+#m	-postgresql
+#d	-perl-DBD-Pg
+#d	-postgresql-python
+#d	-postgresql-server
+#d	-rhdb-utils
+#d	-unixODBC
+libdbi-dbd-pgsql
+postgresql-contrib
+postgresql-docs
+#o	 postgresql-jdbc
+postgresql-odbc
+postgresql-pl
+postgresql-tcl
+postgresql-test
+qt-ODBC
+unixODBC-kde
+
+################################################################
+@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-distcache
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_python
+#d	-mod_ssl
+#d	-php
+#d	-php-ldap
+#d	-squid
+#d	-tux
+#d	-webalizer
+#ox	 httpd-suexec
+mod_auth_kerb
+mod_auth_mysql
+mod_auth_pgsql
+mod_authz_ldap
+mod_nss
+mod_revocator
+php-mysql
+php-odbc
+php-pear
+php-pgsql
+#o	 tomcat5
+#o	 tomcat5-admin-webapps
+#o	 tomcat5-webapps
+
