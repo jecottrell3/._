@@ -21,12 +21,12 @@ case $FQDN in
 	;;
 (*.nih.gov)
 	# moved from .bash_profile
-	for path in /opt/openssh-dcb-5.8p1/bin
+	for dir in /opt/openssh-dcb-5.8p1/bin
 	do
-		test -d $path || continue
+		test -d $dir || continue
 		case :$PATH: in
-		(*:$path:*)     continue;;
-		(*)             PATH=$path:$PATH;;
+		(*:$dir:*)     continue;;
+		(*)             PATH=$dir:$PATH;;
 		esac
 	done
 

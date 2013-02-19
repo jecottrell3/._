@@ -5,14 +5,14 @@ test -f .debug && echo .bash_profile
 #	BASH PROFILE
 #################################################################
 
-   for user in $USER cottrell rbj jcottrell jcottrel
+   for JC in $USER cottrell rbj jcottrell jcottrel
 do for dir in /home
-do	RBJ=$dir/$user/._
+do	RBJ=$dir/$JC/._
 	test -d $RBJ && break 2
 done
 	RBJ=$HOME/._
 done
-export	RBJ
+export	RBJ JC
 
 #hmod a+rx    $HOME
 #est  -d      $HOME/.ssh     &&
@@ -23,7 +23,7 @@ export	RBJ
 set -o	ignoreeof
 
 alias	rbj='source .rbj'
-export	J=jcottrel		JC=jcottrell
+#xport	J=jcottrel		JC=jcottrell
 export BG=$RANDOM
 
 for file in /etc/profile $RBJ/.init $RBJ/.vars $RBJ/.bashrc
@@ -36,12 +36,12 @@ done
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
 #################################################################
 
-for path in /usr/sbin /sbin ~/bin
+for dir in /usr/sbin /sbin ~/bin
 do
-	test -d $path || continue
+	test -d $dir || continue
 	case :$PATH: in
-	(*:$path:*)	continue;;
-	(*)		PATH=$path:$PATH;;
+	(*:$dir:*)	continue;;
+	(*)		PATH=$dir:$PATH;;
 	esac
 done
 

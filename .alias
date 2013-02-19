@@ -23,11 +23,14 @@ alias	manpath='echo $MANPATH | tr : \\012'
 alias	t=type			fn='declare -f'
 alias	vk='vi ~/.ssh/known_hosts'
 alias	vp='vi ~/.bash_profile;	source ~/.bash_profile'
+alias	zp='vi ~/.zprofile;	source ~/.zprofile'
 alias	vb='vi ~/.bashrc;	source ~/.bashrc'
+alias	zb='vi ~/.zshrc;	source ~/.zshrc'
 alias	va='vi ~/.alias;	source ~/.alias'
 alias	vc='vi ~/.complete;	source ~/.complete'
 alias	vd='vi ~/.domain;	source ~/.domain'
 alias	vr='vi ~/.prompt;	source ~/.prompt'
+alias	zr='vi ~/.zprompt;	source ~/.zprompt'
 alias	vv='vi ~/.vars;		source ~/.vars'
 alias	vf='sudo vi /etc/fstab'	vs='sudo visudo'
 alias	x='for x in'
@@ -88,6 +91,7 @@ alias	lq='ls -FACsR'
 alias	lr='ls -FAlsR'
 alias	lt='ls -FAltr'
 
+alias	lo=locate
 alias	loop='sudo mount -o loop'
 
 alias	m=less 		mr='less -r'
@@ -102,19 +106,18 @@ alias	p='ps -ef | egrep'
 alias	pie='perl -pi -e'
 alias	pd=pushd	po=popd
 
-alias	root='sudo chown         root:root'
-alias	 rbj='sudo chown -R       rbj:rbj'
-alias	  jc='sudo chown -R jcottrell:jcottrell'
+alias	root='sudo chown   root:root'
+#lias	 rbj='sudo chown -R rbj:rbj'
+alias	  jc='sudo chown -R $JC:$JC'
 
 alias	 sa='ssh-add -l || ssh-add'
 alias	sad='ssh-add -D'	sal='ssh-add -l'
-alias	sb='sudo bash -l'
+alias	sb='sudo bash -l'	se=sudoedit
 alias	sb="sudo  -E bash --rcfile $RBJ/.bash_profile"
 alias	xs="xsudo -E bash --rcfile $RBJ/.bash_profile"
 alias	sir='lsb_release -sir'
 alias	sl='ln -s'	su='su -p'
 alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
-alias	22='ssh -AX -p 2201'	2cp='scp -P 2201'
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 

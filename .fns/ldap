@@ -1,7 +1,7 @@
 # $Id$
 test -f .debug && echo .fns/ldap
 #################################################################
-#	LDAP Functions and Definitions
+#	OLD LDAP Functions and Definitions
 #################################################################
 
 REALM=SEAS.GWU.EDU
@@ -18,5 +18,17 @@ alias	lda="ldapadd    -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
 alias	ldm="ldapmodify -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
 alias	ldk="ldapdelete -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
 alias	ldp="ldappasswd -x -D $JCDA"
+
+#################################################################
+#	NEW LDAP Functions and Definitions
+#################################################################
+
+for x in s search a add m modify k delete p passwd
+do
+	case $x in
+	(?)	y=$x;;
+	(*)	alias ld$y="ldap$x -x";;
+	esac
+done
 
 #################################################################

@@ -6,9 +6,9 @@
 "\M-k": " META k "
 "\M-m": " | less\n"
 "\M-o": overwrite-mode
-"\M-q": "ssh -tAX root@cake    HOME=$HOME           bash -l"
-"\M-s": "ssh -tAX root@strudel HOME=$HOME ssh-agent bash -l"
-"\M-v": "ssh -tAX root@vessel  HOME=$HOME           bash -l"
+"\M-q": "ssh -tAX root@cake    HOME=$HOME SUDO_USER=$USER           bash -l"
+"\M-s": "ssh -tAX root@strudel HOME=$HOME SUDO_USER=$USER ssh-agent bash -l"
+"\M-v": "ssh -tAX root@vessel  HOME=$HOME SUDO_USER=$USER           bash -l"
 "\M-w": "\C-w\C-y=$\C-y\e\C-e"
 "\M-x": "fg; exit"
 "\M-z": " META z "

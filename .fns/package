@@ -12,12 +12,17 @@ alias	q='  rpm -q'	qa='  rpm -qa'
 alias	qi=' rpm -qi'	qai=' rpm -qai'
 alias	qil='rpm -qil'	qail='rpm -qail'
 
-alias	qwr='rpm -q --whatrequires'
+alias	QC='rpm -q --conflicts'
+alias	QP='rpm -q --provides'
+alias	QO='rpm -q --obsoletes'
+alias	QR='rpm -q --requires'
+
 alias	qwp='rpm -q --whatprovides'
+alias	qwr='rpm -q --whatrequires'
 
 qq() { rpm -qi $* | less +/'^Name.*'; }
 
-for x in ba bb bc bi bl bs
+for x in ba bb bc bi bl bp bs
 do
 	eval alias $x="'rpmbuild -$x'"
 done
@@ -27,12 +32,14 @@ done
 #################################################################
 
 alias	yc=' sudo yum clean'		ys=' yum search'
+alias	yli='sudo yum localinstall'	ily='sudo yum localinstall -y'
 alias	yi=' sudo yum install'		ygi='sudo yum groupinstall'
 alias	iy=' sudo yum install -y'	igy='sudo yum groupinstall -y'
 alias	yl='      yum list'		ygl='     yum grouplist'
 alias	yn='      yum info'		ygn='     yum groupinfo'
 alias	yr=' sudo yum remove'		ygr='sudo yum groupremove'
 alias	yu=' sudo yum update'		ygu='sudo yum groupupdate'
+alias	uy=' sudo yum update -y'	ugy='sudo yum groupupdate -y'
 
 alias	yct=yum-complete-transaction
 alias	ypc=package-cleanup
