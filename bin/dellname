@@ -1,0 +1,7 @@
+#! /bin/sh
+
+#set "$@"
+case $1 in
+('')	ipmitool delloem lcd set mode userdefined "$@";;
+(*)	ipmitool delloem lcd info;;
+esac

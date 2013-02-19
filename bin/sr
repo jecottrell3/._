@@ -33,4 +33,4 @@ host="$1"; shift
 echo $#, $1, $2, $3, $4
 
 set -x
-exec ssh $flags "root@$host" "HOME=$HOME SHELL=$SHEL $@"
+exec ssh $flags "root@$host" "HOME=$HOME SUDO_USER=$USER SHELL=$SHEL $@"

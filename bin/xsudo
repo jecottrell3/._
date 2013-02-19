@@ -38,7 +38,7 @@ do
 		: 3>&-
 
 		# The default command
-		[ "$#" = 0 ] && set "$SHELL"
+		[ "$#" = 0 ] && set -- $SHELL -l
 
 		trap '/bin/rm -f $XAUTHORITY' 0
 
