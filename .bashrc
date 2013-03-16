@@ -28,10 +28,12 @@ done
 #	MAKE STUPID lxde term RUN AS LOGIN SHELL
 #################################################################
 
+set +x
 case $_LXSESSION_PID@$RBJ in
 (@*)	: not LXDE;;
 (?*@?*)	: only once;;
 (?*@)	source $HOME/.bash_profile;;
 esac
+set +x
 
 #################################################################

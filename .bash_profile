@@ -5,12 +5,16 @@ test -f .debug && echo .bash_profile
 #	BASH PROFILE
 #################################################################
 
-   for JC in $USER cottrell rbj jcottrell jcottrel
+   for JC in $USER cottrell rbj jcottrell jcottrel nobody
 do for dir in /home
-do	RBJ=$dir/$JC/._
+do
+	case $JC in
+	(root)   continue;;
+	(nobody) RBJ=$HOME/._;;
+	(*)	 RBJ=$dir/$JC/._
+	esac
 	test -d $RBJ && break 2
 done
-	RBJ=$HOME/._
 done
 export	RBJ JC
 
@@ -22,7 +26,6 @@ export	RBJ JC
 
 set -o	ignoreeof
 
-alias	rbj='source .rbj'
 #xport	J=jcottrel		JC=jcottrell
 export BG=$RANDOM
 

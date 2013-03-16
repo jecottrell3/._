@@ -47,8 +47,9 @@ h2p = {	'yell': 'LV YB', 'zell': 'LV ZB',		# SEAS 156
 	'loco': 'LV',    'mojo': 'LV',			# HOMERJ LVM
 	'fono': 'DB',    'vodo': 'VB',			# HOMERJ fake
 	'jec3': 'LV',    'jec5': 'LV',    'jec7': 'LV', # ZAI, Irides
-	'yoko': 'TB T5 T6 T7 T8 T9 T0 T1 T2 T3 T4', 	# HOMERJ PART
-	'bogo': 'HB H5 H6 H7 H8 H9 H0 H1 H2 H3 H4', 	# HOMERJ PART
+	'yoko': 'LV TB',				# HOMERJ
+	'bogo': 'HB H5 H6 H7 H8 H9 H0 H1 H2 H3 H4',     # HOMERJ PART
+
 }
 
 #################################################################

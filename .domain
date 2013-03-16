@@ -9,7 +9,7 @@ DOMAIN=$(hostname -d)
   FQDN=$(hostname -f)
     IP=$(hostname -i)
 
-export H=$HOST D=$DOMAIN
+export H=$HOST D=$DOMAIN C=cit.nih.gov N=nih.gov
 
 case $FQDN in
 (*.homerj)

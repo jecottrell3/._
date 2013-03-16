@@ -22,7 +22,6 @@ export	RBJ
 
 set -o	ignoreeof
 
-alias	rbj='source .rbj'
 export	J=jcottrel		JC=jcottrell
 export BG=$RANDOM
 
