@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# $Id$
+
+# Stolen from Anthony Fletcher
+
 EXEC=exec
 RC=/home/cottrell/.bash_profile
 

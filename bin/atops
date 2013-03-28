@@ -1,6 +1,5 @@
-#! /usr/local/bin/perl
-eval "exec perl -S $0 $*"
-        if $braindead;
+#! /usr/bin/perl
+# $Id$
 ################################################################
 #	ASCII FILTER FOR POSTSCRIPT PRINTERS
 ################################################################

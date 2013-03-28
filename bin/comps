@@ -1,5 +1,6 @@
 #! /usr/bin/perl
 
+# $Id$
 ################################################################
 # old usage:  comps NAME	old usage specifies subdir
 # new usage:  comps		new usagw inside of subdir

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# $Id$
+
 # Wrap sudo to pass XAUTHORITY cookies through at the same time as
 # allowing privalidges to a user in one sudo session. This relies on the
 # -C flag added "recently", version 1.7 and above, and now in major
