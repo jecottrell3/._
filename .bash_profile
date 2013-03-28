@@ -17,6 +17,8 @@ do
 done
 done
 export	RBJ JC
+export	RCFILE=$RBJ/.bash_profile
+export	INPUTRC=$RBJ/.inputrc
 
 #hmod a+rx    $HOME
 #est  -d      $HOME/.ssh     &&
@@ -25,6 +27,7 @@ export	RBJ JC
 #hmod 644     $HOME/.ssh/id*.pub
 
 set -o	ignoreeof
+umask 2
 
 #xport	J=jcottrel		JC=jcottrell
 export BG=$RANDOM
@@ -39,7 +42,7 @@ done
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
 #################################################################
 
-for dir in /usr/sbin /sbin ~/bin
+for dir in /usr/sbin /sbin $RBJ/bin ~/bin
 do
 	test -d $dir || continue
 	case :$PATH: in
@@ -65,7 +68,6 @@ export	LANG=C LOCALE=C LC_ALL=C
 export	VERSION_CONTROL=numbered
 export	HISTCONTROL=ignoreboth
 export	HISTIGNORE=?	# any single letter
-export	INPUTRC=$HOME/.inputrc
 test -x /usr/bin/vim &&
 export	  EDITOR=vim ||
 export	  EDITOR=vi

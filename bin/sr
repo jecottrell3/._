@@ -1,22 +1,30 @@
 #! /bin/sh
 
+EXEC=exec
+RC=/home/cottrell/.bash_profile
+
 SHEL=sh		ENVY=	ARGS=
 SHEL=ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
 SHEL=zsh	ENVY=	ARGS=	# "  ZDOTDIR=$HOME"
-SHEL=bash	ENVY=	ARGS=-l	# "--rcfile=$HOME/.bash_profile"
+SHEL=bash	ENVY=	ARGS="--rcfile $RC"
+
+SUDO= ME=root
+SUDO=sudo ME=$USER
 
 # Collect the ssh flags.
 flags='-tAX'
 while [ $# != 0 ]
 do
 	case "$1" in
-		-s)	SHEL=sh   ENVY=;				shift;;
-		-k)	SHEL=ksh  ENVY="ENV=$HOME/.env" ARGS=-k;	shift;;
-		-z)	SHEL=zsh  ENVY="ZDOTDIR=$HOME";			shift;;
-		-b)	SHEL=bash ENVY= ARGS=-l; shift;;
-#			ARGS="--rcfile $HOME/.bash_profile";		shift;;
-		-*)	flags="$flags $1" ; shift ;;
-		*)	break ;;
+		(-u)	SUDO=sudo ME=$USER				shift;; # with SUDO
+		(-p)	SUDO=     ME=root				shift;; # with PIV
+		(-n)	EXEC=echo					shift;;
+		(-s)	SHEL=sh   ENVY=;				shift;;
+		(-k)	SHEL=ksh  ENVY="ENV=$HOME/.env" ARGS=-k;	shift;;
+		(-z)	SHEL=zsh  ENVY="ZDOTDIR=$HOME";			shift;;
+		(-b)	SHEL=bash ENVY= ARGS="--rcfile $RC";		shift;;
+		(-*)	flags="$flags $1" ; shift ;;
+		(*)	break ;;
 	esac
 done
 
@@ -33,4 +41,4 @@ host="$1"; shift
 echo $#, $1, $2, $3, $4
 
 set -x
-exec ssh $flags "root@$host" "HOME=$HOME SUDO_USER=$USER SHELL=$SHEL $@"
+$EXEC ssh $flags "$ME@$host" "HOME=/root SUDO_USER=$USER SHELL=$SHEL $SUDO $@"

@@ -21,17 +21,18 @@ alias	h='fc -l'	r='fc -s'
 alias	   path='echo    $PATH | tr : \\012'
 alias	manpath='echo $MANPATH | tr : \\012'
 alias	t=type			fn='declare -f'
-alias	vk='vi ~/.ssh/known_hosts'
-alias	vp='vi ~/.bash_profile;	source ~/.bash_profile'
-alias	zp='vi ~/.zprofile;	source ~/.zprofile'
-alias	vb='vi ~/.bashrc;	source ~/.bashrc'
-alias	zb='vi ~/.zshrc;	source ~/.zshrc'
-alias	va='vi ~/.alias;	source ~/.alias'
-alias	vc='vi ~/.complete;	source ~/.complete'
-alias	vd='vi ~/.domain;	source ~/.domain'
-alias	vr='vi ~/.prompt;	source ~/.prompt'
-alias	zr='vi ~/.zprompt;	source ~/.zprompt'
-alias	vv='vi ~/.vars;		source ~/.vars'
+alias	vb='vi $RBJ/.bashrc;	source $RBJ/.bashrc'
+alias	zb='vi $RBJ/.zshrc;	source $RBJ/.zshrc'
+alias	ze='vi $RBJ/.zshenv;	source $RBJ/.zshenv'
+alias	va='vi $RBJ/.alias;	source $RBJ/.alias'
+alias	vc='vi $RBJ/.complete;	source $RBJ/.complete'
+alias	vd='vi $RBJ/.domain;	source $RBJ/.domain'
+alias	vp='vi $RBJ/.bash_profile; source $RBJ/.bash_profile'
+alias	zp='vi $RBJ/.zprofile;	source $RBJ/.zprofile'
+alias	vr='vi $RBJ/.prompt;	source $RBJ/.prompt'
+alias	zr='vi $RBJ/.zprompt;	source $RBJ/.zprompt'
+alias	vv='vi $RBJ/.vars;	source $RBJ/.vars'
+alias	vn='vi $RBJ/.inputrc'	vk='vi $RBJ/.ssh/known_hosts'
 alias	vf='sudo vi /etc/fstab'	vs='sudo visudo'
 alias	x='for x in'
 alias	y='fg %-'
@@ -61,17 +62,17 @@ function rude()
 	diff -ru $* |
 	less +/"^(diff|Only).*"
 }
-alias	im='less +/"^Index: .*"'
+alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -h'	uh='du -h'	df='df -k'
 alias	 grep='egrep --color=auto'
 alias	egrep='egrep --color=auto'
 alias	g='egrep'	gi='egrep -i'
 alias	v='egrep -v'	gl='egrep -l'
-function gg { egrep $* /etc/group; }
-function gh { egrep $* /etc/hosts; }
-function gp { egrep $* /etc/passwd; }
-function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
+alias GG='getent  group'; function gg { egrep $* /etc/group; }
+alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
+alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
+alias GS='getent shadow'; function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
 alias	j='jobs -l'	jj='jobs -l'
 alias	kp='cp -p'	kr='cp -pr'
@@ -86,6 +87,7 @@ alias	kc='kill -CONT'	ks='kill -STOP'
 alias	 l='ls -FAC'
 alias	la='ls -Fals'
 alias	lh='ls -FAlsh'
+alias	lk='ls -FAs'
 alias	ll='ls -FAls'
 alias	lq='ls -FACsR'
 alias	lr='ls -FAlsR'
@@ -113,11 +115,11 @@ alias	  jc='sudo chown -R $JC:$JC'
 alias	 sa='ssh-add -l || ssh-add'
 alias	sad='ssh-add -D'	sal='ssh-add -l'
 alias	sb='sudo bash -l'	se=sudoedit
-alias	sb="sudo  -E bash --rcfile $RBJ/.bash_profile"
-alias	xs="xsudo -E bash --rcfile $RBJ/.bash_profile"
+alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
+alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
 alias	sir='lsb_release -sir'
 alias	sl='ln -s'	su='su -p'
-alias	ss='ssh -AX'	sj='ssh -AX -l jcottrel'
+alias	ss='ssh -AX'	sj="ssh -AX -l $JC"
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 

@@ -10,12 +10,12 @@ function s2() { service $* status; }
 function s3() { service $* restart; }	
 
 #################################################################
-#	CHKCONFIG
+#	NETWORKING		/	KERBEROS
 #################################################################
 
-alias	i0=ifdown			
-alias	i1=ifup				
-alias	i2=ifconfig			
+alias	i0=ifdown			q0=kdestroy
+alias	i1=ifup				q1=kinit
+alias	i2=ifconfig			q2=klist
 
 #################################################################
 #	CHKCONFIG

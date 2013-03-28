@@ -21,7 +21,28 @@ case $FQDN in
 	;;
 (*.nih.gov)
 	# moved from .bash_profile
-	for dir in /opt/openssh-dcb-5.8p1/bin
+	export JRE6=java-1.6.0-openjdk
+	export JDK6=java-1.6.0-openjdk-devel
+	export JRE7=java-1.7.0-openjdk
+	export JDK7=java-1.7.0-openjdk-devel
+
+	export QR=/public/htdocs/rome.cit.nih.gov
+	export QY=$QR/yum
+	export QC=$QY/CentOS
+	export QD=$QC/DCB
+	export D5i=$QD/5/i386
+	export D5x=$QD/5/x86_64
+	export D6i=$QD/6/i386
+	export D6x=$QD/6/x86_64
+	export QB=$QC/base
+	export B5i=$QB/5/os/i386
+	export B5x=$QB/5/os/x86_64
+	export B6i=$QB/6/os/i386
+	export B6x=$QB/6/os/x86_64
+
+	alias qaj='rpm -qa j\* | sort'
+
+	for dir in /opt/openssh-dcb-5.?p1/bin
 	do
 		test -d $dir || continue
 		case :$PATH: in
