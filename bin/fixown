@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-use strict;	# $ID$
+use strict;	# $Id$
 
 $| = 1;
 my $debug=  0;
