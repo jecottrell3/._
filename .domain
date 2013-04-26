@@ -20,6 +20,11 @@ case $FQDN in
 	alias	S='pm-suspend'
 	;;
 (*.nih.gov)
+
+	export	BASE=ou=NIH,OU=AD,DC=NIH,DC=gov
+
+	alias	lds="ldapsearch -b $BASE -h ldapad.nih.gov"
+	alias	ldx="ldapsearch -b $BASE -h strudel.cit.nih.gov -x"
 	# moved from .bash_profile
 	export JRE6=java-1.6.0-openjdk
 	export JDK6=java-1.6.0-openjdk-devel

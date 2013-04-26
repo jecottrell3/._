@@ -20,15 +20,15 @@ flags='-tAX'
 while [ $# != 0 ]
 do
 	case "$1" in
-		(-u)	SUDO=sudo ME=$USER				shift;; # with SUDO
-		(-p)	SUDO=     ME=root				shift;; # with PIV
-		(-n)	EXEC=echo					shift;;
-		(-s)	SHEL=sh   ENVY=;				shift;;
-		(-k)	SHEL=ksh  ENVY="ENV=$HOME/.env" ARGS=-k;	shift;;
-		(-z)	SHEL=zsh  ENVY="ZDOTDIR=$HOME";			shift;;
-		(-b)	SHEL=bash ENVY= ARGS="--rcfile $RC";		shift;;
-		(-*)	flags="$flags $1" ; shift ;;
-		(*)	break ;;
+	(-u)	SUDO=sudo ME=$USER		shift;; # with SUDO
+	(-p)	SUDO=     ME=root		shift;; # with PIV
+	(-n)	EXEC=echo					shift;;
+	(-s)	SHEL=sh   ENVY=;				shift;;
+	(-k)	SHEL=ksh  ENVY="ENV=$HOME/.env" ARGS=-k;	shift;;
+	(-z)	SHEL=zsh  ENVY="ZDOTDIR=$HOME";			shift;;
+	(-b)	SHEL=bash ENVY= ARGS="--rcfile $RC";		shift;;
+	(-*)	flags="$flags $1" ; shift ;;
+	(*)	break ;;
 	esac
 done
 
