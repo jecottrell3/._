@@ -9,6 +9,7 @@ eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
 
 case $(tty) in
 (/dev/tty*)	LT=1 DK=0
+	$RBJ/bin/hue 0 ff ff ff; $RBJ/bin/hue 7 00 00 00;
 	test -f          /etc/DIR_COLORS &&
 	eval $(dircolors /etc/DIR_COLORS)
 		;;	# dark 
