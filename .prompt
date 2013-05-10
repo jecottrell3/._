@@ -9,9 +9,13 @@ eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
 
 case $(tty) in
 (/dev/tty*)	LT=1 DK=0
-	$RBJ/bin/hue 0 ff ff ff; $RBJ/bin/hue 7 00 00 00;
-	test -f          /etc/DIR_COLORS &&
-	eval $(dircolors /etc/DIR_COLORS)
+		LT=0 DK=1
+	eval $(ssh-agent)
+	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
+	test -f /lib/kbd/consolefonts/sun12x22.psfu.gz &&
+	setfont                       sun12x22.psfu.gz
+# also lite	test -f          /etc/DIR_COLORS &&
+# also lite	eval $(dircolors /etc/DIR_COLORS)
 		;;	# dark 
 (/dev/pts/*)	LT=0 DK=1;;	# lite 
 esac
