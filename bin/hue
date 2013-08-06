@@ -1,2 +1,6 @@
 #! /bin/sh
-echo -ne "\e]P$1$2$3$4"
+case $1 in
+(reset)	echo -ne "\e]R";;
+(rev)	echo -ne "\e]P0888888\e]P7000000";;
+(*)	echo -ne "\e]P$1$2$3$4";;
+esac

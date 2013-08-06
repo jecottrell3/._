@@ -123,6 +123,7 @@ alias	ss='ssh -AX'	sj="ssh -AX -l $JC"
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 
+alias	tf='tail -f'
 alias	ud='diff -u'		dr='diff -r'
 alias	ur='diff -ur'		dy='diff -y'
 alias	rax='rsync  -vax'	 rs='rsync -C'

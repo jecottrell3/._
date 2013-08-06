@@ -257,11 +257,11 @@ sub transfer
 {
     $pfx = $wdir || $host;			# save for prefix
     $opt{'p'} && ++$keep;			# always keep puts
-    $rcp = $opt{'r'} ? 'rcp -r' : 'rcp';	# remote copy cmd
+    $scp = $opt{'r'} ? 'rsync -rav' : 'rsync -av';	# remote copy cmd
     $dot = $opt{'r'} ? '/.' : '';		# trailer for -r
     $cmd =
-	$opt{'g'} ? '$rcp $user\@$host:$file $work/$host' :
-	$opt{'p'} ? '$rcp $work/$name$dot $user\@$host:$file' :
+	$opt{'g'} ? '$scp $user\@$host:$file $work/$host' :
+	$opt{'p'} ? '$scp $work/$name$dot $user\@$host:$file' :
 	    'false';
 
     for $file (@ARGV)				# file loop

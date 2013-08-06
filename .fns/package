@@ -31,7 +31,7 @@ done
 #	PACKAGING -- YUM
 #################################################################
 
-alias	yc=' sudo yum clean'		ys=' yum search'
+alias	yc=' sudo yum clean all'	ys=' yum search'
 alias	yli='sudo yum localinstall'	ily='sudo yum localinstall -y'
 alias	yi=' sudo yum install'		ygi='sudo yum groupinstall'
 alias	iy=' sudo yum install -y'	igy='sudo yum groupinstall -y'
