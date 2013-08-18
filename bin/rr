@@ -9,6 +9,7 @@ $n = $d = 0;					# do not rm or rmdir
 $b = $q = 0;					# nobeep & noquiet
 $e = 0;						# always equal
 $z = 0;						# sizes  equal
+$t = 0;						# mtime  equal
 $a = 0;						# dont rm ._
 $S = 0;						# dont spare .svn, CVS
 $U = $G = $M = 0;				# same owner, group, mode
@@ -21,12 +22,13 @@ sub usage	#	USAGE
 {
     die("@_
 
-usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-a] [-c] [-U] [-G] [-M] [-S] src dst
+usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-t] [-a] [-c] [-U] [-G] [-M] [-S] src dst
 	-q	quiet
 	-b	beep if different
 	-n	no file removed
 	-d	no dirs removed
 	-z	files sizes  equal
+	-t	mtime equal
 	-e	files always equal
 	-a	kill SPECIAL files too
 	-c	show created files too
@@ -66,6 +68,7 @@ sub main	#	MAIN PROGRAM
 	/-n/ && ++$n && next option;		# no rm
 	/-e/ && ++$e && next option;		# always equal
 	/-z/ && ++$z && next option;		# sizes  equal
+	/-t/ && ++$t && next option;		# mtime  equal
 	/-a/ && ++$a && next option;		# rm ._ files too
 	/-c/ && ++$c && next option;		# show created files too
 	/-U/ && ++$U && next option;		# same uid
@@ -170,8 +173,9 @@ sub same	#	COMPARE FILE CONTENTS
     return 0 if ($U && ($src_stat[4] != $dst_stat[4]));	# uid check
     return 0 if ($G && ($src_stat[5] != $dst_stat[5]));	# gid check
     return 0 if ($M && ($src_stat[2] != $dst_stat[2]));	# mode check
-    return 0 if ($src_stat[7] != $dst_stat[7]);	# size check
-    return 1 if $z;				# size same
+    return 0 if        ($src_stat[7] != $dst_stat[7]);	# size check
+    return 1 if ($z);				# size same
+    return 1 if ($t && ($src_stat[9] == $dst_stat[9]));	# mtime check
     
     close(src_file); close(dst_file);		# clean previous
     open(src_file) || return 0;			# open src
