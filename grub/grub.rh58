@@ -1,0 +1,48 @@
+default=saved
+timeout=5
+splashimage=(hd0,1)/boot/splash/rh5.hmm
+
+title O0 MBR-0
+	root (hd0)
+	chainloader +1
+
+title INST rh58 core
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-core.ks
+	initrd /.RH58/isolinux/initrd.img
+
+title INST rh58 base
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-base.ks
+	initrd /.RH58/isolinux/initrd.img
+
+title INST rh58 x11
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-x11.ks
+	initrd /.RH58/isolinux/initrd.img
+
+title INST rh58 dev
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-dev.ks
+	initrd /.RH58/isolinux/initrd.img
+
+title INST rh58 srv
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-srv.ks
+	initrd /.RH58/isolinux/initrd.img
+
+title INST rh58 kde
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-kde.ks
+	initrd /.RH58/isolinux/initrd.img
+
+title INST rh58 gno
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-gno.ks
+	initrd /.RH58/isolinux/initrd.img
+
+title INST rh58 win
+	root (hd0,2)
+	kernel /.RH58/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-rh58-win.ks
+	initrd /.RH58/isolinux/initrd.img
+

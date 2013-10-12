@@ -4,7 +4,7 @@ P1/XB	/boot normally
 	/grub for Rescue
 P2/XR	/resq normally
 	/ for Rescue Linux
-	Kickstart Files
+	/ks Kickstart Files
 P3/XJ	/home
 	ISO Files
 
@@ -14,8 +14,16 @@ P3 big ... /home and ISOs
 
 * Directories
 
+Each distro has a 5 char name: DDVVA
+DD = distro, VV = version, A = arch
+Exceptions: Ubuntu -> ubuqx, Q is Animal
+ce=CentOS, fc=Fedora, sl=Scientific
+arch will probably be dropped soon, and
+may not appear in the names list below.
+
+P0	MBR		Points to P2/boot/grub/grub.conf
 P1			Top Dir: /boot or /grub
-    .CE57		Relocated Boot Files
+    .CE59x		Relocated Boot Files
 	grub		Relocated grub
 	vmlinuz-*	Relocated kernel
 	initrd-*.img	Relocated initrd generic
@@ -29,19 +37,20 @@ P2			Top Dir: / or /resq
 
 P3			Top Dir: /home
     jcottrell		ME
-    CentOS/5.7/x86_64	CentOS 5.7 64 Bit Distro
-	cd		Downloaded CDs and Checksums
-	dvd		Downloaded DVDs
-.CE57->	files		Expanded DVD
+    ce59x		CentOS 5.7 64 Bit Distro
+	iso[s]		Downloaded ISOs and Checksums
+	cd		 / These directories contain    \
+	dvd		{  symlinks to real files used   }
+	net		 \ for CD, DVD, and NET install /
+.ce59x->repo		Expanded DVD
 	    isolinux	Needed for Boot
 	    images	Needed for Boot
-	    CentOS	Packages
-	    Packages	Packages
-	    repolist	Install Magic
+	    Packages	Packages if desired
+	    repolist	Install Magic (why did I write this?)
 	comps		Analysis Done Here
 
-.CE57	ALWAYS points to where isolinux is, therefore
-	files	NEVER  needs to be specified in ks or grub files
+.ce59x	ALWAYS points to where isolinux is, therefore
+	repo	NEVER  needs to be specified in ks or grub files
 	dvd/cd	ALWAYS needs to be specified
 
 P4			LVM
@@ -52,13 +61,17 @@ P4			LVM
 * GRUB Menu Files
 
 grub.conf	Master File, chains to everything else
-	P0 TOP		Chainloader to MBR
-	P1 First	Boots Newly Installed System
-	P2 RESQ		Boots Rescue Linux
-	Boot XXNN	Configfile to P1/.XXNN/grub/grub.conf
-	Inst XXNN	Configfile to P2/boot/grub/grub.XXNN
+	************
+	* P0  TOP  *		Chainloader to MBR
+	* P1 First *	Boots Newly Installed System
+	* P2 RESQ  *		Boots Rescue Linux
+	****BOOT****	Dummy Entry (was P2/boot/grub/grub.boot)
+	*   DDVVA  *	Configfile     P1/.DDVVA/grub/grub.conf
+	***INSTALL**	Dummy Entry (was P2/boot/grub/grub.inst)
+	*   DDVVA  *	Configfile       P2/boot/grub/grub.DDVVA
+	************
 
-grub.XXNN	Menu for Installing XXNN Variants
+grub.DDVVA	Menu for Installing DDVVA Variants
 grub.boot	OBSOLETE: Was Menu for all Boots
 grub.inst	OBSOLETE: Was Menu for all Installs
 

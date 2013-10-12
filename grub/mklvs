@@ -1,23 +1,23 @@
 #! /bin/sh
 
 VG=${2:-$(hostname)}
-VG=${2:-$(hostname)}
 SY=${1:?'Missing System Name'}
 
 loudly() { echo "$@"; eval "$@"; }
 
-echo	"pvcreate	/dev/sda4 &&"
-echo	"vgcreate $VG	/dev/sda4 &&"
-echo	"vgchange $VG -ay	  &&"
+echo	pvcreate /dev/sda4
+echo	vgcreate $VG /dev/sda4
+echo	vgchange $VG -ay	 
 
-echo	"lvcreate -L 2G -n swap $VG	&&"
-echo	"mkswap -L swap /dev/$VG/swap	&&"
+echo	"(lvcreate -L 2G -n swap $VG;"
+echo	"mkswap -L swap /dev/$VG/swap) &"
 
 for LV in core base x11 dev srv kde gno win
 do
 	LV=${SY}_${LV}
 	echo	""
-	echo	"lvcreate -L 10G -n $LV $VG	&&"
-	echo	"mke2fs -jvL $LV /dev/$VG/$LV	&&"
+	echo	"(lvcreate -L 10G -n $LV $VG;"
+	echo	"mke2fs -jvL $LV /dev/$VG/$LV) &"
 done
+echo	wait
 echo	: DONE $0 $*
