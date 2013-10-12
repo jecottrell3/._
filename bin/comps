@@ -127,7 +127,10 @@ sub splat
 	print("$banner\n\n");
 
 	map	# existance test
-		{ $X{$_} = $rpm ? (<$RPM/$_-*.rpm>)[0] ? '' : 'x' : 'q'; }
+		{ $X{$_} = $rpm ? (	((<$RPM/$_-*.rpm>  )[0])  ||
+					((<$RPM/?/$_-*.rpm>)[0])
+				  ) ? '' : 'x' : 'q';
+		}
 		keys(%M), keys(%D), keys(%O); # /
 
 	map { print("#m$X{$_}\t-$_\n"); } sort(keys(%M));
