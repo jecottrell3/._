@@ -70,7 +70,7 @@ class HomerJ(Net):
 	def __init__(self, host, addr):
 		self.site = 'home'
 		self.host = host
-		self.addr = addr
+		self.addr = str(addr)
 		self.name = 'homerJ'
 		self.uther = 'p10p1'
 		self.proto='static'

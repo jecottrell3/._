@@ -40,15 +40,16 @@ class Part(object):
 #	Host to Partition Table
 #################################################################
 
-h2p = {	'yell': 'LV YB', 'zell': 'LV ZB',		# SEAS 156
-	'grid': 'LV GB', 'kick': 'LV KB',		# SEAS 219
-	'vdi01':'LV VB', 'vdi02':'LV VB', 'vdi03':'LV VB', # SEAS 219
-	'noir': 'LV PB', 'blue': 'LV QB', 'book': 'LV JB', # USB
-	'loco': 'LV',    'mojo': 'LV',			# HOMERJ LVM
-	'fono': 'DB',    'vodo': 'VB',			# HOMERJ fake
-	'jec3': 'LV',    'jec5': 'LV',    'jec7': 'LV', # ZAI, Irides
-	'yoko': 'LV TB',				# HOMERJ
-	'bogo': 'HB H5 H6 H7 H8 H9 H0 H1 H2 H3 H4',     # HOMERJ PART
+h2p = {
+#	'yell': 'LV YB', 'zell': 'LV ZB',		# SEAS 156
+#	'grid': 'LV GB', 'kick': 'LV KB',		# SEAS 219
+#	'vdi01':'LV VB', 'vdi02':'LV VB', 'vdi03':'LV VB', # SEAS 219
+#	'jec3': 'LV',    'jec5': 'LV',    'jec7': 'LV', # ZAI, Irides
+	'noir': 'LV PB', 'aquo': 'LV QB', 'rojo': 'LV RB', # USB
+	'loco': 'LV',    'mojo': 'LV',			# HOMERJ x64 SATA
+	'fono': 'DB',    'vodo': 'LV',			# HOMERJ x64 SATA
+	'yoko': 'LV TB',				# HOMER  i32 PATA
+	'bogo': 'LV',     				# HOMERJ i32 PATA
 
 }
 
@@ -56,6 +57,8 @@ h2p = {	'yell': 'LV YB', 'zell': 'LV ZB',		# SEAS 156
 #	UNIT TEST
 #################################################################
 
-None
+if __name__ == '__main__':
+
+        print 'part.py OK'
 
 #################################################################

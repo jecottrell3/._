@@ -31,6 +31,7 @@ class Head:
 	isopart = None
 	isopath	= '/OS/VER/ARCH/MEDIA'
 	sep	= '_'
+	tag	= 'Set By SYST'
 
 	# X Configuration
 
@@ -112,10 +113,10 @@ class Head:
 
 if __name__ == '__main__':
 	head = Head(); print head
-	head = Head('hd'); print head
-	head = Head('nfs'); print head
-	head = Head('ftp'); print head
-	head = Head('http'); print head
-	head = Head('cdrom'); print head
+	#ead = Head('hd'); print head
+	#ead = Head('nfs'); print head
+	#ead = Head('ftp'); print head
+	#ead = Head('http'); print head
+	#ead = Head('cdrom'); print head
 
 #################################################################

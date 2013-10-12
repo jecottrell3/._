@@ -1,5 +1,5 @@
 "\M-a": "\C-aman \n"
-"\M-e": " META e "
+"\M-e": " --exclude="
 "\M-h": " META h "
 "\M-i": " META i "
 "\M-j": " META j "
