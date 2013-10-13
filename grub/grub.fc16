@@ -2,47 +2,47 @@ default=saved
 timeout=5
 splashimage=(hd0,1)/boot/splash/ce5.mmh
 
-title O0 MBR-0
+title TOP
 	root (hd0)
 	chainloader +1
 
-title INST fc16 core
+title INST Fedora 16 core
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-core.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-core.ks
+	initrd /.fc16/isolinux/initrd.img
 
-title INST fc16 base
+title INST Fedora 16 base
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-base.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-base.ks
+	initrd /.fc16/isolinux/initrd.img
 
-title INST fc16 x11
+title INST Fedora 16 x11
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-x11.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-x11.ks
+	initrd /.fc16/isolinux/initrd.img
 
-title INST fc16 dev
+title INST Fedora 16 dev
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-dev.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-dev.ks
+	initrd /.fc16/isolinux/initrd.img
 
-title INST fc16 srv
+title INST Fedora 16 srv
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-srv.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-srv.ks
+	initrd /.fc16/isolinux/initrd.img
 
-title INST fc16 kde
+title INST Fedora 16 kde
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-kde.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-kde.ks
+	initrd /.fc16/isolinux/initrd.img
 
-title INST fc16 gno
+title INST Fedora 16 gno
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-gno.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-gno.ks
+	initrd /.fc16/isolinux/initrd.img
 
-title INST fc16 win
+title INST Fedora 16 win
 	root (hd0,2)
-	kernel /.FC16/isolinux/vmlinuz ks=hd:sdc1:/ks/loco-LV-fc16-win.ks
-	initrd /.FC16/isolinux/initrd.img
+	kernel /.fc16/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc16-win.ks
+	initrd /.fc16/isolinux/initrd.img
 

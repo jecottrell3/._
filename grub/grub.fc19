@@ -1,0 +1,48 @@
+default=saved
+timeout=5
+splashimage=(hd0,1)/boot/splash/ce5.mmh
+
+title TOP
+	root (hd0)
+	chainloader +1
+
+title INST Fedora 19 core
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-core.ks
+	initrd /.fc19/isolinux/initrd.img
+
+title INST Fedora 19 base
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-base.ks
+	initrd /.fc19/isolinux/initrd.img
+
+title INST Fedora 19 x11
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-x11.ks
+	initrd /.fc19/isolinux/initrd.img
+
+title INST Fedora 19 dev
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-dev.ks
+	initrd /.fc19/isolinux/initrd.img
+
+title INST Fedora 19 srv
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-srv.ks
+	initrd /.fc19/isolinux/initrd.img
+
+title INST Fedora 19 kde
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-kde.ks
+	initrd /.fc19/isolinux/initrd.img
+
+title INST Fedora 19 gno
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-gno.ks
+	initrd /.fc19/isolinux/initrd.img
+
+title INST Fedora 19 win
+	root (hd0,2)
+	kernel /.fc19/isolinux/vmlinuz ks=hd:sda3:/ks/yoko-LV-fc19-win.ks
+	initrd /.fc19/isolinux/initrd.img
+

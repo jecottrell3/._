@@ -1,0 +1,56 @@
+default=saved
+timeout=5
+splashimage=(hd0,1)/boot/splash/ce5.mhm
+
+title TOP
+	root (hd0)
+	chainloader +1
+
+title MENU Install CentOS 6.4 core
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-core.ks
+	initrd /.ce64/isolinux/initrd.img
+
+title MENU Install CentOS 6.4 base
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-base.ks
+	initrd /.ce64/isolinux/initrd.img
+
+title MENU Install CentOS 6.4 x11
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-x11.ks
+	initrd /.ce64/isolinux/initrd.img
+
+title MENU Install CentOS 6.4 dev
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-dev.ks
+	initrd /.ce64/isolinux/initrd.img
+
+title MENU Install CentOS 6.4 srv
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-srv.ks
+	initrd /.ce64/isolinux/initrd.img
+
+title MENU Install CentOS 6.4 kde
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-kde.ks
+	initrd /.ce64/isolinux/initrd.img
+
+title MENU Install CentOS 6.4 gno
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-gno.ks
+	initrd /.ce64/isolinux/initrd.img
+
+title MENU Install CentOS 6.4 win
+	root (hd0,2)
+	savedefault
+	kernel /.ce64/isolinux/vmlinuz ks=hd:sda2:/ks/yoko-LV-ce64-win.ks
+	initrd /.ce64/isolinux/initrd.img
+

@@ -1,0 +1,56 @@
+default=saved
+timeout=5
+splashimage=(hd0,1)/boot/splash/ce5.mhh
+
+title TOP
+	root (hd0)
+	chainloader +1
+
+title MENU Install CentOS 5.9 core
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-core.ks
+	initrd /.ce59/isolinux/initrd.img
+
+title MENU Install CentOS 5.9 base
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-base.ks
+	initrd /.ce59/isolinux/initrd.img
+
+title MENU Install CentOS 5.9 x11
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-x11.ks
+	initrd /.ce59/isolinux/initrd.img
+
+title MENU Install CentOS 5.9 dev
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-dev.ks
+	initrd /.ce59/isolinux/initrd.img
+
+title MENU Install CentOS 5.9 srv
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-srv.ks
+	initrd /.ce59/isolinux/initrd.img
+
+title MENU Install CentOS 5.9 kde
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-kde.ks
+	initrd /.ce59/isolinux/initrd.img
+
+title MENU Install CentOS 5.9 gno
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-gno.ks
+	initrd /.ce59/isolinux/initrd.img
+
+title MENU Install CentOS 5.9 win
+	root (hd0,2)
+	savedefault
+	kernel /.ce59/isolinux/vmlinuz ks=hd:hda2:/ks/yoko-LV-ce59-win.ks
+	initrd /.ce59/isolinux/initrd.img
+
