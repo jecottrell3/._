@@ -7,10 +7,10 @@
 # For details of the format look at autofs(5).
 #
 /misc	/etc/auto.misc
-/blue	/etc/auto.blue
-/book	/etc/auto.book
-/port	/etc/auto.port
 /mylv	/etc/auto.mylv
+/aquo	/etc/auto.aquo
+/noir	/etc/auto.noir
+/rojo	/etc/auto.rojo
 #
 # NOTE: mounts done from a hosts map will be mounted with the
 #	"nosuid" and "nodev" options unless the "suid" and "dev"
