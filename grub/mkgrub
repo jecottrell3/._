@@ -1,0 +1,32 @@
+#! /bin/sh
+
+DIST=${1?'Missing Dist'}
+NAME=${2?'Missing Name'}
+VERS=${3?'Missing Version'}
+HOST=${4-$(hostname)}
+
+{
+	cat <<EOF
+default=saved
+timeout=5
+splashimage=(hd0,1)/boot/splash/ce5.mmh
+
+title TOP grub.$DIST
+	root (hd0)
+	chainloader +1
+
+EOF
+
+for TYPE in core base x11 dev srv kde gno win
+do
+	cat <<EOF
+title INST $NAME $VERS $TYPE
+	root (hd0,2)
+	kernel /.$DIST/isolinux/vmlinuz ks=hd:sda3:/ks/$HOST-LV-$DIST-$TYPE.ks
+	initrd /.$DIST/isolinux/initrd.img
+
+EOF
+
+done
+
+}
