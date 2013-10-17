@@ -28,4 +28,4 @@ do
 	}
 done
 
-perl -pi -e "s/($OLD\$)/\$1,$NEW/" group
+exec sed -ie "s/$OLD$/$OLD,$NEW/" group
