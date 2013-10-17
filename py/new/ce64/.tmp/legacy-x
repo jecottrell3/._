@@ -1,0 +1,27 @@
+################################################################
+-@legacy-x
+################################################################
+
+#d	-xorg-x11-fonts-100dpi
+#d	-xorg-x11-fonts-ISO8859-1-100dpi
+#d	-xorg-x11-fonts-Type1
+#d	-xorg-x11-fonts-misc
+#o	 libXmu
+#o	 libXp
+#o	 openmotif
+#o	 openmotif22
+#o	 xorg-x11-fonts-75dpi
+#o	 xorg-x11-fonts-ISO8859-1-75dpi
+#o	 xorg-x11-fonts-ISO8859-14-100dpi
+#o	 xorg-x11-fonts-ISO8859-14-75dpi
+#o	 xorg-x11-fonts-ISO8859-15-75dpi
+#o	 xorg-x11-fonts-ISO8859-2-100dpi
+#o	 xorg-x11-fonts-ISO8859-2-75dpi
+#o	 xorg-x11-fonts-ISO8859-9-100dpi
+#o	 xorg-x11-fonts-ISO8859-9-75dpi
+#o	 xorg-x11-fonts-cyrillic
+#o	 xorg-x11-fonts-ethiopic
+#o	 xorg-x11-twm
+#o	 xorg-x11-xdm
+#o	 xterm
+

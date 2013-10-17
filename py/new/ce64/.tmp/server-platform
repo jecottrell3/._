@@ -1,0 +1,19 @@
+################################################################
+-@server-platform
+################################################################
+
+#m	-db4
+#m	-dbus-libs
+#m	-glibc
+#m	-krb5-libs
+#m	-libgcc
+#m	-libitm
+#m	-libstdc++
+#m	-ncurses-libs
+#m	-nss
+#m	-openldap
+#m	-openssl
+#m	-pam
+#m	-redhat-lsb
+#m	-zlib
+

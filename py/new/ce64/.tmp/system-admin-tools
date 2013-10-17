@@ -1,0 +1,22 @@
+################################################################
+-@system-admin-tools
+################################################################
+
+#o	 conman
+#o	 crypto-utils
+#o	 dtach
+#o	 expect
+#o	 hardlink
+#o	 lsscsi
+#o	 mc
+#o	 mgetty
+#o	 pexpect
+#o	 rdist
+#o	 rrdtool
+#o	 screen
+#o	 scrub
+#o	 symlinks
+#o	 tree
+#o	 vlock
+#o	 xdelta
+

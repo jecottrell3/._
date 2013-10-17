@@ -1,0 +1,22 @@
+################################################################
+-@graphical-admin-tools
+################################################################
+
+#m	-dbus
+#d	-authconfig-gtk
+#d	-gnome-disk-utility
+#d	-gnome-packagekit
+#d	-system-config-firewall
+#d	-system-config-kdump
+#d	-system-config-keyboard
+#d	-system-config-services
+#d	-system-config-users
+#o	 audit-viewer
+#o	 firstaidkit-gui
+#o	 policycoreutils-gui
+#o	 sabayon
+#o	 setroubleshoot
+#o	 system-config-kickstart
+#o	 system-config-lvm
+#o	 wireshark-gnome
+

@@ -1,0 +1,235 @@
+################################################################
+-@basic-desktop
+################################################################
+
+#m	-NetworkManager
+#m	-NetworkManager-gnome
+#m	-alsa-plugins-pulseaudio
+#m	-at-spi
+#m	-control-center
+#m	-dbus
+#m	-gdm
+#m	-gdm-user-switch-applet
+#m	-gnome-panel
+#m	-gnome-power-manager
+#m	-gnome-screensaver
+#m	-gnome-session
+#m	-gnome-terminal
+#m	-gvfs-archive
+#m	-gvfs-fuse
+#m	-gvfs-smb
+#m	-metacity
+#m	-nautilus
+#m	-notification-daemon
+#m	-polkit-gnome
+#m	-xdg-user-dirs-gtk
+#m	-yelp
+#d	-control-center-extra
+#d	-eog
+#d	-gdm-plugin-fingerprint
+#d	-gnome-applets
+#d	-gnome-media
+#d	-gnome-packagekit
+#d	-gnome-vfs2-smb
+#d	-gok
+#d	-openssh-askpass
+#d	-orca
+#d	-pulseaudio-module-gconf
+#d	-pulseaudio-module-x11
+#dx	-rhn-setup-gnome
+#d	-vino
+#o	 sabayon-apply
+#o	 tigervnc-server
+#o	 xguest
+
+################################################################
+-@desktop-debugging
+################################################################
+
+#d      -abrt-desktop
+#o       abrt-gui
+#o       bltk
+#o       oprofile-gui
+#o       xrestop
+
+################################################################
+-@general-desktop
+################################################################
+
+#d	-PackageKit-gstreamer-plugin
+#d	-authconfig-gtk
+#d	-brasero-nautilus
+#d	-cheese
+#d	-compiz-gnome
+#d	-evince
+#d	-evince-dvi
+#d	-file-roller
+#d	-gcalctool
+#d	-gedit
+#d	-gnome-backgrounds
+#d	-gnome-bluetooth
+#d	-gnome-disk-utility
+#d	-gnome-power-manager
+#d	-gnome-system-monitor
+#d	-gnome-themes
+#d	-gnome-user-docs
+#d	-gnome-user-share
+#d	-gnome-utils
+#d	-gnote
+#d	-gthumb
+#d	-gucharmap
+#d	-gvfs-afc
+#d	-gvfs-gphoto2
+#d	-gvfs-obexftp
+#d	-mousetweaks
+#d	-nautilus-open-terminal
+#d	-nautilus-sendto
+#d	-rhythmbox
+#d	-scenery-backgrounds
+#d	-seahorse
+#d	-sound-juicer
+#d	-system-config-firewall
+#d	-system-config-users
+#d	-totem
+#d	-totem-nautilus
+#o	 alacarte
+#o	 byzanz
+#o	 dvgrab
+#o	 gconf-editor
+#o	 gedit-plugins
+#o	 gnome-games
+#o	 gnome-pilot
+#o	 gnome-pilot-conduits
+#o	 krb5-auth-dialog
+#o	 rhythmbox-upnp
+#o	 seahorse-plugins
+#o	 totem-upnp
+#o	 vim-X11
+
+################################################################
+-@graphical-admin-tools
+################################################################
+
+#m	-dbus
+#d	-authconfig-gtk
+#d	-gnome-disk-utility
+#d	-gnome-packagekit
+#d	-system-config-firewall
+#d	-system-config-kdump
+#d	-system-config-keyboard
+#d	-system-config-services
+#d	-system-config-users
+#o	 audit-viewer
+#o	 firstaidkit-gui
+#o	 policycoreutils-gui
+#o	 sabayon
+#o	 setroubleshoot
+#o	 system-config-kickstart
+#o	 system-config-lvm
+#o	 wireshark-gnome
+
+################################################################
+-@graphics
+################################################################
+
+#m	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+#d	-gutenprint-plugin
+#d	-libsane-hpaio
+#d	-sane-backends-libs-gphoto2
+#d	-sane-frontends
+#d	-xsane
+#d	-xsane-gimp
+#o	 ImageMagick
+#o	 dcraw
+#o	 inkscape
+#o	 netpbm-progs
+#o	 xfig
+
+################################################################
+-@internet-applications
+################################################################
+
+#d	-ekiga
+#d	-evolution
+#d	-evolution-help
+#d	-evolution-mapi
+#d	-pidgin
+#o	 evolution-exchange
+#o	 thunderbird
+#o	 xchat
+
+################################################################
+-@internet-browser
+################################################################
+
+#d	-firefox
+#d	-nspluginwrapper
+#d	-totem-mozplugin
+
+################################################################
+-@office-suite
+################################################################
+
+#d	-libreoffice-calc
+#d	-libreoffice-draw
+#d	-libreoffice-graphicfilter
+#d	-libreoffice-impress
+#d	-libreoffice-math
+#d	-libreoffice-writer
+#d	-libreoffice-xsltfilter
+#o	 libreoffice-base
+#o	 libreoffice-emailmerge
+#o	 libreoffice-headless
+#o	 libreoffice-javafilter
+#o	 libreoffice-ogltrans
+#o	 libreoffice-presentation-minimizer
+#o	 libreoffice-report-builder
+#o	 libreoffice-wiki-publisher
+#o	 planner
+#o	 taskjuggler
+
+################################################################
+#@@virtualization
+#@################################################################
+#@
+#@#m	-qemu-kvm
+#@#d	-hypervkvpd
+#@qemu-guest-agent
+#@qemu-kvm-tools
+#@
+#@################################################################
+#@-@virtualization-client
+#@################################################################
+#@
+#@#m	-python-virtinst
+#@#m	-virt-manager
+#@#m	-virt-viewer
+#@#d	-virt-top
+#@
+#@################################################################
+#@@virtualization-platform
+#@################################################################
+#@
+#@#m	-libvirt
+#@#m	-libvirt-client
+#@#m	-virt-who
+#@#o	 fence-virtd-libvirt
+#@#o	 fence-virtd-multicast
+#@#o	 fence-virtd-serial
+#@#o	 libvirt-cim
+#@libvirt-java
+#@libvirt-snmp
+#@perl-Sys-Virt
+#@
+#@################################################################
+#@@virtualization-tools
+#@################################################################
+#@
+#@#d	-libguestfs
+#@libguestfs-java
+#@libguestfs-tools
+#@virt-v2v
+

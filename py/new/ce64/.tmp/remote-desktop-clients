@@ -1,0 +1,11 @@
+################################################################
+-@remote-desktop-clients
+################################################################
+
+#o	 rdesktop
+#o	 spice-client
+#o	 spice-xpi
+#o	 tigervnc
+#o	 tsclient
+#o	 vinagre
+

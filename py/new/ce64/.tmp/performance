@@ -1,0 +1,21 @@
+################################################################
+-@performance
+################################################################
+
+#m	-blktrace
+#m	-sysstat
+#d	-dstat
+#d	-iotop
+#d	-latencytop
+#d	-latencytop-tui
+#d	-oprofile
+#d	-perf
+#d	-powertop
+#d	-seekwatcher
+#o	 oprofile-jit
+#o	 papi
+#o	 sdparm
+#o	 sg3_utils
+#o	 tuned
+#o	 tuned-utils
+

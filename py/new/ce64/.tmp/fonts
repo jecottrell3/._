@@ -1,0 +1,40 @@
+################################################################
+-@fonts
+################################################################
+
+#d	-abyssinica-fonts
+#d	-cjkuni-uming-fonts
+#d	-dejavu-sans-fonts
+#d	-dejavu-sans-mono-fonts
+#d	-dejavu-serif-fonts
+#d	-jomolhari-fonts
+#d	-khmeros-base-fonts
+#d	-kurdit-unikurd-web-fonts
+#d	-liberation-mono-fonts
+#d	-liberation-sans-fonts
+#d	-liberation-serif-fonts
+#d	-lklug-fonts
+#d	-lohit-assamese-fonts
+#d	-lohit-bengali-fonts
+#d	-lohit-devanagari-fonts
+#d	-lohit-gujarati-fonts
+#d	-lohit-kannada-fonts
+#d	-lohit-oriya-fonts
+#d	-lohit-punjabi-fonts
+#d	-lohit-tamil-fonts
+#d	-lohit-telugu-fonts
+#d	-madan-fonts
+#d	-paktype-naqsh-fonts
+#d	-paktype-tehreer-fonts
+#d	-sil-padauk-fonts
+#d	-smc-meera-fonts
+#d	-stix-fonts
+#d	-thai-scalable-waree-fonts
+#d	-tibetan-machine-uni-fonts
+#d	-un-core-dotum-fonts
+#d	-vlgothic-fonts
+#d	-wqy-zenhei-fonts
+#o	 bitmap-fixed-fonts
+#o	 bitmap-lucida-typewriter-fonts
+#o	 cjkuni-fonts-ghostscript
+

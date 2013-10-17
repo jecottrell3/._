@@ -1,0 +1,15 @@
+################################################################
+-@technical-writing
+################################################################
+
+#m	-docbook-slides
+#m	-docbook-style-xsl
+#m	-docbook-utils
+#m	-docbook5-schemas
+#m	-docbook5-style-xsl
+#d	-xmlto
+#o	 docbook-utils-pdf
+#o	 texinfo
+#o	 xmlto-tex
+#o	 xmltoman
+

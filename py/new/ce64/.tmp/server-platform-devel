@@ -1,0 +1,18 @@
+################################################################
+-@server-platform-devel
+################################################################
+
+#m	-db4-devel
+#m	-dbus-devel
+#m	-glibc-devel
+#m	-krb5-devel
+#m	-libstdc++-devel
+#m	-libvirt-devel
+#m	-libvirt-java-devel
+#m	-ncurses-devel
+#m	-nss-devel
+#m	-openldap-devel
+#m	-openssl-devel
+#m	-pam-devel
+#m	-zlib-devel
+

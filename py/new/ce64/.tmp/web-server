@@ -1,0 +1,26 @@
+################################################################
+-@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_ssl
+#d	-mod_wsgi
+#d	-webalizer
+#o	 certmonger
+#o	 libmemcached
+#o	 memcached
+#o	 mod_auth_kerb
+#o	 mod_auth_mysql
+#o	 mod_auth_pgsql
+#o	 mod_authz_ldap
+#o	 mod_nss
+#o	 mod_revocator
+#o	 perl-CGI
+#o	 perl-CGI-Session
+#o	 perl-Cache-Memcached
+#o	 python-memcached
+#o	 squid
+

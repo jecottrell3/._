@@ -1,0 +1,28 @@
+################################################################
+-@system-management-wbem
+################################################################
+
+#d	-openwsman-client
+#d	-sblim-sfcb
+#d	-sblim-wbemcli
+#d	-wsmancli
+#o	 openwsman-server
+#o	 sblim-cim-client
+#o	 sblim-cim-client2
+#o	 sblim-cmpi-dhcp
+#o	 sblim-cmpi-dns
+#o	 sblim-cmpi-fsvol
+#o	 sblim-cmpi-network
+#o	 sblim-cmpi-nfsv3
+#o	 sblim-cmpi-nfsv4
+#o	 sblim-cmpi-params
+#o	 sblim-cmpi-samba
+#o	 sblim-cmpi-sysfs
+#o	 sblim-cmpi-syslog
+#o	 sblim-gather
+#o	 sblim-gather-provider
+#o	 sblim-indication_helper
+#o	 sblim-smis-hba
+#o	 sblim-tools-libra
+#o	 tog-pegasus
+

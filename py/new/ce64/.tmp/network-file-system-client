@@ -1,0 +1,11 @@
+################################################################
+-@network-file-system-client
+################################################################
+
+#d	-autofs
+#d	-cifs-utils
+#d	-nfs-utils
+#d	-nfs4-acl-tools
+#d	-samba-client
+#o	 cachefilesd
+

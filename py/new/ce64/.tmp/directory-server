@@ -1,0 +1,11 @@
+################################################################
+-@directory-server
+################################################################
+
+#o	 krb5-server
+#o	 krb5-server-ldap
+#o	 migrationtools
+#o	 openldap-servers
+#o	 samba
+#o	 ypserv
+
