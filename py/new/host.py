@@ -36,7 +36,7 @@ def usb(ks):
         ks.head.order	= 'sdb,sda'
 
 def noir(ks, self):			# Black 120G PassPort
-	print self
+#	print self
 	ks.nets = nets.Dhcp(self.name)
 	usb(ks)
 
@@ -91,8 +91,6 @@ def meta(ks): pata(ks, 'md')
 ## SEAS 156 DHCP
 ## SEAS 156 Static
 
-def sata(ks): pata(ks, 'sda')
-
 #def yell(ks, self):
 #	ks.head.monitor = ' --resolution=1680x1050 --depth=24'
 ##	ks.nets = nets.Dhcp(self.name)
@@ -137,29 +135,35 @@ def sata(ks): pata(ks, 'sda')
 #	HOMERJ -- RBJ Home Network
 #################################################################
 
+# 32 bit PATA
+
 def pata(ks, disk):
 	ks.head.disk = disk
 	ks.prep.vars['site'] += ks.nets.site
 
 def bogo(ks, self, addr=6):	# TV Room
 	ks.head.arch = 'i386'
-	ks.head.server = '1.2.3.9'
-	ks.head.inst = 'nfs'
-	ks.head.resq = 14
-	ks.head.home = 13
-	ks.head.conf = -1
+####	ks.head.server = '1.2.3.9'
+####	ks.head.inst = 'nfs'
+####	ks.head.resq = 14
+####	ks.head.home = 13
+####	ks.head.conf = -1	# WTF???
 	ks.nets = nets.HomerJ(self.name, 6)
 	pata(ks, 'hda')
 
 def mojo(ks, self, addr=7):	# NRTC Gateway
 	bogo(ks, self, addr)
 
-def loco(ks, self, addr=8):	# Jim New
-	ks.nets = nets.HomerJ(self.name, addr)	# 64 bit + wifi
+# 64 bit SATA
+
+def sata(ks): pata(ks, 'sda')
+
+def loco(ks, self, addr=8, net=None):	# Jim New
+	ks.nets = nets.HomerJ(self.name, addr, net)
 	sata(ks)
 
 def yoko(ks, self):		# Black from Althea
-	loco(ks, self, 9)
+	loco(ks, self, 9, 'em1')
 
 def fono(ks, self):		# James
 	loco(ks, self, 10)

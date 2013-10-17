@@ -45,12 +45,12 @@ h2p = {
 #	'grid': 'LV GB', 'kick': 'LV KB',		# SEAS 219
 #	'vdi01':'LV VB', 'vdi02':'LV VB', 'vdi03':'LV VB', # SEAS 219
 #	'jec3': 'LV',    'jec5': 'LV',    'jec7': 'LV', # ZAI, Irides
-	'noir': 'LV PB', 'aquo': 'LV QB', 'rojo': 'LV RB', # USB
-	'loco': 'LV',    'mojo': 'LV',			# HOMERJ x64 SATA
-	'fono': 'DB',    'vodo': 'LV',			# HOMERJ x64 SATA
-	'yoko': 'LV TB',				# HOMER  i32 PATA
-	'bogo': 'LV',     				# HOMERJ i32 PATA
 
+'noir': ('LV', 'NB'),	'aquo': ('LV', 'QB'),
+'rojo': ('LV', 'RB'),	'argo': ('LV', 'PB'),	# HOMERJ i32 USB
+'mojo': ('LV',     ),	'bogo': ('LV',     ),	# HOMERJ i32 PATA
+'fono': ('LV', 'DB'),	'vodo': ('LV',     ),	# HOMERJ x64 SATA
+'loco': ('LV',     ),	'yoko': ('LV',     ),	# HOMERJ x64 SATA
 }
 
 #################################################################

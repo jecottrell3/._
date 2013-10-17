@@ -2,6 +2,8 @@
 : :: Save Previous Systems ::
 : :::::::::::::::::::::::::::
 
+set -x
+set -x
 P=/dev/$ROOT
 lvm vgchange -a y
 mkdir /p
@@ -40,6 +42,7 @@ umount /p
 sync; usleep 2002002
 lvm vgchange -a n
 sync; usleep 2002002
+ls -l /tmp
 
 : :::::::::::::
 : :: END PRE ::

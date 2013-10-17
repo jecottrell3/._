@@ -17,7 +17,7 @@ class Net(object):
 	addr	= None
 	gate	= None
 	mask	= '255.255.255.0'	# /24 = Class C
-	dns	= '8.8.8.8'		# Google
+	dns	= None			# DIY
 
 	# Initialize: store hostname if given
 
@@ -40,7 +40,10 @@ class Net(object):
 			rep = rep + ' --ip='      + self.work + self.addr
 			rep = rep + ' --gateway=' + self.work + self.gate
 			rep = rep + ' --netmask=' + self.mask
+
+		if self.dns:
 			rep = rep + ' --nameserver=' + self.dns
+		else:	rep = rep + ' --nodns'
 
 		return '\n'.join([
 			'#### BEG Net ' + self.name + ' ####',
@@ -67,12 +70,12 @@ class Dhcp(Net):
 #################################################################
 
 class HomerJ(Net):
-	def __init__(self, host, addr):
+	def __init__(self, host, addr, net=None):
 		self.site = 'home'
 		self.host = host
 		self.addr = str(addr)
 		self.name = 'homerJ'
-		self.uther = 'p10p1'
+		self.uther = net
 		self.proto='static'
 		self.work = '1.2.3.'
 		self.gate = '4'

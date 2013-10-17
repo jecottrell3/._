@@ -14,7 +14,7 @@ repo --name=%-15s --baseurl=file:///tmp/isomedia/%s""" % (repo, repo)
 class Head:
 
 	inst	= 'hd'					# install method
-	gfx	= 'text' 				# or 'graphical'
+	gfx	= 'graphical' 				# text now too lame
 	rootpw	= '$1$d67bJGVm$yDSz4G1uKE2Rpbb99lGFn1'
 	auth	= ''
 	utc	= '--utc'		
@@ -27,11 +27,13 @@ class Head:
 	boot	= 1
 	resq	= 2
 	home	= 3
+	only	= None
 	order	= None					# sdb,sda for USB
 	isopart = None
 	isopath	= '/OS/VER/ARCH/MEDIA'
 	sep	= '_'
 	tag	= 'Set By SYST'
+	nopv	= 0
 
 	# X Configuration
 
@@ -85,7 +87,11 @@ class Head:
 		if (not self.order):   self.order   = self.disk
 		if (not self.isopart): self.isopart = self.disk + `self.home`
 		self.isopath = '/'.join(['', self.name, self.vers, self.arch])
+		self.isopath = '/' + self.tag + self.arch[:1]
 		self.method = self[self.inst]
+		if self.only:
+			self.only = 'ignoredisk --only-use=' + self.only
+		else:	self.only = '# ignoredisk for FC19 only'
 		return '\n'.join([
 			'#### BEG head ' + self.inst + ' ####',
 			'install',
@@ -97,12 +103,14 @@ class Head:
 			self.xconfig(),
 			'rootpw --iscrypted ' + self.rootpw,
 			'firewall --enabled --port=22:tcp',
-			'authconfig --enableshadow --enablemd5' +
+			'authconfig --enableshadow + # --enablemd5' +
 				  ' --enablelocauthorize ' + self.auth,
 			'selinux --permissive',
 			'firstboot --disabled',
 			'timezone %s America/New_York' % self.utc,
 			'bootloader --location=partition --driveorder=' + self.order,
+			self.only,
+			'clearpart --none',
 			'#### END head ' + self.inst + ' ####',
 			''
 		]);

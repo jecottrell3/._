@@ -1,5 +1,6 @@
 yell() { set +x;NAP=$1;shift;echo $* $(date)> /dev/tty1;sleep $NAP;set -x; }
 
+stty sane < /dev/tty1
 yell 0 ::::::::::::::
 yell 0 :: BEG Post ::
 yell 1 ::::::::::::::
@@ -56,7 +57,7 @@ rsync -Cvrp $DIST/. /
 
 cd /etc
 
-for file in issue sudoers hosts
+for file in issue sudoers hosts resolv.conf
 do
 	test -f	$file.$SYST &&
 	cp   -v	$file.$SYST $file
@@ -77,8 +78,8 @@ yell 0 :: DNS Config ::
 yell 1 ::::::::::::::::
 
 cd /etc/sysconfig/network-scripts
-#### grep seas.gwu.edu /etc/resolv.conf &&
-#### echo 'SEARCH="grid.seas.gwu.edu seas.gwu.edu gwu.edu"' >> ifcfg-ETHER
+#rep HOSTNAME		network ||
+echo HOSTNAME=$HOST >>	network
 
 yell 0 :::::::::::::::::
 yell 0 :: Demon Seeds ::
@@ -95,13 +96,14 @@ do
 		(firstboot)	chkconfig $svc on;;  # done via kickstart
 		(ip6tables)	chkconfig $svc off;; # no ip6
 #		(iptables)	chkconfig $svc off;; # FIX LATER
+		(kdump)		chkconfig $svc off;; # no kdump
 		(mcstrans)	chkconfig $svc off;; # no selinux
 		(mdmonitor)	chkconfig $svc off;; # no RAID
 		(network)	chkconfig $svc on ;; # NEED
 #		(netfs)		chkconfig $svc off;; # no NFS
 #		(nfs)		chkconfig $svc off;; # no NFS
 #		(nfslock)	chkconfig $svc off;; # no NFS
-		(ntpd)		chkconfig $svc on ;; # need Time
+		(ntpd)		chkconfig $svc on ;; # NEED
 		(pcscd)		chkconfig $svc off;; # NUKE
 		(rawdevices)	chkconfig $svc off;; # NUKE
 		(restorecond)	chkconfig $svc off;; # no selinux
@@ -118,6 +120,19 @@ do
 	esac
 done
 set -x
+
+yell 0 :::::::::::::::::::::
+yell 0 :: Fedora 19 Hacks ::
+yell 1 :::::::::::::::::::::
+
+case $SYST in
+(fc19)
+	yum install gpm autofs dwm
+	chkconfig   gpm  ; service gpm     start
+	chkconfig autofs ; service autofs  start
+	chkconfig network; service network start
+	;;
+esac
 
 yell 0 ::::::::::::::::::::::::::
 yell 0 :: Make Whatis Database ::

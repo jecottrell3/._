@@ -17,12 +17,12 @@ import host, part, syst, type 			# customizers
 class Kick:
 
 	#########################################################
-	# Defaults and Auxilliary Functions
+	#	Defaults and Auxilliary Functions
 	#########################################################
 
 
 	#########################################################
-	# Constructor: Initialize and Customize
+	#	Constructor: Initialize and Customize
 	#########################################################
 
 	def __init__(self, h, p, s, t):
@@ -46,10 +46,8 @@ class Kick:
 	#########################################################
 
 	#########################################################
-	#	Generate All Possible KS Files over 4 Dimensions
+	#	Destructor: Break Reference Cycles
 	#########################################################
-
-	# Destructor: Break Reference Cycles
 
 	def __del__(self):		# break cycle
 		self.head = None
@@ -64,7 +62,7 @@ class Kick:
 		self.type = None
 
 	#########################################################
-	# Represent: Generate Kickstart File
+	#	Represent: Generate Kickstart File
 	#########################################################
 
 	def __repr__(self):
@@ -94,23 +92,26 @@ t2p = {	'core':	'5',	'base':	'6',
 
 # h = 'H'; p = 'P'; s = 'S'; t = 'T'	# for debugging
 
+import os
+
+try:	h = os.stat ('ks')
+except:	h = os.mkdir('ks')
+
 for		h in  host.items.keys():
-  for		p in  (part.h2p[h]).split(' '):
+  for		p in  part.h2p[h]:	#####	.split(' '):
     for		s in  syst.items.keys():
       for	t in  type.items.keys():
 
-	# if p[0] in 'TH': p = p[0] + tt[t]
+	if t in type.newdesk:
+		if s != 'fc19':	continue
 
-	if h in [ 'grid', 'vdi01', 'vdi02', 'vdi03']:
-		if (p, t) != ('LV', 'core'): continue
-		name = h + '-' + s; t = s
-	else:	name = '-'.join([h, p, s, t])
+	name = '-'.join([h, p, s, t])
 
-	print	name, p, s, t
+	print	h, p, s, t
 
 	ks = Kick(h, p, s, t)
 
-	out = open('ks/'  + name + '.ks', 'w')
+	out = open('ks/'   + name + '.ks', 'w')
 	out.write('# BEG ' + name + '\n')
 	out.write(`ks`)
 	out.write('# END ' + name + '\n')

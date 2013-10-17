@@ -39,7 +39,7 @@ def generic(ks, name):
 def core(ks):
 	generic(ks, 'core')
 	ks.pkgs.nobase = ' --nobase'
-	ks.head.gfx = 'text'
+#	ks.head.gfx = 'text'
 
 def base(ks):
 	core(ks)
@@ -50,13 +50,13 @@ def x11(ks):
 	save = ks.head.monitor
 	base(ks)
 	ks.head.monitor = save
-	ks.head.gfx = 'graphical'
+#	ks.head.gfx = 'graphical'
 #	ks.head.startx = ' --startxonboot'
 	ks.pkgs.todo.extend(['x11'])
 
 def dev(ks):
 	x11(ks)
-	ks.head.gfx = 'text'
+#	ks.head.gfx = 'text'
 	ks.pkgs.todo.extend(['dev'])
 
 def srv(ks):
@@ -65,10 +65,10 @@ def srv(ks):
 #	ks.head.startx = ''
 	ks.pkgs.todo.extend(['srv'])
 
-def app(ks):	# helper
+def app(ks, extra='app'):	# helper
 	x11(ks)
 	ks.head.startx = ' --startxonboot'
-	ks.pkgs.todo.extend(['dev', 'srv', 'app'])
+	ks.pkgs.todo.extend(['dev', 'srv', extra])
 
 def kde(ks):
 	app(ks)
@@ -77,25 +77,41 @@ def kde(ks):
 def gno(ks):
 	app(ks)
 	ks.pkgs.todo.extend(['gno'])
-	ks.head.gfx = 'text'
+#	ks.head.gfx = 'text'
 
+# Both KDE and Gnome
 def win(ks):
 	gno(ks)
 	ks.pkgs.todo.extend(['kde'])
+
+# Fedora 19 Desktops
+
+def lxde(ks):	app(ks, 'lxde')
+def xfce(ks):	app(ks, 'xfce')
+def mate(ks):	app(ks, 'mate')
+def cina(ks):	app(ks, 'cina')
+def sugr(ks):	app(ks, 'sugr')
+def desk(ks):	app(ks, 'desk')
 
 #################################################################
 #	Type Switch Table
 #################################################################
 
+newdesk = ( 'desk', 'cina', 'sugr', 'mate', 'lxde', 'xfce', )
+
 items = {}
 
 for t in (	'core', 'base', 'x11', 'dev',
-		'srv',  'kde',  'gno', 'win'):
+		'srv',  'kde',  'gno', 'win',
+	) + newdesk:
 	items[t] = eval(t)
 
 #################################################################
 #	UNIT TEST
 #################################################################
 
+if __name__ == '__main__':
+
+        print 'type.py OK'
 
 #################################################################
