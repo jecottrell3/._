@@ -29,7 +29,7 @@ do
 	(-o)	OPT="$OPT -o";		shift 1;; # Logical OR
 	(-1)	OPT="$OPT -xdev";	shift 1;; # One File System
 	(-rm)	OPT="$OPT -delete";	shift 1;; # Remove
-	(-x)	shift; ACT="-print -exec $@ +"; break ;; # New Exec
+	(-x)	shift; ACT="-exec $@ +"; break ;; # New Exec
 	(-ls)	ACT="-ls";		shift 1;; # List
 	(-k)	ACT="-printf '%k\t%f\n'";   shift 1;; # Size/File
 	(-w)	ACT="-printf '%k\t%h/%f\n'";shift 1;; # Size/Whole
