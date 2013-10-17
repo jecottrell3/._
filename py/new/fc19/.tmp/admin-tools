@@ -1,0 +1,32 @@
+################################################################
+-@admin-tools
+################################################################
+
+#d	-abrt-desktop
+#d	-authconfig-gtk
+#d	-gnome-disk-utility
+#d	-setroubleshoot
+#d	-system-config-date
+#d	-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-users
+#o	 apper
+#ox	 cacti
+#ox	 dbench
+#ox	 etherape
+#ox	 ettercap
+#ox	 galternatives
+#o	 gparted
+#ox	 gpointing-device-settings
+#ox	 kde-partitionmanager
+#ox	 lshw-gui
+#ox	 luma
+#ox	 ntop
+#ox	 pessulus
+#ox	 qtparted
+#ox	 system-config-boot
+#o	 system-config-firewall
+#ox	 system-config-kickstart
+#ox	 system-config-rootpassword
+#o	 yumex
+

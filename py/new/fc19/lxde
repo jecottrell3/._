@@ -1,0 +1,78 @@
+################################################################
+-@lxde-apps
+################################################################
+
+#m	-pidgin
+#m	-sylpheed
+#m	-transmission
+
+################################################################
+-@lxde-desktop
+################################################################
+
+#m	-adwaita-cursor-theme
+#m	-adwaita-gtk2-theme
+#m	-adwaita-gtk3-theme
+#m	-clipit
+#m	-fedora-icon-theme
+#m	-firewall-config
+#m	-galculator
+#m	-gigolo
+#m	-gnome-keyring-pam
+#m	-gpicview
+#m	-initial-setup
+#m	-leafpad
+#m	-lxappearance
+#m	-lxappearance-obconf
+#m	-lxde-common
+#m	-lxdm
+#m	-lxinput
+#m	-lxlauncher
+#m	-lxmenu-data
+#m	-lxpanel
+#m	-lxpolkit
+#m	-lxrandr
+#m	-lxsession
+#m	-lxsession-edit
+#m	-lxshortcut
+#m	-lxtask
+#m	-lxterminal
+#m	-network-manager-applet
+#m	-nm-connection-editor
+#m	-notification-daemon
+#m	-obconf
+#m	-openbox
+#m	-openssh-askpass
+#m	-pcmanfm
+#m	-perl-File-MimeInfo
+#m	-recordmydesktop
+#m	-setroubleshoot
+#m	-upower
+#m	-xarchiver
+#m	-xcompmgr
+#m	-xdg-user-dirs-gtk
+#m	-xpad
+#m	-xscreensaver-base
+#m	-xscreensaver-extras
+#m	-yumex
+
+################################################################
+-@lxde-media
+################################################################
+
+#m	-asunder
+#m	-gnomebaker
+#m	-gxine
+#m	-gxine-mozplugin
+#m	-lxmusic
+#m	-pavucontrol
+#m	-pnmixer
+
+################################################################
+-@lxde-office
+################################################################
+
+#m	-abiword
+#m	-gnumeric
+#m	-osmo
+

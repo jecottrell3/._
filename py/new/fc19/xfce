@@ -1,0 +1,141 @@
+################################################################
+-@xfce-apps
+################################################################
+
+#m	-catfish
+#m	-claws-mail
+#m	-claws-mail-plugins-archive
+#m	-claws-mail-plugins-att-remover
+#m	-claws-mail-plugins-attachwarner
+#m	-claws-mail-plugins-fetchinfo
+#m	-claws-mail-plugins-mailmbox
+#m	-claws-mail-plugins-newmail
+#m	-claws-mail-plugins-notification
+#m	-claws-mail-plugins-pgp
+#m	-claws-mail-plugins-rssyl
+#m	-claws-mail-plugins-smime
+#m	-claws-mail-plugins-spam-report
+#m	-claws-mail-plugins-tnef
+#m	-claws-mail-plugins-vcalendar
+#m	-galculator
+#m	-geany
+#m	-gparted
+#m	-leafpad
+#m	-liferea
+#m	-midori
+#m	-orage
+#m	-pidgin
+#m	-remmina
+#m	-remmina-plugins-rdp
+#m	-remmina-plugins-vnc
+#m	-ristretto
+#m	-seahorse
+#m	-transmission
+#m	-xarchiver
+#m	-xfce4-clipman-plugin
+#m	-xfce4-dict-plugin
+#m	-xfce4-notes-plugin
+
+################################################################
+-@xfce-desktop
+################################################################
+
+#m	-NetworkManager-openvpn
+#m	-NetworkManager-pptp
+#m	-NetworkManager-vpnc
+#m	-Thunar
+#m	-adwaita-cursor-theme
+#m	-adwaita-gtk2-theme
+#m	-adwaita-gtk3-theme
+#m	-albatross-gtk2-theme
+#m	-albatross-gtk3-theme
+#m	-albatross-xfwm4-theme
+#m	-alsa-utils
+#m	-bluebird-gtk2-theme
+#m	-bluebird-gtk3-theme
+#m	-bluebird-xfwm4-theme
+#m	-blueman
+#m	-desktop-backgrounds-compat
+#m	-fedora-icon-theme
+#m	-firewall-config
+#m	-greybird-gtk2-theme
+#m	-greybird-gtk3-theme
+#m	-greybird-xfce4-notifyd-theme
+#m	-greybird-xfwm4-theme
+#m	-gtk-xfce-engine
+#m	-gvfs
+#m	-initial-setup
+#m	-lightdm-gtk
+#m	-network-manager-applet
+#m	-nm-connection-editor
+#m	-openssh-askpass
+#m	-recordmydesktop
+#m	-setroubleshoot
+#m	-thunar-archive-plugin
+#m	-thunar-media-tags-plugin
+#m	-thunar-volman
+#m	-tumbler
+#m	-xdg-user-dirs-gtk
+#m	-xfce4-about
+#m	-xfce4-appfinder
+#m	-xfce4-datetime-plugin
+#m	-xfce4-panel
+#m	-xfce4-places-plugin
+#m	-xfce4-power-manager
+#m	-xfce4-quicklauncher-plugin
+#m	-xfce4-screenshooter-plugin
+#m	-xfce4-session
+#m	-xfce4-session-engines
+#m	-xfce4-settings
+#m	-xfce4-terminal
+#m	-xfconf
+#m	-xfdesktop
+#m	-xfwm4
+#m	-xfwm4-theme-nodoka
+#m	-xfwm4-themes
+#m	-xscreensaver-base
+#m	-yumex
+
+################################################################
+-@xfce-extra-plugins
+################################################################
+
+#m	-xfce4-battery-plugin
+#m	-xfce4-cellmodem-plugin
+#m	-xfce4-cpugraph-plugin
+#m	-xfce4-diskperf-plugin
+#m	-xfce4-eyes-plugin
+#m	-xfce4-fsguard-plugin
+#m	-xfce4-genmon-plugin
+#m	-xfce4-mailwatch-plugin
+#m	-xfce4-mount-plugin
+#m	-xfce4-netload-plugin
+#m	-xfce4-sensors-plugin
+#m	-xfce4-smartbookmark-plugin
+#m	-xfce4-systemload-plugin
+#m	-xfce4-taskmanager
+#m	-xfce4-time-out-plugin
+#m	-xfce4-timer-plugin
+#m	-xfce4-verve-plugin
+#m	-xfce4-weather-plugin
+#m	-xfce4-websearch-plugin
+#m	-xfce4-xkb-plugin
+
+################################################################
+-@xfce-media
+################################################################
+
+#m	-asunder
+#m	-parole
+#m	-pavucontrol
+#m	-pragha
+#m	-xfburn
+#m	-xfce4-mixer
+
+################################################################
+-@xfce-office
+################################################################
+
+#m	-abiword
+#m	-gnumeric
+

@@ -1,0 +1,22 @@
+################################################################
+-@fedora-packager
+################################################################
+
+#m	-bodhi-client
+#m	-curl
+#m	-fedora-easy-karma
+#m	-fedora-packager
+#m	-git
+#m	-koji
+#m	-make
+#m	-mock
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-rpmdevtools
+#d	-bzr
+#d	-mercurial
+#ox	 auto-destdir
+#ox	 cpanspec
+#o	 cvs
+#ox	 plague-client
+

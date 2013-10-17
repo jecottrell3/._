@@ -1,0 +1,59 @@
+################################################################
+-@kde-software-development
+################################################################
+
+#m	-cmake
+#m	-kdelibs-devel
+#m	-qt-devel
+#d	-PyQt4-devel
+#d	-kate
+#d	-kde-workspace-devel
+#d	-kdepimlibs-devel
+#d	-kdesdk-cervisia
+#d	-kdesdk-dolphin-plugins
+#d	-kdesdk-kapptemplate
+#d	-kdesdk-kcachegrind
+#d	-kdesdk-kioslave
+#d	-kdesdk-kmtrace
+#d	-kdesdk-kompare
+#d	-kdesdk-kpartloader
+#d	-kdesdk-kstartperf
+#d	-kdesdk-kuiviewer
+#d	-kdesdk-okteta
+#d	-kdesdk-poxml
+#d	-kdesdk-scripts
+#d	-kdesdk-strigi-analyzer
+#d	-kdesdk-thumbnailers
+#d	-kdesdk-umbrello
+#d	-kdevelop
+#d	-pykde4-devel
+#ox	 PyKDE-devel
+#ox	 PyQt-devel
+#ox	 audiocd-kio-devel
+#ox	 cantor-devel
+#ox	 gambas3-runtime
+#ox	 kate-devel
+#ox	 kdbg
+#ox	 kde-baseapps-devel
+#ox	 kdebindings-devel
+#ox	 kdegraphics-devel
+#ox	 kdelibs3-devel
+#ox	 kdenetwork-devel
+#ox	 kdepim-devel
+#ox	 kdesvn
+#ox	 kdewebdev-devel
+#ox	 kiten-devel
+#ox	 krazy2
+#ox	 ktp-common-internals-devel
+#ox	 libkcddb-devel
+#ox	 libkcompactdisc-devel
+#ox	 libkdeedu-devel
+#ox	 libkdegames-devel
+#ox	 marble-devel
+#ox	 qt-creator
+#ox	 qt-mobility-devel
+#ox	 qt3-designer
+#ox	 qt3-devel
+#ox	 rocs-devel
+#ox	 telepathy-qt4-devel
+

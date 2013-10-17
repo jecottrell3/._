@@ -1,0 +1,28 @@
+################################################################
+-@base-x
+################################################################
+
+#m	-glx-utils
+#m	-mesa-dri-drivers
+#m	-plymouth-system-theme
+#m	-xorg-x11-drv-ati
+#m	-xorg-x11-drv-evdev
+#m	-xorg-x11-drv-fbdev
+#mx	-xorg-x11-drv-geode
+#m	-xorg-x11-drv-intel
+#m	-xorg-x11-drv-mga
+#m	-xorg-x11-drv-modesetting
+#m	-xorg-x11-drv-nouveau
+#mx	-xorg-x11-drv-omap
+#m	-xorg-x11-drv-openchrome
+#m	-xorg-x11-drv-qxl
+#m	-xorg-x11-drv-synaptics
+#m	-xorg-x11-drv-vesa
+#m	-xorg-x11-drv-vmmouse
+#m	-xorg-x11-drv-vmware
+#m	-xorg-x11-drv-wacom
+#m	-xorg-x11-server-Xorg
+#m	-xorg-x11-utils
+#m	-xorg-x11-xauth
+#m	-xorg-x11-xinit
+

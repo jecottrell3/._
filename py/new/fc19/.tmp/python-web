@@ -1,0 +1,20 @@
+################################################################
+-@python-web
+################################################################
+
+#m	-MySQL-python
+#m	-freetype-devel
+#m	-libcurl
+#m	-libcurl-devel
+#m	-libjpeg-turbo
+#m	-libjpeg-turbo-devel
+#m	-mod_wsgi
+#m	-numpy
+#m	-numpy-f2py
+#mx	-pymongo
+#mx	-pymongo-gridfs
+#m	-python
+#m	-python-magic
+#m	-python-psycopg2
+#m	-python-virtualenv
+

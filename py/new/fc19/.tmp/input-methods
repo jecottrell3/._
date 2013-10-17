@@ -1,0 +1,71 @@
+################################################################
+-@input-methods
+################################################################
+
+#d	-ibus-chewing
+#d	-ibus-hangul
+#d	-ibus-kkc
+#d	-ibus-libpinyin
+#d	-ibus-m17n
+#d	-ibus-rawcode
+#d	-ibus-typing-booster
+#d	-im-chooser
+#d	-imsettings
+#d	-m17n-contrib
+#ox	 WritRecogn
+#ox	 cellwriter
+#ox	 eekboard
+#ox	 fcitx
+#ox	 gcin
+#ox	 ibus-anthy
+#ox	 ibus-bogo
+#ox	 ibus-fbterm
+#ox	 ibus-gucharmap
+#ox	 ibus-handwrite
+#ox	 ibus-input-pad
+#ox	 ibus-mozc
+#ox	 ibus-sayura
+#ox	 ibus-skk
+#ox	 ibus-table
+#ox	 ibus-table-array30
+#ox	 ibus-table-cyrillic
+#ox	 ibus-xkbc
+#ox	 input-pad
+#ox	 iok
+#ox	 kinput2
+#ox	 scim-anthy
+#ox	 scim-array
+#ox	 scim-bridge-gtk
+#ox	 scim-bridge-qt
+#ox	 scim-bridge-qt3
+#ox	 scim-chewing
+#ox	 scim-fcitx
+#ox	 scim-gtk
+#ox	 scim-hangul
+#ox	 scim-m17n
+#ox	 scim-pinyin
+#ox	 scim-rawcode
+#ox	 scim-sayura
+#ox	 scim-tables-additional
+#ox	 scim-tables-chinese
+#ox	 scim-tables-chinese-extra
+#ox	 scim-thai
+#ox	 uim
+#ox	 uim-anthy
+#ox	 uim-canna
+#ox	 uim-gtk2
+#ox	 uim-gtk3
+#ox	 uim-m17n
+#ox	 uim-qt3
+#ox	 uim-skk
+#c	?gtk2-immodule-xim               gtk2
+#c	?gtk3-immodule-xim               gtk3
+#c	?ibus-gtk2                       gtk2
+#c	?ibus-gtk3                       gtk3
+#c	?ibus-qt                         qt
+#c	?im-chooser-xfce                 xfce4-panel
+#c	?imsettings-gsettings            gnome-settings-daemon
+#c	?imsettings-lxde                 lxde-common
+#c	?imsettings-qt                   qt
+#c	?imsettings-xfce                 xfce4-panel
+
