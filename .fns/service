@@ -3,35 +3,34 @@ test -f .debug && echo .fns/service
 #################################################################
 #	SERVICE (0=stop, 1=start, 2=status, 3=restart, others)
 #################################################################
-
 function s0() { service $* stop; }	
 function s1() { service $* start; }	
 function s2() { service $* status; }	
 function s3() { service $* restart; }	
-
 #################################################################
 #	NETWORKING		/	KERBEROS
 #################################################################
-
 alias	i0=ifdown			q0=kdestroy
 alias	i1=ifup				q1=kinit
 alias	i2=ifconfig			q2=klist
-
+#################################################################
+#	RKHunter
+#################################################################
+alias	r0='time rkhunter -c'		r1='time rkunter -C'
+alias	r2='time rkhunter --cronjob --report-warnings-only'
+alias	r3='time rkhunter --propupd'
 #################################################################
 #	CHKCONFIG
 #################################################################
-
 function c0() { chkconfig $* off; }	
 function c1() { chkconfig $* on; }	
 function c2() { chkconfig --list $*; }	
 
 function c8() { chkconfig --del  $*; }	
 function c9() { chkconfig --add  $*; }	
-
 #################################################################
 #	BIND/NAMED
 #################################################################
-
 function n0() { rndc $* stop; }		
 function n1() {               named; }	
 function n2() { rndc $* status; }	
@@ -45,5 +44,4 @@ function n7() { rndc $* dumpdb; }
 
 function n8() { rndc $* reconfig; }	
 function n9() { rndc $* reload; }	
-
 #################################################################

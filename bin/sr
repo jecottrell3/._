@@ -7,10 +7,10 @@
 EXEC=exec
 RC=/home/cottrell/.bash_profile
 
-SHEL=sh		ENVY=	ARGS=
-SHEL=ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
-SHEL=zsh	ENVY=	ARGS=	# "  ZDOTDIR=$HOME"
-SHEL=bash	ENVY=	ARGS="--rcfile $RC"
+SHEL=/bin/sh		ENVY=	ARGS=
+SHEL=/bin/ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
+SHEL=/bin/zsh	ENVY=	ARGS=	# "  ZDOTDIR=$HOME"
+SHEL=/bin/bash	ENVY=	ARGS="--rcfile $RC"
 
 SUDO= ME=root
 SUDO=sudo ME=$USER

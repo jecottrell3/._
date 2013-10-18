@@ -4,7 +4,7 @@ set hlsearch
 set incsearch
 set bg=light
 
-highlight Search ctermfg=5 cterm=bold
+highlight Search ctermfg=6 cterm=bold
 
 
 map \ :n<CR>

@@ -32,3 +32,19 @@ do
 done
 
 #################################################################
+#	Domain Functions
+#################################################################
+
+alias	aajoin='adsjoin -U'
+alias	akjoin='adsjoin -k'
+
+adsjoin()
+{
+	set -x
+	net ads join $* \
+		createupn=HOST/$(hostname --fqdn)@NIH.GOV \
+		createcomputer=AD/NIH/CIT/DCB/Computers
+	set +x
+}
+
+#################################################################
