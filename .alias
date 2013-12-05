@@ -14,9 +14,8 @@ done
 #################################################################
 
 alias	a=alias		ua=unalias	us=unset
-alias	ag='alias | egrep'
-alias	eg='env   | egrep'
-alias	e=echo		en='echo -n'
+alias	ag='alias | egrep'		eg='env   | egrep'
+alias	e=echo		en='echo -n'	xp=export
 alias	h='fc -l'	r='fc -s'
 alias	   path='echo    $PATH | tr : \\012'
 alias	manpath='echo $MANPATH | tr : \\012'
@@ -52,10 +51,10 @@ function npv() { while sleep 10; do pkill npviewer.bin; done & }
 alias	  1='sha1sum   -c'	  5='md5sum     -c'
 alias	256='sha256sum -c'	512='sha512sum  -c'
 
-alias	cg='chgrp'	cn='chown'
-alias	cm='chmod'	cx='chmod a+x'
+alias	cg='chgrp'		cn='chown'
+alias	cm='chmod'		cx='chmod a+x'
 
-alias	d='rm -i'	rfv='rm -rfv'
+alias	d='rm -i'		rfv='rm -rfv'
 alias	dm='less +/"^diff.*"'
 function rude()
 {
@@ -64,62 +63,60 @@ function rude()
 }
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
-alias	dh='df -h'	uh='du -h'	df='df -k'
+alias	dh='df -hT'	uh='du -h'	df='df -k'
 alias	 grep='egrep --color=auto'
 alias	egrep='egrep --color=auto'
-alias	g='egrep'	gi='egrep -i'
-alias	v='egrep -v'	gl='egrep -l'
+alias	g='egrep'		gi='egrep -i'
+alias	v='egrep -v'		gl='egrep -l'
+function gy { egrep --color=auto "$@" *.py; }
 alias GG='getent  group'; function gg { egrep $* /etc/group; }
 alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
 alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
 alias GS='getent shadow'; function gr { dir=$1; shift; find $dir -type f | xargs grep $*; }
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
-alias	j='jobs -l'	jj='jobs -l'
-alias	kp='cp -p'	kr='cp -pr'
+alias	j='jobs -l'		jj='jobs -l'
+alias	kp='cp -p'		kr='cp -pr'
 
-alias	kh='kill -HUP'	ki='kill -INT'
-alias	kq='kill -QUIT'	kk='kill -KILL'
-alias	k1='kill -USR1'	k2='kill -USR2'
-alias	kt='kill -TERM'	ka='kill -ALRM'
-alias	kc='kill -CONT'	ks='kill -STOP'
+alias	kh='kill -HUP'		ki='kill -INT'
+alias	kq='kill -QUIT'		kk='kill -KILL'
+alias	ku1='kill -USR1'	ku2='kill -USR2'
+alias	kt='kill -TERM'		ka='kill -ALRM'
+alias	kc='kill -CONT'		ks='kill -STOP'
 
 #lias	ls='ls --color=auto'
-alias	 l='ls -FAC'
-alias	la='ls -Fals'
-alias	lh='ls -FAlsh'
-alias	lk='ls -FAs'
-alias	ll='ls -FAls'
-alias	lq='ls -FACsR'
-alias	lr='ls -FAlsR'
-alias	lt='ls -FAltr'
+alias	 l='ls -FAC'		ll='ls -Fal'
+alias	lq='ls -FACR'		lr='ls -FalR'
+alias	lh='ls -FACsh'		lk='ls -Falh'
+alias	lg='ls -FACs'		lt='ls -Faltr'
+alias	lz='ls -FaZ'		lx='ls -FalSr'
 
 alias	lo=locate
 alias	loop='sudo mount -o loop'
 
-alias	m=less 		mr='less -r'
-alias	md='mkdir'	mp='mkdir -p'
-alias	rd='rmdir'	rp='rmdir -p'
-alias	mm='mv -i'	mu='mv -u'
-alias	mn='make -n'	mi='make install'
-alias	mo='sudo  mount' mz='sudo  mount -av'
-alias	um='sudo umount' uz='sudo umount -av'
+alias	m=less 			mr='less -r'
+alias	md='mkdir'		mp='mkdir -p'
+alias	rd='rmdir'		rp='rmdir -p'
+alias	mm='mv -i'		mu='mv -u'
+alias	mn='make -n'		mi='make install'
+alias	mo='sudo  mount'	mz='sudo  mount -av'
+alias	um='sudo umount'	uz='sudo umount -av'
 alias	ns=nslookup
 alias	p='ps -ef | egrep'
 alias	pie='perl -pi -e'
-alias	pd=pushd	po=popd
+alias	pd=pushd		po=popd
 
 alias	root='sudo chown   root:root'
 #lias	 rbj='sudo chown -R rbj:rbj'
 alias	  jc='sudo chown -R $JC:$JC'
 
-alias	 sa='ssh-add -l || ssh-add'
-alias	sad='ssh-add -D'	sal='ssh-add -l'
+#alias	 sa='ssh-add -l || ssh-add'
+#alias	sad='ssh-add -D'	sal='ssh-add -l'
 alias	sb='sudo bash -l'	se=sudoedit
 alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
 alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
 alias	sir='lsb_release -sir'
-alias	sl='ln -s'	su='su -p'
-alias	ss='ssh -AX'	sj="ssh -AX -l $JC"
+alias	sl='ln -s'		su='su -p'
+alias	ss='ssh -AX'		sj="ssh -AX -l $JC"
 alias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 
@@ -129,4 +126,7 @@ alias	dr='diff -ur'		dy='diff -y'
 alias	rax='rsync  -vax'	 rs='rsync -C'
 alias	vax='rsync -Cvax'	pax='rsync -CPax'
 
+alias	T2=tune2fs		D2='dumpe2fs -h'
+alias	M2='mkfs.ext2'		M3='mkfs.ext3'
+alias	M4='mkfs.ext4'		E2='e2fsck -C'
 #################################################################

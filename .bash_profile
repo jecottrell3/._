@@ -1,5 +1,6 @@
 cd $HOME
 test -f .debug && echo .bash_profile
+test -w / && unset KRB5CCNAME
 # $Id$
 #################################################################
 #	BASH PROFILE
@@ -67,7 +68,7 @@ export	LESS=-MQcdeisj11
 export	LANG=C LOCALE=C LC_ALL=C
 export	VERSION_CONTROL=numbered
 export	HISTCONTROL=ignoreboth
-export	HISTIGNORE=?	# any single letter
+#export	HISTIGNORE=?	# any single letter
 test -x /usr/bin/vim &&
 export	  EDITOR=vim ||
 export	  EDITOR=vi

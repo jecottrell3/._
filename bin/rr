@@ -13,6 +13,8 @@ $t = 0;						# mtime  equal
 $a = 0;						# dont rm ._
 $S = 0;						# dont spare .svn, CVS
 $U = $G = $M = 0;				# same owner, group, mode
+$I = $J = $K = $L = 0;				# max size
+$w = $X = $Y = $Z = 0;				# max size
 $BELL='';
 
 ################################################################
@@ -36,6 +38,15 @@ usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-t] [-a] [-c] [-U] [-G] [-M] [-S] src d
 	-G	require same gid
 	-M	require same mode
 	-S	recurse in .svn and CVS too
+	-I	  1M Max Size
+	-J	 10M Max Size
+	-K	100M Max Size
+	-L	  1G Max Size
+	-W	 10G Max Size
+	-X	100G Max Size
+	-Y	  1T Max Size
+	-Z	 10T Max Size
+	
 
 Recursive Compare and Remove SRC relative to DST
 SRC and DST may be relative or absolute pathnames
@@ -76,6 +87,14 @@ sub main	#	MAIN PROGRAM
 	/-G/ && ++$G && next option;		# same gid
 	/-M/ && ++$M && next option;		# same mode
 	/-S/ && ++$S && next option;		# enter .svn and CVS
+	/-I/ && ++$I && next option;		#   1M Max Size
+	/-J/ && ++$J && next option;		#  10M Max Size
+	/-K/ && ++$K && next option;		# 100M Max Size
+	/-L/ && ++$L && next option;		#   1G Max Size
+	/-W/ && ++$W && next option;		#  10G Max Size
+	/-X/ && ++$X && next option;		#  10G Max Size
+	/-Y/ && ++$Y && next option;		# 100G Max Size
+	/-Z/ && ++$Z && next option;		#   1T Max Size
     
 	&usage("unknown option: $_");		# complain
    
@@ -174,6 +193,14 @@ sub same	#	COMPARE FILE CONTENTS
     return 0 if ($G && ($src_stat[5] != $dst_stat[5]));	# gid check
     return 0 if ($M && ($src_stat[2] != $dst_stat[2]));	# mode check
     return 0 if        ($src_stat[7] != $dst_stat[7]);	# size check
+    return 0 if ($I && ($src_stat[7] > (  1 << 20)) );	# size check
+    return 0 if ($J && ($src_stat[7] > ( 10 << 20)) );	# size check
+    return 0 if ($K && ($src_stat[7] > (100 << 20)) );	# size check
+    return 0 if ($L && ($src_stat[7] > (  1 << 30)) );	# size check
+    return 0 if ($W && ($src_stat[7] > ( 10 << 30)) );	# size check
+    return 0 if ($X && ($src_stat[7] > (100 << 30)) );	# size check
+    return 0 if ($Y && ($src_stat[7] > (  1 << 40)) );	# size check
+    return 0 if ($Z && ($src_stat[7] > ( 10 << 40)) );	# size check
     return 1 if ($z);				# size same
     return 1 if ($t && ($src_stat[9] == $dst_stat[9]));	# mtime check
     

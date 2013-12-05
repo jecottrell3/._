@@ -8,11 +8,28 @@ function s1() { service $* start; }
 function s2() { service $* status; }	
 function s3() { service $* restart; }	
 #################################################################
-#	NETWORKING		/	KERBEROS
+#	NETWORKING	/	KERBEROS
 #################################################################
-alias	i0=ifdown			q0=kdestroy
-alias	i1=ifup				q1=kinit
-alias	i2=ifconfig			q2=klist
+alias	i0=ifdown		k0=kdestroy
+alias	i1=ifup			k1=kinit
+alias	i2=ifconfig		k2=klist
+alias	i3='i0; i1'		k3='k0; k1'
+#################################################################
+#	SSH-ADD		&	SMART CARDS
+#################################################################
+alias	a0='ssh-add -D'		a1='ssh-add -l || ssh-add'
+alias	a2='ssh-add -l'		a3='ssh-add -D;   ssh-add'
+LCK=libcoolkeypk11.so OSC=opensc-pkcs11.so
+alias   a4="ssh-add -e $LCK"	a5="ssh-add -s $LCK"
+alias   a6="a4;a5"		a7="a8;a9"
+alias   a8="ssh-add -e $OSC"	a9="ssh-add -s $OSC"
+#################################################################
+#	SWAP		/	MOUNT
+#################################################################
+alias	w0='swapoff -av'	m0='umount -av'
+alias	w1='swapon  -av'	m1='mount  -av'
+alias	w2='swapon  -s'		m2='mount'
+alias	w3='w0; w1'		m3='m0; m1'
 #################################################################
 #	RKHunter
 #################################################################
@@ -38,10 +55,8 @@ function n3() { rndc $* stop; named; }
 
 function n4() { rndc $* notrace; }	
 function n5() { rndc $*   trace; }	
-
 function n6() { rndc $* flush; }	
 function n7() { rndc $* dumpdb; }	
-
 function n8() { rndc $* reconfig; }	
 function n9() { rndc $* reload; }	
 #################################################################
