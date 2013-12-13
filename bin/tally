@@ -1,0 +1,149 @@
+#! /usr/bin/perl -ln
+
+use strict;	# $Id: fixown 253 2013-04-26 01:01:20Z JECottrell3@gmail.com $
+use integer;
+
+###############################################################
+#	Globals: DO NOT Initialize Here!
+################################################################
+
+our ($scale, $units);
+our (@uids, @gids, @cids);
+our (%unam, %gnam, %cnam);
+our (%usiz, %gsiz, %csiz);
+our (%ucnt, %gcnt, %ccnt);
+our ($tcnt, $tsiz);
+
+################################################################
+#	SETUP/CLEANUP
+################################################################
+
+BEGIN
+{
+	chomp(my $date = `date`);
+	print ": BEGAN $date $0 @ARGV";	# signon
+}
+
+END
+{
+	chomp(my $date = `date`);
+	print ": ENDED $date $0 @ARGV";	# signoff
+}
+
+################################################################
+#	OPTIONS
+################################################################
+
+BEGIN
+{
+	our $units = '';
+	our $scale = 0;
+	our $debug =  0;
+
+	while (	$ARGV[0] =~ /^-/)
+	{
+		$ARGV[0] eq '-d' and ++$debug;
+		$ARGV[0] eq '-k' and $scale = 10 and $units = 'k';
+		$ARGV[0] eq '-m' and $scale = 20 and $units = 'M';
+		$ARGV[0] eq '-g' and $scale = 30 and $units = 'G';
+		shift @ARGV;
+	}
+
+	@ARGV && open ARGV, "find @ARGV -xdev|";
+}
+
+###############################################################
+#	Tally File UID, GID, Count, and Size
+################################################################
+
+our @ls = lstat $_;
+our ($fuid, $fgid, $fsiz) = @ls[4,5,7];
+our $debug and printf "%10d%10d%12d\t%-40s\n", @ls[4,5,7], $_;
+
+unless ($unam{$fuid})
+{
+	$unam{$fuid} = getpwuid($fuid) || "NOUSER";
+	push @uids, $fuid;
+}
+
+unless ($gnam{$fgid})
+{
+	$gnam{$fgid} = getgrgid($fgid) || "NOGROUP";
+	push @gids, $fgid;
+}
+
+my $fcid ="$fuid.$fgid";		# Combined ID
+my $cnam ="$unam{$fuid}:$gnam{$fgid}";	# Combined Name
+
+unless ($cnam{$fcid})
+{
+	$cnam{$fcid} = $cnam;
+	push @cids, $fcid;
+}
+
+$tcnt       ++; $tsiz        += $fsiz;
+$ucnt{$fuid}++; $usiz{$fuid} += $fsiz;
+$gcnt{$fgid}++; $gsiz{$fgid} += $fsiz;
+$ccnt{$fcid}++; $csiz{$fcid} += $fsiz;
+
+################################################################
+#	Report Stats
+################################################################
+
+my @sfx = qw(U K M G T P); $sfx[0] = ' ';
+
+sub scale
+{
+#OLD	($_[0] >> $scale) . $units;
+        my $sfx = 0;
+
+        my $num = shift;
+        while ($num > 9999)
+	{
+		$num /= 1000;
+		$sfx++;
+	}
+        
+	"$num$sfx[$sfx]";
+}
+
+sub numeric { no integer; (0+$a) <=> (0+$b); }
+
+END
+{
+	my $fmt = "%24s%24s%16s%16s\n";
+
+	{
+		@uids = sort numeric @uids;
+		@gids = sort numeric @gids;
+		no integer;
+	# print "@cids\n\n";
+		@cids = sort numeric @cids;
+	# print "@cids\n\n";
+	}
+
+	print ' '; printf $fmt, 'UID', 'User', 'Count', 'Size';
+	for my $u (@uids)
+	{
+		printf $fmt, $u, $unam{$u}, scale($ucnt{$u}), scale($usiz{$u});
+	}
+	print ' '; printf $fmt, 'TOTAL', 0+@uids, scale($tcnt), scale($tsiz);
+
+	print ' '; printf $fmt, 'GID', 'Group', 'Count', 'Size';
+	for my $g (@gids)
+	{
+		printf $fmt, $g, $gnam{$g}, scale($gcnt{$g}), scale($gsiz{$g});
+	}
+	print ' '; printf $fmt, 'TOTAL', 0+@gids, scale($tcnt), scale($tsiz);
+
+	print ' '; printf $fmt, 'UID.GID', 'User:Group', 'Count', 'Size';
+	for my $c (@cids)
+	{
+		printf $fmt, $c, $cnam{$c}, scale($ccnt{$c}), scale($csiz{$c});
+	}
+	print ' '; printf $fmt, 'TOTAL', 0+@cids, scale($tcnt), scale($tsiz);
+
+	print ' ';
+}
+
+###############################################################

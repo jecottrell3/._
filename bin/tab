@@ -1,0 +1,45 @@
+#! /usr/bin/python
+
+from __future__ import print_function
+
+import re
+import sys
+
+wids = []
+rows = []
+fmt  = ''
+
+for line in sys.stdin:
+        line.rstrip()
+        cols = re.split('\s+', line)
+        idx = 0
+        for col in cols:
+                wid = len(col)
+                if idx == len(wids):
+                        wids.append(len(col))
+                elif    wids[idx] < wid:
+                        wids[idx] = wid
+                idx += 1
+                
+        rows.append(cols)
+
+#fmts = []
+#for wid in wids:
+#        fmts.append('%%%ds\t' % wid)
+
+#print(wids)
+
+for cols in rows:
+#        print(cols)
+        line = ''
+        print(' '.join(
+                        map(lambda t: t[0].ljust(t[1]),
+                                zip(cols, wids))))
+#        for idx in range(len(cols)):
+#                line += cols[idx].ljust(wids[idx] + 1)
+#        print(line)
+
+
+
+
+ 

@@ -1,0 +1,75 @@
+#! /bin/zsh -x
+
+SRC=${1?'Missing Source'}
+DSK=${2-sda}
+
+# This loads mv as a builtin
+# needed for the root filesystem rotation.
+
+zmodload zsh/files || exit 1
+
+: Do not do any thing if /old exists
+
+[ -d      /.old ] && exit 1
+[ -d /boot/.old ] && exit 1
+
+# This is a PULL script
+
+RSYNC='rsync -HPax --exclude /old --exclude swap --exclude /var/log/lastlog'
+
+: Copy another machine
+
+mkdir -p /.new /boot/.new
+eval $RSYNC $SRC:/boot/.   /boot/.new || exit 2
+eval $RSYNC $SRC:/		/.new || exit 2
+eval $RSYNC $SRC:/dev		/.new || exit 2
+
+: Copy the configuration
+
+#d /root;		cp -pb authorized_keys		/.new/$PWD || exit 3
+cd /etc/ssh;		cp -pb *host*			/.new/$PWD || exit 3
+cd /etc/sysconfig
+cd ./network-scripts;	cp -pb ifcfg-*			/.new/$PWD || exit 3
+cd /etc/udev/rules.d;	cp -pb 70-persistent-net.rules	/.new/$PWD || exit 3
+
+find /.new/var/log -type f -exec tee {} + 0\</dev/null
+
+: Rotate Boot
+
+cd /boot
+mkdir .old
+mv *  .old
+#v    .old/lost+found .
+mv    .new/* .
+
+: Rotate Root
+
+cd /
+mkdir .old
+mv *  .old
+#v    .old/lost+found .
+#v    .old/root .
+#v    .old/scratch .
+mv    .new/* .
+
+: label disk parts and swap
+
+e2label   /dev/${DSK}1 /boot
+e2label   /dev/${DSK}3 /
+swapoff -av
+mkswap -L SWAP-${DSK}2 /dev/${DSK}2
+
+: allow user edits
+
+vi /etc/fstab
+vi /boot/grub/grub.conf
+
+: make new initrd/initramfs, fix grub
+
+cd /boot
+REV=$(ls vmlinuz-* | tail -1 | sed s/vmlinuz-//)
+mkinitrd -f init*-$REV.img $REV
+grub-install $DSK # $(egrep hd0 /boot/grub/device.map | sed -e 's/^.* //')
+
+touch /.autorelabel
+

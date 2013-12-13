@@ -1,6 +1,6 @@
 cd $HOME
 test -f .debug && echo .bash_profile
-test -w / && unset KRB5CCNAME
+test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0
 # $Id$
 #################################################################
 #	BASH PROFILE
@@ -18,7 +18,9 @@ do
 done
 done
 export	RBJ JC
-export	RCFILE=$RBJ/.bash_profile
+
+export	LESSKEY=$RBJ/.less
+export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
 #hmod a+rx    $HOME

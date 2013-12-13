@@ -1,0 +1,30 @@
+#! /bin/sh -x
+
+sub=${1:+/$1}
+rbj=${2:-cottrell}
+top=${3:-/boot}
+top=${3:-/home}
+uid=${4:-200115213}
+gid=${5:-200115213}
+
+dir=/home/$rbj$sub
+dir=$top/$rbj$sub
+
+grep $rbj: /etc/group ||
+groupadd -g $gid $rbj
+
+grep wheel /etc/group && SUDO='-G wheel' # Red Hat
+grep sudo  /etc/group && SUDO='-G sudo'  # Ubuntu
+
+grep $rbj: /etc/passwd ||
+{
+	mkdir -p	$dir
+	chown $uid:$gid	$dir
+	chmod 2755	$dir
+
+	useradd -u $uid -g $gid $SUDO -c 'Jim Cottrell' \
+		-o -d $dir -s /bin/bash \
+		-p '$1$W4V.6jvA$lVqS2WtLVws8CXUr7Mhwc0' $rbj
+}
+#sermod -a -G 20 root	# SEAS
+#sermod -a -G 20 $rbj	# SEAS

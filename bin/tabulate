@@ -1,0 +1,383 @@
+#! /usr/bin/env perl
+
+# Generalised tabluate functions.
+#		AR Iano-Fletcher.
+
+# tabulate:
+#
+#	Take a collection of lines (each with tab separated fields) 
+#	and format them into a table, alligning columns on the left.
+#
+#	Usage:
+#		@out = tabulate($tab, $pad, $inter, $adjust, @in);
+#
+#	$tab   is a reg-exp that matches the intercolumn text,
+#	$pad   is the single character used for padding the columns,
+#	$inter is the string to place between columns,
+#	@in    is the list of successive lines in the table.
+#
+#	Typical,
+#		@out = tabulate('\t', ' ', '  ', '', @in);
+#
+
+# commonFirst:
+#
+#	Take a collection of lines (each with tab separated fields)
+#	and remove the first field if it is the same as the first field
+#	on the previous line.
+#
+#	Usage:
+#		@out = commonFirst($tab, @in);
+#	$tab   is a reg-exp that matches the intercolumn text,
+#	@in    is the list of successive lines in the table.
+#
+
+sub debug {}
+sub debugon { eval 'sub debug { warn @_; }' ; }
+
+$ignore	= undef;
+
+sub commonFirst
+{
+	local ($tab, @lines) = @_;
+
+	local ($last, $_);
+
+	# look through all the lines....
+	for (@lines)
+	{
+		# ignore if there is no tab.
+		next unless /$tab/;
+
+		# ignore if the first field is different.
+		if ($last ne $`)
+		{
+			# remember first field.
+			$last = $`;
+		
+			next;
+		}
+
+		# Remove first field.
+		$_ = $& . $';
+
+	}
+
+	# return ammended table.
+	@lines;
+}
+
+sub tabulate
+{
+	local ($tab, $pad, $inter, $adjust, @lines) = @_;
+	local ($line, $out, @width, @table);
+	local ($_, $l, $i);
+
+	my @adjust = split(//, $adjust);
+	my @pad = split(//, $pad);
+
+	# extract the maximum column widths.
+	for $line (@lines)
+	{
+		next if (defined($ignore) && ($line =~ /$ignore/));
+		next unless ($line =~ /$tab/);
+
+		$i = 0;
+		for (split(/$tab/, $line))
+		{
+			local ($l) = length;
+			$width[$i] = $l if ($width[$i] < $l);
+			++$i;
+		}
+		debug "checking widths: $line\n";
+		debug "         widths: " , join(", ", @width) , "\n";
+	}
+
+	# recontruct each line with the correct padding and spacing.
+	for $line (@lines)
+	{
+		if (defined($ignore) && ($line =~ /$ignore/))
+		{
+			push (@table, $line);
+			next;
+		}
+
+		debug "recontructing: $line\n";
+
+		$i = 0;
+		$out = undef;
+
+		# remove any end of line characters.
+		local ($end);
+		$end = $& if ($line =~ s/[\r\n]+$//);
+
+		for (split(/$tab/, $line))
+		{
+			my ($l) = $width[$i] - length;
+
+			# how to adjust in the column.
+			# The default is to left adjust.
+			my $f = ($adjust[$i] eq 'r') ? $l :
+				( ($adjust[$i] eq 'c') ? int($l/2) : 
+				0 );
+			my $b	= $l - $f;
+
+			my $fpad = $pad[$i];
+			my $bpad = $pad[$i+1];
+
+			$fpad ||= " ";
+			$bpad ||= " ";
+
+			# adjust.
+			$out .= $inter if defined($out);
+			$out .= ${fpad}x$f;
+			$out .= $_;
+			$out .= ${bpad}x$b;
+
+
+			# next column please.
+			++$i;
+		}
+
+		# reattach the end of lines.
+		$out .= $end;
+
+		#print "I: $line";
+		#print "O: $out";
+
+		debug "becomes      : $out\n";
+
+		push (@table, $out);
+	}
+
+	# strip any white space at the end of the lines.
+	for (@table)	{ s/[\t ]+$//; }
+
+	# return final table.
+	@table;
+}
+
+sub padFirst
+{
+	local ($tab, $pad, @lines) = @_;
+
+	local ($_);
+	local ($width) = 0;
+
+	# extract the width....
+	for (@lines)
+	{
+		if (/$tab/)
+		{
+			$l = length ($`);
+		}
+		else
+		{
+			$l = length;
+		}
+		$width = $l if ($width < $l);
+	}
+
+	# pad the first column.
+	for (@lines)
+	{
+		next unless (/$tab/);
+
+		local ($first) = $`;
+		local ($end) = $& . $';
+
+		# pad it....
+		$first .= ${pad}x($width - length($first));
+
+		# reconstruct line.
+		$_ = $first . $end;
+	}
+
+	return @lines;
+}
+
+# return the maximun number of columns in table.
+sub numberOfColumns
+{
+	local ($tab, @lines) = @_;
+
+	local ($no) = 0;
+	local ($line);
+	local ($i);
+
+	for $line (@_)
+	{
+		$i = 0;
+		for (split(/$tab/, $line))
+		{
+			++$i;
+		}
+
+		$no = $i if ($i > $no);
+	}
+
+	$no;
+}
+
+sub testTabulate
+{
+	$pad	= ' ';
+	$tab	= '\t';
+	$cf	= 0;
+	$adjust	= "";
+
+	$startTab	= "";
+	$startRow	= "";
+	$inter		= '  ';
+	$endRow		= "\n";
+	$endTab		= "";
+
+	$debug = 1 if defined($ENV{DEBUG});
+	$bystanza = 0;
+
+	$pad	= '_' if $debug;
+	$inter	= ':' if $debug;
+
+	################## defaults ########################
+	# get program name.
+	($program = $0)=~ s!.*/!!;
+
+	# usage
+	$usage	= 
+	"Usage:\t$program --usage
+	\t$program -?
+	\t$program [-p|--pad <pad>] [-t|--tab <tab>] [-i|--inter <inter>] [-I|--Ignore <reg-ex>] [-a|--adjust <string>] [-s|--stanza] [<files>]
+	";
+
+	################# start of command processing. #################
+	sub debug {};
+
+	# Process the command line.
+	while (@ARGV)
+	{
+		$_ = shift(@ARGV);
+
+		last if ($_ eq "--");
+
+		debug "Processing flag '$_'.\n";
+
+		my @flags;
+		if (s/^--//)		{ @flags = ( $_ ); }
+		elsif (s/^-//)		{ @flags = split(//, $_); }
+		else
+		{
+			# end of options.... stop processing.
+			unshift(@ARGV, $_);
+			last;
+		}
+
+		# so we have an option list to process...
+		debug "flags = ( @flags ).\n";
+		for (@flags)
+		{
+			debug "Option '$_'.\n";
+
+			####### add the option processing here #########
+
+			if ($_ eq "p" || $_ eq "pad")
+					{ $pad = shift(@ARGV); }
+
+			elsif ($_ eq "h" || $_ eq "html")
+					{ $html = 1; }
+
+			elsif ($_ eq "t" || $_ eq "tab")
+					{ $tab = shift(@ARGV); }
+
+			elsif ($_ eq "i" || $_ eq "inter")
+					{ $inter = shift(@ARGV); }
+
+			elsif ($_ eq "a" || $_ eq "adjust")
+					{ $adjust = shift(@ARGV); }
+
+			elsif ($_ eq "I" || $_ eq "Ignore")
+					{ $ignore = shift(@ARGV); }
+
+			elsif ($_ eq "c" || $_ eq "commonfirst")
+						{ $cf = 1; }
+			elsif ($_ eq "s" || $_ eq "stanza")
+						{ $bystanza = 1; }
+
+			####### end of option processing #########
+
+			# standard options....
+			elsif (defined($usage) && ($_ eq "?" || $_ eq "usage"))
+			{
+				print $usage;
+				exit;
+			}
+
+			# main debugging....
+			elsif ($_ eq "debug")
+			{
+				eval 'sub debug { print STDERR @_; }';
+			}
+
+			# package debugging....
+			elsif ($_ eq "Debug")
+			{
+				my $package = shift;
+				print STDERR "debugging package '$package'.\n";
+		 
+				eval "sub ${package}" . '::debug {
+					my ($p, $f, $l, $s, $h, $w) = caller(0);
+
+					print STDERR "$s: ";
+					if (@_) {print STDERR @_; }
+					else    {print "now at line $l in file $f.\n";}
+				}';
+			}
+
+			# Catch all case.
+			else
+			{
+				die "$program: unknown option '$_'\n$usage";
+			}
+		}
+	}
+
+	################## rest of the script goes here. #################
+
+	if ($html)
+	{
+		$startTab	= "<TABLE>\n";
+		$startRow	= "<TR><TD>";
+		$inter		= "</TD><TD>";
+		$endRow		= "</TD></TR>\n";
+		$endTab		= "</TABLE>\n";
+	}
+
+	#$endTab .="\n";
+
+	# slurp mode?
+	local $/ = $bystanza ? '' : undef;
+
+	# read in the data.
+	while (<>)
+	{
+		#print ; print "-------\n"; next;
+
+		my @input = split(/\n/, $_);
+
+		@input = commonFirst($tab, @input) if ($cf);
+		@table = tabulate($tab, $pad, $inter, $adjust, @input);
+
+		next unless (@table);
+
+		print $startTab;
+		print $startRow;
+		print join($endRow . $startRow, @table);
+		print $endRow;
+		print $endTab;
+	}
+}
+
+# self test
+testTabulate if ($0 eq __FILE__);
+
+1;
+

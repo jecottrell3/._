@@ -1,0 +1,127 @@
+* Numbers
+
+** Integers
+
+Most:	strings of digits.
+Octal:	0[0-7]*
+Binary:	0b[01]*
+Hex:	0x[0-9a-fA-F]
+KSH:	base#digits -- [0-9a-zA-Z@_]
+Perl:	auto int/float/string
+Perl:	"_" ignored -- syntactic sugar
+C/Java:	char, short, int, long
+Python:	class int
+
+** Floats
+
+Most:	\d*.\d*([eE]\d*)
+Some:	require digits on both sides of .
+C/Java:	type float, double
+Perl:	auto int/float/string
+Python:	class float
+Ruby:	class Float
+
+** Complex
+
+Ruby:	real[+-]real[iI]?
+Python:	real[+-]real[jJ]
+
+* Strings
+
+Most:	"string" or 'string'
+Many:	"" interpolates and escapes '' does not
+Most:	use \ for escapes
+Few:	Double the delimiter to 
+Perl:	interpolates ${exp} and @{exp}
+Ruby:	interpolates #{exp}
+C/C++:	type char * or char[]
+Perl:	auto int/float/string
+Java:	class String
+Ruby:	class String
+Python:	class str
+Python:	"" and '' are the same
+Python:	r'string' -- raw string, no escaping
+Python:	"""string"""
+Python:	concatenates adjacent strings
+
+** RegExps
+
+* Symbols
+
+Ruby:	:name
+Lisp:	'name
+
+* Names
+
+Most:	[a-zA-z_][\w]*
+Lisp:	Anthing but ['`()[]]
+
+Ruby:	NAME   -- Constants
+Ruby:	Name   -- Class Names
+Ruby:	name   -- Ordinary
+Ruby:	$name  -- Globals
+Ruby:	@name  -- Instance Vars
+Ruby:	@@name -- Class Vars
+
+Perl:	$.    -- Special
+Perl:	$^.   -- Special
+Perl:	$name -- Scalar
+Perl:	@name -- Array
+Perl:	%name -- Hash
+
+* Comments
+
+Most:		#  to end of line
+C:		/* comment */
+C/C++:		#preprocessor directives
+C++/Java:	// to end of line
+Bind:		;  to end of line
+Perl:		= until =cut=
+
+* Format
+
+Most: contination via \ NL
+Line Oriented, Semicolon Separator: shells, TCL, python, ruby
+Statement,    Semicolon Terminator: C, C++. Java, Perl
+Python:	uses spacial Indent/Exdent for nesting
+
+* Objects
+
+** Immutable/Mutable
+
+Most:	constants
+C/C++:	const/other
+Python:	number,string,tuple/list,dict,class
+Ruby:	number,symbol/other
+
+** Value/Reference
+
+C/C++:	scalar/array,pointer
+Java:	Primitives/Objects
+Perl:	other/reference
+Python:	always references
+Python:	effectively value for immutables
+Ruby:	list python
+
+* Arrays
+
+Most:	Origin Zero
+Most:	negative index counts backwards
+Fortran: name(index) -- Origin One
+C/Java:	name[index]	class Array	anarray = { 1, 2, 2 }
+
+Perl:	$name[index]	scalar		$aref   = [ 1, 2, 3 ]
+Perl:	@name		entire 		@array  = ( 1, 2, 3 )
+Perl:	@name[array]	slice	
+Python:	name[index]	class tuple	atuple  = ( 1, 2, 3 )
+Python:	name[index]	class list	alist   = [ 1, 2, 3 ]
+Ruby:	name[index]	class Array	anarray = [ 1, 2, 3 ]
+
+* Hashes
+
+Perl:	$name{index}	scalar		$href = { a => b, c => d }
+Perl:	%name		entire		%hash = ( a => b, c => d )
+Perl:	@name{array}	slice
+Python:	name[index]	class dict	adict = { a:   b, c:   d }
+Ruby:	name[index]	class Hash	ahash = { a => b, c => d }
+

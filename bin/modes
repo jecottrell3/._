@@ -1,0 +1,141 @@
+#! /usr/bin/perl -ln
+
+use strict;	# $Id: fixown 253 2013-04-26 01:01:20Z JECottrell3@gmail.com $
+use integer;
+
+###############################################################
+#	Globals: DO NOT Initialize Here!
+################################################################
+
+#our ($scale, $units);
+our ($perm, $mode);
+our (@perm, @mode);
+our (%perm, %mode);
+our (%psiz, %msiz);
+our (%pcnt, %mcnt);
+our ($tcnt, $tsiz);
+
+################################################################
+#	SETUP/CLEANUP
+################################################################
+
+BEGIN
+{
+	chomp(my $date = `date`);
+	print ": BEGAN $date $0 @ARGV";	# signon
+}
+
+END
+{
+	chomp(my $date = `date`);
+	print ": ENDED $date $0 @ARGV";	# signoff
+}
+
+################################################################
+#	OPTIONS
+################################################################
+
+BEGIN
+{
+	#our $units = '';
+	#our $scale = 0;
+	our $debug =  0;
+
+	while (	$ARGV[0] =~ /^-/)
+	{
+		$ARGV[0] eq '-d' and ++$debug;
+		#$ARGV[0] eq '-k' and $scale = 10 and $units = 'k';
+		#$ARGV[0] eq '-m' and $scale = 20 and $units = 'M';
+		#$ARGV[0] eq '-g' and $scale = 30 and $units = 'G';
+		shift @ARGV;
+	}
+
+	@ARGV && open ARGV, "find @ARGV -xdev|";
+}
+
+###############################################################
+#	Tally File Mode, Count, and Size
+################################################################
+
+sub m2p
+{
+	$perm =	-l _ ? 'l' : -d _ ? 'd' : -c _ ? 'c' : -b _ ? 'b' :
+		-f _ ? '-' : -p _ ? 'p' : -S _ ? 'S' : '?';
+
+	$perm .= ($mode & 0400) ? 'r' : '-';
+	$perm .= ($mode & 0200) ? 'w' : '-';
+	$perm .= ($mode & 0100) ? ($mode & 04000 ? 's' : 'x' ) : ($mode & 04000 ? 'S' : '-');
+
+	$perm .= ($mode & 0040) ? 'r' : '-';
+	$perm .= ($mode & 0020) ? 'w' : '-';
+	$perm .= ($mode & 0010) ? ($mode & 02000 ? 's' : 'x' ) : ($mode & 01000 ? 'S' : '-');
+
+	$perm .= ($mode & 0004) ? 'r' : '-';
+	$perm .= ($mode & 0002) ? 'w' : '-';
+	$perm .= ($mode & 0001) ? ($mode & 01000 ? 't' : 'x' ) : ($mode & 01000 ? 'T' : '-');
+	$perm;
+}
+
+our @ls = lstat $_;
+our ($mode, $fuid, $fgid, $fsiz) = @ls[2,4,5,7];
+our $debug and printf "%8o%10d%10d%12d\t%-40s\n", @ls[2,4,5,7], $_;
+$perm = m2p;
+
+$tcnt       ++; $tsiz        += $fsiz;
+$pcnt{$perm}++; $psiz{$perm} += $fsiz;
+$mcnt{$mode}++; $msiz{$mode} += $fsiz;
+$mode{$perm}  = $mode;
+$perm{$mode}  = $perm;
+
+################################################################
+#	Utilities
+################################################################
+
+my @sfx = qw(U K M G T P); $sfx[0] = ' ';
+
+sub scale
+{
+        my $sfx = 0;
+
+        my $num = shift;
+        while ($num > 9999)
+	{
+		$num /= 1000;
+		$sfx++;
+	}
+        
+	"$num$sfx[$sfx]";
+}
+
+sub numeric { $a <=> $b; }
+sub alpha   { $a cmp $b; }
+
+################################################################
+#	Report Stats
+################################################################
+
+END
+{
+	my $fmt = "%12s%12s%16s%16s\n";
+
+	@mode = sort numeric keys %perm;
+	@perm = sort alpha   keys %mode;
+    if (1) {
+	print ' '; printf $fmt, 'Perm', 'Mode', 'Count', 'Size';
+	for my $p (@perm)
+	{
+		printf $fmt, $p, sprintf('%o', $mode{$p}), scale($pcnt{$p}), scale($psiz{$p});
+	}
+	print ' '; printf $fmt, 'TOTAL', 0+@perm, scale($tcnt), scale($tsiz);
+    } else {
+	print ' '; printf $fmt, 'Perm', 'Mode', 'Count', 'Size';
+	for my $m (@mode)
+	{
+		printf $fmt, $perm{$m}, sprintf('%o', $m), scale($mcnt{$m}), scale($msiz{$m});
+	}
+	print ' '; printf $fmt, 'TOTAL', 0+@mode, scale($tcnt), scale($tsiz);
+    }
+	print ' ';
+}
+
+###############################################################

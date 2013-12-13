@@ -1,0 +1,3 @@
+#! /usr/bin/perl -0777 -p
+
+s/\\\n//gm;	# Join Lines ending with \ NL

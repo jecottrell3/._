@@ -1,0 +1,907 @@
+#!/usr/bin/perl
+
+=head1 NAME
+
+oneach - run the specified command on many hosts.
+
+=head1 VERSION
+
+This documentation refers to oneach, version 1.0
+
+=head1 SYNOPSIS
+
+oneach <options> <shell-command or script-file>
+
+=head1 OPTIONS
+
+=over
+
+=item -a
+
+Only run commands on hosts that are alive. Silently ignore the rest.
+
+=item -b
+
+Run the command on each host in parallel.
+The default is to run the command on each host in sequence.
+
+=item -e, --ssh <ssh-command>
+
+Specify the SSH command. The default is 'ssh'.
+
+=item -E
+
+Toggle reporting if the task fails. The default is not too.
+
+=item -h
+
+Toggle showing a header.
+The default is to display this header.
+
+=item -n
+
+No-op mode.
+
+=item --nap <seconds>
+
+Set a small sleep between each host.
+
+=item -p
+
+Toggle prefixing each output line with the hostname. This option turns off -h.
+The default is no prefix.
+
+=item -r <source> -d <dest>
+
+Specify a local source and remote destination
+to trigger an rsync copy (rsync -axH)
+synchronising data before running the remote command.
+Be very careful with relative paths; especially so with the --delete flag.
+
+=item -s, --script
+
+Run the command argument as a script file with the interpreter specified
+within the file. The default intepreter is /bin/sh.
+If no file is specified, take from standard input.
+
+=item -x, --exclude <space-separated-host-list>
+
+Specify a space separated list of hosts to exclude.
+May be used multiple times.
+If this option is used before any other hosts are specified, then the
+default host list will be used.
+
+=item -D <dir>
+
+Set the default directory to change to on the remote host.
+This can be overridden by specifying <host>:<dir>.
+
+=item -m
+
+Make the specified destination directory set via -D flag.
+
+=item -F, --file <host-file>
+
+Read the specified file for a list of hosts.
+May be used multiple times.
+
+=item -H, --hosts <space-separated-host-list>
+
+Specify a space separated list of hosts. 
+May be used multiple times.
+
+=item -P
+
+Toggle pinging each of the hosts first.
+The default is to ping.
+
+=item -S, --sort
+
+Sort the host list alphabetically. 
+The default is not to.
+
+=item -T <label>
+
+Set a prefix label.
+
+=item -f -t -q -v -X
+
+Pass these options to the SSH command.
+
+=item --delete
+
+Pass this options to the rsync command.
+
+=item --rsync <cmd>
+
+Set the rsync command; the default is jusr rsync.
+
+=item --fping <cmd>
+
+Set the fping command; the default is jusr fping.
+
+=item --header <string>
+
+Print an optional header title at the beginging of the output.
+
+Pass this options to the rsync command.
+
+=item --help
+
+Give a help message and quit.
+
+=item --man
+
+Show the manual page and quit.
+
+=back
+
+=head1 HOSTS
+
+Usually the host is just the host name of the machine. However a hostname such as
+host1!host2!...!hostn will denote a SSH chain of hosts that reaches the desired machine.
+This causes multiple SSH connections to the initial parts of the host path. 
+A target directory can also be specified via <host>:<dir>.
+
+oneach is PBS aware. If the environment variable PBS_NODESFILE is
+defined then this file will be used as the defualt host list.
+
+oneach is polka aware. If hosts are not defined then the output of the
+command B<polka flock> is used as a last resort.
+
+=head1 FILES
+
+If no hosts are specified, then the files ~/.oneach and /etc/oneach are
+checked in turn for hosts lists. The first one found is used, the rest
+are ignored.
+
+=head1 EXAMPLES
+
+=over
+
+=item oneach uname -n
+
+=item oneach -H gw!node1 uname -n
+
+=item oneach -H host1 -H host2 --script /usr/local/bin/script
+
+=item oneach -r /tmp/X -d /tmp/. cat /tmp/X
+
+=item oneach --delete -r /tmp/X -d /tmp/.
+
+=item oneach -r /tmp/X -d . -p -H host1:/tmp cat X
+
+=item oneach -r /tmp/X -D /tmp/. -d . -p -H host1 cat X
+
+=item cat script | oneach -H host1 -F hostfile -x brokenhost --script
+
+=back
+
+=head1 AUTHOR
+
+Anthony R Fletcher, 15 February 2010.
+
+=head1 COPYRIGHT
+
+Copyright (c) 2010, Anthony R Fletcher. All Rights Reserved.
+This module is free software. It may be used, redistributed
+and/or modified under the terms of the Perl Artistic License
+(see http://www.perl.com/perl/misc/Artistic.html)
+
+=cut
+
+use 5;
+use warnings;
+use strict;
+
+use Getopt::Long;
+use Pod::Usage;
+use File::Spec;
+use File::Basename;
+use IO::Select;
+use Net::Ping;
+use IPC::Open3;
+use String::ShellQuote;
+
+use Data::Dumper;
+#use POSIX;
+
+my $VERSION = '1.5';
+
+## Load optional modules. Exit gracefully if we can't.
+#our @missing = grep( !eval "use $_; 1", qw (
+#)) and die "Please install CPAN modules:\n  cpan -i @missing\n";
+
+sub debug { }
+
+######################################################
+# Initialisation.
+
+my @flags = qw (-qx -o BatchMode=yes);
+my $script = '';
+my $scriptargs = '';
+my %hosts;
+
+# optionally remember the insert order.
+eval 'use Tie::IxHash; 1; ' && tie %hosts, 'Tie::IxHash';
+
+######################################################
+# Command line option values
+my %opt = (
+	a => 0,
+	b => 0,
+	e => 'ssh',
+	E => 0,
+	h => 1,
+	n => 0,
+	p => 0,
+	P => 0,
+	S => 0,
+	s => 0,
+	T => '',
+	r => '',
+	d => '',
+	D => '',
+	m => 0,
+	delete => 0,
+
+	header => '',
+	nap => 0,
+
+	# add/remove hosts to list.
+	x => sub { shift; &excludehosts(@_); },
+	H => sub { shift; for my $h (split(/\s+/, join(' ', @_))) { $hosts{$h} ++;} ; },
+	F => sub { shift; &addhostsfile(@_); },
+
+	# SSH options
+	X => 0,
+	t => 0,
+	v => 0,
+	q => 0,
+	f => 0,
+
+	rsync	=> 'rsync',
+	fping	=> 'fping',
+
+	help	=> sub { pod2usage(-verbose => 1, exitstatus => 0); },
+	man	=> sub { pod2usage(-verbose => 2, exitstatus => 0); },
+	debug	=> sub { no warnings; eval 'sub debug { warn @_; }'; },
+);
+
+# Parse the command line.
+Getopt::Long::Configure (qw(bundling auto_abbrev require_order));
+GetOptions(\%opt, qw(
+	r|source=s
+	d|dest=s
+	D|dir=s
+	m|makedir
+	a|alive
+	n|noop T=s nap=i b|bg h+ p+ P+ S|sort+
+	F|file=s H|hosts=s x|exclude=s s|script e|ssh=s q X t v f 
+	E
+
+	header=s
+	rsync=s fping=s
+
+	delete
+	help man debug
+),
+) or pod2usage(1);
+
+debug '%opt=', Dumper(\%opt);
+debug '%hosts=', Dumper(\%hosts);
+
+# Option logic.
+
+# deal with toggles
+for my $f (split(//, 'PSabhps')) { $opt{$f} %= 2; }
+
+$opt{h} = !$opt{p};
+if ($opt{b})
+{
+	# toggle headers and prefixes in parallel mode.
+	$opt{h} = 0;
+	$opt{p} = 1;
+}
+
+# Pass on SSH options.
+for my $f (split(//, 'Xtvqf')) { push @flags, "-$f" if $opt{$f}; }
+
+# set name for ps.
+my $prog = basename($0);
+$0 = $prog . ' ' . join(' ', @ARGV);
+
+# Construct the host list.
+&loadDefaultHosts() unless %hosts;
+my @hosts = keys %hosts;
+
+debug '%opt=', Dumper(\%opt);
+debug '@hosts=',Dumper(\@hosts);
+
+die "No hosts specified!\n" unless @hosts;
+
+print &header($opt{header}), "\n" if ($opt{header} ne '');
+
+if ($opt{s})
+{
+	my $scriptname = shift;
+	die "No script specified!\n" unless defined $scriptname;
+	{
+		local @ARGV = ( $scriptname );
+		local ($/) = undef;
+		$script = <>;
+	}
+
+	die "No script specified!\n" unless $script;
+
+	# remember the script arguments
+	my @args = @ARGV;
+
+	# determine interpretor.
+	if ($script =~ /^#!\s*([^\n]+)\n/s)
+	{
+		@ARGV = split(/\s+/, $1);
+
+	}
+	else
+	{
+		@ARGV = qw(/bin/sh);
+	}
+
+	##warn "ARGV = @ARGV\n";
+
+	# encode script arguments, if needed.
+	if (@args)
+	{
+		if ($ARGV[0] =~ /perl/i)
+		{
+			$scriptargs = '@ARGV = qw( ' . join(' ', @args) . "); \n";
+		}
+		elsif ($ARGV[0] =~ /sh/i)
+		{
+			$scriptargs = 'set -- ' . join(' ', @args) . "\n";
+		}
+		else
+		{
+			die "Don't know how to encode script arguments (@args) for $ARGV[0] scripts!\n";
+		}
+	}
+
+}
+else
+{
+	#push @flags, '-n';
+}
+
+# Enforce option combinations.
+die "Option -d is required when using the -r option.\n" if ($opt{r} ne '' and $opt{d} eq '');
+die "Option -r is required when using the -d option.\n" if ($opt{r} eq '' and $opt{d} ne '');
+die "Option --delete must be used with the -r and -d options.\n" if ($opt{r} eq '' && $opt{delete});
+
+# Either rsync provisioning must be specified or a command to run.
+die "No shell command specified!\n" unless (@ARGV || $opt{r} ne '' || $opt{d} ne '');
+
+debug 'Remaining @ARGV is ', join(' ', @ARGV), "\n";
+
+# Sort.
+@hosts = sort @hosts if ($opt{S});
+
+# Ping hosts.
+my %dead;
+unless (1 || $opt{P})
+{
+	my %alive;
+
+	# Look for pingable hosts
+
+	# Like tcp protocol, but with many hosts
+	my $p = Net::Ping->new('syn');
+	$p->{port_num} = getservbyname('ssh', 'tcp');
+
+	# Send the ping.
+	for my $host (@hosts)
+	{
+		if ($host =~ /!/)
+		{
+			#warn "Cannot try to ping $host.\n";
+			$alive{$host} ++;
+			next;
+		}
+		$p->ping($host);
+	}
+
+	# Collect the ACKs.
+	while (my ($host,$rtt,$ip) = $p->ack)
+	{
+		#print "HOST: $host [$ip] ACKed in $rtt seconds.\n";
+		$alive{$host} ++;
+	}
+
+	$p->close;
+}
+
+# fping
+unless ($opt{P})
+{
+	debug "using $opt{fping}\n";
+	$0 = "$prog: ping";
+
+	# Construct the host list for eligible hosts.
+	my @CMD = ($opt{fping});
+	for my $host (@hosts)
+	{
+		if ($host =~ /!/)
+		{
+			#warn "Cannot try to ping $host.\n";
+			next;
+		}
+		(my $h = $host) =~ s/:.*//;
+		push @CMD, $host;
+	}
+
+	# Launch fping to discover active hosts
+	local (*IN, *OUT, *ERR);
+	if (open3(\*IN, \*OUT, \*ERR, @CMD))
+	{
+		close IN;
+
+		# Read the list of alive hosts.
+		while (<OUT>)
+		{
+			debug $_;
+
+			chomp;
+			next unless s/^(\S+)\s+(is\s+)?//;
+			my $host = $1;
+
+			next if /alive/;
+
+			# collect the non-alive result.
+			$dead{$host} = $_;
+
+		}
+		close OUT;
+
+		# Catch any errors, after the fact.
+		while (<ERR>)
+		{
+			next if /ICMP Host Unreachable/;
+			next if /duplicate for /;
+
+			if (/^open3: exec of (\S+)/)
+			{
+				die "$1 unavailable. Either disable pings via -P or install $1.\n";
+			}
+			
+			if (/(\S+)\s+(address not found)/)
+			{
+				# Collect error.
+				$dead{$1} = $2;
+				next;
+			}
+
+			warn "error: $_";
+		}
+		close ERR;
+	}
+	else
+	{
+		debug "fping unavailable\n";
+	}
+}
+
+$0 = $prog;
+
+# Load self.
+if (0) {
+my $self;
+if ($0 eq '-')
+{
+	local ($/) = undef;
+	$self = <STDIN>;
+}
+else
+{
+	local ($/) = undef;
+	local (*SELF);
+	open (SELF, '<', $0) || die "Cannot read self '$0' ($!).\n";
+	$self = <SELF>;
+	close SELF;
+}
+}
+
+# Prepare the common rsync args
+my @rsyncargv = ($opt{rsync}, qw(-axH));
+push @rsyncargv, '--delete' if $opt{delete};
+
+debug "rsync argv: ", join(' ', @rsyncargv), "\n";
+
+# Prepare the common arguments to the SSH command.
+# Deal with shell escapes.
+my @sshargv = @ARGV;
+for my $c (@sshargv)
+{
+	if ($c =~ /"/)
+	{
+		$c =~ s/\[\\"]/\\$1/g;
+		$c = '"' . $c . '"';
+	}
+	elsif ($c =~ /\s/)
+	{
+		$c = "'$c'";
+	}
+}
+if ($#sshargv==0 && $sshargv[0] =~ /[\|\s\*]/)
+{
+	$sshargv[0] = "/bin/sh -c $sshargv[0]";
+}
+debug "orig ARGV: ", join(' ', @ARGV), "\n";
+debug "ssh  argv: ", join(' ', @sshargv), "\n";
+
+# Calculate maximum length of host names
+my $length = 0;
+for my $host (@hosts) { my $l = length($host); $length = $l if ($length < $l); }
+$length ++;
+
+my $nap = 0;
+
+debug "$$ hosts: ", join(' ', @hosts), "\n";
+
+# Run through each host.
+for my $host (@hosts)
+{
+	# nap, if requested, but not the first time.
+	sleep $nap;
+	$nap = $opt{nap} if ($opt{nap});
+
+	# header
+	print &header ($opt{T} . $host) if ($opt{h});
+
+	# generate prefix string.
+	my $prefix = $opt{p} ? $opt{T} . $host . ' 'x($length - length($host)) : '';
+
+	# Isolate directory change.
+	my $dir = ($host =~ s/:(.*)//) ? $1 : $opt{D};
+	debug "Destination is '$dir'\n";
+
+	# Report any non-alive status
+	if (exists $dead{$host})
+	{
+		if (!$opt{'a'})
+		{
+			print STDERR $prefix;
+			print STDERR $dead{$host};
+			print STDERR "\n";
+			print STDERR "\n" if $opt{h};
+		}
+
+		next;
+	}
+
+	# Host is alive; send command.
+
+	# Spawn a child, if requested.
+	$opt{b} && fork && next;
+
+	debug "Dealing with $host: $$\n";
+
+	# Update ps entry: quick name
+	$0 = $prog . ": $host " . join(' ', @ARGV);
+
+	# Build the ssh command
+	my @SSH;
+	for my $h (split(/!/, $host))
+	{
+		push @SSH, $opt{e}, @flags, $h;
+	}
+
+	# Provision data directory, if needed.
+	if ($opt{r} ne '' and $opt{d} ne '')
+	{
+		# Deal with ssh paths to hosts
+		my @SSH = @SSH;
+		my $last = pop @SSH;
+
+		# Construct rsync command
+		my @RSYNC = @rsyncargv;
+		push @RSYNC, '-e', join(' ', @SSH);
+
+		# Deal with changing the default directory to
+		# enable relative rsync targets.
+		if ($dir ne '')
+		{
+			my $mk = $opt{m} ? "mkdir '$dir' 2>/dev/null; " : '';
+			push @RSYNC, "--rsync-path=${mk}cd '$dir' && rsync";
+		}
+
+		# Load the source and target
+		push @RSYNC, "$opt{r}", "$last:$opt{d}";
+
+		debug "$$ Running \"", join('" "', @RSYNC), "\"\n";
+
+		unless (&run($prefix, @RSYNC) == 0)
+		{
+			warn "${prefix}Rsync failed! Task aborted.\n";
+
+			print "\n" if $opt{h};
+			exit 1 if ($opt{'b'});
+			next;
+		}
+	}
+
+	# Only run the command SSH if there is obne to run.
+	if (@sshargv)
+	{
+		# Build the command array.
+		my @CMD = @SSH;
+
+		# Deal with directory changes.
+		push @CMD, 'cd', $dir, '&&' if ($dir ne '');
+		push @CMD, @sshargv;
+
+		# Run the command.
+		unless ((my $ret = &run($prefix, @CMD)) == 0)
+		{
+			warn "${prefix}Task failed $ret\n" unless $opt{'E'};
+		}
+
+		#debug "h=$opt{h}\n";
+		print "\n" if $opt{h};
+
+	}
+
+	# Quit here if this is a child process.
+	exit if $opt{b};
+}
+
+
+# wait and reap any kids; only needed for -b.
+while (my $pid = wait() )
+{
+	last if ($pid<0);
+	debug "reaped $pid\n";
+};
+
+exit;
+
+# Run a command prefixing the lines with the right host string.
+sub run
+{
+	my ($prefix, @CMD) = @_;
+
+	if ($opt{n})
+	{
+		warn "${prefix}noop: ", shell_quote_best_effort(@CMD), "\n";
+		#warn "${prefix}noop: '", join("' '", @CMD), "'\n";
+		return 0;
+	}
+
+	debug "${prefix}cmd: ", shell_quote_best_effort(@CMD), "\n";
+	#debug "${prefix}cmd: '", join("' '", @CMD), "'\n";
+
+	# Launch the command
+	local (*IN, *OUT, *ERR);
+
+	my $pid = open3(\*IN, \*OUT, \*ERR, @CMD);
+
+	# Deliver script, if any, and close input.
+	print IN $scriptargs;
+	print IN $script;
+	close IN;
+
+	debug "${prefix}cmd PID $pid\n";
+
+	my $newline = 1;
+
+	# Post process the output
+	unless ($opt{f}) # hack?
+	{
+		# multiplex OUT and ERR.
+		my $s = IO::Select->new(\*OUT, \*ERR);
+		my %prefix = map { $_ => $prefix; } $s->handles();
+
+		while (my @fh = $s->can_read())
+		{
+			for my $fh (@fh)
+			{
+				my $text;
+				my $n = sysread($fh, $text, 100000);
+
+				next unless defined($n);
+				if ($n == 0)
+				{
+					$s->remove($fh);
+					next;
+				}
+
+				debug "---text---->$text<---------\n";
+
+				# Print the text to the correct output.
+				my $out = ($$fh =~ /ERR/) ? \*STDERR : \*STDOUT;
+				#debug "$fh $$fh $out\n";
+
+				# Prefix the string, except for the first one if the last
+				# lin didnt end with a newline.
+				$text =~ s/\r/\r$prefix/gs;
+				$text =~ s/^/$prefix/gm;
+				$text =~ s/^$prefix//s unless $newline;
+
+				#debug "---TEXT---->$text<---------\n";
+
+				print $out $text;
+
+				$newline = ($text =~ /\n$/m);
+			}
+
+		}
+
+		#debug Dumper(\%prefix);
+
+		print "\n" unless ($newline);
+	}
+	close OUT || warn "${prefix}error running command\n";
+	close ERR || warn "${prefix}error running command\n";
+
+
+	# Why are we losing the last return?
+
+	# Return the error status.
+	waitpid( $pid, 0 );
+	debug "${prefix}return $?\n";
+
+	my $ret = $? >> 8;
+	if ($ret == 255)
+	{
+		warn "${prefix}ssh connect to host failed.\n"
+	}
+
+	$ret;
+}
+
+# Print a nice header.
+sub header
+{
+	my ($header) = join(' ', @_);
+
+	$header . "\n" . '-'x(length($header)) . "\n";
+}
+
+# Add hosts to array from file.
+sub addhostsfile
+{
+	my ($file) = @_;
+
+	debug "Loading hosts from file '$file'.\n";
+
+	# space separated list from a file, with comments.
+	local (*F, $_);
+
+	unless (open(F, $file))
+	{
+		warn "Cannot read file '$file' ($!).\n";
+		return undef;
+	}
+
+	while (<F>)
+	{
+		chomp;
+		s/#.*//;
+		for my $h (split(/\s+/, $_))
+		{
+			$hosts{$h} ++;
+			#debug "host $h\n";
+		}
+	}
+	close (F);
+}
+
+# Add hosts to array from file.
+sub addhostsfile2
+{
+	my ($file) = @_;
+
+	debug "Loading hosts from file '$file'.\n";
+
+	# space separated list from a file, with comments.
+	local (*F, $_);
+
+	unless (open(F, $file))
+	{
+		warn "Cannot read file '$file' ($!).\n";
+		return undef;
+	}
+
+	while (<F>)
+	{
+		chomp;
+		s/#.*//;
+		my ($first) = split(/\s+/, $_);
+		$hosts{$first} ++;
+	}
+	close (F);
+}
+
+# Exclude hosts for the host list.
+sub excludehosts
+{ 
+	# Load the default hosts first, if needed.
+	&loadDefaultHosts unless (%hosts);
+	
+	# Remove the excluded hosts.
+	for my $h (split(/\s+/, join(' ', @_)))
+	{
+		delete $hosts{$h};
+	}; 
+}
+
+# Attempt to load a host list from various places.
+sub loadDefaultHosts
+{
+	# Load PBS nodesfile.
+	unless (%hosts)
+	{
+		if (defined $ENV{PBS_NODEFILE})
+		{
+			debug "PBS nodes file $ENV{PBS_NODEFILE}\n";
+			-r $ENV{PBS_NODEFILE} && addhostsfile2($ENV{PBS_NODEFILE});
+		}
+	}
+
+	# Load SGE hostsfile
+	unless (%hosts)
+	{
+		if (defined $ENV{PE_HOSTFILE})
+		{
+			debug "SGE nodes file $ENV{PE_HOSTFILE}\n";
+			-r $ENV{PE_HOSTFILE} && addhostsfile2($ENV{PE_HOSTFILE});
+		}
+	}
+
+	# Load extras
+	unless (%hosts)
+	{
+		my $dotfile=File::Spec->catfile($ENV{HOME}, '.oneach');
+		-r $dotfile && addhostsfile($dotfile);
+		debug "Using $dotfile for host list\n";
+	}
+
+	unless (%hosts)
+	{
+		my $dotfile=File::Spec->catfile(File::Spec->rootdir(), 'etc' , 'oneach');
+		-r $dotfile && addhostsfile($dotfile);
+		debug "Using $dotfile for host list\n";
+	}
+
+	# DCB hack.
+	unless (%hosts)
+	{
+		%hosts = map { $_ => 1; } split(/\s+/, `/var/polka/bin/polka flock`);
+		debug "Using polka for host list\n";
+	}
+
+	# nothing left
+}
+
+__END__
+
+1.6 ARF 1 December 2012
+
+Noop is now a successful task.
+
+Changed the script to allow for no client command if there is
+an rsync provision step. Basically oneach can be used as distributed
+rsync.
+
+Fix some error status reporting. 255 means the ssh connection failed.
+
+1.5 ARF 20 November 2012
+
+Move common argument parsing from the main host loop
+Set up a common run command function
+Rework the output prefixing
+
+1.4 ARF
+
+Added rsync options -r <source> -d <dest> and associated action
+Added default base directrory -D <dir>
+
