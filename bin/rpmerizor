@@ -94,9 +94,9 @@ AutoReqProv: _AUTOREQPROV_
 _DESCRIPTION_
 
 %prep
-#@rm -f /tmp/rpmerizor_buildroot
-#@ln -s _ROOTDIR_ /tmp/rpmerizor_buildroot
-ln -s _ROOTDIR_ %{buildroot}
+rm -f /tmp/rpmerizor_buildroot
+ln -s _ROOTDIR_ /tmp/rpmerizor_buildroot
+#@#@ln -sf _ROOTDIR_ %{buildroot}
 
 %clean
 #@rm -f /tmp/rpmerizor_buildroot

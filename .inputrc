@@ -1,8 +1,8 @@
 set output-meta On
 "\M-a": "\C-aman \n"
 "\M-e": " --exclude="
-"\M-h": " META h "
-"\M-i": "; do e =$x=; "
+"\M-h": "for x in "
+"\M-i": "; do echo =$x=; "
 "\M-j": "; done\n"
 "\M-k": "\C-e | less +/"
 "\M-m": "\C-e | less\n"

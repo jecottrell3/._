@@ -1,33 +1,21 @@
 # $Id$
 test -f .debug && echo .fns/ldap
 #################################################################
-#	OLD LDAP Functions and Definitions
+#	NIH LDAP Functions and Definitions
 #################################################################
 
-REALM=SEAS.GWU.EDU
-BASE='DC=seas,DC=gwu,DC=edu'
-JCUS="CN=James Cottrell,CN=Users,$BASE"
-JCDA="CN=Jim Cottrell,OU=SEASCF,$BASE"
-PDC=seas-dc1.seas.gwu.edu
-PASS=bogus
-test -f     ~/.pass &&
-read PASS < ~/.pass
+REALM=NIH.GOV
+BASE='ou=NIH,OU=AD,DC=NIH,DC=gov'
+LDAP=ldap://ldapad.nih.gov
+ANON=ldap://nihldap.nih.gov:4389
 
-alias	lds="ldapsearch -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
-alias	lda="ldapadd    -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
-alias	ldm="ldapmodify -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
-alias	ldk="ldapdelete -x -h $PDC -b $BASE -D '$JCDA' -w '$PASS'"
-alias	ldp="ldappasswd -x -D $JCDA"
-
-#################################################################
-#	NEW LDAP Functions and Definitions
-#################################################################
-
+alias	anon="ldapsearch -x -b $BASE -h $ANON"
 for x in s search a add m modify k delete p passwd
 do
 	case $x in
 	(?)	y=$x;;
-	(*)	alias ld$y="ldap$x -x";;
+	(*)	alias ld$y="ldap$x    -b $BASE -H $LDAP";
+		alias ad$y="ldap$x -x -b $BASE -H $ANON";;
 	esac
 done
 

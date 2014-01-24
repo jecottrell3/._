@@ -25,26 +25,35 @@ case $FQDN in
 	alias	lds="ldapsearch -b $BASE -h ldapad.nih.gov"
 	alias	ldx="ldapsearch -b $BASE -h strudel.cit.nih.gov -x"
 
-	export JRE6=java-1.6.0-openjdk
-	export JDK6=java-1.6.0-openjdk-devel
-	export JRE7=java-1.7.0-openjdk
-	export JDK7=java-1.7.0-openjdk-devel
+	export	JRE6=java-1.6.0-openjdk
+	export	JDK6=java-1.6.0-openjdk-devel
+	export	JRE7=java-1.7.0-openjdk
+	export	JDK7=java-1.7.0-openjdk-devel
 
-	export QR=/public/htdocs/rome.cit.nih.gov
-	export QK=$QR/ks
-	export QY=$QR/yum
-	export QC=$QY/CentOS
-	export QF=$QY/Fedora
-	export QD=$QC/DCB
-	export D5i=$QD/5/i386
-	export D5x=$QD/5/x86_64
-	export D6i=$QD/6/i386
-	export D6x=$QD/6/x86_64
-	export QB=$QC/base
-	export B5i=$QB/5/os/i386
-	export B5x=$QB/5/os/x86_64
-	export B6i=$QB/6/os/i386
-	export B6x=$QB/6/os/x86_64
+	export	QQ=/public/htdocs/rome.cit.nih.gov
+	export	QK=$QQ/ks
+	export	QY=$QQ/yum
+	export	QC=$QY/CentOS
+	export		C5=$QC/5/x86_64/os
+	export		C6=$QC/6/x86_64/os
+	export		C7=$QC/7/x86_64/os
+	export	QF=$QY/Fedora
+	export		F19=$QF/19/x86_64/os
+	export		F20=$QF/20/x86_64/os
+	export	QR=$QY/RedHat
+	export		R6=$QR/6/x86_64/os
+	export		R7=$QR/7/x86_64/os
+	export	QU=$QY/Ubuntu
+	export	QD=$QY/DCB
+	export		D5=$QD/CentOS/5/x86_64
+	export		D6=$QD/CentOS/6/x86_64
+	export		D7=$QD/CentOS/7/x86_64
+	export		D19=$QD/Fedora/19/x86_64
+	export		D20=$QD/Fedora/20/x86_64
+
+	export	TFTP=/var/lib/tftpboot
+	export	MENU=$TFTP/pxelinux.cfg
+	export	IMGS=$TFTP/images
 
 	alias qaj='rpm -qa j\* | sort'
 

@@ -1,13 +1,16 @@
 #! /bin/sh -x
 
-sub=${1:+/$1}
-rbj=${2:-cottrell}
-top=${3:-/boot}
-top=${3:-/home}
-uid=${4:-200115213}
-gid=${5:-200115213}
+case $1 in
+(nih)	rbj=cottrell
+	uid=200115213
+	sub=;;
+(*)	rbj=jcottrell
+	uid=654
+	sub=${1:+/$1};;
+esac
 
-dir=/home/$rbj$sub
+top=/home
+gid=${gid:-$uid}
 dir=$top/$rbj$sub
 
 grep $rbj: /etc/group ||
@@ -26,5 +29,3 @@ grep $rbj: /etc/passwd ||
 		-o -d $dir -s /bin/bash \
 		-p '$1$W4V.6jvA$lVqS2WtLVws8CXUr7Mhwc0' $rbj
 }
-#sermod -a -G 20 root	# SEAS
-#sermod -a -G 20 $rbj	# SEAS
