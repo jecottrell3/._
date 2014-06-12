@@ -8,8 +8,26 @@ s0() { service $* stop; };	alias z0='systemctl stop'
 s1() { service $* start; };	alias z1='systemctl start'
 s2() { service $* status; };	alias z2='systemctl status'
 s3() { service $* restart; };	alias z3='systemctl restart'
-alias z4='systemctl disable';	alias z5='systemctl enable'
+alias z4='systemctl disable';	alias z5='systemctl   enable'
 alias z6='systemctl is-enabled';alias z7='systemctl reenable'
+#################################################################
+#	Authconfig
+#################################################################
+alias	u0='less /etc/sysconfig/authconfig'
+alias	u1='authconfig --update'
+alias	u2='authconfig --test | less'
+alias	u3='authconfig --help | less'
+alias	u4='man authconfig'
+alias	u7='authconfig --restorelastbackup'
+alias	u8='authconfig --restorebackup'
+alias	u9='authconfig --savebackup'
+#################################################################
+#	Specific
+#################################################################
+alias	P0='service pcscd stop'		P1='service pcscd start'
+alias	P2='service pcscd status'	P3='service pcscd restart'
+alias	O0='service openct stop'	O1='service openct start'
+alias	O2='service openct status'	O3='service openct restart'
 #################################################################
 #	NETWORKING	/	KERBEROS
 #################################################################
@@ -38,7 +56,7 @@ alias	w3='w0; w1'		m3='m0; m1'
 #	RKHunter	/	KPARTX
 #################################################################
 alias	r0='time rkhunter -c'		x0='kpartx -dv'
-alias	r1='time rkunter -C'		x1='kpartx -av'
+alias	r1='time rkhunter -C'		x1='kpartx -av'
 alias	r2='time rkhunter --cronjob --report-warnings-only'
 alias	r3='time rkhunter --propupd'	x2='kpartx -lv'
 #################################################################

@@ -1,5 +1,5 @@
 #! /usr/bin/python
-# $Id: syst.py 171 2011-03-04 01:50:35Z rbj $
+# $Id$
 
 VGPV = "__init__ sets to 'pv.0'"	# ICKY Module Variable
 

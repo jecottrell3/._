@@ -64,6 +64,7 @@ function rude()
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -hT'	uh='du -h'	df='df -k'
+function gm {  egrep --color=always $* | less -r; }
 alias	 grep='egrep --color=auto'
 alias	egrep='egrep --color=auto'
 alias	g='egrep'		gi='egrep -i'
@@ -115,13 +116,16 @@ alias	  jc='sudo chown -R $JC:$JC'
 alias	sb='sudo bash -l'	se=sudoedit
 alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
 alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
-alias	sir='lsb_release -sir'
-alias	sl='ln -s'		su='su -p'
+alias	sir='lsb_release -sir'	su='su -p'
+alias	sl='ln -s'		slf='ln -sf'
 alias	ss='ssh -AX'		sj="ssh -AX -l $JC"
-alias	sun12x22='setfont sun12x22.psfu.gz'
+#lias	sun12x22='setfont sun12x22.psfu.gz'
+alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
+alias	sun22='setfont          sun12x22.psfu.gz'
+alias	sun32='setfont latarcyrheb-sun32.psfu.gz'
 alias	sx='exec ssh-agent bash -l'
 
-alias	tf='tail -f'
+alias	tf='tail -F'
 alias	ud='diff -u'		UD='diff -U 0'
 alias	dr='diff -ur'		dy='diff -y'
 alias	rax='rsync  -vax'	 rs='rsync -C'

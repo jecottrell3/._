@@ -74,7 +74,9 @@ export	HISTCONTROL=ignoreboth
 test -x /usr/bin/vim &&
 export	  EDITOR=vim ||
 export	  EDITOR=vi
+export	TMOUT=0
 export	TTY=$(tty | tr -dc 0123456789)
+export	VIMINIT="source $RBJ/.vimrc"
 
 #@export	PNY=/pny/CVR
 #@export	SVN=/svn

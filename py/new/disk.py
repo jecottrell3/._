@@ -1,5 +1,5 @@
 #! /usr/bin/python
-# $Id: disk.py 171 2011-03-04 01:50:35Z rbj $
+# $Id$
 
 import syst
 

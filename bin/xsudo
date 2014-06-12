@@ -2,6 +2,8 @@
 
 # $Id$
 
+# Stolen from Anthony Fletcher, NIH
+
 # Wrap sudo to pass XAUTHORITY cookies through at the same time as
 # allowing privalidges to a user in one sudo session. This relies on the
 # -C flag added "recently", version 1.7 and above, and now in major
@@ -40,11 +42,13 @@ do
 		: 3>&-
 
 		# The default command
-		[ "$#" = 0 ] && set -- $SHELL -l
+    		RBJ="--rcfile /home/cottrell/._/.bash_profile"
+		[ "$#" = 0 ] && set -- $SHELL $RBJ
 
 		trap '/bin/rm -f $XAUTHORITY' 0
 
 		# start the command
+echo cmd:	"$@"
 		"$@"
 
 		# clean up
@@ -90,7 +94,7 @@ xauth extract - "$RDISPLAY" | {
     # FD 0 becomes stdin again
     # FD 4 is closed
 
-    exec 3<&0 0<&4 4>&- "$SUDO" $FLAGS "$0" -X "$@"
+    exec 3<&0 0<&4 4>&- "$SUDO" -EH $FLAGS "$0" -X "$@"
 
     #exec 3>&0 0>&4 4>&-
     #exec "$SUDO" $FLAGS "$0" -X "$@"

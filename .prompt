@@ -7,10 +7,15 @@ test -f .debug && echo .prompt
 test -f          /etc/DIR_COLORS.lightbgcolor &&
 eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
 
+alias	DK='eval $(dircolors /etc/DIR_COLORS)'
+alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
+alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
+
 case $(tty) in
 (/dev/tty*)	LT=1 DK=0
 		LT=0 DK=1
 	eval $(ssh-agent)
+	$RBJ/bin/hue f cc 88 44; # $RBJ/bin/hue 8 00 00 00;
 	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
 	test -f /lib/kbd/consolefonts/sun12x22.psfu.gz &&
 	setfont                       sun12x22.psfu.gz

@@ -22,13 +22,18 @@ case $FQDN in
 (*.nih.gov)
 	export	BASE=ou=NIH,OU=AD,DC=NIH,DC=gov
 
-	alias	lds="ldapsearch -b $BASE -h ldapad.nih.gov"
-	alias	ldx="ldapsearch -b $BASE -h strudel.cit.nih.gov -x"
+	#alias	lds="ldapsearch -b $BASE -h ldapad.nih.gov"
+	#alias	ldx="ldapsearch -b $BASE -h strudel.cit.nih.gov -x"
 
 	export	JRE6=java-1.6.0-openjdk
 	export	JDK6=java-1.6.0-openjdk-devel
 	export	JRE7=java-1.7.0-openjdk
 	export	JDK7=java-1.7.0-openjdk-devel
+
+	alias	dcb='cp system-auth-dcb system-auth'
+	alias	ssd='cp system-auth-ssd system-auth'
+	alias	only='cp sssd.only sssd.conf'
+	alias	both='cp sssd.both sssd.conf'
 
 	export	QQ=/public/htdocs/rome.cit.nih.gov
 	export	QK=$QQ/ks
@@ -57,7 +62,7 @@ case $FQDN in
 
 	alias qaj='rpm -qa j\* | sort'
 
-	for dir in /opt/openssh-dcb-5.?p1/bin
+	for dir in /xxx/opt/openssh-dcb-5.?p1/bin
 	do
 		test -d $dir || continue
 		case :$PATH: in
@@ -76,5 +81,10 @@ case $FQDN in
 	;;
 (*)	: not special;;
 esac
+
+export	RD=/etc/reader.conf;	RO="$RD.d/openct.conf"
+alias	C="cat $RD"		V="vi $RO"
+alias	U=lsusb			L="lsof /dev/bus/usb/???/???"
+alias	Z='C;P2;O2;L'
 
 #################################################################

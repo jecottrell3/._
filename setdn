@@ -1,5 +1,5 @@
 #! /must/source/this/file
-# $Id: setup 195 2011-07-13 13:32:27Z rbj $
+# $Id$
 ################################################################
 #	Initialize Environment
 ################################################################
@@ -32,7 +32,7 @@ do
 	(setdn)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
-	(*)	test -e	$x       && mv $x $REST;;
+	(*)	test -e	$x       && mv $x $REST;
 		test -e	$SAVE/$x && mv $SAVE/$x .;;
 	esac
 
