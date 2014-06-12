@@ -1,0 +1,3 @@
+LABEL F16 live beta
+	KERNEL images/iso/vmlinuz0
+	APPEND rootflags=loop initrd=images/iso/initrd0.img root=live:/Fedora-16-Beta-x86_64-Live-Desktop.iso rootfstype=auto ro liveimg quiet  rhgb rd.luks=0 rd.md=0 rd.dm=0 

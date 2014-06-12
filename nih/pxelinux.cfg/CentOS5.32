@@ -1,0 +1,31 @@
+MENU TITLE CentOS5-i386 Menu
+
+LABEL Up to i386
+        MENU LABEL Up to i386
+        KERNEL menu.c32
+        APPEND pxelinux.cfg/default
+
+LABEL CentOS5-i386 Server Install-HPN
+        MENU LABEL CentOS5-i386 Server Install-HPN
+        KERNEL images/centos/i386/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/centos-i386-server-hpn.cfg initrd=images/centos/i386/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-i386 Server Install-CSA2
+        MENU LABEL CentOS5-i386 Server Install-CSA2
+        KERNEL images/centos/i386/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/centos-i386-server-csa2.cfg initrd=images/centos/i386/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-i386 Server Install-PII
+        MENU LABEL CentOS5-i386 Server Install-PII
+        KERNEL images/centos/i386/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/centos-i386-server-pii.cfg initrd=images/centos/i386/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-i386 Desktop Install-HPN
+        MENU LABEL CentOS5-i386 Desktop Install-HPN
+        KERNEL images/centos/i386/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/centos-i386-desktop-hpn.cfg initrd=images/centos/i386/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-i386 Rescue Image
+        MENU LABEL CentOS5-i386 Rescue Image
+        KERNEL images/centos/i386/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/centos-i386-rescue.cfg initrd=images/centos/i386/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp

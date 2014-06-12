@@ -1,0 +1,24 @@
+LABEL RHEL 6 x86_64 NO KS eth0
+        MENU LABEL RHEL 6 x86_64 NO KS eth0
+        KERNEL images/rhel/x86_64/6beta/vmlinuz
+        APPEND ks=http://165.112.92.48/yum/RHEL/base/6beta/os/x86_64/ks.cfg initrd=images/rhel/x86_64/6beta/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp url --url http://rome.cit.nih.gov/yum/rhel/base/6beta/os/x86_64
+
+LABEL CentOS 5 x86_64 NO KS eth0
+        MENU LABEL CentOS 5 x86_64 NO KS eth0
+        KERNEL images/centos/x86_64/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/yum/CentOS/base/5.5/os/x86_64/ks.cfg initrd=images/centos/x86_64/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp url --url http://rome.cit.nih.gov/yum/CentOS/base/5.5/os/x86_64
+
+LABEL harddisk
+        menu label Boot from local harddisk
+        kernel chain.c32
+        append hd0
+LABEL CentOS 5 i386 NO KS eth0
+        MENU LABEL CentOS 5.5 x86 NO KS eth0
+        KERNEL images/centos/i386/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/yum/CentOS/base/5.5/os/i386/ks.cfg initrd=images/centos/i386/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp url --url http://rome.cit.nih.gov/yum/CentOS/base/5.5/os/i386
+
+LABEL RHEL 6 x86_64 NO KS eth0
+        MENU LABEL RHEL 6 x86_64 NO KS eth0
+        KERNEL images/rhel/x86_64/6Beta/vmlinuz
+        APPEND ks=http://165.112.92.48/yum/RHEL/base/6Beta/os/x86_64/ks.cfg initrd=images/rhel/x86_64/6beta/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp url --url http://rome.cit.nih.gov/yum/rhel/base/6beta/os/x86_64
+

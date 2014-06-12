@@ -1,0 +1,39 @@
+MENU TITLE Tools Menu
+
+LABEL Main Menu
+        MENU LABEL Main Menu
+        KERNEL menu.c32
+        APPEND pxelinux.cfg/default
+
+LABEL sysresccd
+ MENU LABEL System Rescue CD
+ COM32 sysresccd/menu.c32
+ APPEND sysresccd/pxelinux.cfg/default
+
+LABEL Clonezilla
+        MENU LABEL Clonezilla
+        KERNEL menu.c32
+        APPEND pxelinux.cfg/clonezilla
+
+LABEL Pmajic
+        MENU LABEL Pmajic
+        KERNEL images/pmagic/bzImage
+        APPEND noapic initrd=images/pmagic/initrd.gz root=/dev/ram0 init=/linuxrc ramdisk_size=100000
+
+label Dos Bootdisk
+        MENU LABEL ^Dos bootdisk
+        KERNEL memdisk
+        APPEND initrd=images/622c.img
+
+LABEL memtest86
+	MENU LABEL memtest86
+	KERNEL images/memtest86
+	APPEND
+
+LABEL bootnnuke
+        MENU LABEL DBAN Boot and Nuke
+        KERNEL images/tools/dban.bzi
+        APPEND initrd images/tools/dban.bzi root=/dev/ram0 init=rc nuke=dwipe
+        TEXT HELP
+        Warning - This will erase your hard drive
+        ENDTEXT

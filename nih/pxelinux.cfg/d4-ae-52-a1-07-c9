@@ -1,0 +1,4 @@
+LABEL CentOS6-x86_64 Server Install-HPN
+        MENU LABEL CentOS6-x86_64 Server Install-HPN
+        KERNEL images/centos/x86_64/6.3/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=x86_64&dist=CentOS&ver=6&type=server&net=cbel&ksdevice=em1&raid=1 initrd=images/centos/x86_64/6.3/initrd.img ramdisk_size=100000 ksdevice=em1 ip=dhcp

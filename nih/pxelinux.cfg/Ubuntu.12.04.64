@@ -1,0 +1,10 @@
+default install
+label install
+	menu label ^Install
+	menu default
+	kernel images/ubuntu/x86_64/12.04/linux
+	append vga=788 initrd=images/ubuntu/x86_64/12.04/initrd.gz -- quiet 
+label cli
+	menu label ^Command-line install
+	kernel images/ubuntu/x86_64/12.04/linux
+	append tasks=standard pkgsel/language-pack-patterns= pkgsel/install-language-support=false vga=788 initrd=images/ubuntu/x86_64/12.04/initrd.gz -- quiet 

@@ -1,0 +1,26 @@
+MENU TITLE i386 Menu
+
+LABEL Main Menu 
+	MENU LABEL Main Menu
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/default
+
+LABEL CentOS 5
+	MENU LABEL CentOS 5
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/CentOS5.32
+
+LABEL Redhat 6
+	MENU LABEL Redhat 6 (Install)
+	KERNEL images/rhel/i386/6beta/vmlinux
+	APPEND ks=http://165.112.92.48/rhel-i386-server-hpn.cfg ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL Ubuntu 10.10
+	MENU LABEL Ubuntu 10.10
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/Ubuntu10.10.32
+
+LABEL Fedora 13
+	MENU LABEL Fedora 13
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/Fedora13.32

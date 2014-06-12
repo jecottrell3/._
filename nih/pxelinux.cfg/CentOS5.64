@@ -1,0 +1,31 @@
+MENU TITLE CentOS5-x86_64 Menu
+
+LABEL Up to x86_64
+        MENU LABEL Up to x86_64
+        KERNEL menu.c32
+        APPEND pxelinux.cfg/default
+
+LABEL CentOS5-x86_64 MINIMAL
+        MENU LABEL CentOS5-x86_64 MINIMAL 
+        KERNEL images/centos/x86_64/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=x86_64&dist=CentOS&ver=5&type=minimal initrd=images/centos/x86_64/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-x86_64 Server Install-HPN
+        MENU LABEL CentOS5-x86_64 Server Install-HPN
+        KERNEL images/centos/x86_64/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=x86_64&dist=CentOS&ver=5&type=server&net=cbel initrd=images/centos/x86_64/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-x86_64 Desktop Install-HPN
+        MENU LABEL CentOS5-x86_64 Desktop Install-HPN
+        KERNEL images/centos/x86_64/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=x86_64&dist=CentOS&ver=5&type=desktop initrd=images/centos/x86_64/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-x86_64 Rescue Image
+        MENU LABEL CentOS5-x86_64 Rescue Image
+        KERNEL images/centos/x86_64/5.5/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/centos-x86_64-rescue.cfg initrd=images/centos/x86_64/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS5-x86_64 Installer 
+        MENU LABEL CentOS5-x86_64 Rescue Image
+        KERNEL images/centos/x86_64/5.5/vmlinuz
+        APPEND initrd=images/centos/x86_64/5.5/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp

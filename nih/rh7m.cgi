@@ -1,0 +1,576 @@
+#!/usr/bin/perl -T
+
+# $Id: ks.cgi 15 2014-05-14 23:16:05Z root $
+################################################################
+#	Generate DCB Kickstart File.
+################################################################
+
+use 5;
+use strict;
+use warnings;
+
+use CGI;
+
+$ENV{'PATH'} = '/sbin:/usr/sbin:/bin:/usr/bin';
+
+my ($REPO, %OPTIONS);
+my $buffer = $ENV{'QUERY_STRING'} || '';
+my @pairs = split(/&/, $buffer);
+
+foreach my $pair (@pairs, @ARGV) 
+{
+	my ($name, $value) = split(/=/, $pair);
+	$value =~ tr/+/ /;
+	$value =~ s/%(..)/pack("C", hex($1))/eg;
+	$OPTIONS{$name} = $value;
+}
+
+################################################################
+#	Model Variables
+################################################################
+
+# DIST	Distribution	CentOS/Fedora/RedHat/Ubuntu/Debian
+# VERS	Version		5/6/7/19/20/etc
+# ARCH	Arch		i386/x86_64	*OBSOLETE* always x86_64
+# TYPE	Machine Role	Minimal/Server/Desktop
+# HOME	Automap		Home Directory Automap name
+# PART	Partitioning	sata/raid/custom/gpt
+# KSDV	Net Interface	eth0/em1/other
+# INFO	User/Group Info	file/ldap
+# SSSD	Info/Auth	none/only/both
+# SSSD	Info/Auth	none/ldap/krb5
+
+my $ROME   = 'rome.cit.nih.gov';
+my $DIST   = $OPTIONS{dist}	|| "CentOS";
+my $VERS   = $OPTIONS{ver} 	|| $OPTIONS{vers}	|| "6";
+my $ARCH   = "x86_64";		## $OPTIONS{arch}	|| "x86_64";
+my $TYPE   = $OPTIONS{type}	|| "server";
+my $HOME   = $OPTIONS{home}	|| 'cbel';
+my $INFO   = $OPTIONS{info}	|| 'file';
+## $SSSD   = $OPTIONS{sssd}	|| $OPTIONS{info}	|| 'ldap';
+my $END    = $VERS == 5 ? '#END' : '%end';
+
+## $KSDV = $OPTIONS{ksdevice}	|| $OPTIONS{ksdv}	|| "eth0";
+my $KSDV = $OPTIONS{ksdv}  ?
+ "--device=$OPTIONS{ksdv}" : "";
+my $DISK = $OPTIONS{disk}	|| "sda";
+my $PART = $OPTIONS{part}	|| "sata";
+
+## $PART = 'gpt' if $PART eq 'fourpart';
+
+my $isdesk = $TYPE eq 'desktop';
+my $PAMA   = $isdesk ? 'pkc' : 'dcb';
+   $PAMA   = 'dcb';	# pkc not ready yet
+
+my $EPEL = "epel-release\ndcb-epel-mirror";
+my $XCONFIG  = $isdesk ? 'xconfig --startxonboot' : 'skipx';
+my $PASSWORD = '$1$L9DnVycB$Rzpux93iob7RDClHxkQst1'; # Mascot
+
+my $BOOT  = "bootloader --location=mbr --driveorder=$DISK";
+   $BOOT .= '--append="rhgb quiet"' if $isdesk;
+
+################################################################
+#	AUTHCONFIG
+################################################################
+
+my $SMART	= '--enablesmartcard --smartcardmodule=coolkey ' .
+		  '--disablerequiresmartcard --smartcardaction=1';
+my $MISC	= '--enablepamaccess --enableshadow --passalgo=sha512';
+my $LOCAL	= '--enablelocauthorize --disablesysnetauth';
+my $KDC      = '--krb5kdc=nihdcadhub.nih.gov,' .
+		'nihdcadhub2.nih.gov,nihdcadhub3.nih.gov';
+my $KADMIN   = '--krb5adminserver=ldapad.nih.gov';
+my $REALM    = '--krb5realm=NIH.GOV';
+my $KERBEROS = "--enablekrb5 $REALM $KDC $KADMIN";
+
+## $SSSD     = '--enablesssd --disablesssdauth';
+my $SSSD     = '--enablesssd  --enablesssdauth --enablecachecreds';
+my $LDAP	= '--disableldap --enablerfc2307bis ' .
+		  '--ldapserver=ldap://nihldap.nih.gov:4389';
+
+my $AUTH  = "$MISC $LOCAL $KERBEROS ";
+   $AUTH .= $INFO eq 'ldap' ?
+   		"$SSSD $LDAP --enablemkhomedir" : "--enablecache";
+   $AUTH .= " $SMART" if ("$DIST$VERS" eq 'RedHat7');
+
+################################################################
+#	URL and REPOs
+################################################################
+
+# NOTE: All repos use $DVA of Symlinks
+
+my $DV  = "$DIST/$VERS";
+my $DVA = "$DIST/$VERS/$ARCH";
+my $DVN = "$DIST-$VERS-$ARCH";
+my  $VA =       "$VERS/$ARCH";
+
+if ($DIST eq 'Fedora')
+{
+	$EPEL = '# no EPEL for Fedora';
+	$REPO = <<"EOF";
+url                                  --url http://$ROME/yum/$DVA/os
+repo --name=$DVN-os  --baseurl=http://$ROME/yum/$DVA/os
+repo --name=$DVN-up  --baseurl=http://$ROME/yum/$DVA/updates
+repo --name=$DVN-dcb --baseurl=http://$ROME/yum/DCB/$VA
+EOF
+
+} elsif ($DIST eq 'RedHat') {
+	$EPEL = '# no EPEL for RedHat *yet*';
+	$REPO = <<"EOF";
+url                                  --url http://$ROME/yum/$DVA/os
+repo --name=$DVN-os   --baseurl=http://$ROME/yum/$DVA/os
+#repo --name=$DVN-up   --baseurl=http://$ROME/yum/$DVA/updates
+#repo --name=$DVN-epel --baseurl=http://$ROME/yum/epel/$VA
+repo --name=$DVN-DCB  --baseurl=http://$ROME/yum/DCB/$DVA
+EOF
+
+} else { # must be CentOS
+	$REPO = <<"EOF";
+url                                  --url http://$ROME/yum/$DVA/os
+repo --name=$DVN-os   --baseurl=http://$ROME/yum/$DVA/os
+repo --name=$DVN-up   --baseurl=http://$ROME/yum/$DVA/updates
+repo --name=$DVN-epel --baseurl=http://$ROME/yum/epel/$VA
+repo --name=$DVN-DCB  --baseurl=http://$ROME/yum/DCB/$DVA
+EOF
+
+}
+
+################################################################
+#	DISK LAYOUT
+################################################################
+
+my %LAYOUT;
+
+$LAYOUT{raid} = <<"EOF";
+clearpart    --initlabel --all       --drives=sda,sdb
+part raid.11 --asprimary --size=1024 --ondisk=sda
+part raid.21 --asprimary --size=1024 --ondisk=sdb
+part raid.12 --asprimary --size=2048 --ondisk=sda
+part raid.22 --asprimary --size=2048 --ondisk=sdb
+part raid.13 --asprimary --size=1024 --ondisk=sda --grow
+part raid.23 --asprimary --size=1024 --ondisk=sdb --grow
+raid /boot   --fstype=ext4 --level=1 --device=md1 raid.11 raid.21
+raid swap    --fstype=swap --level=1 --device=md2 raid.12 raid.22
+raid /       --fstype=ext4 --level=1 --device=md3 raid.13 raid.23
+EOF
+
+$LAYOUT{sata} = <<"EOF";
+clearpart  --initlabel --all --drives=$DISK
+part /boot --fstype ext4 --size=1024 --asprimary --ondisk $DISK
+part swap  --fstype swap --size=2048 --asprimary --ondisk $DISK
+part /     --fstype ext4 --size=9999 --asprimary --ondisk $DISK --grow
+EOF
+
+## $LAYOUT{fourpart} = 
+$LAYOUT{gpt} = <<"EOF"; 
+clearpart --initlabel --none --drives=$DISK
+#learpart --none --drives=$DISK
+part /boot     --fstype ext4 --onpart=${DISK}1
+part swap      --fstype swap --onpart=${DISK}2
+part /         --fstype ext4 --onpart=${DISK}3
+part /export/1 --fstype ext4 --onpart=${DISK}4 --grow
+EOF
+
+$LAYOUT{custom} = "# User Selected Custom Partitioning"; 
+$LAYOUT{auto}   = <<EOF;
+clearpart  --initlabel --all --drives=sda
+autopart
+EOF
+
+my $LAYOUT = $LAYOUT{$PART};
+
+
+################################################################
+#	PRE-INSTALL for GPT Disk Labels
+################################################################
+
+my $HDPARM = '/usr/sbin/hdparm -z';
+my $PARTED = '/usr/sbin/parted -s -a optimal';
+my $PRE = ": No %pre script";
+
+if ( $PART eq 'gpt' ) {
+	$PRE = <<"EOF";
+# Make GPT for Four Part install
+$PARTED /dev/$DISK mklabel gpt 
+$PARTED /dev/$DISK mkpart P1 ext4       0.0GB   1.0GB 
+$PARTED /dev/$DISK mkpart P2 linux-swap 1.0GB   3.0GB 
+#TESTING# $PARTED /dev/$DISK mkpart P3 ext4       3.0GB   50.0GB 
+#TESTING# $PARTED /dev/$DISK mkpart P4 ext4       50.0GB 100.0GB
+$PARTED /dev/$DISK mkpart P3 ext4       3.0GB   500.0GB 
+$PARTED /dev/$DISK mkpart P4 ext4       500.0GB 100% 
+$PARTED /dev/$DISK print
+$HDPARM /dev/$DISK
+EOF
+}
+
+################################################################
+#	VIEW GENERATION
+################################################################
+
+#$DIST = 'RHEL' if $DIST eq 'RedHat';	# TEMP HACK
+
+print <<"EOF";
+Content-type: text/plain
+
+install
+graphical
+$REPO
+lang en_US.UTF-8
+keyboard us
+$XCONFIG
+network $KSDV --bootproto=dhcp --onboot=yes
+rootpw --iscrypted $PASSWORD
+firewall --enabled --port=22:tcp,631:udp
+authconfig $AUTH
+selinux --permissive
+timezone --utc America/New_York
+$BOOT
+$LAYOUT
+reboot
+
+################################################################
+#			PACKAGES
+################################################################
+
+#packages --ignoremissing
+%packages
+
+#notRH7# dcb-$DIST-release
+#notRH7# dcb-$DIST-mirror
+#notRH7# $EPEL
+
+###########
+# Minimal #
+###########
+
+autofs
+clamav
+coolkey
+dbus-x11
+emacs
+fail2ban
+gpm
+krb5-pkinit-openssl
+krb5-workstation
+libXp
+logwatch
+lsof
+m4
+mailx
+make
+nc
+nfs-utils
+nscd
+ntpdate
+pam_krb5
+pam_pkcs11
+pcsc-lite
+pcsc-lite-doc
+pcsc-lite-openct
+pcsc-tools
+perl-Term-ReadLine-Gnu
+rdesktop
+rkhunter
+rsync
+rxvt
+sendmail
+sendmail-cf
+sssd
+sssd-krb5
+sssd-ldap
+strace
+sudo
+telnet
+usbutils
+vim-X11
+vim-enhanced
+vixie-cron
+wget
+xauth
+xemacs
+xorg-x11-apps
+xorg-x11-fonts
+xorg-x11-utils
+xterm
+zsh
+
+####	##########
+####	# Server #
+####	##########
+####	
+####	\@development
+####	
+####	Perl-IO-Tee
+####	String::ShellQuote
+####	evince
+####	gcc
+####	ocsinventory-agent
+####	perl-CPAN
+####	perl-Config-Nested
+####	perl-Digest\*
+####	perl-Filesys-Df
+####	perl-IO-stringy
+####	perl-MailTools
+####	perl-Module-Build
+####	perl-Parse-RecDescent
+####	perl-Proc-ProcessTable
+####	perl-Test-Pod
+####	perl-Test-Pod-Coverage
+####	perl-Text-Aligner
+####	perl-Text-Table
+####	perl-Time-HiRes
+####	perl-YAML
+####	redhat-lsb
+####	
+####	###########
+####	# Desktop #
+####	###########
+####	
+####	\@desktop-debugging
+####	\@directory-client
+####	\@fonts
+####	\@gnome-desktop
+####	#NOTYET# \@guest-agents
+####	#NOTYET# \@guest-desktop-agents
+####	#NOTYET# \@input-methods
+####	\@internet-browser
+####	#NOTYET# \@java-platform
+####	\@multimedia
+####	\@network-file-system-client
+####	#NOTYET# \@print-client
+####	\@smart-card
+####	\@x11
+####	
+####	firefox
+####	flash-plugin
+####	gdm-plugin-smartcard
+####	gimp
+####	pidgin
+####	thunderbird
+####	xorg-x11-fonts
+####	
+####	\@libreoffice
+####	evince
+
+############
+# RHEL 7rc #
+############
+
+krb5-pkinit
+openldap-clients
+
+$END
+
+################################################################
+#		PRE and POST INSTALL SCRIPT
+################################################################
+
+%pre --log=/tmp/pre.log
+set -x
+set -x
+exec 2>&1
+$PRE
+$END
+
+%post --nochroot
+test -f /tmp/ks.cfg  &&
+cp      /tmp/ks.cfg  /mnt/sysimage/root/ks.real
+test -f /tmp/pre.log &&
+cp      /tmp/pre.log /mnt/sysimage/root
+
+df	>	/mnt/sysimage/df
+mkdir -p        /mnt/sysimage/anaconda
+rsync -ax /     /mnt/sysimage/anaconda
+rsync -ax /dev  /mnt/sysimage/anaconda
+$END
+
+%post --log=/root/post.log
+
+EOF
+
+chomp (my $PWD		= `/bin/pwd`);
+chomp (my $ID		= `/usr/bin/id`);
+
+###########################
+# Create Distribution TAR #
+###########################
+
+`tar chvf rh7.tar -C rh7.dist .`;
+
+#########################
+# Create Kickstart File #
+#########################
+
+print	<<"EOF";
+
+set -x
+set -x
+
+: :::::::
+: BEGIN :
+: :::::::
+
+: "CGI PWD: $PWD"
+: "CGI ID : $ID"
+: SYS CMD:
+cat /proc/cmdline
+
+date; /usr/sbin/ntpdate cake.cit.nih.gov
+date; hwclock -u -w
+
+: :::::::::::::::::::::::::
+: Unpack Distribution TAR :
+: Once Only or First Time :
+: :::::::::::::::::::::::::
+
+cd /
+wget http://rome.cit.nih.gov/ks/rh7.tar
+tar xvf rh7.tar --suffix=.INSTALL --backup=simple
+
+: ::::::::::::::::::
+: Fix HOME Automap :
+: ::::::::::::::::::
+
+cd /etc
+ln -sf auto_$HOME /etc/auto.home
+
+: :::::::::::::::::::::::::: :
+: Fix PAM Auth Configuration :
+: :::::::::::::::::::::::::: :
+
+cd /etc/pam.d
+#notRH7# ln -sf system-auth-$PAMA system-auth
+#notRH7# ln -sf system-auth       password-auth
+ls -l *-auth*
+
+: :::::::::::::::::::::: :
+: Fix SSSD Configuration :
+: :::::::::::::::::::::: :
+
+mkdir -p  /etc/sssd
+cd        /etc/sssd
+
+touch     sssd.conf
+chmod 600 sssd.conf
+
+: :::::::::::::::::
+: Update Packages :
+: :::::::::::::::::
+
+date
+#notRH7# yum -y update
+date
+
+EOF
+
+if ($TYPE ne 'minimal')
+{
+	print <<"EOF";
+
+: :::::::::::::::::
+: Server Packages :
+: :::::::::::::::::
+
+#notRH7# rpm -ivh http://download1.rpmfusion.org/free/el/updates/$VERS/$ARCH/rpmfusion-free-release-$VERS-1.noarch.rpm
+#notRH7# rpm -ivh http://download1.rpmfusion.org/nonfree/el/updates/$VERS/$ARCH/rpmfusion-nonfree-release-$VERS-1.noarch.rpm
+
+#notRH7# yum -y groupinstall development
+
+#notRH7# yum -y install perl-Module-Build perl-CPAN perl-Parse-RecDescent perl-YAML perl-Test-Pod  perl-MailTools perl-Digest\* perl-Text-Aligner perl-Test-Pod-Coverage gcc ocsinventory-agent evince perl-IO-stringy perl-Config-Nested Perl-IO-Tee perl-Filesys-Df perl-Text-Table redhat-lsb perl-Proc-ProcessTable perl-Time-HiRes String::ShellQuote
+
+EOF
+}
+
+if ($TYPE eq 'desktop')
+{
+	print <<"EOF";
+
+: ::::::::::::::::::
+: Desktop Packages :
+: ::::::::::::::::::
+
+#notRH7# yum -y groupinstall x11 basic-desktop kde-desktop
+#notRH7# rpm -ivh http://linuxdownload.adobe.com/linux/i386/adobe-release-i386-1.0-1.noarch.rpm
+#notRH7# yum -y install firefox thunderbird pidgin flash-plugin gimp gdm-plugin-smartcard
+EOF
+#notRH7# 	print "yum -y install xorg-x11-fonts\*\n" if ($VERS != 5);
+#notRH7#         print $VERS == 5 ?
+#notRH7#   	   "yum -y groupinstall office\n" :
+#notRH7#            "yum -y groupinstall office-suite evince A\*.enu\n";
+}
+
+print <<"EOC";
+
+: ::::::::::::::::
+: Various Tweaks :
+: ::::::::::::::::
+
+cd /etc/mail
+perl -p -i.bak -e 's/^(FEATURE.*)127.0.0.1/\$1cake.cit.nih.gov/' /etc/mail/submit.mc
+make
+
+perl -p -i.bak -e 's/^#(.*PORT=)/\$1/' /etc/sysconfig/nfs
+echo '*.info \@syslog.dcb.cit.nih.gov' >> /etc/rsyslog.conf
+echo 'PCSCD_OPTIONS=--critical' > /etc/sysconfig/pcscd
+mkdir -m 1777 /scratch
+
+cat <<EOF >> /etc/ssh/sshd_config
+LogLevel verbose
+PermitRootLogin without-password
+Banner /etc/issue
+EOF
+
+: ::::::::::::::::::::::
+: Certificate Database :
+: ::::::::::::::::::::::
+
+cd /etc/pki/PIV
+: MAYBE? sh .addcerts
+
+: :::::::::::::::::::::::
+: Service Configuration :
+: :::::::::::::::::::::::
+
+if test -x /usr/bin/systemctl
+then
+	systemctl enable autofs
+	systemctl enable gpm
+	systemctl enable pcscd
+	systemctl enable sssd
+else
+	#chkconfig bluetooth off
+	#chkconfig NetworkManager off
+	#chkconfig avahi-daemon off
+	#chkconfig firstboot off
+	chkconfig autofs on
+	chkconfig gpm on
+	chkconfig kdump off
+	chkconfig network on
+	chkconfig nscd off
+	chkconfig ntpd on
+	chkconfig openct on
+	chkconfig pcscd on
+	chkconfig pppoe-server off
+	chkconfig sendmail off
+	chkconfig sssd on
+	chkconfig yum-updatesd off
+fi
+
+: ::::::::::::::::
+: Service Detail :
+: ::::::::::::::::
+
+test -x /usr/bin/systemctl &&
+systemctl list-units ||
+chkconfig --list
+
+: ::::::::
+: FINISH :
+: ::::::::
+
+authconfig --savebackup INSTALL
+date
+
+$END
+EOC
+

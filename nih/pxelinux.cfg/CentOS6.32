@@ -1,0 +1,36 @@
+MENU TITLE CentOS6-i386 Menu
+
+LABEL Up to i386
+        MENU LABEL Up to i386
+        KERNEL menu.c32
+        APPEND pxelinux.cfg/default
+
+LABEL CentOS6-i386 Server Install-HPN
+        MENU LABEL CentOS6-i386 Server Install-HPN
+        KERNEL images/centos/i386/6.0/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=i386&dist=CentOS&ver=6&type=server&net=cbel initrd=images/centos/i386/6.0/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS6-i386 Server Install-RAID
+        MENU LABEL CentOS6-i386 Server Install-RAID SDA-SDB
+        KERNEL images/centos/i386/6.0/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=i386&dist=CentOS&ver=6&type=server&net=cbel&raid=1 initrd=images/centos/i386/6.0/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS6-i386 Desktop Install-HPN
+        MENU LABEL CentOS6-i386 Desktop Install-HPN
+        KERNEL images/centos/i386/6.0/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=i386&dist=CentOS&ver=6&type=desktop&net=cbel initrd=images/centos/i386/6.0/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS6-i386 MINIMAL
+        MENU LABEL CentOS6-i386 MINIMAL 
+        KERNEL images/centos/i386/6.0/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/ks.cgi?arch=i386&dist=CentOS&ver=6&type=minimal initrd=images/centos/i386/6.0/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS6-i386 Rescue Image
+        MENU LABEL CentOS6-i386 Rescue Image
+        KERNEL images/centos/i386/6.0/vmlinuz
+        APPEND ks=http://165.112.92.48/ks/centos-i386-rescue.cfg initrd=images/centos/i386/6.0/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp
+
+LABEL CentOS6-i386 Installer 
+        MENU LABEL CentOS6-i386 Raw Installer
+        KERNEL images/centos/i386/6.0/vmlinuz
+        APPEND initrd=images/centos/i386/6.0/initrd.img ramdisk_size=100000 ksdevice=eth0 ip=dhcp

@@ -1,0 +1,35 @@
+MENU TITLE x86_64 Menu
+
+LABEL Main Menu 
+	MENU LABEL Main Menu
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/default
+
+LABEL CentOS 5
+	MENU LABEL CentOS 5
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/CentOS5.64
+
+LABEL CentOS 6
+	MENU LABEL CentOS 6
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/CentOS6.64
+
+LABEL Redhat 6
+	MENU LABEL Redhat 6 (Install)
+	KERNEL images/rhel/x86_64/6/vmlinux
+	APPEND ks=http://165.112.92.48/ks.cgi?arch=x86_64&dist=RHEL&ver=6&type=server ramdisk_size=100000 ksdevice=eth0 ip=dhcp initrd=images/rhel/x86_64/6/initrd.img
+
+
+LABEL Ubuntu 10.10
+	MENU LABEL Ubuntu 10.10
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/Ubuntu10.10.64
+LABEL Ubuntu 10.04
+	MENU LABEL Ubuntu 10.04 (LTS)
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/Ubuntu10.04.64
+LABEL Fedora 13
+	MENU LABEL Fedora 13
+	KERNEL menu.c32
+	APPEND pxelinux.cfg/Fedora13.64
