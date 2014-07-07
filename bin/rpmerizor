@@ -182,6 +182,7 @@ sub parse_otions() {
 		!GetOptions(
 			\%opt,
 			'help|h',
+			'nodirs',
 			'man',
 			'Version|V',
 			'verbose',
@@ -474,6 +475,7 @@ sub insert_files($$$$) {
 	my $r_others = shift @_;
 
 	my $in = q{};
+	$opt{nodirs} or
 	$in .= "\%dir $_\n" for keys %{$r_dirs};
 	$in .= "$_\n"       for keys %{$r_others};
 	foreach ( keys %{$r_files} ) {
@@ -795,6 +797,7 @@ rpmerizor --rootdir directory
    --Version : display rpmerizor version and exit
    --debug : for rpmerizor debugging
    --verbose : better rpm build diagnostics
+   --nodirs : do not package directories
    --buildall : build also src.rpm package
    --edit_spec : build spec file and edit it using EDITOR variable
    --spec_only : build spec file and exit

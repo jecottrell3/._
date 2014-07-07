@@ -151,7 +151,7 @@ sub action	#	TALK TO THE USER
 
 {
     $_[0] eq 'NEXT' && !$c && next file;
-    $q || print("$lvl@_[1] $src_file\n");
+    $q || printf("%-15s %s\n", "$lvl@_[1]", $src_file);
     $_[0] eq 'NEXT' && next file;
     $_[0] eq 'KEEP' && ($empty = 0);
     $_[0] eq 'KILL' && &rm($src_file);

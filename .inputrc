@@ -7,7 +7,7 @@ set output-meta On
 "\M-k": "\C-e | less +/"
 "\M-m": "\C-e | less\n"
 "\M-o": overwrite-mode
-"\M-q": "ssh -tAX root@cake    SUDO_USER=$USER           bash --rcfile $RCFILE"
+"\M-q": "ssh -tAX root@rome    SUDO_USER=$USER           bash --rcfile $RCFILE"
 "\M-s": "ssh -tAX root@strudel SUDO_USER=$USER ssh-agent bash --rcfile $RCFILE"
 "\M-v": "ssh -tAX root@vessel  SUDO_USER=$USER           bash --rcfile $RCFILE"
 "\M-w": "\C-w\C-y=$\C-y\e\C-e"
