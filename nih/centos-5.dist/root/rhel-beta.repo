@@ -1,0 +1,23 @@
+[rhel-beta]
+name=Red Hat Enterprise Linux 7 Beta - $basearch
+baseurl=http://rome.cit.nih.gov/yum/RedHat/7/$basearch/os/
+#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=rhel-7-beta&arch=$basearch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-beta
+
+[rhel-beta-source]
+name=Red Hat Enterprise Linux 7 Beta - $basearch - Source
+baseurl=http://rome.cit.nih.gov/yum/RedHat/7/source/
+#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=rhel-source-7-beta&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-beta
+
+[rhel-beta-debuginfo]
+name=Red Hat Enterprise Linux 7 Beta - $basearch - Debuginfo
+baseurl=http://rome.cit.nih.gov/yum/RedHat/7/$basearch/debug/
+#mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=rhel-debug-7-beta&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-beta

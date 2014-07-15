@@ -1,0 +1,31 @@
+[DEFAULT]
+
+ignoreip = 127.0.0.1/8 165.112.92.0/23 165.112.158.192/26 156.40.59.207/24 192.168.0.0/16 128.231.76.202 128.231.76.206 128.231.76.207 128.231.76.109 128.231.76.105 128.231.76.26 156.40.59.219 156.40.59.210
+
+[ssh-iptables]
+
+enabled  = true
+filter   = sshd
+action   = iptables[name=SSH, port=ssh, protocol=tcp]
+#           sendmail-whois[name=SSH, dest=root, sender=root@dcb.cit.nih.gov]
+logpath  = /var/log/secure
+maxretry = 5
+
+####	[apache-pma]
+####	
+####	enabled = true
+####	filter = apache-pma
+####	action = iptables-allports[name=PMA]
+####	#        sendmail-whois[name=PMA, dest=root, sender=root@dcb.cit.nih.gov]
+####	logpath = /var/log/httpd/*_log
+####	bantime = 3600
+####	maxretry = 1
+####	
+####	[proftpd-iptables]
+####	
+####	enabled  = true
+####	filter   = proftpd
+####	action   = iptables[name=ProFTPD, port=ftp, protocol=tcp]
+####	#           sendmail-whois[name=ProFTPD, dest=you@example.com]
+####	logpath  = /var/log/secure
+####	maxretry = 6

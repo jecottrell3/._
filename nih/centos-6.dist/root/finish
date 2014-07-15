@@ -1,0 +1,25 @@
+#! /bin/sh
+
+echo Please wait...
+
+setsebool -P allow_polyinstantiation 1
+setsebool -P allow_ypbind 1
+semodule -i /lablinux.pp
+
+echo ''
+echo Please change the root password now
+
+echo ''
+passwd
+
+echo ''
+ok=n
+while [[ $ok != y ]]
+do
+	read -p "Admin user? " user
+	read -p "'$user' OK [y/n]? " ok
+done
+
+echo "$user	ALL=(ALL)	ALL" >> /etc/sudoers
+
+echo FINISHED

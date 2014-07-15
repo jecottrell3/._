@@ -1,6 +1,6 @@
 #!/usr/bin/perl -T
 
-# $Id: ks.cgi 16 2014-05-29 23:22:32Z root $
+# $Id: ks.cgi 15 2014-05-14 23:16:05Z root $
 ################################################################
 #	Generate DCB Kickstart File.
 ################################################################
@@ -25,6 +25,15 @@ foreach my $pair (@pairs, @ARGV)
 	$OPTIONS{$name} = $value;
 }
 
+# TEMP for rh7d
+
+$OPTIONS{dist} = 'RedHat';
+$OPTIONS{vers} = '7';
+$OPTIONS{type} = 'desktop';
+$OPTIONS{info} = 'ldap';
+$OPTIONS{part} = 'auto';
+$OPTIONS{part} = 'prague';
+
 ################################################################
 #	Model Variables
 ################################################################
@@ -36,7 +45,7 @@ foreach my $pair (@pairs, @ARGV)
 # HOME	Automap		Home Directory Automap name
 # PART	Partitioning	sata/raid/custom/gpt
 # KSDV	Net Interface	eth0/em1/other
-# AUTH  Authconfig	old/new/lab
+# AUTH  Authconfig      old/new/lab
 # ****  Items Below are Obsolete
 # INFO	User/Group Info	file/ldap
 # SSSD	Info/Auth	none/only/both
@@ -67,8 +76,7 @@ my $isdesk	= $TYPE eq 'desktop';
 my $PAMA	= $isdesk ? 'pkc' : 'dcb';
    $PAMA	= 'dcb';	# pkc not ready yet
 
-# my $EPEL	= "epel-release\ndcb-epel-mirror";
-my $EPEL	= "epel-release";
+my $EPEL	= "epel-release\ndcb-epel-mirror";
 my $XCONFIG	= $isdesk ? 'xconfig --startxonboot' : 'skipx';
 my $PASSWORD	= '$1$L9DnVycB$Rzpux93iob7RDClHxkQst1'; # Mascot
 
@@ -96,8 +104,8 @@ my $ALWAYS = join(' ',
 	'--disableldapauth',
 	'--disableldaptls',
 	'--disablesysnetauth',
-	'--disablerequiresmartcard',	# someday maybe enable
-	'--disablesssdauth',		# someday maybe enable
+	'--disablerequiresmartcard',
+	'--disablesssdauth',
 );
 
 my $NEVER = join(' ',
@@ -153,6 +161,20 @@ $AUTH{new} = join(' ',
 
 my $AUTHCONFIG  = "authconfig $AUTH{$AUTH} $AUTHDATA $ALWAYS $NEVER";
 
+####my $KDC	= '--krb5kdc=nihdcadhub.nih.gov,' .
+		'nihdcadhub2.nih.gov,nihdcadhub3.nih.gov';
+####my $KADMIN	= '--krb5adminserver=ldapad.nih.gov';
+####my $REALM	= '--krb5realm=NIH.GOV';
+####my $KERBEROS	= "--enablekrb5 $REALM $KDC $KADMIN";
+
+####my $SSSD	= '--enablesssd --disablesssdauth';
+## $SSSD	= '--enablesssd  --enablesssdauth';
+####my $LDAP	= '--enableldap --ldapserver=ldap://nihldap.nih.gov:4389';
+
+####my $AUTH = "$KERBEROS --enablepamaccess --enableshadow --passalgo=sha512 ";
+####   $AUTH	.= $INFO eq 'ldap' ?
+####   		"$SSSD $LDAP --enablemkhomedir" : "--enablecache";
+
 ################################################################
 #	URL and REPOs
 ################################################################
@@ -171,29 +193,29 @@ if ($DIST eq 'Fedora')
 {
 	$EPEL = '# no EPEL for Fedora';
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-os  --baseurl=http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-up  --baseurl=http://$ROME/ks/$DVAP/updates
-repo --name=$DVAN-dcb --baseurl=http://$ROME/ks/DCB/$VAP
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os  --baseurl=http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-up  --baseurl=http://$ROME/yum/$DVAP/updates
+repo --name=$DVAN-dcb --baseurl=http://$ROME/yum/DCB/$VAP
 EOF
 
 } elsif ($DIST eq 'RedHat') {
 	$EPEL = '# no EPEL for RedHat *yet*';
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-os   --baseurl=http://$ROME/ks/$DVAP/os
-#epo --name=$DVAN-up   --baseurl=http://$ROME/ks/$DVAP/updates
-#epo --name=$DVAN-epel --baseurl=http://$ROME/ks/epel/$VAP
-#epo --name=$DVAN-DCB  --baseurl=http://$ROME/ks/DCB/$DVAP
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os   --baseurl=http://$ROME/yum/$DVAP/os
+#epo --name=$DVAN-up   --baseurl=http://$ROME/yum/$DVAP/updates
+#epo --name=$DVAN-epel --baseurl=http://$ROME/yum/epel/$VAP
+#epo --name=$DVAN-DCB  --baseurl=http://$ROME/yum/DCB/$DVAP
 EOF
 
 } else { # must be CentOS
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-os   --baseurl=http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-up   --baseurl=http://$ROME/ks/$DVAP/updates
-repo --name=$DVAN-epel --baseurl=http://$ROME/ks/epel/$VAP
-repo --name=$DVAN-DCB  --baseurl=http://$ROME/ks/DCB/$DVAP
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os   --baseurl=http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-up   --baseurl=http://$ROME/yum/$DVAP/updates
+repo --name=$DVAN-epel --baseurl=http://$ROME/yum/epel/$VAP
+repo --name=$DVAN-DCB  --baseurl=http://$ROME/yum/DCB/$DVAP
 EOF
 
 }
@@ -206,12 +228,12 @@ my %LAYOUT;
 
 $LAYOUT{raid} = <<"EOF";
 clearpart    --initlabel --all       --drives=sda,sdb
-part raid.11 --asprimary --size=2048 --ondisk=sda
-part raid.21 --asprimary --size=2048 --ondisk=sdb
-part raid.12 --asprimary --size=8192 --ondisk=sda
-part raid.22 --asprimary --size=8192 --ondisk=sdb
-part raid.13 --asprimary --size=9999 --ondisk=sda --grow
-part raid.23 --asprimary --size=9999 --ondisk=sdb --grow
+part raid.11 --asprimary --size=1024 --ondisk=sda
+part raid.21 --asprimary --size=1024 --ondisk=sdb
+part raid.12 --asprimary --size=2048 --ondisk=sda
+part raid.22 --asprimary --size=2048 --ondisk=sdb
+part raid.13 --asprimary --size=1024 --ondisk=sda --grow
+part raid.23 --asprimary --size=1024 --ondisk=sdb --grow
 raid /boot   --fstype=ext4 --level=1 --device=md1 raid.11 raid.21
 raid swap    --fstype=swap --level=1 --device=md2 raid.12 raid.22
 raid /       --fstype=ext4 --level=1 --device=md3 raid.13 raid.23
@@ -219,35 +241,17 @@ EOF
 
 $LAYOUT{sata} = <<"EOF";
 clearpart  --initlabel --all --drives=$DISK
-part /boot --fstype ext4 --size=2048 --asprimary --ondisk $DISK
-part swap  --fstype swap --size=8192 --asprimary --ondisk $DISK
+part /boot --fstype ext4 --size=1024 --asprimary --ondisk $DISK
+part swap  --fstype swap --size=2048 --asprimary --ondisk $DISK
 part /     --fstype ext4 --size=9999 --asprimary --ondisk $DISK --grow
 EOF
 
-# DEBUG Layouts
-
-$LAYOUT{sda2} = <<"EOF";
+$LAYOUT{prague} = <<"EOF";
 clearpart  --initlabel --none --drives=$DISK
 part swap  --fstype swap --onpart ${DISK}1
-part /     --fstype ext4 --onpart ${DISK}2            --label=sda2
-part /sda3 --fstype ext4 --onpart ${DISK}3 --noformat --label=sda3
-part /sda4 --fstype ext4 --onpart ${DISK}4 --noformat --label=sda4
-EOF
-
-$LAYOUT{sda3} = <<"EOF";
-clearpart  --initlabel --none --drives=$DISK
-part swap  --fstype swap --onpart ${DISK}1
-part /sda2 --fstype ext4 --onpart ${DISK}2 --noformat --label=sda2
-part /     --fstype ext4 --onpart ${DISK}2            --label=sda3
-part /sda4 --fstype ext4 --onpart ${DISK}4 --noformat --label=sda4
-EOF
-
-$LAYOUT{sda4} = <<"EOF";
-clearpart  --initlabel --none --drives=$DISK
-part swap  --fstype swap --onpart ${DISK}1
-part /sda2 --fstype ext4 --onpart ${DISK}2 --noformat --label=sda2
-part /sda3 --fstype ext4 --onpart ${DISK}3 --noformat --label=sda3
-part /     --fstype ext4 --onpart ${DISK}4            --label=sda4
+part /ce5  --fstype ext4 --onpart ${DISK}2 --noformat --label=CentOS-5
+part /ce6  --fstype ext4 --onpart ${DISK}3 --noformat --label=CentOS-6
+part /     --fstype ext4 --onpart ${DISK}4            --label=RedHat-7
 EOF
 
 $LAYOUT{gpt} = <<"EOF"; 			# was 'fourpart'
@@ -276,11 +280,11 @@ if ( $PART eq 'gpt' ) {
 	$PRE = <<"EOF";
 # Make GPT for Four Part install
 $PARTED /dev/$DISK mklabel gpt 
-$PARTED /dev/$DISK mkpart P1 ext4       0.0GB   2.0GB 
-$PARTED /dev/$DISK mkpart P2 linux-swap 2.0GB   10.0GB 
-#TESTING# $PARTED /dev/$DISK mkpart P3 ext4     10.0GB  50.0GB 
-#TESTING# $PARTED /dev/$DISK mkpart P4 ext4     50.0GB 100.0GB
-$PARTED /dev/$DISK mkpart P3 ext4       10.0GB   500.0GB 
+$PARTED /dev/$DISK mkpart P1 ext4       0.0GB   1.0GB 
+$PARTED /dev/$DISK mkpart P2 linux-swap 1.0GB   3.0GB 
+#TESTING# $PARTED /dev/$DISK mkpart P3 ext4       3.0GB   50.0GB 
+#TESTING# $PARTED /dev/$DISK mkpart P4 ext4       50.0GB 100.0GB
+$PARTED /dev/$DISK mkpart P3 ext4       3.0GB   500.0GB 
 $PARTED /dev/$DISK mkpart P4 ext4       500.0GB 100% 
 $PARTED /dev/$DISK print
 $HDPARM /dev/$DISK
@@ -291,7 +295,7 @@ EOF
 #	VIEW GENERATION
 ################################################################
 
-#NoWay#	$DIST = 'RHEL' if $DIST eq 'RedHat';	# TEMP HACK
+#$DIST	= 'RHEL' if $DIST eq 'RedHat';	# TEMP HACK
 
 print <<"EOF";
 Content-type: text/plain
@@ -319,19 +323,23 @@ reboot
 #			PACKAGES
 ################################################################
 
-%packages --ignoremissing
+#packages --ignoremissing
+%packages
 
-dcb-$DIST-release
-# dcb-$DIST-mirror
-yum-plugin-extramirror
-$EPEL
+#notRH7# dcb-$DIST-release
+#notRH7# dcb-$DIST-mirror
+#notRH7# $EPEL
+
+###########
+# Minimal #
+###########
 
 autofs
-clamav
+#notfound#	clamav
 coolkey
 dbus-x11
 emacs
-fail2ban
+#notfound#	fail2ban
 gpm
 krb5-pkinit-openssl
 krb5-workstation
@@ -348,14 +356,14 @@ ntpdate
 pam_krb5
 pam_pkcs11
 pcsc-lite
-pcsc-lite-doc
-pcsc-lite-openct
-pcsc-tools
-perl-Term-ReadLine-Gnu
-rdesktop
-rkhunter
+#notfound#	pcsc-lite-doc
+#notfound#	pcsc-lite-openct
+#notfound#	pcsc-tools
+#notfound#	perl-Term-ReadLine-Gnu
+#notfound#	rdesktop
+#notfound#	rkhunter
 rsync
-rxvt
+#notfound#	rxvt
 sendmail
 sendmail-cf
 sssd
@@ -367,14 +375,89 @@ telnet
 usbutils
 vim-X11
 vim-enhanced
-vixie-cron
+#notfound#	vixie-cron
 wget
 xauth
-xemacs
+#notfound#	xemacs
 xorg-x11-apps
+#notfound#	xorg-x11-fonts
 xorg-x11-utils
 xterm
 zsh
+
+##########
+# Server #
+##########
+
+\@development
+
+#notfound#	Perl-IO-Tee
+#notfound#	String::ShellQuote
+evince
+gcc
+#notfound#	ocsinventory-agent
+perl-CPAN
+#notfound#	perl-Config-Nested
+perl-Digest\*
+#notfound#	perl-Filesys-Df
+perl-IO-stringy
+perl-MailTools
+perl-Module-Build
+#notfound#	perl-Parse-RecDescent
+#notfound#	perl-Proc-ProcessTable
+perl-Test-Pod
+perl-Test-Pod-Coverage
+#notfound#	perl-Text-Aligner
+#notfound#	perl-Text-Table
+perl-Time-HiRes
+perl-YAML
+redhat-lsb
+
+###########
+# Desktop #
+###########
+
+\@core
+\@base
+\@desktop-debugging
+#NOTYET#
+\@dial-up
+\@directory-client
+\@fonts
+\@gnome-desktop
+#NOTYET#
+\@guest-agents
+#NOTYET#
+\@guest-desktop-agents
+#NOTYET#
+\@input-methods
+\@internet-browser
+#NOTYET#
+\@java-platform
+\@multimedia
+\@network-file-system-client
+#NOTYET#
+\@print-client
+\@smart-card
+\@x11
+
+firefox
+#notfound#	flash-plugin
+gdm-plugin-smartcard
+gimp
+#notfound#	pidgin
+#notfound#	thunderbird
+#notfound#	xorg-x11-fonts
+
+#\@libreoffice
+\@libreoffice-base
+
+############
+# RHEL 7rc #
+############
+
+krb5-pkinit
+openldap-clients
 
 $END
 
@@ -412,7 +495,7 @@ chomp (my $ID		= `/usr/bin/id`);
 # Create Distribution TAR #
 ###########################
 
-`tar chvf ks.tar -C ks.dist .`;
+`tar chvf $DVN.tar -C $DVN.dist .`;
 
 #########################
 # Create Kickstart File #
@@ -441,8 +524,8 @@ date; hwclock -u -w
 : :::::::::::::::::::::::::
 
 cd /
-wget http://rome.cit.nih.gov/ks/ks.tar
-tar xvf ks.tar --suffix=.INSTALL --backup=simple
+wget http://rome.cit.nih.gov/ks/$DVN.tar
+tar xvf $DVN.tar --suffix=.INSTALL --backup=simple
 
 : ::::::::::::::::::
 : Fix HOME Automap :
@@ -456,9 +539,9 @@ ln -sf auto_$HOME /etc/auto.home
 : :::::::::::::::::::::::::: :
 
 cd /etc/pam.d
-ln -sf system-auth-$PAMA system-auth
-ln -sf system-auth       password-auth
-ls -l *-auth
+#notRH7# ln -sf system-auth-$PAMA system-auth
+#notRH7# ln -sf system-auth       password-auth
+ls -l *-auth*
 
 : :::::::::::::::::::::: :
 : Fix SSSD Configuration :
@@ -475,7 +558,7 @@ chmod 600 sssd.conf
 : :::::::::::::::::
 
 date
-yum -y update
+#notRH7# yum -y update
 date
 
 EOF
@@ -488,12 +571,12 @@ if ($TYPE ne 'minimal')
 : Server Packages :
 : :::::::::::::::::
 
-rpm -ivh http://download1.rpmfusion.org/free/el/updates/$VERS/$ARCH/rpmfusion-free-release-$VERS-1.noarch.rpm
-rpm -ivh http://download1.rpmfusion.org/nonfree/el/updates/$VERS/$ARCH/rpmfusion-nonfree-release-$VERS-1.noarch.rpm
+#notRH7# rpm -ivh http://download1.rpmfusion.org/free/el/updates/$VERS/$ARCH/rpmfusion-free-release-$VERS-1.noarch.rpm
+#notRH7# rpm -ivh http://download1.rpmfusion.org/nonfree/el/updates/$VERS/$ARCH/rpmfusion-nonfree-release-$VERS-1.noarch.rpm
 
-yum -y groupinstall development
+#notRH7# yum -y groupinstall development
 
-yum -y install perl-Module-Build perl-CPAN perl-Parse-RecDescent perl-YAML perl-Test-Pod  perl-MailTools perl-Digest\* perl-Text-Aligner perl-Test-Pod-Coverage gcc ocsinventory-agent evince perl-IO-stringy perl-Config-Nested Perl-IO-Tee perl-Filesys-Df perl-Text-Table redhat-lsb perl-Proc-ProcessTable perl-Time-HiRes String::ShellQuote
+#notRH7# yum -y install perl-Module-Build perl-CPAN perl-Parse-RecDescent perl-YAML perl-Test-Pod  perl-MailTools perl-Digest\* perl-Text-Aligner perl-Test-Pod-Coverage gcc ocsinventory-agent evince perl-IO-stringy perl-Config-Nested Perl-IO-Tee perl-Filesys-Df perl-Text-Table redhat-lsb perl-Proc-ProcessTable perl-Time-HiRes String::ShellQuote
 
 EOF
 }
@@ -506,14 +589,14 @@ if ($TYPE eq 'desktop')
 : Desktop Packages :
 : ::::::::::::::::::
 
-yum -y groupinstall x11 basic-desktop kde-desktop
-rpm -ivh http://linuxdownload.adobe.com/linux/i386/adobe-release-i386-1.0-1.noarch.rpm
-yum -y install firefox thunderbird pidgin flash-plugin gimp gdm-plugin-smartcard
+#notRH7# yum -y groupinstall x11 basic-desktop kde-desktop
+#notRH7# rpm -ivh http://linuxdownload.adobe.com/linux/i386/adobe-release-i386-1.0-1.noarch.rpm
+#notRH7# yum -y install firefox thunderbird pidgin flash-plugin gimp gdm-plugin-smartcard
 EOF
-	print "yum -y install xorg-x11-fonts\*\n" if ($VERS != 5);
-        print $VERS == 5 ?
-  	   "yum -y groupinstall office\n" :
-           "yum -y groupinstall office-suite evince A\*.enu\n";
+#notRH7# 	print "yum -y install xorg-x11-fonts\*\n" if ($VERS != 5);
+#notRH7#         print $VERS == 5 ?
+#notRH7#   	   "yum -y groupinstall office\n" :
+#notRH7#            "yum -y groupinstall office-suite evince A\*.enu\n";
 }
 
 print <<"EOC";
@@ -541,8 +624,8 @@ EOF
 : Certificate Database :
 : ::::::::::::::::::::::
 
-cd /etc/pki/PIV
-: MAYBE? sh .addcerts
+cd /etc/pki/
+sh .mknssdb
 
 : :::::::::::::::::::::::
 : Service Configuration :
@@ -550,8 +633,10 @@ cd /etc/pki/PIV
 
 if test -x /usr/bin/systemctl
 then
-	systemctl enable sssd
 	systemctl enable autofs
+	systemctl enable gpm
+	systemctl enable pcscd
+	systemctl enable sssd
 else
 	#chkconfig bluetooth off
 	#chkconfig NetworkManager off

@@ -1,0 +1,15 @@
+#! /bin/sh -x
+
+while [[ $ok != y ]]
+do
+	read -p "AA account? " user
+	read -p "'$user' OK [y/n]? " ok
+done
+
+echo ''
+kinit $user
+net -k ads join createupn=HOST/$(hostname -f)@NIH.GOV createcomputer=AD/NIH/CIT/DCB/Computers
+net -k ads status
+/sbin/service sssd restart
+
+echo FINISHED

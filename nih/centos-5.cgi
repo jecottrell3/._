@@ -1,6 +1,6 @@
 #!/usr/bin/perl -T
 
-# $Id: ks.cgi 16 2014-05-29 23:22:32Z root $
+# $Id: CentOS-5.cgi 17 2014-06-03 22:36:20Z root $
 ################################################################
 #	Generate DCB Kickstart File.
 ################################################################
@@ -67,8 +67,7 @@ my $isdesk	= $TYPE eq 'desktop';
 my $PAMA	= $isdesk ? 'pkc' : 'dcb';
    $PAMA	= 'dcb';	# pkc not ready yet
 
-# my $EPEL	= "epel-release\ndcb-epel-mirror";
-my $EPEL	= "epel-release";
+my $EPEL	= "epel-release\ndcb-epel-mirror";
 my $XCONFIG	= $isdesk ? 'xconfig --startxonboot' : 'skipx';
 my $PASSWORD	= '$1$L9DnVycB$Rzpux93iob7RDClHxkQst1'; # Mascot
 
@@ -171,29 +170,29 @@ if ($DIST eq 'Fedora')
 {
 	$EPEL = '# no EPEL for Fedora';
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-os  --baseurl=http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-up  --baseurl=http://$ROME/ks/$DVAP/updates
-repo --name=$DVAN-dcb --baseurl=http://$ROME/ks/DCB/$VAP
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os  --baseurl=http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-up  --baseurl=http://$ROME/yum/$DVAP/updates
+repo --name=$DVAN-dcb --baseurl=http://$ROME/yum/DCB/$VAP
 EOF
 
 } elsif ($DIST eq 'RedHat') {
 	$EPEL = '# no EPEL for RedHat *yet*';
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-os   --baseurl=http://$ROME/ks/$DVAP/os
-#epo --name=$DVAN-up   --baseurl=http://$ROME/ks/$DVAP/updates
-#epo --name=$DVAN-epel --baseurl=http://$ROME/ks/epel/$VAP
-#epo --name=$DVAN-DCB  --baseurl=http://$ROME/ks/DCB/$DVAP
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os   --baseurl=http://$ROME/yum/$DVAP/os
+#epo --name=$DVAN-up   --baseurl=http://$ROME/yum/$DVAP/updates
+#epo --name=$DVAN-epel --baseurl=http://$ROME/yum/epel/$VAP
+#epo --name=$DVAN-DCB  --baseurl=http://$ROME/yum/DCB/$DVAP
 EOF
 
 } else { # must be CentOS
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-os   --baseurl=http://$ROME/ks/$DVAP/os
-repo --name=$DVAN-up   --baseurl=http://$ROME/ks/$DVAP/updates
-repo --name=$DVAN-epel --baseurl=http://$ROME/ks/epel/$VAP
-repo --name=$DVAN-DCB  --baseurl=http://$ROME/ks/DCB/$DVAP
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os   --baseurl=http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-up   --baseurl=http://$ROME/yum/$DVAP/updates
+repo --name=$DVAN-epel --baseurl=http://$ROME/yum/epel/$VAP
+repo --name=$DVAN-DCB  --baseurl=http://$ROME/yum/DCB/$DVAP
 EOF
 
 }
@@ -227,32 +226,31 @@ EOF
 # DEBUG Layouts
 
 $LAYOUT{sda2} = <<"EOF";
-clearpart  --initlabel --none --drives=$DISK
+clearpart  --none --drives=$DISK
 part swap  --fstype swap --onpart ${DISK}1
-part /     --fstype ext4 --onpart ${DISK}2            --label=sda2
-part /sda3 --fstype ext4 --onpart ${DISK}3 --noformat --label=sda3
-part /sda4 --fstype ext4 --onpart ${DISK}4 --noformat --label=sda4
+part /     --fstype ext3 --onpart ${DISK}2            --label=sda2
+part /sda3 --fstype ext3 --onpart ${DISK}3 --noformat --label=sda3
+part /sda4 --fstype ext3 --onpart ${DISK}4 --noformat --label=sda4
 EOF
 
 $LAYOUT{sda3} = <<"EOF";
-clearpart  --initlabel --none --drives=$DISK
+# clearpart  --none --drives=$DISK
 part swap  --fstype swap --onpart ${DISK}1
-part /sda2 --fstype ext4 --onpart ${DISK}2 --noformat --label=sda2
-part /     --fstype ext4 --onpart ${DISK}2            --label=sda3
-part /sda4 --fstype ext4 --onpart ${DISK}4 --noformat --label=sda4
+part /sda2 --fstype ext3 --onpart ${DISK}2 --noformat --label=sda2
+part /     --fstype ext3 --onpart ${DISK}3            --label=sda3
+part /sda4 --fstype ext3 --onpart ${DISK}4 --noformat --label=sda4
 EOF
 
 $LAYOUT{sda4} = <<"EOF";
-clearpart  --initlabel --none --drives=$DISK
+# clearpart  --none --drives=$DISK
 part swap  --fstype swap --onpart ${DISK}1
-part /sda2 --fstype ext4 --onpart ${DISK}2 --noformat --label=sda2
-part /sda3 --fstype ext4 --onpart ${DISK}3 --noformat --label=sda3
-part /     --fstype ext4 --onpart ${DISK}4            --label=sda4
+part /sda2 --fstype ext3 --onpart ${DISK}2 --noformat --label=sda2
+part /sda3 --fstype ext3 --onpart ${DISK}3 --noformat --label=sda3
+part /     --fstype ext3 --onpart ${DISK}4            --label=sda4
 EOF
 
 $LAYOUT{gpt} = <<"EOF"; 			# was 'fourpart'
-clearpart --initlabel --none --drives=$DISK
-#learpart --none --drives=$DISK
+# clearpart --none --drives=$DISK
 part /boot     --fstype ext4 --onpart=${DISK}1
 part swap      --fstype swap --onpart=${DISK}2
 part /         --fstype ext4 --onpart=${DISK}3
@@ -319,11 +317,11 @@ reboot
 #			PACKAGES
 ################################################################
 
-%packages --ignoremissing
+#packages --ignoremissing
+%packages
 
 dcb-$DIST-release
-# dcb-$DIST-mirror
-yum-plugin-extramirror
+dcb-$DIST-mirror
 $EPEL
 
 autofs

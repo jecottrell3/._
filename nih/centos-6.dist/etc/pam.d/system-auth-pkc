@@ -1,0 +1,57 @@
+#%PAM-1.0
+# This file WAS auto-generated.
+# Subsequently Edited by CSSG.
+
+auth	required		pam_env.so
+
+# Allow System Accounts Direct Access
+
+auth [success=2 default=ignore]	pam_succeed_if.so uid >= 1000 quiet
+auth	sufficient		pam_unix.so sha512
+auth	required		pam_deny.so
+
+# No SmartCard for Special Users or Groups
+
+#uth [success=5 default=ignore] pam_succeed_if.so group in some:group quiet use_uid
+auth [success=4 default=ignore] pam_succeed_if.so user  in arif:cottrell:rothmb quiet use_uid
+
+# Force SmartCard For Login/XDM Services
+# Use Kerberos with Initial Password
+
+auth [success=3 default=ignore] pam_succeed_if.so service notin login:gdm:xdm:kdm quiet use_uid
+auth	required		pam_pkcs11.so wait_for_card card_only
+auth	sufficient		pam_krb5.so use_first_pass no_subsequent_prompt
+auth	requisite		pam_deny.so
+
+# OTHER SERVICES USE KERBEROS (PIN, then Password)
+
+auth	sufficient		pam_krb5.so no_initial_prompt minimum_uid=1000
+auth	required		pam_deny.so
+
+# AUTHCONFIG GENERATES THIS
+
+#auth        sufficient    pam_unix.so nullok try_first_pass
+#auth        requisite     pam_succeed_if.so uid >= 1000 quiet
+#auth        sufficient    pam_krb5.so use_first_pass
+#auth        required      pam_deny.so
+
+# NO CHANGES BELOW HERE
+
+account     required      pam_access.so
+account     required      pam_unix.so broken_shadow
+account     sufficient    pam_localuser.so
+account     sufficient    pam_succeed_if.so uid < 1000 quiet
+account     [default=bad success=ok auth_err=ignore user_unknown=ignore ignore=ignore] pam_krb5.so
+account     required      pam_permit.so
+
+password    requisite     pam_cracklib.so try_first_pass retry=3 type=
+password    sufficient    pam_unix.so sha512 shadow nullok try_first_pass use_authtok
+password    sufficient    pam_krb5.so use_authtok
+password    required      pam_deny.so
+
+session     optional      pam_keyinit.so revoke
+session     required      pam_limits.so
+session     optional      pam_mkhomedir.so
+session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid
+session     required      pam_unix.so
+session     optional      pam_krb5.so

@@ -1,0 +1,18 @@
+#! /bin/sh
+
+PKI=/etc/pki
+PIV=$PKI/PIV
+NSS=$PKI/nssdb
+
+cd $PIV
+mkdir -p $NSS
+
+for cert in *.0
+do
+	echo \
+	certutil -A -d $NSS -n "Root Cert '$cert'" -t "CT,C,C" -i $cert
+	certutil -A -d $NSS -n "Root Cert '$cert'" -t "CT,C,C" -i $cert
+
+done
+set -x
+certutil -L -d $NSS

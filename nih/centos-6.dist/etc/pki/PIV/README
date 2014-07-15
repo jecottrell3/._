@@ -1,0 +1,14 @@
+# Managed via polka
+
+# To get all the certs....
+wget --quiet -r -l 1 https://ocio.nih.gov/Smartcard/Pages/PKI_chain.aspx
+
+find -name '*.cer' | while read file
+do
+	p=$(basename $file .cer).pem
+	openssl x509 -inform der -text -in $file > $p
+	#ln -s $p $(openssl x509 -noout -hash -in $p).0
+done
+cacertdir_rehash .
+rm -r ocio.nih.gov
+

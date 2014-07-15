@@ -1,0 +1,11 @@
+# ldapsearch -x -h strudel.cit.nih.gov -b ou=NIH,OU=AD,DC=NIH,DC=gov '(cn=arif)'
+# ldapsearch -h nihdc.nih.gov -b ou=NIH,OU=AD,DC=NIH,DC=gov '(cn=hunterjr)'
+
+#URI ldap://nihdc.nih.gov
+#URI ldap://nihdcadhub.nih.gov
+URI ldap://nihldap.nih.gov:4389
+#URI ldap://strudel.cit.nih.gov
+
+BASE ou=NIH,OU=AD,DC=NIH,DC=gov
+
+
