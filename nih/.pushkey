@@ -1,0 +1,10 @@
+#! /bin/sh -x
+
+# usage: .pushkey host [ key ]
+# key defaults to ks_dsa
+# key can also be lablinux
+
+HOST=${1?'Missing Host'}
+KEY=${2-/etc/ks/ks_dsa}
+scp -i $KEY /root/.ssh/authorized_keys $HOST:/root/.ssh
+

@@ -1,0 +1,35 @@
+#! /usr/bin/python
+
+from __future__ import print_function
+
+import re
+import sys
+
+wids = [0] * 99
+rows = []
+fmt  = ''
+
+# read lines, split, compute widths
+
+for line in sys.stdin:
+        line.rstrip()
+        cols = re.split('\s+', line)
+        idx = 0
+        for col in cols:
+                wid = len(col)
+                if    wids[idx] < wid:
+                      wids[idx] = wid
+                idx += 1
+                
+        rows.append(cols)
+
+#print(wids)
+
+# justify and print
+
+for cols in rows:
+#        print(cols)
+        line = ''
+        print(' '.join(
+                        map(lambda t: t[0].ljust(t[1]),
+                                zip(cols, wids))))

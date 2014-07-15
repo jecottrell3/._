@@ -87,4 +87,13 @@ alias	C="cat $RD"		V="vi $RO"
 alias	U=lsusb			L="lsof /dev/bus/usb/???/???"
 alias	Z='C;P2;O2;L'
 
+soe()
+{
+	OPTS=$-
+	set "$@"
+	file=$1; shift
+	script $file -c "oneach -aSp $*"
+	set $OPTS
+}
+
 #################################################################

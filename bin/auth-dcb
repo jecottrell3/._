@@ -1,0 +1,183 @@
+#! /bin/sh
+
+################################################################
+#	Generate Authconfig Commands
+################################################################
+
+usage()
+{
+	cat <<EOF
+usage: $0 type
+type:
+	ods	Old DCB Server
+	odw	Old DCB Workstation
+	lls	Lab Linux Server
+	llw	Lab Linux Workstation
+	nds	New DCB Server
+	ndw	New DCB Workstation
+EOF
+	sleep 1
+	exit 1
+}
+
+################################################################
+#	Default Variables to DISABLED
+################################################################
+
+# Default Disabled
+
+	     cache='--disablecache'		# NSCD
+	cachecreds='--disablecachecreds'	# in SSSD
+	      sssd='--disablesssd'		# not ODS/ODW
+ 	 mkhomedir='--disablemkhomedir'		# Lab Linux Only
+	 smartcard='--disablesmartcard'		# workstations
+
+# Maybe Someday
+
+	  sssdauth='--disablesssdauth'		# maybe NDS/NDW?
+  requiresmartcard='--disablerequiresmartcard'	# NDW?
+
+################################################################
+#	Select System Type
+################################################################
+
+case $1 in
+(ods)					# Old DCB Server
+	     cache='--enablecache'
+;;
+(odw)					# Old DCB Workstation
+	     cache='--enablecache'
+	 smartcard='--enablesmartcard'
+	;;
+(lls)					# Lab Linux Server
+	cachecreds='--enablecachecreds'
+	      sssd='--enablesssd'
+ 	 mkhomedir='--enablemkhomedir'
+	;;
+(llw)					# Lab Linux Server
+	cachecreds='--enablecachecreds'
+	      sssd='--enablesssd'
+ 	 mkhomedir='--enablemkhomedir'
+	 smartcard='--enablesmartcard'
+	;;
+(nds)					# New DCB Server
+	cachecreds='--enablecachecreds'
+	      sssd='--enablesssd'
+	;;
+(ndw)					# New DCB Workstation
+	cachecreds='--enablecachecreds'
+	      sssd='--enablesssd'
+	 smartcard='--enablesmartcard'
+	;;
+(*)	usage
+	;;
+esac
+
+################################################################
+#	Generate Authconfig Command
+################################################################
+
+
+cat <<EOF				#### VARIABLES ####
+authconfig \\
+\\
+$cache \\
+$cachecreds \\
+$sssd \\
+$mkhomedir \\
+$smartcard \\
+\\
+$sssdauth \\
+$requiresmartcard \\
+EOF
+
+cat <<EOF				#### REAL DATA ####
+\\
+--krb5adminserver="ldapad.nih.gov" \\
+--krb5kdc="nihdcadhub.nih.gov,nihdcadhub2.nih.gov,nihdcadhub3.nih.gov" \\
+--krb5realm=NIH.GOV \\
+--ldapbasedn="OU=NIH,OU=AD,DC=nih,DC=gov" \\
+--ldapserver="ldap://nihldap.nih.gov:4389" \\
+--passalgo=sha512 \\
+--smartcardaction=1 \\
+--smartcardmodule=coolkey \\
+EOF
+
+cat <<EOF				#### ALWAYS ####
+\\
+--enablekrb5 \\
+--enablelocauthorize \\
+--enablepamaccess \\
+--enablepreferdns \\
+--enablerfc2307bis \\
+--enableshadow \\
+\\
+--disablekrb5kdcdns \\
+--disablekrb5realmdns \\
+--disableldap \\
+--disableldapauth \\
+--disableldaptls \\
+--disablesysnetauth \\
+EOF
+
+cat <<EOF				#### NEVER ####
+\\
+--disablefingerprint \\
+--disableforcelegacy \\
+--disablehesiod \\
+--disableipav2 \\
+--disableipav2nontp \\
+--disablenis \\
+--disablewinbind \\
+--disablewinbindauth \\
+--disablewinbindoffline \\
+--disablewinbindusedefaultdomain \\
+--disablewins \\
+\\
+EOF
+
+echo '--updateall'			#### SPLAT ####
+
+exit
+
+################################################################
+#	UNUSED DATA
+################################################################
+
+# --hesiodlhs=<lhs>
+# --hesiodrhs=<rhs>
+# --ipav2domain=<domain>
+# --ipav2join=<account>
+# --ipav2realm=<realm>
+# --ipav2server=<servers>
+# --ldaploadcacert="not-sure"
+# --md5	SEE PASSALGO
+# --nisdomain=<domain>
+# --nisserver=<server>
+# --smbidmaprange=<lowest-highest>,
+# --smbrealm=<realm>
+# --smbsecurity=<user|server|domain|ads>
+# --smbservers=<servers>
+# --smbworkgroup=<workgroup>
+# --winbindjoin=<Administrator>
+# --winbindseparator=<\>
+# --winbindtemplatehomedir=</home/%D/%U>
+# --winbindtemplateprimarygroup=<nobody>
+# --winbindtemplateshell=</bin/false>
+
+################################################################
+#	CONTROL
+################################################################
+
+# --help
+# --nostart
+# --probe
+# --restorebackup=<name>
+# --restorelastbackup
+# --savebackup=<name>
+# --test
+# --update
+# --updateall
+
+################################################################
+
