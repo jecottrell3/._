@@ -90,13 +90,13 @@ my $ALWAYS = join(' ',
 	'--enableshadow',
 
 	'--disablekrb5kdcdns',
-	'--disablekrb5realmdns	',
+	'--disablekrb5realmdns',
 	'--disableldap',
 	'--disableldapauth',
 	'--disableldaptls',
 	'--disablesysnetauth',
-	'--disablerequiresmartcard',
-	'--disablesssdauth',
+	'--disablerequiresmartcard',	# someday maybe enable
+	'--disablesssdauth',		# someday maybe enable
 );
 
 my $NEVER = join(' ',
@@ -152,58 +152,47 @@ $AUTH{new} = join(' ',
 
 my $AUTHCONFIG  = "authconfig $AUTH{$AUTH} $AUTHDATA $ALWAYS $NEVER";
 
-####my $KDC	= '--krb5kdc=nihdcadhub.nih.gov,' .
-		'nihdcadhub2.nih.gov,nihdcadhub3.nih.gov';
-####my $KADMIN	= '--krb5adminserver=ldapad.nih.gov';
-####my $REALM	= '--krb5realm=NIH.GOV';
-####my $KERBEROS	= "--enablekrb5 $REALM $KDC $KADMIN";
-
-####my $SSSD	= '--enablesssd --disablesssdauth';
-## $SSSD	= '--enablesssd  --enablesssdauth';
-####my $LDAP	= '--enableldap --ldapserver=ldap://nihldap.nih.gov:4389';
-
-####my $AUTH = "$KERBEROS --enablepamaccess --enableshadow --passalgo=sha512 ";
-####   $AUTH	.= $INFO eq 'ldap' ?
-####   		"$SSSD $LDAP --enablemkhomedir" : "--enablecache";
-
 ################################################################
 #	URL and REPOs
 ################################################################
 
 # NOTE: All repos use $DVA of Symlinks
 
-my $DV	= "$DIST/$VERS";
-my $DVA	= "$DIST/$VERS/$ARCH";
-my $DVN	= "$DIST-$VERS-$ARCH";
-my  $VA	=       "$VERS/$ARCH";
+my $DVN		= "$DIST-$VERS";
+my $DVP		= "$DIST/$VERS";		# Path
+my $DVAP	= "$DIST/$VERS/$ARCH";		# Path
+my $DVAN	= "$DIST-$VERS-$ARCH";		# Name
+my  $VAP	=       "$VERS/$ARCH";		# Path
+
+# NOTE: All repos use $DVA of Symlinks
 
 if ($DIST eq 'Fedora')
 {
 	$EPEL = '# no EPEL for Fedora';
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/yum/$DVA/os
-repo --name=$DVN-os  --baseurl=http://$ROME/yum/$DVA/os
-repo --name=$DVN-up  --baseurl=http://$ROME/yum/$DVA/updates
-repo --name=$DVN-dcb --baseurl=http://$ROME/yum/DCB/$VA
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os  --baseurl=http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-up  --baseurl=http://$ROME/yum/$DVAP/updates
+repo --name=$DVAN-dcb --baseurl=http://$ROME/yum/DCB/$VAP
 EOF
 
 } elsif ($DIST eq 'RedHat') {
 	$EPEL = '# no EPEL for RedHat *yet*';
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/yum/$DVA/os
-repo --name=$DVN-os   --baseurl=http://$ROME/yum/$DVA/os
-#repo --name=$DVN-up   --baseurl=http://$ROME/yum/$DVA/updates
-#repo --name=$DVN-epel --baseurl=http://$ROME/yum/epel/$VA
-repo --name=$DVN-DCB  --baseurl=http://$ROME/yum/DCB/$DVA
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os   --baseurl=http://$ROME/yum/$DVAP/os
+#epo --name=$DVAN-up   --baseurl=http://$ROME/yum/$DVAP/updates
+#epo --name=$DVAN-epel --baseurl=http://$ROME/yum/epel/$VAP
+#epo --name=$DVAN-DCB  --baseurl=http://$ROME/yum/DCB/$DVAP
 EOF
 
 } else { # must be CentOS
 	$REPO = <<"EOF";
-url                                  --url http://$ROME/yum/$DVA/os
-repo --name=$DVN-os   --baseurl=http://$ROME/yum/$DVA/os
-repo --name=$DVN-up   --baseurl=http://$ROME/yum/$DVA/updates
-repo --name=$DVN-epel --baseurl=http://$ROME/yum/epel/$VA
-repo --name=$DVN-DCB  --baseurl=http://$ROME/yum/DCB/$DVA
+url                                  --url http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-os   --baseurl=http://$ROME/yum/$DVAP/os
+repo --name=$DVAN-up   --baseurl=http://$ROME/yum/$DVAP/updates
+repo --name=$DVAN-epel --baseurl=http://$ROME/yum/epel/$VAP
+repo --name=$DVAN-DCB  --baseurl=http://$ROME/yum/DCB/$DVAP
 EOF
 
 }
@@ -216,28 +205,53 @@ my %LAYOUT;
 
 $LAYOUT{raid} = <<"EOF";
 clearpart    --initlabel --all       --drives=sda,sdb
-part raid.11 --asprimary --size=1024 --ondisk=sda
-part raid.21 --asprimary --size=1024 --ondisk=sdb
-part raid.12 --asprimary --size=2048 --ondisk=sda
-part raid.22 --asprimary --size=2048 --ondisk=sdb
-part raid.13 --asprimary --size=1024 --ondisk=sda --grow
-part raid.23 --asprimary --size=1024 --ondisk=sdb --grow
-raid /boot   --fstype=ext3 --level=1 --device=md1 raid.11 raid.21
+part raid.11 --asprimary --size=2048 --ondisk=sda
+part raid.21 --asprimary --size=2048 --ondisk=sdb
+part raid.12 --asprimary --size=8192 --ondisk=sda
+part raid.22 --asprimary --size=8192 --ondisk=sdb
+part raid.13 --asprimary --size=9999 --ondisk=sda --grow
+part raid.23 --asprimary --size=9999 --ondisk=sdb --grow
+raid /boot   --fstype=ext4 --level=1 --device=md1 raid.11 raid.21
 raid swap    --fstype=swap --level=1 --device=md2 raid.12 raid.22
 raid /       --fstype=ext4 --level=1 --device=md3 raid.13 raid.23
 EOF
 
 $LAYOUT{sata} = <<"EOF";
 clearpart  --initlabel --all --drives=$DISK
-part /boot --fstype ext3 --size=1024 --asprimary --ondisk $DISK
-part swap  --fstype swap --size=2048 --asprimary --ondisk $DISK
+part /boot --fstype ext4 --size=2048 --asprimary --ondisk $DISK
+part swap  --fstype swap --size=8192 --asprimary --ondisk $DISK
 part /     --fstype ext4 --size=9999 --asprimary --ondisk $DISK --grow
 EOF
 
+# DEBUG Layouts
+
+$LAYOUT{sda2} = <<"EOF";
+clearpart  --none --drives=$DISK
+part swap  --fstype swap --onpart ${DISK}1
+part /     --fstype ext3 --onpart ${DISK}2            --label=sda2
+part /sda3 --fstype ext3 --onpart ${DISK}3 --noformat --label=sda3
+part /sda4 --fstype ext3 --onpart ${DISK}4 --noformat --label=sda4
+EOF
+
+$LAYOUT{sda3} = <<"EOF";
+# clearpart  --none --drives=$DISK
+part swap  --fstype swap --onpart ${DISK}1
+part /sda2 --fstype ext3 --onpart ${DISK}2 --noformat --label=sda2
+part /     --fstype ext3 --onpart ${DISK}3            --label=sda3
+part /sda4 --fstype ext3 --onpart ${DISK}4 --noformat --label=sda4
+EOF
+
+$LAYOUT{sda4} = <<"EOF";
+# clearpart  --none --drives=$DISK
+part swap  --fstype swap --onpart ${DISK}1
+part /sda2 --fstype ext3 --onpart ${DISK}2 --noformat --label=sda2
+part /sda3 --fstype ext3 --onpart ${DISK}3 --noformat --label=sda3
+part /     --fstype ext3 --onpart ${DISK}4            --label=sda4
+EOF
+
 $LAYOUT{gpt} = <<"EOF"; 			# was 'fourpart'
-clearpart --initlabel --none --drives=$DISK
-#learpart --none --drives=$DISK
-part /boot     --fstype ext3 --onpart=${DISK}1
+# clearpart --none --drives=$DISK
+part /boot     --fstype ext4 --onpart=${DISK}1
 part swap      --fstype swap --onpart=${DISK}2
 part /         --fstype ext4 --onpart=${DISK}3
 part /export/1 --fstype ext4 --onpart=${DISK}4 --grow
@@ -260,11 +274,11 @@ if ( $PART eq 'gpt' ) {
 	$PRE = <<"EOF";
 # Make GPT for Four Part install
 $PARTED /dev/$DISK mklabel gpt 
-$PARTED /dev/$DISK mkpart P1 ext3       0.0GB   1.0GB 
-$PARTED /dev/$DISK mkpart P2 linux-swap 1.0GB   3.0GB 
-#TESTING# $PARTED /dev/$DISK mkpart P3 ext4       3.0GB   50.0GB 
-#TESTING# $PARTED /dev/$DISK mkpart P4 ext4       50.0GB 100.0GB
-$PARTED /dev/$DISK mkpart P3 ext4       3.0GB   500.0GB 
+$PARTED /dev/$DISK mkpart P1 ext4       0.0GB   2.0GB 
+$PARTED /dev/$DISK mkpart P2 linux-swap 2.0GB   10.0GB 
+#TESTING# $PARTED /dev/$DISK mkpart P3 ext4     10.0GB  50.0GB 
+#TESTING# $PARTED /dev/$DISK mkpart P4 ext4     50.0GB 100.0GB
+$PARTED /dev/$DISK mkpart P3 ext4       10.0GB   500.0GB 
 $PARTED /dev/$DISK mkpart P4 ext4       500.0GB 100% 
 $PARTED /dev/$DISK print
 $HDPARM /dev/$DISK
@@ -286,7 +300,7 @@ $REPO
 lang en_US.UTF-8
 keyboard us
 $XCONFIG
-network $KSDV --bootproto=dhcp
+network $KSDV --bootproto=dhcp --onboot=yes
 rootpw --iscrypted $PASSWORD
 firewall --enabled --port=22:tcp,631:udp
 
@@ -303,7 +317,8 @@ reboot
 #			PACKAGES
 ################################################################
 
-%packages --ignoremissing
+#packages --ignoremissing
+%packages
 
 dcb-$DIST-release
 dcb-$DIST-mirror
