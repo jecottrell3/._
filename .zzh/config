@@ -6,8 +6,8 @@ PermitLocalCommand		yes
 StrictHostKeyChecking		no
 #User				jcottrell
 ChallengeResponseAuthentication	no
-GSSAPIAuthentication		no
+GSSAPIAuthentication		yes
 HostbasedAuthentication		no
 PubkeyAuthentication		yes
-PasswordAuthentication		no
+PasswordAuthentication		yes
 
