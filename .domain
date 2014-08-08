@@ -5,21 +5,29 @@ test -f .debug && echo .domain
 #################################################################
 
   HOST=$(hostname -s)
-DOMAIN=$(hostname -d)
   FQDN=$(hostname -f)
+			test -d Applications ||
+DOMAIN=$(hostname -d)
+			test -d Applications ||
     IP=$(hostname -i)
 
 export H=$HOST D=$DOMAIN C=cit.nih.gov N=nih.gov
 
 case $FQDN in
 (*.homerj)
+	echo Welcome to HOMERJ
 #       For Cloning CDs
 	alias	L='lsof /dev/scd0'
 	alias	P='pkill kio_audio'
 	alias	K='k3b'
 	alias	S='pm-suspend'
 	;;
+(*.ncbi.nlm.nih.gov)
+	echo Welcome to NCBI
+	export	BASE=OU=Users,OU=NLM-NCBI,OU=NLM,OU=NIH,OU=AD,DC=nih,DC=gov
+	;;
 (*.nih.gov)
+	echo Welcome to NIH
 	export	BASE=ou=NIH,OU=AD,DC=NIH,DC=gov
 
 	#alias	lds="ldapsearch -b $BASE -h ldapad.nih.gov"
@@ -32,8 +40,6 @@ case $FQDN in
 
 	alias	dcb='cp system-auth-dcb system-auth'
 	alias	ssd='cp system-auth-ssd system-auth'
-	alias	only='cp sssd.only sssd.conf'
-	alias	both='cp sssd.both sssd.conf'
 
 	export	QQ=/public/htdocs/rome.cit.nih.gov
 	export	QK=$QQ/ks

@@ -63,7 +63,7 @@ done
 #case "$SSH_AUTH_SOCK" in
 #('')	eval $(ssh-agent);;
 #esac
-#ssh-add -l > /dev/null || ssh-add
+ssh-add -l > /dev/null || ssh-add
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQcdeisj11
