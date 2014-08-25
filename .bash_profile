@@ -23,11 +23,13 @@ export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
-#hmod a+rx    $HOME
-#est  -d      $HOME/.ssh     &&
-#hmod -R og-w $HOME/.ssh     &&
-#hmod 600     $HOME/.ssh/id* &&
-#hmod 644     $HOME/.ssh/id*.pub
+chmod a+rx    $HOME
+test  -d      $HOME/.ssh        &&
+chmod -R og-w $HOME/.ssh        &&
+chmod 600     $HOME/.ssh/*.key  &&
+chmod 600     $HOME/.ssh/*.pass &&
+chmod 600     $HOME/.ssh/id*    &&
+chmod 644     $HOME/.ssh/*.pub
 
 set -o	ignoreeof
 umask 2
@@ -45,7 +47,7 @@ done
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
 #################################################################
 
-for dir in /usr/sbin /sbin $RBJ/bin ~/bin
+for dir in /opt/systems/bin /usr/sbin /sbin $RBJ/bin ~/bin
 do
 	test -d $dir || continue
 	case :$PATH: in
@@ -53,6 +55,8 @@ do
 	(*)		PATH=$dir:$PATH;;
 	esac
 done
+eval $($RBJ/bin/fixpath    PATH)
+eval $($RBJ/bin/fixpath MANPATH)
 
 #################################################################
 #	ENVIRONMENT VARIABLES
@@ -66,7 +70,7 @@ done
 ssh-add -l > /dev/null || ssh-add
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
-export	LESS=-MQcdeisj11
+export	LESS=-MQRcdeisj11
 export	LANG=C LOCALE=C LC_ALL=C
 export	VERSION_CONTROL=numbered
 export	HISTCONTROL=ignoreboth

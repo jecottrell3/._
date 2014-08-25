@@ -1,22 +1,31 @@
-# source this file
+#! /bin/sh
+# either  [1] source bin/fixpath VAR
+# or else [2] eval $(fixpath VAR)
+#
+# Fixes VAR (default PATH)
+# duplicates deleted
+# non-existent paths deleted
+#
 # echo ARGS: $# "$@"
 ARGS="$*"
 OFS=$IFS
 IFS="$IFS:"
-set $PATH
-path=$1
-shift
-for dir
+VAR=${1:-PATH}
+eval set \$$VAR
+IFS=$OFS
+
+VAL=
+for DIR
 do
-	test -d $dir || continue
-	case :$path: in
-	(*:$dir:*)	continue;;
-	(*)	path=$path:$dir
+	test -d $DIR || continue
+	case :$VAL: in
+	(*:$DIR:*)	continue;;
+	(*)		VAL=$VAL:$DIR
 	esac
 done
-IFS=$OFS
-echo \
-PATH=$path
-PATH=$path
+
+echo $VAR=${VAL#:}
+eval $VAR=${VAL#:}
+
 set -- $ARGS
 # echo ARGS: $# "$@"

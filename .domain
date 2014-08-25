@@ -25,6 +25,7 @@ case $FQDN in
 (*.ncbi.nlm.nih.gov)
 	echo Welcome to NCBI
 	export	BASE=OU=Users,OU=NLM-NCBI,OU=NLM,OU=NIH,OU=AD,DC=nih,DC=gov
+	alias	free-ip=free_ip
 	;;
 (*.nih.gov)
 	echo Welcome to NIH
@@ -85,13 +86,17 @@ case $FQDN in
 	export  PRINTER=chessie
 	export  LPDEST=$PRINTER
 	;;
-(*)	: not special;;
+(*)	echo Welcome to NOWHERE;;
 esac
+
+# CentOS 7 PIV Stuff
 
 export	RD=/etc/reader.conf;	RO="$RD.d/openct.conf"
 alias	C="cat $RD"		V="vi $RO"
 alias	U=lsusb			L="lsof /dev/bus/usb/???/???"
 alias	Z='C;P2;O2;L'
+
+# Script OnEach
 
 soe()
 {

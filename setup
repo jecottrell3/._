@@ -31,10 +31,12 @@ do
 	(setdn)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
-	(.zzh)	rsync -rC ._/$x .
-		test -e .ssh || mv .zzh .ssh;;
 	(.ssh)	test -w /  && continue # skip if root
-		test -e $x || rsync -rC ._/$x .;;
+		test -e $x || rsync -rC ._/$x .
+		for y in id_dsa id_rsa identity
+		do test -e $x/$y && chmod 600 $x/$y; done
+		chmod 600 $x/*.key $x/*.pass
+		;;
 	(*)	test -e	$x && mv $x $SAVE; ln -s  $INIT/$x .;;
 	esac
 done

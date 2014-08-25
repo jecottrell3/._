@@ -12,8 +12,8 @@ SHEL=/bin/ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
 SHEL=/bin/zsh	ENVY=	ARGS=	# "  ZDOTDIR=$HOME"
 SHEL=/bin/bash	ENVY=	ARGS="--rcfile $RC"
 
-SUDO= ME=root
-SUDO=sudo ME=$USER
+SUDO=sudo ME=$USER	# -u default
+SUDO= ME=root		# -p default
 
 # Collect the ssh flags.
 flags='-tAX'
@@ -21,7 +21,7 @@ while [ $# != 0 ]
 do
 	case "$1" in
 	(-u)	SUDO=sudo ME=$USER		shift;; # with SUDO
-	(-p)	SUDO=     ME=root		shift;; # with PIV
+	(-p)	SUDO=     ME=root		shift;; # with KRB/PIV/KEYS
 	(-n)	EXEC=echo					shift;;
 	(-s)	SHEL=sh   ENVY=;				shift;;
 	(-k)	SHEL=ksh  ENVY="ENV=$HOME/.env" ARGS=-k;	shift;;
