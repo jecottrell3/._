@@ -1,4 +1,3 @@
-
 test -f .debug && echo .prompt
 #################################################################
 #	PROMPTING
@@ -57,7 +56,7 @@ PS9=': \t [\#:$?:\j] \w;\[
 \]: \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
 
 if test -d /Applications
-then PS1="$PS9" BG=1 FG=3 HI=1
+then PS1="$PS9" BG=4 FG=6 HI=1
 else PS1="$PS8"
 fi
 

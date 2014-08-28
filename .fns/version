@@ -4,22 +4,22 @@ test -f .debug && echo .fns/version
 #	VERSION CONTROL -- CVS
 #################################################################
 
-alias	 cva=' cvs add'
-alias	 cvf=' cvs diff -u 2>&1'
-alias	 cvh=' cvs -H'
+alias	  cva='cvs add'
+alias	  cvf='cvs diff -u 2>&1'
+alias	  cvh='cvs -H'
 alias	 cvhc='cvs --help-commands'
 alias	 cvho='cvs --help-options'
 alias	 cvhs='cvs --help-synonyms'
-alias	 cvi=' cvs commit'
-alias	 cvl=' cvs log'
-alias	 cvn=' cvs annotate'
-alias	 cvo=' cvs checkout'
+alias	  cvi='cvs commit'
+alias	  cvl='cvs log'
+alias	  cvn='cvs annotate'
+alias	  cvo='cvs checkout'
 alias	 cvrl='cvs release -d'
 alias	 cvrm='cvs remove -f'
 alias	 cvst='cvs status'
-alias	 cvt=' cvs tag'
-alias	 cvu=' cvs -f update'
-alias	 cvy=' cvs history'
+alias	  cvt='cvs tag'
+alias	  cvu='cvs -f update'
+alias	  cvy='cvs history'
 function cvd { cvs diff -u $* 2>&1 | less +/'^diff.*'; }
 function cvz { cvs status 2>&1 $* | egrep ^[cF]; }
 function cvx { cvs status 2>&1 $* | egrep ^[cF] | egrep -v Up-to-date; }
@@ -28,24 +28,52 @@ function cvx { cvs status 2>&1 $* | egrep ^[cF] | egrep -v Up-to-date; }
 #	VERSION CONTROL -- SVN
 #################################################################
 
-alias	sva=' svn add'
-alias	svci='svn ci'
-alias	svco='svn co'
-alias	svcp='svn cp'
-#lias	svd=' svn diff'
+alias	  sva='svn add'
+alias	 svci='svn ci'
+alias	 svco='svn co'
+alias	 svcp='svn cp'
+#lias	  svd='svn diff'
 function svd { svn diff "$@" | less +/"^[Ii]ndex: .*"; }
-alias	svh=' svn help'
-alias	svi=' svn info'
-alias	svl=' svn log'
-alias	svlk='svn lock'
-alias	svls='svn ls'
-alias	svmd='svn mkdir'
-alias	svmv='svn mv'
-alias	svrm='svn rm'
-alias	svs=' svn status'
-alias	svsv='svn status -v'
-alias	svu=' svn up'
-alias	svuk='svn unlock'
-alias	svz=' svn cleanup'
+alias	  svh='svn help'
+alias	  svi='svn info'
+alias	  svl='svn log'
+alias	 svlk='svn lock'
+alias	 svls='svn ls'
+alias	 svmd='svn mkdir'
+alias	 svmv='svn mv'
+alias	 svrm='svn rm'
+alias	  svs='svn status'
+alias	 svsv='svn status -v'
+alias	  svu='svn up'
+alias	 svuk='svn unlock'
+alias	  svz='svn cleanup'
+
+#################################################################
+#	VERSION CONTROL -- GIT
+#################################################################
+
+alias	 ja='git add'
+alias	 jb='git branch'
+alias	jci='git commit'
+alias	jco='git checkout'
+alias	jcl='git clone'
+alias	 jd='git diff'
+alias	 jf='git fetch'
+alias	 jg='git pull'
+#unction jd { git diff "$@" | less +/"^[Ii]ndex: .*"; }
+alias	 jh='git help'
+#lias	 ji='git init'
+alias	 jl='git log'
+alias	jls='git show'
+alias	 jm='git merge'
+alias	jmv='git mv'
+alias	 jp='git push'
+alias	 jq='git pull; git push'
+alias	 jr='git rebase'
+alias	jrm='git rm'
+alias	jrs='git reset'
+alias	jrv='git revert'
+alias	 js='git status'
+alias	 jt='git tag'
 
 #################################################################
