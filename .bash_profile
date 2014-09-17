@@ -1,6 +1,5 @@
 cd $HOME
-test -f .debug && echo .bash_profile
-test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0
+test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
 # $Id$
 #################################################################
 #	BASH PROFILE
@@ -18,18 +17,25 @@ do
 done
 done
 export	RBJ JC
+export	DEBUG=$RBJ/.debug
+test -f $DEBUG && echo .bash_profile
 
 export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
-chmod a+rx    $HOME
-test  -d      $HOME/.ssh        &&
-chmod -R og-w $HOME/.ssh        &&
-chmod 600     $HOME/.ssh/*.key  &&
-chmod 600     $HOME/.ssh/*.pass &&
-chmod 600     $HOME/.ssh/id*    &&
-chmod 644     $HOME/.ssh/*.pub
+: set -x
+chmod a+rx $HOME
+test  -w /				||
+{
+	test  -d      $HOME/.ssh        &&
+	chmod -R og-w $HOME/.ssh        &&
+	chmod 600     $HOME/.ssh/*.key  &&
+	chmod 600     $HOME/.ssh/*.pass &&
+	chmod 600     $HOME/.ssh/id*    &&
+	chmod 644     $HOME/.ssh/*.pub
+}
+set +x
 
 set -o	ignoreeof
 umask 2
@@ -67,7 +73,7 @@ eval $($RBJ/bin/fixpath MANPATH)
 #case "$SSH_AUTH_SOCK" in
 #('')	eval $(ssh-agent);;
 #esac
-ssh-add -l > /dev/null || ssh-add
+#@#@ssh-add -l > /dev/null || ssh-add
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQRcdeisj11

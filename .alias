@@ -1,4 +1,5 @@
-test -f .debug && echo .alias
+test -f $DEBUG && echo .alias
+alias	debug="touch $DEBUG"	nobug="rm -f $DEBUG"
 # $Id$
 #################################################################
 #	COMPLEX ALIASES
@@ -70,10 +71,9 @@ alias	egrep='egrep --color=auto'
 alias	g='egrep'		gi='egrep -i'
 alias	v='egrep -v'		gl='egrep -l'
 function gy { egrep --color=auto "$@" *.py; }
+alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
 alias GG='getent  group'; function gg { egrep $* /etc/group; }
 alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
-alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
-alias GS='getent shadow';
 function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
 alias	j='jobs -l'		jj='jobs -l'

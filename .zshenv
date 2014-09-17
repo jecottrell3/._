@@ -1,1 +1,1 @@
-test -f .debug && echo .zshenv
+test -f $DEBUG && echo .zshenv

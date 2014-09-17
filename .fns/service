@@ -1,5 +1,5 @@
+test -f $DEBUG && echo .fns/service
 # $Id$
-test -f .debug && echo .fns/service
 #################################################################
 #	SERVICE   (0=stop, 1=start, 2=status, 3=restart, others)
 #	SYSTEMCTL (4=disable, 5=enable, 6=is-enabled, 7=reenable)

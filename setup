@@ -27,6 +27,7 @@ do
 	(.svn)		continue;;
 	(CVS)		continue;;
 	(.profile)	continue;;
+	(.debug)	continue;;
 	(setup)		continue;;
 	(setdn)		continue;;
 	 (*~)		continue;;

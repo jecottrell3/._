@@ -1,1 +1,1 @@
-test -f .debug && echo .zlogout
+test -f $DEBUG && echo .zlogout

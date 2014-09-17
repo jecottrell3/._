@@ -1,5 +1,5 @@
 cd $HOME
-test -f .debug && echo .zprofile
+test -f $DEBUG && echo .zprofile
 # $Id: .zprofile 241 2012-12-14 23:27:03Z JECottrell3@gmail.com $
 #################################################################
 #	BASH PROFILE

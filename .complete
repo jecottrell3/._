@@ -1,4 +1,4 @@
-test -f .debug && echo .complete
+test -f $DEBUG && echo .complete
 # $Id$
 #################################################################
 #	BASH COMPLETIONS -- cheat sheet

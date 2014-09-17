@@ -1,4 +1,4 @@
-test -f .debug && echo .bashrc
+test -f ${DEBUG:-/no/where} && echo .bashrc
 # $Id$
 #################################################################
 #	MISC
@@ -10,6 +10,7 @@ source	/etc/bashrc
 umask 22
 
 set -o	emacs
+shopt -s autocd globstar 2>&-		# ignore errors
 
 unalias	rm cp mv 2>/dev/null
 test -f /usr/bin/vim && alias   vi=vim

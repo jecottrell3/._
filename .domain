@@ -1,4 +1,4 @@
-test -f .debug && echo .domain
+test -f $DEBUG && echo .domain
 # $Id$
 #################################################################
 #	Do Domain Specific Customization
@@ -11,7 +11,11 @@ DOMAIN=$(hostname -d)
 			test -d Applications ||
     IP=$(hostname -i)
 
-export H=$HOST D=$DOMAIN C=cit.nih.gov N=nih.gov
+export H=$HOST D=$DOMAIN NIH=nih.gov
+export CIT=cit.$NIH NLM=nlm.$NIH
+export NCBI=ncbi.$NLM M=be-md V=st-va
+export MD=$M.$NCBI VA=$V.$NCBI
+export QA=be-md.qa.$NCBI
 
 case $FQDN in
 (*.homerj)
@@ -26,6 +30,15 @@ case $FQDN in
 	echo Welcome to NCBI
 	export	BASE=OU=Users,OU=NLM-NCBI,OU=NLM,OU=NIH,OU=AD,DC=nih,DC=gov
 	alias	free-ip=free_ip
+	alias	c0='cons --cycle'; function c1 { cons --cycle $*; cons $*; }
+	function nh { egrep $* /etc/hosts.nis; }
+	function ne { egrep $* /etc/ethers.nis; }
+
+	export HN=/etc/hosts.nis
+
+	test -f	/home/$SUDO_USER/.ncbi_sh.d/$HOSTNAME &&
+	echo  .	/home/$SUDO_USER/.ncbi_sh.d/$HOSTNAME &&
+	source  /home/$SUDO_USER/.ncbi_sh.d/$HOSTNAME
 	;;
 (*.nih.gov)
 	echo Welcome to NIH
