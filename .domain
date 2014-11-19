@@ -29,6 +29,16 @@ case $FQDN in
 (*.ncbi.nlm.nih.gov)
 	echo Welcome to NCBI
 	export	BASE=OU=Users,OU=NLM-NCBI,OU=NLM,OU=NIH,OU=AD,DC=nih,DC=gov
+
+	function cold { cons --ipmitool ${1?'no host'} mc reset cold; }
+	function bios { cons --ipmitool ${1?'no host'} chassis bootdev bios; }
+	function  pxe { cons --ipmitool ${1?'no host'} chassis bootdev  pxe; }
+
+	function pcc { ssh root@puppetca.$M puppet cert --clean $1.$D; }
+	function pcv { ssh root@puppetca.$V puppet cert --clean $1.$D; }
+	alias	pat='sudo time puppet agent -t'
+	alias	rpu='rake puppetmaster:update:be-md'
+	alias	rps='rake puppetmaster:restart:be-md'
 	alias	free-ip=free_ip
 	alias	c0='cons --cycle'; function c1 { cons --cycle $*; cons $*; }
 	function nh { egrep $* /etc/hosts.nis; }

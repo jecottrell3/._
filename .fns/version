@@ -63,6 +63,7 @@ alias	 jg='git pull'
 #unction jd { git diff "$@" | less +/"^[Ii]ndex: .*"; }
 alias	 jh='git help'
 #lias	 ji='git init'
+alias	 jj='git grep'
 alias	 jl='git log'
 alias	jls='git show'
 alias	 jm='git merge'

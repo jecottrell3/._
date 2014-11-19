@@ -19,6 +19,7 @@ alias	qf=' rpm -qf'	qp='  rpm -qp'
 alias	q='  rpm -q'	qa='  rpm -qa'
 alias	qi=' rpm -qi'	qai=' rpm -qai'
 alias	qil='rpm -qil'	qail='rpm -qail'
+function qw { rpm -qf $2 $3 $4 $5 $(which $1); }
 
 alias	QC='rpm -q --conflicts'
 alias	QP='rpm -q --provides'

@@ -76,7 +76,7 @@ alias GG='getent  group'; function gg { egrep $* /etc/group; }
 alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
 function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
-alias	j='jobs -l'		jj='jobs -l'
+alias	j='jobs -l'		J='jobs -l'
 alias	kp='cp -p'		kr='cp -pr'
 
 alias	kh='kill -HUP'		ki='kill -INT'
