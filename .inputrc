@@ -7,9 +7,11 @@ set output-meta On
 "\M-k": "\C-e | less +/"
 "\M-m": "\C-e | less\n"
 "\M-o": overwrite-mode
-"\M-q": "ssh -tAX root@rome    SUDO_USER=$USER           bash --rcfile $RCFILE"
-"\M-s": "ssh -tAX root@strudel SUDO_USER=$USER ssh-agent bash --rcfile $RCFILE"
-"\M-v": "ssh -tAX root@vessel  SUDO_USER=$USER           bash --rcfile $RCFILE"
+"\M-q": 'PS1="$(hostname):\$PWD> "'
+#"\M-q": "ssh -tAX root@rome    SUDO_USER=$USER           bash --rcfile $RCFILE"
+"\M-s": " META s "
+#"\M-s": "ssh -tAX root@strudel SUDO_USER=$USER ssh-agent bash --rcfile $RCFILE"
+"\M-v": "jci -am '[SYS-"
 "\M-w": "\C-w\C-y=$\C-y\e\C-e"
 "\M-x": "fg; exit"
 #"\M-z": " META z "

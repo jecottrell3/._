@@ -34,13 +34,32 @@ case $FQDN in
 	function bios { cons --ipmitool ${1?'no host'} chassis bootdev bios; }
 	function  pxe { cons --ipmitool ${1?'no host'} chassis bootdev  pxe; }
 
+	alias	 LDisks='MegaCli -LDInfo -Lall -Aall'
+	alias	 PDisks='MegaCli -PDList       -Aall'
+	alias	Battery='MegaCli -AdpBbuCmd -GetBbuStatus -Aall'
+	alias	  Learn='MegaCli -AdpBbuCmd -BbuLearn -Aall'
+	alias	 Stripe='MegaCli -CfgLdAdd -R 0 '
+	alias	 Mirror='MegaCli -CfgLdAdd -R 1 '
+	alias	  RAID5='MegaCli -CfgLdAdd -R 5 '
+	alias	 NoRaid='MegaCli -CfgLdDel -L '
+
 	function pcc { ssh root@puppetca.$M puppet cert --clean $1.$D; }
 	function pcv { ssh root@puppetca.$V puppet cert --clean $1.$D; }
-	alias	pat='sudo time puppet agent -t'
+	function pat { ssh root@${1:-localhost} time puppet agent -t; }
+	function rat
+	{
+		CMD="time puppet agent -t"
+		case $# in
+		(0)	CMD="sudo $CMD";;
+		(*)	CMD="ssh -tAX root@$1 $CMD";;
+		esac
+		echo $CMD; eval $CMD
+	}
 	alias	rpu='rake puppetmaster:update:be-md'
 	alias	rps='rake puppetmaster:restart:be-md'
 	alias	free-ip=free_ip
 	alias	c0='cons --cycle'; function c1 { cons --cycle $*; cons $*; }
+	alias yum-promote=/opt/local/sbin/yum-promote
 	function nh { egrep $* /etc/hosts.nis; }
 	function ne { egrep $* /etc/ethers.nis; }
 

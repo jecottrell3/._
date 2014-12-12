@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+
+# $ENV{PATH} .= '::/no/where';	# existence test
+
+our %Q = @Q = ();
+for $Q (split(/:/, $ENV{PATH}))
+{
+	next unless -d $Q;	# existence test
+	next if $Q{$Q}++;	# first time seen?
+	push @Q, $Q;		# collect
+}
+printf "PATH=%s\n", join(':', @Q);
