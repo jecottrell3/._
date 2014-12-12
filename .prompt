@@ -52,12 +52,12 @@ esac
 PS81=': \t \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \w ;\n'
 PS82=': [\#:$?:\j]-\$; '
 
-PS9=': \t [\#:$?:\j] \w;\[
-\]: \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
+PS91=': \t [\#:$?:\j] \w;\n'
+PS92=': \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
 
 if test -d /Applications
 then	alias ssh='ssh -e^'
-	PS1="$PS9" BG=4 FG=6 HI=1; alias ssh='ssh -e^'
+	PS1="$PS91$PS92" BG=4 FG=6 HI=1; alias ssh='ssh -e^'
 else	PS1="$PS81$PS82"
 fi
 
