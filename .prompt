@@ -56,8 +56,9 @@ PS9=': \t [\#:$?:\j] \w;\[
 \]: \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
 
 if test -d /Applications
-then PS1="$PS9" BG=4 FG=6 HI=1
-else PS1="$PS81$PS82"
+then	alias ssh='ssh -e^'
+	PS1="$PS9" BG=4 FG=6 HI=1; alias ssh='ssh -e^'
+else	PS1="$PS81$PS82"
 fi
 
 #################################################################
