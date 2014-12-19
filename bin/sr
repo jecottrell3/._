@@ -7,7 +7,7 @@
 EXEC=exec
 RC=/home/cottrell/.bash_profile
 
-SHEL=/bin/sh		ENVY=	ARGS=
+SHEL=/bin/sh	ENVY=	ARGS=
 SHEL=/bin/ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
 SHEL=/bin/zsh	ENVY=	ARGS=	# "  ZDOTDIR=$HOME"
 SHEL=/bin/bash	ENVY=	ARGS="--rcfile $RC"
@@ -34,7 +34,7 @@ done
 
 if [ $# -lt 1 ]
 then
-	echo "$0 <host>" >&2
+	echo "usage:	$0 <host>" >&2
 	exit 2
 fi
 
@@ -42,7 +42,10 @@ host="$1"; shift
 
 [ $# = 0 ] && set -- $SHEL $ARGS
 
+ENVY="$ENVY PS1='<$host:\$PWD> ' HOME=/root"
+ENVY="$ENVY SUDO_USER=$USER SHELL=$SHEL"
+
 echo $#, $1, $2, $3, $4
 
 set -x
-$EXEC ssh $flags "$ME@$host" "HOME=/root SUDO_USER=$USER SHELL=$SHEL $SUDO $@"
+$EXEC ssh $flags "$ME@$host" "$ENVY $SUDO $@"
