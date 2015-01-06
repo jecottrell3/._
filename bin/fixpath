@@ -11,7 +11,7 @@ ARGS="$*"
 OFS=$IFS
 IFS="$IFS:"
 VAR=${1:-PATH}
-eval set \$$VAR
+eval set -- \$$VAR
 IFS=$OFS
 
 VAL=
