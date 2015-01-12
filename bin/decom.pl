@@ -108,9 +108,9 @@ debug;
 #### SAVE ####
 
 chdir;
--d 'hosts'  or mkdir 'hosts';
+-d 'decom'  or mkdir 'decom';
 -d 'puppet' or mkdir 'puppet';
-chdir 'hosts';
+chdir 'decom';
 
 run "ad-gethost $PART | tee $HOST.ad";
 run "ssh root\@$FQDN cat /etc/iscsi/initiatorname.iscsi | tee $PART.iscsi";

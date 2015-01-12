@@ -1,0 +1,72 @@
+* Rules
+
+who where = (asuser : asgroup) tags* what
+
+* Aliases
+
+	User_Alias	DEF : DEF...
+	Runas_Alias	DEF : DEF...
+	Host_Alias	DEF : DEF...
+	Cmnd_Alias	DEF : DEF...
+
+Each DEF must be: NAME = list
+
+All names must be TOTALLY CAPS, NUMBERS, or _
+
+Each list must be: item, item...
+
+An item is a User, Runas, Host or Cmnd
+
+** User:
+	name		# user name
+	#uid		# user with UID
+	%group		# user in group
+	%#gid		# user with GID
+	+netgroup	# NIS
+	%:other		# who knows?
+	%:#otherid	# who knows?
+	User_Alias	# User List
+
+User_Alias UL1 = u1a, u1b, u1c : UL2 = u2a, u2b : UL3 = u3a
+
+** Runas:	similar to User
+
+Runas_Alias RL1 = r1a, r1b, r1c : RL2 = r2a, r2b : RL3 = r3a
+
+** Host:
+	name		# host name
+	i.p.a.d		# address
+	n.e.t/m.a.s.k	# 255.255.255.snore
+	n.e.t/cidr	# CIDR notation
+	+netgroup	# NIS
+	Host_Alias	# Host List
+
+Host_Alias HL1 = h1a, h1b, h1c : HL2 = h2a, h2b : HL3 = h3a
+
+** Cmnd:
+	name		# args optional
+	name args...	# with specific args
+	name ''		# no args allowed
+	dir/		# any file in directory
+	sudoedit	# editing
+	Cmnd_Alias	# Command List
+
+Cmnd_Alias CL1 = c1a, c1b, c1c : CL2 = c2a, c2b : CL3 = c3a
+
+* Defaults
+
+	Defaults		Parm_List...
+	Defaults @ Host List	Parm_List...
+	Defaults : User List	Parm_List...
+	Defaults ! Cmnd List	Parm_List...
+	Defaults > Runas List	Parm_List...
+
+Parm_Item:
+	parm  = value
+	parm += value
+	parm -= value
+	! value
+
+Values: flags, numbers, strings, lists
+
+* Rules
