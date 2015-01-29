@@ -1,0 +1,54 @@
+################################################################
+-@general-desktop
+################################################################
+
+#d	-PackageKit-gstreamer-plugin
+#d	-authconfig-gtk
+#d	-brasero-nautilus
+#d	-cheese
+#d	-compiz-gnome
+#d	-evince
+#d	-evince-dvi
+#d	-file-roller
+#d	-gcalctool
+#d	-gedit
+#d	-gnome-backgrounds
+#d	-gnome-bluetooth
+#d	-gnome-disk-utility
+#d	-gnome-power-manager
+#d	-gnome-system-monitor
+#d	-gnome-themes
+#d	-gnome-user-docs
+#d	-gnome-user-share
+#d	-gnome-utils
+#d	-gnote
+#d	-gthumb
+#d	-gucharmap
+#d	-gvfs-afc
+#d	-gvfs-gphoto2
+#d	-gvfs-obexftp
+#d	-mousetweaks
+#d	-nautilus-open-terminal
+#d	-nautilus-sendto
+#d	-rhythmbox
+#d	-scenery-backgrounds
+#d	-seahorse
+#d	-sound-juicer
+#d	-system-config-firewall
+#d	-system-config-users
+#d	-totem
+#d	-totem-nautilus
+#o	 alacarte
+#o	 byzanz
+#o	 dvgrab
+#o	 gconf-editor
+#o	 gedit-plugins
+#o	 gnome-games
+#o	 gnome-pilot
+#o	 gnome-pilot-conduits
+#o	 krb5-auth-dialog
+#o	 rhythmbox-upnp
+#o	 seahorse-plugins
+#o	 totem-upnp
+#o	 vim-X11
+

@@ -1,0 +1,38 @@
+################################################################
+-@xfce-apps
+################################################################
+
+#m	-catfish
+#m	-claws-mail
+#m	-claws-mail-plugins-archive
+#m	-claws-mail-plugins-att-remover
+#m	-claws-mail-plugins-attachwarner
+#m	-claws-mail-plugins-fetchinfo
+#m	-claws-mail-plugins-mailmbox
+#m	-claws-mail-plugins-newmail
+#m	-claws-mail-plugins-notification
+#m	-claws-mail-plugins-pgp
+#m	-claws-mail-plugins-rssyl
+#m	-claws-mail-plugins-smime
+#m	-claws-mail-plugins-spam-report
+#m	-claws-mail-plugins-tnef
+#m	-claws-mail-plugins-vcalendar
+#m	-galculator
+#m	-geany
+#m	-gparted
+#m	-leafpad
+#m	-liferea
+#m	-midori
+#m	-orage
+#m	-pidgin
+#m	-remmina
+#m	-remmina-plugins-rdp
+#m	-remmina-plugins-vnc
+#m	-ristretto
+#m	-seahorse
+#m	-transmission
+#m	-xarchiver
+#m	-xfce4-clipman-plugin
+#m	-xfce4-dict-plugin
+#m	-xfce4-notes-plugin
+

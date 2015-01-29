@@ -1,0 +1,11 @@
+################################################################
+-@mysql-client
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-mysql-connector-odbc
+#o	 libdbi-dbd-mysql
+#o	 mysql-connector-java
+#o	 perl-DBD-MySQL
+

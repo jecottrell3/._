@@ -1,0 +1,386 @@
+################################################################
+-@backup-client
+################################################################
+
+#m	-amanda-client
+#o	 bacula-client
+
+################################################################
+-@backup-server
+################################################################
+
+#m	-amanda-server
+#o	 mt-st
+#o	 mtx
+
+################################################################
+-@client-mgmt-tools
+################################################################
+
+
+################################################################
+-@compat-libraries
+################################################################
+
+#d	-compat-db
+#d	-compat-expat1
+#d	-compat-glibc
+#d	-compat-libcap1
+#d	-compat-libf2c-34
+#d	-compat-libgfortran-41
+#d	-compat-libstdc++-296
+#d	-compat-libstdc++-33
+#d	-compat-libtermcap
+#d	-compat-openldap
+#d	-compat-openmpi
+#d	-compat-openmpi-psm
+#d	-compat-opensm-libs
+#d	-compat-readline5
+#d	-openssl098e
+
+################################################################
+-@conflicts-client
+################################################################
+
+#m	-cpupowerutils
+#m	-samba4
+#m	-samba4-client
+#m	-samba4-common
+#m	-samba4-dc
+#m	-samba4-dc-libs
+#m	-samba4-devel
+#m	-samba4-libs
+#m	-samba4-pidl
+#m	-samba4-python
+#m	-samba4-swat
+#m	-samba4-test
+#m	-samba4-winbind
+#m	-samba4-winbind-clients
+#m	-samba4-winbind-krb5-locator
+
+################################################################
+-@conflicts-server
+################################################################
+
+#m	-cpupowerutils
+#m	-ipa-server
+#m	-ipa-server-selinux
+#m	-ipa-server-trust-ad
+#m	-libcmpiCppImpl0
+#m	-samba4
+#m	-samba4-client
+#m	-samba4-common
+#m	-samba4-dc
+#m	-samba4-dc-libs
+#m	-samba4-devel
+#m	-samba4-libs
+#m	-samba4-pidl
+#m	-samba4-python
+#m	-samba4-swat
+#m	-samba4-test
+#m	-samba4-winbind
+#m	-samba4-winbind-clients
+#m	-samba4-winbind-krb5-locator
+
+################################################################
+-@dial-up
+################################################################
+
+#m	-ppp
+#d	-lrzsz
+#d	-minicom
+#d	-wvdial
+#o	 efax
+#o	 isdn4k-utils
+#o	 pptp
+#o	 rp-pppoe
+
+################################################################
+-@eclipse
+################################################################
+
+#m	-eclipse-cdt
+#m	-eclipse-jdt
+#d	-eclipse-callgraph
+#d	-eclipse-changelog
+#d	-eclipse-mylyn
+#d	-eclipse-mylyn-java
+#d	-eclipse-oprofile
+#d	-eclipse-pde
+#d	-eclipse-rpm-editor
+#d	-eclipse-subclipse
+#d	-eclipse-valgrind
+#o	 eclipse-mylyn-cdt
+#o	 eclipse-mylyn-pde
+#o	 eclipse-mylyn-trac
+#o	 eclipse-mylyn-webtasks
+#o	 eclipse-mylyn-wikitext
+#o	 eclipse-subclipse-graph
+
+################################################################
+-@ha
+################################################################
+
+#m	-cman
+#d	-ccs
+#d	-omping
+#d	-rgmanager
+#o	 cluster-cim
+#o	 cluster-glue-libs-devel
+#o	 cluster-snmp
+#o	 clusterlib-devel
+#o	 corosynclib-devel
+#o	 fence-virtd-checkpoint
+#o	 foghorn
+#o	 libesmtp-devel
+#o	 openaislib-devel
+#o	 pacemaker
+#o	 pacemaker-doc
+#o	 pacemaker-libs-devel
+#o	 pcs
+#o	 python-repoze-what-quickstart
+
+################################################################
+-@ha-management
+################################################################
+
+#m	-luci
+
+################################################################
+-@identity-management-server
+################################################################
+
+#d	-389-ds-base
+#d	-ipa-admintools
+#d	-ipa-pki-ca-theme
+#d	-ipa-pki-common-theme
+#d	-ipa-server
+#d	-mod_revocator
+#d	-pki-ca
+#d	-pki-silent
+#o	 nuxwdog
+#o	 slapi-nis
+
+################################################################
+-@infiniband
+################################################################
+
+#m	-libibcm
+#m	-libibverbs
+#m	-libibverbs-utils
+#m	-librdmacm
+#m	-librdmacm-utils
+#m	-rdma
+#d	-dapl
+#d	-ibacm
+#d	-ibsim
+#d	-ibutils
+#d	-libcxgb3
+#d	-libibmad
+#d	-libibumad
+#d	-libipathverbs
+#d	-libmlx4
+#d	-libmthca
+#d	-libnes
+#d	-rds-tools
+#o	 compat-dapl
+#o	 infiniband-diags
+#o	 libibcommon
+#o	 mstflint
+#o	 opensm
+#o	 perftest
+#o	 qperf
+#o	 srptools
+
+################################################################
+-@input-methods
+################################################################
+
+#m	-ibus-gtk
+#d	-ibus-anthy
+#d	-ibus-chewing
+#d	-ibus-hangul
+#d	-ibus-m17n
+#d	-ibus-pinyin
+#d	-ibus-rawcode
+#d	-ibus-sayura
+#d	-ibus-table-additional
+#d	-m17n-contrib-assamese
+#d	-m17n-contrib-bengali
+#d	-m17n-contrib-gujarati
+#d	-m17n-contrib-hindi
+#d	-m17n-contrib-kannada
+#d	-m17n-contrib-maithili
+#d	-m17n-contrib-malayalam
+#d	-m17n-contrib-marathi
+#d	-m17n-contrib-oriya
+#d	-m17n-contrib-punjabi
+#d	-m17n-contrib-tamil
+#d	-m17n-contrib-telugu
+#d	-m17n-contrib-urdu
+#d	-m17n-db-sinhala
+#d	-m17n-db-thai
+
+################################################################
+-@large-systems
+################################################################
+
+#m	-numactl
+#m	-numad
+#d	-hwloc
+#d	-libcgroup
+#d	-libhugetlbfs
+#d	-libhugetlbfs-utils
+#d	-libtopology
+#o	 tuna
+
+################################################################
+-@load-balancer
+################################################################
+
+#m	-ipvsadm
+#d	-piranha
+#o	 haproxy
+#o	 keepalived
+
+################################################################
+-@mainframe-access
+################################################################
+
+#d	-tn5250
+#d	-x3270-x11
+#o	 x3270-text
+
+################################################################
+-@resilient-storage
+################################################################
+
+#m	-gfs2-utils
+#m	-lvm2-cluster
+#d	-ccs
+#o	 cluster-glue-libs-devel
+#o	 clusterlib-devel
+#o	 cmirror
+#o	 corosynclib-devel
+#o	 ctdb
+#o	 ctdb-devel
+#o	 fence-virtd-checkpoint
+#o	 libesmtp-devel
+#o	 openaislib-devel
+#o	 pacemaker-libs-devel
+
+################################################################
+-@server-policy
+################################################################
+
+
+################################################################
+-@storage-client-fcoe
+################################################################
+
+#m	-fcoe-utils
+#d	-cgdcbxd
+#d	-fcoe-target-utils
+#d	-lldpad
+
+################################################################
+-@storage-client-iscsi
+################################################################
+
+#m	-iscsi-initiator-utils
+
+################################################################
+-@storage-client-multipath
+################################################################
+
+#m	-device-mapper-multipath
+
+################################################################
+-@storage-server
+################################################################
+
+#d	-scsi-target-utils
+#o	 isns-utils
+
+################################################################
+-@system-management-messaging-client
+################################################################
+
+#m      -qpid-cpp-client
+#d      -python-qpid
+#d      -python-qpid-qmf
+#d      -qpid-qmf
+#d      -qpid-tools
+#o       python-saslwrapper
+#o       qpid-tests
+#o       ruby-irb
+#o       ruby-qpid-qmf
+
+################################################################
+-@system-management-messaging-server
+################################################################
+
+
+################################################################
+-@system-management-wbem
+################################################################
+
+#d	-openwsman-client
+#d	-sblim-sfcb
+#d	-sblim-wbemcli
+#d	-wsmancli
+#o	 openwsman-server
+#o	 sblim-cim-client
+#o	 sblim-cim-client2
+#o	 sblim-cmpi-dhcp
+#o	 sblim-cmpi-dns
+#o	 sblim-cmpi-fsvol
+#o	 sblim-cmpi-network
+#o	 sblim-cmpi-nfsv3
+#o	 sblim-cmpi-nfsv4
+#o	 sblim-cmpi-params
+#o	 sblim-cmpi-samba
+#o	 sblim-cmpi-sysfs
+#o	 sblim-cmpi-syslog
+#o	 sblim-gather
+#o	 sblim-gather-provider
+#o	 sblim-indication_helper
+#o	 sblim-smis-hba
+#o	 sblim-tools-libra
+#o	 tog-pegasus
+
+################################################################
+-@technical-writing
+################################################################
+
+#m	-docbook-slides
+#m	-docbook-style-xsl
+#m	-docbook-utils
+#m	-docbook5-schemas
+#m	-docbook5-style-xsl
+#d	-xmlto
+#o	 docbook-utils-pdf
+#o	 texinfo
+#o	 xmlto-tex
+#o	 xmltoman
+
+################################################################
+-@tex
+################################################################
+
+#m	-tex-cm-lgc
+#m	-texlive
+#m	-texlive-latex
+
+################################################################
+-@turbogears
+################################################################
+
+#m	-TurboGears2
+
+################################################################
+-@web-servlet
+################################################################
+
+#m	-tomcat6
+

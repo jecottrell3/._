@@ -1,0 +1,297 @@
+################################################################
+@admin-tools
+################################################################
+
+#d	-authconfig-gtk
+#d	-pirut
+-sabayon
+-setroubleshoot
+#d	-system-config-date
+-system-config-kdump
+#d	-system-config-keyboard
+#d	-system-config-language
+#d	-system-config-lvm
+#d	-system-config-network
+#d	-system-config-rootpassword
+#d	-system-config-soundcard
+#d	-system-config-users
+system-config-kickstart
+system-config-netboot
+system-config-netboot-cmd
+
+################################################################
+@development-tools
+################################################################
+
+#m	-autoconf
+#m	-automake
+#m	-binutils
+#m	-bison
+#m	-flex
+#m	-gcc
+#m	-gcc-c++
+#m	-gdb
+#m	-gettext
+#m	-libtool
+#m	-make
+#m	-pkgconfig
+#m	-redhat-rpm-config
+#m	-rpm-build
+#m	-strace
+-strace64
+-automake14
+-automake15
+-automake16
+-automake17
+#d	-byacc
+#d	-cscope
+#d	-ctags
+#d	-cvs
+#d	-dev86
+#d	-diffstat
+#d	-dogtail
+#d	-doxygen
+#d	-elfutils
+-frysk
+-gcc-gfortran
+#d	-indent
+#d	-ltrace
+#d	-oprofile
+#d	-patchutils
+-pfmon
+#d	-pstack
+#d	-python-ldap
+#d	-rcs
+#d	-splint
+#d	-subversion
+#d	-swig
+#d	-systemtap
+#d	-texinfo
+-valgrind
+-valgrind-callgrind
+#o	 ElectricFence
+#ox	 ddd
+dejagnu
+expect
+#o	 gcc-gnat
+#o	 gcc-objc
+#o	 gcc44
+#o	 gcc44-c++
+#o	 gcc44-gfortran
+imake
+java-1.6.0-openjdk
+java-1.6.0-openjdk-devel
+#o	 libgfortran44
+#o	 memtest86+
+#o	 nasm
+pexpect
+unifdef
+
+################################################################
+@dns-server
+################################################################
+
+#m	-bind
+-bind-chroot
+
+################################################################
+@editors
+################################################################
+
+#d	-vim-enhanced
+emacs
+vim-X11
+
+################################################################
+@engineering-and-scientific
+################################################################
+
+#d	-gnuplot
+#d	-units
+#o	 lam
+#o	 lapack
+#o	 pvm
+
+################################################################
+@ftp-server
+################################################################
+
+vsftpd
+xferstats
+
+################################################################
+@graphical-internet
+################################################################
+
+-ekiga
+-evolution
+-evolution-connector
+-evolution-webcal
+#d	-firefox
+-gnome-themes
+-java-1.4.2-gcj-compat-plugin
+#d	-nspluginwrapper
+#d	-pidgin	
+gftp
+thunderbird
+xchat
+
+################################################################
+@java
+################################################################
+
+#m	-java-1.4.2-gcj-compat
+#m	-libgcj
+
+################################################################
+@miscallvars
+################################################################
+
+#o	 anaconda
+#o	 anaconda-runtime
+#o	 bitmap-fonts-cjk
+#o	 booty
+#o	 busybox-anaconda
+#ox	 cachefilesd
+#o	 convmv
+iptables
+#o	 iptables-devel
+#o	 iptables-ipv6
+#o	 ipv6calc
+#o	 iscsi-initiator-utils
+joe
+#o	 kernel
+#ox	 kernel-kdump
+#o	 kernel-xen
+#o	 lksctp-tools
+#o	 netlabel_tools
+#o	 openhpi
+#o	 openmotif
+procinfo
+#ox	 salinfo
+#o	 sg3_utils
+syslinux
+
+################################################################
+@network-server
+################################################################
+
+#d	-cyrus-sasl
+#o	 amanda-server
+dhcp
+#o	 dhcpv6
+#o	 freeradius
+krb5-server
+#o	 openldap-servers
+#o	 privoxy
+#o	 quagga
+#o	 radvd
+vnc-server
+ypserv
+
+################################################################
+@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+#d	-a2ps
+#d	-enscript
+#d	-hal-cups-utils
+-hplip
+#d	-paps
+-samba-client
+-system-config-printer
+#o	 bluez-utils-cups
+
+################################################################
+@ruby
+################################################################
+
+#m	-ruby
+#d	-ruby-devel
+#d	-ruby-mode
+eruby
+ruby-ri
+
+################################################################
+@server-cfg
+################################################################
+
+#d	-system-config-httpd
+system-config-nfs
+-system-config-printer-gui
+#d	-system-config-samba
+system-config-securitylevel
+system-config-services
+system-config-bind
+system-config-boot
+#o	 system-switch-mail-gnome
+
+################################################################
+@system-tools
+################################################################
+
+-OpenIPMI
+-bluez-gnome
+-bluez-hcidump
+-ckermit
+#d	-hwbrowser
+#d	-net-snmp-libs
+#d	-nmap
+#d	-ntp
+-open
+#d	-openldap-clients
+-samba-client
+#d	-screen
+#d	-vnc
+#d	-xdelta
+#d	-zisofs-tools
+#d	-zsh
+adjtimex
+#o	 am-utils
+#o	 amanda-client
+#o	 arptables_jf
+arpwatch
+audit
+#o	 avahi-tools
+createrepo
+dstat
+dtach
+#o	 festival
+#o	 gnome-nettool
+gnutls-utils
+iptraf
+lslk
+#o	 lsscsi
+mc
+mrtg
+#o	 mt-st
+#o	 mtx
+net-snmp-utils
+nmap-frontend
+rdesktop
+#o	 sblim-gather
+#o	 sblim-wbemcli
+sysstat
+#o	 tn5250
+#o	 tsclient
+#o	 uucp
+uuidd
+vlock
+#o	 wireshark-gnome
+#o	 x3270
+
+################################################################
+@text-internet
+################################################################
+
+#d	-cadaver
+#d	-elinks
+#d	-fetchmail
+#d	-mutt
+#d	-slrn
+epic
+lynx
+tftp
+

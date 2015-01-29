@@ -1,0 +1,13 @@
+################################################################
+-@large-systems
+################################################################
+
+#m	-numactl
+#m	-numad
+#d	-hwloc
+#d	-libcgroup
+#d	-libhugetlbfs
+#d	-libhugetlbfs-utils
+#d	-libtopology
+#o	 tuna
+

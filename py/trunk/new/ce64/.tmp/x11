@@ -1,0 +1,19 @@
+################################################################
+-@x11
+################################################################
+
+#m	-xorg-x11-drivers
+#m	-xorg-x11-server-Xorg
+#m	-xorg-x11-xauth
+#m	-xorg-x11-xinit
+#d	-firstboot
+#d	-glx-utils
+#d	-hal
+#d	-plymouth-system-theme
+#d	-spice-vdagent
+#d	-wacomexpresskeys
+#d	-wdaemon
+#d	-xorg-x11-server-utils
+#d	-xorg-x11-utils
+#d	-xvattr
+

@@ -1,0 +1,20 @@
+################################################################
+-@compat-libraries
+################################################################
+
+#d	-compat-db
+#d	-compat-expat1
+#d	-compat-glibc
+#d	-compat-libcap1
+#d	-compat-libf2c-34
+#d	-compat-libgfortran-41
+#d	-compat-libstdc++-296
+#d	-compat-libstdc++-33
+#d	-compat-libtermcap
+#d	-compat-openldap
+#d	-compat-openmpi
+#d	-compat-openmpi-psm
+#d	-compat-opensm-libs
+#d	-compat-readline5
+#d	-openssl098e
+

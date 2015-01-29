@@ -1,0 +1,44 @@
+################################################################
+-@basic-desktop
+################################################################
+
+#m	-NetworkManager
+#m	-NetworkManager-gnome
+#m	-alsa-plugins-pulseaudio
+#m	-at-spi
+#m	-control-center
+#m	-dbus
+#m	-gdm
+#m	-gdm-user-switch-applet
+#m	-gnome-panel
+#m	-gnome-power-manager
+#m	-gnome-screensaver
+#m	-gnome-session
+#m	-gnome-terminal
+#m	-gvfs-archive
+#m	-gvfs-fuse
+#m	-gvfs-smb
+#m	-metacity
+#m	-nautilus
+#m	-notification-daemon
+#m	-polkit-gnome
+#m	-xdg-user-dirs-gtk
+#m	-yelp
+#d	-control-center-extra
+#d	-eog
+#d	-gdm-plugin-fingerprint
+#d	-gnome-applets
+#d	-gnome-media
+#d	-gnome-packagekit
+#d	-gnome-vfs2-smb
+#d	-gok
+#d	-openssh-askpass
+#d	-orca
+#d	-pulseaudio-module-gconf
+#d	-pulseaudio-module-x11
+#dx	-rhn-setup-gnome
+#d	-vino
+#o	 sabayon-apply
+#o	 tigervnc-server
+#o	 xguest
+

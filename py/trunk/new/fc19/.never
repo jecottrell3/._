@@ -1,0 +1,183 @@
+################################################################
+-@design-suite
+################################################################
+
+#d	-GREYCstoration
+#d	-ImageMagick
+#d	-aajohan-comfortaa-fonts
+#d	-adobe-source-sans-pro-fonts
+#d	-blender
+#d	-cinepaint
+#d	-cmyktool
+#d	-colord-extra-profiles
+#d	-darktable
+#d	-dia
+#d	-entangle
+#d	-font-manager
+#d	-fontforge
+#d	-gimp
+#d	-gimp-data-extras
+#d	-gimp-fourier-plugin
+#d	-gimp-help
+#d	-gimp-help-browser
+#d	-gimp-lqr-plugin
+#d	-gimp-resynthesizer
+#d	-gpick
+#d	-hugin
+#d	-inkscape
+#d	-lato-fonts
+#d	-mypaint
+#d	-nautilus-image-converter
+#d	-optipng
+#d	-overpass-fonts
+#d	-pdfshuffler
+#d	-scribus
+#d	-shotwell
+#d	-synfig
+#ox	 audacity
+#o	 calligra-karbon
+#o	 calligra-krita
+#o	 digikam
+#ox	 gthumb
+#ox	 istanbul
+#ox	 openclipart
+#ox	 pitivi
+#ox	 pngcrush
+#c	?kipi-plugins                    digikam
+#c	?sane-backends-drivers-scanners  gimp
+#c	?xsane-gimp                      gimp
+
+################################################################
+-@dial-up
+################################################################
+
+#m	-ppp
+#d	-ModemManager
+#d	-isdn4k-utils
+#d	-linux-atm
+#d	-lrzsz
+#d	-minicom
+#d	-rp-pppoe
+#d	-wvdial
+#ox	 efax
+#o	 pptp
+#ox	 statserial
+
+################################################################
+-@eclipse
+################################################################
+
+#m	-eclipse-cdt
+#m	-eclipse-jdt
+#d	-eclipse-changelog
+#d	-eclipse-collabnet-merge
+#d	-eclipse-dtp
+#d	-eclipse-egit
+#d	-eclipse-fedorapackager
+#d	-eclipse-mpc
+#d	-eclipse-mylyn
+#d	-eclipse-mylyn-context-cdt
+#d	-eclipse-mylyn-context-java
+#d	-eclipse-mylyn-tasks-bugzilla
+#d	-eclipse-mylyn-tasks-trac
+#d	-eclipse-mylyn-tasks-web
+#d	-eclipse-oprofile
+#d	-eclipse-packagekit
+#d	-eclipse-pde
+#d	-eclipse-pydev
+#d	-eclipse-rpm-editor
+#d	-eclipse-subclipse
+#d	-eclipse-valgrind
+#ox	 eclipse-cmakeed
+#ox	 eclipse-dltk-ruby
+#ox	 eclipse-dltk-tcl
+#ox	 eclipse-eclemma
+#ox	 eclipse-epic
+#ox	 eclipse-findbugs
+#ox	 eclipse-moreunit
+#ox	 eclipse-mylyn-fedora-integration
+#ox	 eclipse-photran
+#ox	 eclipse-phpeclipse
+#ox	 eclipse-quickrex
+#o	 eclipse-rpmstubby
+#ox	 eclipse-shelled
+#ox	 eclipse-texlipse
+#ox	 eclipse-veditor
+
+################################################################
+-@epiphany
+################################################################
+
+#m	-epiphany
+
+################################################################
+-@input-methods
+################################################################
+
+#d	-ibus-chewing
+#d	-ibus-hangul
+#d	-ibus-kkc
+#d	-ibus-libpinyin
+#d	-ibus-m17n
+#d	-ibus-rawcode
+#d	-ibus-typing-booster
+#d	-im-chooser
+#d	-imsettings
+#d	-m17n-contrib
+#ox	 WritRecogn
+#ox	 cellwriter
+#ox	 eekboard
+#ox	 fcitx
+#ox	 gcin
+#ox	 ibus-anthy
+#ox	 ibus-bogo
+#ox	 ibus-fbterm
+#ox	 ibus-gucharmap
+#ox	 ibus-handwrite
+#ox	 ibus-input-pad
+#ox	 ibus-mozc
+#ox	 ibus-sayura
+#ox	 ibus-skk
+#ox	 ibus-table
+#ox	 ibus-table-array30
+#ox	 ibus-table-cyrillic
+#ox	 ibus-xkbc
+#ox	 input-pad
+#ox	 iok
+#ox	 kinput2
+#ox	 scim-anthy
+#ox	 scim-array
+#ox	 scim-bridge-gtk
+#ox	 scim-bridge-qt
+#ox	 scim-bridge-qt3
+#ox	 scim-chewing
+#ox	 scim-fcitx
+#ox	 scim-gtk
+#ox	 scim-hangul
+#ox	 scim-m17n
+#ox	 scim-pinyin
+#ox	 scim-rawcode
+#ox	 scim-sayura
+#ox	 scim-tables-additional
+#ox	 scim-tables-chinese
+#ox	 scim-tables-chinese-extra
+#ox	 scim-thai
+#ox	 uim
+#ox	 uim-anthy
+#ox	 uim-canna
+#ox	 uim-gtk2
+#ox	 uim-gtk3
+#ox	 uim-m17n
+#ox	 uim-qt3
+#ox	 uim-skk
+#c	?gtk2-immodule-xim               gtk2
+#c	?gtk3-immodule-xim               gtk3
+#c	?ibus-gtk2                       gtk2
+#c	?ibus-gtk3                       gtk3
+#c	?ibus-qt                         qt
+#c	?im-chooser-xfce                 xfce4-panel
+#c	?imsettings-gsettings            gnome-settings-daemon
+#c	?imsettings-lxde                 lxde-common
+#c	?imsettings-qt                   qt
+#c	?imsettings-xfce                 xfce4-panel
+

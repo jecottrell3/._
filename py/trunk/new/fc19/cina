@@ -1,0 +1,48 @@
+################################################################
+-@cinnamon-desktop
+################################################################
+
+#m	-ConsoleKit-x11
+#m	-NetworkManager-l2tp
+#m	-NetworkManager-openconnect
+#m	-NetworkManager-openvpn
+#m	-NetworkManager-pptp
+#m	-NetworkManager-vpnc
+#m	-abrt-desktop
+#m	-alsa-plugins-pulseaudio
+#m	-brasero
+#m	-cinnamon
+#m	-control-center
+#m	-eog
+#m	-evince
+#m	-fedora-icon-theme
+#m	-firefox
+#m	-firewall-config
+#m	-gedit
+#m	-gnome-backgrounds
+#m	-gnome-calculator
+#m	-gnome-disk-utility
+#m	-gnome-icon-theme
+#m	-gnome-icon-theme-extras
+#m	-gnome-icon-theme-legacy
+#m	-gnome-packagekit
+#m	-gnome-screensaver
+#m	-gnome-screenshot
+#m	-gnome-system-monitor
+#m	-gnome-terminal
+#m	-initial-setup
+#m	-lightdm-gtk
+#m	-metacity
+#m	-nemo
+#m	-network-manager-applet
+#m	-nm-connection-editor
+#m	-policycoreutils-gui
+#m	-sane-backends-drivers-scanners
+#m	-setroubleshoot
+#m	-simple-scan
+#m	-system-config-users
+#m	-thunderbird
+#m	-totem
+#m	-totem-mozplugin
+#m	-xdg-user-dirs-gtk
+

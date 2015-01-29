@@ -1,0 +1,20 @@
+################################################################
+-@graphics
+################################################################
+
+#m	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+#d	-gutenprint-plugin
+#d	-libsane-hpaio
+#d	-sane-backends-libs-gphoto2
+#d	-sane-frontends
+#d	-xsane
+#d	-xsane-gimp
+#o	 ImageMagick
+#o	 dcraw
+#o	 inkscape
+#o	 netpbm-progs
+#o	 xfig
+

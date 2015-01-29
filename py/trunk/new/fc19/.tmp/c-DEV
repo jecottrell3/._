@@ -1,0 +1,43 @@
+################################################################
+-@c-development
+################################################################
+
+#m	-autoconf
+#m	-automake
+#m	-binutils
+#m	-bison
+#m	-flex
+#m	-gcc
+#m	-gcc-c++
+#m	-gdb
+#m	-glibc-devel
+#m	-libtool
+#m	-make
+#m	-pkgconfig
+#m	-strace
+#d	-byacc
+#d	-ccache
+#d	-cscope
+#d	-ctags
+#d	-elfutils
+#d	-indent
+#d	-ltrace
+#d	-oprofile
+#d	-oprofile-gui
+#d	-valgrind
+#ox	 ElectricFence
+#ox	 astyle
+#o	 check
+#o	 cmake
+#ox	 coan
+#ox	 cproto
+#ox	 elfinfo
+#ox	 insight
+#ox	 nasm
+#ox	 pscan
+#ox	 scons
+#ox	 splint
+#ox	 undertaker
+#ox	 yasm
+#ox	 zzuf
+

@@ -1,0 +1,38 @@
+################################################################
+@kde-desktop
+################################################################
+
+#m	-alsa-plugins-pulseaudio
+#m	-kde-settings-pulseaudio
+-kdeaccessibility
+#m	-kdeartwork-screensavers
+#m	-kdebase
+#m	-kdebase-workspace
+#m	-kdelibs
+#m	-xsettings-kde
+-NetworkManager-gnome
+#d	-SL_desktop_tweaks
+#d	-k3b
+#d	-kcoloredit
+#d	-kdeadmin
+#d	-kdegames
+#d	-kdegraphics
+#d	-kdemultimedia
+#d	-kdenetwork
+-kdepim
+-kdepim-runtime
+#d	-kdeplasma-addons
+#d	-kdeutils
+#d	-kdm
+#d	-kiconedit
+#d	-kipi-plugins
+#d	-kmid
+#d	-konq-plugins
+#d	-ksig
+#d	-ksshaskpass
+#d	-pinentry-qt
+#o	 kdebase-workspace-akonadi
+kdebase-workspace-python-applet
+#o	 rhn-setup-gnome
+#c	?ibus-qt                         ibus
+

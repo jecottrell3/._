@@ -1,0 +1,24 @@
+################################################################
+-@conflicts-server
+################################################################
+
+#m	-cpupowerutils
+#m	-ipa-server
+#m	-ipa-server-selinux
+#m	-ipa-server-trust-ad
+#m	-libcmpiCppImpl0
+#m	-samba4
+#m	-samba4-client
+#m	-samba4-common
+#m	-samba4-dc
+#m	-samba4-dc-libs
+#m	-samba4-devel
+#m	-samba4-libs
+#m	-samba4-pidl
+#m	-samba4-python
+#m	-samba4-swat
+#m	-samba4-test
+#m	-samba4-winbind
+#m	-samba4-winbind-clients
+#m	-samba4-winbind-krb5-locator
+

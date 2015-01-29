@@ -1,0 +1,12 @@
+################################################################
+-@print-server
+################################################################
+
+#m	-cups
+#m	-printer-filters
+#d	-foomatic-db-ppds
+#d	-gutenprint
+#d	-gutenprint-cups
+#d	-hpijs
+#d	-paps
+

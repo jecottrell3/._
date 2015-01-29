@@ -1,0 +1,14 @@
+################################################################
+-@rpm-development-tools
+################################################################
+
+#m	-redhat-rpm-config
+#m	-rpm-build
+#d	-koji
+#d	-mock
+#d	-rpmdevtools
+#ox	 plague-client
+#ox	 pungi
+#ox	 revisor
+#o	 rpmlint
+

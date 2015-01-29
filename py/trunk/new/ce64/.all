@@ -1,0 +1,1746 @@
+################################################################
+-@core
+################################################################
+
+#m	-acl
+#m	-attr
+#m	-audit
+#m	-basesystem
+#m	-bash
+#m	-coreutils
+#m	-cpio
+#m	-cronie
+#m	-dhclient
+#m	-e2fsprogs
+#m	-filesystem
+#m	-glibc
+#m	-initscripts
+#m	-iproute
+#m	-iptables
+#m	-iptables-ipv6
+#m	-iputils
+#m	-kbd
+#m	-ncurses
+#m	-openssh-server
+#m	-passwd
+#m	-policycoreutils
+#m	-procps
+#mx	-rhnsd
+#m	-rootfiles
+#m	-rpm
+#m	-rsyslog
+#m	-selinux-policy-targeted
+#m	-setup
+#m	-shadow-utils
+#m	-sudo
+#m	-util-linux-ng
+#m	-vim-minimal
+#m	-yum
+#mx	-yum-rhn-plugin
+#d	-aic94xx-firmware
+#d	-atmel-firmware
+#d	-b43-openfwwf
+#d	-bfa-firmware
+#d	-efibootmgr
+#d	-grub
+#d	-ipw2100-firmware
+#d	-ipw2200-firmware
+#d	-ivtv-firmware
+#d	-iwl100-firmware
+#d	-iwl1000-firmware
+#d	-iwl3945-firmware
+#d	-iwl4965-firmware
+#d	-iwl5000-firmware
+#d	-iwl5150-firmware
+#d	-iwl6000-firmware
+#d	-iwl6000g2a-firmware
+#d	-iwl6050-firmware
+#d	-kernel-firmware
+#d	-libertas-usb8388-firmware
+#d	-postfix
+#d	-ql2100-firmware
+#d	-ql2200-firmware
+#d	-ql23xx-firmware
+#d	-ql2400-firmware
+#d	-ql2500-firmware
+#d	-rt61pci-firmware
+#d	-rt73usb-firmware
+#d	-xorg-x11-drv-ati-firmware
+#d	-zd1211-firmware
+#o	 dracut-fips
+#o	 dracut-network
+
+################################################################
+-@base
+################################################################
+
+#m	-alsa-utils
+#m	-at
+#m	-authconfig
+#m	-bc
+#m	-bind-utils
+#m	-centos-indexhtml
+#m	-crontabs
+#m	-cyrus-sasl-plain
+#m	-dbus
+#m	-ed
+#m	-file
+#m	-logrotate
+#m	-lsof
+#m	-man
+#m	-ntsysv
+#m	-parted
+#m	-pciutils
+#m	-psacct
+#m	-quota
+#m	-setserial
+#m	-tmpwatch
+#m	-traceroute
+#d	-abrt-addon-ccpp
+#d	-abrt-addon-kerneloops
+#d	-abrt-addon-python
+#d	-abrt-cli
+#d	-acpid
+#d	-b43-fwcutter
+#d	-biosdevname
+#d	-blktrace
+#d	-bridge-utils
+#d	-bzip2
+#d	-cpuspeed
+#d	-cryptsetup-luks
+#d	-dmraid
+#d	-dosfstools
+#d	-eject
+#d	-ethtool
+#d	-fprintd-pam
+#d	-gnupg2
+#d	-hunspell
+#d	-hunspell-en
+#d	-irqbalance
+#d	-kexec-tools
+#d	-ledmon
+#d	-libaio
+#d	-lvm2
+#d	-man-pages
+#d	-man-pages-overrides
+#d	-mdadm
+#d	-microcode_ctl
+#d	-mlocate
+#d	-mtr
+#d	-nano
+#d	-ntp
+#d	-ntpdate
+#d	-openssh-clients
+#d	-pam_passwdqc
+#d	-pcmciautils
+#d	-pinfo
+#d	-plymouth
+#d	-pm-utils
+#d	-prelink
+#d	-rdate
+#d	-readahead
+#d	-rfkill
+#d	-rng-tools
+#d	-rsync
+#d	-scl-utils
+#d	-setuptool
+#d	-smartmontools
+#d	-sos
+#d	-strace
+#d	-sysstat
+#d	-system-config-firewall-tui
+#d	-system-config-network-tui
+#d	-systemtap-runtime
+#d	-tcpdump
+#d	-tcsh
+#d	-time
+#d	-unzip
+#d	-usbutils
+#d	-vconfig
+#d	-vim-enhanced
+#d	-virt-what
+#d	-wget
+#d	-which
+#d	-wireless-tools
+#d	-words
+#d	-xz
+#d	-yum-plugin-security
+#d	-yum-utils
+#d	-zip
+#o	 PyPAM
+#o	 audispd-plugins
+#o	 brltty
+#o	 cpupowerutils
+#o	 device-mapper-persistent-data
+#o	 dos2unix
+#o	 dumpet
+#o	 ecryptfs-utils
+#o	 edac-utils
+#o	 genisoimage
+#o	 gpm
+#o	 kabi-yum-plugins
+#o	 kernel-doc
+#o	 linuxptp
+#o	 logwatch
+#o	 mkbootdisk
+#o	 mtools
+#o	 ncurses-term
+#o	 nss_db
+#o	 oddjob
+#o	 pax
+#o	 python-dmidecode
+#o	 python-volume_key
+#o	 rsyslog-gnutls
+#o	 rsyslog-gssapi
+#o	 rsyslog-relp
+#o	 sgpio
+#o	 sox
+#o	 squashfs-tools
+#o	 star
+#o	 tboot
+#o	 tunctl
+#o	 udftools
+#o	 unix2dos
+#o	 uuidd
+#o	 volume_key
+#o	 wodim
+#o	 x86info
+#o	 yum-plugin-aliases
+#o	 yum-plugin-changelog
+#o	 yum-plugin-downloadonly
+#o	 yum-plugin-tmprepo
+#o	 yum-plugin-verify
+#o	 yum-plugin-versionlock
+#o	 yum-presto
+#o	 zsh
+
+################################################################
+-@development
+################################################################
+
+#m	-autoconf
+#m	-automake
+#m	-binutils
+#m	-bison
+#m	-flex
+#m	-gcc
+#m	-gcc-c++
+#m	-gettext
+#m	-libtool
+#m	-make
+#m	-patch
+#m	-pkgconfig
+#m	-redhat-rpm-config
+#m	-rpm-build
+#d	-byacc
+#d	-cscope
+#d	-ctags
+#d	-cvs
+#d	-diffstat
+#d	-doxygen
+#d	-elfutils
+#d	-gcc-gfortran
+#d	-git
+#d	-indent
+#d	-intltool
+#d	-patchutils
+#d	-rcs
+#d	-subversion
+#d	-swig
+#d	-systemtap
+#o	 ElectricFence
+#o	 ant
+#o	 babel
+#o	 bzr
+#o	 chrpath
+#o	 cmake
+#o	 compat-gcc-34
+#o	 compat-gcc-34-c++
+#o	 compat-gcc-34-g77
+#o	 cvs-inetd
+#o	 dejagnu
+#o	 expect
+#o	 gcc-gnat
+#o	 gcc-java
+#o	 gcc-objc
+#o	 gcc-objc++
+#o	 imake
+#o	 jpackage-utils
+#o	 kdewebdev
+#o	 ksc
+#o	 libstdc++-docs
+#o	 mercurial
+#o	 mod_dav_svn
+#o	 nasm
+#o	 perltidy
+#o	 python-docs
+#o	 rpmdevtools
+#o	 rpmlint
+#o	 systemtap-sdt-devel
+#o	 systemtap-server
+
+################################################################
+-@additional-devel
+################################################################
+
+#d	-GConf2-devel
+#d	-alsa-lib-devel
+#d	-audit-libs-devel
+#d	-binutils-devel
+#d	-boost-devel
+#d	-bzip2-devel
+#d	-cyrus-sasl-devel
+#d	-dbus-glib-devel
+#d	-elfutils-devel
+#d	-elfutils-libelf-devel
+#d	-evolution-data-server-devel
+#d	-gnome-desktop-devel
+#d	-gnome-keyring-devel
+#d	-gstreamer-devel
+#d	-gvfs-devel
+#d	-hmaccalc
+#d	-java-1.6.0-openjdk-devel
+#d	-java-1.7.0-openjdk-devel
+#d	-libacl-devel
+#d	-libattr-devel
+#d	-libcanberra-devel
+#d	-libcap-ng-devel
+#d	-libcgroup-devel
+#d	-libcurl-devel
+#d	-libgnome-devel
+#d	-libnotify-devel
+#d	-librsvg2-devel
+#d	-libselinux-devel
+#d	-libsoup-devel
+#d	-mysql-devel
+#d	-perl-ExtUtils-MakeMaker
+#d	-perl-devel
+#d	-polkit-devel
+#d	-postgresql-devel
+#d	-pulseaudio-libs-devel
+#d	-pygtk2-devel
+#d	-python-devel
+#d	-readline-devel
+#d	-sqlite-devel
+#d	-tbb-devel
+#o	 PyQt4-devel
+#o	 SDL-devel
+#o	 cups-devel
+#o	 e2fsprogs-devel
+#o	 expat-devel
+#o	 freeglut-devel
+#o	 fuse-devel
+#o	 gmp-devel
+#o	 gnutls-devel
+#o	 gstreamer-plugins-base-devel
+#o	 httpd-devel
+#o	 hunspell-devel
+#o	 iptables-devel
+#o	 junit
+#o	 kdebase-devel
+#o	 kdebase-workspace-devel
+#o	 kdegraphics-devel
+#o	 kdelibs-apidocs
+#o	 kdelibs-devel
+#o	 kdemultimedia-devel
+#o	 kdenetwork-devel
+#o	 kdepim-devel
+#o	 kdepimlibs-devel
+#o	 kdesdk-devel
+#o	 libXau-devel
+#o	 libXaw-devel
+#o	 libXinerama-devel
+#o	 libXmu-devel
+#o	 libXpm-devel
+#o	 libXrandr-devel
+#o	 libaio-devel
+#o	 libblkid-devel
+#o	 libbonobo-devel
+#o	 libcap-devel
+#o	 libdrm-devel
+#o	 libgcrypt-devel
+#o	 libglade2-devel
+#o	 libgnomeui-devel
+#o	 libgudev1-devel
+#o	 libhugetlbfs-devel
+#o	 libibverbs-devel
+#o	 libnl-devel
+#o	 libtiff-devel
+#o	 libtopology-devel
+#o	 libudev-devel
+#o	 libusb-devel
+#o	 libuuid-devel
+#o	 libxslt-devel
+#o	 net-snmp-devel
+#o	 numactl-devel
+#o	 openmotif-devel
+#o	 papi-devel
+#o	 pcre-devel
+#o	 perl-Test-Pod
+#o	 perl-Test-Pod-Coverage
+#o	 popt-devel
+#o	 sane-backends-devel
+#o	 startup-notification-devel
+#o	 tcl-devel
+#o	 tcp_wrappers-devel
+#o	 tk-devel
+#o	 unique-devel
+#o	 unixODBC-devel
+#o	 xorg-x11-proto-devel
+#o	 xz-devel
+
+################################################################
+-@backup-client
+################################################################
+
+#m	-amanda-client
+#o	 bacula-client
+
+################################################################
+-@backup-server
+################################################################
+
+#m	-amanda-server
+#o	 mt-st
+#o	 mtx
+
+################################################################
+-@basic-desktop
+################################################################
+
+#m	-NetworkManager
+#m	-NetworkManager-gnome
+#m	-alsa-plugins-pulseaudio
+#m	-at-spi
+#m	-control-center
+#m	-dbus
+#m	-gdm
+#m	-gdm-user-switch-applet
+#m	-gnome-panel
+#m	-gnome-power-manager
+#m	-gnome-screensaver
+#m	-gnome-session
+#m	-gnome-terminal
+#m	-gvfs-archive
+#m	-gvfs-fuse
+#m	-gvfs-smb
+#m	-metacity
+#m	-nautilus
+#m	-notification-daemon
+#m	-polkit-gnome
+#m	-xdg-user-dirs-gtk
+#m	-yelp
+#d	-control-center-extra
+#d	-eog
+#d	-gdm-plugin-fingerprint
+#d	-gnome-applets
+#d	-gnome-media
+#d	-gnome-packagekit
+#d	-gnome-vfs2-smb
+#d	-gok
+#d	-openssh-askpass
+#d	-orca
+#d	-pulseaudio-module-gconf
+#d	-pulseaudio-module-x11
+#dx	-rhn-setup-gnome
+#d	-vino
+#o	 sabayon-apply
+#o	 tigervnc-server
+#o	 xguest
+
+################################################################
+-@cifs-file-server
+################################################################
+
+#m	-samba
+#o	 tdb-tools
+
+################################################################
+-@client-mgmt-tools
+################################################################
+
+
+################################################################
+-@compat-libraries
+################################################################
+
+#d	-compat-db
+#d	-compat-expat1
+#d	-compat-glibc
+#d	-compat-libcap1
+#d	-compat-libf2c-34
+#d	-compat-libgfortran-41
+#d	-compat-libstdc++-296
+#d	-compat-libstdc++-33
+#d	-compat-libtermcap
+#d	-compat-openldap
+#d	-compat-openmpi
+#d	-compat-openmpi-psm
+#d	-compat-opensm-libs
+#d	-compat-readline5
+#d	-openssl098e
+
+################################################################
+-@conflicts-client
+################################################################
+
+#m	-cpupowerutils
+#m	-samba4
+#m	-samba4-client
+#m	-samba4-common
+#m	-samba4-dc
+#m	-samba4-dc-libs
+#m	-samba4-devel
+#m	-samba4-libs
+#m	-samba4-pidl
+#m	-samba4-python
+#m	-samba4-swat
+#m	-samba4-test
+#m	-samba4-winbind
+#m	-samba4-winbind-clients
+#m	-samba4-winbind-krb5-locator
+
+################################################################
+-@conflicts-server
+################################################################
+
+#m	-cpupowerutils
+#m	-ipa-server
+#m	-ipa-server-selinux
+#m	-ipa-server-trust-ad
+#m	-libcmpiCppImpl0
+#m	-samba4
+#m	-samba4-client
+#m	-samba4-common
+#m	-samba4-dc
+#m	-samba4-dc-libs
+#m	-samba4-devel
+#m	-samba4-libs
+#m	-samba4-pidl
+#m	-samba4-python
+#m	-samba4-swat
+#m	-samba4-test
+#m	-samba4-winbind
+#m	-samba4-winbind-clients
+#m	-samba4-winbind-krb5-locator
+
+################################################################
+-@console-internet
+################################################################
+
+#d	-elinks
+#o	 fetchmail
+#o	 ftp
+#o	 irssi
+#o	 jwhois
+#o	 lftp
+#o	 mutt
+
+################################################################
+-@debugging
+################################################################
+
+#m	-gdb
+#m	-kexec-tools
+#m	-latrace
+#m	-strace
+#m	-systemtap-runtime
+#d	-abrt-addon-ccpp
+#d	-abrt-addon-python
+#d	-abrt-cli
+#d	-cas
+#d	-crash
+#d	-crash-gcore-command
+#d	-crash-trace-command
+#d	-elfutils
+#d	-ltrace
+#d	-trace-cmd
+#d	-valgrind
+#o	 flightrecorder
+#o	 gdb-gdbserver
+#o	 glibc-utils
+#o	 lslk
+#o	 memtest86+
+#o	 systemtap-client
+#o	 systemtap-initscript
+
+################################################################
+-@desktop-debugging
+################################################################
+
+#d	-abrt-desktop
+#o	 abrt-gui
+#o	 bltk
+#o	 oprofile-gui
+#o	 xrestop
+
+################################################################
+-@desktop-platform
+################################################################
+
+#m	-atk
+#m	-cairo
+#m	-dbus
+#m	-dbus-libs
+#m	-fontconfig
+#m	-freetype
+#m	-glib2
+#m	-gtk2
+#m	-libICE
+#m	-libSM
+#m	-libX11
+#m	-libXext
+#m	-libXft
+#m	-libXi
+#m	-libXrender
+#m	-libXt
+#m	-libXtst
+#m	-libpng
+#m	-libxml2
+#m	-mesa-libGL
+#m	-mesa-libGLU
+#m	-pango
+#m	-qt
+#m	-qt3
+#m	-redhat-lsb-graphics
+#m	-redhat-lsb-printing
+#o	 qt-mysql
+#o	 qt-odbc
+#o	 qt-postgresql
+#o	 qt3-MySQL
+#o	 qt3-ODBC
+#o	 qt3-PostgreSQL
+
+################################################################
+-@desktop-platform-devel
+################################################################
+
+#m	-atk-devel
+#m	-cairo-devel
+#m	-dbus-devel
+#m	-fontconfig-devel
+#m	-freetype-devel
+#m	-glib2-devel
+#m	-gtk2-devel
+#m	-libICE-devel
+#m	-libSM-devel
+#m	-libX11-devel
+#m	-libXext-devel
+#m	-libXft-devel
+#m	-libXi-devel
+#m	-libXrender-devel
+#m	-libXt-devel
+#m	-libXtst-devel
+#m	-libpng-devel
+#m	-libxml2-devel
+#m	-mesa-libGL-devel
+#m	-mesa-libGLU-devel
+#m	-mesa-libGLw-devel
+#m	-pango-devel
+#m	-qt-devel
+#m	-qt3-devel
+#m	-xorg-x11-docs
+#o	 desktop-file-utils
+#o	 glade3
+#o	 gnome-common
+#o	 gnome-devel-docs
+#o	 gtk2-devel-docs
+#o	 kdesdk
+#o	 qt-doc
+
+################################################################
+-@dial-up
+################################################################
+
+#m	-ppp
+#d	-lrzsz
+#d	-minicom
+#d	-wvdial
+#o	 efax
+#o	 isdn4k-utils
+#o	 pptp
+#o	 rp-pppoe
+
+################################################################
+-@directory-client
+################################################################
+
+#d	-ipa-client
+#d	-oddjob-mkhomedir
+#d	-sssd
+#d	-ypbind
+#o	 certmonger
+#o	 hesinfo
+#o	 krb5-appl-clients
+#o	 krb5-pkinit-openssl
+#o	 krb5-workstation
+#o	 ldapjdk
+#o	 libsss_sudo
+#o	 nscd
+#o	 nss-pam-ldapd
+#o	 openldap-clients
+#o	 pam_krb5
+#o	 pam_ldap
+#o	 samba-winbind
+
+################################################################
+-@directory-server
+################################################################
+
+#o	 krb5-server
+#o	 krb5-server-ldap
+#o	 migrationtools
+#o	 openldap-servers
+#o	 samba
+#o	 ypserv
+
+################################################################
+-@eclipse
+################################################################
+
+#m	-eclipse-cdt
+#m	-eclipse-jdt
+#d	-eclipse-callgraph
+#d	-eclipse-changelog
+#d	-eclipse-mylyn
+#d	-eclipse-mylyn-java
+#d	-eclipse-oprofile
+#d	-eclipse-pde
+#d	-eclipse-rpm-editor
+#d	-eclipse-subclipse
+#d	-eclipse-valgrind
+#o	 eclipse-mylyn-cdt
+#o	 eclipse-mylyn-pde
+#o	 eclipse-mylyn-trac
+#o	 eclipse-mylyn-webtasks
+#o	 eclipse-mylyn-wikitext
+#o	 eclipse-subclipse-graph
+
+################################################################
+-@emacs
+################################################################
+
+#m	-emacs
+#o	 ctags-etags
+#o	 emacs-auctex
+#o	 emacs-gnuplot
+#o	 emacs-nox
+
+################################################################
+-@fonts
+################################################################
+
+#d	-abyssinica-fonts
+#d	-cjkuni-uming-fonts
+#d	-dejavu-sans-fonts
+#d	-dejavu-sans-mono-fonts
+#d	-dejavu-serif-fonts
+#d	-jomolhari-fonts
+#d	-khmeros-base-fonts
+#d	-kurdit-unikurd-web-fonts
+#d	-liberation-mono-fonts
+#d	-liberation-sans-fonts
+#d	-liberation-serif-fonts
+#d	-lklug-fonts
+#d	-lohit-assamese-fonts
+#d	-lohit-bengali-fonts
+#d	-lohit-devanagari-fonts
+#d	-lohit-gujarati-fonts
+#d	-lohit-kannada-fonts
+#d	-lohit-oriya-fonts
+#d	-lohit-punjabi-fonts
+#d	-lohit-tamil-fonts
+#d	-lohit-telugu-fonts
+#d	-madan-fonts
+#d	-paktype-naqsh-fonts
+#d	-paktype-tehreer-fonts
+#d	-sil-padauk-fonts
+#d	-smc-meera-fonts
+#d	-stix-fonts
+#d	-thai-scalable-waree-fonts
+#d	-tibetan-machine-uni-fonts
+#d	-un-core-dotum-fonts
+#d	-vlgothic-fonts
+#d	-wqy-zenhei-fonts
+#o	 bitmap-fixed-fonts
+#o	 bitmap-lucida-typewriter-fonts
+#o	 cjkuni-fonts-ghostscript
+
+################################################################
+-@ftp-server
+################################################################
+
+#m	-vsftpd
+#o	 xferstats
+
+################################################################
+-@general-desktop
+################################################################
+
+#d	-PackageKit-gstreamer-plugin
+#d	-authconfig-gtk
+#d	-brasero-nautilus
+#d	-cheese
+#d	-compiz-gnome
+#d	-evince
+#d	-evince-dvi
+#d	-file-roller
+#d	-gcalctool
+#d	-gedit
+#d	-gnome-backgrounds
+#d	-gnome-bluetooth
+#d	-gnome-disk-utility
+#d	-gnome-power-manager
+#d	-gnome-system-monitor
+#d	-gnome-themes
+#d	-gnome-user-docs
+#d	-gnome-user-share
+#d	-gnome-utils
+#d	-gnote
+#d	-gthumb
+#d	-gucharmap
+#d	-gvfs-afc
+#d	-gvfs-gphoto2
+#d	-gvfs-obexftp
+#d	-mousetweaks
+#d	-nautilus-open-terminal
+#d	-nautilus-sendto
+#d	-rhythmbox
+#d	-scenery-backgrounds
+#d	-seahorse
+#d	-sound-juicer
+#d	-system-config-firewall
+#d	-system-config-users
+#d	-totem
+#d	-totem-nautilus
+#o	 alacarte
+#o	 byzanz
+#o	 dvgrab
+#o	 gconf-editor
+#o	 gedit-plugins
+#o	 gnome-games
+#o	 gnome-pilot
+#o	 gnome-pilot-conduits
+#o	 krb5-auth-dialog
+#o	 rhythmbox-upnp
+#o	 seahorse-plugins
+#o	 totem-upnp
+#o	 vim-X11
+
+################################################################
+-@graphical-admin-tools
+################################################################
+
+#m	-dbus
+#d	-authconfig-gtk
+#d	-gnome-disk-utility
+#d	-gnome-packagekit
+#d	-system-config-firewall
+#d	-system-config-kdump
+#d	-system-config-keyboard
+#d	-system-config-services
+#d	-system-config-users
+#o	 audit-viewer
+#o	 firstaidkit-gui
+#o	 policycoreutils-gui
+#o	 sabayon
+#o	 setroubleshoot
+#o	 system-config-kickstart
+#o	 system-config-lvm
+#o	 wireshark-gnome
+
+################################################################
+-@graphics
+################################################################
+
+#m	-gimp
+#d	-gimp-data-extras
+#d	-gimp-help
+#d	-gimp-help-browser
+#d	-gutenprint-plugin
+#d	-libsane-hpaio
+#d	-sane-backends-libs-gphoto2
+#d	-sane-frontends
+#d	-xsane
+#d	-xsane-gimp
+#o	 ImageMagick
+#o	 dcraw
+#o	 inkscape
+#o	 netpbm-progs
+#o	 xfig
+
+################################################################
+-@ha
+################################################################
+
+#m	-cman
+#d	-ccs
+#d	-omping
+#d	-rgmanager
+#o	 cluster-cim
+#o	 cluster-glue-libs-devel
+#o	 cluster-snmp
+#o	 clusterlib-devel
+#o	 corosynclib-devel
+#o	 fence-virtd-checkpoint
+#o	 foghorn
+#o	 libesmtp-devel
+#o	 openaislib-devel
+#o	 pacemaker
+#o	 pacemaker-doc
+#o	 pacemaker-libs-devel
+#o	 pcs
+#o	 python-repoze-what-quickstart
+
+################################################################
+-@ha-management
+################################################################
+
+#m	-luci
+
+################################################################
+-@hardware-monitoring
+################################################################
+
+#d	-mcelog
+#d	-smartmontools
+#o	 edac-utils
+#o	 i2c-tools
+#o	 lm_sensors
+
+################################################################
+-@identity-management-server
+################################################################
+
+#d	-389-ds-base
+#d	-ipa-admintools
+#d	-ipa-pki-ca-theme
+#d	-ipa-pki-common-theme
+#d	-ipa-server
+#d	-mod_revocator
+#d	-pki-ca
+#d	-pki-silent
+#o	 nuxwdog
+#o	 slapi-nis
+
+################################################################
+-@infiniband
+################################################################
+
+#m	-libibcm
+#m	-libibverbs
+#m	-libibverbs-utils
+#m	-librdmacm
+#m	-librdmacm-utils
+#m	-rdma
+#d	-dapl
+#d	-ibacm
+#d	-ibsim
+#d	-ibutils
+#d	-libcxgb3
+#d	-libibmad
+#d	-libibumad
+#d	-libipathverbs
+#d	-libmlx4
+#d	-libmthca
+#d	-libnes
+#d	-rds-tools
+#o	 compat-dapl
+#o	 infiniband-diags
+#o	 libibcommon
+#o	 mstflint
+#o	 opensm
+#o	 perftest
+#o	 qperf
+#o	 srptools
+
+################################################################
+-@input-methods
+################################################################
+
+#m	-ibus-gtk
+#d	-ibus-anthy
+#d	-ibus-chewing
+#d	-ibus-hangul
+#d	-ibus-m17n
+#d	-ibus-pinyin
+#d	-ibus-rawcode
+#d	-ibus-sayura
+#d	-ibus-table-additional
+#d	-m17n-contrib-assamese
+#d	-m17n-contrib-bengali
+#d	-m17n-contrib-gujarati
+#d	-m17n-contrib-hindi
+#d	-m17n-contrib-kannada
+#d	-m17n-contrib-maithili
+#d	-m17n-contrib-malayalam
+#d	-m17n-contrib-marathi
+#d	-m17n-contrib-oriya
+#d	-m17n-contrib-punjabi
+#d	-m17n-contrib-tamil
+#d	-m17n-contrib-telugu
+#d	-m17n-contrib-urdu
+#d	-m17n-db-sinhala
+#d	-m17n-db-thai
+
+################################################################
+-@internet-applications
+################################################################
+
+#d	-ekiga
+#d	-evolution
+#d	-evolution-help
+#d	-evolution-mapi
+#d	-pidgin
+#o	 evolution-exchange
+#o	 thunderbird
+#o	 xchat
+
+################################################################
+-@internet-browser
+################################################################
+
+#d	-firefox
+#d	-nspluginwrapper
+#d	-totem-mozplugin
+
+################################################################
+-@java-platform
+################################################################
+
+#m	-java-1.6.0-openjdk
+#m	-java-1.7.0-openjdk
+#o	 icedtea-web
+
+################################################################
+-@kde-desktop
+################################################################
+
+#m	-alsa-plugins-pulseaudio
+#m	-kde-settings-pulseaudio
+#m	-kdeaccessibility
+#m	-kdeartwork-screensavers
+#m	-kdebase
+#m	-kdebase-workspace
+#m	-kdelibs
+#m	-xsettings-kde
+#d	-NetworkManager-gnome
+#d	-k3b
+#d	-kcoloredit
+#d	-kdeadmin
+#d	-kdegames
+#d	-kdegraphics
+#d	-kdemultimedia
+#d	-kdenetwork
+#d	-kdepim
+#d	-kdepim-runtime
+#d	-kdeplasma-addons
+#d	-kdeutils
+#d	-kdm
+#d	-kiconedit
+#d	-kipi-plugins
+#d	-kmid
+#d	-konq-plugins
+#d	-ksig
+#d	-ksshaskpass
+#d	-pinentry-qt
+#dx	-rhn-setup-gnome
+#o	 kdebase-workspace-akonadi
+#o	 kdebase-workspace-python-applet
+
+################################################################
+-@large-systems
+################################################################
+
+#m	-numactl
+#m	-numad
+#d	-hwloc
+#d	-libcgroup
+#d	-libhugetlbfs
+#d	-libhugetlbfs-utils
+#d	-libtopology
+#o	 tuna
+
+################################################################
+-@legacy-unix
+################################################################
+
+#d	-xinetd
+#o	 authd
+#o	 cups-lpd
+#o	 dump
+#o	 finger
+#o	 finger-server
+#o	 krb5-appl-servers
+#o	 ksh
+#o	 mksh
+#o	 ncompress
+#o	 rsh
+#o	 rsh-server
+#o	 rusers
+#o	 rusers-server
+#o	 rwho
+#o	 talk
+#o	 talk-server
+#o	 tcp_wrappers
+#o	 telnet
+#o	 telnet-server
+#o	 tftp
+
+################################################################
+-@legacy-x
+################################################################
+
+#d	-xorg-x11-fonts-100dpi
+#d	-xorg-x11-fonts-ISO8859-1-100dpi
+#d	-xorg-x11-fonts-Type1
+#d	-xorg-x11-fonts-misc
+#o	 libXmu
+#o	 libXp
+#o	 openmotif
+#o	 openmotif22
+#o	 xorg-x11-fonts-75dpi
+#o	 xorg-x11-fonts-ISO8859-1-75dpi
+#o	 xorg-x11-fonts-ISO8859-14-100dpi
+#o	 xorg-x11-fonts-ISO8859-14-75dpi
+#o	 xorg-x11-fonts-ISO8859-15-75dpi
+#o	 xorg-x11-fonts-ISO8859-2-100dpi
+#o	 xorg-x11-fonts-ISO8859-2-75dpi
+#o	 xorg-x11-fonts-ISO8859-9-100dpi
+#o	 xorg-x11-fonts-ISO8859-9-75dpi
+#o	 xorg-x11-fonts-cyrillic
+#o	 xorg-x11-fonts-ethiopic
+#o	 xorg-x11-twm
+#o	 xorg-x11-xdm
+#o	 xterm
+
+################################################################
+-@load-balancer
+################################################################
+
+#m	-ipvsadm
+#d	-piranha
+#o	 haproxy
+#o	 keepalived
+
+################################################################
+-@mail-server
+################################################################
+
+#d	-dovecot
+#d	-postfix
+#d	-spamassassin
+#o	 cyrus-imapd
+#o	 dovecot-mysql
+#o	 dovecot-pgsql
+#o	 dovecot-pigeonhole
+#o	 mailman
+#o	 sendmail
+#o	 sendmail-cf
+
+################################################################
+-@mainframe-access
+################################################################
+
+#d	-tn5250
+#d	-x3270-x11
+#o	 x3270-text
+
+################################################################
+-@mysql
+################################################################
+
+#m	-mysql-server
+#o	 mysql-bench
+#o	 mysql-test
+
+################################################################
+-@mysql-client
+################################################################
+
+#m	-mysql
+#d	-MySQL-python
+#d	-mysql-connector-odbc
+#o	 libdbi-dbd-mysql
+#o	 mysql-connector-java
+#o	 perl-DBD-MySQL
+
+################################################################
+-@network-file-system-client
+################################################################
+
+#d	-autofs
+#d	-cifs-utils
+#d	-nfs-utils
+#d	-nfs4-acl-tools
+#d	-samba-client
+#o	 cachefilesd
+
+################################################################
+-@network-server
+################################################################
+
+#o	 bind
+#o	 bind-chroot
+#o	 bind-dyndb-ldap
+#o	 dhcp
+#o	 dnsmasq
+#o	 freeradius
+#o	 quagga
+#o	 radvd
+#o	 rsyslog-gnutls
+#o	 rsyslog-gssapi
+#o	 rsyslog-mysql
+#o	 rsyslog-pgsql
+#o	 rsyslog-relp
+#o	 syslinux
+#o	 tftp-server
+
+################################################################
+-@network-tools
+################################################################
+
+#m	-tcpdump
+#d	-nc
+#d	-openswan
+#o	 NetworkManager-openswan
+#o	 arptables_jf
+#o	 arpwatch
+#o	 dropwatch
+#o	 ebtables
+#o	 ipset
+#o	 iptraf
+#o	 iptstate
+#o	 lksctp-tools
+#o	 mipv6-daemon
+#o	 mrtg
+#o	 netlabel_tools
+#o	 nmap
+#o	 stunnel
+#o	 wireshark
+
+################################################################
+-@nfs-file-server
+################################################################
+
+#m	-nfs-utils
+#m	-nfs4-acl-tools
+
+################################################################
+-@office-suite
+################################################################
+
+#d	-libreoffice-calc
+#d	-libreoffice-draw
+#d	-libreoffice-graphicfilter
+#d	-libreoffice-impress
+#d	-libreoffice-math
+#d	-libreoffice-writer
+#d	-libreoffice-xsltfilter
+#o	 libreoffice-base
+#o	 libreoffice-emailmerge
+#o	 libreoffice-headless
+#o	 libreoffice-javafilter
+#o	 libreoffice-ogltrans
+#o	 libreoffice-presentation-minimizer
+#o	 libreoffice-report-builder
+#o	 libreoffice-wiki-publisher
+#o	 planner
+#o	 taskjuggler
+
+################################################################
+-@performance
+################################################################
+
+#m	-blktrace
+#m	-sysstat
+#d	-dstat
+#d	-iotop
+#d	-latencytop
+#d	-latencytop-tui
+#d	-oprofile
+#d	-perf
+#d	-powertop
+#d	-seekwatcher
+#o	 oprofile-jit
+#o	 papi
+#o	 sdparm
+#o	 sg3_utils
+#o	 tuned
+#o	 tuned-utils
+
+################################################################
+-@perl-runtime
+################################################################
+
+#m	-perl
+#d	-perl-Crypt-SSLeay
+#d	-perl-XML-Dumper
+#d	-perl-XML-Grove
+#d	-perl-XML-Twig
+#d	-perl-core
+#o	 perl-DBD-SQLite
+#o	 perl-Date-Calc
+#o	 perl-Date-Manip
+#o	 perl-Frontier-RPC
+#o	 perl-LDAP
+#o	 perl-Mozilla-LDAP
+#o	 perl-suidperl
+
+################################################################
+-@php
+################################################################
+
+#m	-php
+#d	-php-gd
+#d	-php-pdo
+#d	-php-pear
+#d	-php-xml
+#o	 php-ldap
+#o	 php-mysql
+#o	 php-odbc
+#o	 php-pecl-apc
+#o	 php-pecl-memcache
+#o	 php-pgsql
+#o	 php-soap
+#o	 php-xmlrpc
+
+################################################################
+-@postgresql
+################################################################
+
+#m	-postgresql-server
+#d	-postgresql-docs
+#o	 postgresql-contrib
+#o	 postgresql-plperl
+#o	 postgresql-plpython
+#o	 postgresql-pltcl
+#o	 postgresql-test
+#o	 rhdb-utils
+
+################################################################
+-@postgresql-client
+################################################################
+
+#m	-postgresql
+#d	-PyGreSQL
+#d	-postgresql-odbc
+#d	-python-psycopg2
+#o	 libdbi-dbd-pgsql
+#o	 perl-DBD-Pg
+#o	 postgresql-jdbc
+#o	 tcl-pgtcl
+
+################################################################
+-@print-client
+################################################################
+
+#m	-cups
+#m	-cups-pk-helper
+#m	-enscript
+#m	-printer-filters
+#d	-foomatic
+#d	-foomatic-db-ppds
+#d	-gutenprint
+#d	-gutenprint-cups
+#d	-hpijs
+#d	-paps
+#d	-system-config-printer
+#d	-system-config-printer-udev
+#o	 hplip
+#o	 hplip-gui
+
+################################################################
+-@print-server
+################################################################
+
+#m	-cups
+#m	-printer-filters
+#d	-foomatic-db-ppds
+#d	-gutenprint
+#d	-gutenprint-cups
+#d	-hpijs
+#d	-paps
+
+################################################################
+-@remote-desktop-clients
+################################################################
+
+#o	 rdesktop
+#o	 spice-client
+#o	 spice-xpi
+#o	 tigervnc
+#o	 tsclient
+#o	 vinagre
+
+################################################################
+-@resilient-storage
+################################################################
+
+#m	-gfs2-utils
+#m	-lvm2-cluster
+#d	-ccs
+#o	 cluster-glue-libs-devel
+#o	 clusterlib-devel
+#o	 cmirror
+#o	 corosynclib-devel
+#o	 ctdb
+#o	 ctdb-devel
+#o	 fence-virtd-checkpoint
+#o	 libesmtp-devel
+#o	 openaislib-devel
+#o	 pacemaker-libs-devel
+
+################################################################
+-@ruby-runtime
+################################################################
+
+#m	-ruby
+#o	 ruby-irb
+
+################################################################
+-@scalable-file-systems
+################################################################
+
+#m	-xfsprogs
+#d	-xfsdump
+#o	 xfsprogs-devel
+#o	 xfsprogs-qa-devel
+
+################################################################
+-@scientific
+################################################################
+
+#d	-gnuplot
+#d	-units
+#o	 atlas
+#o	 compat-openmpi
+#o	 compat-openmpi-psm
+#o	 fftw
+#o	 fftw-devel
+#o	 fftw-static
+#o	 gsl
+#o	 gsl-devel
+#o	 gsl-static
+#o	 lapack
+#o	 mpich2
+#o	 mpitests-mvapich
+#o	 mpitests-mvapich2
+#o	 mpitests-openmpi
+#o	 mvapich
+#o	 mvapich-psm-devel
+#o	 mvapich-psm-static
+#o	 mvapich2
+#o	 mvapich2-psm-devel
+#o	 numpy
+#o	 openmpi
+#o	 openmpi-devel
+#o	 scipy
+
+################################################################
+-@security-tools
+################################################################
+
+#o	 aide
+#o	 amtu
+#o	 hmaccalc
+#o	 openscap
+#o	 openscap-utils
+#o	 tpm-tools
+#o	 trousers
+
+################################################################
+-@server-platform
+################################################################
+
+#m	-db4
+#m	-dbus-libs
+#m	-glibc
+#m	-krb5-libs
+#m	-libgcc
+#m	-libitm
+#m	-libstdc++
+#m	-ncurses-libs
+#m	-nss
+#m	-openldap
+#m	-openssl
+#m	-pam
+#m	-redhat-lsb
+#m	-zlib
+
+################################################################
+-@server-platform-devel
+################################################################
+
+#m	-db4-devel
+#m	-dbus-devel
+#m	-glibc-devel
+#m	-krb5-devel
+#m	-libstdc++-devel
+#m	-libvirt-devel
+#m	-libvirt-java-devel
+#m	-ncurses-devel
+#m	-nss-devel
+#m	-openldap-devel
+#m	-openssl-devel
+#m	-pam-devel
+#m	-zlib-devel
+
+################################################################
+-@server-policy
+################################################################
+
+
+################################################################
+-@smart-card
+################################################################
+
+#d	-ccid
+#d	-coolkey
+#d	-esc
+#d	-gdm-plugin-smartcard
+#d	-pam_pkcs11
+#o	 opencryptoki
+
+################################################################
+-@storage-client-fcoe
+################################################################
+
+#m	-fcoe-utils
+#d	-cgdcbxd
+#d	-fcoe-target-utils
+#d	-lldpad
+
+################################################################
+-@storage-client-iscsi
+################################################################
+
+#m	-iscsi-initiator-utils
+
+################################################################
+-@storage-client-multipath
+################################################################
+
+#m	-device-mapper-multipath
+
+################################################################
+-@storage-server
+################################################################
+
+#d	-scsi-target-utils
+#o	 isns-utils
+
+################################################################
+-@system-admin-tools
+################################################################
+
+#o	 conman
+#o	 crypto-utils
+#o	 dtach
+#o	 expect
+#o	 hardlink
+#o	 lsscsi
+#o	 mc
+#o	 mgetty
+#o	 pexpect
+#o	 rdist
+#o	 rrdtool
+#o	 screen
+#o	 scrub
+#o	 symlinks
+#o	 tree
+#o	 vlock
+#o	 xdelta
+
+################################################################
+-@system-management
+################################################################
+
+#o	 OpenIPMI
+#o	 fence-agents
+#o	 freeipmi
+#o	 freeipmi-bmc-watchdog
+#o	 freeipmi-ipmidetectd
+#o	 ipmitool
+#o	 openhpi
+#o	 openhpi-subagent
+#o	 watchdog
+
+################################################################
+-@system-management-messaging-client
+################################################################
+
+#m	-qpid-cpp-client
+#d	-python-qpid
+#d	-python-qpid-qmf
+#d	-qpid-qmf
+#d	-qpid-tools
+#o	 python-saslwrapper
+#o	 qpid-tests
+#o	 ruby-irb
+#o	 ruby-qpid-qmf
+
+################################################################
+-@system-management-messaging-server
+################################################################
+
+
+################################################################
+-@system-management-snmp
+################################################################
+
+#m	-net-snmp
+#d	-net-snmp-utils
+#o	 net-snmp-perl
+#o	 net-snmp-python
+
+################################################################
+-@system-management-wbem
+################################################################
+
+#d	-openwsman-client
+#d	-sblim-sfcb
+#d	-sblim-wbemcli
+#d	-wsmancli
+#o	 openwsman-server
+#o	 sblim-cim-client
+#o	 sblim-cim-client2
+#o	 sblim-cmpi-dhcp
+#o	 sblim-cmpi-dns
+#o	 sblim-cmpi-fsvol
+#o	 sblim-cmpi-network
+#o	 sblim-cmpi-nfsv3
+#o	 sblim-cmpi-nfsv4
+#o	 sblim-cmpi-params
+#o	 sblim-cmpi-samba
+#o	 sblim-cmpi-sysfs
+#o	 sblim-cmpi-syslog
+#o	 sblim-gather
+#o	 sblim-gather-provider
+#o	 sblim-indication_helper
+#o	 sblim-smis-hba
+#o	 sblim-tools-libra
+#o	 tog-pegasus
+
+################################################################
+-@technical-writing
+################################################################
+
+#m	-docbook-slides
+#m	-docbook-style-xsl
+#m	-docbook-utils
+#m	-docbook5-schemas
+#m	-docbook5-style-xsl
+#d	-xmlto
+#o	 docbook-utils-pdf
+#o	 texinfo
+#o	 xmlto-tex
+#o	 xmltoman
+
+################################################################
+-@tex
+################################################################
+
+#m	-tex-cm-lgc
+#m	-texlive
+#m	-texlive-latex
+
+################################################################
+-@turbogears
+################################################################
+
+#m	-TurboGears2
+
+################################################################
+-@virtualization
+################################################################
+
+#m	-qemu-kvm
+#d	-hypervkvpd
+#o	 qemu-guest-agent
+#o	 qemu-kvm-tools
+
+################################################################
+-@virtualization-client
+################################################################
+
+#m	-python-virtinst
+#m	-virt-manager
+#m	-virt-viewer
+#d	-virt-top
+
+################################################################
+-@virtualization-platform
+################################################################
+
+#m	-libvirt
+#m	-libvirt-client
+#m	-virt-who
+#o	 fence-virtd-libvirt
+#o	 fence-virtd-multicast
+#o	 fence-virtd-serial
+#o	 libvirt-cim
+#o	 libvirt-java
+#o	 libvirt-snmp
+#o	 perl-Sys-Virt
+
+################################################################
+-@virtualization-tools
+################################################################
+
+#d	-libguestfs
+#o	 libguestfs-java
+#o	 libguestfs-tools
+#o	 virt-v2v
+
+################################################################
+-@web-server
+################################################################
+
+#m	-httpd
+#d	-crypto-utils
+#d	-httpd-manual
+#d	-mod_perl
+#d	-mod_ssl
+#d	-mod_wsgi
+#d	-webalizer
+#o	 certmonger
+#o	 libmemcached
+#o	 memcached
+#o	 mod_auth_kerb
+#o	 mod_auth_mysql
+#o	 mod_auth_pgsql
+#o	 mod_authz_ldap
+#o	 mod_nss
+#o	 mod_revocator
+#o	 perl-CGI
+#o	 perl-CGI-Session
+#o	 perl-Cache-Memcached
+#o	 python-memcached
+#o	 squid
+
+################################################################
+-@web-servlet
+################################################################
+
+#m	-tomcat6
+
+################################################################
+-@x11
+################################################################
+
+#m	-xorg-x11-drivers
+#m	-xorg-x11-server-Xorg
+#m	-xorg-x11-xauth
+#m	-xorg-x11-xinit
+#d	-firstboot
+#d	-glx-utils
+#d	-hal
+#d	-plymouth-system-theme
+#d	-spice-vdagent
+#d	-wacomexpresskeys
+#d	-wdaemon
+#d	-xorg-x11-server-utils
+#d	-xorg-x11-utils
+#d	-xvattr
+

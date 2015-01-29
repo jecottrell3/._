@@ -1,0 +1,31 @@
+################################################################
+-@printing
+################################################################
+
+#m	-cups
+#m	-ghostscript
+#m	-ghostscript-cups
+#d	-bluez-cups
+#d	-colord
+#d	-cups-pk-helper
+#d	-foomatic
+#d	-foomatic-db-ppds
+#d	-foomatic-filters
+#d	-gutenprint
+#d	-gutenprint-cups
+#d	-hpijs
+#d	-hplip
+#d	-mpage
+#d	-paps
+#d	-samba-client
+#d	-system-config-printer
+#d	-system-config-printer-udev
+#ox	 a2ps
+#ox	 cups-bjnp
+#ox	 cups-pdf
+#ox	 enscript
+#ox	 min12xxw
+#ox	 pnm2ppa
+#ox	 ptouch-driver
+#ox	 splix
+

@@ -1,0 +1,61 @@
+rsync
+################################################################
+@core
+################################################################
+
+#m	-SysVinit
+#m	-authconfig
+#m	-basesystem
+#m	-bash
+#m	-centos-release
+#m	-centos-release-notes
+#m	-coreutils
+#m	-cpio
+#m	-e2fsprogs
+#m	-ed
+#m	-file
+#m	-filesystem
+#m	-glibc
+#m	-hdparm
+#m	-hmaccalc
+#m	-initscripts
+#m	-iproute
+#m	-iputils
+#m	-kbd
+#m	-kudzu
+#m	-libgcc
+-libhugetlbfs
+#m	-libtermcap
+#m	-mkinitrd
+#m	-openssh-server
+#m	-passwd
+#m	-policycoreutils
+#m	-prelink
+#m	-procps
+#m	-readline
+#m	-redhat-logos
+-rootfiles
+#m	-rpm
+#m	-selinux-policy-targeted
+#m	-setools
+-setserial
+#m	-setup
+#m	-shadow-utils
+#m	-sysklogd
+#m	-termcap
+#m	-util-linux
+#m	-vim-minimal
+#m	-yum
+
+#d	-dhclient
+-dhcpv6-client
+#d	-ecryptfs-utils
+#d	-grub
+#d	-openssh-clients
+#d	-rsyslog
+#d	-sysfsutils
+#d	-udftools
+
+Deployment_Guide-en-US
+#o	 sgpio
+

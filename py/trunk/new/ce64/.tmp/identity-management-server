@@ -1,0 +1,15 @@
+################################################################
+-@identity-management-server
+################################################################
+
+#d	-389-ds-base
+#d	-ipa-admintools
+#d	-ipa-pki-ca-theme
+#d	-ipa-pki-common-theme
+#d	-ipa-server
+#d	-mod_revocator
+#d	-pki-ca
+#d	-pki-silent
+#o	 nuxwdog
+#o	 slapi-nis
+

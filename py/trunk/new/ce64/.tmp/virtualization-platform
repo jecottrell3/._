@@ -1,0 +1,15 @@
+################################################################
+-@virtualization-platform
+################################################################
+
+#m	-libvirt
+#m	-libvirt-client
+#m	-virt-who
+#o	 fence-virtd-libvirt
+#o	 fence-virtd-multicast
+#o	 fence-virtd-serial
+#o	 libvirt-cim
+#o	 libvirt-java
+#o	 libvirt-snmp
+#o	 perl-Sys-Virt
+

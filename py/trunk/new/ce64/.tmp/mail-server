@@ -1,0 +1,15 @@
+################################################################
+-@mail-server
+################################################################
+
+#d	-dovecot
+#d	-postfix
+#d	-spamassassin
+#o	 cyrus-imapd
+#o	 dovecot-mysql
+#o	 dovecot-pgsql
+#o	 dovecot-pigeonhole
+#o	 mailman
+#o	 sendmail
+#o	 sendmail-cf
+

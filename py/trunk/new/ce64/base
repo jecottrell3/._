@@ -1,0 +1,144 @@
+################################################################
+@base
+################################################################
+
+#m	-alsa-utils
+#m	-at
+#m	-authconfig
+#m	-bc
+#m	-bind-utils
+#m	-centos-indexhtml
+#m	-crontabs
+#m	-cyrus-sasl-plain
+#m	-dbus
+#m	-ed
+#m	-file
+#m	-logrotate
+#m	-lsof
+#m	-man
+#m	-ntsysv
+#m	-parted
+#m	-pciutils
+#m	-psacct
+-quota
+-setserial
+#m	-tmpwatch
+#m	-traceroute
+#d	-abrt-addon-ccpp
+#d	-abrt-addon-kerneloops
+#d	-abrt-addon-python
+#d	-abrt-cli
+#d	-acpid
+-b43-fwcutter
+#d	-biosdevname
+#d	-blktrace
+#d	-bridge-utils
+#d	-bzip2
+#d	-cpuspeed
+#d	-cryptsetup-luks
+#d	-dmraid
+#d	-dosfstools
+#d	-eject
+#d	-ethtool
+-fprintd-pam
+#d	-gnupg2
+#d	-hunspell
+#d	-hunspell-en
+#d	-irqbalance
+#d	-kexec-tools
+#d	-ledmon
+#d	-libaio
+#d	-lvm2
+#d	-man-pages
+#d	-man-pages-overrides
+#d	-mdadm
+#d	-microcode_ctl
+#d	-mlocate
+#d	-mtr
+#d	-nano
+#d	-ntp
+#d	-ntpdate
+#d	-openssh-clients
+#d	-pam_passwdqc
+-pcmciautils
+#d	-pinfo
+#d	-plymouth
+#d	-pm-utils
+#d	-prelink
+#d	-rdate
+#d	-readahead
+-rfkill
+-rng-tools
+#d	-rsync
+#d	-scl-utils
+#d	-setuptool
+#d	-smartmontools
+#d	-sos
+#d	-strace
+#d	-sysstat
+#d	-system-config-firewall-tui
+#d	-system-config-network-tui
+#d	-systemtap-runtime
+#d	-tcpdump
+-tcsh
+#d	-time
+#d	-unzip
+#d	-usbutils
+-vconfig
+#d	-vim-enhanced
+#d	-virt-what
+#d	-wget
+#d	-which
+-wireless-tools
+#d	-words
+#d	-xz
+#d	-yum-plugin-security
+#d	-yum-utils
+#d	-zip
+#o	 PyPAM
+#o	 audispd-plugins
+#o	 brltty
+#o	 cpupowerutils
+#o	 device-mapper-persistent-data
+dos2unix
+#o	 dumpet
+#o	 ecryptfs-utils
+#o	 edac-utils
+genisoimage
+gpm
+#o	 kabi-yum-plugins
+#o	 kernel-doc
+#o	 linuxptp
+logwatch
+#o	 mkbootdisk
+#o	 mtools
+#o	 ncurses-term
+#o	 nss_db
+#o	 oddjob
+#o	 pax
+#o	 python-dmidecode
+#o	 python-volume_key
+#o	 rsyslog-gnutls
+#o	 rsyslog-gssapi
+#o	 rsyslog-relp
+#o	 sgpio
+#o	 sox
+#o	 squashfs-tools
+#o	 star
+#o	 tboot
+#o	 tunctl
+#o	 udftools
+unix2dos
+#o	 uuidd
+#o	 volume_key
+wodim
+x86info
+yum-plugin-aliases
+yum-plugin-changelog
+yum-plugin-downloadonly
+yum-plugin-tmprepo
+yum-plugin-verify
+yum-plugin-versionlock
+yum-presto
+zsh
+
