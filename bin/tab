@@ -17,6 +17,7 @@ for line in sys.stdin:
         idx = 0
         for col in cols:
                 wid = len(col)
+####		if wid > 99: print('=%d=%s\n' % (wid, col))
                 if    wids[idx] < wid:
                       wids[idx] = wid
                 idx += 1
@@ -33,3 +34,4 @@ for cols in rows:
         print(' '.join(
                         map(lambda t: t[0].ljust(t[1]),
                                 zip(cols, wids))))
+#### print(wids)

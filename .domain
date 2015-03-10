@@ -30,8 +30,13 @@ case $FQDN in
 	;;
 (*.ncbi.nlm.nih.gov)
 	echo Welcome to NCBI
-	export	BASE=OU=Users,OU=NLM-NCBI,OU=NLM,OU=NIH,OU=AD,DC=nih,DC=gov
+	export	ncbiBASE=dc=ncbi,dc=nlm,dc=nih,dc=gov
+	alias	nds="ldapsearch -b $ncbiBASE"
+	alias	ndd="ldapsearch -b ou=Devices,$ncbiBASE"
+	alias	pdc="package_deployment create"
 
+	# nack args: ticket host reason...
+	function nack { nagios_ack -h   ${2?'no host'} -d 48 -c "$*"; }
 	function cold { cons --ipmitool ${1?'no host'} mc reset cold; }
 	function bios { cons --ipmitool ${1?'no host'} chassis bootdev bios; }
 	function  pxe { cons --ipmitool ${1?'no host'} chassis bootdev  pxe; }
@@ -45,8 +50,8 @@ case $FQDN in
 	alias	  RAID5='MegaCli -CfgLdAdd -R 5 '
 	alias	 NoRaid='MegaCli -CfgLdDel -L '
 
-	function pcc { ssh root@puppetca.$M puppet cert --clean $1.$D; }
-	function pcv { ssh root@puppetca.$V puppet cert --clean $1.$D; }
+	function pcc { ssh root@puppetca.$M puppet cert --clean $1.$MD; }
+	function pcv { ssh root@puppetca.$V puppet cert --clean $1.$VA; }
 	function pat { ssh root@${1:-$(hostname)} time puppet agent -t; }
 	function rat
 	{
@@ -59,10 +64,15 @@ case $FQDN in
 		echo $CMD; eval $CMD
 	}
 	alias	rpu='rake puppetmaster:update:be-md'
+	alias	rpv='rake puppetmaster:update:st-va'
 	alias	rps='rake puppetmaster:restart:be-md'
+	alias	rpw='rake puppetmaster:restart:st-va'
+
+	alias	zero='dd if=/dev/zero count=1111'
 	alias	free-ip=free_ip
 	alias	c0='cons --cycle'; function c1 { cons --cycle $*; cons $*; }
 	alias yum-promote=/opt/local/sbin/yum-promote
+
 	function nh { egrep $* /etc/hosts.nis; }
 	function ne { egrep $* /etc/ethers.nis; }
 

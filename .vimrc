@@ -3,6 +3,7 @@
 :set hlsearch
 :set incsearch
 :set bg=light
+:set tags+=tags;
 
 :highlight Search ctermfg=3 ctermbg=4 cterm=bold
 :highlight Search ctermfg=3 ctermbg=1 cterm=bold

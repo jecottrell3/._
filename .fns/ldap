@@ -5,17 +5,19 @@ test -f $DEBUG && echo .fns/ldap
 #################################################################
 
 REALM=NIH.GOV
-BASE='ou=NIH,OU=AD,DC=NIH,DC=gov'
-LDAP=ldap://ldapad.nih.gov
-ANON=ldap://nihldap.nih.gov:4389
+NIH_ANON="ldap://nihldap.nih.gov:4389"
+NIH_LDAP="ldap://ldapad.nih.gov"
+NLM_LDAP="ldap://ncbidc01.ncbi.nlm.nih.gov"
+NIH_BASE="ou=NIH,OU=AD,DC=NIH,DC=gov"
+NLM_BASE="dc=ncbi,dc=nlm,dc=nih,dc=gov"
 
-alias	anon="ldapsearch -x -b $BASE -h $ANON"
 for x in s search a add m modify k delete p passwd
 do
 	case $x in
 	(?)	y=$x;;
-	(*)	alias ld$y="ldap$x    -b $BASE -H $LDAP";
-		alias ad$y="ldap$x -x -b $BASE -H $ANON";;
+	(*)	alias ad$y="ldap$x -x -b $NIH_BASE -H $NIH_ANON";
+		alias ld$y="ldap$x    -b $NIH_BASE -H $NIH_LDAP";
+		alias nd$y="ldap$x    -b $NLM_BASE -H $NLM_LDAP";;
 	esac
 done
 

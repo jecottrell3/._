@@ -57,10 +57,10 @@ alias	 jb='git branch'
 alias	jci='git commit'
 alias	jco='git checkout'
 alias	jcl='git clone'
+function jo { git clone $2 $3 $4 $5 git:/git/pkgs/$1.git; }
 alias	 jd='git diff'
 alias	 jf='git fetch'
 alias	 jg='git pull'
-#unction jd { git diff "$@" | less +/"^[Ii]ndex: .*"; }
 alias	 jh='git help'
 #lias	 ji='git init'
 alias	 jj='git grep'

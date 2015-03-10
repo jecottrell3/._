@@ -14,13 +14,13 @@ done
 #	SHELL ALIASES
 #################################################################
 
+alias	   path='echo    $PATH | tr : \\012'
+alias	manpath='echo $MANPATH | tr : \\012'
 alias	a=alias		ua=unalias	us=unset
 alias	ag='alias | egrep'		eg='env   | egrep'
 alias	e=echo		en='echo -n'	xp=export
 alias	h='fc -l'	r='fc -s'
-alias	   path='echo    $PATH | tr : \\012'
-alias	manpath='echo $MANPATH | tr : \\012'
-alias	t=type			fn='declare -f'
+alias	t=type		ta='type -a'	fn='declare -f'
 alias	vb='vi $RBJ/.bashrc;	source $RBJ/.bashrc'
 alias	zb='vi $RBJ/.zshrc;	source $RBJ/.zshrc'
 alias	ze='vi $RBJ/.zshenv;	source $RBJ/.zshenv'

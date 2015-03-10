@@ -5,7 +5,7 @@
 #################################################################
 
 from sys  import *
-#import os
+import os
 
 import head, nets, disk, prep, post, pkgs	# sections
 import host, part, syst, type 			# customizers
@@ -25,29 +25,29 @@ class Kick:
 	#	Constructor: Initialize and Customize
 	#########################################################
 
-	def __init__(self, h, p, s, t):
+	def __init__(self, h, p, s, t): pass
 
-		# Make Generic Sections
+#@@@		# Make Generic Sections
 
-		self.head = head.Head()
-		#elf.nets = nets.Nets()	# made by host
-		#elf.disk = disk.Disk()	# made by part
-		self.prep = prep.Prep()
-		self.post = post.Post()
-		self.pkgs = pkgs.Pkgs()
+#@@@		self.head = head.Head()
+#@@@		#elf.nets = nets.Nets()	# made by host
+#@@@		#elf.disk = disk.Disk()	# made by part
+#@@@		self.prep = prep.Prep()
+#@@@		self.post = post.Post()
+#@@@		self.pkgs = pkgs.Pkgs()
 
-		# Customize
+#@@@		# Customize
 
-		self.host = host.Host(self, h)	# implies net
-		self.syst = syst.Syst(self, s)	# mostly presets
-		self.part = part.Part(self, p)  # implies disk
-		self.type = type.Type(self, t)	# implies pkgs
+#@@@		self.host = host.Host(self, h)	# implies net
+#@@@		self.syst = syst.Syst(self, s)	# mostly presets
+#@@@		self.part = part.Part(self, p)  # implies disk
+#@@@		self.type = type.Type(self, t)	# implies pkgs
 
-	#########################################################
-
-	#########################################################
-	#	Destructor: Break Reference Cycles
-	#########################################################
+#@@@	#########################################################
+#@@@
+#@@@	#########################################################
+#@@@	#	Destructor: Break Reference Cycles
+#@@@	#########################################################
 
 	def __del__(self):		# break cycle
 		self.head = None
@@ -61,38 +61,36 @@ class Kick:
 		self.syst = None
 		self.type = None
 
-	#########################################################
-	#	Represent: Generate Kickstart File
-	#########################################################
+#@@@	#########################################################
+#@@@	#	Represent: Generate Kickstart File
+#@@@	#########################################################
 
-	def __repr__(self):
-		return '\n'.join([
-			`self.head`,
-			`self.nets`,
-			`self.disk`,
-			`self.prep`,
-			`self.post`,
-			`self.pkgs`,
-			''
-		])
+	def __repr__(self): return name + '\n'
+#@@@		return '\n'.join([
+#@@@			`self.head`,
+#@@@			`self.nets`,
+#@@@			`self.disk`,
+#@@@			`self.prep`,
+#@@@			`self.post`,
+#@@@			`self.pkgs`,
+#@@@			''
+#@@@		])
 
 #################################################################
 #	Type Table Mapping
 #################################################################
 
-t2p = {	'core':	'5',	'base':	'6',
-	'x11':	'7',	'dev':	'8',
-	'srv':	'9',	'kde':	'0',
-	'gno':	'1',	'win':	'2',
-}
+#@@@t2p = {	'core':	'5',	'base':	'6',
+#@@@	'x11':	'7',	'dev':	'8',
+#@@@	'srv':	'9',	'kde':	'0',
+#@@@	'gno':	'1',	'win':	'2',
+#@@@}
 
 #################################################################
 #	Generate All Possible KS Files over 4 Dimensions
 #################################################################
 
 # h = 'H'; p = 'P'; s = 'S'; t = 'T'	# for debugging
-
-import os
 
 try:	h = os.stat ('ks')
 except:	h = os.mkdir('ks')
@@ -102,8 +100,8 @@ for		h in  host.items.keys():
     for		s in  syst.items.keys():
       for	t in  type.items.keys():
 
-	if t in type.newdesk:
-		if s != 'fc19':	continue
+#@@@	if t in type.newdesk:
+#@@@		if s != 'fc19':	continue
 
 	name = '-'.join([h, p, s, t])
 
