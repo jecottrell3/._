@@ -11,6 +11,7 @@ DOMAIN=$(hostname -d)
 			test -d Applications ||
     IP=$(hostname -i)
 
+export DDN=datadirect.datadirectnet.com
 export H=$HOST D=$DOMAIN NIH=nih.gov
 export CIT=cit.$NIH NLM=nlm.$NIH
 export NCBI=ncbi.$NLM M=be-md V=st-va
@@ -104,7 +105,13 @@ case $FQDN in
 	alias	Z='C;P2;O2;L'
 
 	;;
-(*)	echo Welcome to NOWHERE;;
+(*)	if grep -q $DDN /etc/resolv.conf
+	then	echo Welcome to DDN
+		export H0=ime-home
+		export H1=ime-head01
+		export H2=ime-head02
+	else	echo Welcome to NOWHERE
+	fi;;
 esac
 
 # Script OnEach

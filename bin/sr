@@ -5,7 +5,7 @@
 # Stolen from Anthony Fletcher
 
 EXEC=exec
-RC=/home/cottrell/.bash_profile
+RC=/home/jcottrell/._/.bash_profile
 
 SHEL=/bin/sh	ENVY=	ARGS=
 SHEL=/bin/ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
