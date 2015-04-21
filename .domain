@@ -12,6 +12,7 @@ DOMAIN=$(hostname -d)
     IP=$(hostname -i)
 
 export DDN=datadirect.datadirectnet.com
+export MDN=md.ddn.com
 export H=$HOST D=$DOMAIN NIH=nih.gov
 export CIT=cit.$NIH NLM=nlm.$NIH
 export NCBI=ncbi.$NLM M=be-md V=st-va
@@ -105,7 +106,7 @@ case $FQDN in
 	alias	Z='C;P2;O2;L'
 
 	;;
-(*)	if grep -q $DDN /etc/resolv.conf
+(*)	if egrep -q "ddn|$DDN" /etc/resolv.conf
 	then	echo Welcome to DDN
 		export H0=ime-home
 		export H1=ime-head01
