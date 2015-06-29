@@ -218,7 +218,7 @@ sub pinger
     $ct = $opt{'C'};				# ping count
     $work = $wdir || "$host%ping";		# default name
     &work($work);				# set up work area
-    grep(&command("ping -s $_ $ln $ct | tee $work/$_"), @host);
+    grep(&command("ping -c 1 -w 2 $_ | tee $work/$_"), @host);
 }
 
 ################################################################
@@ -229,7 +229,7 @@ sub lister
 {
     $work = $wdir || "$host%list";		# default name
     &work($work);				# set up work area
-    grep(&command("remsh $_ -n ls -FAls @ARGV | tee $work/$_"),
+    grep(&command("ssh $_ -n ls -FAls @ARGV | tee $work/$_"),
 	 @host);
 }
 
@@ -243,7 +243,7 @@ sub execer
     $null = $opt{'q'} ? '>/dev/null' : '';	# no command output
     $work = $wdir || "$host%$ARGV[0]";		# default to command
     &work($work);				# set up work area
-    grep(&command("remsh $_ -n -l $user @ARGV | $tee $work/$_ $null"),
+    grep(&command("ssh $_ -n -l $user @ARGV | $tee $work/$_ $null"),
 	@host);
 }
 
