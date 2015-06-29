@@ -20,6 +20,8 @@ alias	a=alias		ua=unalias	us=unset
 alias	ag='alias | egrep'		eg='env | egrep'
 alias	e=echo		en='echo -n'	xp=export
 alias	h='fc -l'	r='fc -s'
+function i { echo "$1=$PWD"; eval "$1=$PWD"; }
+alias	j='jobs -l'		J='jobs -l'
 alias	t=type		ta='type -a'	fn='declare -f'
 alias	vb='vi $RBJ/.bashrc;	source $RBJ/.bashrc'
 alias	zb='vi $RBJ/.zshrc;	source $RBJ/.zshrc'
@@ -66,6 +68,10 @@ function rude()
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -hT'	uh='du -h'	df='df -k'
+
+alias	agw='route add -net default gw'	gw='netstat -rn'
+alias	dgw='route del -net default gw'
+
 function gm {  egrep --color=always $* | less -r; }
 alias	 grep='egrep --color=auto'
 alias	egrep='egrep --color=auto'
@@ -76,8 +82,6 @@ alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
 alias GG='getent  group'; function gg { egrep $* /etc/group; }
 alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
 function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
-function i { echo "$1=$PWD"; eval "$1=$PWD"; }
-alias	j='jobs -l'		J='jobs -l'
 alias	kp='cp -p'		kr='cp -pr'
 
 alias	kh='kill -HUP'		ki='kill -INT'

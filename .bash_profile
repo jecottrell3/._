@@ -84,7 +84,7 @@ export	HISTCONTROL=ignoreboth
 test -x /usr/bin/vim &&
 export	  EDITOR=vim ||
 export	  EDITOR=vi
-export	R=$(uname -r)
+export	R=$(uname -r)	X=x86_64
 export	TMOUT=0 REV=$R
 export	TTY=$(tty | tr -dc 0123456789)
 export	VIMINIT="source $RBJ/.vimrc"
