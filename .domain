@@ -108,11 +108,14 @@ case $FQDN in
 
 	;;
 (*)	if egrep -q "ddn|$DDN" /etc/resolv.conf
-	then	echo Welcome to DDN
+	then	D=$DDN
+		echo Welcome to DDN
 		export D=$MDN
 		export H0=ime-home
 		export H1=ime-head01
 		export H2=ime-head02
+		export ED=ereo-debian
+		export EC=ereo-centos
 	else	echo Welcome to NOWHERE
 	fi;;
 esac

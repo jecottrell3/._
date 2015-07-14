@@ -17,6 +17,9 @@ SUDO= ME=root		# -p default
 
 # Collect the ssh flags.
 flags='-tAX'
+case $DISPLAY in
+(:0.0)	flags="$flags -e^"
+esac
 while [ $# != 0 ]
 do
 	case "$1" in

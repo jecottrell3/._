@@ -123,7 +123,7 @@ sub splat
 	}
 
 	print("$banner\n");
-	print("-\@$N\n");
+	print("#\@$N\n");
 	print("$banner\n\n");
 
 	map	# existance test

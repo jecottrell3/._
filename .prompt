@@ -55,9 +55,13 @@ PS82=': [\#:$?:\j]-\$; '
 PS91=': \t [\#:$?:\j] \w;\n'
 PS92=': \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
 
-if test -d /Applications
+case $DISPLAY in
+(:0.0)	setxkbmap -option ctrl:nocaps -option shift:both_capslock
+esac
+
+if	test -f $HOME/.xsession-errors
 then	alias ssh='ssh -e^'
-	PS1="$PS91$PS92" BG=4 FG=6 HI=1; alias ssh='ssh -e^'
+	PS1="$PS91$PS92" BG=4 FG=6 HI=1
 else	PS1="$PS81$PS82"
 fi
 
