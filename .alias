@@ -37,7 +37,7 @@ alias	vv='vi $RBJ/.vars;	source $RBJ/.vars'
 alias	vn='vi $RBJ/.inputrc'	vk='vi $HOME/.ssh/known_hosts'
 alias	vd='vimdiff'		vf='sudo vim /etc/fstab'
 alias	hd='vimdiff -o'		vh='sudo vim /etc/hosts'
-alias	vs='sudo visudo'
+alias	vs='sudo visudo'	jim="su - $JC"
 alias	x='for x in'		y='fg %-'
 alias	zz=suspend		zzz='suspend -f'
 
@@ -68,6 +68,7 @@ function rude()
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -hT'	uh='du -h'	df='df -k'
+alias	ds='dig +search'
 
 alias	agw='route add -net default gw'	gw='netstat -rn'
 alias	dgw='route del -net default gw'
@@ -108,7 +109,7 @@ alias	mn='make -n'		mi='make install'
 alias	mo='sudo  mount'	mz='sudo  mount -av'
 alias	um='sudo umount'	uz='sudo umount -av'
 alias	ns=nslookup
-alias	p='ps -ef | egrep'
+alias	p='ps -ef | egrep'	pp='ping -c1 -w2'
 alias	pie='perl -pi -e'
 alias	pd=pushd		po=popd
 

@@ -22,7 +22,7 @@ alias	u7='authconfig --restorelastbackup'
 alias	u8='authconfig --restorebackup'
 alias	u9='authconfig --savebackup'
 #################################################################
-#	Specific
+#	NIH Smart Cards
 #################################################################
 alias	P0='service pcscd stop'		P1='service pcscd start'
 alias	P2='service pcscd status'	P3='service pcscd restart'
@@ -82,4 +82,13 @@ function n6() { rndc $* flush; }
 function n7() { rndc $* dumpdb; }	
 function n8() { rndc $* reconfig; }	
 function n9() { rndc $* reload; }	
+#################################################################
+#	NTP
+#################################################################
+alias	t0='service ntpd stop'
+alias	t1='service ntpd start'
+alias	t2='ntpstat'
+alias	t3='service ntpd restart'
+alias	t4='ntpq -p'
+alias	t5='ntpdc'
 #################################################################
