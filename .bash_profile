@@ -26,14 +26,13 @@ export	INPUTRC=$RBJ/.inputrc
 
 : set -x
 chmod a+rx $HOME
-test  -w /				||
+test  -w /		||
 {
-	test  -d      $HOME/.ssh        &&
-	chmod -R og-w $HOME/.ssh        &&
-	chmod 600     $HOME/.ssh/*.key  &&
-	chmod 600     $HOME/.ssh/*.pass &&
-	chmod 600     $HOME/.ssh/id*    &&
-	chmod 644     $HOME/.ssh/*.pub
+	test  -d	$HOME/.ssh &&
+	(cd		$HOME/.ssh
+	chmod 755	.
+	chmod 600	*
+	chmod 644	*.pub known_hosts authorized_keys)
 }
 set +x
 

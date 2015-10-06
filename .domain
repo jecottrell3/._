@@ -111,9 +111,8 @@ case $FQDN in
 	then	D=$DDN
 		echo Welcome to DDN
 		export D=$MDN
-		export H0=ime-home
-		export H1=ime-head01
-		export H2=ime-head02
+		export H0=home-192
+		export H2=head-192
 		export ED=ereo-debian
 		export EC=ereo-centos
 	else	echo Welcome to NOWHERE

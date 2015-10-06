@@ -1,0 +1,40 @@
+#! /bin/sh
+
+# Common BMC (ipmitool) Functions
+
+HOST= USER= PASS= CMD=
+B=0 C=0 D=0 L=0 P=0 R=0 S=0 U=0
+
+case $1 in
+(-b)	shift && ((++B));;
+(-c)	shift && ((++C));;
+(-d)	shift && ((++D));;
+(-l)	shift && ((++L));;
+(-p)	shift && ((++P));;
+(-pc)	shift && ((++P)) && ((++C));;
+(-pr)	shift && ((++P)) && ((++R));;
+(-r)	shift && ((++R));;
+(-s)	shift && ((++S));;
+(-u)	shift && ((++U));;
+esac
+
+case $1 in
+(@@*)	HOST="-H     ${1#@@}" USER='-U root' PASS='-P ddn'; shift;;
+(@*)	HOST="-H bmc-${1##@}" USER='-U root' PASS='-P ddn'; shift;;
+esac
+
+ipmi()
+{
+	echo sudo ipmitool $HOST $USER $PASS "$@"
+	eval sudo ipmitool $HOST $USER $PASS "$@"
+}
+
+((B)) && ipmi chassis bootdev bios
+((D)) && ipmi chassis bootdev disk
+((P)) && ipmi chassis bootdev pxe
+((C)) && ipmi power cycle
+((R)) && ipmi power reset
+((L)) && ipmi lan print
+((U)) && ipmi user list 1
+((S)) && ipmi shell
+((B+D+P+C+R+L+U)) || ipmi ${*:-shell}
