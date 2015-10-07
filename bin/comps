@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-# $Id$
+# $Id: comps 306 2015-07-14 16:31:30Z JECottrell3@gmail.com $
 ################################################################
 # old usage:  comps NAME	old usage specifies subdir
 # new usage:  comps		new usagw inside of subdir

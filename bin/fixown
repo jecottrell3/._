@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-use strict;	# $Id$
+use strict;	# $Id: fixown 274 2013-12-05 01:30:57Z JECottrell3@gmail.com $
 use integer;
 
 $| = 1;

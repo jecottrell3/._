@@ -1,6 +1,6 @@
 cd $HOME
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
-# $Id$
+# $Id: .bash_profile 305 2015-06-29 22:38:44Z JECottrell3@gmail.com $
 #################################################################
 #	BASH PROFILE
 #################################################################

@@ -1,0 +1,65 @@
+ip OPTS OBJECT COMMAND ARGS
+
+OPTIONS:
+
+-V[ersion], -s[tatistics], -r[esolve], -o[neline],
+-f[amily] { inet | inet6 | ipx | dnet | link }
+
+OBJECTS:
+
+link, addr, addrlabel, route, rule, neigh, tunnel, maddr, mroute, monitor
+
+LINK:
+	set	dev DEVICE { up | down | arp { on | off } |
+		promisc { on | off } |
+		allmulticast { on | off } |
+		dynamic { on | off } |
+		multicast { on | off } |
+		txqueuelen PACKETS |
+		name NEWNAME |
+		address MAC | broadcast MAC |
+		mtu MTU |
+		netns PID |
+		alias NAME |
+		vf NUM	[ mac LLADDR ] 
+			[ vlan VLANID [ qos VLAN-QOS ] ]
+			[[ rate TXRATE ]  }
+
+	show [DEVICE]
+ADDR:
+	add/del ADDR dev DEV
+	show/flush [dev DEV] [scope SCOPE] to PREFIX [flags] [label LABEL]
+	SCOPE: host. link, global
+	FLAGS: permanent, dynamic, secondary, primary, tentative, deprecated
+
+ADDRLABEL:
+	add/del prefix PREFIX [ dev DEV ] [ label NUMBER ]
+	list/flush
+ROUTE:
+	list/flush SELECTOR
+	get ADDR [from ADDRESS iif STRING] [oif STRING] [tos TOS]
+	add/del/change/append/replace/monitor ROUTE
+	SELECTOR:	[root/match/exact PREFIX] [table ID]
+			[proto P] [type T] [scope S]
+	ROUTE: NODE INFO
+	NODE: [type] PREFIX [tos TOS] [table ID] [proto P] [scope S] [metric M]
+	INFO: NH OPTIONS FLAGS [ nexthop NH ] ...
+	TYPE:	unicast, local, broadcast, multicast, throw,
+		unreachable, prohibit, blackhole, nat
+	ID:	[ local| main | default | all | NUMBER ]
+	SCOPE:	[ host | link | global | NUMBER ]
+
+RULE:
+	seriously?
+NEIGH:
+	seriously?
+TUNNEL:
+	seriously?
+MADDR:
+	seriously?
+MROUTE:
+	seriously?
+MONITOR:
+	seriously?
+XFRM:
+	seriously?

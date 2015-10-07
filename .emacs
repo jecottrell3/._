@@ -1,5 +1,5 @@
 ;23-(setq keyboard-translation-table nil)
-;23-;;;; $Id$
+;23-;;;; $Id: .emacs 274 2013-12-05 01:30:57Z JECottrell3@gmail.com $
 ;23-;;;;(set-input-mode nil t)
 ;23-;;;;(set-input-mode  t  t)
 
