@@ -2,39 +2,79 @@
 
 # Common BMC (ipmitool) Functions
 
-HOST= USER= PASS= CMD=
-B=0 C=0 D=0 L=0 P=0 R=0 S=0 U=0
+NET= AUTH=
+B=0 C=0 D=0 L=0 N=0 O=0 P=0 R=0 S=0 U=0
+
+usage()
+{
+	cat <<EOF
+usage: bmc [options] [host] [cmd] [args]
+	options:
+		-h	this help
+		-s	shell
+		-l 	lan print
+		-u	user list
+		-b	chassis bootdev bios
+		-d	chassis bootdev disk
+		-p	chassis bootdev pxe
+		-c	power cycle
+		-r	power reset
+		-on	power on
+		-off	power off
+		-pc	-p + -c
+		-pr	-p + -r
+		-bc	-b + -c
+		-br	-b + -r
+		default	shell
+	host:
+		@name	-H name-bmc
+		@@name	-H name
+		default localhost
+	cmd:
+		any IPMI command
+		default	shell
+EOF
+	exit
+}
 
 case $1 in
+(-h)	usage;;
 (-b)	shift && ((++B));;
+(-bc)	shift && ((++B + ++C));;
+(-br)	shift && ((++B + ++R));;
 (-c)	shift && ((++C));;
 (-d)	shift && ((++D));;
 (-l)	shift && ((++L));;
+(-on)	shift && ((++N));;
+(-off)	shift && ((++O));;
 (-p)	shift && ((++P));;
-(-pc)	shift && ((++P)) && ((++C));;
-(-pr)	shift && ((++P)) && ((++R));;
+(-pc)	shift && ((++P + ++C));;
+(-pr)	shift && ((++P + ++R));;
 (-r)	shift && ((++R));;
 (-s)	shift && ((++S));;
 (-u)	shift && ((++U));;
 esac
 
 case $1 in
-(@@*)	HOST="-H     ${1#@@}" USER='-U root' PASS='-P ddn'; shift;;
-(@*)	HOST="-H bmc-${1##@}" USER='-U root' PASS='-P ddn'; shift;;
+(@@*)	NET="-I lanplus -H ${1#@@}"     AUTH='-U root -P ddn'; shift;;
+(@*)	NET="-I lanplus -H ${1##@}-bmc" AUTH='-U root -P ddn'; shift;;
 esac
 
 ipmi()
 {
-	echo sudo ipmitool $HOST $USER $PASS "$@"
-	eval sudo ipmitool $HOST $USER $PASS "$@"
+	echo ipmitool $NET $AUTH "$@"
+	eval ipmitool $NET $AUTH "$@"
 }
 
 ((B)) && ipmi chassis bootdev bios
 ((D)) && ipmi chassis bootdev disk
 ((P)) && ipmi chassis bootdev pxe
 ((C)) && ipmi power cycle
+((N)) && ipmi power on
+((O)) && ipmi power off
 ((R)) && ipmi power reset
 ((L)) && ipmi lan print
 ((U)) && ipmi user list 1
 ((S)) && ipmi shell
-((B+D+P+C+R+L+U)) || ipmi ${*:-shell}
+
+((B+D+P+C+N+O+R+L+U+S)) || ipmi ${*:-shell}

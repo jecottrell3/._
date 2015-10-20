@@ -11,6 +11,7 @@ $opt{'C'} = 1;					# ping count
 $opt{'L'} = 66;					# ping length
 $opt{'h'} = 'hosts';				# host table
 $opt{'u'} = (getpwuid($<))[0];			# user name
+$opt{'v'} = 1;					# verbose
 
 ################################################################
 #	USAGE
@@ -129,7 +130,7 @@ sub sanity
     $user = $opt{'u'};				# run as user
     $errs = $opt{'e'};				# die on errors
     $tmot = $opt{'t'};				# timeout
-    $SIG{'INT'} = 'sigint';			# interrupt handler
+    $SIG{'INT'}  = 'sigint';			# interrupt handler
     $SIG{'ALRM'} = 'sigint';			# interrupt handler
 }
 
@@ -153,7 +154,7 @@ sub work
 sub sigint
 {
     $opt{'v'} && print(": kill(SIG@_, $pid\n");	# announce
-    $SIG{'INT'} = 'sigint';			# reset handler
+    $SIG{'INT'}  = 'sigint';			# reset handler
     $SIG{'ALRM'} = 'sigint';			# reset handler
     kill(@_, $pid) if $pid;			# death!
     $pid = 0;					# no proc now

@@ -102,11 +102,15 @@ sub group
 sub splat
 {
 	$M = $N;
+	`mkdir -p .pkgs`;
 	for ($M)
 	{
 		s/^(core)$/0$1/;
 		s/^(base)$/1$1/;
 		s/^(base-x)$/2$1/;
+		s/^(x11)$/2$1/;
+		s/^(legacy-x)$/2$1/;
+		s/^(fonts)$/2$1/;
 		s/openfabrics-enterprise-distribution/OFED/;
 		s/engineering-and-scientific/ENG-SCI/;
 		s/authoring-and-publishing/AUTH-PUB/;
@@ -115,8 +119,10 @@ sub splat
 	}
 
 	if ($norm) {
-		open(NORM, ">>$M") or
-	die(   "open(NORM,  >>$M ): $!\n");
+		open(NORM, ">$M") or
+	die(   "open(NORM,  >$M ): $!\n");
+		open(PKGS, ">.pkgs/$M") or
+	die(   "open(PKGS,  >.pkgs/$M ): $!\n");
 		select NORM;
 	} else {
 		select LANG;
@@ -138,8 +144,15 @@ sub splat
 	map { print("#o$X{$_}\t $_\n"); } sort(keys(%O));
 	map {printf("#c\t?%-31s %s\n", $_, $C{$_}); } sort(keys(%C));
 
+	select PKGS if $norm;
+	map { print("$_\n"); } sort(keys(%M));
+	map { print("$_\n"); } sort(keys(%D));
+	map { print("$_\n"); } sort(keys(%O));
+	map { print("$_\n"); } sort(keys(%C));
+
 	print("\n");
 	close(NORM) if $norm;
+	close(PKGS) if $norm;
 	return unless  $norm;
 
 	select LIST;
