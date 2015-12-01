@@ -11,14 +11,12 @@ DOMAIN=$(hostname -d)
 			test -d Applications ||
     IP=$(hostname -i)
 
-export DDN=datadirect.datadirectnet.com
-export MDN=md.ddn.com
-export H=$HOST D=$DOMAIN NIH=nih.gov
-export CIT=cit.$NIH NLM=nlm.$NIH
+export	H=$HOST	D=$DOMAIN	NIH=nih.gov
+export	CIT=cit.$NIH		NLM=nlm.$NIH
 
 case $FQDN in
 (*.homerj)
-	alias nih='ssh  -AX cottrell@hastings.cit.nih.gov'
+	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
 	alias ncbi='ssh -AX cottrell@ssh.ncbi.nlm.nih.gov'
 	echo Welcome to HOMERJ
 #       For Cloning CDs
@@ -108,8 +106,27 @@ case $FQDN in
 
 	;;
 (*)	if egrep -q "ddn|$DDN" /etc/resolv.conf
-	then	D=$DDN
+	then
 		echo Welcome to DDN
+		export DDN=datadirect.datadirectnet.com
+		export MDN=md.ddn.com
+		export IME=ime.$MDN	DQ=dq.$MDN
+		export adDC="dc=datadirect,dc=datadirectnet,dc=com"
+		       adOU1="ou=Service Accounts"
+		       adOU2="ou=IT Administrative"
+		export adDN="cn=svc-ldap-sssd,$adOU1,$adOU2,$adDC"
+		export adBU="ou=ALL.Employees,$DC"
+		export adBC="ou=Contractors.Consultants,$DC"
+		export adBG="ou=Groups,$DC"
+		export adHOST=ad1
+		export adPW="ldap4SSSD."
+
+		adHOST="-H ldap://ad1.$IME"
+		adBIND="-D '$adDN'"
+		adPASS="-w $adPW"
+		adBASE="-b $adDC"
+		alias dds="ldapsearch -x $adHOST $adBIND $adPASS $adBASE"
+
 		export D=$MDN
 		export H0=home-192
 		export H2=head-192
