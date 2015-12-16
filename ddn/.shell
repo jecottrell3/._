@@ -1,0 +1,52 @@
+#! /bin/sh
+
+MKO=mirrors.kernel.org
+AKO=archive.kernel.org
+SRPM=vault.centos.org	# NO rsync :(
+
+H=$MKO
+P=
+OUT=cat
+SZ=99G
+OPT1="-vaxWz"
+OPT2="$OPT1 --delete-excluded"
+
+list()
+{
+	Q=$(echo $P | tr / %)
+	echo \
+	rsync $H::${P:+$P/}
+	rsync $H::${P:+$P/} | tee .list/${Q:-top} | $OUT
+}
+
+while :
+do
+	list
+	OUT=cat
+	read -p "$SZ: $H::$P? " CMD ARG
+	case $CMD in
+	('')	continue;;					# REDO
+	([qQ])	break;;						# QUIT
+	([sS])	SZ=$ARG;;					# SIZE
+	(MKO)	H=$MKO;	echo Mirror: $H; continue;;		# NEW STUFF
+	(AKO)	H=$AKO;	echo Mirror: $H; continue;;		# OLD STUFF
+	(0)	P=;;						# RESET
+	(-)	P=${P%/*};;					# UP 1
+	(--)	P=${P%/*};	P=${P%/*};;			# UP 2
+	(---)	P=${P%/*};	P=${P%/*};	P=${P%/*};;	# UP 3
+	('|')	OUT=less;;					# PAGE
+	(+)							# COPY
+		mkdir -p $P
+		echo \
+		rsync $OPT2 -f '. .filter' $H::$P/ $P/ --max-size=$SZ $ARG
+		rsync $OPT2 -f '. .filter' $H::$P/ $P/ --max-size=$SZ $ARG
+		read -p 'OK? ' CMD;;
+	(=)							# READ
+		rsync $OPT1 $H::$P/$ARG /tmp
+		less /tmp/$ARG;;
+		#read -p 'OK? ' CMD;;
+	(P)	P=${P:+$P/}Packages;;				# DOWN
+	(x)	P=${P:+$P/}x86_64;;				# DOWN
+	(*)	P=${P:+$P/}$CMD;;				# DOWN
+	esac
+done

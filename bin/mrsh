@@ -120,7 +120,7 @@ sub options
 
 sub sanity
 {
-    $opt{'s'} = 1 if ($name = $opt{'s'});
+    ###WHY???### $opt{'s'} = 1 if ($name = $opt{'s'});
     grep($opt{$_}, split(//,'Pgpxl'))    == 1 ||
 	&usage("exactly one of [Pgpxl] options must be given");
 

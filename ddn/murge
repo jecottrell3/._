@@ -1,0 +1,154 @@
+#! /usr/bin/python
+
+"""
+		USER ACCOUNT MERGE PROGRAM
+
+Synchronize GROUP, PASSWD, and SHADOW files on multiple hosts.
+
+	usage -[gps][winer][-f file][-d delim][-l limit]
+
+This program reads two files: the first is the Reference File and the
+second is the Change File, which Overrides the Reference Records.
+Both files use the First Field as a Key. However, ONLY USER RECORDS
+ARE MODIFIED. System Records are left untouched.
+
+The program knows that -[gps] refer to the group, passwd, and shadow
+files, and that anything below UID/GID 500 is a System Account. Except
+for the Root Account, all the records in the Shadow file are User Records.
+
+There is some thought to Generalizing this program to other Files, Delimiters,
+and Limits, but the support is Embryonic at this point. Some vague notions
+exist about deleting records exist as well, but they are...well...vague.
+
+The Reference File must be specified with one of -[gps], or perhaps -f file.
+The Change file is either STDIN if -i is specified, or the name of the input
+with ".usr" appended.
+
+Option Processing is rather Brittle and rather Tarlike. Perhaps the
+Author will venture to learn a Libray Module one day.
+
+Two options aid with debugging: -e changes directory to /etc
+first. Omitting this let's you "practice" on local copies. Using -n
+leaves the output with a ".new" suffix; otherwise, the old file will be
+renamed with a ".old" suffix.
+
+Specify -l LIMIT to use a different limit than 500. Specify -d DELIMITER
+to split fields elsewhere besides ":", or use -w to split on whitespace.
+
+Using -r will change the root entry; normally, this is ignored.
+
+This program was inspired by a utility written by Anthony Fletcher at NIH.
+
+Intended use is something like:
+
+	for host in some list of hosts...
+	do
+		rsync /root/murge $host:/root
+		cat /etc/group  | ssh $host /root/murge -gei 
+		cat /etc/passwd | ssh $host /root/murge -pei 
+		cat /etc/shadow | ssh $host /root/murge -sei 
+	done
+"""
+
+from __future__ import print_function
+import os, re, sys
+
+fn = None
+mf = None
+root = 0
+renm = 1
+limit = 0
+delim = ':'
+prog = sys.argv.pop(0)
+
+def usage(mesg='we need to talk'):
+	print(mesg)
+	print("""
+usage: %s -gpseinfldw args
+	-[gps]		group, passwd, shadow
+	-[hu]		hosts, sudoers [NYI]
+	-r		change root entry
+	-e		cd /etc first
+	-i		use stdin
+	-n		no new/old renaming
+	-f name		specify filename
+	-l limit	specify uid/gid limit
+	-d delim	specify delimiter
+	-w		whitespace delimited
+""" % prog)
+	exit(1)
+	
+# Option Parsing. Somewhat Brittle and tar-like. You get ONE option
+# argument all jumbled together, and necessary fields are picked off
+# the arg list. No files are allowed, altho that might be useful to
+# specify the changes.
+
+while len(sys.argv):
+    arg = sys.argv.pop(0)
+    if arg[0] == '-':
+	# Selection Options
+        if 'g' in arg: fn = 'group';  limit = 500
+        if 'p' in arg: fn = 'passwd'; limit = 500
+        if 's' in arg: fn = 'shadow'
+#       if 'h' in arg: fn = 'hosts'		# NYI
+#       if 'u' in arg: fn = 'sudoers'		# NYI
+        if 'f' in arg: fn = sys.argv.pop(0)
+	# Argument Options
+        if 'l' in arg: limit = int(sys.argv.pop(0));
+        if 'd' in arg: delim = sys.argv.pop(0)
+	# Flag Options
+        if 'w' in arg: delim = '[ \t]+'
+        if 'i' in arg: mf = sys.stdin
+        if 'n' in arg: renm = 0
+        if 'e' in arg: os.chdir('/etc')
+	if 'r' in arg: root = 1
+        if 'j' in arg: usage()
+    else: usage('missing options')
+
+if len(sys.argv):	usage('extra arguments')
+if not fn:		usage('no file specified')
+
+nd = {}			# name dict
+nl = []			# name list
+
+oc = ac = cc = dc = sc = uc = 0	# orig, add, chg, del, sys, usr counts
+
+# Read Original File
+
+for line in open(fn):
+    flds = re.split(delim, line)
+    name = flds[0]
+    nd[name] = line
+    nl.append(name)
+    oc += 1
+
+# Merge Changes
+
+for line in mf or open(fn + '.usr'):
+    flds = re.split(delim, line)
+    name = flds[0]
+    if name == 'root':
+	if not  root: continue
+	sc += 1
+    if limit and limit > int(flds[2]):
+		sc += 1; continue
+    else:	uc += 1
+    if name in nl:
+        if line != nd[name]:
+            cc += 1
+    else:
+        nl.append(name);
+        ac += 1
+    nd[name] = line
+
+# Write Updated File
+
+with open(fn + '.new', 'w') as nf:
+    [nf.write(nd[name]) for name in nl]	# wow! a List Comprehension!
+
+if renm: os.rename(fn, fn + '.old'); os.rename(fn + '.new', fn)
+
+if fn == 'shadow': os.chmod(fn, 0)
+
+print('%s: %d orig, %d add, %d chg, %d sys, %d usr' %
+	(fn, oc, ac, cc, sc, uc))	# no deletions yet

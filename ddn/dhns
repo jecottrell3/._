@@ -1,0 +1,12 @@
+#! /bin/sh -x
+
+cp /etc/hosts /repo/files
+
+scp /etc/hosts ccm-build:/etc/hosts
+scp /etc/hosts qixie-52:/etc/hosts
+scp /etc/hosts head-52:/etc/hosts
+scp /etc/hosts home-52:/etc/hosts
+
+/root/h2d && service dhcpd restart &&
+/root/h2n && rndc reload &&
+: "[34;46mYOW! Are we having [31mNAMES[34m yet?[0m"

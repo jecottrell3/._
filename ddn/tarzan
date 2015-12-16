@@ -1,0 +1,51 @@
+#! /bin/sh
+
+HOST=${1:-home}
+NEXT=${2:-$(date +%d)}
+DATE=${2:-$(date +%y%m%d)}
+BACK=/back/$HOST/$NEXT
+TARS=/tars/$HOST/$NEXT
+CIFS=/cifs/$HOST/$DATE
+LOG=$TARS/master.log
+
+LAST=0 SEC=0 MIN=0 HOUR=0
+
+doit()
+{
+	NOW=$(date)
+	((TIME=$(date +%s)))
+	((DIFF=TIME-LAST))
+	((LAST=TIME))
+	((SECS=DIFF%60))
+	((DIFF=DIFF/60))
+	((MINS=DIFF%60))
+	((DIFF=DIFF/60))
+	((HOUR=DIFF))
+	printf "===== $NOW ===== %02d:%02d:%02d =====\\n" $HOUR $MINS $SECS
+	echo "$@" && eval "$@"
+}
+
+if	tty -s			# interactive?
+then	TTY=/dev/tty
+else	TTY=/dev/null
+fi
+
+mkdir -p $TARS/ARCHIVE
+cd       $BACK
+
+{
+	mkdir -p $CIFS
+	FORMAT="--out-format='%12l    %n%L'"
+	while read JUNK DIR
+	do
+		DIR=${DIR#/}
+		case $DIR in
+		(ARCHIVE/*)	continue;;
+		esac
+		test -f		$TARS/$DIR.tgz && continue
+		doit tar cvvzf	$TARS/$DIR.tgz -S $DIR \> $TARS/$DIR.log
+		doit rsync -vz  $TARS/$DIR.??? $FORMAT $CIFS
+	done < ../.DU
+
+	doit : END
+} 2>&1 | tee -a $LOG > $TTY

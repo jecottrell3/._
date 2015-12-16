@@ -1,0 +1,57 @@
+#! /usr/bin/python
+
+#	User eXTRACT from	{group,passwd,shadow}
+#	producing		{group,passwd,shadow}.{sys,usr}
+#	{group,passwd,shadow} can be symlinks or copies
+
+from __future__ import print_function
+import os
+
+# os.chdir('/etc')
+
+GF = open('group')
+PF = open('passwd')
+SF = open('shadow')
+
+GS = open('group.sys',	'w')
+PS = open('passwd.sys',	'w')
+SS = open('shadow.sys',	'w')
+
+GU = open('group.usr',	'w')
+PU = open('passwd.usr',	'w')
+SU = open('shadow.usr',	'w')
+
+SYS=[]
+USR=[]
+
+# TODO: make a function
+
+u = s = 0
+for line in GF:
+#	line = line.strip()
+	(name, pswd, gid, mbrs) = line.split(':')
+#	print('name: ',name, ', pswd: ',pswd, ', gid: ',gid, ', mbrs: ',mbrs)
+	if int(gid) < 500:	GS.write(line); s += 1
+	else:			GU.write(line); u += 1
+
+GS.close(); GU.close()
+print('Group:\t\t%d sys, %d user' % (s, u))
+
+u = s = 0
+for line in PF:
+	(name, pswd, uid, gid, gecos, home, shell) = line.split(':')
+	if int(uid) < 500:	PS.write(line); s += 1; SYS.append(name)
+	else:			PU.write(line); u += 1; USR.append(name)
+
+PS.close(); PU.close()
+print('Password:\t%d sys, %d user' % (s, u))
+
+u = s = 0
+for line in SF:
+	(name, pswd, last, min, max, warn, inact, exp, res) = line.split(':')
+	if (name in SYS):	SS.write(line); s += 1
+	if (name in USR):	SU.write(line); u += 1
+
+SS.close(); SU.close()
+print('Shadow:\t\t%d sys, %d user' % (s, u))
+
