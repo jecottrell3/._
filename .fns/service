@@ -92,3 +92,9 @@ alias	t3='service ntpd restart'
 alias	t4='ntpq -p'
 alias	t5='ntpdc'
 #################################################################
+#	SLURM
+#################################################################
+function L0() { scontrol update NodeName=$* State=Down; }	
+function L1() { scontrol update NodeName=$* State=Resume; }	
+function L2() { sinfo $*; }	
+#################################################################
