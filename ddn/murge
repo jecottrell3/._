@@ -1,4 +1,16 @@
 #! /usr/bin/python
+"""
+                USER ACCOUNT MERGE PROGRAM
+
+Synchronize GROUP, PASSWD, and SHADOW files on multiple hosts.
+
+        usage: murge -[gps][winer][-f file][-d delim][-l limit]
+
+Further documentation below.
+"""
+#################################################################
+#		VARIABLES
+#################################################################
 
 from __future__ import print_function
 import os, re, sys
@@ -10,11 +22,13 @@ rename = 1
 limit = 0
 delim = ':'
 prog = sys.argv.pop(0)
-
 namedict = {}
 namelist = []
-
 orig = adds = chgs = dups = errs = syss = usrs = 0      # counts
+
+#################################################################
+#		USAGE
+#################################################################
 
 def usage(mesg='we need to talk'):
         print(mesg)
@@ -32,11 +46,17 @@ usage: %s -gpseinfldw args
         -w              whitespace delimited
 """ % prog)
         exit(1)
+
+#################################################################
 
-# Option Parsing. Somewhat Brittle and tar-like. You get ONE option
+#################################################################
+#		OPTION PARSING
+#################################################################
+# Somewhat Brittle and tar-like. You get ONE option
 # argument all jumbled together, and necessary fields are picked off
 # the arg list as needed. No files are allowed, altho that might be
 # useful to specify the updates.
+#################################################################
 
 while len(sys.argv):
     arg = sys.argv.pop(0)
@@ -62,20 +82,26 @@ while len(sys.argv):
 
 if len(sys.argv):       usage('extra arguments')
 if not filename:        usage('no file specified')
+
+#################################################################
 
-# Read Original File
+#################################################################
+#		READ ORIGINAL FILE
+#################################################################
 
 for line in open(filename):
     flds = re.split(delim, line)
-    name = flds[0]                                      # str: normal name
+    name = flds[0]                              # str: normal name
     if name in namedict:
-        dups +=1; name = dups                           # +int: dup name
+        dups +=1; name = dups                   # +int: dup name
         print("***DUP*** " + line, end='')
     namedict[name] = line
     namelist.append(name)
     orig += 1
 
-# Merge Changes
+#################################################################
+#		MERGE CHANGES
+#################################################################
 
 for line in updtfile or open(filename + '.usr'):
     flds = re.split(delim, line)
@@ -86,7 +112,7 @@ for line in updtfile or open(filename + '.usr'):
             if int(id) < limit:
                     syss += 1; continue
         except (IndexError,ValueError):
-            errs -= 1; name = errs                      # -int: err name
+            errs -= 1; name = errs              # -int: err name
             print('***ERR*** ' + line, end='')
     if name == 'root':
         if noroot: continue
@@ -101,7 +127,9 @@ for line in updtfile or open(filename + '.usr'):
         adds += 1
     namedict[name] = line
 
-# Write Updated File
+#################################################################
+#		WRITE UPDATED FILE
+#################################################################
 
 with open(filename + '.new', 'w') as newfile:
     [newfile.write(namedict[name]) for name in namelist]
@@ -114,14 +142,15 @@ if filename == 'shadow': os.chmod(filename, 0)  # endswith?
 
 print('%s: %d orig, %d adds, %d chgs, %d dups, %d errs, %d sys, %d usr' %
         (filename, orig, adds, chgs, dups, -errs, syss, usrs))
+
+exit()
+
+#################################################################
 
+#################################################################
+#		EXPLANATION
+#################################################################
 """
-                USER ACCOUNT MERGE PROGRAM
-
-Synchronize GROUP, PASSWD, and SHADOW files on multiple hosts.
-
-        usage -[gps][winer][-f file][-d delim][-l limit]
-
 This program reads a file and applies updates to it. Each line is
 considered a record consisting of a Key, a Delimiter, and the Rest. In
 the case of the Group and Password files the Third Field is used to
@@ -181,3 +210,4 @@ BUGS:
 Option Handling is Brittle.
 The program is Just Good Enough for its Intended Use.
 """
+#################################################################
