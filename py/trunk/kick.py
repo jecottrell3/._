@@ -5,7 +5,7 @@
 #################################################################
 
 from sys  import *
-#import os
+import os
 
 import head, nets, disk, prep, post, pkgs	# sections
 import host, part, syst, type 			# customizers
@@ -93,6 +93,9 @@ t2p = {	'core':	'5',	'base':	'6',
 #################################################################
 
 # h = 'H'; p = 'P'; s = 'S'; t = 'T'	# for debugging
+
+try:    h = os.stat ('ks')
+except: h = os.mkdir('ks')
 
 for		h in  host.items.keys():
   for		p in  (part.h2p[h]).split(' '):
