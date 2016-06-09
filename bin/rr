@@ -11,10 +11,9 @@ $e = 0;						# always equal
 $z = 0;						# sizes  equal
 $t = 0;						# mtime  equal
 $a = 0;						# dont rm ._
-$S = 0;						# dont spare .svn, CVS
+$s = 0;						# ln max compare size
 $U = $G = $M = 0;				# same owner, group, mode
-$I = $J = $K = $L = 0;				# max size
-$w = $X = $Y = $Z = 0;				# max size
+$V = 0;						# dont spare .svn, CVS
 $BELL='';
 
 ################################################################
@@ -24,7 +23,8 @@ sub usage	#	USAGE
 {
     die("@_
 
-usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-t] [-a] [-c] [-U] [-G] [-M] [-S] src dst
+NOTE: options may NOT be combined
+usage: $0 [-qb] [-nd] [-ezt] [-a] [-c] [-UGM] [-V] [-s ln] src dst
 	-q	quiet
 	-b	beep if different
 	-n	no file removed
@@ -37,15 +37,8 @@ usage: $0 [-q] [-b] [-d] [-n] [-e] [-z] [-t] [-a] [-c] [-U] [-G] [-M] [-S] src d
 	-U	require same uid
 	-G	require same gid
 	-M	require same mode
-	-S	recurse in .svn and CVS too
-	-I	  1M Max Size
-	-J	 10M Max Size
-	-K	100M Max Size
-	-L	  1G Max Size
-	-W	 10G Max Size
-	-X	100G Max Size
-	-Y	  1T Max Size
-	-Z	 10T Max Size
+	-V	recurse in .svn and CVS too
+	-s ln2	log2 of max size
 	
 
 Recursive Compare and Remove SRC relative to DST
@@ -73,28 +66,21 @@ sub main	#	MAIN PROGRAM
 	last option unless $_[0] =~ m/^-.$/;	# not an option
 	$_ = shift;				# it is
 	
-	/-q/ && ++$q && next option;		# quiet
-	/-b/ && ++$b && next option;		# beep if diff
-	/-d/ && ++$d && next option;		# no rmdir
-	/-n/ && ++$n && next option;		# no rm
-	/-e/ && ++$e && next option;		# always equal
-	/-z/ && ++$z && next option;		# sizes  equal
-	/-t/ && ++$t && next option;		# mtime  equal
-	/-a/ && ++$a && next option;		# rm ._ files too
-	/-c/ && ++$c && next option;		# show created files too
-	/-U/ && ++$U && next option;		# same uid
-	/-O/ && ++$U && next option;		# alias
-	/-G/ && ++$G && next option;		# same gid
-	/-M/ && ++$M && next option;		# same mode
-	/-S/ && ++$S && next option;		# enter .svn and CVS
-	/-I/ && ++$I && next option;		#   1M Max Size
-	/-J/ && ++$J && next option;		#  10M Max Size
-	/-K/ && ++$K && next option;		# 100M Max Size
-	/-L/ && ++$L && next option;		#   1G Max Size
-	/-W/ && ++$W && next option;		#  10G Max Size
-	/-X/ && ++$X && next option;		#  10G Max Size
-	/-Y/ && ++$Y && next option;		# 100G Max Size
-	/-Z/ && ++$Z && next option;		#   1T Max Size
+	/-q/ and ++$q and next option;		# quiet
+	/-b/ and ++$b and next option;		# beep if diff
+	/-d/ and ++$d and next option;		# no rmdir
+	/-n/ and ++$n and next option;		# no rm
+	/-e/ and ++$e and next option;		# always equal
+	/-z/ and ++$z and next option;		# sizes  equal
+	/-t/ and ++$t and next option;		# mtime  equal
+	/-a/ and ++$a and next option;		# rm ._ files too
+	/-c/ and ++$c and next option;		# show created files too
+	/-U/ and ++$U and next option;		# same uid
+	/-O/ and ++$U and next option;		# alias
+	/-G/ and ++$G and next option;		# same gid
+	/-M/ and ++$M and next option;		# same mode
+	/-S/ and ++$S and next option;		# enter .svn and CVS
+	/-s/ and $s = 0+shift and next option;	# ln2 max size
     
 	&usage("unknown option: $_");		# complain
    
@@ -105,17 +91,17 @@ sub main	#	MAIN PROGRAM
     $BELL="\007" if $b;				# squawk
     $d |= $n;					# keep dirs too
 
-    $src_dir = shift || &usage("Missing SRC");
-    $dst_dir = shift || &usage("Missing DST");
-    $lvl = shift && &usage("Too Many Files");
+    $src_dir = shift or  &usage("Missing SRC");
+    $dst_dir = shift or  &usage("Missing DST");
+    $lvl = ''; shift and &usage("Too Many Files"); # fix evil code
 
-    $src_dir =~ m'^/' || ($cwd = &pwd);		# remember cwd
+    $src_dir =~ m'^/' or ($cwd = &pwd);		# remember cwd
 
     &cd($dst_dir, 1); $dst_dir = &pwd;		# make dst absolute
     &cd($cwd, 1) if $cwd;			# original cwd
     &cd($src_dir, 1); $src_dir = &pwd;		# make src absolute
 
-    $src_dir eq $dst_dir &&			# sanity clause
+    $src_dir eq $dst_dir and			# sanity clause
     die("$0: You almost removed the entire tree!\n");
 
     &RR($src_dir, $dst_dir, '');		# start recursing
@@ -140,7 +126,7 @@ sub cd		#	CHANGE DIRECTORY
 ################################################################
 
 {
-    chdir($_[0]) && return 1;			# success
+    chdir($_[0]) and return 1;			# success
     die "cd $_[0]: $!\n" if $_[1];		# hard failure
     return 0;					# soft failure
 }
@@ -150,12 +136,12 @@ sub action	#	TALK TO THE USER
 ################################################################
 
 {
-    $_[0] eq 'NEXT' && !$c && next file;
-    $q || printf("%-15s %s\n", "$lvl@_[1]", $src_file);
-    $_[0] eq 'NEXT' && next file;
-    $_[0] eq 'KEEP' && ($empty = 0);
-    $_[0] eq 'KILL' && &rm($src_file);
-    $_[0] eq 'INFO' || next file;
+    $_[0] eq 'NEXT' && !$c and next file;
+    $q or printf("%-15s %s\n", "$lvl@_[1]", $src_file);
+    $_[0] eq 'NEXT' and next file;
+    $_[0] eq 'KEEP' and ($empty = 0);
+    $_[0] eq 'KILL' and &rm($src_file);
+    $_[0] eq 'INFO' or next file;
 }
 
 ################################################################
@@ -193,27 +179,20 @@ sub same	#	COMPARE FILE CONTENTS
     return 0 if ($G && ($src_stat[5] != $dst_stat[5]));	# gid check
     return 0 if ($M && ($src_stat[2] != $dst_stat[2]));	# mode check
     return 0 if        ($src_stat[7] != $dst_stat[7]);	# size check
-    return 0 if ($I && ($src_stat[7] > (  1 << 20)) );	# size check
-    return 0 if ($J && ($src_stat[7] > ( 10 << 20)) );	# size check
-    return 0 if ($K && ($src_stat[7] > (100 << 20)) );	# size check
-    return 0 if ($L && ($src_stat[7] > (  1 << 30)) );	# size check
-    return 0 if ($W && ($src_stat[7] > ( 10 << 30)) );	# size check
-    return 0 if ($X && ($src_stat[7] > (100 << 30)) );	# size check
-    return 0 if ($Y && ($src_stat[7] > (  1 << 40)) );	# size check
-    return 0 if ($Z && ($src_stat[7] > ( 10 << 40)) );	# size check
     return 1 if ($z);				# size same
     return 1 if ($t && ($src_stat[9] == $dst_stat[9]));	# mtime check
-    
+    return 0 if ($s && ($src_stat[7] > (1 << $s)));	# max size check
+
     close(src_file); close(dst_file);		# clean previous
-    open(src_file) || return 0;			# open src
-    open(dst_file) || return 0;			# open dst
+    open(src_file) or return 0;			# open src
+    open(dst_file) or return 0;			# open dst
     
     local $sts = 1;
     while ($size = sysread(src_file, $src_stat, 1<<16)) { # 64K
 	$sts = ($size == sysread(dst_file, $dst_stat, $size));
-	$sts || last;			        # compare size
+	$sts or last;			        # compare size
 	$sts = ($src_stat eq $dst_stat);
-	$sts || last;				# compare data
+	$sts or last;				# compare data
     }
     close(src_file); close(dst_file);		# clean previous
     return($sts);
@@ -255,14 +234,14 @@ sub RR		#	RECURSIVE ENGINE
     
     # READ SOURCE AND DESTINATION DIRECTORYS
 
-    &cd($dst_dir, 0) || return;			# bailing out near line 1
-    opendir(DST_DIR, '.') ||
+    &cd($dst_dir, 0) or return;			# bailing out near line 1
+    opendir(DST_DIR, '.') or
 	warn("$0: opendir($dst_dir): $!\n");
     @dst_file = readdir(DST_DIR);		# ls .
     closedir(DST_DIR);
 
-    &cd($src_dir, 0) || return;			# bailing out near line 1
-    opendir(SRC_DIR, '.') ||
+    &cd($src_dir, 0) or return;			# bailing out near line 1
+    opendir(SRC_DIR, '.') or
 	die("$0: opendir($src_dir): $!\n");
     @src_file = readdir(SRC_DIR);		# ls .
     closedir(SRC_DIR);
@@ -290,8 +269,8 @@ sub RR		#	RECURSIVE ENGINE
 
 	if ($src_link)
 	{
-	    &ident && &action('KILL', "=$dst_type"); # fwd symlink eq
-	    $dst_link || &action('KEEP', ">$dst_type"); # fwd symlink ne
+	    &ident and &action('KILL', "=$dst_type"); # fwd symlink eq
+	    $dst_link or &action('KEEP', ">$dst_type"); # fwd symlink ne
 
 	    (readlink($src_file) eq
 	     readlink($dst_file)) ?
@@ -299,10 +278,10 @@ sub RR		#	RECURSIVE ENGINE
 		     &action('KEEP', 'L#');
 	}
 
-	($src_type ne $dst_type) &&		# real types different
+	($src_type ne $dst_type) and		# real types different
 	    &action('KEEP', "$src_type$dsttype$BELL");
 
-	($dst_link) &&
+	($dst_link) and
 	    &action('KEEP', "$src_type<$BELL");	# bwd symlink
 
 	if ($src_type =~ /[BCPS]/)		# misc types
@@ -315,7 +294,7 @@ sub RR		#	RECURSIVE ENGINE
 	if ($dst_type eq 'D')
 	{
 	    &action('KEEP', 'D!')		# Special Dir
-	    	if (!$S && ($file eq '.svn' || $file eq 'CVS'));
+	    	if (!$V && ($file eq '.svn' or $file eq 'CVS'));
 	    &action('INFO', '\\\\');		# enter dir
 	    &RR($src_file, $dst_file, ".$lvl"); # recurse
 	    &action('INFO', &rmdir($file) ?
@@ -333,7 +312,7 @@ sub RR		#	RECURSIVE ENGINE
 	die("WE MISSED SOMETHING! $src_type??$dst_type$BELL");
     }
 
-    $at && unlink('@');				# see above
+    $at and unlink('@');			# see above
     &cd('..', 0);				# back to parent dir
     return ($empty);				# can rmdir
 }
