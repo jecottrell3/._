@@ -1,0 +1,6 @@
+#! /bin/sh -x
+
+cd $RBJ
+git remote -v
+git remote -v set-url origin git@github.com:jecottrell3/._.git
+git remote -v
