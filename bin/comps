@@ -139,9 +139,9 @@ sub splat
 		}
 		keys(%M), keys(%D), keys(%O); # /
 
-	map { print("#m$X{$_}\t-$_\n"); } sort(keys(%M));
-	map { print("#d$X{$_}\t-$_\n"); } sort(keys(%D));
-	map { print("#o$X{$_}\t $_\n"); } sort(keys(%O));
+	map { print("#m$X{$_}\t-$_\n"); } ('MANDATORY', sort(keys(%M)));
+	map { print("#d$X{$_}\t-$_\n"); } ('DEFAULT',   sort(keys(%D)));
+	map { print("#o$X{$_}\t $_\n"); } ('OPTIONAL',  sort(keys(%O)));
 	map {printf("#c\t?%-31s %s\n", $_, $C{$_}); } sort(keys(%C));
 
 	select PKGS if $norm;

@@ -24,6 +24,7 @@ while read x
 do
 	case $x in
 	(.|..)		continue;;
+	(.git)		continue;;
 	(.svn)		continue;;
 	(CVS)		continue;;
 	(.profile)	continue;;
@@ -32,7 +33,8 @@ do
 	(setdn)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
-	(.ssh)	test -w /  && continue # skip if root
+	(.z*)		continue;;	# unless using zsh
+	(.ssh)	#est -w /  && continue # skip if root
 		test -e $x || rsync -rC ._/$x .
 		for y in id_dsa id_rsa identity
 		do test -e $x/$y && chmod 600 $x/$y; done
@@ -43,6 +45,7 @@ do
 done
 
 pwd
+echo setup: HOME=$HOME
 ls -l    .bash_profile
 ls -lL   .bash_profile
 source ./.bash_profile

@@ -26,5 +26,3 @@ grep $rbj: /etc/passwd ||
 		-o -d $dir -s /bin/bash \
 		-p '$1$W4V.6jvA$lVqS2WtLVws8CXUr7Mhwc0' $rbj
 }
-usermod -a -G 20 root	# SEAS
-usermod -a -G 20 $rbj	# SEAS

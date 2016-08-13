@@ -1,5 +1,6 @@
 cd $HOME
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
+test -d /run/install || ln -s / /run/install
 # $Id: .bash_profile 305 2015-06-29 22:38:44Z JECottrell3@gmail.com $
 #################################################################
 #	BASH PROFILE
@@ -24,7 +25,7 @@ export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
-: set -x
+set -x
 chmod a+rx $HOME
 test  -w /		||
 {
@@ -72,7 +73,7 @@ eval $($RBJ/bin/fixpath MANPATH)
 #case "$SSH_AUTH_SOCK" in
 #('')	eval $(ssh-agent);;
 #esac
-#@#@ssh-add -l > /dev/null || ssh-add
+ssh-add -l > /dev/null || ssh-add
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQRcdeisj11
