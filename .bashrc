@@ -19,7 +19,7 @@ test -f /usr/bin/vim && alias   vi=vim
 #	CHAIN OTHER FILES
 #################################################################
 
-for x in .alias .complete .prompt .domain
+for x in alias complete prompt domain
 do
 	test -f $RBJ/$x &&
 	source  $RBJ/$x

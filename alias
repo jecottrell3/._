@@ -5,7 +5,7 @@ alias	debug="touch $DEBUG"	nobug="rm -f $DEBUG"
 #	COMPLEX ALIASES
 #################################################################
 
-for x in $RBJ/.fns/*
+for x in $RBJ/fns/*
 do
 	source  $x
 done

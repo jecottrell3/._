@@ -43,7 +43,7 @@ umask 2
 #xport	J=jcottrel		JC=jcottrell
 export BG=$RANDOM
 
-for file in /etc/profile $RBJ/.init $RBJ/.vars $RBJ/.bashrc
+for file in /etc/profile $RBJ/.init $RBJ/vars $RBJ/.bashrc
 do
 	test -f $file &&
 	source  $file
@@ -53,12 +53,12 @@ done
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
 #################################################################
 
-for dir in /opt/systems/bin /usr/sbin /sbin $RBJ/bin ~/bin
+for dir in /usr/sbin /sbin $RBJ/bin ~/bin
 do
 	test -d $dir || continue
 	case :$PATH: in
 	(*:$dir:*)	continue;;
-	(*)		PATH=$dir:$PATH;;
+	(*)		PATH=$dir:$PATH;;	# PREPEND
 	esac
 done
 eval $($RBJ/bin/fixpath    PATH)

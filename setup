@@ -22,7 +22,7 @@ mkdir -p $SAVE
 ls -a ._/. |
 while read x
 do
-	case $x in
+	case $x in			# FILTER OUT DOTS/OTHERS
 	(.|..)		continue;;
 	(.git)rm -f $x; continue;;
 	(.svn)		continue;;
@@ -39,9 +39,20 @@ do
 		for y in id_dsa id_rsa identity
 		do test -e $x/$y && chmod 600 $x/$y; done
 		chmod 600 $x/*.key $x/*.pass
-		;;
-	(*)	test -e	$x && mv $x $SAVE; ln -s  $INIT/$x .;;
+		continue;;
 	esac
+
+	case $x in			# FILTER IN REST
+	(.*)	: OK;;			
+	(bin)	: OK;;
+	(dist)	: FOR NOW;;
+	(emacs)	: OK;;
+	(src)	: OK;;
+	(tmp)	: OK;;
+	(*)	continue;;
+	esac
+
+	test -e	$x && mv $x $SAVE; ln -s  $INIT/$x .
 done
 
 pwd
