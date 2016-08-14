@@ -1,0 +1,10 @@
+#! /bin/sh
+
+for x in $(ls -a)
+do
+	y=$(readlink $x)
+	case $y in
+	(._/*) echo $y; rm -i $x;;
+	esac
+done
+
