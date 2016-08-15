@@ -1,4 +1,4 @@
-test -f $DEBUG && echo .prompt
+test -f $DEBUG && echo %prompt
 #################################################################
 #	PROMPTING
 #################################################################
@@ -16,8 +16,8 @@ case $(tty) in
 (/dev/tty*)	: echo TTY
 		LT=1 DK=0
 		LT=0 DK=1
-	eval $(ssh-agent)
-	$RBJ/bin/hue f cc 88 44; # $RBJ/bin/hue 8 00 00 00;
+	kill -n 0 $SSH_AGENT_PID 2>&- || eval $(ssh-agent)
+	$RBJ/bin/hue f bb 77 33; # $RBJ/bin/hue 8 00 00 00;
 	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
 	test -f /lib/kbd/consolefonts/sun12x22.psfu.gz &&
 	setfont                       sun12x22.psfu.gz
