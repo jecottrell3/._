@@ -18,14 +18,14 @@ do
 done
 done
 export	RBJ JC
-export	DEBUG=$RBJ/.debug
+export	 DEBUG=$RBJ/%debug
 test -f $DEBUG && echo .bash_profile
 
 export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
-set -x
+echo  HOME=$HOME
 chmod a+rx $HOME
 test  -w /		||
 {
@@ -35,7 +35,6 @@ test  -w /		||
 	chmod 600	*
 	chmod 644	*.pub known_hosts authorized_keys)
 }
-set +x
 
 set -o	ignoreeof
 umask 2
@@ -43,7 +42,7 @@ umask 2
 #xport	J=jcottrel		JC=jcottrell
 export BG=$RANDOM
 
-for file in /etc/profile $RBJ/.init $RBJ/vars $RBJ/.bashrc
+for file in /etc/profile $RBJ/.init $RBJ/%vars $RBJ/.bashrc
 do
 	test -f $file &&
 	source  $file
@@ -61,6 +60,7 @@ do
 	(*)		PATH=$dir:$PATH;;	# PREPEND
 	esac
 done
+
 eval $($RBJ/bin/fixpath    PATH)
 eval $($RBJ/bin/fixpath MANPATH)
 
@@ -73,6 +73,7 @@ eval $($RBJ/bin/fixpath MANPATH)
 #case "$SSH_AUTH_SOCK" in
 #('')	eval $(ssh-agent);;
 #esac
+
 ssh-add -l > /dev/null || ssh-add
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
@@ -101,6 +102,12 @@ export    M10=--max-size=10M K1000=--max-size=1000K G10=--max-size=10G
 export   M100=--max-size=100M K100=--max-size=100K G100=--max-size=100G
 export  M1000=--max-size=1000M K10=--max-size=10K G1000=--max-size=1000G
 export M10000=--max-size=10000M K1=--max-size=1K G10000=--max-size=10000G
+
+export     M3=--max-size=3M K30000=--max-size=30000K G3=--max-size=3G
+export    M30=--max-size=30M K3000=--max-size=3000K G30=--max-size=30G
+export   M300=--max-size=300M K300=--max-size=300K G300=--max-size=300G
+export  M3000=--max-size=3000M K30=--max-size=30K G3000=--max-size=3000G
+export M30000=--max-size=30000M K3=--max-size=3K G30000=--max-size=30000G
 
 #################################################################
 

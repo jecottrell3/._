@@ -1,7 +1,7 @@
 #! /bin/sh
 ESC=$(echo E | tr E '\033')
 case $1 in
-(reset)	echo "E]R"			| tr E '\033';;
-(rev)	echo "E]P0888888E]P7000000"	| tr E '\033';;
-(*)	echo "E]P$1$2$3$4"		| tr E '\033';;
+(reset)	echo -n "E]R"			| tr E '\033';;
+(rev)	echo -n "E]P0888888E]P7000000"	| tr E '\033';;
+(*)	echo -n "E]P$1$2$3$4"		| tr E '\033';;
 esac

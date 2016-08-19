@@ -1,4 +1,4 @@
-test -f $DEBUG && echo .fns/package
+test -f $DEBUG && echo %fns/package
 # $Id: package 291 2014-11-19 19:25:22Z JECottrell3@gmail.com $
 #################################################################
 #	PACKAGING -- TAR

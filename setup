@@ -7,7 +7,7 @@
 # [1] must be in home directory
 # [2] $INIT must be a symlink or a real directory
 # [3] everything in $INIT gets symlinked to home, except
-# [4] .zzh is rsync'ed, and copied to .ssh if it doesn't exist
+# [4] .ssh is copied ONLY if it does not exist
 # [5] previous versions saved in ~/.save.$$
 # [6] certain overhead files ignored.
 ################################################################
@@ -15,11 +15,11 @@
 SAVE=.save.$(date +%H%M)
 INIT=._
 
-test -d $INIT || return
+test -d $INIT/. || return
 
 mkdir -p $SAVE
 
-ls -a ._/. |
+ls -a $INIT/. |
 while read x
 do
 	case $x in			# FILTER OUT DOTS/OTHERS
@@ -34,9 +34,10 @@ do
 	 (*~)		continue;;
 	(.*~)		continue;;
 	(.z*)		continue;;	# unless using zsh
-	(.ssh)	#est -w /  && continue # skip if root
-		test -e $x || rsync -rC ._/$x .
-		for y in id_dsa id_rsa identity
+	(.ssh)	#est -w /  && continue	# skip if root
+####		test -e $x || rsync -rC ._/$x .
+		test -e $x || cp -a ._/$x .
+		for y in id_[dr]sa id_rsa identity
 		do test -e $x/$y && chmod 600 $x/$y; done
 		chmod 600 $x/*.key $x/*.pass
 		continue;;

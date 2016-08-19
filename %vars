@@ -1,4 +1,4 @@
-test -f $DEBUG && echo .vars
+test -f $DEBUG && echo %vars
 #################################################################
 #	REPO VARIABLES
 #################################################################
@@ -15,6 +15,7 @@ EPEL7=http://$FEDORA/pub/epel/7/x86_64/epel-release-7-x.noarch.rpm
 #################################################################
 
 export	AM=/etc/auto.misc
+export	CR=/etc/centos-release
 export	FS=/etc/fstab
 export	GR=/etc/group
 export	HF=/etc/hosts

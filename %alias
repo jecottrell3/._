@@ -1,11 +1,11 @@
-test -f $DEBUG && echo .alias
+test -f $DEBUG && echo %alias
 alias	debug="touch $DEBUG"	nobug="rm -f $DEBUG"
 # $Id: .alias 307 2015-07-29 17:00:51Z JECottrell3@gmail.com $
 #################################################################
 #	COMPLEX ALIASES
 #################################################################
 
-for x in $RBJ/fns/*
+for x in $RBJ/%fns/*
 do
 	source  $x
 done
@@ -26,14 +26,14 @@ alias	t=type		ta='type -a'	fn='declare -f'
 alias	vb='vi $RBJ/.bashrc;	source $RBJ/.bashrc'
 alias	zb='vi $RBJ/.zshrc;	source $RBJ/.zshrc'
 alias	ze='vi $RBJ/.zshenv;	source $RBJ/.zshenv'
-alias	va='vi $RBJ/.alias;	source $RBJ/.alias'
-alias	vc='vi $RBJ/.complete;	source $RBJ/.complete'
-alias	vo='vi $RBJ/.domain;	source $RBJ/.domain'
+alias	va='vi $RBJ/%alias;	source $RBJ/%alias'
+alias	vc='vi $RBJ/%complete;	source $RBJ/%complete'
+alias	vo='vi $RBJ/%domain;	source $RBJ/%domain'
 alias	vp='vi $RBJ/.bash_profile; source $RBJ/.bash_profile'
 alias	zp='vi $RBJ/.zprofile;	source $RBJ/.zprofile'
-alias	vr='vi $RBJ/.prompt;	source $RBJ/.prompt'
-alias	zr='vi $RBJ/.zprompt;	source $RBJ/.zprompt'
-alias	vv='vi $RBJ/.vars;	source $RBJ/.vars'
+alias	vr='vi $RBJ/%prompt;	source $RBJ/%prompt'
+alias	zr='vi $RBJ/%zprompt;	source $RBJ/%zprompt'
+alias	vv='vi $RBJ/%vars;	source $RBJ/.vars'
 alias	vn='vi $RBJ/.inputrc'	vk='vi $HOME/.ssh/known_hosts'
 alias	vd='vimdiff'		vf='sudo vim /etc/fstab'
 alias	hd='vimdiff -o'		vh='sudo vim /etc/hosts'

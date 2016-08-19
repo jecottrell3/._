@@ -1,4 +1,4 @@
-test -f $DEBUG && echo .fns/ldap
+test -f $DEBUG && echo %fns/ldap
 # $Id: ldap 300 2015-03-10 22:11:19Z JECottrell3@gmail.com $
 #################################################################
 #	NIH LDAP Functions and Definitions
