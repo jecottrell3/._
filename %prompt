@@ -57,8 +57,8 @@ PS92=': \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
 
 case $DISPLAY in
 (:0.0)	setxkbmap -option ctrl:nocaps -option shift:both_capslock
-	resize
-	ssh-add -l || ssh-add;;
+	resize > /dev/null
+	ssh-add -l > /dev/null || ssh-add;;
 esac
 
 if	test -f $HOME/.xsession-errors

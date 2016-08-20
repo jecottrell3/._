@@ -1,31 +1,31 @@
 cd $HOME
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
-test -d /run/install || ln -s / /run/install
-# $Id: .bash_profile 305 2015-06-29 22:38:44Z JECottrell3@gmail.com $
+test -d /run && { test -d /run/install || ln -s / /run/install; }
+set -o	ignoreeof
+umask	2
 #################################################################
 #	BASH PROFILE
 #################################################################
 
    for JC in $USER cottrell rbj jcottrell jcottrel nobody
-do for dir in /home
+do for dir in /home /Users
 do
 	case $JC in
-	(root)   continue;;
-	(nobody) RBJ=$HOME/._;;
-	(*)	 RBJ=$dir/$JC/._
+	(root)   continue;;		# ROOT becomes OTHER
+	(nobody) RBJ=$HOME/._;;		# for OTHER people
+	(*)	 RBJ=$dir/$JC/._;;	# JC candidate
 	esac
-	test -d $RBJ && break 2
+	test -d $RBJ && break 2		# FOUND
 done
 done
 export	RBJ JC
 export	 DEBUG=$RBJ/%debug
-test -f $DEBUG && echo .bash_profile
+test -f $DEBUG && echo .bash_profile HOME=$HOME
 
 export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
-echo  HOME=$HOME
 chmod a+rx $HOME
 test  -w /		||
 {
@@ -35,9 +35,6 @@ test  -w /		||
 	chmod 600	*
 	chmod 644	*.pub known_hosts authorized_keys)
 }
-
-set -o	ignoreeof
-umask 2
 
 #xport	J=jcottrel		JC=jcottrell
 export BG=$RANDOM

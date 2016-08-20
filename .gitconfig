@@ -1,5 +1,13 @@
 [user]
         name = Jim Cottrell
         email = JECottrell3@Comcast.NET
+
 [color]
 	ui = always
+
+[diff]
+	mnemonicprefix = true
+
+[push]
+	default = matching
+#	default = simple
