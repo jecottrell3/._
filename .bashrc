@@ -1,5 +1,15 @@
 test -f ${DEBUG:-/no/where} && echo .bashrc
-# $Id: .bashrc 290 2014-09-17 19:19:41Z JECottrell3@gmail.com $
+#################################################################
+#	MAKE STUPID lxde term RUN AS LOGIN SHELL
+#################################################################
+
+: LX $_LXSESSION_PID@$LXONCE
+case $_LXSESSION_PID@$LXONCE in
+(@*)	: not LXDE;;
+(?*@?*)	: only once;;
+(?*@)	source $HOME/.bash_profile; return;;
+esac
+
 #################################################################
 #	MISC
 #################################################################
@@ -24,17 +34,5 @@ do
 	test -f $RBJ/$x &&
 	source  $RBJ/$x
 done
-
-#################################################################
-#	MAKE STUPID lxde term RUN AS LOGIN SHELL
-#################################################################
-
-set +x
-case $_LXSESSION_PID@$RBJ in
-(@*)	: not LXDE;;
-(?*@?*)	: only once;;
-(?*@)	source $HOME/.bash_profile;;
-esac
-set +x
 
 #################################################################

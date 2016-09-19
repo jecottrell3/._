@@ -153,3 +153,13 @@ soe()
 }
 
 #################################################################
+
+NOBOOT() { sudo mv /boot/grub/grub.conf{,ig}; }
+VIBOOT() { vi /repo/boot/grub/grub.conf; }
+
+PTR() { xmodmap -e 'pointer = 1 3 2'; }
+
+YI() { for x in $(<$1); do rpm -q $x || sudo yum install $x; done; }
+YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | grep -v ^--;done; }
+YN() { yum info $(<$1) | less -j1 +/'^Name.*'; }
+YY() { while read x; do yum info "*$x*" | less -j1 +/'^Name.*'; done; }
