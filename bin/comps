@@ -128,9 +128,9 @@ sub splat
 		select LANG;
 	}
 
-	print("$banner\n");
-	print("#\@$N\n");
-	print("$banner\n\n");
+	print("\t$banner\n");
+	print("####\t\@$N\n");
+	print("\t$banner\n\n");
 
 	map	# existance test
 		{ $X{$_} = $rpm ? (	((<$RPM/$_-*.rpm>  )[0])  ||
@@ -139,10 +139,13 @@ sub splat
 		}
 		keys(%M), keys(%D), keys(%O); # /
 
-	map { print("#m$X{$_}\t-$_\n"); } ('MANDATORY', sort(keys(%M)));
-	map { print("#d$X{$_}\t-$_\n"); } ('DEFAULT',   sort(keys(%D)));
-	map { print("#o$X{$_}\t $_\n"); } ('OPTIONAL',  sort(keys(%O)));
-	map {printf("#c\t?%-31s %s\n", $_, $C{$_}); } sort(keys(%C));
+		print( "\t#MANDATORY\n");
+	map {	print( "\t#m$X{$_}\t-$_\n"); } sort(keys(%M));
+		print( "\t#DEFAULT\n");
+	map {	print( "\t#d$X{$_}\t-$_\n"); } sort(keys(%D));
+		print( "\t#OPTIONAL\n");
+	map {	print( "\t#o$X{$_}\t $_\n"); } sort(keys(%O));
+	map {	printf("\t#c\t?%-31s %s\n", $_, $C{$_}); } sort(keys(%C));
 
 	select PKGS if $norm;
 	map { print("$_\n"); } sort(keys(%M));

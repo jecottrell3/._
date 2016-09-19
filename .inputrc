@@ -1,5 +1,5 @@
 set output-meta On
-"\M-a": "\C-aman \n"
+"\M-a": "\C-aman -a\n"
 "\M-e": " --exclude="
 "\M-h": "for x in "
 "\M-i": "; do echo =$x=; "
@@ -9,7 +9,7 @@ set output-meta On
 "\M-o": overwrite-mode
 "\M-q": 'PS1="$(hostname):\$PWD> "'
 #"\M-q": "ssh -tAX root@rome    SUDO_USER=$USER           bash --rcfile $RCFILE"
-"\M-s": " META s "
+"\M-s": "\C-e | sort "
 #"\M-s": "ssh -tAX root@strudel SUDO_USER=$USER ssh-agent bash --rcfile $RCFILE"
 "\M-v": "jci -am '[SYS-"
 "\M-w": "\C-w\C-y=$\C-y\e\C-e"
