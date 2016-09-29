@@ -3,29 +3,40 @@ test -f $DEBUG && echo %prompt
 #	PROMPTING
 #################################################################
 
-test -f          /etc/DIR_COLORS.lightbgcolor &&
-eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
+DC=/etc/DIR_COLORS
+LC=$DC.lightbgcolor
+ZC=$DC.256color
 
-alias	DK='eval $(dircolors /etc/DIR_COLORS)'
-alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
-alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
+test -f $DC && alias	DK='eval $(dircolors /etc/DIR_COLORS)'
+test -f $LC && alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
+test -f $ZC && alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
+
+#@test -f          /etc/DIR_COLORS.lightbgcolor &&
+#@eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
+
+#@alias	DK='eval $(dircolors /etc/DIR_COLORS)'
+#@alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
+#@alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
 
 case $(tty) in
 (/dev/ttys*)	: echo MAC
-		LT=0 DK=1;;	# lite MAC
+		LT=1 DK=0;;	# lite MAC
 (/dev/tty*)	: echo TTY
-		LT=1 DK=0
-		LT=0 DK=1
-	kill -n 0 $SSH_AGENT_PID 2>&- || eval $(ssh-agent)
+#		LT=0 DK=1; DK
+		LT=1 DK=0; LT
+	kill -n 0 ${SSH_AGENT_PID:-99888} 2>&- || eval $(ssh-agent)
 	$RBJ/bin/hue f bb 77 33; # $RBJ/bin/hue 8 00 00 00;
 	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
-	test -f /lib/kbd/consolefonts/sun12x22.psfu.gz &&
-	setfont                       sun12x22.psfu.gz
+	for FONT in sun12x22.psfu.gz ter-132b.psf.gz
+	do
+		test -f /lib/kbd/consolefonts/$FONT &&
+		setfont                       $FONT
+	done
 # also lite	test -f          /etc/DIR_COLORS &&
 # also lite	eval $(dircolors /etc/DIR_COLORS)
 		;;	# dark 
 (/dev/pts/*)	: echo PSEUDO
-		LT=0 DK=1;;	# lite 
+		LT=1 DK=0; LT;;	# lite 
 esac
 
 #D=$(PATH=/usr/local/bin:$PATH id -u)
@@ -44,7 +55,7 @@ case $BG in
 esac
 
 case $ID.$BG in
-(0.*)	FG=7	HI="7;1";;
+(0.*)		HI="7;1" FG=7;;
 (0.[2367])	HI="7;1";;
 (0.[0145])	HI="7";;	# dark BG
 esac
@@ -56,7 +67,9 @@ PS91=': \t [\#:$?:\j] \w;\n'
 PS92=': \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
 
 case $DISPLAY in
-(:0.0)	setxkbmap -option ctrl:nocaps -option shift:both_capslock
+(:0.0)	setxkbmap -option
+####	setxkbmap -option ctrl:nocaps -option shift:both_capslock  # good
+	setxkbmap -option ctrl:nocaps -option shift:both_shiftlock # better
 	resize > /dev/null
 	ssh-add -l > /dev/null || ssh-add;;
 esac

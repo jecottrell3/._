@@ -149,6 +149,9 @@ export	USB=/usr/sbin
 export	X11=/etc/X11
 export		XC=$X11/xorg.conf
 
+export	CF=/lib/kbd/consolefonts
+export	KF=/lib/kbd/consolefonts
+
 export	VL=/var/log
 export		VLB=$VL/boot.log
 export		VLC=$VL/clamav

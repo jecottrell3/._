@@ -18,6 +18,7 @@ do
 	test -d $RBJ && break 2		# FOUND
 done
 done
+LXONCE=Done				# do NOT export
 export	RBJ JC
 export	 DEBUG=$RBJ/%debug
 test -f $DEBUG && echo .bash_profile HOME=$HOME

@@ -131,6 +131,7 @@ alias	ss='ssh -AX'		sj="ssh -AX -l $JC"
 alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
 alias	sun22='setfont          sun12x22.psfu.gz'
 alias	sun32='setfont latarcyrheb-sun32.psfu.gz'
+alias	ter32='setfont           ter-132b.psf.gz'
 alias	sx='exec ssh-agent bash -l'
 
 alias	tf='tail -F'
