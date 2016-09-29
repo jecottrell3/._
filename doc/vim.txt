@@ -1,0 +1,10 @@
+## HELP
+
+                      Normal mode command      (nothing)   :help x
+                      Visual mode command         v_       :help v_u
+                      Insert mode command         i_       :help i_<Esc>
+                      Command-line command        :        :help :quit
+                      Command-line editing        c_       :help c_<Del>
+                      Vim command argument        -        :help -r
+                      Option                      '        :help 'textwidth'
+
