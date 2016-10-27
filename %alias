@@ -33,11 +33,11 @@ alias	vp='vi $RBJ/.bash_profile; source $RBJ/.bash_profile'
 alias	zp='vi $RBJ/.zprofile;	source $RBJ/.zprofile'
 alias	vr='vi $RBJ/%prompt;	source $RBJ/%prompt'
 alias	zr='vi $RBJ/%zprompt;	source $RBJ/%zprompt'
-alias	vv='vi $RBJ/%vars;	source $RBJ/.vars'
+alias	vv='vi $RBJ/%vars;	source $RBJ/%vars'
 alias	vn='vi $RBJ/.inputrc'	vk='vi $HOME/.ssh/known_hosts'
 alias	vd='vimdiff'		vf='sudo vim /etc/fstab'
 alias	hd='vimdiff -o'		vh='sudo vim /etc/hosts'
-alias	vs='sudo visudo'	jim="su - $JC"
+alias	vs='sudo visudo'	vg='sudo vim /boot/grub/grub.conf'
 alias	x='for x in'		y='fg %-'
 alias	zz=suspend		zzz='suspend -f'
 
@@ -117,28 +117,25 @@ alias	root='sudo chown   root:root'
 #lias	 rbj='sudo chown -R rbj:rbj'
 alias	  jc='sudo chown -R $JC:$JC'
 
-#alias	 sa='ssh-add -l || ssh-add'
-#alias	sad='ssh-add -D'	sal='ssh-add -l'
 alias	sb='sudo bash -l'	se=sudoedit
 alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
 alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
 alias	sir='lsb_release -sir'	su='su -p'
 alias	sl='ln -s'		slf='ln -sf'
 
-function sp() { time rsync -vaxC ~/.ssh $1:; }
+function sp() { time rsync -Cvaxz ~/.ssh $1:; }
 alias	ss='ssh -AX'		sj="ssh -AX -l $JC"
-#lias	sun12x22='setfont sun12x22.psfu.gz'
 alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
 alias	sun22='setfont          sun12x22.psfu.gz'
 alias	sun32='setfont latarcyrheb-sun32.psfu.gz'
 alias	ter32='setfont           ter-132b.psf.gz'
 alias	sx='exec ssh-agent bash -l'
 
-alias	tf='tail -F'
+alias	tf='tail -F'		jim="su - $JC"
 alias	ud='diff -u'		UD='diff -U 0'
 alias	dr='diff -ur'		dy='diff -y'
-alias	rax='time rsync  -vax'	 rs='time rsync -C'
-alias	vax='time rsync -Cvax'	pax='time rsync -CPax'
+alias	rax='time rsync  -vaxz'	 rs='time rsync -Cz'
+alias	vax='time rsync -Cvaxz'	pax='time rsync -CPaxz'
 
 alias	T2=tune2fs		D2='dumpe2fs -h'
 alias	M2='mkfs.ext2'		M3='mkfs.ext3'

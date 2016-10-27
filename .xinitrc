@@ -1,6 +1,10 @@
 #! /bin/sh
 
 xsetroot -solid plum
+xmodmap -e 'pointer = 1 3 2'
+setxkbmap -option ctrl:nocaps -option shift:both_shiftlock
+ssh-add -l || ssh-add
+
 # xterm -ls -fn 10x20 -geo 78x36+0+0 &
 # xterm -ls -fn 10x20 -geo 78x36-0-0 &
 

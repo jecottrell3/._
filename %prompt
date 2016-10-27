@@ -24,10 +24,10 @@ case $(tty) in
 (/dev/tty*)	: echo TTY
 #		LT=0 DK=1; DK
 		LT=1 DK=0; LT
-	kill -n 0 ${SSH_AGENT_PID:-99888} 2>&- || eval $(ssh-agent)
+####	kill -n 0 ${SSH_AGENT_PID:-99888} 2>&- || eval $(ssh-agent)
 	$RBJ/bin/hue f bb 77 33; # $RBJ/bin/hue 8 00 00 00;
 	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
-	for FONT in sun12x22.psfu.gz ter-132b.psf.gz
+	for FONT in sun12x22.psfu.gz latarcyrheb-sun32.psfu.gz ter-132b.psf.gz
 	do
 		test -f /lib/kbd/consolefonts/$FONT &&
 		setfont                       $FONT
@@ -71,7 +71,7 @@ case $DISPLAY in
 ####	setxkbmap -option ctrl:nocaps -option shift:both_capslock  # good
 	setxkbmap -option ctrl:nocaps -option shift:both_shiftlock # better
 	resize > /dev/null
-	ssh-add -l > /dev/null || ssh-add;;
+####	ssh-add -l > /dev/null || ssh-add;;
 esac
 
 if	test -f $HOME/.xsession-errors

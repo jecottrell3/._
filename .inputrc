@@ -1,5 +1,5 @@
 set output-meta On
-"\M-a": "\C-aman -a\n"
+"\M-a": "\C-aman -a \n"
 "\M-e": " --exclude="
 "\M-h": "for x in "
 "\M-i": "; do echo =$x=; "

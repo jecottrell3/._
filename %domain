@@ -154,8 +154,12 @@ soe()
 
 #################################################################
 
+export	FR=/repo/fc18/comps/.pkgs	# TEMPORARY
+export	FH=/home/g1/fc18		# TEMPORARY
+export	FC=/home/g1/fc18		# TEMPORARY
+
 NOBOOT() { sudo mv /boot/grub/grub.conf{,ig}; }
-VIBOOT() { vi /repo/boot/grub/grub.conf; }
+VIBOOT() { vi /resq/boot/grub/grub.conf; }
 
 PTR() { xmodmap -e 'pointer = 1 3 2'; }
 

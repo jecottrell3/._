@@ -38,7 +38,8 @@ export		FD=$FB/jail.d
 
 export	GD=/etc/grub.d
 export	GA=$GD/40_custom
-export	GC=/boot/grub2/grub.cfg
+export	GB=/boot/grub2
+export	GC=$GB/grub.cfg
 
 export	HA=/etc/ha.d
 export		HACF=$HA/ha.cf
