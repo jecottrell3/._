@@ -20,7 +20,9 @@ source	/etc/bashrc
 umask 22
 
 set -o	emacs
-shopt -s autocd globstar 2>&-		# ignore errors
+export	GLOBIGNORE=.			# must be followed ...
+shopt -u dotglob	 2>&-		# ... by this
+shopt -s autocd globstar 2>&-
 
 unalias	rm cp mv 2>/dev/null
 test -f /usr/bin/vim && alias   vi=vim
@@ -34,5 +36,6 @@ do
 	test -f $RBJ/$x &&
 	source  $RBJ/$x
 done
+ssh-add -l > /dev/null || ssh-add
 
 #################################################################

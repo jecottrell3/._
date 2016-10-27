@@ -1,10 +1,10 @@
 cd $HOME
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
-test -d /run && { test -d /run/install || ln -s / /run/install; }
+#? test -d /run && { test -d /run/install || ln -s / /run/install; } # RHEL7?
 set -o	ignoreeof
 umask	2
 #################################################################
-#	BASH PROFILE
+#	Find RBJ Account
 #################################################################
 
    for JC in $USER cottrell rbj jcottrell jcottrel nobody
@@ -18,17 +18,22 @@ do
 	test -d $RBJ && break 2		# FOUND
 done
 done
-LXONCE=Done				# do NOT export
+
 export	RBJ JC
 export	 DEBUG=$RBJ/%debug
 test -f $DEBUG && echo .bash_profile HOME=$HOME
+export BG=$RANDOM
 
 export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
-chmod a+rx $HOME
-test  -w /		||
+#################################################################
+#	Fix .ssh
+#################################################################
+
+chmod a+rX $HOME
+####	test  -w /		||	# anyone but root ??? WHY ???
 {
 	test  -d	$HOME/.ssh &&
 	(cd		$HOME/.ssh
@@ -37,14 +42,16 @@ test  -w /		||
 	chmod 644	*.pub known_hosts authorized_keys)
 }
 
-#xport	J=jcottrel		JC=jcottrell
-export BG=$RANDOM
+#################################################################
+#	Start SSH-AGENT if Needed
+#################################################################
 
-for file in /etc/profile $RBJ/.init $RBJ/%vars $RBJ/.bashrc
-do
-	test -f $file &&
-	source  $file
-done
+#set | sort -o .set-$(date +%T)
+#env | sort -o .env-$(date +%T)
+
+case "$SSH_AUTH_SOCK" in
+('')	eval $(ssh-agent);;
+esac
 
 #################################################################
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
@@ -63,16 +70,8 @@ eval $($RBJ/bin/fixpath    PATH)
 eval $($RBJ/bin/fixpath MANPATH)
 
 #################################################################
-#	ENVIRONMENT VARIABLES
+#	Special Environment Variables
 #################################################################
-
-#set | sort -o .set-$(date +%T)
-#env | sort -o .env-$(date +%T)
-#case "$SSH_AUTH_SOCK" in
-#('')	eval $(ssh-agent);;
-#esac
-
-ssh-add -l > /dev/null || ssh-add
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQRcdeisj11
@@ -83,6 +82,7 @@ export	HISTCONTROL=ignoreboth
 test -x /usr/bin/vim &&
 export	  EDITOR=vim ||
 export	  EDITOR=vi
+export	PS4='% '
 export	R=$(uname -r)	X=x86_64
 export	TMOUT=0 REV=$R
 export	TTY=$(tty | tr -dc 0123456789)
@@ -108,9 +108,24 @@ export  M3000=--max-size=3000M K30=--max-size=30K G3000=--max-size=3000G
 export M30000=--max-size=30000M K3=--max-size=3K G30000=--max-size=30000G
 
 #################################################################
+#	Do Rest of Init
+#################################################################
 
-case $USER@$HOST in
-(root@strudel)
-	echo Adding Strudel Master Key
-	ssh-add /root/.ssh/id_dsa;;
-esac
+LXONCE=Done				# do NOT export WHY???
+for file in /etc/profile $RBJ/.init $RBJ/%vars $RBJ/.bashrc
+do
+	test -f $file &&
+	source  $file
+done
+
+#################################################################
+#	Obsolete for NIH: Add Master Key
+#################################################################
+
+####	case $USER@$HOST in
+####	(root@strudel)
+####		echo Adding Strudel Master Key
+####		ssh-add /root/.ssh/id_dsa;;
+####	esac
+
+#################################################################
