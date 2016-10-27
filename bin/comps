@@ -1,27 +1,26 @@
 #! /usr/bin/perl
-
-# $Id: comps 306 2015-07-14 16:31:30Z JECottrell3@gmail.com $
 ################################################################
-# old usage:  comps NAME	old usage specifies subdir
-# new usage:  comps		new usagw inside of subdir
+# usage:	comps		new usagw inside of subdir
 
 # expects:	.xml		points to a comps.xml file
 # expects:	.rpm		points to a directory of rpms
 
-# creates:	NAME/		directory of group files
-# creates:	NAME/.lang	aggregate of language groups
-# creates:	NAME/.list	helper script
-# creates:	NAME/group	kickstart packages in group
-# creates:	NAME/.group	container for each group
-# creates:	NAME/.group/pkg	rpm detail of each package
+# creates:	.lang		aggregate of language groups
+# creates:	.list		helper script
+# creates:	group		kickstart packages in group
+# creates:	..group		container for each group
+# creates:	..group/?pkg	rpm detail of each package
+# creates:	..group/+pkg	detail for mandatory packages
+# creates:	..group/,pkg	detail for default   packages
+# creates:	..group/-pkg	detail for optional  packages
 
 # Lines in the Group files are M, D, O, C for
 # Mandatory, Default, Optional, and Conditional
 # The letter x appears if the file is not found
 ################################################################
 
-$DIST='CentOS';
-$VER='5.5';
+# $DIST='CentOS';
+# $VER='5.5';
 
 $banner = '#' x 64;
 
@@ -30,8 +29,8 @@ $RPM = ".rpm$ARGV[0]";
 
 $rpm =    -d "$RPM"   or warn("No .rpm directory\n");
 open(STDIN, "<$XML")  or die("Missing $XML file\n");
-open(LANG , ">>.lang") or die;
-open(LIST , ">>.list") or die;
+open(LANG , ">.lang") or die;
+open(LIST , ">.list") or die;
 
 sub id;
 sub lang;
@@ -106,10 +105,12 @@ sub splat
 	for ($M)
 	{
 		s/^(core)$/0$1/;
+		s/^(standard)$/1$1/;
 		s/^(base)$/1$1/;
 		s/^(base-x)$/2$1/;
 		s/^(x11)$/2$1/;
 		s/^(legacy-x)$/2$1/;
+		s/^(legacy-fonts)$/2$1/;
 		s/^(fonts)$/2$1/;
 		s/openfabrics-enterprise-distribution/OFED/;
 		s/engineering-and-scientific/ENG-SCI/;
@@ -128,6 +129,7 @@ sub splat
 		select LANG;
 	}
 
+	print("%packages --ignoremissing\n");
 	print("\t$banner\n");
 	print("####\t\@$N\n");
 	print("\t$banner\n\n");
@@ -147,27 +149,47 @@ sub splat
 	map {	print( "\t#o$X{$_}\t $_\n"); } sort(keys(%O));
 	map {	printf("\t#c\t?%-31s %s\n", $_, $C{$_}); } sort(keys(%C));
 
-	select PKGS if $norm;
-	map { print("$_\n"); } sort(keys(%M));
-	map { print("$_\n"); } sort(keys(%D));
-	map { print("$_\n"); } sort(keys(%O));
-	map { print("$_\n"); } sort(keys(%C));
+	print("\n\t$banner\n%end\n");
 
-	print("\n");
+	do {
+		select PKGS;
+		map { print("$_\n"); } sort(keys(%M));
+		map { print("$_\n"); } sort(keys(%D));
+		map { print("$_\n"); } sort(keys(%O));
+		map { print("$_\n"); } sort(keys(%C));
+	} if $norm;
+
+#	print("\n") ;# unless($norm);	??? WHY ???
 	close(NORM) if $norm;
 	close(PKGS) if $norm;
 	return unless  $norm;
 
 	select LIST;
-	printf "\nmkdir -p .$M\n";
-	$QILP = "rpm -qilp $RPM/%s-[0-9]*.rpm > .$M/%s%s\n";
-	print(": Mandatory\n")		if %M; $TYPE='+';
+	printf "\nmkdir -p ..$M\n";
+	$QILP = "rpm -qilp $RPM/%s-[0-9]*.rpm > ..$M/%s%s\n";
+
+	%M	and	$TYPE = '+'	and
+	print(": ::::::::::::\n")	and
+	print(": Mandatory :: $M\n")	and
+	print(": ::::::::::::\n")	and
 	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%M));
-	print(": Default\n")		if %D; $TYPE=',';
+
+	%D	and	$TYPE = ','	and
+	print(": ::::::::::\n")		and
+	print(": Default :: $M\n")	and
+	print(": ::::::::::\n")		and
 	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%D));
-	print(": Optional\n")		if %O; $TYPE='-';
+
+	%O	and	$TYPE = '-'	and
+	print(": :::::::::::\n")	and
+	print(": Optional :: $M\n")	and
+	print(": :::::::::::\n")	and
 	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%O));
-	print(": Conditional\n")	if %C; $TYPE='?';
+
+	%C	and	$TYPE = '?'	and
+	print(": ::::::::::::::\n")	and
+	print(": Conditional :: $M\n")	and
+	print(": ::::::::::::::\n")	and
 	map { printf "$QILP", $_, $TYPE, $_; } sort(keys(%C));
 	next line;
 }
