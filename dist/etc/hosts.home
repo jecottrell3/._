@@ -1,15 +1,20 @@
 127.0.0.1 localhost.localdomain	  localhost  lh
 ::1       localhost6.localdomain6 localhost6 lh6
 1.2.3.1  wofo wofo.homerj 008092aae563 wifi hl-2270dw lp
-1.2.3.2  romo romo.homerj dead
-1.2.3.3  robo robo.homerj a0f3c16d297f wifi-james
+1.2.3.2  vodo vodo.homerj 00e04db5529b blue dying
+1.2.3.3  robo robo.homerj a0f3c16d297f wifi-james dead
 1.2.3.4  roto roto.homerj 20aa4bdf1fbb linksys-e2500
 1.2.3.5  polo polo.homerj 30055c020aad wire hl-2270dw
-#.2.3.6  bogo bogo.homerj 00223fdc0ccf netgear-wpn311
-1.2.3.6  bogo bogo.homerj 0013d4151761 realtek-rtl8139 t1752
-#.2.3.7  mojo mojo.homerj 000475e61037 3com nrtc
-1.2.3.7  mojo mojo.homerj 0007e9f23b73 intel-pro100ve nrtc
+#.2.3.6  bogo bogo.homerj 00223fdc0ccf netgear-wpn311 dying
+1.2.3.6  bogo bogo.homerj 0013d4151761 realtek-rtl8139 t1752 dying
+1.2.3.7  mojo mojo.homerj 000475e61037 acer
 1.2.3.8  loco loco.homerj 6cf0497ab9e0 t4510
-1.2.3.9  yoko yoko.homerj 001731840cea realtek-rtl8139
-1.2.3.10 fono fono.homerj c89cdc6bbd4c james
-1.2.3.11 vodo vodo.homerj 00e04db5529b blue
+1.2.3.9  yoko yoko.homerj fcaa14e714ee realtek-rtl8139
+1.2.3.83 bear bear.homerj 94de807be42c althea
+#.2.3.18 bear bear.homerj 94de807be42c althea
+1.2.3.19 fono fono.homerj fcaa14c8ad2d james
+#.2.3.20 ghct ghct.homerj fcaa14c8ad2d glenda tablet
+#.2.3.21 ghcp ghcp.homerj fcaa14c8ad2d glenda
+#.2.3.22 ahcp ahcp.homerj fcaa14c8ad2d althea
+1.2.3.23 jc3p jc3p.homerj 800184f241be jim htc1
+#.2.3.24 jc4p jc4p.homerj fcaa14c8ad2d james
