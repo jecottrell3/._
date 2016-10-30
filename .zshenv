@@ -1,2 +1,2 @@
-export	 DEBUG=$HOME/._/%debug
+export	 DEBUG=$HOME/._/..debug
 test -f $DEBUG && echo .zshenv

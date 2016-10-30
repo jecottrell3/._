@@ -34,6 +34,7 @@ do
 	 (*~)		continue;;
 	(.*~)		continue;;
 	(.z*)		continue;;	# unless using zsh
+	(..*)		continue;;	# unless using zsh
 	(.ssh)	#est -w /  && continue	# skip if root
 ####		test -e $x || rsync -rC ._/$x .
 		test -e $x || cp -a ._/$x .
