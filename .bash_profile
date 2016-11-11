@@ -20,7 +20,7 @@ done
 done
 
 export	RBJ JC
-export	 DEBUG=$RBJ/%debug
+export	 DEBUG=$RBJ/..debug
 test -f $DEBUG && echo .bash_profile HOME=$HOME
 export BG=$RANDOM
 
@@ -112,7 +112,7 @@ export M30000=--max-size=30000M K3=--max-size=3K G30000=--max-size=30000G
 #################################################################
 
 LXONCE=Done				# do NOT export WHY???
-for file in /etc/profile $RBJ/.init $RBJ/%vars $RBJ/.bashrc
+for file in /etc/profile $RBJ/.init $RBJ/..vars $RBJ/.bashrc
 do
 	test -f $file &&
 	source  $file
