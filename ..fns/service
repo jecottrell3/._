@@ -1,4 +1,4 @@
-test -f $DEBUG && echo %fns/service
+test -f $DEBUG && echo ..fns/service
 # $Id: service 307 2015-07-29 17:00:51Z JECottrell3@gmail.com $
 #################################################################
 #	SERVICE   (0=stop, 1=start, 2=status, 3=restart, others)

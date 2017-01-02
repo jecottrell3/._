@@ -1,4 +1,4 @@
-test -f $DEBUG && echo %fns/lvm
+test -f $DEBUG && echo ..fns/lvm
 # $Id: lvm 290 2014-09-17 19:19:41Z JECottrell3@gmail.com $
 #################################################################
 #	LOGICAL VOLUME COMMANDS
