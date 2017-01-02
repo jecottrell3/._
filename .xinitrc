@@ -19,5 +19,8 @@ xterm -ls -fn 12x24 -geo +30+30 &
 test -f .twmrc ||
 cat .twm /etc/X11/twm/system.twmrc > .twmrc
 
-type twm && exec twm
-type dwm && exec dwm
+type twm	&& exec twm
+type ratpoison	&& exec ratpoison
+type metacity	&& exec metacity
+type awesome	&& exec awesome
+type dwm	&& exec dwm
