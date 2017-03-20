@@ -1,6 +1,16 @@
 #! /bin/sh -x
 
+METHOD="git@"	SEP=":"
+HOST="github.com"
+REPO="jecottrell3/._.git"
+
+case $1 in
+(-g)	METHOD="git@"		SEP=":";;
+(-s)	METHOD="git@"		SEP=":";;
+(-h)	METHOD="https://"	SEP="/";;
+esac
+
 cd $RBJ
 git remote -v
-git remote -v set-url origin git@github.com:jecottrell3/._.git
+git remote -v set-url origin $METHOD$HOST$SEP$REPO
 git remote -v

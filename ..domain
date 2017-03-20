@@ -15,8 +15,14 @@ export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
 export	DDN=datadirect.datadirectnet.com
 
+export	ARMY=army.mill
+export	AMED=amed.ds.$ARMY
+
 if	egrep -q "ddn|$DDN" /etc/resolv.conf
 then	SEARCH=ddn.com
+elif	egrep -q $AMED      /etc/resolv.conf
+then
+	SEARCH=$AMED
 elif	egrep -q homerj     /etc/resolv.conf
 then	SEARCH=homerj
 fi
@@ -111,6 +117,9 @@ case ${DOMAIN:-$SEARCH} in
 	alias	U=lsusb			L="lsof /dev/bus/usb/???/???"
 	alias	Z='C;P2;O2;L'
 
+	;;
+($ARMY)
+	export	N=141.236
 	;;
 (*$DDN|ddn.com)	
 	echo Welcome to DDN

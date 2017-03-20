@@ -137,6 +137,8 @@ alias	dr='diff -ur'		dy='diff -y'
 alias	rax='time rsync  -vaxz'	 rs='time rsync -Cz'
 alias	vax='time rsync -Cvaxz'	pax='time rsync -CPaxz'
 
+alias	GE=getenforce		SE=setenforce
+alias	GB='getsebool -a'	SE=setsebool
 alias	T2=tune2fs		D2='dumpe2fs -h'
 alias	M2='mkfs.ext2'		M3='mkfs.ext3'
 alias	M4='mkfs.ext4'		E2='e2fsck -C'

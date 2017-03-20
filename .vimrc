@@ -10,4 +10,6 @@
 :highlight Search ctermfg=4 ctermbg=6 cterm=bold
 :highlight Search ctermfg=6 ctermbg=4 cterm=bold
 
+:colorscheme peachpuff
+
 :map \ :n<CR>

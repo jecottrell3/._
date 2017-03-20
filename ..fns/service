@@ -83,6 +83,18 @@ function n7() { rndc $* dumpdb; }
 function n8() { rndc $* reconfig; }	
 function n9() { rndc $* reload; }	
 #################################################################
+#	SELINUX
+#################################################################
+alias	e0='setenforce 0'
+alias	e1='setenforce 1'
+alias	e2='getenforce'
+alias	e4='getsebool -a'
+alias	e5='setsebool'
+alias	e6='togglesebool'
+alias	e7='fixfiles verify'
+alias	e8='fixfiles check'
+alias	e9='fixfiles restore'
+#################################################################
 #	NTP
 #################################################################
 alias	t0='service ntpd stop'
