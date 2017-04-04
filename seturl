@@ -4,8 +4,8 @@ REPO=._
 URL=git@github.com:jecottrell3/._.git
 
 case $1 in
-(-h) URL=https://github.com/jecottrell3/._.git;;
-(-s)     URL=git@github.com:jecottrell3/._.git;;
+(-h) URL=https://jecottrell3@github.com/jecottrell3/._.git;;
+(-s)                 URL=git@github.com:jecottrell3/._.git;;
 esac
 
 cd $RBJ
