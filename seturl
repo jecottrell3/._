@@ -1,6 +1,14 @@
 #! /bin/sh -x
 
+REPO=._
+URL=git@github.com:jecottrell3/._.git
+
+case $1 in
+(-h) URL=https://github.com/jecottrell3/._.git;;
+(-s)     URL=git@github.com:jecottrell3/._.git;;
+esac
+
 cd $RBJ
 git remote -v
-git remote -v set-url origin git@github.com:jecottrell3/._.git
+git remote -v set-url origin $URL
 git remote -v
