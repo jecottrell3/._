@@ -7,6 +7,7 @@
 $0 =~ s%.*/%%;					# deslash prog name
 $n = $d = 0;					# do not rm or rmdir
 $b = $q = 0;					# nobeep & noquiet
+$i = 0;						# identical equal
 $e = 0;						# always equal
 $z = 0;						# sizes  equal
 $t = 0;						# mtime  equal
@@ -32,6 +33,7 @@ usage: $0 [-qb] [-nd] [-ezt] [-a] [-c] [-UGM] [-V] [-s ln] src dst
 	-z	files sizes  equal
 	-t	mtime equal
 	-e	files always equal
+	-i	identical is equal
 	-a	kill SPECIAL files too
 	-c	show created files too
 	-U	require same uid
@@ -71,6 +73,7 @@ sub main	#	MAIN PROGRAM
 	/-d/ and ++$d and next option;		# no rmdir
 	/-n/ and ++$n and next option;		# no rm
 	/-e/ and ++$e and next option;		# always equal
+	/-i/ and ++$i and next option;		# identical equal
 	/-z/ and ++$z and next option;		# sizes  equal
 	/-t/ and ++$t and next option;		# mtime  equal
 	/-a/ and ++$a and next option;		# rm ._ files too
@@ -79,7 +82,7 @@ sub main	#	MAIN PROGRAM
 	/-O/ and ++$U and next option;		# alias
 	/-G/ and ++$G and next option;		# same gid
 	/-M/ and ++$M and next option;		# same mode
-	/-S/ and ++$S and next option;		# enter .svn and CVS
+	/-V/ and ++$V and next option;		# enter .svn and CVS
 	/-s/ and $s = 0+shift and next option;	# ln2 max size
     
 	&usage("unknown option: $_");		# complain
@@ -174,7 +177,7 @@ sub same	#	COMPARE FILE CONTENTS
 ################################################################
 {
     return 1 if $e;				# always same
-    return 0 if &ident;				# CANNOT REMOVE!!
+    return $i if &ident;				# CANNOT REMOVE!!
     return 0 if ($U && ($src_stat[4] != $dst_stat[4]));	# uid check
     return 0 if ($G && ($src_stat[5] != $dst_stat[5]));	# gid check
     return 0 if ($M && ($src_stat[2] != $dst_stat[2]));	# mode check
