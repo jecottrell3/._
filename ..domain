@@ -1,5 +1,5 @@
 test -f $DEBUG && echo ..domain
-# $Id: .domain 306 2015-07-14 16:31:30Z JECottrell3@gmail.com $
+export PAT=28c3319f8f91c410c29a2ed3e22313ca0b85c790
 #################################################################
 #	Do Domain Specific Customization
 #################################################################

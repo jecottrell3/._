@@ -1,16 +1,13 @@
 #! /bin/sh -x
 
-METHOD="git@"	SEP=":"
-HOST="github.com"
-REPO="jecottrell3/._.git"
+URL=git@github.com:jecottrell3/._.git
 
 case $1 in
-(-g)	METHOD="git@"		SEP=":";;
-(-s)	METHOD="git@"		SEP=":";;
-(-h)	METHOD="https://"	SEP="/";;
+(-s)	                URL=git@github.com:jecottrell3/._.git;;
+(-h)	URL=https://jecottrell3@github.com/jecottrell3/._.git;;
 esac
 
 cd $RBJ
 git remote -v
-git remote -v set-url origin $METHOD$HOST$SEP$REPO
+git remote -v set-url origin $URL
 git remote -v

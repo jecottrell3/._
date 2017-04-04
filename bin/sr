@@ -6,6 +6,7 @@
 
 EXEC=exec
 RC=/home/jcottrell/._/.bash_profile
+RC=$RBJ/.bash_profile
 
 SHEL=/bin/sh	ENVY=	ARGS=
 SHEL=/bin/ksh	ENVY=	ARGS=	# "ENV=$HOME/.env"
