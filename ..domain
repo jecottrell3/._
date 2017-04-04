@@ -154,9 +154,10 @@ soe()
 
 #################################################################
 
-export	FR=/repo/fc18/comps/.pkgs	# TEMPORARY
-export	FH=/home/g1/fc18		# TEMPORARY
-export	FC=/home/g1/fc18		# TEMPORARY
+#ource	/root/ks.vars			# TEMPORARY
+export	FR=/repo/fc19/comps/.pkgs	# TEMPORARY
+export	FC=/repo/ks/g2/fc19		# TEMPORARY
+export	YUM=$FC/yum			# TEMPORARY
 
 NOBOOT() { sudo mv /boot/grub/grub.conf{,ig}; }
 VIBOOT() { vi /resq/boot/grub/grub.conf; }
