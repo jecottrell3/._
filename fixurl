@@ -1,13 +1,19 @@
-#! /bin/sh -x
+#! /bin/sh
 
-URL=git@github.com:jecottrell3/._.git
+SSH=git@github.com:jecottrell3/._.git
+WEB=https://github.com/jecottrell3/._.git
+USR=https://jecottrell3@github.com/jecottrell3/._.git
 
 case $1 in
-(-s)	                URL=git@github.com:jecottrell3/._.git;;
-(-h)	URL=https://jecottrell3@github.com/jecottrell3/._.git;;
+(-s)	PULL=$SSH PUSH=$SSH;;
+(-h)	PULL=$WEB PUSH=$WEB;;
+(-p)	PULL=$WEB PUSH=$USR;;
+(*)	echo "usage: $0 -[shp]"; exit 1;;
 esac
 
 cd $RBJ
 git remote -v
-git remote -v set-url origin $URL
+git remote -v set-url        origin $PULL
+echo =====
+git remote -v set-url --push origin $PUSH
 git remote -v
