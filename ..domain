@@ -15,7 +15,7 @@ export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
 export	DDN=datadirect.datadirectnet.com
 
-export	ARMY=army.mill
+export	ARMY=army.mil
 export	AMED=amed.ds.$ARMY
 
 if	egrep -q "ddn|$DDN" /etc/resolv.conf
@@ -118,8 +118,20 @@ case ${DOMAIN:-$SEARCH} in
 	alias	Z='C;P2;O2;L'
 
 	;;
-($ARMY)
+(*.$ARMY)
 	export	N=141.236
+	export	IS1=$N.49.131
+	export	IS2=$N.49.132
+	export	IS3=$N.49.133
+	export	IS4=$N.49.134
+	export	PUP=$N.146.11
+	export	PBS=$N.146.12
+	export	LTS=$N.146.16
+	export	APP=$N.146.22
+	export	IMB=$N.138.138
+	export	JUN=$N.138.140
+	export	FATMA=$N.118.140
+	export	CLIFF=$N.118.144
 	;;
 (*$DDN|ddn.com)	
 	echo Welcome to DDN

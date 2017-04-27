@@ -67,10 +67,11 @@ PS91=': \t [\#:$?:\j] \w;\n'
 PS92=': \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \$; '
 
 case $DISPLAY in
-(:0.0)	setxkbmap -option
+(:0*)	setxkbmap -option
 ####	setxkbmap -option ctrl:nocaps -option shift:both_capslock  # good
 	setxkbmap -option ctrl:nocaps -option shift:both_shiftlock # better
 	resize > /dev/null
+	xmodmap -e 'pointer = 1 3 2'
 ####	ssh-add -l > /dev/null || ssh-add;;
 esac
 
