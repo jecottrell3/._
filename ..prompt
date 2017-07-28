@@ -55,7 +55,7 @@ case $BG in
 esac
 
 case $ID.$BG in
-(0.*)		HI="7;1" FG=7;;
+(0.*)		HI="7;1" FG=0;;
 (0.[2367])	HI="7;1";;
 (0.[0145])	HI="7";;	# dark BG
 esac
