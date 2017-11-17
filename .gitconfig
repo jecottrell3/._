@@ -1,6 +1,10 @@
+[core]
+	preloadindex = true
+
 [user]
         name = Jim Cottrell
-        email = JECottrell3@Comcast.NET
+        email = james.cottrell@noaa.gov
+#       email = JECottrell3@Comcast.NET
 
 [color]
 	ui = always

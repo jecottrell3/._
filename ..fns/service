@@ -46,6 +46,11 @@ alias   a4="ssh-add -e $LCK"	a5="ssh-add -s $LCK"
 alias   a6="a4;a5"		a7="a8;a9"
 alias   a8="ssh-add -e $OSC"	a9="ssh-add -s $OSC"
 #################################################################
+#	SSH-AGENT
+#################################################################
+alias	g0='ssh-agent -k'		g1='eval $(ssh-agent)'
+alias	g2='ssh-agent -l'		g3='ssh-agent bash -l'
+#################################################################
 #	SWAP		/	MOUNT
 #################################################################
 alias	w0='swapoff -av'	m0='umount -av'
@@ -91,9 +96,9 @@ alias	e2='getenforce'
 alias	e4='getsebool -a'
 alias	e5='setsebool'
 alias	e6='togglesebool'
-alias	e7='fixfiles verify'
-alias	e8='fixfiles check'
-alias	e9='fixfiles restore'
+alias	e7='fixfiles -F verify'
+alias	e8='fixfiles -F check'
+alias	e9='fixfiles -F restore'
 #################################################################
 #	NTP
 #################################################################

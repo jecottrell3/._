@@ -1,5 +1,5 @@
 test -f $DEBUG && echo ..domain
-export PAT=28c3319f8f91c410c29a2ed3e22313ca0b85c790
+export	TZ=EST5EDT
 #################################################################
 #	Do Domain Specific Customization
 #################################################################
@@ -17,6 +17,9 @@ export	DDN=datadirect.datadirectnet.com
 
 export	ARMY=army.mil
 export	AMED=amed.ds.$ARMY
+
+export	NOAA=noaa.gov
+export	NCEP=ncep.$NOAA
 
 if	egrep -q "ddn|$DDN" /etc/resolv.conf
 then	SEARCH=ddn.com
@@ -37,6 +40,14 @@ case ${DOMAIN:-$SEARCH} in
 	alias	P='pkill kio_audio'
 	alias	K='k3b'
 	alias	S='pm-suspend'
+	;;
+(*.noaa.gov)
+	echo Welcome to NOAA
+	alias pat="sudo time puppet agent -t"
+	GORILLA=/mnt/usa_software/pwsave/gorilla15363_64.bin
+	   SAFE=/mnt/usa_software/pwsave/sisb_pw.psafe3
+        alias gorilla="$GORILLA $SAFE"
+
 	;;
 (ncbi.nlm.nih.gov)
 	echo Welcome to NCBI

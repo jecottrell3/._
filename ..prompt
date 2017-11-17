@@ -75,6 +75,7 @@ case $DISPLAY in
 ####	ssh-add -l > /dev/null || ssh-add;;
 esac
 
+: ||	# don't do this
 if	test -f $HOME/.xsession-errors
 then	alias ssh='ssh -e^'
 	test -w / &&

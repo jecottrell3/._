@@ -54,6 +54,8 @@ function npv() { while sleep 10; do pkill npviewer.bin; done & }
 
 alias	  1='sha1sum   -c'	  5='md5sum     -c'
 alias	256='sha256sum -c'	512='sha512sum  -c'
+alias	123='xmodmap -e "pointer = 1 2 3"'
+alias	132='xmodmap -e "pointer = 1 3 2"'
 
 alias	cg='chgrp'		cn='chown'
 alias	cm='chmod'		cx='chmod a+x'
@@ -83,6 +85,7 @@ alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
 alias GG='getent  group'; function gg { egrep $* /etc/group; }
 alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
 function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
+
 alias	kp='cp -p'		kr='cp -pr'
 
 alias	kh='kill -HUP'		ki='kill -INT'
@@ -108,7 +111,13 @@ alias	mm='mv -i'		mu='mv -u'
 alias	mn='make -n'		mi='make install'
 alias	mo='sudo  mount'	mz='sudo  mount -av'
 alias	um='sudo umount'	uz='sudo umount -av'
+
+alias	ox='openssl x509 -noout -text -in'
+alias	os='openssl x509 -noout -subject -issuer -in'
+
+function n() { sort -u "$@"; }
 alias	ns=nslookup
+
 alias	p='ps -ef | egrep'	pp='ping -c1 -w2'
 alias	pie='perl -pi -e'
 alias	pd=pushd		po=popd
@@ -129,7 +138,8 @@ alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
 alias	sun22='setfont          sun12x22.psfu.gz'
 alias	sun32='setfont latarcyrheb-sun32.psfu.gz'
 alias	ter32='setfont           ter-132b.psf.gz'
-alias	sx='exec ssh-agent bash -l'
+alias	sv='eval $(ssh-agent)'
+alias	sx='ssh-agent bash -l'	sk='ssh-agent -k'
 
 alias	tf='tail -F'		jim="su - $JC"
 alias	ud='diff -u'		UD='diff -U 0'
