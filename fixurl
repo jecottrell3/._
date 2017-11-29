@@ -8,7 +8,10 @@ case $1 in
 (-s)	PULL=$SSH PUSH=$SSH;;
 (-h)	PULL=$WEB PUSH=$WEB;;
 (-p)	PULL=$WEB PUSH=$USR;;
-(*)	echo "usage: $0 -[shp]"; exit 1;;
+(*)	echo "usage:	$0 -[shp]
+	-s	SSH
+	-h	HTTP
+	-p	user@HTTP"; exit 1;;
 esac
 
 cd $RBJ

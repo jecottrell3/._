@@ -23,6 +23,7 @@ set -o	emacs
 export	GLOBIGNORE=.			# must be followed ...
 shopt -u dotglob	 2>&-		# ... by this
 shopt -s autocd globstar 2>&-
+shopt -s direxpand	 2>&-
 
 unalias	rm cp mv 2>/dev/null
 test -f /usr/bin/vim && alias   vi=vim

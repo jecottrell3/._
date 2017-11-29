@@ -8,19 +8,19 @@ umask	2
 #################################################################
 
    for JC in $USER cottrell rbj jcottrell jcottrel nobody
-do for dir in /home /Users
+do for dir in /home /Users /export/usa_home
 do
 	case $JC in
-	(root)   continue;;		# ROOT becomes OTHER
-	(nobody) RBJ=$HOME/._;;		# for OTHER people
-	(*)	 RBJ=$dir/$JC/._;;	# JC candidate
+	(root)   continue;;			# ROOT becomes NOBODY
+	(nobody) JIM=$HOME	RBJ=$JIM/._;;	# for OTHER people
+	(*)	 JIM=$dir/$JC	RBJ=$JIM/._;;	# JC candidate
 	esac
 	test -d $RBJ && break 2		# FOUND
 done
 done
 
-export	RBJ JC
-export	 DEBUG=$RBJ/..debug
+export	JC JIM RBJ
+export	DEBUG=$RBJ/..debug
 test -f $DEBUG && echo .bash_profile HOME=$HOME
 export BG=$RANDOM
 

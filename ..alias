@@ -17,12 +17,13 @@ done
 alias	   path='echo    $PATH | tr : \\012'
 alias	manpath='echo $MANPATH | tr : \\012'
 alias	a=alias		ua=unalias	us=unset
-alias	ag='alias | egrep'		eg='env | egrep'
+alias	ag='alias | egrep'	eg='env | egrep'	sg='set | egrep'
 alias	e=echo		en='echo -n'	xp=export
 alias	h='fc -l'	r='fc -s'
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
 alias	j='jobs -l'		J='jobs -l'
 alias	t=type		ta='type -a'	fn='declare -f'
+
 alias	vb='vi $RBJ/.bashrc;	source $RBJ/.bashrc'
 alias	zb='vi $RBJ/.zshrc;	source $RBJ/.zshrc'
 alias	ze='vi $RBJ/.zshenv;	source $RBJ/.zshenv'
@@ -35,6 +36,7 @@ alias	vr='vi $RBJ/..prompt;	source $RBJ/..prompt'
 alias	zr='vi $RBJ/..zprompt;	source $RBJ/..zprompt'
 alias	vv='vi $RBJ/..vars;	source $RBJ/..vars'
 alias	vn='vi $RBJ/.inputrc'	vk='vi $HOME/.ssh/known_hosts'
+
 alias	vd='vimdiff'		vf='sudo vim /etc/fstab'
 alias	hd='vimdiff -o'		vh='sudo vim /etc/hosts'
 alias	vs='sudo visudo'	vg='sudo vim /boot/grub/grub.conf'
@@ -80,11 +82,12 @@ alias	 grep='egrep --color=auto'
 alias	egrep='egrep --color=auto'
 alias	g='egrep'		gi='egrep -i'
 alias	v='egrep -v'		gl='egrep -l'
+function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
 function gy { egrep --color=auto "$@" *.py; }
+
 alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
 alias GG='getent  group'; function gg { egrep $* /etc/group; }
 alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
-function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
 
 alias	kp='cp -p'		kr='cp -pr'
 
@@ -144,12 +147,13 @@ alias	sx='ssh-agent bash -l'	sk='ssh-agent -k'
 alias	tf='tail -F'		jim="su - $JC"
 alias	ud='diff -u'		UD='diff -U 0'
 alias	dr='diff -ur'		dy='diff -y'
+
 alias	rax='time rsync  -vaxz'	 rs='time rsync -Cz'
 alias	vax='time rsync -Cvaxz'	pax='time rsync -CPaxz'
 
 alias	GE=getenforce		SE=setenforce
 alias	GB='getsebool -a'	SE=setsebool
 alias	T2=tune2fs		D2='dumpe2fs -h'
-alias	M2='mkfs.ext2'		M3='mkfs.ext3'
-alias	M4='mkfs.ext4'		E2='e2fsck -C'
+alias	E2='e2fsck -C'		M2='mkfs.ext2'
+alias	M3='mkfs.ext3'		M4='mkfs.ext4'	
 #################################################################

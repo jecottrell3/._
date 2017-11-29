@@ -1,4 +1,4 @@
 # ~/.bash_logout
 
-hue reset
+# hue reset
 clear

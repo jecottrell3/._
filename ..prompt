@@ -20,10 +20,10 @@ test -f $ZC && alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
 
 case $(tty) in
 (/dev/ttys*)	: echo MAC
-		LT=1 DK=0;;	# lite MAC
+		FC=7 LT=1 DK=0;;	# lite MAC
 (/dev/tty*)	: echo TTY
 #		LT=0 DK=1; DK
-		LT=1 DK=0; LT
+		FC=0 LT=1 DK=0; LT
 ####	kill -n 0 ${SSH_AGENT_PID:-99888} 2>&- || eval $(ssh-agent)
 	$RBJ/bin/hue f bb 77 33; # $RBJ/bin/hue 8 00 00 00;
 	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
@@ -36,7 +36,7 @@ case $(tty) in
 # also lite	eval $(dircolors /etc/DIR_COLORS)
 		;;	# dark 
 (/dev/pts/*)	: echo PSEUDO
-		LT=1 DK=0; LT;;	# lite 
+		FC=7 LT=1 DK=0; LT;;	# lite 
 esac
 
 #D=$(PATH=/usr/local/bin:$PATH id -u)
@@ -49,9 +49,9 @@ ID=$(id | sed 's/(.*//;s/.*=//')
 ((BG++))
 
 case $BG in
-(*)		HI=1 FG=7;;	# lite BG
-([267])		HI=0 FG=0;;	# lite BG
-([01345])	HI=1 FG=7;;
+(*)		HI=1 FG=$FC;;	# lite BG
+([267])		HI=0 FG=$FC;;	# lite BG
+([01345])	HI=1 FG=$FC;;
 esac
 
 case $ID.$BG in
@@ -75,13 +75,12 @@ case $DISPLAY in
 ####	ssh-add -l > /dev/null || ssh-add;;
 esac
 
-: ||	# don't do this
-if	test -f $HOME/.xsession-errors
-then	alias ssh='ssh -e^'
+if	test -f $HOME/.xsession-errors.NEVER
+then	alias ssh='ssh -e^'			# First Blood
 	test -w / &&
 	PS1="$PS91$PS92" BG=1 FG=3 HI=1 ||
 	PS1="$PS91$PS92" BG=4 FG=6 HI=1
-else	PS1="$PS81$PS82"
+else	PS1="$PS81$PS82"			# Normal
 fi
 
 #################################################################

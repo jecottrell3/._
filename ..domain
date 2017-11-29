@@ -43,11 +43,17 @@ case ${DOMAIN:-$SEARCH} in
 	;;
 (*.noaa.gov)
 	echo Welcome to NOAA
+
+	export	JH=nco-lw-jcottrell.ncep.noaa.gov
+	export	NS0=nco-ls-sns1.ncep.noaa.gov
+	export	PM=vm-lnx-puppetmaster
+
+	alias adm="ssh -AX -l sysadm"
 	alias pat="sudo time puppet agent -t"
+
 	GORILLA=/mnt/usa_software/pwsave/gorilla15363_64.bin
 	   SAFE=/mnt/usa_software/pwsave/sisb_pw.psafe3
         alias gorilla="$GORILLA $SAFE"
-
 	;;
 (ncbi.nlm.nih.gov)
 	echo Welcome to NCBI
