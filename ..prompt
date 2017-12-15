@@ -7,23 +7,16 @@ DC=/etc/DIR_COLORS
 LC=$DC.lightbgcolor
 ZC=$DC.256color
 
+			LT='eval $(dircolors /etc/DIR_COLORS)'
 test -f $DC && alias	DK='eval $(dircolors /etc/DIR_COLORS)'
 test -f $LC && alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
 test -f $ZC && alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
 
-#@test -f          /etc/DIR_COLORS.lightbgcolor &&
-#@eval $(dircolors /etc/DIR_COLORS.lightbgcolor)
-
-#@alias	DK='eval $(dircolors /etc/DIR_COLORS)'
-#@alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
-#@alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
-
 case $(tty) in
 (/dev/ttys*)	: echo MAC
-		FC=7 LT=1 DK=0;;	# lite MAC
+		FC=7 HC=1;;	# lite MAC
 (/dev/tty*)	: echo TTY
-#		LT=0 DK=1; DK
-		FC=0 LT=1 DK=0; LT
+		FC=0 HC=0; LT
 ####	kill -n 0 ${SSH_AGENT_PID:-99888} 2>&- || eval $(ssh-agent)
 	$RBJ/bin/hue f bb 77 33; # $RBJ/bin/hue 8 00 00 00;
 	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
@@ -36,7 +29,7 @@ case $(tty) in
 # also lite	eval $(dircolors /etc/DIR_COLORS)
 		;;	# dark 
 (/dev/pts/*)	: echo PSEUDO
-		FC=7 LT=1 DK=0; LT;;	# lite 
+		FC=7 HC=1; LT;;	# lite 
 esac
 
 #D=$(PATH=/usr/local/bin:$PATH id -u)
@@ -49,13 +42,13 @@ ID=$(id | sed 's/(.*//;s/.*=//')
 ((BG++))
 
 case $BG in
-(*)		HI=1 FG=$FC;;	# lite BG
+(*)		HI=$HC FG=$FC;;	# lite BG
 ([267])		HI=0 FG=$FC;;	# lite BG
 ([01345])	HI=1 FG=$FC;;
 esac
 
 case $ID.$BG in
-(0.*)		HI="7;1" FG=0;;
+(0.*)		HI="$HC;7" FG=0;;
 (0.[2367])	HI="7;1";;
 (0.[0145])	HI="7";;	# dark BG
 esac

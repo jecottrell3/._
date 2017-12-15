@@ -45,7 +45,13 @@ case ${DOMAIN:-$SEARCH} in
 	echo Welcome to NOAA
 
 	export	JH=nco-lw-jcottrell.ncep.noaa.gov
-	export	NS0=nco-ls-sns1.ncep.noaa.gov
+	export	NS0=vns.ncep.noaa.gov
+	export	NS1=nco-ls-sns1.ncep.noaa.gov
+	export	NS2=vm-lnx-sns2.ncep.noaa.gov
+	export	NS3=nco-ls-cons3.ncep.noaa.gov
+	export	NS4=nco-ls-cons4.ncep.noaa.gov
+	export	NS5=vm-lnx-cons5.ncep.noaa.gov
+	export	NS6=vm-lnx-cons6.ncep.noaa.gov
 	export	PM=vm-lnx-puppetmaster
 
 	alias adm="ssh -AX -l sysadm"
