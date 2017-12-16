@@ -4,6 +4,8 @@ test -f $DEBUG && echo ..fns/version
 #	VERSION CONTROL -- CVS
 #################################################################
 
+	function CVS
+	{
 alias	  cva='cvs add'
 alias	  cvf='cvs diff -u 2>&1'
 alias	  cvh='cvs -H'
@@ -23,11 +25,14 @@ alias	  cvy='cvs history'
 function cvd { cvs diff -u $* 2>&1 | less +/'^diff.*'; }
 function cvz { cvs status 2>&1 $* | egrep ^[cF]; }
 function cvx { cvs status 2>&1 $* | egrep ^[cF] | egrep -v Up-to-date; }
+	}
 
 #################################################################
 #	VERSION CONTROL -- SVN
 #################################################################
 
+	function SVN
+	{
 alias	  sva='svn add'
 alias	 svci='svn ci'
 alias	 svco='svn co'
@@ -47,6 +52,7 @@ alias	 svsv='svn status -v'
 alias	  svu='svn up'
 alias	 svuk='svn unlock'
 alias	  svz='svn cleanup'
+	}
 
 #################################################################
 #	VERSION CONTROL -- GIT

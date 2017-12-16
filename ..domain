@@ -5,11 +5,9 @@ export	TZ=EST5EDT
 #################################################################
 
   HOST=$(hostname -s)
-  FQDN=$(hostname -f)
-			test -d Applications ||
-DOMAIN=$(hostname -d)
-			test -d Applications ||
-    IP=$(hostname -i)
+# FQDN=$(hostname -f)
+#OMAIN=$(hostname -d)
+#   IP=$(hostname -i)
 
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
@@ -20,6 +18,7 @@ export	AMED=amed.ds.$ARMY
 
 export	NOAA=noaa.gov
 export	NCEP=ncep.$NOAA
+export	JIM=nco-lw-jcottrell.ncep.noaa.gov
 
 if	egrep -q "ddn|$DDN" /etc/resolv.conf
 then	SEARCH=ddn.com

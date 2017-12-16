@@ -69,12 +69,13 @@ alias	oldkernels='package-cleanup --oldkernels'
 #ypc           ypchsh        yppasswd      ypserv        yptest
 #ypcat         ypdomainname  yppoll        ypserv_test   ypwhich
 
-#alias	yc=ypcat	yk='ypcat -k'
-#alias	ym=ypmatch	yw='ypwhich -m'
-#alias	yb=ypbind	ys=ypset
-#alias	yv=ypserv	yo=yppoll
-#alias	yu=yppush	yx=ypxfr
-#alias	yg=ypgrep
+		function YP {
+alias	yc=ypcat	yk='ypcat -k'
+alias	ym=ypmatch	yw='ypwhich -m'
+alias	yb=ypbind	ys=ypset
+alias	yv=ypserv	yo=yppoll
+alias	yu=yppush	yx=ypxfr
+alias	yg=ypgrep
 
 alias	Y=ypgrep	W='ypwhich -m'
 alias	C=ypcat		K='ypcat -k'
@@ -87,5 +88,6 @@ function ypgrep
 	(*)     ypcat    $map;;
 	esac | grep "$@"
 }
+		}
 
 #################################################################

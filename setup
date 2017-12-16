@@ -31,7 +31,7 @@ do
 	(.profile)	continue;;
 	(.debug)	continue;;
 	(setup)		continue;;
-	(setdn)		continue;;
+	(src)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
 	(.z*)		continue;;	# unless using zsh
