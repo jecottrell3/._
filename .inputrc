@@ -1,5 +1,5 @@
 set output-meta On
-#"\M-\e": shell-expand-line
+"\M-\e": shell-expand-line
 "\M-a": "\C-aman -a \n"
 "\M-e": " --exclude="
 "\M-h": "for x in "
