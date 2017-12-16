@@ -1,4 +1,5 @@
 set output-meta On
+#"\M-\e": shell-expand-line
 "\M-a": "\C-aman -a \n"
 "\M-e": " --exclude="
 "\M-h": "for x in "
@@ -11,8 +12,10 @@ set output-meta On
 #"\M-q": "ssh -tAX root@rome    SUDO_USER=$USER           bash --rcfile $RCFILE"
 "\M-s": "\C-e | sort "
 #"\M-s": "ssh -tAX root@strudel SUDO_USER=$USER ssh-agent bash --rcfile $RCFILE"
-"\M-v": "jci -am '[SYS-"
+#"\M-v": "jci -am '[SYS-"
 "\M-w": "\C-w\C-y=$\C-y\e\C-e"
 "\M-x": "fg; exit"
 #"\M-z": " META z "
 "\M-z": "lsb_release -sir\n"
+"`": "\e"
+"\M-`": self-insert
