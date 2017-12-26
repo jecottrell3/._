@@ -8,3 +8,239 @@
                       Vim command argument        -        :help -r
                       Option                      '        :help 'textwidth'
 
+* INTRODUCTION
+
+This memo is a reference manual for vim, with a bit of explanation thrown in.
+There are many modes, but the major ones are Command Mode and Input Mode.
+Mostly, the Command Mode is discussed here. Most commands are Mnemonic, altho
+a few of them stretch that paradigm.
+
+Transition from Input Mode to Command mode is always via the ESC key, which
+will sometimes be written as '$' because of historical custom. Input mode
+can be entered by several commands, including [aAiIoOcCsS] and others.
+
+Often, a Capital Letter is a Variation on the Lower Case command, either
+implying a Larger Motion ([webai]), or sometimes the Opposite Direction
+([ftn]).  Sometimes the command shares a concept with the Control Version.
+
+Some Keys are used as Prefixes, such as 'g' and 'z'.
+
+* NUMERIC ARGUMENTS
+
+Most commands can take a decimal Argument, using the numeric keys, which
+precedes the other command keys. This is often used as a Repeat Count,
+but can be used for other purposes. Note that there is only one number
+that starts with a Zero, and since a count of zero is meaningless for
+most commands, the '0' key is used for Beginning of Line.
+
+	[1-9]	Digits
+	0	Digit if entering a Numeric Argument
+	0	Beginning of Line
+
+* MOTION
+
+The simplest commands simply move the cursor around. These are useful in
+and of themselves, but there are commands called "Operators" that take
+Motions as Arguments. To peek ahead, if "3w" Moves Ahead Three Words,
+then "d3w" will Delete Three Words.
+
+** CHARACTER MOTION
+
+There used to be a "Glass TTY" (dumb terminal) with Arrows on the [hjkl]
+keys pointing Left, Down, Up, and Right. Early versions of Bell Labs UNIX
+(rather lame) games used these, and they found their way into VI. As for
+mnemonics, ^H and ^J are Backspace and Linefeed. The other two are VT,
+which made old line printers scroll down the page, this making the Paper
+go Up, and FF, which went Foreward to a new page.
+
+There are Hard Boundaries at the Top and Bottom of the file, and at
+the Left Edge. The Right Margin is somewhat more Flexible; the Original
+Column is remembered, and if a short line is moved across, the original
+column is used on a longer line. Experiment.
+
+Spaces and Backspaces move to the next or previous line, but nothing
+else does.  The Arrow Keys are used as well.
+
+	h, ^h, Left	Character Left
+	j, ^j, Down	Character Down
+	k, Up		Character Up
+	l, Right, SPC	Character Right
+ 
+** FIND
+
+The 'f' and 't' commands take a character and 'find' the next occurrance
+of it, stopping ON it, in the case of 'f', or right up TO it, in the
+case of 't'. The commands 'F' and 'T' find/to Backwards. The motion can
+be repeated in the Same or Opposite Direction by the ';' or ',' commands.
+
+	fx	Find  the next 'x' character, Foreward
+	Fx	Find  the next 'x' character, Backward
+	tx	Up to the next 'x' character, Foreward
+	Tx	Up to the next 'x' character, Backward
+	;	Repeat Motion, Same  Direction
+	,	Repeat Motion, Other Direction
+
+Example: the 'c' command takes a Motion, deletes that text, and enters
+Input Mode, thus effecting a Change. Try 'ct:new text$' in the Password File.
+
+** WORDS
+
+Words come in Two Flavors (small and large) and characters come in
+Three Classes: Alphanumeric, Punctuation, and WhiteSpace. Large Words
+consist of strings of Printable Characters while Small Words consist of
+Characters of the Same Type.
+
+The 'W' command moves Foreward a Large Word, stopping at the next Printable
+Character *after* a White Space.
+
+The 'w' command moves Foreward a Small Word, stopping as above, but also
+if the Character Class changes. An Example is sorely needed. Consider:
+
+jcottrell:x:654:654:Jim Cottrell:/home/jcottrell/c7:/bin/bash
+
+There are two Large Words here, and twenty small ones. Note that some of
+these small words are ':/' because of the adjacent punctuation.
+
+The 'B'and 'b' commands move Backwards over Large and Small Words. The 'E'
+and 'e' commands move Forward to the End of a Large/Small word, and 'gE'
+and 'ge' commands move Backwards to the End of a Large/Small Word.
+
+	W	Foreward Beginning of Large Word
+	w	Foreward Beginning of Small Word
+	B	Backward Beginning of Large Word
+	b	Backward Beginning of Small Word
+	E	Foreward End       of Large Word
+	e	Foreward End       of Small Word
+	gE	Backward End       of Large Word
+	ge	Backward End       of Small Word
+
+** INFRALINE
+
+As previously mentioned, '0' moves to the Begiinning of Line, while '^'
+moves to the the first Non-Whitespace character and '$' moves to the End
+of Line. Think Regular Expressions here.
+
+The '|' command moves to the Column specified in the Repeat Count. 
+ 
+	0	Beginning of Line
+	^	First Visible Char of Line
+	$	End of Line
+	|	Move to Column
+
+** INTERLINE
+
+Use '+' and '-' to move to Next and Previous Lines. The Return/Enter Key
+also moves to the Next Line.
+
+	+, RET, ^M	Next Line
+	-		Prev Line
+
+** SCREEN LINES
+
+Use 'H', 'M', or 'L' to move to the Head, Middle, or Last line *of the screen*.
+Both 'H' and 'L' use the Argument as the Nth line from the Top or Bottom.
+
+	H	Head   of Screen
+	M	Middle of Screen
+	L	Last   of Screen
+
+** SCREEN MOTION
+
+The '^f' and '^b' commands move Forward and Backward a Screen respectively.
+The '^d' and '^u' commands move half a screen Forward or Backwards.
+
+	^f	Next Whole Screen
+	^b	Prev Whole Screen
+	^d	Next Half  Screen
+	^u	Prev Half  Screen
+
+** SCROLLING
+
+It is debatable whether of not these are 'motions' as the Reference here is
+the Screen, and the fact that the Current Position changes in a way that is
+arbitrary, changing enough to keep the text on the screen centered.
+
+Use '^e' to expose the next line (scroll up) and ^y to Scroll Down. There
+is really no good mnemonic for ^y.
+
+	^e	Expose Next Line, Scrolling Text Up
+	^y	Expose Prev Line, Scrolling Text Down
+
+** SEARCHING
+
+Use '/' or '?' followed by a String (terminated by a RETURN) to Search
+Foreward or Backward. The Previous Search can be Continued in the Same or
+Opposite direction by the 'n' or 'N' keys.
+
+Using '*' or '#' will search for the Next or Previous occurrence of the
+Word under the Cursor. Using 'g*' or 'g#' modifies this slightly.
+
+	/	Search Foreward
+	?	Search Backward
+	n	Next   Foreward
+	N	Next   Backward
+	*	Search Foreward for Word Under Cursor
+	#	Search Backward for Word Under Cursor
+
+* MODIFICATION
+
+The following commands Modify the existing text, but are not Operators.
+
+** CHARACTER DELETION
+
+Characters may be deleted Forwards or Backwards with the 'x' and 'X' keys.
+
+	x	Delete Character Foreward
+	X	Delete Character Backward
+
+** INSERT MODE
+
+The 'i' command enters Insert Mode. Characters are inserted Before the
+current position until an Escape is typed.  The 'a' command Appends
+*after* the current position.
+
+Using 'I' inserts before the first printable character, while 'gI'
+inserts at the Beginning of Line. Using 'A' appends at the End of Line
+
+	i	Insert Before Current
+	I	Insert Before Beg of Line
+	gI	Insert Before First Char of Line
+	a	Insert After  Current
+	A	Insert After  End of Line
+
+** REPLACEMENT
+
+The character under the Cursor can be Replaced with the 'r' command. 
+
+** OPEN
+
+Use 'o' to Open Lines below, and 'O' to open Above. The Argument is a
+Repeat Count, which is Rarely Useful.
+
+	o	Open Lines Below
+	O	Open Lines Above
+
+** PUT
+
+We need to introduce the concepts of Registers here. Registers are named
+Strings that can be Read From and Written To. Some Registers are Implied
+by certain command, but all can be Explicitly Specified by using the '"'
+(double quote) character followed by a one character Register Name. Thus,
+"aY might be followed by "ap. The Y command is the Yank Operator,
+described under Operators.
+
+Use 'p' to Put insert a Register *after* the current text, and 'P' to Put
+it *before*. There are also 'gp' and 'gP', which leave the cursor positioned
+after the text which is put.
+
+The Put command remembers whether the Register was created in Character or
+Line Mode.
+
+	p	Put Register after  Cursor
+	P	Put Register before Cursor
+	gp	Put Register after  Cursor, move cursor
+	gP	Put Register before Cursor, move cursor
+
+* OPERATORS
+
+There are really only five operators: c(hange), d(elete), 
