@@ -57,7 +57,7 @@ complete -A setopt		set
 complete -A service		chkconfig service
 complete -A shopt		shopt
 complete -A signal		kill
-complete -A stopped	-P '%'	bg
+complete -A stopped	-P '%'	bg fg
 
 complete -a			unalias
 complete -a -S = -o nospace	alias
@@ -79,19 +79,19 @@ complete -d			pushd
 complete -e			printenv env
 
 complete -f			. source
-complete -f -X '!*.+(gif|jpg|jpeg|GIF|JPG|JPEG|bmp)'	xv
+#omplete -f -X '!*.+(gif|jpg|jpeg|GIF|JPG|JPEG|bmp)'	xv
 #omplete -f -X '!*.+(gz|tgz|Z)'	gunzip gzcat zcat zmore
-complete -f -X '!*.+(htm|html)'	links w3m lynx
-complete -f -X '!*.+(mp3|MP3)'	mpg123
-complete -f -X '!*.+(pdf|PDF)'	acroread4
-complete -f -X '!*.+(ps|PS)'	gs gv ghostview psselect pswrap
-complete -f -X '!*.bz2'		bunzip2 bzcat
-complete -f -X '!*.pl'		perl perl5
-complete -f -X '!*.texi*'	makeinfo texi2dvi texi2html
-complete -f -X '!*.zip'		unzip
-complete -f -X '*.Z'		compress
-complete -f -X '*.bz2'		bzip2
-complete -f -X '*.gz'		gzip
+#omplete -f -X '!*.+(htm|html)'	links w3m lynx
+#omplete -f -X '!*.+(mp3|MP3)'	mpg123
+#omplete -f -X '!*.+(pdf|PDF)'	acroread4
+#omplete -f -X '!*.+(ps|PS)'	gs gv ghostview psselect pswrap
+#omplete -f -X '!*.bz2'		bunzip2 bzcat
+#omplete -f -X '!*.pl'		perl perl5
+#omplete -f -X '!*.texi*'	makeinfo texi2dvi texi2html
+#omplete -f -X '!*.zip'		unzip
+#omplete -f -X '*.Z'		compress
+#omplete -f -X '*.bz2'		bzip2
+#omplete -f -X '*.gz'		gzip
 
 complete -g			chgrp groupdel groupmod
 

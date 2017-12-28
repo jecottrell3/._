@@ -43,6 +43,7 @@ alias	vs='sudo visudo'	vg='sudo vim /boot/grub/grub.conf'
 alias	x='for x in'		y='fg %-'
 alias	zz=suspend		zzz='suspend -f'
 
+function b() { mkdir -p $* && cd    $*; }
 function c() { cd    $* && ls -FAC; }
 function u() { cd ../$* && ls -FAC; }
 function s() { cd $(echo "$PWD" | sed "s%$1%$2%"); }
@@ -64,15 +65,19 @@ alias	cm='chmod'		cx='chmod a+x'
 
 alias	d='rm -i'		rfv='rm -rfv'
 alias	dm='less +/"^diff.*"'
+alias	im='less +/"^[Ii]ndex: .*"'
+alias	ym='less +/".*[<>|].*"'
+alias	dh='df -hT'	uh='du -h'	df='df -k'
+
+alias	ds='dig +search'	dx='dig -x'
+
+alias	ud='diff -u'		UD='diff -U 0'
+alias	dr='diff -ur'		dy='diff -y'
 function rude()
 {
 	diff -ru $* |
 	less +/"^(diff|Only).*"
 }
-alias	im='less +/"^[Ii]ndex: .*"'
-alias	ym='less +/".*[<>|].*"'
-alias	dh='df -hT'	uh='du -h'	df='df -k'
-alias	ds='dig +search'
 
 alias	agw='route add -net default gw'	gw='netstat -rn'
 alias	dgw='route del -net default gw'
@@ -111,15 +116,16 @@ alias	m=less 			mr='less -r'
 alias	md='mkdir'		mp='mkdir -p'
 alias	rd='rmdir'		rp='rmdir -p'
 alias	mm='mv -i'		mu='mv -u'
-alias	mn='make -n'		mi='make install'
+alias	mn='make -n'		mb='make -B'
+alias	ni='make -n install'	mi='make install'
 alias	mo='sudo  mount'	mz='sudo  mount -av'
 alias	um='sudo umount'	uz='sudo umount -av'
 
-alias	ox='openssl x509 -noout -text -in'
-alias	os='openssl x509 -noout -subject -issuer -in'
-
 function n() { sort -u "$@"; }
 alias	ns=nslookup
+
+alias	ox='openssl x509 -noout -text -in'
+alias	os='openssl x509 -noout -subject -issuer -in'
 
 alias	p='ps -ef | egrep'	pp='ping -c1 -w2'
 alias	pie='perl -pi -e'
@@ -129,30 +135,27 @@ alias	root='sudo chown   root:root'
 #lias	 rbj='sudo chown -R rbj:rbj'
 alias	  jc='sudo chown -R $JC:$JC'
 
-alias	sb='sudo bash -l'	se=sudoedit
 alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
 alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
-alias	sir='lsb_release -sir'	su='su -p'
+alias	sir='lsb_release -sir'	su='su -p'	se=sudoedit
 alias	sl='ln -s'		slf='ln -sf'
 
 function sp() { time rsync -Cvaxz ~/.ssh $1:; }
 alias	ss='ssh -AX'		sj="ssh -AX -l $JC"
+
 alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
 alias	sun22='setfont          sun12x22.psfu.gz'
 alias	sun32='setfont latarcyrheb-sun32.psfu.gz'
 alias	ter32='setfont           ter-132b.psf.gz'
-alias	sv='eval $(ssh-agent)'
-alias	sx='ssh-agent bash -l'	sk='ssh-agent -k'
 
+alias	tvf='tar  tvf'		xvf='tar  xvf'
+alias	cvf='tar  cvf'		zvf='tar czvf'
+alias	jvf='tar cjvf'		Jvf='tar cJvf'
 alias	tf='tail -F'		jim="su - $JC"
-alias	ud='diff -u'		UD='diff -U 0'
-alias	dr='diff -ur'		dy='diff -y'
 
 alias	rax='time rsync  -vaxz'	 rs='time rsync -Cz'
 alias	vax='time rsync -Cvaxz'	pax='time rsync -CPaxz'
 
-alias	GE=getenforce		SE=setenforce
-alias	GB='getsebool -a'	SE=setsebool
 alias	T2=tune2fs		D2='dumpe2fs -h'
 alias	E2='e2fsck -C'		M2='mkfs.ext2'
 alias	M3='mkfs.ext3'		M4='mkfs.ext4'	
