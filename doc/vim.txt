@@ -1,27 +1,19 @@
-## HELP
-
-                      Normal mode command      (nothing)   :help x
-                      Visual mode command         v_       :help v_u
-                      Insert mode command         i_       :help i_<Esc>
-                      Command-line command        :        :help :quit
-                      Command-line editing        c_       :help c_<Del>
-                      Vim command argument        -        :help -r
-                      Option                      '        :help 'textwidth'
-
 * INTRODUCTION
 
-This memo is a reference manual for vim, with a bit of explanation thrown in.
-There are many modes, but the major ones are Command Mode and Input Mode.
-Mostly, the Command Mode is discussed here. Most commands are Mnemonic, altho
-a few of them stretch that paradigm.
+This memo is a reference manual for vim, with a bit of explanation
+thrown in.  There are many modes, but the major ones are Command Mode and
+Input Mode.  Mostly, the Command Mode is discussed here. Most commands
+are Mnemonic, altho a few of them stretch that paradigm.
 
-Transition from Input Mode to Command mode is always via the ESC key, which
-will sometimes be written as '$' because of historical custom. Input mode
-can be entered by several commands, including [aAiIoOcCsS] and others.
+Transition from Input Mode to Command mode is always via the ESC
+key, which will sometimes be written as '$' because of historical
+custom. Input mode can be entered by several commands, including
+[aAiIoOcCsS] and others.
 
-Often, a Capital Letter is a Variation on the Lower Case command, either
-implying a Larger Motion ([webai]), or sometimes the Opposite Direction
-([ftn]).  Sometimes the command shares a concept with the Control Version.
+Often, a Capital Letter is a Variation on the Lower Case command,
+either implying a Larger Motion ([webai]), or sometimes the Opposite
+Direction ([ftnxop]).  Sometimes the command shares a concept with the
+Control Version.
 
 Some Keys are used as Prefixes, such as 'g' and 'z'.
 
@@ -61,10 +53,10 @@ column is used on a longer line. Experiment.
 Spaces and Backspaces move to the next or previous line, but nothing
 else does.  The Arrow Keys are used as well.
 
-	h, ^h, Left	Character Left
-	j, ^j, Down	Character Down
-	k, Up		Character Up
-	l, Right, SPC	Character Right
+	h, ^h, Left		Character Left
+	j, ^j, Down		Character Down
+	k, ^p, Up		Character Up
+	l, ^n, Right, SPC	Character Right
  
 ** FIND
 
@@ -90,20 +82,20 @@ Three Classes: Alphanumeric, Punctuation, and WhiteSpace. Large Words
 consist of strings of Printable Characters while Small Words consist of
 Characters of the Same Type.
 
-The 'W' command moves Foreward a Large Word, stopping at the next Printable
-Character *after* a White Space.
+The 'W' command moves Foreward a Large Word, stopping at the next
+Printable Character *after* a White Space.
 
 The 'w' command moves Foreward a Small Word, stopping as above, but also
 if the Character Class changes. An Example is sorely needed. Consider:
 
 jcottrell:x:654:654:Jim Cottrell:/home/jcottrell/c7:/bin/bash
 
-There are two Large Words here, and twenty small ones. Note that some of
-these small words are ':/' because of the adjacent punctuation.
+There are two Large Words here, and twenty small ones. Note that some
+of these small words are ':/' because of the adjacent punctuation.
 
-The 'B'and 'b' commands move Backwards over Large and Small Words. The 'E'
-and 'e' commands move Forward to the End of a Large/Small word, and 'gE'
-and 'ge' commands move Backwards to the End of a Large/Small Word.
+The 'B'and 'b' commands move Backwards over Large and Small Words. The
+'E' and 'e' commands move Forward to the End of a Large/Small word, and
+'gE' and 'ge' commands move Backwards to the End of a Large/Small Word.
 
 	W	Foreward Beginning of Large Word
 	w	Foreward Beginning of Small Word
@@ -117,8 +109,8 @@ and 'ge' commands move Backwards to the End of a Large/Small Word.
 ** INFRALINE
 
 As previously mentioned, '0' moves to the Begiinning of Line, while '^'
-moves to the the first Non-Whitespace character and '$' moves to the End
-of Line. Think Regular Expressions here.
+moves to the the first Non-Whitespace character and '$' moves to the
+End of Line. Think Regular Expressions here.
 
 The '|' command moves to the Column specified in the Repeat Count. 
  
@@ -130,15 +122,28 @@ The '|' command moves to the Column specified in the Repeat Count.
 ** INTERLINE
 
 Use '+' and '-' to move to Next and Previous Lines. The Return/Enter Key
-also moves to the Next Line.
+also moves to the Next Line. The cursor moves to the first nonblank char.
 
 	+, RET, ^M	Next Line
 	-		Prev Line
 
+** MARKS
+
+Marks are named positions in the text buffer. They may be set via 'm'
+followed by the (one character) mark name, and jumped to via the "'"
+(single quote) and "`" (backquote) commands. The former jumps to the
+first visible character on the line, while the latter jumps to the
+character where the mark was set.
+
+	m	Set Mark
+	'	Jump to Line containing mark
+	`	Jump to Char containing mark
+
 ** SCREEN LINES
 
-Use 'H', 'M', or 'L' to move to the Head, Middle, or Last line *of the screen*.
-Both 'H' and 'L' use the Argument as the Nth line from the Top or Bottom.
+Use 'H', 'M', or 'L' to move to the Head, Middle, or Last line *of
+the screen*.  Both 'H' and 'L' use the Argument as the Nth line from
+the Top or Bottom.
 
 	H	Head   of Screen
 	M	Middle of Screen
@@ -147,7 +152,7 @@ Both 'H' and 'L' use the Argument as the Nth line from the Top or Bottom.
 ** SCREEN MOTION
 
 The '^f' and '^b' commands move Forward and Backward a Screen respectively.
-The '^d' and '^u' commands move half a screen Forward or Backwards.
+The '^d' and '^u' commands move Forward and Backward Half a Screen.
 
 	^f	Next Whole Screen
 	^b	Prev Whole Screen
@@ -156,9 +161,10 @@ The '^d' and '^u' commands move half a screen Forward or Backwards.
 
 ** SCROLLING
 
-It is debatable whether of not these are 'motions' as the Reference here is
-the Screen, and the fact that the Current Position changes in a way that is
-arbitrary, changing enough to keep the text on the screen centered.
+It is debatable whether of not these are 'motions' as the Reference
+here is the Screen, and the fact that the Current Position changes in
+a way that is arbitrary, changing enough to keep the text on the screen
+centered.
 
 Use '^e' to expose the next line (scroll up) and ^y to Scroll Down. There
 is really no good mnemonic for ^y.
@@ -169,8 +175,8 @@ is really no good mnemonic for ^y.
 ** SEARCHING
 
 Use '/' or '?' followed by a String (terminated by a RETURN) to Search
-Foreward or Backward. The Previous Search can be Continued in the Same or
-Opposite direction by the 'n' or 'N' keys.
+Foreward or Backward. The Previous Search can be Continued in the Same
+or Opposite direction by the 'n' or 'N' keys.
 
 Using '*' or '#' will search for the Next or Previous occurrence of the
 Word under the Cursor. Using 'g*' or 'g#' modifies this slightly.
@@ -200,7 +206,7 @@ current position until an Escape is typed.  The 'a' command Appends
 *after* the current position.
 
 Using 'I' inserts before the first printable character, while 'gI'
-inserts at the Beginning of Line. Using 'A' appends at the End of Line
+inserts at the Beginning of Line. Using 'A' appends at the End of Line.
 
 	i	Insert Before Current
 	I	Insert Before Beg of Line
@@ -210,37 +216,223 @@ inserts at the Beginning of Line. Using 'A' appends at the End of Line
 
 ** REPLACEMENT
 
-The character under the Cursor can be Replaced with the 'r' command. 
+The character under the Cursor can be Replaced with the 'r' command,
+followed by the Replacement Character. Using 'R' enters Replacement Mode,
+which is sometimes called Overwrite Mode, where every character typed,
+until an ESC, replaces existing characters.  Typing 's' deletes the
+current character and enters Insert Mode. This is most useful when an
+Argument is given.
+
+	r	Replace current character
+	R	Replacement Mode
+	s	Substitution
 
 ** OPEN
 
 Use 'o' to Open Lines below, and 'O' to open Above. The Argument is a
-Repeat Count, which is Rarely Useful.
+Repeat Count, which is Rarely Useful. Inser Mode is entered.
 
 	o	Open Lines Below
 	O	Open Lines Above
 
+** REGISTERS
+
+Registers are named Strings that can be Read From and Written To. Most
+commands that Delete or Modify text will store the old text in a register.
+
+Some Registers are Implied by certain commands, but all can be Explicitly
+Specified by using the '"' (double quote) character followed by a one
+character Register Name. Thus, "aY might be followed by "ap. The Y
+command is the Yank Operator, described below under Operators.
+
+Registers can also be Executed as Macros.
+
 ** PUT
 
-We need to introduce the concepts of Registers here. Registers are named
-Strings that can be Read From and Written To. Some Registers are Implied
-by certain command, but all can be Explicitly Specified by using the '"'
-(double quote) character followed by a one character Register Name. Thus,
-"aY might be followed by "ap. The Y command is the Yank Operator,
-described under Operators.
+Use 'p' to Put insert a Register *after* the current text, and 'P' to
+Put it *before*. There are also 'gp' and 'gP', which leave the cursor
+positioned after the text which is put.
 
-Use 'p' to Put insert a Register *after* the current text, and 'P' to Put
-it *before*. There are also 'gp' and 'gP', which leave the cursor positioned
-after the text which is put.
-
-The Put command remembers whether the Register was created in Character or
-Line Mode.
+The Put command remembers whether the Register was created in Character
+or Line Mode.
 
 	p	Put Register after  Cursor
 	P	Put Register before Cursor
 	gp	Put Register after  Cursor, move cursor
 	gP	Put Register before Cursor, move cursor
 
+** UNDO, REDO, AGAIN
+
+Changes can be Undone and Redone repeatedly. Use 'u' to Undo previous
+changes and '^R' to Redo them. Use 'U' to return the Current Line to
+its Original State. Note that 'U' cannot be Undone or Redone.
+
+The previous change can be repeated with the '.' command. A common
+sequence is to change all (or just some) occurrances of a word to another
+one. Thus, '/foo' and 'cwbar$' are often followed by several 'n's and '.'s.
+
+	u	Undo previous changes, LIFO.
+	^R	Redo previous changes, FIFO
+	U	Restore Current Line. 
+	.	Repeat Last Change
+
 * OPERATORS
 
-There are really only five operators: c(hange), d(elete), 
+There are really only a few operators: c(hange), d(elete), y(ank), <
+(left shift), > (right shift), ! (pipe thru shell command), = (pipe thru
+indent), gU (upper case), gu (lower case) and optionally (controlled by
+a flag), ~ (swap case).
+
+Each takes a Motion, as described above and Operates on that text. As
+a special case, doubling the command name operates on the Current Line,
+so 'dd' deletes the current line, '2yy' yanks two lines, etc.
+
+	d	Delete text specified by Motion
+	D	is 'd$', Delete to End of Line
+	c	Change: delete and enter Insert Mode
+	C	is 'c$', Change to End of Line
+	S	is 'cc', Change Entire Line
+	y	Yank (save) text.
+	Y	is 'yy', Yank Entire Line
+	!	Pipe Motion text thru a shell command
+	=	Pipe Motion text thru the indent program
+	<	Shift Left
+	>	Shift Right
+	~	Toggle Case
+	gu	Lower  Case 
+	gU	Upper  Case
+
+* MISCELLANEOUS
+
+This section describes miscellaneous commands, modes, and features,
+covered only lightly. See the Help section for details.
+
+** MISC COMMANDS
+
+Use 'J' or 'gJ' to Join Lines together, with or without Spaces. Use '^L'
+to Redraw the screen. Use '^g' to see a Momentary Status Line.
+
+	J	Join Lines with spaces
+	gJ	Join Lines sans spaces
+	^l	Redraw screen
+	^g	Status
+	ZZ	Exit the editor (NOT :wq)
+	^a	Increment number under the cursor
+	^x	Decrement number under the cursor
+
+** VISUAL MODE
+
+There are three 'visual modes' which Select and Highlight a sent of
+Characters (v), Lines (V), or a (rectangular) Block of text. Once
+highlighted, the Region can be operated on. A few commands:
+
+	VISUAL MODES
+	v	Visual Char  Mode
+	V	Visual Line  Mode
+	^v	Visual Block Mode
+
+	VISUAL COMMANDS
+	o	Other Corner, diagonally
+	O	Other Corner, same line
+	x	Delete Selection
+	r	Replace with One Char
+	s	Substitute
+	A	Append after  Block
+	I	Insert before Block
+	!	Pipe to Shell
+	<, >	Shift Lines
+	gU, gu	Upper/Lower Case
+	~	Toggle Case
+
+Yank remembers that it was executed in Block Mode and Put will insert
+a Block into existing text. Very Cool!
+
+** EX COMMANDS
+
+The first UNIX editor came from Bell Labs and was called 'ed'.  Berkeley
+added to this and called it 'ex'. Neither was a Full Screen Editor. UCB
+later wrote 'vi', the predeccessor of 'vim', on top of 'ex', and made
+the ex commands available vi the ':' command. There are many of these
+commands, but only a few are described here.
+
+	:set variable value
+	:map from-string to-string
+	:edit files...
+	:read files...
+	:write
+	:quit
+
+Please see the :help command for more info.
+
+** INPUT MODE
+
+Most characters self-insert, but a few are 'magic'. Use '^p' or '^n'
+to insert a previous or following word from the current buffer. Use '^r'
+followed by a Register Name to insert that Register. Use '^o' to execute
+One Command from Insert Mode. There are others...
+
+** WINDOWS
+
+VIM can use multiple windows via two character sequences starting with
+'^w'. Usually, '^w^x' is equivalent to '^wx'; I tend to  use the former.
+Here is a sample of some of the commands:
+
+CTRL-W +           increase current window height N lines
+CTRL-W -           decrease current window height N lines
+CTRL-W <           decrease current window width N columns
+CTRL-W =           make all windows the same height & width
+CTRL-W >           increase current window width N columns
+CTRL-W H           move current window to the far left
+CTRL-W J           move current window to the very bottom
+CTRL-W K           move current window to the very top
+CTRL-W L           move current window to the far right
+CTRL-W R           rotate windows upwards N times
+CTRL-W W           go to N previous window (wrap around)
+CTRL-W _           set current window height to N (default:
+
+CTRL-W b           go to bottom window
+CTRL-W c           close current window (like :close)
+CTRL-W h           go to Nth left window (stop at first window)
+CTRL-W j           go N windows down (stop at last window)
+CTRL-W k           go N windows up (stop at first window)
+CTRL-W l           go to Nth right window (stop at last window)
+CTRL-W n           open new window, N lines high
+CTRL-W o           close all but current window (like :only)
+CTRL-W p           go to previous (last accessed) window
+CTRL-W q           quit current window (like :quit)
+CTRL-W r           rotate windows downwards N times
+CTRL-W s           split current window in two parts
+CTRL-W t           go to top window
+CTRL-W v           split current window vertically, new window
+CTRL-W w           go to N next window (wrap around)
+
+** COMMAND MACROS
+
+Sequences of commands can be Recorded as a Macro. Macros are stored in
+and Executed from Registers. Type 'q' and then the Register name to Begin
+Recording, then the Command Sequence, then 'q' to End Recording. Use '@'
+followed by the Register name to Execute it. Example: to add 10 hosts,
+starting at address 11.22.33.44, first add the line:
+
+11.22.33.44	host0
+
+then type 'qrYpE^aw^aq' to define the macro, '@r'to execute it. Typing
+'8@@' will re-execute it eight more times.
+
+* HELP
+
+Help is available by typing ':help topic'. Topic can be a command, a
+'magic' input character, a variable name, a command line option, or a
+general topic. Here are some examples:
+
+	Normal mode command      (nothing)   :help x
+	Visual mode command         v_       :help v_u
+	Insert mode command         i_       :help i_<Esc>
+	Command-line command        :        :help :quit
+	Command-line editing        c_       :help c_<Del>
+	Vim command argument        -        :help -r
+	Option (variable)           '        :help 'textwidth'
+
+There is So Much More that I haven't covered; see the :help command.
+
+* END
