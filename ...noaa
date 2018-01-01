@@ -1,0 +1,37 @@
+echo Welcome to NOAA
+
+export	JH=nco-lw-jcottrell.ncep.noaa.gov
+export	NS0=vns.ncep.noaa.gov
+export	NSP=nco-ls-sns1.ncep.noaa.gov
+export	NSQ=vm-lnx-sns2.ncep.noaa.gov
+export	NS1=vm-lnx-cons1.ncep.noaa.gov
+export	NS2=vm-lnx-cons2.ncep.noaa.gov
+export	NS3=nco-ls-cons3.ncep.noaa.gov
+export	NS4=nco-ls-cons4.ncep.noaa.gov
+export	NS5=vm-lnx-cons5.ncep.noaa.gov
+export	NS6=vm-lnx-cons6.ncep.noaa.gov
+export	BS1=vm-bldr-cons1.ncep.noaa.gov
+export	BS2=vm-bldr-cons2.ncep.noaa.gov
+export	BS3=vm-bldr-cons3.ncep.noaa.gov
+export	BS4=vm-bldr-cons4.ncep.noaa.gov
+export	BS5=vm-bldr-cons5.ncep.noaa.gov
+export	BS6=vm-bldr-cons6.ncep.noaa.gov
+export	PM=vm-lnx-puppetmaster
+
+export	JH=nco-lw-jcottrell.ncep.noaa.gov
+export	NS0=vns.ncep.noaa.gov
+export	NS1=nco-ls-sns1.ncep.noaa.gov
+export	NS2=vm-lnx-sns2.ncep.noaa.gov
+export	NS3=nco-ls-cons3.ncep.noaa.gov
+export	NS4=nco-ls-cons4.ncep.noaa.gov
+export	NS5=vm-lnx-cons5.ncep.noaa.gov
+export	NS6=vm-lnx-cons6.ncep.noaa.gov
+export	PM=vm-lnx-puppetmaster
+
+	adm='hH=atmS%MxEe'
+alias	adm="ssh -AX -l sysadm"
+alias	pat="sudo time puppet agent -t"
+
+GORILLA=/mnt/usa_software/pwsave/gorilla15363_64.bin
+   SAFE=/mnt/usa_software/pwsave/sisb_pw.psafe3
+alias gorilla="$GORILLA $SAFE"

@@ -11,23 +11,19 @@ export	TZ=EST5EDT
 
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
-export	DDN=datadirect.datadirectnet.com
-
-export	ARMY=army.mil
-export	AMED=amed.ds.$ARMY
 
 export	NOAA=noaa.gov
 export	NCEP=ncep.$NOAA
-export	JIM=nco-lw-jcottrell.ncep.noaa.gov
+export	JIM=nco-lw-jcottrell.$NCEP
 
-if	egrep -q "ddn|$DDN" /etc/resolv.conf
-then	SEARCH=ddn.com
-elif	egrep -q $AMED      /etc/resolv.conf
-then
-	SEARCH=$AMED
-elif	egrep -q homerj     /etc/resolv.conf
+if	egrep -q homerj     /etc/resolv.conf
 then	SEARCH=homerj
 fi
+
+noaa="source $RBJ/...noaa"
+army="source $RBJ/...army"
+nih="source $RBJ/...nih"
+nlm="source $RBJ/...nlm"
 
 case ${DOMAIN:-$SEARCH} in
 (homerj)
@@ -41,35 +37,10 @@ case ${DOMAIN:-$SEARCH} in
 	alias	S='pm-suspend'
 	;;
 (*.noaa.gov)
-	echo Welcome to NOAA
-
-	export	JH=nco-lw-jcottrell.ncep.noaa.gov
-	export	NS0=vns.ncep.noaa.gov
-	export	NSP=nco-ls-sns1.ncep.noaa.gov
-	export	NSQ=vm-lnx-sns2.ncep.noaa.gov
-	export	NS1=vm-lnx-cons1.ncep.noaa.gov
-	export	NS2=vm-lnx-cons2.ncep.noaa.gov
-	export	NS3=nco-ls-cons3.ncep.noaa.gov
-	export	NS4=nco-ls-cons4.ncep.noaa.gov
-	export	NS5=vm-lnx-cons5.ncep.noaa.gov
-	export	NS6=vm-lnx-cons6.ncep.noaa.gov
-	export	BS1=vm-bldr-cons1.ncep.noaa.gov
-	export	BS2=vm-bldr-cons2.ncep.noaa.gov
-	export	BS3=vm-bldr-cons3.ncep.noaa.gov
-	export	BS4=vm-bldr-cons4.ncep.noaa.gov
-	export	BS5=vm-bldr-cons5.ncep.noaa.gov
-	export	BS6=vm-bldr-cons6.ncep.noaa.gov
-	export	PM=vm-lnx-puppetmaster
-
-	alias adm="ssh -AX -l sysadm"
-	alias pat="sudo time puppet agent -t"
-	alias jc="sudo chown -R $JC"
-
-	GORILLA=/mnt/usa_software/pwsave/gorilla15363_64.bin
-	   SAFE=/mnt/usa_software/pwsave/sisb_pw.psafe3
-        alias gorilla="$GORILLA $SAFE"
+	$noaa
 	;;
 (ncbi.nlm.nih.gov)
+#	$nlm
 	echo Welcome to NCBI
 	export	NCBI=ncbi.$NLM M=be-md V=st-va
 	export	MD=$M.$NCBI VA=$V.$NCBI
@@ -112,23 +83,9 @@ case ${DOMAIN:-$SEARCH} in
 	alias	rpv='rake puppetmaster:update:st-va'
 	alias	rps='rake puppetmaster:restart:be-md'
 	alias	rpw='rake puppetmaster:restart:st-va'
-
-	alias	zero='dd if=/dev/zero count=1111'
-	alias	free-ip=free_ip
-	alias	c0='cons --cycle'; function c1 { cons --cycle $*; cons $*; }
-	alias yum-promote=/opt/local/sbin/yum-promote
-
-	function nh { egrep $* /etc/hosts.nis; }
-	function ne { egrep $* /etc/ethers.nis; }
-
-	export HN=/etc/hosts.nis
-	export BACKUP=/panfs/pan1/centos-backup
-
-	test -f	/home/$SUDO_USER/.ncbi_sh.d/$HOSTNAME &&
-	echo  .	/home/$SUDO_USER/.ncbi_sh.d/$HOSTNAME &&
-	source  /home/$SUDO_USER/.ncbi_sh.d/$HOSTNAME
-	;;
+	;
 (*nih.gov)
+#	$nih
 	echo Welcome to NIH
 	export	BASE=ou=NIH,OU=AD,DC=NIH,DC=gov
 
@@ -138,57 +95,7 @@ case ${DOMAIN:-$SEARCH} in
 	export	TFTP=/var/lib/tftpboot
 	export	MENU=$TFTP/pxelinux.cfg
 	export	IMGS=$TFTP/images
-
-	alias qaj='rpm -qa j\* | sort'
-
-	# CentOS 7 PIV Stuff
-
-	export	RD=/etc/reader.conf;	RO="$RD.d/openct.conf"
-	alias	C="cat $RD"		V="vi $RO"
-	alias	U=lsusb			L="lsof /dev/bus/usb/???/???"
-	alias	Z='C;P2;O2;L'
-
 	;;
-(*.$ARMY)
-	export	N=141.236
-	export	IS1=$N.49.131
-	export	IS2=$N.49.132
-	export	IS3=$N.49.133
-	export	IS4=$N.49.134
-	export	PUP=$N.146.11
-	export	PBS=$N.146.12
-	export	LTS=$N.146.16
-	export	APP=$N.146.22
-	export	IMB=$N.138.138
-	export	JUN=$N.138.140
-	export	FATMA=$N.118.140
-	export	CLIFF=$N.118.144
-	;;
-(*$DDN|ddn.com)	
-	echo Welcome to DDN
-	export MDN=md.ddn.com
-	export IME=ime.$MDN	DQ=dq.$MDN
-	export adDC="dc=datadirect,dc=datadirectnet,dc=com"
-	       adOU1="ou=Service Accounts"
-	       adOU2="ou=IT Administrative"
-	export adDN="cn=svc-ldap-sssd,$adOU1,$adOU2,$adDC"
-	export adBU="ou=ALL.Employees,$DC"
-	export adBC="ou=Contractors.Consultants,$DC"
-	export adBG="ou=Groups,$DC"
-	export adHOST=ad1
-	export adPW="ldap4SSSD."
-
-	adHOST="-H ldap://ad1.$IME"
-	adBIND="-D '$adDN'"
-	adPASS="-w $adPW"
-	adBASE="-b $adDC"
-	alias dds="ldapsearch -x $adHOST $adBIND $adPASS $adBASE"
-
-	export D=$MDN
-	export H0=home-192
-	export H2=head-192
-	export ED=ereo-debian
-	export EC=ereo-centos
 (*)
 	echo Welcome to NOWHERE;;
 esac
@@ -213,8 +120,6 @@ export	YUM=$FC/yum			# TEMPORARY
 
 NOBOOT() { sudo mv /boot/grub/grub.conf{,ig}; }
 VIBOOT() { vi /resq/boot/grub/grub.conf; }
-
-PTR() { xmodmap -e 'pointer = 1 3 2'; }
 
 YI() { for x in $(<$1); do rpm -q $x || sudo yum install $x; done; }
 YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | grep -v ^--;done; }

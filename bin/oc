@@ -1,0 +1,11 @@
+#! /bin/sh
+
+EMAIL=/etc/pki/DOD/DOD_EMAIL_CA-44.cert
+JIM=james.cottrell
+CAC=COTTRELL.JAMES.E.III.1271977090
+CERT="pkcs11:token=$CAC%00;id=%00%02;type=cert"
+URL=https://cpvpn.ncep.noaa.gov/cac/
+
+echo \
+openconnect -u $JIM --cafile=$EMAIL -c "$CERT" $URL
+openconnect -u $JIM --cafile=$EMAIL -c "$CERT" $URL
