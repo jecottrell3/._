@@ -140,7 +140,7 @@ alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
 alias	sir='lsb_release -sir'	su='su -p'	se=sudoedit
 alias	sl='ln -s'		slf='ln -sf'
 
-function sp() { time rsync -Cvaxz ~/.ssh $1:; }
+function sp() { time rsync -CvaxzS ~/.ssh $1:; }
 alias	ss='ssh -AX'		sj="ssh -AX -l $JC"
 
 alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
@@ -153,8 +153,8 @@ alias	cvf='tar  cvf'		zvf='tar czvf'
 alias	jvf='tar cjvf'		Jvf='tar cJvf'
 alias	tf='tail -F'		jim="su - $JC"
 
-alias	rax='time rsync  -vaxz'	 rs='time rsync -Cz'
-alias	vax='time rsync -Cvaxz'	pax='time rsync -CPaxz'
+alias	rax='time rsync  -vaxzS'  rs='time rsync -CzS'
+alias	vax='time rsync -CvaxzS' pax='time rsync -CPaxzS'
 
 alias	T2=tune2fs		D2='dumpe2fs -h'
 alias	E2='e2fsck -C'		M2='mkfs.ext2'

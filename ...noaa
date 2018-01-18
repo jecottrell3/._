@@ -15,6 +15,7 @@ export	NS4=nco-ls-cons4.ncep.noaa.gov
 export	NS5=vm-lnx-cons5.ncep.noaa.gov
 export	NS6=vm-lnx-cons6.ncep.noaa.gov
 
+export	BS0=vm-bldr-sns1.ncep.noaa.gov
 export	BS1=vm-bldr-cons1.ncep.noaa.gov
 export	BS2=vm-bldr-cons2.ncep.noaa.gov
 export	BS3=vm-bldr-cons3.ncep.noaa.gov
@@ -35,6 +36,9 @@ export	PM=vm-lnx-puppetmaster
 alias	adm="ssh -AX -l sysadm"
 alias	pat="sudo time puppet agent -t"
 alias jc="sudo chown -R $JC"
+
+alias	ncc='named-checkconf'
+alias	ncz='named-checkzone'
 
 GORILLA=/mnt/usa_software/pwsave/gorilla15363_64.bin
    SAFE=/mnt/usa_software/pwsave/sisb_pw.psafe3

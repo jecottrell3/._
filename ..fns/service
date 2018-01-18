@@ -107,6 +107,7 @@ alias	t2='ntpstat'
 alias	t3='service ntpd restart'
 alias	t4='ntpq -p'
 alias	t5='ntpdc'
+alias	t6='ntpdate ticktock1'
 #################################################################
 #	SLURM
 #################################################################
