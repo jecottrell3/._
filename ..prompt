@@ -47,7 +47,6 @@ case $BG in
 (*)		HI=$HC FG=$FC;;	# lite BG
 ([267])		HI=0 FG=$FC;;	# lite BG
 ([01345])	HI=1 FG=$FC;;
-esac
 
 case $ID.$BG in
 (0.*)		HI="$HC;7" FG=0;;
