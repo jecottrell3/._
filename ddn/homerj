@@ -22,7 +22,6 @@ vudu                   	A	1.2.3.2
 1.2.3.2                	TXT	00e04db5529b
 vudu                   	TXT	00e04db5529b
 blue                   	A	1.2.3.2
-dying                  	A	1.2.3.2
 vodo                   	A	1.2.3.2
 
 1.2.3.3                	PTR	nucu
@@ -55,13 +54,12 @@ bogo                   	A	1.2.3.6
 bogo                   	TXT	0013d4151761
 realtek-rtl8139        	A	1.2.3.6
 t1752                  	A	1.2.3.6
-dying                  	A	1.2.3.6
 
 1.2.3.7                	PTR	mojo
 mojo                   	A	1.2.3.7
-000475e61037           	CNAME	mojo
-1.2.3.7                	TXT	000475e61037
-mojo                   	TXT	000475e61037
+6805ca3a8ab6           	CNAME	mojo
+1.2.3.7                	TXT	6805ca3a8ab6
+mojo                   	TXT	6805ca3a8ab6
 acer                   	A	1.2.3.7
 
 1.2.3.8                	PTR	loco
@@ -78,12 +76,12 @@ fcaa14e714ee           	CNAME	yoko
 yoko                   	TXT	fcaa14e714ee
 realtek-rtl8139        	A	1.2.3.9
 
-1.2.3.83               	PTR	bear
-bear                   	A	1.2.3.83
+1.2.3.18               	PTR	bear
+bear                   	A	1.2.3.18
 94de807be42c           	CNAME	bear
-1.2.3.83               	TXT	94de807be42c
+1.2.3.18               	TXT	94de807be42c
 bear                   	TXT	94de807be42c
-althea                 	A	1.2.3.83
+althea                 	A	1.2.3.18
 
 1.2.3.19               	PTR	fono
 fono                   	A	1.2.3.19
@@ -92,11 +90,74 @@ fcaa14c8ad2d           	CNAME	fono
 fono                   	TXT	fcaa14c8ad2d
 james                  	A	1.2.3.19
 
+1.2.3.20               	PTR	ghct
+ghct                   	A	1.2.3.20
+fc1910851025           	CNAME	ghct
+1.2.3.20               	TXT	fc1910851025
+ghct                   	TXT	fc1910851025
+glenda-tablet          	A	1.2.3.20
+
+1.2.3.21               	PTR	ghcp
+ghcp                   	A	1.2.3.21
+98f17089becd           	CNAME	ghcp
+1.2.3.21               	TXT	98f17089becd
+ghcp                   	TXT	98f17089becd
+glenda-phone           	A	1.2.3.21
+
 1.2.3.23               	PTR	jc3p
 jc3p                   	A	1.2.3.23
 800184f241be           	CNAME	jc3p
 1.2.3.23               	TXT	800184f241be
 jc3p                   	TXT	800184f241be
-jim                    	A	1.2.3.23
+jim-phone              	A	1.2.3.23
 htc1                   	A	1.2.3.23
+
+1.2.3.24               	PTR	jc4p
+jc4p                   	A	1.2.3.24
+b8d7af772696           	CNAME	jc4p
+1.2.3.24               	TXT	b8d7af772696
+jc4p                   	TXT	b8d7af772696
+james-phone            	A	1.2.3.24
+
+1.2.3.30               	PTR	hopo
+hopo                   	A	1.2.3.30
+30e1711689e3           	CNAME	hopo
+1.2.3.30               	TXT	30e1711689e3
+hopo                   	TXT	30e1711689e3
+jim-laptop             	A	1.2.3.30
+
+1.2.3.31               	PTR	hopo
+hopo                   	A	1.2.3.31
+98541b004a60           	CNAME	hopo
+1.2.3.31               	TXT	98541b004a60
+hopo                   	TXT	98541b004a60
+jim-wireless           	A	1.2.3.31
+
+1.2.3.32               	PTR	dolo
+dolo                   	A	1.2.3.32
+0024e8cef0fb           	CNAME	dolo
+1.2.3.32               	TXT	0024e8cef0fb
+dolo                   	TXT	0024e8cef0fb
+dell-laptop            	A	1.2.3.32
+
+1.2.3.33               	PTR	dolo
+dolo                   	A	1.2.3.33
+0024d61ea39c           	CNAME	dolo
+1.2.3.33               	TXT	0024d61ea39c
+dolo                   	TXT	0024d61ea39c
+dell-wireless          	A	1.2.3.33
+
+1.2.3.38               	PTR	c55a
+c55a                   	A	1.2.3.38
+008cfa76491e           	CNAME	c55a
+1.2.3.38               	TXT	008cfa76491e
+c55a                   	TXT	008cfa76491e
+james-laptop           	A	1.2.3.38
+
+1.2.3.39               	PTR	c55a
+c55a                   	A	1.2.3.39
+a4db303c01a6           	CNAME	c55a
+1.2.3.39               	TXT	a4db303c01a6
+c55a                   	TXT	a4db303c01a6
+james-wireless         	A	1.2.3.39
 ;;;; END ;;;;
