@@ -8,7 +8,7 @@ top=/home
 rbj=jcottrell
 sub=
 uid=654
-gid=654
+grp=
 
 #################################################################
 #		PROCESS OPTIONS
@@ -23,6 +23,13 @@ do
 	(-g)	gid=$2; shift 2;;
 	(-n)	rbj=$2; shift 2;;
 	(-s)	sub=/$2;shift 2;;
+	(noaa)  uid=7610
+		gid=1009
+		grp=sysadm
+		shift 1;;
+	(nih)   rbj=cottrell
+		uid=200115213
+		shift 1;;
 	(*)	cat <<EOF
 usage:	$0 [-n name] [-u uid] [-g gid] [-s subdir]
 	defaults: -n rbj -u 654 -g 654 -s ''
@@ -35,18 +42,21 @@ done
 #		(maybe) ADD GROUP and USER
 #################################################################
 
-if	grep -q $rbj: /etc/group
-then	echo :  $rbj group exists
-else	echo groupadd -g $gid $rbj
+gid=${gid:-$uid}	# GID defaults to UID
+grp=${grp:-$rbj}	# GRP defaults to RBJ
+dir=$top/$rbj$sub	# Compute HOME
+
+if	grep -q ^$grp: /etc/group
+then	echo :   $grp group exists
+else	echo groupadd -g $gid $grp
 fi
 
 grep -q wheel /etc/group && SUDO='-G wheel' # Red Hat
 grep -q sudo  /etc/group && SUDO='-G sudo'  # Ubuntu
 
-if	grep -q $rbj: /etc/passwd
-then	echo :  $rbj user exists
+if	grep -q ^$rbj: /etc/passwd
+then	echo :   $rbj user exists
 else
-	dir=$top/$rbj$sub
 	echo mkdir -p		$dir
 	echo chown $uid:$gid	$dir
 	echo chmod 2755		$dir
@@ -54,7 +64,7 @@ else
 	echo useradd -u $uid -g $gid $SUDO \
 		-o -d $dir -s /bin/bash \
 		-p "'\$1\$W4V.6jvA\$lVqS2WtLVws8CXUr7Mhwc0'" \
-		-c "'Jim Cottrell'" rbj
+		-c "'Jim Cottrell'" $rbj
 fi
 
 #################################################################
