@@ -1,28 +1,60 @@
-#! /bin/sh -x
+#! /bin/sh
 
-sub=${1:+/$1}
-rbj=${2:-jcottrell}
-top=${3:-/boot}
-top=${3:-/home}
-uid=${4:-654}
-gid=${5:-654}
+#################################################################
+#		DEFAULTS
+#################################################################
 
-dir=/home/$rbj$sub
-dir=$top/$rbj$sub
+top=/home
+rbj=jcottrell
+sub=
+uid=654
+gid=654
 
-grep $rbj: /etc/group ||
-groupadd -g $gid $rbj
+#################################################################
+#		PROCESS OPTIONS
+#################################################################
 
-grep wheel /etc/group && SUDO='-G wheel' # Red Hat
-grep sudo  /etc/group && SUDO='-G sudo'  # Ubuntu
+while : $# $*
+do
+	case $1 in
+	('')	break;;
+	(-h)	top=$2; shift 2;;
+	(-u)	uid=$2; shift 2;;
+	(-g)	gid=$2; shift 2;;
+	(-n)	rbj=$2; shift 2;;
+	(-s)	sub=/$2;shift 2;;
+	(*)	cat <<EOF
+usage:	$0 [-n name] [-u uid] [-g gid] [-s subdir]
+	defaults: -n rbj -u 654 -g 654 -s ''
+EOF
+		exit 1;;
+	esac
+done
 
-grep $rbj: /etc/passwd ||
-{
-	mkdir -p	$dir
-	chown $uid:$gid	$dir
-	chmod 2755	$dir
+#################################################################
+#		(maybe) ADD GROUP and USER
+#################################################################
 
-	useradd -u $uid -g $gid $SUDO -c 'Jim Cottrell' \
+if	grep -q $rbj: /etc/group
+then	echo :  $rbj group exists
+else	echo groupadd -g $gid $rbj
+fi
+
+grep -q wheel /etc/group && SUDO='-G wheel' # Red Hat
+grep -q sudo  /etc/group && SUDO='-G sudo'  # Ubuntu
+
+if	grep -q $rbj: /etc/passwd
+then	echo :  $rbj user exists
+else
+	dir=$top/$rbj$sub
+	echo mkdir -p		$dir
+	echo chown $uid:$gid	$dir
+	echo chmod 2755		$dir
+
+	echo useradd -u $uid -g $gid $SUDO \
 		-o -d $dir -s /bin/bash \
-		-p '$1$W4V.6jvA$lVqS2WtLVws8CXUr7Mhwc0' $rbj
-}
+		-p "'\$1\$W4V.6jvA\$lVqS2WtLVws8CXUr7Mhwc0'" \
+		-c "'Jim Cottrell'" rbj
+fi
+
+#################################################################
