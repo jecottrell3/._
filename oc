@@ -1,0 +1,7 @@
+#! /bin/sh
+
+set -x
+sudo openconnect \
+	-v --no-cert-check -u james.cottrell \
+	-c 'pkcs11:model=;manufacturer=;serial=;token=COTTRELL.JAMES.E.III.1271977090;id=%00%02;object=PIV%20Email%20Signature%20Certificate;ID=%02' \
+	cpvpn.ncep.noaa.gov/cac/
