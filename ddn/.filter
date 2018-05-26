@@ -20,8 +20,8 @@ P comps/
 - updates/?/
 - updates/1[0-8]/
 # ARCH
-+ i386/
-- x86_64
+- i386/
++ x86_64
 - armhfp/
 - ppc64*/
 - debug/
