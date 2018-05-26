@@ -60,7 +60,7 @@ alias	256='sha256sum -c'	512='sha512sum  -c'
 alias	123='xmodmap -e "pointer = 1 2 3"'
 alias	132='xmodmap -e "pointer = 1 3 2"'
 
-alias	ah=ansible		ap=ansible-playbook
+alias	an=ansible		ap=ansible-playbook
 alias	ad=ansible-doc		ac=ansible-config
 alias	ak=ansible-console	ax=ansible-galaxy
 alias	au=ansible-pull		av=ansible-vault
