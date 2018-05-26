@@ -1,0 +1,32 @@
+#! /bin/sh
+
+# given: /root/._ from a prior git clone
+# makes: jcottrell/rbj accounts, does setup
+
+grep -q 'CentOS release 6' /etc/system-release && sub=c6
+grep -q 'CentOS release 7' /etc/system-release && sub=c7
+grep -q 'Fedora release 99' /etc/system-release && sub=f99
+
+JC=jcottrell
+JH=/home/$JC/
+JS=/home/$JC/$sub
+
+set -x
+alias source=:
+test -d $JH && exit 14
+
+cd /root
+. ._/setup
+
+tmp/.mkjc -s $sub | sh
+tmp/.mkrbj        | sh
+
+mv ._ $JH
+ln -s $JH/._
+
+cd $JS
+ln -s ../._
+. ._/setup
+
+cd /root
+chown -R $JC:$JC $JH
