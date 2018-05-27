@@ -3,9 +3,9 @@
 # given: /root/._ from a prior git clone
 # makes: jcottrell/rbj accounts, does setup
 
-grep -q 'CentOS release 6' /etc/system-release && sub=c6
-grep -q 'CentOS release 7' /etc/system-release && sub=c7
-grep -q 'Fedora release 99' /etc/system-release && sub=f99
+grep -q CentOS.release.6	/etc/system-release && sub=c6
+grep -q CentOS.Linux.release.7	/etc/system-release && sub=c7
+grep -q Fedora.release.99	/etc/system-release && sub=f99
 
 JC=jcottrell
 JH=/home/$JC/
