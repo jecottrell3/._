@@ -2,27 +2,29 @@
 ::1       localhost6.localdomain6 localhost6 lh6
 
 1.2.3.1  wofo wofo.homerj 008092aae563 wifi hl-2270dw
-1.2.3.2  vudu vudu.homerj 00e04db5529b blue vodo
+1.2.3.2  roto roto.homerj 0495e6504320 tenda-ac18 dgw
 1.2.3.3  nucu nucu.homerj b8aeedebea7a nuc5ppyh
-1.2.3.4  roto roto.homerj 20aa4bdf1fbb linksys-e2500
+#.2.3.4  roto roto.homerj 20aa4bdf1fbb linksys-e2500 DEAD
+1.2.3.4  vudu vudu.homerj 00e04db5529b blue vodo
 1.2.3.5  polo polo.homerj 30055c020aad wire hl-2270dw lp
 #.2.3.6  bogo bogo.homerj 00223fdc0ccf netgear-wpn311 dying
 1.2.3.6  bogo bogo.homerj 0013d4151761 realtek-rtl8139 t1752
-1.2.3.7  mojo mojo.homerj 6805ca3a8ab6 acer
+#.2.3.17 mojo mojo.homerj 6805ca3a8ab6 acer enp3s0
+1.2.3.7  mojo mojo.homerj c89cdc6bbd4c acer enp6s0
 1.2.3.8  loco loco.homerj 6cf0497ab9e0 t4510
 1.2.3.9  yoko yoko.homerj fcaa14e714ee realtek-rtl8139
-
-1.2.3.18 bear bear.homerj 94de807be42c althea
+                          
+1.2.3.14 bear bear.homerj 94de807be42c althea
 1.2.3.19 fono fono.homerj fcaa14c8ad2d james
 1.2.3.20 ghct ghct.homerj fc1910851025 glenda-tablet
 1.2.3.21 ghcp ghcp.homerj 98f17089becd glenda-phone
 #.2.3.22 ahcp ahcp.homerj fcaa14c8ad2d althea-phone
 1.2.3.23 jc3p jc3p.homerj 800184f241be jim-phone htc1
 1.2.3.24 jc4p jc4p.homerj b8d7af772696 james-phone
-
+                          
 1.2.3.30 hopo hopo.homerj 30e1711689e3 jim-laptop
-1.2.3.31 hopo hopo.homerj 98541b004a60 jim-wireless
+1.2.3.31 HOPO HOPO.homerj 98541b004a60 jim-wireless
 1.2.3.32 dolo dolo.homerj 0024e8cef0fb dell-laptop
-1.2.3.33 dolo dolo.homerj 0024d61ea39c dell-wireless
+1.2.3.33 DOLO DOLO.homerj 0024d61ea39c dell-wireless
 1.2.3.38 c55a c55a.homerj 008cfa76491e james-laptop
-1.2.3.39 c55a c55a.homerj a4db303c01a6 james-wireless
+1.2.3.39 C55A C55A.homerj a4db303c01a6 james-wireless

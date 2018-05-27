@@ -21,8 +21,8 @@ then	SEARCH=homerj
 fi
 
 noaa="source $RBJ/...noaa"
-nih="source $RBJ/...nih"
-nlm="source $RBJ/...nlm"
+ nih="source $RBJ/...nih"
+ nlm="source $RBJ/...nlm"
 
 case ${DOMAIN:-$SEARCH} in
 (homerj)
