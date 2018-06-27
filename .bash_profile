@@ -37,9 +37,10 @@ chmod a+rX $HOME
 {
 	test  -d	$HOME/.ssh &&
 	(cd		$HOME/.ssh
+	touch		.agent known_hosts
 	chmod 755	.
 	chmod 600	*
-	chmod 644	*.pub known_hosts authorized_keys)
+	chmod 644	*.pub .agent known_hosts authorized_keys)
 }
 
 #################################################################
@@ -49,23 +50,25 @@ chmod a+rX $HOME
 #set | sort -o .set-$(date +%T)
 #env | sort -o .env-$(date +%T)
 
+((NEED=0))
 export	 AGENT=$HOME/.ssh/.agent
-test -f $AGENT && source  $AGENT	# remember the past
+while :
+do
+	ssh-add -l >/dev/null 2>&1		# agent running?
 
-# echo  $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK
-
-ssh-add -l >/dev/null 2>&1		# agent running?
-
-case	$? in
-(0)	: agent list my identity;;
-(1)	: agent says NO identity;;
-(2)	: failed to reach agent
-	ssh-agent | grep = >	$AGENT
-	source			$AGENT
-#	echo  $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK
-	;;
-(*)	exit  $?;;
-esac
+	case	$?@$NEED in
+	(0@*)	: agent list my identity; break;;
+	(1@*)	: agent says NO identity; break;;
+	(2@0)	: try source;;
+	(2@1)	: try agent
+		ssh-agent | grep = >	$AGENT;;
+	(*)	: error
+		echo  $?@$NEED $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK;
+		exit  $?;;
+	esac
+	test -f $AGENT && source  $AGENT	# remember the past
+	((NEED++))
+done
 
 #################################################################
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
