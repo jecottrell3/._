@@ -1,7 +1,9 @@
 #! /bin/sh
 
-cd /vfat/MAIL/ia3wtknr.default/Mail/mail.comcast.net/Inbox.sbd
+DIR=/vfat/MAIL/ia3wtknr.default/Mail/mail.comcast.net/Inbox.sbd/0-Sorted.sbd
+FILE=ZZZZ
 
-egrep ^Subject: 0-States |
+cd $DIR
+egrep ^Subject: $FILE |
 sed -e 's/[a-z]*, ../{&}/i' |
 sort -t{ -bk2 | egrep --color=always '\{[^{}]*}' | less
