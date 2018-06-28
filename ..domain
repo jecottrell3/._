@@ -83,7 +83,7 @@ case ${DOMAIN:-$SEARCH} in
 	alias	rpv='rake puppetmaster:update:st-va'
 	alias	rps='rake puppetmaster:restart:be-md'
 	alias	rpw='rake puppetmaster:restart:st-va'
-	;
+	;;
 (*nih.gov)
 #	$nih
 	echo Welcome to NIH
