@@ -1,5 +1,4 @@
 #! /must/source/this/file
-# $Id: setup 290 2014-09-17 19:19:41Z JECottrell3@gmail.com $
 ################################################################
 #	Initialize Environment
 ################################################################
@@ -31,6 +30,7 @@ do
 	(.profile)	continue;;
 	(.debug)	continue;;
 	(setup)		continue;;
+	(jimmy)		continue;;
 	(src)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
@@ -58,10 +58,11 @@ do
 	test -e	$x && mv $x $SAVE; ln -s  $INIT/$x .
 done
 
-pwd
-echo setup: HOME=$HOME
-ls -l    .bash_profile
-ls -lL   .bash_profile
+# pwd
+# echo setup: HOME=$HOME
+# ls -l    .bash_profile
+# ls -lL   .bash_profile
+
 source ./.bash_profile
 
 ################################################################

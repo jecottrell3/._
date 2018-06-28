@@ -1,31 +1,33 @@
-#! /bin/sh -x
+#! /bin/sh
 
 OLD=${2:-jcottrell}
 NEW=${1:-rbj}
 
 cd /etc
 
-grep $OLD group ||
-{
-	echo need to add $OLD first
+if	grep -q $OLD /etc/group
+then	echo :  $OLD group OK
+else	echo :  $OLD needs to be added first
 	exit 1
-}
+fi
 
-grep $NEW group &&
-{
-	echo $NEW already added
-	exit 1
-}
+if	grep -q $NEW /etc/group
+then	echo :  $NEW already added
+	exit 0
+fi
 
 for FILE in group passwd shadow
 do
-	grep $NEW $FILE ||
-	{
-		cp -p $FILE $FILE.old
-# jc, rbj	sed "/^$OLD/{p;s//$NEW/;}"   $FILE.old > $FILE
-# rbj, jc	sed "/^$OLD/{h;s//$NEW/;G;}" $FILE.old > $FILE
-		sed "/^$OLD/{h;s//$NEW/;G;}" $FILE.old > $FILE
-	}
+	FILE=/etc/$FILE
+	if	grep -q $NEW $FILE
+	then	echo :  $NEW already in $FILE
+	else
+####		echo cp -p $FILE $FILE.old
+# jc, rbj	echo "sed -ie '/^$OLD/{p;s//$NEW/;}'   $FILE # .old > $FILE.new"
+# rbj, jc	echo "sed -ie '/^$OLD/{h;s//$NEW/;G;}' $FILE # .old > $FILE.new"
+		echo "sed -ie '/^$OLD/{h;s//$NEW/;G;}' $FILE # .old > $FILE.new"
+####		echo mv -f $FILE.new $FILE
+	fi
 done
 
-exec sed -ie "s/$OLD$/$OLD,$NEW/" group
+echo "sed -ie 's/^..*$OLD/&,$NEW/' /etc/group"

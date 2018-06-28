@@ -22,7 +22,7 @@ done
 export	JC JIM
 export	RBJ=$JIM/._	SRC=$JIM/src	DEBUG=$RBJ/..debug
 test -f $DEBUG && echo .bash_profile HOME=$HOME
-export BG=$RANDOM
+export	BG=$RANDOM
 
 export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
@@ -49,8 +49,22 @@ chmod a+rX $HOME
 #set | sort -o .set-$(date +%T)
 #env | sort -o .env-$(date +%T)
 
-case "$SSH_AUTH_SOCK" in
-('')	eval $(ssh-agent);;
+export	 AGENT=$HOME/.ssh/.agent
+test -f $AGENT && source  $AGENT	# remember the past
+
+# echo  $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK
+
+ssh-add -l >/dev/null 2>&1		# agent running?
+
+case	$? in
+(0)	: agent list my identity;;
+(1)	: agent says NO identity;;
+(2)	: failed to reach agent
+	ssh-agent | grep = >	$AGENT
+	source			$AGENT
+#	echo  $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK
+	;;
+(*)	exit  $?;;
 esac
 
 #################################################################
@@ -88,24 +102,19 @@ export	TMOUT=0 REV=$R
 export	TTY=$(tty | tr -dc 0123456789)
 export	VIMINIT="source $RBJ/.vimrc"
 
-#@export	PNY=/pny/CVR
-#@export	SVN=/svn
-
 export	CVS_RSH=/usr/bin/ssh
 
-#@export	CMMI=https://192.168.21.31/repos/cmmi
+export     M1=--max-size=1M K11111=--max-size=11111K G1=--max-size=1G
+export    M11=--max-size=11M K1111=--max-size=1111K G11=--max-size=11G
+export   M111=--max-size=111M K111=--max-size=111K G111=--max-size=111G
+export  M1111=--max-size=1111M K11=--max-size=11K G1111=--max-size=1111G
+export M11111=--max-size=11111M K1=--max-size=1K G11111=--max-size=11111G
 
-export     M1=--max-size=1M K10000=--max-size=10000K G1=--max-size=1G
-export    M10=--max-size=10M K1000=--max-size=1000K G10=--max-size=10G
-export   M100=--max-size=100M K100=--max-size=100K G100=--max-size=100G
-export  M1000=--max-size=1000M K10=--max-size=10K G1000=--max-size=1000G
-export M10000=--max-size=10000M K1=--max-size=1K G10000=--max-size=10000G
-
-export     M3=--max-size=3M K30000=--max-size=30000K G3=--max-size=3G
-export    M30=--max-size=30M K3000=--max-size=3000K G30=--max-size=30G
-export   M300=--max-size=300M K300=--max-size=300K G300=--max-size=300G
-export  M3000=--max-size=3000M K30=--max-size=30K G3000=--max-size=3000G
-export M30000=--max-size=30000M K3=--max-size=3K G30000=--max-size=30000G
+export     M3=--max-size=3M K33333=--max-size=33333K G3=--max-size=3G
+export    M33=--max-size=33M K3333=--max-size=3333K G33=--max-size=33G
+export   M333=--max-size=333M K333=--max-size=333K G333=--max-size=333G
+export  M3333=--max-size=3333M K33=--max-size=33K G3333=--max-size=3333G
+export M33333=--max-size=33333M K3=--max-size=3K G33333=--max-size=33333G
 
 #################################################################
 #	Do Rest of Init

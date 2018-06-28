@@ -5,9 +5,9 @@ export	TZ=EST5EDT
 #################################################################
 
   HOST=$(hostname -s)
-# FQDN=$(hostname -f)
-#OMAIN=$(hostname -d)
-#   IP=$(hostname -i)
+  FQDN=$(hostname -f)
+DOMAIN=$(hostname -d)
+    IP=$(hostname -i)
 
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
@@ -21,9 +21,8 @@ then	SEARCH=homerj
 fi
 
 noaa="source $RBJ/...noaa"
-army="source $RBJ/...army"
-nih="source $RBJ/...nih"
-nlm="source $RBJ/...nlm"
+ nih="source $RBJ/...nih"
+ nlm="source $RBJ/...nlm"
 
 case ${DOMAIN:-$SEARCH} in
 (homerj)

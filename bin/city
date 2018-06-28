@@ -1,0 +1,7 @@
+#! /bin/sh
+
+cd /vfat/MAIL/ia3wtknr.default/Mail/mail.comcast.net/Inbox.sbd
+
+egrep ^Subject: 0-States |
+sed -e 's/[a-z]*, ../{&}/i' |
+sort -t{ -bk2 | egrep --color=always '\{[^{}]*}' | less

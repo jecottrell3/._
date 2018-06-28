@@ -1,4 +1,4 @@
-test -f ${DEBUG:-/no/where} && echo .bashrc
+test -f ${DEBUG:-/no/where} && echo .bashrc $-
 #################################################################
 #	MAKE STUPID lxde term RUN AS LOGIN SHELL
 #################################################################
@@ -37,6 +37,13 @@ do
 	test -f $RBJ/$x &&
 	source  $RBJ/$x
 done
-ssh-add -l > /dev/null || ssh-add
+
+#################################################################
+#	ADD SSH KEY IF SSH-AGENT RUNNING
+#################################################################
+
+case $SSH_AUTH_SOCK in
+(?*)  ssh-add -l > /dev/null || ssh-add;;
+esac
 
 #################################################################

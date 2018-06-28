@@ -60,6 +60,11 @@ alias	256='sha256sum -c'	512='sha512sum  -c'
 alias	123='xmodmap -e "pointer = 1 2 3"'
 alias	132='xmodmap -e "pointer = 1 3 2"'
 
+alias	an=ansible		ap=ansible-playbook
+alias	ad=ansible-doc		ac=ansible-config
+alias	ak=ansible-console	ax=ansible-galaxy
+alias	au=ansible-pull		av=ansible-vault
+
 alias	cg='chgrp'		cn='chown'
 alias	cm='chmod'		cx='chmod a+x'
 
@@ -134,13 +139,14 @@ alias	pd=pushd		po=popd
 alias	root='sudo chown   root:root'
 #lias	 rbj='sudo chown -R rbj:rbj'
 alias	  jc='sudo chown -R $JC:$JC'
+alias	  cj='sudo chown -R $JC'
 
 alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
 alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
 alias	sir='lsb_release -sir'	su='su -p'	se=sudoedit
 alias	sl='ln -s'		slf='ln -sf'
 
-function sp() { time rsync -Cvaxz ~/.ssh $1:; }
+function sp() { time rsync -CvaxzS ~/.ssh $1:; }
 alias	ss='ssh -AX'		sj="ssh -AX -l $JC"
 
 alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
@@ -153,8 +159,8 @@ alias	cvf='tar  cvf'		zvf='tar czvf'
 alias	jvf='tar cjvf'		Jvf='tar cJvf'
 alias	tf='tail -F'		jim="su - $JC"
 
-alias	rax='time rsync  -vaxz'	 rs='time rsync -Cz'
-alias	vax='time rsync -Cvaxz'	pax='time rsync -CPaxz'
+alias	rax='time rsync  -vaxzS'  rs='time rsync -CzS'
+alias	vax='time rsync -CvaxzS' pax='time rsync -CPaxzS'
 
 alias	T2=tune2fs		D2='dumpe2fs -h'
 alias	E2='e2fsck -C'		M2='mkfs.ext2'
