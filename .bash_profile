@@ -1,6 +1,7 @@
 cd $HOME
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
-#? test -d /run && { test -d /run/install || ln -s / /run/install; } # RHEL7?
+#set | sort -o .set-$(date +%T)
+#env | sort -o .env-$(date +%T)
 set -o	ignoreeof
 umask	2
 #################################################################
@@ -47,16 +48,15 @@ chmod a+rX $HOME
 #	Start SSH-AGENT if Needed
 #################################################################
 
-#set | sort -o .set-$(date +%T)
-#env | sort -o .env-$(date +%T)
-
+((BUG=0))
 ((NEED=0))
-export	 AGENT=$HOME/.ssh/.agent
+export	 AGENT=$HOME/.ssh/agent@$(hostname)
 while :
 do
 	ssh-add -l >/dev/null 2>&1		# agent running?
-
-	case	$?@$NEED in
+	STATUS=$?
+	((BUG)) && echo $STATUS@$NEED
+	case	$STATUS@$NEED in
 	(0@*)	: agent list my identity; break;;
 	(1@*)	: agent says NO identity; break;;
 	(2@0)	: try source;;
@@ -69,6 +69,7 @@ do
 	test -f $AGENT && source  $AGENT	# remember the past
 	((NEED++))
 done
+test -n "$SSH_AGENT_PID" && env | grep SSH_ | sed 's/^/export /' > $AGENT
 
 #################################################################
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
