@@ -6,7 +6,7 @@ export	TZ=EST5EDT
 
 	  HOST=$(hostname -s)
 	  FQDN=$(hostname -f)
-if test -d /Applications
+if	((MAC))
 then	DOMAIN=juniper.net IP=too-hard-for-now
 else
 	DOMAIN=$(hostname -d)
