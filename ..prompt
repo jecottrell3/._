@@ -7,10 +7,10 @@ DC=/etc/DIR_COLORS
 LC=$DC.lightbgcolor
 ZC=$DC.256color
 
-			LT='eval $(dircolors /etc/DIR_COLORS)'
-test -f $DC && alias	DK='eval $(dircolors /etc/DIR_COLORS)'
-test -f $LC && alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
-test -f $ZC && alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
+		alias	LT='eval $(dircolors)'
+test -f $DC &&	alias	DK='eval $(dircolors /etc/DIR_COLORS)'
+test -f $LC &&	alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
+test -f $ZC &&	alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
 
 alias	fgh='echo $FG $BG $HI'
 

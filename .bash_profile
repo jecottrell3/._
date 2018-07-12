@@ -35,18 +35,13 @@ else	((MAC=0))
 fi
 
 #################################################################
-#	Fix .ssh
+#	Fix .ssh (needed???)
 #################################################################
 
-chmod a+rX $HOME
-####	test  -w /		||	# anyone but root ??? WHY ???
+chmod a+rx,g+s $HOME
 {
-	test  -d	$HOME/.ssh &&
-	(cd		$HOME/.ssh
-	touch		.agent known_hosts
-	chmod 755	.
-	chmod 600	*
-	chmod 644	*.pub .agent known_hosts authorized_keys)
+	FIXKEY=$HOME/.ssh/.fixkey
+	test  -x	$FIXKEY && $FIXKEY
 }
 
 #################################################################
