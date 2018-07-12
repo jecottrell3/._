@@ -4,17 +4,19 @@ from __future__ import print_function
 
 import os, sys, re
 
-TAB	= '\t'
-HOSTS	= '/etc/hosts'
-MDN 	= 'md.ddn.com'
-IME 	= 'ime.' + MDN
+####	   REAL			DEMO VERSION
 
-TOP	= '/var/named/'
+TAB	= '\t'
+HOSTS	= '/etc/hosts';		HOSTS	= './hosts'
+MDN 	= 'md.ddn.com';		MDN	= 'homerj'
+IME 	= 'ime.' + MDN;		IME	= 'homerj'
+
+TOP	= '/var/named/';	TOP	= './'
 #TOP	= '/etc/named'
 #TOP	= '/etc/dhcp'
-SOA	= TOP + 'soa/'
-PRI	= TOP + 'pri/'
-TMP	= TOP + 'tmp/'
+SOA	= TOP + 'soa/';		SOA	= TOP
+PRI	= TOP + 'pri/';		PRI	= TOP
+TMP	= TOP + 'tmp/';		TMP	= TOP
 
 soa	= {}
 pri	= {}
@@ -105,4 +107,4 @@ sys.stdout.close()
 
 # change this for 2016
 #@	os.system('sed -i s/^15......../$(date +%y%m%d%H%M)/ ' + SOA + MDN)
-os.system('sed -i "s/^1[56]......../$(date +%y%m%d%H%M)/" ' + SOA + IME)
+####os.system('sed -i "s/^1[56]......../$(date +%y%m%d%H%M)/" ' + SOA + IME)

@@ -29,6 +29,11 @@ export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
+if	test -d /Applications 
+then	((MAC=1))
+else	((MAC=0))
+fi
+
 #################################################################
 #	Fix .ssh
 #################################################################
@@ -69,7 +74,9 @@ do
 	test -f $AGENT && source  $AGENT	# remember the past
 	((NEED++))
 done
-test -n "$SSH_AGENT_PID" && env | grep SSH_ | sed 's/^/export /' > $AGENT
+
+{ test -n "$SSH_AGENT_PID" || ((MAC)); } &&
+env | grep SSH_ | sed 's/^/export /' > $AGENT
 
 #################################################################
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin

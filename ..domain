@@ -4,10 +4,14 @@ export	TZ=EST5EDT
 #	Do Domain Specific Customization
 #################################################################
 
-  HOST=$(hostname -s)
-  FQDN=$(hostname -f)
-DOMAIN=$(hostname -d)
-    IP=$(hostname -i)
+	  HOST=$(hostname -s)
+	  FQDN=$(hostname -f)
+if test -d /Applications
+then	DOMAIN=juniper.net IP=too-hard-for-now
+else
+	DOMAIN=$(hostname -d)
+	    IP=$(hostname -i)
+fi
 
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
@@ -25,6 +29,11 @@ noaa="source $RBJ/...noaa"
  nlm="source $RBJ/...nlm"
 
 case ${DOMAIN:-$SEARCH} in
+(juniper.net|jnpr.net)
+	BASTION=opsun-bastion			# 10.199.235.54
+	GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
+	GITTOP=https://$GITLAB/infosec/operations-sunrise
+	;;
 (homerj)
 	echo Welcome to HOMERJ
 	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
