@@ -35,6 +35,7 @@ case ${DOMAIN:-$SEARCH} in
 	GITTOP=https://$GITLAB/infosec/operations-sunrise
 	;;
 (homerj)
+	export PRINTER=lp LPDEST=lp
 	echo Welcome to HOMERJ
 	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
 	alias ncbi='ssh -AX cottrell@ssh.ncbi.nlm.nih.gov'
