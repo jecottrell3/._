@@ -1,5 +1,6 @@
 test -f $DEBUG && echo ..domain
 export	TZ=EST5EDT
+test -d /Applications && MAC=1 || MAC=0
 #################################################################
 #	Do Domain Specific Customization
 #################################################################
@@ -29,7 +30,7 @@ noaa="source $RBJ/..noaa"
  nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
-(juniper.net|jnpr.net)
+(juniper.net|jnpr.net|jnpr-opsun.net)
 	BASTION=opsun-bastion			# 10.199.235.54
 	BH=$BASTION
 	GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
