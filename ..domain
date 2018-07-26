@@ -24,15 +24,18 @@ if	egrep -q homerj     /etc/resolv.conf
 then	SEARCH=homerj
 fi
 
-noaa="source $RBJ/...noaa"
- nih="source $RBJ/...nih"
- nlm="source $RBJ/...nlm"
+noaa="source $RBJ/..noaa"
+ nih="source $RBJ/..nih"
+ nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
 (juniper.net|jnpr.net)
 	BASTION=opsun-bastion			# 10.199.235.54
+	BH=$BASTION
 	GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
 	GITTOP=https://$GITLAB/infosec/operations-sunrise
+	VM0=10.199.235.238
+	OSA=opsun-ansible-01
 	;;
 (homerj)
 	export PRINTER=lp LPDEST=lp

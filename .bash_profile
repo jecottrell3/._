@@ -21,7 +21,7 @@ done
 done
 
 export	JC JIM
-export	RBJ=$JIM/._	SRC=$JIM/src	DEBUG=$RBJ/..debug
+export	RBJ=$JIM/._;	SRC=$JIM/src;	DEBUG=$RBJ/..debug;
 test -f $DEBUG && echo .bash_profile HOME=$HOME
 export	BG=$RANDOM
 
