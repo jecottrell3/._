@@ -32,16 +32,18 @@ noaa="source $RBJ/..noaa"
 
 case ${DOMAIN:-$SEARCH} in
 (juniper.net|jnpr.net|jnpr-opsun.net)
+	echo Welcome to JUNIPER
 	BASTION=opsun-bastion			# 10.199.235.54
 	BH=$BASTION
 	GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
 	GITTOP=https://$GITLAB/infosec/operations-sunrise
 	VM0=10.199.235.238
+	VM1=10.199.248.212
 	OSA=opsun-ansible-01
 	;;
 (homerj)
-	export PRINTER=lp LPDEST=lp
 	echo Welcome to HOMERJ
+	export PRINTER=lp LPDEST=lp
 	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
 	alias ncbi='ssh -AX cottrell@ssh.ncbi.nlm.nih.gov'
 #       For Cloning CDs

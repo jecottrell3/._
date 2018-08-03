@@ -9,7 +9,7 @@ umask	2
 #################################################################
 
    for JC in $USER cottrell rbj jcottrell jcottrel nobody
-do for dir in /home /Users
+do for dir in /home /homes /Users
 do
 	case $JC in
 	(root)   continue;;			# ROOT becomes NOBODY
