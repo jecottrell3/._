@@ -13,15 +13,18 @@ do for dir in /home /homes /Users
 do
 	case $JC in
 	(root)   continue;;			# ROOT becomes NOBODY
-	(nobody) JIM=$HOME;;			# for OTHER people
-	(*)	 JIM=$dir/$JC;;			# JC candidate
+	(nobody) JOME=$HOME;;			# for OTHER people
+	(*)	 JOME=$dir/$JC;;		# JC candidate
 	esac
-	test -d $JIM/._ && break 2		# FOUND
+	test -d $JOME/._ && break 2		# FOUND
 done
 done
 
-export	JC JIM
-export	RBJ=$JIM/._;	SRC=$JIM/src;	DEBUG=$RBJ/..debug;
+export	JC JOME
+export	RBJ=$JOME/._
+export	SRC=$JOME/src;
+export	DEBUG=$RBJ/..debug;
+
 test -f $DEBUG && echo .bash_profile HOME=$HOME
 export	BG=$RANDOM
 
