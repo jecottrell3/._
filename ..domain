@@ -37,9 +37,19 @@ case ${DOMAIN:-$SEARCH} in
 	BH=$BASTION
 	GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
 	GITTOP=https://$GITLAB/infosec/operations-sunrise
-	VM0=10.199.235.238
-	VM1=10.199.248.212
 	OSA=opsun-ansible-01
+	VM0=10.199.235.238		# random vm
+	JA=jnpradmin UJB=chujbpt3
+	VM1=10.199.248.212		# sw tools test
+	VM2=10.199.248.196		# ntp test
+	VM3=10.199.250.137		# U16
+	VM4=10.199.248.35		# U14
+	u12=10.199.235.62		# U12
+
+	JHOST=ldap://dcjnprjpsvl1.jnpr.net
+	JBIND=jcottrell@JNPR.NET
+	JBASE=dc=jnpr,dc=net
+	alias jds="ldapsearch -LLL -H $JHOST -N -D $JBIND -W -b $JBASE"
 	;;
 (homerj)
 	echo Welcome to HOMERJ
