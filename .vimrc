@@ -12,4 +12,6 @@
 :highlight Search ctermfg=4 ctermbg=6 cterm=bold
 :highlight Search ctermfg=6 ctermbg=4 cterm=bold
 
-:map \ :n<CR>
+:map \		:n<CR>
+:map <C-_>	:se nu!<CR>
+
