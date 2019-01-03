@@ -20,3 +20,4 @@ done
 printf '\e[K\n'
 done
 done
+printf '\e[m'
