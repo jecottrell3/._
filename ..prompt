@@ -7,23 +7,16 @@ DC=/etc/DIR_COLORS
 LC=$DC.lightbgcolor
 ZC=$DC.256color
 
-		alias	LT='eval $(dircolors)'
-test -f $DC &&	alias	DK='eval $(dircolors /etc/DIR_COLORS)'
-test -f $LC &&	alias	LT='eval $(dircolors /etc/DIR_COLORS.lightbgcolor)'
-test -f $ZC &&	alias	DZ='eval $(dircolors /etc/DIR_COLORS.256color)'
+		alias	LITE='eval $(dircolors)'
+test -f $DC &&	alias	DARK='eval $(dircolors $DC)'
+test -f $LC &&	alias	LITE='eval $(dircolors $LC)'
+test -f $ZC &&	alias	C256='eval $(dircolors $ZC)'
 
 #################################################################
 #	Console Initialization
 #################################################################
 
 alias	fgh='echo $FG $BG $HI'
-
-LT					# Always LITE now
-
-if	test -x /usr/bin/systemctl	# R7, C7, new
-then	printf '\e[0;30;47m\e[8]\e2J'	# Black on Bold White if New
-else	printf '\e[0;30;47m\e[8]\e2J'	# Black on Norm White if Old
-fi
 
 case $(tty) in
 (/dev/ttys*)	: echo MAC;;
@@ -34,9 +27,13 @@ case $(tty) in
 		test -f /lib/kbd/consolefonts/$FONT &&
 		setfont                       $FONT
 	done
-	$RBJ/bin/hue 7 cc cc cc;	# Normal ia AA AA AA
-#OLD	$RBJ/bin/hue f bb 77 33; $RBJ/bin/hue 7 cc cc cc;
-#OLD	$RBJ/bin/hue 0 cc cc cc; $RBJ/bin/hue 7 00 00 00;
+	$RBJ/bin/hue 7 cc cc cc			# Normal is AA AA AA
+
+	LITE					# Always LITE now
+	if	test -x /usr/bin/systemctl	# R7, C7, new
+	then	printf '\e[0;30;47m\e[8]'	# Black on Bold White if New
+	else	printf '\e[0;30;47m\e[8]\e[2J'	# Black on Norm White if Old
+	fi
 	;;
 esac
 
