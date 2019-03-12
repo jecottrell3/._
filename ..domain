@@ -9,7 +9,7 @@ test -d /Applications && MAC=1 || MAC=0
 	  HOST=$(hostname -s)
 	  FQDN=$(hostname -f)
 if	((MAC))
-then	DOMAIN=juniper.net IP=too-hard-for-now
+then	DOMAIN=u.group IP=too-hard-for-now
 else
 	DOMAIN=$(hostname -d)
 	    IP=$(hostname -i)
@@ -31,28 +31,22 @@ noaa="source $RBJ/..noaa"
  nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
-(juniper.net|jnpr.net|jnpr-opsun.net)
-	echo Welcome to JUNIPER
-	BASTION=opsun-bastion			# 10.199.235.54
-	BH=$BASTION
-	GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
-	GITTOP=https://$GITLAB/infosec/operations-sunrise
-	OSA=opsun-ansible-01
-	JA=jnpradmin UJB=chujbpt3
+(bytecubed.com|u.group)
+	echo Welcome to The U
+	#GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
+	#GITTOP=https://$GITLAB/infosec/operations-sunrise
 
-	VM0=10.199.235.238		# random vm
-	VM1=10.199.248.212		# sw tools test
-	VM2=10.199.248.196		# ntp test
-	VM3=10.199.250.137		# U16
-	VM4=10.199.248.35		# U14
-	u12=10.199.235.62		# U12
+	JC2=ec2-54-89-70-224.compute-1.amazonaws.com
+	JC3=ec2-54-83-108-51.compute-1.amazonaws.com
+	alias	pem='ssh-add ~/.ssh/*.pem'
+	alias	jc2="ssh ec2-user@$JC2"
+	alias	jc3="ssh   ubuntu@$JC3"
 
-	alias	pem='ssh-add ~/.ssh/{id_rsa,sunrise.pem}'
-
-	export	JHOST=ldap://dcjnprjpsvl1.jnpr.net
-	export	JBIND=jcottrell@JNPR.NET
-	export	JBASE=dc=jnpr,dc=net
-	alias	jds="ldapsearch -LLL -H $JHOST -N -D $JBIND -b $JBASE"
+	# TAOS/JUNIPER
+	#export	JHOST=ldap://dcjnprjpsvl1.jnpr.net
+	#export	JBIND=jcottrell@JNPR.NET
+	#export	JBASE=dc=jnpr,dc=net
+	#alias	jds="ldapsearch -LLL -H $JHOST -N -D $JBIND -b $JBASE"
 	;;
 (homerj)
 	echo Welcome to HOMERJ
