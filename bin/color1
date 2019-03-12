@@ -19,6 +19,7 @@ do
     printf "\e[$HI;3${FG};4${BG};${BL}m${M[$HI]}${C[$FG]}${M[$BL]}${C[$BG]} "
 done
 done
-printf '\n'
+printf '\e[K\n'
 done
 done
+printf '\e[m'
