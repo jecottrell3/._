@@ -15,6 +15,7 @@ else
 	    IP=$(hostname -i)
 fi
 
+set +x
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
 
