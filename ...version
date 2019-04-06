@@ -1,5 +1,4 @@
-test -f $DEBUG && echo ..fns/version
-# $Id: version 300 2015-03-10 22:11:19Z JECottrell3@gmail.com $
+test -f $DEBUG && echo ...version
 #################################################################
 #	VERSION CONTROL -- CVS
 #################################################################

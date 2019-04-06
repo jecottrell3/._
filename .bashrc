@@ -42,6 +42,10 @@ done
 #	ADD SSH KEY IF SSH-AGENT RUNNING
 #################################################################
 
+chmod a+rx,g+s $HOME
+FIXKEY=$HOME/.ssh/.fixkey
+test  -x	$FIXKEY && $FIXKEY
+
 case $SSH_AUTH_SOCK in
 (?*)  ssh-add -l > /dev/null || ssh-add;;
 esac

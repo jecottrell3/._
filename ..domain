@@ -1,14 +1,21 @@
 test -f $DEBUG && echo ..domain
+test -s $DEBUG && set -x
 export	TZ=EST5EDT
+test -d /Applications && MAC=1 || MAC=0
 #################################################################
 #	Do Domain Specific Customization
 #################################################################
 
-  HOST=$(hostname -s)
-  FQDN=$(hostname -f)
-DOMAIN=$(hostname -d)
-    IP=$(hostname -i)
+	  HOST=$(hostname -s)
+	  FQDN=$(hostname -f)
+if	((MAC))
+then	DOMAIN=u.group IP=too-hard-for-now
+else
+	DOMAIN=$(hostname -d)
+	    IP=$(hostname -i)
+fi
 
+set +x
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
 
@@ -20,13 +27,31 @@ if	egrep -q homerj     /etc/resolv.conf
 then	SEARCH=homerj
 fi
 
-noaa="source $RBJ/...noaa"
- nih="source $RBJ/...nih"
- nlm="source $RBJ/...nlm"
+noaa="source $RBJ/..noaa"
+ nih="source $RBJ/..nih"
+ nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
+(bytecubed.com|u.group)
+	echo Welcome to The U
+	#GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
+	#GITTOP=https://$GITLAB/infosec/operations-sunrise
+
+	JC2=ec2-54-89-70-224.compute-1.amazonaws.com
+	JC3=ec2-54-83-108-51.compute-1.amazonaws.com
+	alias	pem='ssh-add ~/.ssh/*.pem'
+	alias	jc2="ssh ec2-user@$JC2"
+	alias	jc3="ssh   ubuntu@$JC3"
+
+	# TAOS/JUNIPER
+	#export	JHOST=ldap://dcjnprjpsvl1.jnpr.net
+	#export	JBIND=jcottrell@JNPR.NET
+	#export	JBASE=dc=jnpr,dc=net
+	#alias	jds="ldapsearch -LLL -H $JHOST -N -D $JBIND -b $JBASE"
+	;;
 (homerj)
 	echo Welcome to HOMERJ
+	export PRINTER=lp LPDEST=lp
 	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
 	alias ncbi='ssh -AX cottrell@ssh.ncbi.nlm.nih.gov'
 #       For Cloning CDs
@@ -46,8 +71,7 @@ case ${DOMAIN:-$SEARCH} in
 	export	QA=be-md.qa.$NCBI
 	export	ncbiBASE=dc=ncbi,dc=nlm,dc=nih,dc=gov
 
-	alias	nds="ldapsearch -b $ncbiBASE"
-	alias	ndd="ldapsearch -b ou=Devices,$ncbiBASE"
+	alias	nds="ldapsearch -b ou=Devices,$ncbiBASE"
 	alias	pdc="package_deployment create"
 
 	# nack args: ticket host reason...
@@ -124,3 +148,6 @@ YI() { for x in $(<$1); do rpm -q $x || sudo yum install $x; done; }
 YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | grep -v ^--;done; }
 YN() { yum info $(<$1) | less -j1 +/'^Name.*'; }
 YY() { while read x; do yum info "*$x*" | less -j1 +/'^Name.*'; done; }
+
+#################################################################
+set +x

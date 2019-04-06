@@ -1,15 +1,19 @@
-test -f $DEBUG && echo ..fns/service
-# $Id: service 307 2015-07-29 17:00:51Z JECottrell3@gmail.com $
+test -f $DEBUG && echo ...service
 #################################################################
 #	SERVICE   (0=stop, 1=start, 2=status, 3=restart, others)
 #	SYSTEMCTL (4=disable, 5=enable, 6=is-enabled, 7=reenable)
+#	CHKCONFIG (std 012 => systemctl 456, 8=delete, 9=add)
 #################################################################
 s0() { service $* stop; };	alias z0='systemctl stop'
 s1() { service $* start; };	alias z1='systemctl start'
 s2() { service $* status; };	alias z2='systemctl status'
 s3() { service $* restart; };	alias z3='systemctl restart'
-alias z4='systemctl disable';	alias z5='systemctl   enable'
-alias z6='systemctl is-enabled';alias z7='systemctl reenable'
+c0() { chkconfig $* off; };	alias z4='systemctl disable';
+c1() { chkconfig $* on; };	alias z5='systemctl   enable'
+c2() { chkconfig --list $*; };	alias z6='systemctl is-enabled'
+
+c8() { chkconfig --del  $*; }	
+c9() { chkconfig --add  $*; }	
 #################################################################
 #	Authconfig
 #################################################################
@@ -24,10 +28,10 @@ alias	u9='authconfig --savebackup'
 #################################################################
 #	NIH Smart Cards
 #################################################################
-alias	P0='service pcscd stop'		P1='service pcscd start'
-alias	P2='service pcscd status'	P3='service pcscd restart'
-alias	O0='service openct stop'	O1='service openct start'
-alias	O2='service openct status'	O3='service openct restart'
+#lias	P0='service pcscd stop'		P1='service pcscd start'
+#lias	P2='service pcscd status'	P3='service pcscd restart'
+#lias	O0='service openct stop'	O1='service openct start'
+#lias	O2='service openct status'	O3='service openct restart'
 #################################################################
 #	NETWORKING	/	KERBEROS
 #################################################################
@@ -41,9 +45,11 @@ alias	k8='unset KRB5_TRACE'	k9='export KRB5_TRACE=/dev/stderr'
 #################################################################
 alias	a0='ssh-add -D'		a1='ssh-add -l || ssh-add'
 alias	a2='ssh-add -l'		a3='ssh-add -D;   ssh-add'
-LCK=libcoolkeypk11.so OSC=opensc-pkcs11.so
-alias   a4="ssh-add -e $LCK"	a5="ssh-add -s $LCK"	a6="a4;a5"
+alias	a4='ssh-add -L'		a5='ssh-add -l -E md5'
+# LCK=libcoolkeypk11.so OSC=opensc-pkcs11.so
+#lias   a4="ssh-add -e $LCK"	a5="ssh-add -s $LCK"	a6="a4;a5"
 #lias   a8="ssh-add -e $OSC"	a9="ssh-add -s $OSC"	a7="a8;a9"
+#lias	a2='ssh-add -l'		a3='ssh-add -D;   ssh-add'
 #################################################################
 #	SSH-AGENT
 #################################################################

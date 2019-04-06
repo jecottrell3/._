@@ -1,0 +1,25 @@
+#! /bin/sh
+
+case $# in		# blink sometimes is reverse bold
+(0)	BLINK='25';;	# no arg = no blink
+(*)	BLINK='25 5';;	# one arg = blink
+esac
+
+C=(K R G Y B M C W)
+M=(D L [5]=L [25]=D)
+
+for BG in 0 1 2 3 4 5 6 7
+do
+for BL in $BLINK
+do
+for FG in 0 1 2 3 4 5 6 7
+do
+for HI in 0 1
+do
+    printf "\e[$HI;3${FG};4${BG};${BL}m${M[$HI]}${C[$FG]}${M[$BL]}${C[$BG]} "
+done
+done
+printf '\e[K\n'
+done
+done
+printf '\e[m'

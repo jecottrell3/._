@@ -1,0 +1,8 @@
+echo Welcome to NOAA
+
+alias	ncc='named-checkconf'
+alias	ncz='named-checkzone'
+
+GORILLA=/mnt/usa_software/pwsave/gorilla15363_64.bin
+   SAFE=/mnt/usa_software/pwsave/sisb_pw.psafe3
+alias gorilla="$GORILLA $SAFE"

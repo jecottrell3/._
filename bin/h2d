@@ -1,0 +1,36 @@
+#! /bin/sh
+
+SUB1=1.2.3
+export HJ=0 ERR=0
+
+cd /etc/dhcp
+exec 3> /etc/dhcp/subnet.$SUB1
+
+# cat /etc/hosts |
+while read ADR JUNK HOST MAC JUNK
+do
+	case $ADR in ('#'*) continue;; esac
+	case $#   in (1) echo ^$ADR^$HOST^$MAC^$JUNK^;; esac
+	case $MAC in
+	([0-9a-f]???????????)	: OK;;
+	(aabbccddeeff)	continue;;
+	(*)		continue;;
+	esac
+
+	MAC=$(echo $MAC | sed 's/../&:/g;s/:$//')
+
+	case $HOST in
+	(*)		NEXT=;;
+	esac
+
+	P1="host $HOST		{"
+	P2="hardware ethernet $MAC;"
+	P3="fixed-address $ADR;$NEXT }"
+
+	case $ADR in
+# HOMERJ
+	($SUB1.*)	 echo $P1 $P2 $P3 1>&3; ((++HJ));;
+	(*) echo ===ERROR===  $P1 $P2 $P3 1>&2; ((++ERR));;
+	esac
+done < /etc/hosts
+echo HJ: $HJ, ERR: $ERR

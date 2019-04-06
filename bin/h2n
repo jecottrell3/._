@@ -4,19 +4,18 @@ from __future__ import print_function
 
 import os, sys, re
 
-####	   REAL			DEMO VERSION
-
 TAB	= '\t'
-HOSTS	= '/etc/hosts';		HOSTS	= './hosts'
-MDN 	= 'md.ddn.com';		MDN	= 'homerj'
-IME 	= 'ime.' + MDN;		IME	= 'homerj'
+HOSTS	= '/etc/hosts'
+FWD 	= 'homerj'
+BWD 	= '1.2.3.'
+IME 	= 'ime.' + FWD
 
-TOP	= '/var/named/';	TOP	= './'
+TOP	= '/var/named/'
 #TOP	= '/etc/named'
 #TOP	= '/etc/dhcp'
-SOA	= TOP + 'soa/';		SOA	= TOP
-PRI	= TOP + 'pri/';		PRI	= TOP
-TMP	= TOP + 'tmp/';		TMP	= TOP
+SOA	= TOP + 'soa/'
+PRI	= TOP + 'pri/'
+TMP	= TOP + 'tmp/'
 
 soa	= {}
 pri	= {}
@@ -27,7 +26,7 @@ hdr = """$TTL 1D
 ;;;;    except that it uses the Whole Address rather than
 ;;;;    just the Last Octet. Reverse Zones do something like
 ;;;;
-;;;;    $GENERATE 0-255 $.Z.Y.X CNAME X.Y.Z.$.md.ddn.com.
+;;;;    $GENERATE 0-255 $.Z.Y.X CNAME X.Y.Z.$.homerj.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 """
 
@@ -41,8 +40,8 @@ os.chdir(TOP)
 ####	
 ####	sys.stdout = pri[ZONE]
 
-#@	mdn = file(PRI + MDN, 'w'); print(hdr, file=mdn)
-ime = file(PRI + IME, 'w'); print(hdr, file=ime)
+#@	fwd = file(PRI + FWD, 'w'); print(hdr, file=fwd)
+fwd = file(PRI + FWD, 'w'); print(hdr, file=fwd)
 
 def AAA_rr(data, out):
 	global aaa
@@ -70,6 +69,7 @@ for line in file(HOSTS).readlines():
 	fields = re.split(r'\s+', line.strip())
 
 	addr = fields.pop(0) if fields else None
+	fqdn = fields.pop(0) if fields else None
 	host = fields.pop(0) if fields else None
 	rest = fields
 
@@ -78,14 +78,7 @@ for line in file(HOSTS).readlines():
 	if not addr: continue
 	if not host: continue
 
-	if 1:	out = ime
-	else:
-		if addr.startswith('10.52.'):
-			if host.startswith('ime-'):
-				AAA_rr((host, addr), mdn)
-				host = re.sub('^ime-','', host)
-			out = ime
-		else:	out = mdn
+	out = fwd
 
 	print(file=out)
 	PTR_rr((addr, host), out)
@@ -106,5 +99,4 @@ print("%d A, %d PTR, %d CNAME, %d TXT" % (aaa,ptr,cnm,txt), file=sys.stderr)
 sys.stdout.close()
 
 # change this for 2016
-#@	os.system('sed -i s/^15......../$(date +%y%m%d%H%M)/ ' + SOA + MDN)
-####os.system('sed -i "s/^1[56]......../$(date +%y%m%d%H%M)/" ' + SOA + IME)
+os.system('sed -i "s/^1[89]......../$(date +%y%m%d%H%M)/" ' + SOA + FWD)

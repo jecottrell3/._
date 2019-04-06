@@ -1,6 +1,7 @@
 cd $HOME
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
-#? test -d /run && { test -d /run/install || ln -s / /run/install; } # RHEL7?
+#set | sort -o .set-$(date +%T)
+#env | sort -o .env-$(date +%T)
 set -o	ignoreeof
 umask	2
 #################################################################
@@ -8,19 +9,22 @@ umask	2
 #################################################################
 
    for JC in $USER cottrell rbj jcottrell jcottrel nobody
-do for dir in /home /Users /export/usa_home
+do for dir in /home /homes /Users
 do
 	case $JC in
 	(root)   continue;;			# ROOT becomes NOBODY
-	(nobody) JIM=$HOME;;			# for OTHER people
-	(*)	 JIM=$dir/$JC;;			# JC candidate
+	(nobody) JOME=$HOME;;			# for OTHER people
+	(*)	 JOME=$dir/$JC;;		# JC candidate
 	esac
-	test -d $JIM/._ && break 2		# FOUND
+	test -d $JOME/._ && break 2		# FOUND
 done
 done
 
-export	JC JIM
-export	RBJ=$JIM/._	SRC=$JIM/src	DEBUG=$RBJ/..debug
+export	JC JOME
+export	RBJ=$JOME/._
+export	SRC=$JOME/src;
+export	DEBUG=$RBJ/..debug;
+
 test -f $DEBUG && echo .bash_profile HOME=$HOME
 export	BG=$RANDOM
 
@@ -28,44 +32,39 @@ export	LESSKEY=$RBJ/.less
 export	 RCFILE=$RBJ/.bash_profile
 export	INPUTRC=$RBJ/.inputrc
 
-#################################################################
-#	Fix .ssh
-#################################################################
-
-chmod a+rX $HOME
-####	test  -w /		||	# anyone but root ??? WHY ???
-{
-	test  -d	$HOME/.ssh &&
-	(cd		$HOME/.ssh
-	chmod 755	.
-	chmod 600	*
-	chmod 644	*.pub known_hosts authorized_keys)
-}
+if	test -d /Applications 
+then	export	MAC=1
+else	export	MAC=0
+fi
 
 #################################################################
 #	Start SSH-AGENT if Needed
 #################################################################
 
-#set | sort -o .set-$(date +%T)
-#env | sort -o .env-$(date +%T)
+((BUG=0))
+((NEED=0))
+export	 AGENT=$HOME/.ssh/agent@$(hostname)
+while :
+do
+	ssh-add -l >/dev/null 2>&1		# agent running?
+	STATUS=$?
+	((BUG)) && echo $STATUS@$NEED
+	case	$STATUS@$NEED in
+	(0@*)	: agent list my identity; break;;
+	(1@*)	: agent says NO identity; break;;
+	(2@0)	: try source;;
+	(2@1)	: try agent
+		ssh-agent | grep = >	$AGENT;;
+	(*)	: error
+		echo  $?@$NEED $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK;
+		exit  $?;;
+	esac
+	test -f $AGENT && source  $AGENT	# remember the past
+	((NEED++))
+done
 
-export	 AGENT=$HOME/.ssh/.agent
-test -f $AGENT && source  $AGENT	# remember the past
-
-# echo  $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK
-
-ssh-add -l >/dev/null 2>&1		# agent running?
-
-case	$? in
-(0)	: agent list my identity;;
-(1)	: agent says NO identity;;
-(2)	: failed to reach agent
-	ssh-agent | grep = >	$AGENT
-	source			$AGENT
-#	echo  $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK
-	;;
-(*)	exit  $?;;
-esac
+{ test -n "$SSH_AGENT_PID" || ((MAC)); } &&	# original login host
+env | grep SSH_ | sed 's/^/export /' > $AGENT
 
 #################################################################
 #	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
@@ -104,17 +103,15 @@ export	VIMINIT="source $RBJ/.vimrc"
 
 export	CVS_RSH=/usr/bin/ssh
 
-export     M1=--max-size=1M K11111=--max-size=11111K G1=--max-size=1G
-export    M11=--max-size=11M K1111=--max-size=1111K G11=--max-size=11G
-export   M111=--max-size=111M K111=--max-size=111K G111=--max-size=111G
-export  M1111=--max-size=1111M K11=--max-size=11K G1111=--max-size=1111G
-export M11111=--max-size=11111M K1=--max-size=1K G11111=--max-size=11111G
+export     M1=--max-size=1M K1111=--max-size=1111K G1=--max-size=1G
+export    M11=--max-size=11M K111=--max-size=111K G11=--max-size=11G
+export   M111=--max-size=111M K11=--max-size=11K G111=--max-size=111G
+export  M1111=--max-size=1111M K1=--max-size=1K G1111=--max-size=1111G
 
-export     M3=--max-size=3M K33333=--max-size=33333K G3=--max-size=3G
-export    M33=--max-size=33M K3333=--max-size=3333K G33=--max-size=33G
-export   M333=--max-size=333M K333=--max-size=333K G333=--max-size=333G
-export  M3333=--max-size=3333M K33=--max-size=33K G3333=--max-size=3333G
-export M33333=--max-size=33333M K3=--max-size=3K G33333=--max-size=33333G
+export     M3=--max-size=3M K3333=--max-size=3333K G3=--max-size=3G
+export    M33=--max-size=33M K333=--max-size=333K G33=--max-size=33G
+export   M333=--max-size=333M K33=--max-size=33K G333=--max-size=333G
+export  M3333=--max-size=3333M K3=--max-size=3K G3333=--max-size=3333G
 
 #################################################################
 #	Do Rest of Init

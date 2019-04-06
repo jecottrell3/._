@@ -1,11 +1,10 @@
 test -f $DEBUG && echo ..alias
 alias	debug="touch $DEBUG"	nobug="rm -f $DEBUG"
-# $Id: .alias 307 2015-07-29 17:00:51Z JECottrell3@gmail.com $
 #################################################################
 #	COMPLEX ALIASES
 #################################################################
 
-for x in $RBJ/..fns/*
+for x in $RBJ/...*
 do
 	source  $x
 done
