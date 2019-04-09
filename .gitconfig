@@ -4,7 +4,8 @@
 [user]
         name = Jim Cottrell
 #       email = james.cottrell@noaa.gov
-        email = JECottrell3@Comcast.NET
+#       email = JECottrell3@Comcast.NET
+        email = jcottrell@juniper.net
 
 [color]
 	ui = always

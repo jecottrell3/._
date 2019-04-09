@@ -1,5 +1,6 @@
 set bell-style Visible
 set output-meta On
+
 "\M-\e": shell-expand-line
 "\M-a": "\C-aman -a \n"
 "\M-e": " --exclude="
@@ -10,13 +11,23 @@ set output-meta On
 "\M-m": "\C-e | less\n"
 "\M-o": overwrite-mode
 "\M-q": 'PS1="$(hostname):\$PWD> "'
-#"\M-q": "ssh -tAX root@rome    SUDO_USER=$USER           bash --rcfile $RCFILE"
 "\M-s": "\C-e | sort "
-#"\M-s": "ssh -tAX root@strudel SUDO_USER=$USER ssh-agent bash --rcfile $RCFILE"
 "\M-v": " --max-size="
 "\M-w": "\C-w\C-y=$\C-y\e\C-e"
 "\M-x": "fg; exit"
-#"\M-z": " META z "
 "\M-z": "lsb_release -sir\n"
+
+"\M-%": "META % "
+"\M-(": "META ( "
+"\M-)": "META ) "
+"\M-+": "META + "
+"\M-,": "META , "
+"\M-:": "META : "
+"\M-;": "META ; "
+"\M-@": "META @ "
+"\M-]": "META ] "
+"\M-\"": "META \" "
+"\M-'": "META ' "
+
 "`": "\e"
 "\M-`": self-insert
