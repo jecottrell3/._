@@ -139,7 +139,7 @@ alias	pd=pushd		po=popd
 
 alias	root='sudo chown   root:root'
 #lias	 rbj='sudo chown -R rbj:rbj'
-alias	  jc='sudo chown -R $JC:$JC'
+alias	  jc='sudo chown -R $JC:'
 alias	  cj='sudo chown -R $JC'
 
 alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
