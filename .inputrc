@@ -1,3 +1,4 @@
+set bell-style Visible
 set output-meta On
 
 "\M-\e": shell-expand-line

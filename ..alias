@@ -72,6 +72,8 @@ alias	dm='less +/"^diff.*"'
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -hT'	uh='du -h'	df='df -k'
+function dust() { du -s $* | tee DU | sort -n > DS; }
+
 
 alias	ds='dig +search'	dx='dig -x'
 
@@ -137,7 +139,7 @@ alias	pd=pushd		po=popd
 
 alias	root='sudo chown   root:root'
 #lias	 rbj='sudo chown -R rbj:rbj'
-alias	  jc='sudo chown -R $JC:$JC'
+alias	  jc='sudo chown -R $JC:'
 alias	  cj='sudo chown -R $JC'
 
 alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"

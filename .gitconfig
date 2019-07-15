@@ -1,6 +1,12 @@
 [core]
 	preloadindex = true
 
+[branch]
+	autoSetupRebase = always
+
+[pull]
+	rebase = preserve
+
 [user]
         name = Jim Cottrell
 #       email = james.cottrell@noaa.gov
