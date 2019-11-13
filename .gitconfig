@@ -5,12 +5,13 @@
 	autoSetupRebase = always
 
 [pull]
-	#ebase = preserve
+#	rebase = preserve
 	rebase = true
 
 [user]
 	name = Jim Cottrell
-	email = JECottrell3@Comcast.NET
+#	email = JECottrell3@Comcast.NET
+	email = cottrell@NIH.GOV
 
 [color]
 	ui = always
