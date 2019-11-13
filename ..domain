@@ -9,7 +9,7 @@ test -d /Applications && MAC=1 || MAC=0
 	  HOST=$(hostname -s)
 	  FQDN=$(hostname -f)
 if	((MAC))
-then	DOMAIN=u.group IP=too-hard-for-now
+then	DOMAIN=$NIH IP=too-hard-for-now
 else
 	DOMAIN=$(hostname -d)
 	    IP=$(hostname -i)
@@ -17,18 +17,14 @@ fi
 
 set +x
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
-export	CIT=cit.$NIH		NLM=nlm.$NIH
-
-export	NOAA=noaa.gov
-export	NCEP=ncep.$NOAA
-export	JIM=nco-lw-jcottrell.$NCEP
+export	NIA=nia.$NIH		NLM=nlm.$NIH
 
 if	egrep -q homerj     /etc/resolv.conf
 then	SEARCH=homerj
 fi
 
-noaa="source $RBJ/..noaa"
  nih="source $RBJ/..nih"
+ nia="source $RBJ/..nia"
  nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
@@ -51,17 +47,8 @@ case ${DOMAIN:-$SEARCH} in
 	;;
 (homerj)
 	echo Welcome to HOMERJ
+	export D=homerj
 	export PRINTER=lp LPDEST=lp
-	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
-	alias ncbi='ssh -AX cottrell@ssh.ncbi.nlm.nih.gov'
-#       For Cloning CDs
-	alias	L='lsof /dev/scd0'
-	alias	P='pkill kio_audio'
-	alias	K='k3b'
-	alias	S='pm-suspend'
-	;;
-(*.noaa.gov)
-	$noaa
 	;;
 (ncbi.nlm.nih.gov)
 #	$nlm
@@ -137,12 +124,6 @@ soe()
 #################################################################
 
 #ource	/root/ks.vars			# TEMPORARY
-export	FR=/repo/fc19/comps/.pkgs	# TEMPORARY
-export	FC=/repo/ks/g2/fc19		# TEMPORARY
-export	YUM=$FC/yum			# TEMPORARY
-
-NOBOOT() { sudo mv /boot/grub/grub.conf{,ig}; }
-VIBOOT() { vi /resq/boot/grub/grub.conf; }
 
 YI() { for x in $(<$1); do rpm -q $x || sudo yum install $x; done; }
 YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | grep -v ^--;done; }
@@ -150,4 +131,5 @@ YN() { yum info $(<$1) | less -j1 +/'^Name.*'; }
 YY() { while read x; do yum info "*$x*" | less -j1 +/'^Name.*'; done; }
 
 #################################################################
+tw() { time wordsin $*; }
 set +x

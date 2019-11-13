@@ -29,5 +29,7 @@ set output-meta On
 "\M-\"": "META \" "
 "\M-'": "META ' "
 
+"\C-_": "\C-p\C-asudo "
+
 "`": "\e"
 "\M-`": self-insert
