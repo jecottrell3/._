@@ -9,7 +9,7 @@ test -d /Applications && MAC=1 || MAC=0
 	  HOST=$(hostname -s)
 	  FQDN=$(hostname -f)
 if	((MAC))
-then	DOMAIN=$NIH IP=too-hard-for-now
+then	DOMAIN=$NIA    IP=too-hard-for-now
 else
 	DOMAIN=$(hostname -d)
 	    IP=$(hostname -i)
@@ -17,11 +17,15 @@ fi
 
 set +x
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
-export	NIA=nia.$NIH		NLM=nlm.$NIH
+export	CIT=cit.$NIH		NLM=nlm.$NIH
+export	NIA=nia.$NIH		HJ=homerj
 
-if	egrep -q homerj     /etc/resolv.conf
-then	SEARCH=homerj
-fi
+for SEARCH in $NIA $NIH $HJ NOWHERE
+do
+	grep -q $SEARCH $RC && break
+done
+: $SEARCH
+set +x
 
  nih="source $RBJ/..nih"
  nia="source $RBJ/..nia"
@@ -30,20 +34,7 @@ fi
 case ${DOMAIN:-$SEARCH} in
 (bytecubed.com|u.group)
 	echo Welcome to The U
-	#GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
-	#GITTOP=https://$GITLAB/infosec/operations-sunrise
-
-	JC2=ec2-54-89-70-224.compute-1.amazonaws.com
-	JC3=ec2-54-83-108-51.compute-1.amazonaws.com
 	alias	pem='ssh-add ~/.ssh/*.pem'
-	alias	jc2="ssh ec2-user@$JC2"
-	alias	jc3="ssh   ubuntu@$JC3"
-
-	# TAOS/JUNIPER
-	#export	JHOST=ldap://dcjnprjpsvl1.jnpr.net
-	#export	JBIND=jcottrell@JNPR.NET
-	#export	JBASE=dc=jnpr,dc=net
-	#alias	jds="ldapsearch -LLL -H $JHOST -N -D $JBIND -b $JBASE"
 	;;
 (homerj)
 	echo Welcome to HOMERJ
@@ -94,6 +85,9 @@ case ${DOMAIN:-$SEARCH} in
 	alias	rps='rake puppetmaster:restart:be-md'
 	alias	rpw='rake puppetmaster:restart:st-va'
 	;;
+(nia.nih.gov)
+	echo Welcome to NIA
+	;;
 (*nih.gov)
 #	$nih
 	echo Welcome to NIH
@@ -107,21 +101,17 @@ case ${DOMAIN:-$SEARCH} in
 	export	IMGS=$TFTP/images
 	;;
 (*)
-	echo Welcome to NOWHERE;;
+	echo  Welcome to NOWHERE
+	D=NOWHERE DOMAIN=NOWHERE;;
 esac
 
-# Script OnEach
-
-soe()
-{
-	OPTS=$-
-	set "$@"
-	file=$1; shift
-	script $file -c "oneach -aSp $*"
-	set $OPTS
-}
-
 #################################################################
+
+GMC()
+{
+	grub2-mkconfig -o /$CGC
+	grep ^menuentry   /$CGC
+}
 
 #ource	/root/ks.vars			# TEMPORARY
 

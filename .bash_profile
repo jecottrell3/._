@@ -57,6 +57,7 @@ do
 		ssh-agent | grep = >	$AGENT;;
 	(*)	: error
 		echo  $?@$NEED $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK;
+		sleep 9
 		exit  $?;;
 	esac
 	test -f $AGENT && source  $AGENT	# remember the past
