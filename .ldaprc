@@ -1,0 +1,7 @@
+#TLS_CRLCHECK	none
+#SASL_MECH	GSSAPI
+#SASL_REALM	NIH.GOV
+#URI		ldap://ldapad.nih.gov
+URI		ldap://nihdcadhub.nih.gov
+BASE		ou=NIH,OU=AD,DC=NIH,DC=gov
+#BINDDN		CN=cottrell,OU=Users,OU=NIA-IRP,OU=NIA,OU=NIH,OU=AD,DC=nih,DC=gov
