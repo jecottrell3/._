@@ -5,19 +5,44 @@
 #	Search LDAP based on Client Host
 #
 # ldapsearch -x -h strudel.cit.nih.gov -b ou=NIH,OU=AD,DC=NIH,DC=gov '(cn=arif)'
-# ldapsearch -h nihdc.nih.gov -b ou=NIH,OU=AD,DC=NIH,DC=gov '(cn=hunterjr)'
+# ldapsearch    -h nihdc.nih.gov       -b ou=NIH,OU=AD,DC=NIH,DC=gov '(cn=cottrell)'
 ################################################################
+
+# OLD DCB SETTINGS
 
 BASE=ou=NIH,OU=AD,DC=NIH,DC=gov
 HOST=strudel.cit.nih.gov
 ADHD=nihdc.nih.gov
-OPTS=-x
 
-case $(hostname) in
-(harpo)		HOST=$ADHD OPTS=;;
-esac
+# NEW NIA SETTINGS
 
-set -x
-exec ldapsearch $OPTS -h $HOST -b $BASE "$@"
+BASE="ou=NIH,OU=AD,DC=NIH,DC=gov"
+HOST="-h ldapad.nih.gov"
+BIND="CN=$USER,OU=Users,OU=NIA-IRP,OU=NIA,OU=NIH,OU=AD,DC=nih,DC=gov"
+PASS="-w SwordFish"
+FAKE="$PASS"
+OPTS='-o ldif-wrap=no'
+WHAT="cn=$USER"
 
-################################################################
+LDPW=$HOME/.ldap
+
+while : $# $*
+do	case $1 in
+	(-x)	OPTS="$OPTS $1";shift 1;;	# Append
+	(-b)	BASE="$2";	shift 2;;	# Override
+	(-h)	HOST="$1 $2";	shift 2;;	# Override
+	(-H)	HOST="$1 $2";	shift 2;;	# Override
+	(-W)	PASS="$1";	shift 1;;	# Ask Password
+	(-w)	PASS="$1 $2";	shift 2;;	# Use Password
+	(-y)	PASS="$1 $LDPW";shift 1;;	# PW in File
+	(-Y)	PASS="$1 $2";	shift 2;;	# SASL
+	(-Z)	OPTS="$1";	shift 1;;	# SASL
+	(-J)	FAKE="$PASS";	shift 1;;	# Insecure Debug!
+	('')	set -- "cn=$USER"; break;;	# Default: Self Lookup
+	(*)	break;;				# Specify Lookup
+	esac
+done
+
+ldapsearch -b "$BASE" $HOST -D "$BIND" $PASS $OPTS "$@"
+echo \
+ldapsearch -b "$BASE" $HOST -D "$BIND" $FAKE $OPTS "$@"

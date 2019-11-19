@@ -91,10 +91,10 @@ case ${DOMAIN:-$SEARCH} in
 (*nih.gov)
 #	$nih
 	echo Welcome to NIH
-	export	BASE=ou=NIH,OU=AD,DC=NIH,DC=gov
+	export	BASE='ou=NIH,OU=AD,DC=NIH,DC=gov'
 
-	#alias	lds="ldapsearch -b $BASE -h ldapad.nih.gov"
-	#alias	ldx="ldapsearch -b $BASE -h strudel.cit.nih.gov -x"
+	export	BIND='CN=cottrell,OU=Users,OU=NIA-IRP,OU=NIA,OU=NIH,OU=AD,DC=nih,DC=gov'
+	alias	ldx="ldapsearch -b $BASE -h ldapad.nih.gov -D $BIND -o ldif-wrap=no"
 
 	export	TFTP=/var/lib/tftpboot
 	export	MENU=$TFTP/pxelinux.cfg

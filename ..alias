@@ -22,6 +22,7 @@ alias	h='fc -l'	r='fc -s'
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
 alias	j='jobs -l'		J='jobs -l'
 alias	t=type		ta='type -a'	fn='declare -f'
+alias	nohup='nohup '	sudo='sudo '	time='time '
 
 alias	vb='vi $RBJ/.bashrc;	source $RBJ/.bashrc'
 alias	zb='vi $RBJ/.zshrc;	source $RBJ/.zshrc'
@@ -42,9 +43,9 @@ alias	vs='sudo visudo'	vg='sudo vim /boot/grub/grub.conf'
 alias	x='for x in'		y='fg %-'
 alias	zz=suspend		zzz='suspend -f'
 
-function b() { mkdir -p $* && cd    $*; }
-function c() { cd    $* && ls -FAC; }
-function u() { cd ../$* && ls -FAC; }
+function b() { mkdir -p "$@" && cd    "$@"; }
+function c() { cd    "$@" && ls -FAC; }
+function u() { cd ../"$@" && ls -FAC; }
 function s() { cd $(echo "$PWD" | sed "s%$1%$2%"); }
 
 function loudly() { echo "$@"; eval "$@"; }
@@ -72,8 +73,7 @@ alias	dm='less +/"^diff.*"'
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -hT'	uh='du -h'	df='df -k'
-function dust() { du -s $* | tee DU | sort -n > DS; }
-
+function dust() { du -s "$@" | tee DU | sort -n > DS & }
 
 alias	ds='dig +search'	dx='dig -x'
 
@@ -81,14 +81,15 @@ alias	ud='diff -u'		UD='diff -U 0'
 alias	dr='diff -ur'		dy='diff -y'
 function rude()
 {
-	diff -ru $* |
+	diff -ru "$@" |
 	less +/"^(diff|Only).*"
 }
 
+# convert to ip
 alias	agw='route add -net default gw'	gw='netstat -rn'
 alias	dgw='route del -net default gw'
 
-function gm {  egrep --color=always $* | less -r; }
+function gm {  egrep --color=always "$@" | less -r; }
 alias	 grep='egrep --color=auto'
 alias	egrep='egrep --color=auto'
 alias	g='egrep'		gi='egrep -i'
@@ -96,9 +97,9 @@ alias	v='egrep -v'		gl='egrep -l'
 function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
 function gy { egrep --color=auto "$@" *.py; }
 
-alias GP='getent passwd'; function gp { egrep $* /etc/passwd; }
-alias GG='getent  group'; function gg { egrep $* /etc/group; }
-alias GH='getent  hosts'; function gh { egrep $* /etc/hosts; }
+alias GP='getent passwd'; function gp { egrep "$@" /etc/passwd; }
+alias GG='getent  group'; function gg { egrep "$@" /etc/group; }
+alias GH='getent  hosts'; function gh { egrep "$@" /etc/hosts; }
 
 alias	kp='cp -p'		kr='cp -pr'
 
@@ -112,20 +113,18 @@ alias	kc='kill -CONT'		ks='kill -STOP'
 alias	 l='ls -FAC'		ll='ls -Fal'
 alias	lq='ls -FACR'		lr='ls -FalR'
 alias	lh='ls -FACsh'		lk='ls -Falh'
-alias	lg='ls -FACs'		lt='ls -Faltr'
-alias	lz='ls -FaZ'		lx='ls -FalSr'
+alias	lg='ls -FACs'		lt='ls -Falt'
+alias	lz='ls -FaZ'		lx='ls -FalS'
+alias	ld='ls -Fald'		lv='ls -Falv'
 
 alias	lo=locate
 alias	loop='sudo mount -o loop'
 
 alias	m=less 			mr='less -r'
-alias	md='mkdir'		mp='mkdir -p'
-alias	rd='rmdir'		rp='rmdir -p'
+alias	md='mkdir -p'		rd='rmdir -p'
 alias	mm='mv -i'		mu='mv -u'
 alias	mn='make -n'		mb='make -B'
 alias	ni='make -n install'	mi='make install'
-alias	mo='sudo  mount'	mz='sudo  mount -av'
-alias	um='sudo umount'	uz='sudo umount -av'
 
 function n() { sort -u "$@"; }
 alias	ns=nslookup
