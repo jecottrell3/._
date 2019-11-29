@@ -46,6 +46,10 @@ case $(tty) in
 		case $TERM in (xterm) source $RBJ/..xterm;; esac;;
 esac
 
+case $HOST in
+(nialng*|lng*)	$RBJ/bin/color0;;
+esac
+
 #D=$(id -u)				# Linux
 ID=$(id | sed 's/(.*//;s/.*=//')	# who needs this?
 
