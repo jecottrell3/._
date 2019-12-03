@@ -21,7 +21,7 @@ alias	fgh='echo $FG $BG $HI'
 SURV='1;7'; LITE
 
 if 	test -f ~/.mobaxterm
-then	MOBA='*'
+then	MOBA='*'; color0
 else	MOBA=NOWAY
 fi
 

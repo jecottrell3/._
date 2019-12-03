@@ -22,7 +22,7 @@ export	NIA=nia.$NIH		HJ=homerj
 
 for SEARCH in $NIA $NIH $HJ NOWHERE
 do
-	grep -q $SEARCH $RC && break
+	\grep -q $SEARCH $RC && break
 done
 : $SEARCH
 set +x
@@ -110,13 +110,13 @@ esac
 GMC()
 {
 	grub2-mkconfig -o /$CGC
-	grep ^menuentry   /$CGC
+	\grep ^menuentry   /$CGC
 }
 
 #ource	/root/ks.vars			# TEMPORARY
 
 YI() { for x in $(<$1); do rpm -q $x || sudo yum install $x; done; }
-YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | grep -v ^--;done; }
+YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | \grep -v ^--;done; }
 YN() { yum info $(<$1) | less -j1 +/'^Name.*'; }
 YY() { while read x; do yum info "*$x*" | less -j1 +/'^Name.*'; done; }
 
