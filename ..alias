@@ -73,7 +73,7 @@ alias	dm='less +/"^diff.*"'
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
 alias	dh='df -hT'	uh='du -h'	df='df -k'
-function dust() { du -s "$@" | tee DU | sort -n > DS & }
+function dust() { du -sh "$@" | tee .DU. | sort -n > .DS.; }
 
 alias	ds='dig +search'	dx='dig -x'
 
