@@ -9,9 +9,9 @@ esac
 C=(K R G Y B M C W)
 M=(D L [5]=L [7]=R [25]=D [27]=N)
 
-for BG in 0 1 2 3 4 5 6 7
+for HI in 0 1
 do
-for HI in 1
+for BG in 0 1 2 3 4 5 6 7
 do
 for BL in $REV
 do
