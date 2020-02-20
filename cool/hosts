@@ -1,0 +1,36 @@
+127.0.0.1 localhost.localdomain	  localhost  lh
+::1       localhost6.localdomain6 localhost6 lh6
+10.0.0.1  wofo wofo.homerj 008092aae563 wifi hl-2270dw
+10.0.0.3  nucu nucu.homerj b8aeedebea7a nuc5ppyh
+10.0.0.4  vudu vudu.homerj 00e04db5529b blue vodo
+10.0.0.5  polo polo.homerj 30055c020aad wire hl-2270dw lp
+10.0.0.6  bogo bogo.homerj 0013d4151761 realtek-rtl8139 t1752
+10.0.0.7  mojo mojo.homerj c89cdc6bbd4c acer enp6s0
+10.0.0.8  loco loco.homerj 6cf0497ab9e0 t4510
+10.0.0.9  yoko yoko.homerj fcaa14e714ee realtek-rtl8139
+10.0.0.10 toro toro.homerj 0495e6504320 tenda-ac18 dgw
+10.0.0.11 tr2g tr2g.homerj 0495e6504321 Althea2G
+10.0.0.12 tr5g tr5g.homerj 0495e6504325 Althea5G
+10.0.0.13 NUCU NUCU.homerj 00dbdf70ef6d NUC5PPYH
+10.0.0.14 bear bear.homerj 94de807be42c althea
+10.0.0.19 fono fono.homerj fcaa14c8ad2d james
+10.0.0.20 ghct ghct.homerj fc1910851025 glenda-tablet
+10.0.0.21 ghcp ghcp.homerj 98f17089becd glenda-phone
+10.0.0.23 jc3p jc3p.homerj ccc079949481 jim-phone GalS9
+10.0.0.24 jc4p jc4p.homerj d453836f03e7 james-phone
+10.0.0.25 jc1p jc1p.homerj e899c47702b3 ht1
+10.0.0.26 jc2p jc2p.homerj 800184f241be ht2
+10.0.0.30 hopo hopo.homerj 30e1711689e3 jim-laptop
+10.0.0.31 HOPO HOPO.homerj 98541b004a60 jim-wireless
+10.0.0.32 dolo dolo.homerj 0024e8cef0fb dell-laptop
+10.0.0.33 DOLO DOLO.homerj 0024d61ea39c dell-wireless
+10.0.0.36 mace mace.homerj 787b8adba327 mac-laptop
+10.0.0.37 macw macw.homerj 1c36bbec8f8b mac-wireless
+10.0.0.38 c55a c55a.homerj 008cfa76491e james-laptop
+10.0.0.39 C55A C55A.homerj a4db303c01a6 james-wireless
+10.0.0.40 nia1 nia1.homerj ecf4bb39189d dell-m2800-ether
+10.0.0.41 NIA1 NIA1.homerj d6ca5a740711 dell-m2800-wifi
+10.0.0.42 nia2 nia2.homerj 204747b9b32f dell-E7250-ether
+10.0.0.43 NIA2 NIA2.homerj 94659c6e04b0 dell-E7250-wifi
+10.0.0.44 nia3 nia3.homerj c49dede979d9 sp4-ether
+10.0.0.45 NIA3 NIA3.homerj c49ded251fa0 sp4-wifi

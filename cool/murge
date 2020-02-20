@@ -1,1 +1,213 @@
-../ddn/murge
+#! /usr/bin/python
+"""
+                USER ACCOUNT MERGE PROGRAM
+
+Synchronize GROUP, PASSWD, and SHADOW files on multiple hosts.
+
+        usage: murge -[gps][winer][-f file][-d delim][-l limit]
+
+Further documentation below.
+"""
+#################################################################
+#		VARIABLES
+#################################################################
+
+from __future__ import print_function
+import os, re, sys
+
+filename = None
+updtfile = None
+noroot = 1
+rename = 1
+limit = 0
+delim = ':'
+prog = sys.argv.pop(0)
+namedict = {}
+namelist = []
+orig = adds = chgs = dups = errs = syss = usrs = 0      # counts
+
+#################################################################
+#		USAGE
+#################################################################
+
+def usage(mesg='we need to talk'):
+        print(mesg)
+        print("""
+usage: %s -gpseinfldw args
+        -[gps]          group, passwd, shadow
+        -[hu]           hosts, sudoers [NYI]
+        -r              change root entry
+        -e              cd /etc first
+        -i              use stdin
+        -n              no new/old renaming
+        -f name         specify filename
+        -l limit        specify uid/gid limit
+        -d delim        specify delimiter
+        -w              whitespace delimited
+""" % prog)
+        exit(1)
+
+#################################################################
+
+#################################################################
+#		OPTION PARSING
+#################################################################
+# Somewhat Brittle and tar-like. You get ONE option
+# argument all jumbled together, and necessary fields are picked off
+# the arg list as needed. No files are allowed, altho that might be
+# useful to specify the updates.
+#################################################################
+
+while len(sys.argv):
+    arg = sys.argv.pop(0)
+    if arg    == '--help': usage('merge file')
+    if arg[0] == '-':
+        # Selection Options
+        if 'g' in arg: filename = 'group';  limit = 500
+        if 'p' in arg: filename = 'passwd'; limit = 500
+        if 's' in arg: filename = 'shadow'
+#       if 'h' in arg: filename = 'hosts'               # NYI
+#       if 'u' in arg: filename = 'sudoers'             # NYI
+        if 'f' in arg: filename = sys.argv.pop(0)
+        # Argument Options
+        if 'l' in arg: limit = int(sys.argv.pop(0))
+        if 'd' in arg: delim = sys.argv.pop(0)
+        # Flag Options
+        if 'w' in arg: delim = '[ \t]+'
+        if 'i' in arg: updtfile = sys.stdin
+        if 'n' in arg: rename = 0
+        if 'e' in arg: os.chdir('/etc')
+        if 'r' in arg: noroot = 0
+    else: usage('missing options')
+
+if len(sys.argv):       usage('extra arguments')
+if not filename:        usage('no file specified')
+
+#################################################################
+
+#################################################################
+#		READ ORIGINAL FILE
+#################################################################
+
+for line in open(filename):
+    flds = re.split(delim, line)
+    name = flds[0]                              # str: normal name
+    if name in namedict:
+        dups +=1; name = dups                   # +int: dup name
+        print("***DUP*** " + line, end='')
+    namedict[name] = line
+    namelist.append(name)
+    orig += 1
+
+#################################################################
+#		MERGE CHANGES
+#################################################################
+
+for line in updtfile or open(filename + '.usr'):
+    flds = re.split(delim, line)
+    name = flds[0]
+    if limit:
+        try:
+            id = int(flds[2])
+            if int(id) < limit:
+                    syss += 1; continue
+        except (IndexError,ValueError):
+            errs -= 1; name = errs              # -int: err name
+            print('***ERR*** ' + line, end='')
+    if name == 'root':
+        if noroot: continue
+        syss += 1
+    else:
+        usrs += 1
+    if name in namelist:
+        if line == namedict[name]: continue
+        chgs += 1
+    else:
+        namelist.append(name);
+        adds += 1
+    namedict[name] = line
+
+#################################################################
+#		WRITE UPDATED FILE
+#################################################################
+
+with open(filename + '.new', 'w') as newfile:
+    [newfile.write(namedict[name]) for name in namelist]
+
+if rename:
+    os.rename(filename, filename + '.old')
+    os.rename(filename + '.new', filename)
+
+if filename == 'shadow': os.chmod(filename, 0)  # endswith?
+
+print('%s: %d orig, %d adds, %d chgs, %d dups, %d errs, %d sys, %d usr' %
+        (filename, orig, adds, chgs, dups, -errs, syss, usrs))
+
+exit()
+
+#################################################################
+
+#################################################################
+#		EXPLANATION
+#################################################################
+"""
+This program reads a file and applies updates to it. Each line is
+considered a record consisting of a Key, a Delimiter, and the Rest. In
+the case of the Group and Password files the Third Field is used to
+separate System records from User records. This is currently 500, but
+can be changed with '-l limit'.
+
+The program assumes a ':' delimiter, but that can be changed with
+'-d char', or '-w', which specifies white space.
+
+The Reference file is specified with '-f file'. As a special case, the
+options '-g', '-p', and '-s' specify 'group', 'passwd', and 'shadow'.
+
+Note the lack of '/etc' prefixes. Use '-e' or run it from there. This
+allows the program to be used for debugging or other temporary uses.
+
+The updates are found in a file suffixed with '.usr', or from Standard
+Input if '-i' is given. Updates override the Reference file, but there is
+no way to actually delete records yet. Only User records are updated,
+allowing group and password files from other systems to be used as updates.
+
+The Updated file is created with a '.new' suffix, and normally renamed
+to the Reference file, after that is renamed with a '.old' suffix. This
+can be suppressed with the '-n' option, which is good for debugging.
+
+Use (for example) 'python -m pdb murge -np' for debugging. Then use diff
+-u passwd passwd.new. Obviously, '-i' cannot be used for debugging.
+
+There is some thought to Generalizing this program to other Files,
+Delimiters, and Limits, but the support is Embryonic at this point. Some
+vague notions exist about deleting records exist as well, but they
+are...well...vague.
+
+Option Processing is rather Brittle and somewhat Tarlike. Perhaps the
+Author will venture to learn a Library Module one day.
+
+Using '-r' will change the shadow root password; normally, this is ignored.
+
+This program was inspired by a utility written by Anthony Fletcher at NIH.
+
+Intended use is something like:
+
+        for host in some list of hosts...
+        do
+                rsync /root/murge $host:/root
+                cat /etc/group  | ssh $host /root/murge -gei 
+                cat /etc/passwd | ssh $host /root/murge -pei 
+                cat /etc/shadow | ssh $host /root/murge -sei 
+        done
+
+There is also a companion program named 'uxtract' which creates
+{group,passwd,shadow}.{sys.usr} files with the obvious meaning.
+
+A summary of Record Types and Operations is printed at the end.
+
+BUGS:
+
+Option Handling is Brittle.
+The program is Just Good Enough for its Intended Use.
+"""
+#################################################################

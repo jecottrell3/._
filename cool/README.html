@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>  Cool Programs </title> 
+</head>
+<body>
+
+<h2> INTRODUCTION </h2>
+<p>
+</p><p>
+The Programs and Scripts in this Directory are intended as a Showcase for
+various Techniques and Technologies I have used over time. Please excuse
+any Bad Techniques; many of these were written long ago.
+</p><p>
+Programs are Rarely Finished, they are more often Abandoned. Comments Welcome.
+</p>
+<h2> CATALOG </h2>
+<dl>
+<dt> atops </dt>
+<dd> My version of a2ps, written to replace a crappy Printer Filter
+in SunOS and NeXT circa 1993. Notable for Postcript programming.
+Invoke by running "./atops &lt; atops". </dd>
+<br>
+<dt> bmc </dt>
+<dd> Not really all that special. Uses shell numeric variables. </dd>
+<br>
+<dt> fixown </dt>
+<dd> Used for Renumbering UIDs on Disks. Should probably split out
+the Table into another file. </dd>
+<br>
+<dt> fixpath </dt>
+<dd> Not much to see here either. </dd>
+<br>
+<dt> h2d and h2n </dt>
+<dd> I put the MAC address (minus the colons) in /etc/hosts and generate
+the DHCP and DNS files from it. I use a special trick based on RFC 2137
+to put all the PTRs in the Forward Domain.
+Invoke by "./h2n". The input is ./hosts; output is in "./homerj".
+Not sure why h2p is here. </dd>
+<br>
+<dt> kakuro </dt>
+<dd> Builds a Table for Kakuro puzzles. Just run it to see what it does.
+Once I realized I could write this program this way, I just Owned It.
+Don't Try This At Home!</dd>
+<br>
+<dt> ks.cgi </dt>
+<dd> Our Kickstart File CGI script. A Bit Old, but it shows how I
+structure and document code. </dd>
+<br>
+<dt> uxtract and murge </dt>
+<dd> Not the Best Names. Used to Extract and Merge users, group, and shadow
+file entries. Documented in the murge program. </dd>
+<br>
+<dt> rr </dt>
+<dd> Recursively Remove duplicate files in two trees. This program is
+so old it started as a csh script. Could stand a rewrite. Uses the
+questionable technique that next labels are Dynamically scoped. </dd>
+<br>
+<dt> tab </dt>
+<dd> Print files using Aligned Tabs, much like how MySQL formats its
+query results. Try "./tab : &lt; /etc/passwd". </dd>
+<br>
+<dt> up </dt>
+<dd> Not sure what state this is in. Uses the idea between rsnapshot
+to build a deduped "hive" of backup files. The file lives in /back,
+so it's invoked as /back/up hosts.... </dd>
+<br>
+<dt> zero-disks </dt>
+<dd> I had to remove some (GPT?) Labels from a disk. This wipes the
+first and last GB of a disk. </dd>
+
+<h3> END </h4>
+
+</body>
+</html>

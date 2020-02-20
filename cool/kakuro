@@ -1,0 +1,81 @@
+#! /usr/bin/perl
+
+my $d = 10;	# digit
+my $n = 0;	# level
+my $x = '';	# string
+my $s = 0;	# sum
+my $r;		# result matrix
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+for (my $d = $d, my $n = $n + 1; --$d > 0; )
+{
+	my $x = "$x$d";
+	my $s = $s + $d;
+	push(@{$r->[$n]{$s}}, $x);
+
+} } } } } } } } }
+# 2 3 4 5 6 7 8 9
+
+#use Dumpvalue;
+#(new Dumpvalue)->dumpValue($r);
+#__END__
+
+our($a, $b);	# needed for sort fn
+my $nl = '';	# skip first newline
+
+for $n (2..9)
+{
+	print($nl); $nl = "\n";
+	for $s (sort { $a <=> $b} keys(%{$r->[$n]}))
+	{
+		my $t = sprintf("%2d", $s);
+		printf("$t:$n = @{ $r->[$n]{$s} }\n");
+	}
+}

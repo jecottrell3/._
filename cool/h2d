@@ -1,1 +1,51 @@
-../ddn/h2d
+#! /bin/sh
+
+export PIXIE=10.52.96.48 COBBLER=10.52.96.50
+export OLD=0 IME=0 DQ=0 ERR=0
+
+cd /etc/dhcp
+exec 3>dhcpd.10.10.92
+exec 4>dhcpd.10.52.96
+exec 5>dhcpd.10.52.112
+
+# cat /etc/hosts |
+while read ADR HOST MAC JUNK
+do
+	case $ADR in ('#'*) continue;; esac
+# echo .$ADR.$HOST.$MAC.$JUNK.
+	case $MAC in
+	([0-9a-f]???????????)	: OK;;
+	(aabbccddeeff)	continue;;
+	(*)		continue;;
+	esac
+
+	MAC=$(echo $MAC | sed 's/../&:/g;s/:$//')
+
+	case $HOST in
+	(qixie)		NEXT=" next-server $PIXIE;";;
+	(minicom[12])	NEXT=" next-server $PIXIE;";;
+#	(tn0[1-4])	NEXT=" next-server $COBBLER;";;
+	(wc9?)          NEXT=" next-server $COBBLER;";;
+	(*)		NEXT=;;
+	esac
+
+	P1="host $HOST		{"
+	P2="hardware ethernet $MAC;"
+	P3="fixed-address $ADR;$NEXT }"
+
+	case $ADR in
+# OLD
+	(10.10.92.*)	 echo $P1 $P2 $P3 1>&3; ((++OLD));;
+# IME
+	(10.52.9[6-9].*) echo $P1 $P2 $P3 1>&4; ((++IME));;
+	(10.52.10[0-9].*)echo $P1 $P2 $P3 1>&4; ((++IME));;
+	(10.52.11[0-1].*)echo $P1 $P2 $P3 1>&4; ((++IME));;
+# DQ
+	(10.52.11[2-9].*)echo $P1 $P2 $P3 1>&5; ((++DQ));;
+	(10.52.12[0-7].*)echo $P1 $P2 $P3 1>&5; ((++DQ));;
+# NEW
+	(*) echo ===ERROR===  $P1 $P2 $P3 1>&2; ((++ERR));;
+	esac
+done < /etc/hosts
+exec 3>&- 4>&-
+echo OLD: $OLD, IME: $IME, DQ: $DQ, ERR: $ERR

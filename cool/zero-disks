@@ -1,1 +1,45 @@
-../ddn/zero-disks
+#! /bin/sh
+
+GB=$((1 << 30))
+GS=$((1 << 21))
+GL=$((1 << 18))
+
+echo : 1G = $GB bytes
+echo : 1G = $GS 512 sectors
+echo : 1G = $GL  4k blocks
+
+fdisk -l /dev/sd? |	# All Disks
+tr -d '():*' |		# Trouble Chars
+while read line
+do
+#	echo : $line
+	set -- $line
+	case $1 in
+	(Disk)
+		case $2 in (identifier) continue;; esac
+echo		: $line
+		DISK=${2}
+echo		DISK=$DISK
+		SIZE=$5
+echo		SIZE=$SIZE
+		;;
+	(Sector)
+echo		: $line
+		SECT=$4
+echo		SECT=$SECT
+		HEAD=$((SIZE - GB))
+echo		HEAD=$HEAD
+		case $SECT in
+		(512)	COUNT=$GS;;
+		(4096)	COUNT=$GL;;
+		(*)	echo : $SECT unknown Sector Size; continue;;
+		esac
+		SEEK=$((HEAD / $SECT))
+echo		SEEK=$SEEK
+echo		COUNT=$COUNT
+		echo time dd if=/dev/zero of=$DISK bs=$SECT count=$COUNT
+		echo time dd if=/dev/zero of=$DISK bs=$SECT seek=$SEEK
+		echo :
+		;;
+	esac
+done
