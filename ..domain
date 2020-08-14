@@ -2,6 +2,8 @@ test -f $DEBUG && echo ..domain
 test -s $DEBUG && set -x
 export	TZ=EST5EDT
 test -d /Applications && MAC=1 || MAC=0
+export	B=batcaveadmin
+export	N='n1b0R$1wh3Re!'
 #################################################################
 #	Do Domain Specific Customization
 #################################################################
