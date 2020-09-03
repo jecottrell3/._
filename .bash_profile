@@ -44,6 +44,7 @@ fi
 ((BUG=0))
 ((NEED=0))
 export	 AGENT=$HOME/.ssh/agent@$(hostname)
+: SKIP ||
 while :
 do
 	ssh-add -l >/dev/null 2>&1		# agent running?

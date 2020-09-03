@@ -1,6 +1,7 @@
 #! /bin/sh
 
 SUB1=1.2.3
+SUB1=10.0.0
 export HJ=0 ERR=0
 
 cd /etc/dhcp

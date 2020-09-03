@@ -69,8 +69,8 @@ for line in file(HOSTS).readlines():
 	fields = re.split(r'\s+', line.strip())
 
 	addr = fields.pop(0) if fields else None
-	fqdn = fields.pop(0) if fields else None
 	host = fields.pop(0) if fields else None
+	fqdn = fields.pop(0) if fields else None
 	rest = fields
 
 	if     addr.startswith('127.'): continue
@@ -98,5 +98,5 @@ print(";;;; END ;;;;", file=out)
 print("%d A, %d PTR, %d CNAME, %d TXT" % (aaa,ptr,cnm,txt), file=sys.stderr)
 sys.stdout.close()
 
-# change this for 2016
-os.system('sed -i "s/^1[89]......../$(date +%y%m%d%H%M)/" ' + SOA + FWD)
+# change this for 2022
+os.system('sed -i "s/^2[01]......../$(date +%y%m%d%H%M)/" ' + SOA + FWD)

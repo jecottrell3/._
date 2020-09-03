@@ -18,7 +18,7 @@ alias	manpath='echo $MANPATH | tr : \\012'
 alias	a=alias		ua=unalias	us=unset
 alias	ag='alias | egrep'	eg='env | egrep'	sg='set | egrep'
 alias	e=echo		en='echo -n'	xp=export
-alias	h='fc -l'	r='fc -s'
+alias	h='fc -l'	r='fc -s'	sudo='sudo '
 function i { echo "$1=$PWD"; eval "$1=$PWD"; }
 alias	j='jobs -l'		J='jobs -l'
 alias	t=type		ta='type -a'	fn='declare -f'

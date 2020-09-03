@@ -51,7 +51,7 @@ case ${DOMAIN:-$SEARCH} in
 	;;
 (homerj)
 	echo Welcome to HOMERJ
-	export PRINTER=lp LPDEST=lp
+	export PRINTER=lp LPDEST=lp D=homerj
 	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
 	alias ncbi='ssh -AX cottrell@ssh.ncbi.nlm.nih.gov'
 #       For Cloning CDs
