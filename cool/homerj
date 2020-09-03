@@ -1,0 +1,256 @@
+$TTL 1D
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;    This Zone is Generated in the Style of RFC2137
+;;;;    except that it uses the Whole Address rather than
+;;;;    just the Last Octet. Reverse Zones do something like
+;;;;
+;;;;    $GENERATE 0-255 $.Z.Y.X CNAME X.Y.Z.$.md.ddn.com.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+10.0.0.1               	PTR	wofo
+wofo                   	A	10.0.0.1
+008092aae563           	CNAME	wofo
+10.0.0.1               	TXT	008092aae563
+wofo                   	TXT	008092aae563
+wifi                   	A	10.0.0.1
+hl-2270dw              	A	10.0.0.1
+
+10.0.0.3               	PTR	nucu
+nucu                   	A	10.0.0.3
+b8aeedebea7a           	CNAME	nucu
+10.0.0.3               	TXT	b8aeedebea7a
+nucu                   	TXT	b8aeedebea7a
+nuc5ppyh               	A	10.0.0.3
+
+10.0.0.4               	PTR	vudu
+vudu                   	A	10.0.0.4
+00e04db5529b           	CNAME	vudu
+10.0.0.4               	TXT	00e04db5529b
+vudu                   	TXT	00e04db5529b
+blue                   	A	10.0.0.4
+vodo                   	A	10.0.0.4
+
+10.0.0.5               	PTR	polo
+polo                   	A	10.0.0.5
+30055c020aad           	CNAME	polo
+10.0.0.5               	TXT	30055c020aad
+polo                   	TXT	30055c020aad
+wire                   	A	10.0.0.5
+hl-2270dw              	A	10.0.0.5
+lp                     	A	10.0.0.5
+
+10.0.0.6               	PTR	bogo
+bogo                   	A	10.0.0.6
+0013d4151761           	CNAME	bogo
+10.0.0.6               	TXT	0013d4151761
+bogo                   	TXT	0013d4151761
+realtek-rtl8139        	A	10.0.0.6
+t1752                  	A	10.0.0.6
+
+10.0.0.7               	PTR	mojo
+mojo                   	A	10.0.0.7
+c89cdc6bbd4c           	CNAME	mojo
+10.0.0.7               	TXT	c89cdc6bbd4c
+mojo                   	TXT	c89cdc6bbd4c
+acer                   	A	10.0.0.7
+enp6s0                 	A	10.0.0.7
+
+10.0.0.8               	PTR	loco
+loco                   	A	10.0.0.8
+6cf0497ab9e0           	CNAME	loco
+10.0.0.8               	TXT	6cf0497ab9e0
+loco                   	TXT	6cf0497ab9e0
+t4510                  	A	10.0.0.8
+
+10.0.0.9               	PTR	yoko
+yoko                   	A	10.0.0.9
+fcaa14e714ee           	CNAME	yoko
+10.0.0.9               	TXT	fcaa14e714ee
+yoko                   	TXT	fcaa14e714ee
+realtek-rtl8139        	A	10.0.0.9
+
+10.0.0.10              	PTR	toro
+toro                   	A	10.0.0.10
+0495e6504320           	CNAME	toro
+10.0.0.10              	TXT	0495e6504320
+toro                   	TXT	0495e6504320
+tenda-ac18             	A	10.0.0.10
+dgw                    	A	10.0.0.10
+
+10.0.0.11              	PTR	tr2g
+tr2g                   	A	10.0.0.11
+0495e6504321           	CNAME	tr2g
+10.0.0.11              	TXT	0495e6504321
+tr2g                   	TXT	0495e6504321
+Althea2G               	A	10.0.0.11
+
+10.0.0.12              	PTR	tr5g
+tr5g                   	A	10.0.0.12
+0495e6504325           	CNAME	tr5g
+10.0.0.12              	TXT	0495e6504325
+tr5g                   	TXT	0495e6504325
+Althea5G               	A	10.0.0.12
+
+10.0.0.13              	PTR	NUCU
+NUCU                   	A	10.0.0.13
+00dbdf70ef6d           	CNAME	NUCU
+10.0.0.13              	TXT	00dbdf70ef6d
+NUCU                   	TXT	00dbdf70ef6d
+NUC5PPYH               	A	10.0.0.13
+
+10.0.0.14              	PTR	bear
+bear                   	A	10.0.0.14
+94de807be42c           	CNAME	bear
+10.0.0.14              	TXT	94de807be42c
+bear                   	TXT	94de807be42c
+althea                 	A	10.0.0.14
+
+10.0.0.19              	PTR	fono
+fono                   	A	10.0.0.19
+fcaa14c8ad2d           	CNAME	fono
+10.0.0.19              	TXT	fcaa14c8ad2d
+fono                   	TXT	fcaa14c8ad2d
+james                  	A	10.0.0.19
+
+10.0.0.20              	PTR	ghct
+ghct                   	A	10.0.0.20
+fc1910851025           	CNAME	ghct
+10.0.0.20              	TXT	fc1910851025
+ghct                   	TXT	fc1910851025
+glenda-tablet          	A	10.0.0.20
+
+10.0.0.21              	PTR	ghcp
+ghcp                   	A	10.0.0.21
+98f17089becd           	CNAME	ghcp
+10.0.0.21              	TXT	98f17089becd
+ghcp                   	TXT	98f17089becd
+glenda-phone           	A	10.0.0.21
+
+10.0.0.23              	PTR	jc3p
+jc3p                   	A	10.0.0.23
+ccc079949481           	CNAME	jc3p
+10.0.0.23              	TXT	ccc079949481
+jc3p                   	TXT	ccc079949481
+jim-phone              	A	10.0.0.23
+GalS9                  	A	10.0.0.23
+
+10.0.0.24              	PTR	jc4p
+jc4p                   	A	10.0.0.24
+d453836f03e7           	CNAME	jc4p
+10.0.0.24              	TXT	d453836f03e7
+jc4p                   	TXT	d453836f03e7
+james-phone            	A	10.0.0.24
+
+10.0.0.25              	PTR	jc1p
+jc1p                   	A	10.0.0.25
+e899c47702b3           	CNAME	jc1p
+10.0.0.25              	TXT	e899c47702b3
+jc1p                   	TXT	e899c47702b3
+ht1                    	A	10.0.0.25
+
+10.0.0.26              	PTR	jc2p
+jc2p                   	A	10.0.0.26
+800184f241be           	CNAME	jc2p
+10.0.0.26              	TXT	800184f241be
+jc2p                   	TXT	800184f241be
+ht2                    	A	10.0.0.26
+
+10.0.0.30              	PTR	hopo
+hopo                   	A	10.0.0.30
+30e1711689e3           	CNAME	hopo
+10.0.0.30              	TXT	30e1711689e3
+hopo                   	TXT	30e1711689e3
+jim-laptop             	A	10.0.0.30
+
+10.0.0.31              	PTR	HOPO
+HOPO                   	A	10.0.0.31
+98541b004a60           	CNAME	HOPO
+10.0.0.31              	TXT	98541b004a60
+HOPO                   	TXT	98541b004a60
+jim-wireless           	A	10.0.0.31
+
+10.0.0.32              	PTR	dolo
+dolo                   	A	10.0.0.32
+0024e8cef0fb           	CNAME	dolo
+10.0.0.32              	TXT	0024e8cef0fb
+dolo                   	TXT	0024e8cef0fb
+dell-laptop            	A	10.0.0.32
+
+10.0.0.33              	PTR	DOLO
+DOLO                   	A	10.0.0.33
+0024d61ea39c           	CNAME	DOLO
+10.0.0.33              	TXT	0024d61ea39c
+DOLO                   	TXT	0024d61ea39c
+dell-wireless          	A	10.0.0.33
+
+10.0.0.36              	PTR	mace
+mace                   	A	10.0.0.36
+787b8adba327           	CNAME	mace
+10.0.0.36              	TXT	787b8adba327
+mace                   	TXT	787b8adba327
+mac-laptop             	A	10.0.0.36
+
+10.0.0.37              	PTR	macw
+macw                   	A	10.0.0.37
+1c36bbec8f8b           	CNAME	macw
+10.0.0.37              	TXT	1c36bbec8f8b
+macw                   	TXT	1c36bbec8f8b
+mac-wireless           	A	10.0.0.37
+
+10.0.0.38              	PTR	c55a
+c55a                   	A	10.0.0.38
+008cfa76491e           	CNAME	c55a
+10.0.0.38              	TXT	008cfa76491e
+c55a                   	TXT	008cfa76491e
+james-laptop           	A	10.0.0.38
+
+10.0.0.39              	PTR	C55A
+C55A                   	A	10.0.0.39
+a4db303c01a6           	CNAME	C55A
+10.0.0.39              	TXT	a4db303c01a6
+C55A                   	TXT	a4db303c01a6
+james-wireless         	A	10.0.0.39
+
+10.0.0.40              	PTR	nia1
+nia1                   	A	10.0.0.40
+ecf4bb39189d           	CNAME	nia1
+10.0.0.40              	TXT	ecf4bb39189d
+nia1                   	TXT	ecf4bb39189d
+dell-m2800-ether       	A	10.0.0.40
+
+10.0.0.41              	PTR	NIA1
+NIA1                   	A	10.0.0.41
+d6ca5a740711           	CNAME	NIA1
+10.0.0.41              	TXT	d6ca5a740711
+NIA1                   	TXT	d6ca5a740711
+dell-m2800-wifi        	A	10.0.0.41
+
+10.0.0.42              	PTR	nia2
+nia2                   	A	10.0.0.42
+204747b9b32f           	CNAME	nia2
+10.0.0.42              	TXT	204747b9b32f
+nia2                   	TXT	204747b9b32f
+dell-E7250-ether       	A	10.0.0.42
+
+10.0.0.43              	PTR	NIA2
+NIA2                   	A	10.0.0.43
+94659c6e04b0           	CNAME	NIA2
+10.0.0.43              	TXT	94659c6e04b0
+NIA2                   	TXT	94659c6e04b0
+dell-E7250-wifi        	A	10.0.0.43
+
+10.0.0.44              	PTR	nia3
+nia3                   	A	10.0.0.44
+c49dede979d9           	CNAME	nia3
+10.0.0.44              	TXT	c49dede979d9
+nia3                   	TXT	c49dede979d9
+sp4-ether              	A	10.0.0.44
+
+10.0.0.45              	PTR	NIA3
+NIA3                   	A	10.0.0.45
+c49ded251fa0           	CNAME	NIA3
+10.0.0.45              	TXT	c49ded251fa0
+NIA3                   	TXT	c49ded251fa0
+sp4-wifi               	A	10.0.0.45
+;;;; END ;;;;

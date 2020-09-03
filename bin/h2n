@@ -73,6 +73,9 @@ for line in file(HOSTS).readlines():
 	fqdn = fields.pop(0) if fields else None
 	rest = fields
 
+	if host == fqdn + '.' + FWD:
+		(host, fqdn) = (fqdn, host)
+
 	if     addr.startswith('127.'): continue
 	if not addr.startswith('1'): continue
 	if not addr: continue

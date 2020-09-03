@@ -4,17 +4,19 @@ from __future__ import print_function
 
 import os, sys, re
 
-TAB	= '\t'
-HOSTS	= '/etc/hosts'
-MDN 	= 'md.ddn.com'
-IME 	= 'ime.' + MDN
+####	   REAL			DEMO VERSION
 
-TOP	= '/var/named/'
+TAB	= '\t'
+HOSTS	= '/etc/hosts';		HOSTS	= './hosts'
+MDN 	= 'md.ddn.com';		MDN	= 'homerj'
+IME 	= 'ime.' + MDN;		IME	= 'homerj'
+
+TOP	= '/var/named/';	TOP	= './'
 #TOP	= '/etc/named'
 #TOP	= '/etc/dhcp'
-SOA	= TOP + 'soa/'
-PRI	= TOP + 'pri/'
-TMP	= TOP + 'tmp/'
+SOA	= TOP + 'soa/';		SOA	= TOP
+PRI	= TOP + 'pri/';		PRI	= TOP
+TMP	= TOP + 'tmp/';		TMP	= TOP
 
 soa	= {}
 pri	= {}
@@ -39,14 +41,10 @@ os.chdir(TOP)
 ####	
 ####	sys.stdout = pri[ZONE]
 
-mdn = file(PRI + MDN, 'w'); print(hdr, file=mdn)
+#@	mdn = file(PRI + MDN, 'w'); print(hdr, file=mdn)
 ime = file(PRI + IME, 'w'); print(hdr, file=ime)
 
-#@serial = os.popen('date +%y%m%d%H%M').read().strip()
-
-#@print(fmt % (serial, ZONE))
-
-def AAA_rr(data, out):
+def A___rr(data, out):
 	global aaa
 	aaa += 1
 	print("%-23s	A	%s" % data, file=out)
@@ -80,16 +78,18 @@ for line in file(HOSTS).readlines():
 	if not addr: continue
 	if not host: continue
 
-	if addr.startswith('10.52.'):
-		if host.startswith('ime-'):
-			AAA_rr((host, addr), mdn)
-			host = re.sub('^ime-','', host)
-		out = ime
-	else:	out = mdn
+	if 1:	out = ime
+	else:
+		if addr.startswith('10.52.'):
+			if host.startswith('ime-'):
+				A___rr((host, addr), mdn)
+				host = re.sub('^ime-','', host)
+			out = ime
+		else:	out = mdn
 
 	print(file=out)
+	A___rr((host, addr), out)
 	PTR_rr((addr, host), out)
-	AAA_rr((host, addr), out)
 
 	for name in rest:
 		if name.startswith('#'): break
@@ -99,12 +99,12 @@ for line in file(HOSTS).readlines():
 			CNM_rr((name, host), out)
 			TXT_rr((addr, name), out)
 			TXT_rr((host, name), out)
-		else:	AAA_rr((name, addr), out)	# alias
+		else:	A___rr((name, addr), out)	# alias
 
 print(";;;; END ;;;;", file=out)
 print("%d A, %d PTR, %d CNAME, %d TXT" % (aaa,ptr,cnm,txt), file=sys.stderr)
 sys.stdout.close()
 
 # change this for 2016
-os.system('sed -i s/^15......../$(date +%y%m%d%H%M)/ ' + SOA + MDN)
-os.system('sed -i s/^15......../$(date +%y%m%d%H%M)/ ' + SOA + IME)
+#@	os.system('sed -i s/^15......../$(date +%y%m%d%H%M)/ ' + SOA + MDN)
+####os.system('sed -i "s/^1[56]......../$(date +%y%m%d%H%M)/" ' + SOA + IME)

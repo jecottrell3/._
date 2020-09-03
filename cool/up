@@ -1,1 +1,81 @@
-../ddn/up
+#! /bin/sh
+
+HOST=${1:-$(hostname)}
+SIZE=${2:-99G}
+shift; shift
+TODO="$*"
+KEY=/root/.ssh/id_rsa
+
+TOP=/back/$HOST
+NEXT=$(date +%d)
+LOG=$TOP/$NEXT.log
+LOG=$TOP/log/$NEXT
+LAST=0 SEC=0 MIN=0 HOUR=0
+
+doit()
+{
+	NOW=$(date)
+	((TIME=$(date +%s)))
+	((DIFF=TIME-LAST))
+	((LAST=TIME))
+	((SECS=DIFF%60))
+	((DIFF=DIFF/60))
+	((MINS=DIFF%60))
+	((DIFF=DIFF/60))
+	((HOUR=DIFF))
+	printf "===== $NOW ===== %02d:%02d:%02d =====\\n" $HOUR $MINS $SECS
+	echo "$@" && eval "$@"
+}
+
+if	tty -s			# interactive?
+then	TTY=/dev/tty
+else	TTY=/dev/null
+fi
+
+mkdir -p $TOP/log	# must come outside next section...
+cd       $TOP		# ...because LOG depends on TOP
+
+{
+####	eval $(ssh-agent)
+	ssh-add $KEY
+
+	if test -d 01			# new host?
+	then				# no, get links
+		PREV=$(readlink .next)		
+# temp exdent
+case $PREV in
+($NEXT)		PREV=$(readlink .prev);;# same day, use prev prev
+(*)		> $LOG;;		# new day, wipe log
+esac
+	else	for PREV in {01..31}; do mkdir $PREV; done
+	fi
+
+	rm -f .next .prev
+	ln -s $NEXT .next
+	ln -s $PREV .prev
+
+	cat <<EOF
+%%%%% /back/up $HOST $SIZE $TODO
+%%%%% TOP=$TOP, LOG=$LOG, KEY=$KEY
+%%%%% NEXT=$NEXT, PREV=$PREV
+EOF
+	case $TODO in
+	('')	OPTS= INCS= EXCS= TODO='/etc /var/log'
+		if test -f	./.conf		# per host...
+		then source	./.conf		# ...overrides
+		fi;
+	esac
+
+	echo %%%%% $TODO
+	for FS in  $TODO
+	do
+		mkdir -p $NEXT$FS
+		doit time rsync -WHvaxz --delete --max-size=$SIZE	\
+			-e "'ssh -i $KEY'" --out-format="'%12l    %n%L'"	\
+			$OPTS $INCS $EXCS				\
+			--link-dest=$PWD/$PREV$FS/			\
+			$HOST:$FS/  $PWD/$NEXT$FS/
+	done
+
+	doit : END
+} 2>&1 | tee -a $LOG > $TTY

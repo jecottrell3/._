@@ -1,1 +1,110 @@
-../ddn/h2n
+#! /usr/bin/python
+
+from __future__ import print_function
+
+import os, sys, re
+
+####	   REAL			DEMO VERSION
+
+TAB	= '\t'
+HOSTS	= '/etc/hosts';		HOSTS	= './hosts'
+MDN 	= 'md.ddn.com';		MDN	= 'homerj'
+IME 	= 'ime.' + MDN;		IME	= 'homerj'
+
+TOP	= '/var/named/';	TOP	= './'
+#TOP	= '/etc/named'
+#TOP	= '/etc/dhcp'
+SOA	= TOP + 'soa/';		SOA	= TOP
+PRI	= TOP + 'pri/';		PRI	= TOP
+TMP	= TOP + 'tmp/';		TMP	= TOP
+
+soa	= {}
+pri	= {}
+
+hdr = """$TTL 1D
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;    This Zone is Generated in the Style of RFC2137
+;;;;    except that it uses the Whole Address rather than
+;;;;    just the Last Octet. Reverse Zones do something like
+;;;;
+;;;;    $GENERATE 0-255 $.Z.Y.X CNAME X.Y.Z.$.md.ddn.com.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+"""
+
+os.chdir(TOP)
+####	zones = os.listdir(SOA)
+####	for z in zones:
+####		pri[z] = file(TMP + z, 'w')
+####	####	soa[z] = file(SOA + z, 'w')
+####	
+####	# [ print(z) for z in zones ]
+####	
+####	sys.stdout = pri[ZONE]
+
+#@	mdn = file(PRI + MDN, 'w'); print(hdr, file=mdn)
+ime = file(PRI + IME, 'w'); print(hdr, file=ime)
+
+def AAA_rr(data, out):
+	global aaa
+	aaa += 1
+	print("%-23s	A	%s" % data, file=out)
+
+def PTR_rr(data, out):
+	global ptr
+	ptr += 1
+	print("%-23s	PTR	%s" % data, file=out)
+
+def CNM_rr(data, out):
+	global cnm
+	cnm += 1
+	print("%-23s	CNAME	%s" % data, file=out)
+
+def TXT_rr(data, out):
+	global txt
+	txt += 1
+	print("%-23s	TXT	%s" % data, file=out)
+
+aaa = ptr = cnm = txt = 0
+for line in file(HOSTS).readlines():
+	(line, junk, junk) =  line.partition('#')
+	fields = re.split(r'\s+', line.strip())
+
+	addr = fields.pop(0) if fields else None
+	host = fields.pop(0) if fields else None
+	rest = fields
+
+	if     addr.startswith('127.'): continue
+	if not addr.startswith('1'): continue
+	if not addr: continue
+	if not host: continue
+
+	if 1:	out = ime
+	else:
+		if addr.startswith('10.52.'):
+			if host.startswith('ime-'):
+				AAA_rr((host, addr), mdn)
+				host = re.sub('^ime-','', host)
+			out = ime
+		else:	out = mdn
+
+	print(file=out)
+	PTR_rr((addr, host), out)
+	AAA_rr((host, addr), out)
+
+	for name in rest:
+		if name.startswith('#'): break
+		if name.find('.') != -1: continue
+		if re.match("^aabbccddeeff$", name): continue
+		if re.match("^[0-9a-fA-F]{12}$", name):	# mac
+			CNM_rr((name, host), out)
+			TXT_rr((addr, name), out)
+			TXT_rr((host, name), out)
+		else:	AAA_rr((name, addr), out)	# alias
+
+print(";;;; END ;;;;", file=out)
+print("%d A, %d PTR, %d CNAME, %d TXT" % (aaa,ptr,cnm,txt), file=sys.stderr)
+sys.stdout.close()
+
+# change this for 2016
+#@	os.system('sed -i s/^15......../$(date +%y%m%d%H%M)/ ' + SOA + MDN)
+####os.system('sed -i "s/^1[56]......../$(date +%y%m%d%H%M)/" ' + SOA + IME)

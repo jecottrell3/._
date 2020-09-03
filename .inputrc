@@ -1,3 +1,4 @@
+set bell-style Visible
 set output-meta On
 
 "\M-\e": shell-expand-line
@@ -27,6 +28,8 @@ set output-meta On
 "\M-]": "META ] "
 "\M-\"": "META \" "
 "\M-'": "META ' "
+
+"\C-_": "\C-p\C-asudo "
 
 "`": "\e"
 "\M-`": self-insert

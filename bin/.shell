@@ -1,0 +1,72 @@
+#! /bin/sh
+
+cd /repo
+
+MKO=mirrors.kernel.org
+AKO=archive.kernel.org
+SRPM=vault.centos.org	# NO rsync :(
+
+HOST=$MKO
+DIR=
+OUT=cat
+MAX=99G
+OPT1="-vaxWz"
+OPT2="$OPT1 --delete-excluded"
+
+list()
+{
+	Q=$(echo $DIR | tr / %)
+	echo \
+	rsync $HOST::${DIR:+$DIR/}
+	rsync $HOST::${DIR:+$DIR/} | tee .list/${Q:-top} | $OUT
+}
+
+while :
+do
+	list
+	OUT=cat
+	read -p "$MAX: $HOST::$DIR? " CMD ARG
+
+	case $CMD in
+	('')	continue;;					# REDO
+	('?')	less -j1 '+/while' $0;;				# HELP
+	(zz)	kill -s TSTP $$;;				# SUSPEND
+	([qQ])	break;;						# QUIT
+	([mM])	MAX=$ARG;;					# SIZE
+	(MKO)	HOST=$MKO;	echo Mirror: $HOST; continue;;		# NEW STUFF
+	(AKO)	HOST=$AKO;	echo Mirror: $HOST; continue;;		# OLD STUFF
+	(0)	DIR=;;						# RESET
+	(-)	DIR=${DIR%/*};;					# UP 1
+	(--)	DIR=${DIR%/*};	DIR=${DIR%/*};;			# UP 2
+	(---)	DIR=${DIR%/*};	DIR=${DIR%/*};	DIR=${DIR%/*};;	# UP 3
+	('|')	OUT=less;;					# PAGE
+	(+*)							# COPY
+		FILE=${ARG:-.}
+		OPT3="--max-size=$MAX"
+		mkdir -p $DIR
+		case $CMD in
+		(++)	OPT3="$OPT3 -P";;
+		esac
+		echo \
+		rsync $OPT2 -f '. .filter' $HOST::$DIR/$FILE $DIR/ $OPT3
+		rsync $OPT2 -f '. .filter' $HOST::$DIR/$FILE $DIR/ $OPT3
+		read -p 'OK? ' CMD;;
+	(=)							# READ
+		mkdir -p $DIR
+		rsync $OPT1 $HOST::$DIR/$ARG /tmp
+		less /tmp/$ARG;;
+		#read -p 'OK? ' CMD;;
+	(P)	DIR=${DIR:+$DIR/}Packages;;			# ALIAS
+	(E)	DIR=${DIR:+$DIR/}Everything;;			# ALIAS
+	(F)	DIR=${DIR:+$DIR/}Fedora;;			# ALIAS
+	(f)	DIR=${DIR:+$DIR/}fedora;;			# ALIAS
+	(FA)	DIR=${DIR:+$DIR/}fedora-archive;;		# ALIAS
+	(CA)	DIR=${DIR:+$DIR/}centos-archive;;		# ALIAS
+	(r)	DIR=${DIR:+$DIR/}releases;;			# ALIAS
+	(i)	DIR=${DIR:+$DIR/}i386;;				# ALIAS
+	(x)	DIR=${DIR:+$DIR/}x86_64;;			# ALIAS
+	(a)	DIR=${DIR:+$DIR/}amd64;;			# ALIAS
+	(s)	DIR=$(echo $DIR | sed -e s" $ARG ");;		# SUBST
+	(*)	DIR=${DIR:+$DIR/}$CMD;;				# DOWN
+	esac
+done

@@ -1,0 +1,18 @@
+#! /bin/sh
+
+hue 0 00 00 00
+hue 1 aa 00 00
+hue 2 00 aa 00
+hue 3 aa aa 00
+hue 4 00 00 aa
+hue 5 aa 00 aa
+hue 6 00 aa aa
+hue 7 cc cc cc
+hue 8 77 77 77
+hue 9 ee 77 77
+hue a 77 ee 77
+hue b ee ee 77
+hue c 77 77 ee
+hue d ee 77 ee
+hue e 77 ee ee
+hue f ee ee ee

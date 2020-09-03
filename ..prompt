@@ -18,11 +18,15 @@ test -f $ZC &&	alias	C256='eval $(dircolors $ZC)'
 
 alias	fgh='echo $FG $BG $HI'
 
-SURV='1;7'
+SURV='1;7'; LITE
+
+if 	test -f ~/.mobaxterm
+then	MOBA='*'; color0
+else	MOBA=NOWAY
+fi
+
 case $(tty) in
-(/dev/ttys*)	: echo MAC;;
-(/dev/pts/*)	: echo PSEUDO;;
-(/dev/tty*)	: echo LINUX CONSOLE
+($MOBA|/dev/tty*)	: echo LINUX CONSOLE
 	SURV='7';
 	for FONT in sun12x22.psfu.gz latarcyrheb-sun32.psfu.gz ter-132b.psf.gz
 	do
@@ -33,10 +37,17 @@ case $(tty) in
 
 	LITE					# Always LITE now
 	if	test -x /usr/bin/systemctl	# R7, C7, new
-	then	printf '\e[0;30;47m\e[8]\e[2J'	# Black on Bold White if New
-	else	printf '\e[0;30;47m\e[8]\e[2J'	# Black on Norm White if Old
+	then	printf '\e[0;34;47m\e[8]\e[2J'	# Black on Bold White if New
+	else	printf '\e[0;34;47m\e[8]\e[2J'	# Black on Norm White if Old
 	fi
 	;;
+(/dev/ttys*)	: echo MAC;;
+(/dev/pts/*)	: echo PSEUDO
+		case $TERM in (xterm) source $RBJ/..xterm;; esac;;
+esac
+
+case $HOST in
+(nialng*|lng*)	$RBJ/bin/color0;;
 esac
 
 #D=$(id -u)				# Linux
@@ -45,10 +56,11 @@ ID=$(id | sed 's/(.*//;s/.*=//')	# who needs this?
 ((BG %= 6))			# BG in {0..5}
 ((BG++))			# BG in {1..6}
 
-if	test -w /		# root
-then	HI="$SURV" FG=7		# Bold Color on White
-else	HI=1       FG=7		# Bold White on Color
-fi
+##  if	test -w /		# root
+case "$(id -u)" in		# am I root?
+(0)	HI="$SURV" FG=7;;	# yes, Bold Color on White
+(*)	HI=1       FG=7;;	# no,  Bold White on Color
+esac
 
 PS81=': \t \[\e[${HI};3$FG;4${BG}m\]{\u@\h:\l}\[\e[m\] \w ;\n'
 PS82=': [\#:$?:\j]-\$; '

@@ -1,11 +1,17 @@
 [core]
 	preloadindex = true
 
+[branch]
+	autoSetupRebase = always
+
+[pull]
+#	rebase = preserve
+	rebase = true
+
 [user]
-        name = Jim Cottrell
-#       email = james.cottrell@noaa.gov
-#       email = JECottrell3@Comcast.NET
-        email = jcottrell@juniper.net
+	name = Jim Cottrell
+#	email = JECottrell3@Comcast.NET
+	email = cottrell@NIH.GOV
 
 [color]
 	ui = always

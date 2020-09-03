@@ -8,6 +8,7 @@ umask	2
 #	Find RBJ Account
 #################################################################
 
+export	USER=${USER:-${USERNAME:-$LOGNAME}}
    for JC in $USER cottrell rbj jcottrell jcottrel nobody
 do for dir in /home /homes /Users
 do
@@ -58,6 +59,7 @@ do
 		ssh-agent | grep = >	$AGENT;;
 	(*)	: error
 		echo  $?@$NEED $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK;
+		sleep 9
 		exit  $?;;
 	esac
 	test -f $AGENT && source  $AGENT	# remember the past
@@ -89,7 +91,7 @@ eval $($RBJ/bin/fixpath MANPATH)
 
 export	ID=$(id | sed 's/).*//;s/.*(//')
 export	LESS=-MQRcdeisj11
-export	LANG=C LOCALE=C LC_ALL=C
+export	LANG=POSIX LOCALE=POSIX LC_ALL=POSIX
 export	VERSION_CONTROL=numbered
 export	HISTCONTROL=ignoreboth
 #export	HISTIGNORE=?	# any single letter

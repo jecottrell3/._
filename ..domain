@@ -2,6 +2,8 @@ test -f $DEBUG && echo ..domain
 test -s $DEBUG && set -x
 export	TZ=EST5EDT
 test -d /Applications && MAC=1 || MAC=0
+export	B=batcaveadmin
+export	N='n1b0R$1wh3Re!'
 #################################################################
 #	Do Domain Specific Customization
 #################################################################
@@ -9,7 +11,7 @@ test -d /Applications && MAC=1 || MAC=0
 	  HOST=$(hostname -s)
 	  FQDN=$(hostname -f)
 if	((MAC))
-then	DOMAIN=u.group IP=too-hard-for-now
+then	DOMAIN=$NIA    IP=too-hard-for-now
 else
 	DOMAIN=$(hostname -d)
 	    IP=$(hostname -i)
@@ -18,47 +20,27 @@ fi
 set +x
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
+export	NIA=nia.$NIH		HJ=homerj
 
-export	NOAA=noaa.gov
-export	NCEP=ncep.$NOAA
-export	JIM=nco-lw-jcottrell.$NCEP
+for SEARCH in $NIA $NIH $HJ NOWHERE
+do
+	\grep -q $SEARCH $RC && break
+done
+: $SEARCH
+set +x
 
-if	egrep -q homerj     /etc/resolv.conf
-then	SEARCH=homerj
-fi
-
-noaa="source $RBJ/..noaa"
  nih="source $RBJ/..nih"
+ nia="source $RBJ/..nia"
  nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
 (bytecubed.com|u.group)
 	echo Welcome to The U
-	#GITLAB=it-gitlab.junipercloud.net	# 10.76.7.70 10.76.18.102
-	#GITTOP=https://$GITLAB/infosec/operations-sunrise
-
-	JC2=ec2-54-89-70-224.compute-1.amazonaws.com
-	JC3=ec2-54-83-108-51.compute-1.amazonaws.com
 	alias	pem='ssh-add ~/.ssh/*.pem'
-	alias	jc2="ssh ec2-user@$JC2"
-	alias	jc3="ssh   ubuntu@$JC3"
-
-	# TAOS/JUNIPER
-	#export	JHOST=ldap://dcjnprjpsvl1.jnpr.net
-	#export	JBIND=jcottrell@JNPR.NET
-	#export	JBASE=dc=jnpr,dc=net
-	#alias	jds="ldapsearch -LLL -H $JHOST -N -D $JBIND -b $JBASE"
 	;;
 (homerj)
 	echo Welcome to HOMERJ
 	export PRINTER=lp LPDEST=lp D=homerj
-	alias dcrt='ssh -AX cottrell@hastings.cit.nih.gov'
-	alias ncbi='ssh -AX cottrell@ssh.ncbi.nlm.nih.gov'
-#       For Cloning CDs
-	alias	L='lsof /dev/scd0'
-	alias	P='pkill kio_audio'
-	alias	K='k3b'
-	alias	S='pm-suspend'
 	;;
 (*.noaa.gov)
 	$noaa
@@ -107,47 +89,41 @@ case ${DOMAIN:-$SEARCH} in
 	alias	rps='rake puppetmaster:restart:be-md'
 	alias	rpw='rake puppetmaster:restart:st-va'
 	;;
+(nia.nih.gov)
+	echo Welcome to NIA
+	;;
 (*nih.gov)
 #	$nih
 	echo Welcome to NIH
-	export	BASE=ou=NIH,OU=AD,DC=NIH,DC=gov
+	export	BASE='ou=NIH,OU=AD,DC=NIH,DC=gov'
 
-	#alias	lds="ldapsearch -b $BASE -h ldapad.nih.gov"
-	#alias	ldx="ldapsearch -b $BASE -h strudel.cit.nih.gov -x"
+	export	BIND='CN=cottrell,OU=Users,OU=NIA-IRP,OU=NIA,OU=NIH,OU=AD,DC=nih,DC=gov'
+	alias	ldx="ldapsearch -b $BASE -h ldapad.nih.gov -D $BIND -o ldif-wrap=no"
 
 	export	TFTP=/var/lib/tftpboot
 	export	MENU=$TFTP/pxelinux.cfg
 	export	IMGS=$TFTP/images
 	;;
 (*)
-	echo Welcome to NOWHERE;;
+	echo  Welcome to NOWHERE
+	D=NOWHERE DOMAIN=NOWHERE;;
 esac
-
-# Script OnEach
-
-soe()
-{
-	OPTS=$-
-	set "$@"
-	file=$1; shift
-	script $file -c "oneach -aSp $*"
-	set $OPTS
-}
 
 #################################################################
 
-#ource	/root/ks.vars			# TEMPORARY
-export	FR=/repo/fc19/comps/.pkgs	# TEMPORARY
-export	FC=/repo/ks/g2/fc19		# TEMPORARY
-export	YUM=$FC/yum			# TEMPORARY
+GMC()
+{
+	grub2-mkconfig -o /$CGC
+	\grep ^menuentry   /$CGC
+}
 
-NOBOOT() { sudo mv /boot/grub/grub.conf{,ig}; }
-VIBOOT() { vi /resq/boot/grub/grub.conf; }
+#ource	/root/ks.vars			# TEMPORARY
 
 YI() { for x in $(<$1); do rpm -q $x || sudo yum install $x; done; }
-YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | grep -v ^--;done; }
+YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | \grep -v ^--;done; }
 YN() { yum info $(<$1) | less -j1 +/'^Name.*'; }
 YY() { while read x; do yum info "*$x*" | less -j1 +/'^Name.*'; done; }
 
 #################################################################
+tw() { time wordsin $*; }
 set +x

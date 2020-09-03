@@ -27,6 +27,9 @@ do
 		gid=1009
 		grp=sysadm
 		shift 1;;
+	(nasa)  rbj=jecottre
+		uid=200115213	# TBD
+		shift 1;;
 	(nih)   rbj=cottrell
 		uid=200115213
 		shift 1;;
