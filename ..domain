@@ -126,4 +126,5 @@ YY() { while read x; do yum info "*$x*" | less -j1 +/'^Name.*'; done; }
 
 #################################################################
 tw() { time wordsin $*; }
+tt() { mv "track$1.cdda.wav" "${3:-$1}-$2.wav"; }
 set +x

@@ -60,12 +60,13 @@ do
 	(*)	: error
 		echo  $?@$NEED $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK;
 		sleep 9
-		exit  $?;;
+		break # WAS: exit  $?;;
 	esac
 	test -f $AGENT && source  $AGENT	# remember the past
 	((NEED++))
 done
 
+: SKIP ||
 { test -n "$SSH_AGENT_PID" || ((MAC)); } &&	# original login host
 env | grep SSH_ | sed 's/^/export /' > $AGENT
 

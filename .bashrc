@@ -52,3 +52,4 @@ case $SSH_AUTH_SOCK in
 esac
 
 #################################################################
+alias rbj='source /root/._/.bash_profile'

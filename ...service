@@ -1,19 +1,34 @@
 test -f $DEBUG && echo ...service
 #################################################################
-#	SERVICE   (0=stop, 1=start, 2=status, 3=restart, others)
-#	SYSTEMCTL (4=disable, 5=enable, 6=is-enabled, 7=reenable)
-#	CHKCONFIG (std 012 => systemctl 456, 8=delete, 9=add)
+####	SYSTEMCTL	####	R.I.P. to SERVICE and CHKCONFIG
 #################################################################
-s0() { service $* stop; };	alias z0='systemctl stop'
-s1() { service $* start; };	alias z1='systemctl start'
-s2() { service $* status; };	alias z2='systemctl status'
-s3() { service $* restart; };	alias z3='systemctl restart'
-c0() { chkconfig $* off; };	alias z4='systemctl disable';
-c1() { chkconfig $* on; };	alias z5='systemctl   enable'
-c2() { chkconfig --list $*; };	alias z6='systemctl is-enabled'
+alias sc='systemctl';
 
-c8() { chkconfig --del  $*; }	
-c9() { chkconfig --add  $*; }	
+alias z0='systemctl stop'
+alias z1='systemctl start'
+alias z2='systemctl status'
+alias z3='systemctl reload-or-restart';
+alias z4='systemctl disable'
+alias z6='systemctl disable --now'
+alias z5='systemctl  enable'
+alias z7='systemctl  enable --now'
+alias z6='systemctl is-enabled'
+alias z8='systemctl get-default'
+alias z9='systemctl set-default'
+#################################################################
+#	Firewall
+#################################################################
+alias	fc='firewall-cmd'
+alias	f0='firewall-cmd remove-service'
+alias	f1='firewall-cmd add-service'
+alias	f2='firewall-cmd --list-all'
+alias	f3='firewall-cmd --reload'
+alias	f4='firewall-cmd xxx'
+alias	f5='firewall-cmd xxx'
+alias	f6='firewall-cmd xxx'
+alias	f7='firewall-cmd xxx'
+alias	f8='firewall-cmd xxx'
+alias	f9='firewall-cmd xxx'
 #################################################################
 #	Authconfig
 #################################################################
@@ -41,27 +56,27 @@ alias	i2=ifconfig		k2=klist
 alias	i3='i0; i1'		k3='k0; k1'
 alias	k8='unset KRB5_TRACE'	k9='export KRB5_TRACE=/dev/stderr'
 #################################################################
-#	SSH-ADD		&	SMART CARDS
+#	SSH-ADD
 #################################################################
-alias	a0='ssh-add -D'		a1='ssh-add'
+alias	a0='ssh-add -d'		a1='ssh-add'
 alias	a2='ssh-add -l'		a3='ssh-add -l || ssh-add'
 alias	a4='ssh-add -L'		a5='ssh-add -l -E md5'
 alias	a6='ssh-add -X'		a7='ssh-add -x'
-# LCK=libcoolkeypk11.so OSC=opensc-pkcs11.so
-#lias   a4="ssh-add -e $LCK"	a5="ssh-add -s $LCK"	a6="a4;a5"
-#lias   a8="ssh-add -e $OSC"	a9="ssh-add -s $OSC"	a7="a8;a9"
-#lias	a2='ssh-add -l'		a3='ssh-add -D;   ssh-add'
 #################################################################
-#	SSH-AGENT
+#	SSH-AGENT		&	SMART CARDS
 #################################################################
-alias	g0='ssh-agent -k'		g1='eval $(ssh-agent)'
-alias	g2='ssh-agent -l'		g3='ssh-agent bash -l'
+alias	g0='ssh-agent -k'	g1='eval $(ssh-agent)'
+alias	g2='ssh-agent -l'	g3='ssh-agent bash -l'
+LCK=/usr/lib64/pkcs11/libcoolkeypk11.so	# moved from above
+OSC=/usr/lib64/pkcs11/opensc-pkcs11.so	# Smart Cards Only
+alias   g6="ssh-add -e $LCK"	g7="ssh-add -s $LCK"
+alias   g8="ssh-add -e $OSC"	g9="ssh-add -s $OSC"
 #################################################################
 #	SWAP		/	MOUNT
 #################################################################
 alias	w0='swapoff -av'	m0='umount -av'
 alias	w1='swapon  -av'	m1='mount  -av'
-alias	w2='swapon  -s'		m2='mount'
+alias	w2='swapon  -s'		m2='mount'	m4='umount'
 alias	w3='w0; w1'		m3='m0; m1'
 #################################################################
 #	RKHunter	/	KPARTX
@@ -70,15 +85,6 @@ alias	r0='time rkhunter -c'		x0='kpartx -dv'
 alias	r1='time rkhunter -C'		x1='kpartx -av'
 alias	r2='time rkhunter --cronjob --report-warnings-only'
 alias	r3='time rkhunter --propupd'	x2='kpartx -lv'
-#################################################################
-#	CHKCONFIG
-#################################################################
-function c0() { chkconfig $* off; }	
-function c1() { chkconfig $* on; }	
-function c2() { chkconfig --list $*; }	
-
-function c8() { chkconfig --del  $*; }	
-function c9() { chkconfig --add  $*; }	
 #################################################################
 #	BIND/NAMED
 #################################################################
@@ -115,6 +121,7 @@ alias	t3='service ntpd restart'
 alias	t4='ntpq -p'
 alias	t5='ntpdc'
 alias	t6='ntpdate ticktock1'
+alias	t9='chronyc sources'
 #################################################################
 #	SLURM
 #################################################################
