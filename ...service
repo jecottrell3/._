@@ -18,17 +18,18 @@ alias z9='systemctl set-default'
 #################################################################
 #	Firewall
 #################################################################
-alias	fc='firewall-cmd'
-alias	f0='firewall-cmd remove-service'
-alias	f1='firewall-cmd add-service'
+alias	fw='firewall-cmd'
+
+alias	f0='firewall-cmd --remove-service'
+alias	f1='firewall-cmd --add-service'
 alias	f2='firewall-cmd --list-all'
 alias	f3='firewall-cmd --reload'
-alias	f4='firewall-cmd xxx'
+alias	f4='firewall-cmd --get-services'
 alias	f5='firewall-cmd xxx'
 alias	f6='firewall-cmd xxx'
 alias	f7='firewall-cmd xxx'
-alias	f8='firewall-cmd xxx'
-alias	f9='firewall-cmd xxx'
+alias	f8='firewall-cmd --complete-reload'
+alias	f9='firewall-cmd --runtime-to-permanent'
 #################################################################
 #	Authconfig
 #################################################################

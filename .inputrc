@@ -15,7 +15,7 @@ set output-meta On
 "\M-v": " --max-size="
 "\M-w": "\C-w\C-y=$\C-y\e\C-e"
 "\M-x": "fg; exit"
-"\M-z": "lsb_release -sir\n"
+"\M-z": " --permanent"
 
 "\M-%": "META % "
 "\M-(": "META ( "

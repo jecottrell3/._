@@ -100,12 +100,12 @@ test -x /usr/bin/vim &&
 export	  EDITOR=vim ||
 export	  EDITOR=vi
 export	PS4='% '
-export	R=$(uname -r)	X=x86_64
+export	P=--permanent	R=$(uname -r)	X=x86_64
 export	TMOUT=0 REV=$R
 export	TTY=$(tty | tr -dc 0123456789)
 export	VIMINIT="source $RBJ/.vimrc"
 
-export	CVS_RSH=/usr/bin/ssh
+##port	CVS_RSH=/usr/bin/ssh
 
 export     M1=--max-size=1M K1111=--max-size=1111K G1=--max-size=1G
 export    M11=--max-size=11M K111=--max-size=111K G11=--max-size=11G
