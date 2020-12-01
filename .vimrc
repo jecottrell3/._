@@ -12,6 +12,7 @@ else
 	:map \		:n<CR>
 	:colorscheme default
 	:colorscheme peachpuff
+	:colorscheme murphy
 endif
 
 :highlight Search ctermfg=3 ctermbg=4 cterm=bold
