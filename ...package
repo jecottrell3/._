@@ -3,9 +3,8 @@ test -f $DEBUG && echo ...package
 #	PACKAGING -- TAR
 #################################################################
 
-alias	tvzf='tar tvzf'		tvjf='tar tvjf'
-alias	xvzf='tar xvzf'		xvjf='tar xvjf'
-alias	cvzf='tar cvzf'		cvjf='tar cvjf'
+alias	tvf='tar  tvf'	xvf='tar  xvf'	cvf='tar  cvf'
+alias	zvf='tar zcvf'	jvf='tar jcvf'	Jvf='tar Jcvf'
 
 #################################################################
 #	PACKAGING -- RPM
@@ -40,7 +39,6 @@ done
 #################################################################
 
 alias	yc=' sudo yum clean all'	ys=' yum search'
-alias	yli='sudo yum localinstall'	ily='sudo yum localinstall -y'
 alias	yi=' sudo yum install'		ygi='sudo yum groupinstall'
 alias	iy=' sudo yum install -y'	igy='sudo yum groupinstall -y'
 alias	yl='      yum list'		ygl='     yum grouplist'

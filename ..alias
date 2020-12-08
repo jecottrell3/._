@@ -76,10 +76,10 @@ alias	d='rm -i'		rfv='rm -rfv'
 alias	dm='less +/"^diff.*"'
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
-alias	dh='df -hT'	uh='du -h'	df='df -k'
+alias	dh='df -hT'	uh='du -h'	hs='sort -h'
 alias	gd='git diff --no-index'
 
-function dust() { du -sh "$@" | tee .DU. | sort -n > .DS.; }
+function dust() { du -sh "$@" | tee .DU. | sort -h > .DS.; }
 
 alias	ds='dig +search'	dx='dig -x'
 
@@ -143,6 +143,7 @@ alias	ns=nslookup
 
 alias	ox='openssl x509 -noout -text -in'
 alias	os='openssl x509 -noout -subject -issuer -in'
+alias	op='openssl passwd -1 -stdin'
 
 alias	p='ps -ef | egrep'	pp='ping -c1 -w2'
 alias	pie='perl -pi -e'
@@ -166,9 +167,6 @@ alias	sun22='setfont          sun12x22.psfu.gz'
 alias	sun32='setfont latarcyrheb-sun32.psfu.gz'
 alias	ter32='setfont           ter-132b.psf.gz'
 
-alias	tvf='tar  tvf'		xvf='tar  xvf'
-alias	cvf='tar  cvf'		zvf='tar czvf'
-alias	jvf='tar cjvf'		Jvf='tar cJvf'
 alias	tf='tail -F'		jim="su - $JC"
 
 alias	rax='time rsync  -vaxzS'  rs='time rsync -CzS'
