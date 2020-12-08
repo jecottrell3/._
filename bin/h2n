@@ -65,6 +65,7 @@ def TXT_rr(data, out):
 
 aaa = ptr = cnm = txt = 0
 for line in file(HOSTS).readlines():
+	if not line.startswith('10.0.0'): continue
 	(line, junk, junk) =  line.partition('#')
 	fields = re.split(r'\s+', line.strip())
 
@@ -74,7 +75,7 @@ for line in file(HOSTS).readlines():
 	rest = fields
 
 	if     addr.startswith('127.'): continue
-	if not addr.startswith('1'): continue
+	if not addr.startswith('10.0.0'): continue
 	if not addr: continue
 	if not host: continue
 
