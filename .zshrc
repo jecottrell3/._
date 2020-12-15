@@ -1,4 +1,4 @@
-test -f $DEBUG && echo .zshrc
+((DEBUG)) && echo .zshrc
 # $Id: .bashrc 205 2012-01-25 21:11:46Z JECottrell3@gmail.com $
 #################################################################
 #	MISC

@@ -1,5 +1,5 @@
-test -f $DEBUG && echo ..alias
-alias	debug="touch $DEBUG"	nobug="rm -f $DEBUG"
+((DEBUG)) && echo ..alias
+##alias	debug="touch $DEBUG"	nobug="rm -f $DEBUG"
 #################################################################
 #	COMPLEX ALIASES
 #################################################################
@@ -159,7 +159,7 @@ alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
 alias	sir='lsb_release -sir'	su='su -p'	se=sudoedit
 alias	sl='ln -s'		slf='ln -sf'
 
-function sp() { time rsync -CvaxzS ~/.ssh $1:; }
+defun	sp() { time rsync -CvaxzS ~/.ssh $1:; }
 alias	tax='ssh -tAX'		sj="ssh -tAX -l $JC"
 
 alias	sun16='setfont latarcyrheb-sun16.psfu.gz'

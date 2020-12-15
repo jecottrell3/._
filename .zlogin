@@ -1,1 +1,1 @@
-test -f $DEBUG && echo .zlogin
+((DEBUG)) && echo .zlogin

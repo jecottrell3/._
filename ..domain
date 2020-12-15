@@ -1,5 +1,5 @@
-test -f $DEBUG && echo ..domain
-test -s $DEBUG && set -x
+((DEBUG)) && echo ..domain
+#@st -s $DEBUG && set -x
 export	TZ=EST5EDT
 test -d /Applications && MAC=1 || MAC=0
 export	B=batcaveadmin

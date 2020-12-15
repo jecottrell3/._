@@ -24,9 +24,9 @@ done
 export	JC JOME
 export	RBJ=$JOME/._
 export	SRC=$JOME/src;
-export	DEBUG=$RBJ/..debug;
+export	DEBUG		#### DO NOT SET A VALUE ####
 
-test -f $DEBUG && echo .bash_profile HOME=$HOME
+((DEBUG)) && echo .bash_profile HOME=$HOME
 export	BG=$RANDOM
 
 export	LESSKEY=$RBJ/.less
