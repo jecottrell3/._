@@ -1,44 +1,37 @@
-test -f $DEBUG && echo ...package
+((DEBUG)) && echo ...package
 #################################################################
 #	PACKAGING -- TAR
 #################################################################
-
 alias	tvf='tar  tvf'	xvf='tar  xvf'	cvf='tar  cvf'
 alias	zvf='tar zcvf'	jvf='tar jcvf'	Jvf='tar Jcvf'
-
 #################################################################
 #	PACKAGING -- RPM
 #################################################################
-
 alias	ivh='rpm -ivh'	uvh='rpm -Uvh'
-
 alias	qc=' rpm -qc'	qd='  rpm -qd' 
 alias	qf=' rpm -qf'	qp='  rpm -qp' 
 alias	q='  rpm -q'	qa='  rpm -qa'
 alias	qi=' rpm -qi'	qai=' rpm -qai'
 alias	qil='rpm -qil'	qail='rpm -qail'
-function qw { rpm -qf $2 $3 $4 $5 $(which $1); }
 
-alias	QC='rpm -q --conflicts'
-alias	QP='rpm -q --provides'
-alias	QO='rpm -q --obsoletes'
-alias	QR='rpm -q --requires'
-
+alias	QC=' rpm -q --conflicts'
+alias	QP=' rpm -q --provides'
+alias	QO=' rpm -q --obsoletes'
+alias	QR=' rpm -q --requires'
 alias	qwp='rpm -q --whatprovides'
 alias	qwr='rpm -q --whatrequires'
 
-qq() { rpm -qi $* | less +/'^Name.*'; }
+qq()	{ rpm -qi $* | less +/'^Name.*'; }
+qw()	{ rpm -qf $2 $3 $4 $5 $(which $1); }
 
 for x in ba bb bc bi bl bp bs
 do
-	eval alias $x="'rpmbuild -$x'"
+	eval alias "$x='rpmbuild -$x'"
 done
-
 #################################################################
-#	PACKAGING -- YUM
+#	PACKAGING -- YUM & PACKAGE-CLEANUP
 #################################################################
-
-alias	yc=' sudo yum clean all'	ys=' yum search'
+alias	yc=' sudo yum clean all'	ys='      yum search'
 alias	yi=' sudo yum install'		ygi='sudo yum groupinstall'
 alias	iy=' sudo yum install -y'	igy='sudo yum groupinstall -y'
 alias	yl='      yum list'		ygl='     yum grouplist'
@@ -56,35 +49,4 @@ alias	orphans='   package-cleanup --orphans'
 alias	dupes='     package-cleanup --dupes'
 alias	cleandupes='package-cleanup --cleandupes'
 alias	oldkernels='package-cleanup --oldkernels'
-
-#################################################################
-#	YP/NIS -- old and new aliases
-#	only here because they began with Y -- now they don't
-#################################################################
-
-#ypbind        ypchfn        ypmatch       yppush        ypset
-#ypc           ypchsh        yppasswd      ypserv        yptest
-#ypcat         ypdomainname  yppoll        ypserv_test   ypwhich
-
-		function YP {
-alias	yc=ypcat	yk='ypcat -k'
-alias	ym=ypmatch	yw='ypwhich -m'
-alias	yb=ypbind	ys=ypset
-alias	yv=ypserv	yo=yppoll
-alias	yu=yppush	yx=ypxfr
-alias	yg=ypgrep
-
-alias	Y=ypgrep	W='ypwhich -m'
-alias	C=ypcat		K='ypcat -k'
-
-function ypgrep
-{
-	typeset map=$1; shift
-	case $map in
-	(auto*) ypcat -k $map;;
-	(*)     ypcat    $map;;
-	esac | grep "$@"
-}
-		}
-
 #################################################################

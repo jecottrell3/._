@@ -1,22 +1,26 @@
 #! /bin/sh
 
-SSH=git@github.com:jecottrell3/._.git
-WEB=https://github.com/jecottrell3/._.git
-USR=https://jecottrell3@github.com/jecottrell3/._.git
+WHO=jecottrell3
+WHERE=github.com
+SSH=ssh://git@$WHERE
+WEB=https://$WHERE
+USR=https://$WHO@$WHERE
 
 case $1 in
-(-s)	PULL=$SSH PUSH=$SSH;;
-(-h)	PULL=$WEB PUSH=$WEB;;
-(-p)	PULL=$WEB PUSH=$USR;;
+(-s)	PULL=$SSH PUSH=$SSH; shift;;
+(-h)	PULL=$WEB PUSH=$WEB; shift;;
+(-p)	PULL=$WEB PUSH=$USR; shift;;
 (*)	echo "usage:	$0 -[shp]
 	-s	SSH
 	-h	HTTP
 	-p	user@HTTP"; exit 1;;
 esac
 
+WHAT=${1:-._}
+
 cd $RBJ
-git remote -v
-git remote -v set-url        origin $PULL
-echo =====
-git remote -v set-url --push origin $PUSH
-git remote -v
+echo git remote -v
+echo git remote -v set-url        origin $PULL/$WHO/$WHAT.git
+echo : ==== :
+echo git remote -v set-url --push origin $PUSH/$WHO/$WHAT.git
+echo git remote -v

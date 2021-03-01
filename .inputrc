@@ -23,13 +23,13 @@ set output-meta On
 "\M-+": "META + "
 "\M-,": "META , "
 "\M-:": "META : "
-"\M-;": "META ; "
+"\M-;": "\C-e;l\n"
 "\M-@": "META @ "
 "\M-]": "META ] "
 "\M-\"": "META \" "
 "\M-'": "META ' "
 
-"\C-_": "\C-p\C-asudo "
+"\C-_": "\C-asudo "
 
 "`": "\e"
 "\M-`": self-insert

@@ -13,29 +13,40 @@ done
 #	SHELL ALIASES
 #################################################################
 
+alias	defun=function
 alias	   path='echo    $PATH | tr : \\012'
 alias	manpath='echo $MANPATH | tr : \\012'
-alias	a=alias		ua=unalias	us=unset
-alias	ag='alias | egrep'	eg='env | egrep'	sg='set | egrep'
+
+alias	 a='alias'			ag='alias | egrep'
+alias	us='unset'			sg='set   | egrep'
+alias	uf='unset -f'			eg='env   | egrep'
+
+defun	b() { mkdir -p "$@" && cd "$@"; }
+defun	c() { cd    "$@" && ls -FAC; }
+defun	u() { cd ../"$@" && ls -FAC; }
+defun	s() { cd $(echo "$PWD" | sed "s%$1%$2%"); }
+defun	i() { echo "$1=$PWD"; eval "$1=$PWD"; }
+
 alias	e=echo		en='echo -n'	xp=export
 alias	h='fc -l'	r='fc -s'	sudo='sudo '
-function i { echo "$1=$PWD"; eval "$1=$PWD"; }
-alias	j='jobs -l'		J='jobs -l'
+alias	j='jobs -l'	pd=pushd	po=popd
 alias	t=type		ta='type -a'	fn='declare -f'
 alias	nohup='nohup '	sudo='sudo '	time='time '
 
-alias	vb='vi $RBJ/.bashrc;	source $RBJ/.bashrc'
-alias	zb='vi $RBJ/.zshrc;	source $RBJ/.zshrc'
-alias	ze='vi $RBJ/.zshenv;	source $RBJ/.zshenv'
-alias	va='vi $RBJ/..alias;	source $RBJ/..alias'
-alias	vc='vi $RBJ/..complete;	source $RBJ/..complete'
-alias	vo='vi $RBJ/..domain;	source $RBJ/..domain'
-alias	vp='vi $RBJ/.bash_profile; source $RBJ/.bash_profile'
-alias	zp='vi $RBJ/.zprofile;	source $RBJ/.zprofile'
-alias	vr='vi $RBJ/..prompt;	source $RBJ/..prompt'
-alias	zr='vi $RBJ/..zprompt;	source $RBJ/..zprompt'
-alias	vv='vi $RBJ/..vars;	source $RBJ/..vars'
-alias	vn='vi $RBJ/.inputrc'	vk='vi $HOME/.ssh/known_hosts'
+viso()	{ vi $*; source $*; }
+alias	vb='viso $RBJ/.bashrc'
+alias	zb='viso $RBJ/.zshrc'
+alias	ze='viso $RBJ/.zshenv'
+alias	va='viso $RBJ/..alias'
+alias	vc='viso $RBJ/..complete'
+alias	vo='viso $RBJ/..domain'
+alias	vp='viso $RBJ/.bash_profile'
+alias	zp='viso $RBJ/.zprofile'
+alias	vr='viso $RBJ/..prompt'
+alias	zr='viso $RBJ/..zprompt'
+alias	vv='viso $RBJ/..vars'
+alias	vn='vi   $RBJ/.inputrc'
+alias	vk='vi $HOME/.ssh/known_hosts'
 
 alias	vd='vimdiff'		vf='sudo vim /etc/fstab'
 alias	hd='vimdiff -o'		vh='sudo vim /etc/hosts'
@@ -43,13 +54,8 @@ alias	vs='sudo visudo'	vg='sudo vim /boot/grub/grub.conf'
 alias	x='for x in'		y='fg %-'
 alias	zz=suspend		zzz='suspend -f'
 
-function b() { mkdir -p "$@" && cd    "$@"; }
-function c() { cd    "$@" && ls -FAC; }
-function u() { cd ../"$@" && ls -FAC; }
-function s() { cd $(echo "$PWD" | sed "s%$1%$2%"); }
-
-function loudly() { echo "$@"; eval "$@"; }
-function npv() { while sleep 10; do pkill npviewer.bin; done & }
+defun	loudly() { echo "$@"; eval "$@"; }
+defun	npv() { while sleep 10; do pkill npviewer.bin; done & }
 
 #################################################################
 #	SIMPLE ALIASES
@@ -76,16 +82,16 @@ alias	d='rm -i'		rfv='rm -rfv'
 alias	dm='less +/"^diff.*"'
 alias	im='less +/"^[Ii]ndex: .*"'
 alias	ym='less +/".*[<>|].*"'
-alias	dh='df -hT'	uh='du -h'	hs='sort -h'
+alias	dh='df -hT'		uh='du -h'
 alias	gd='git diff --no-index'
 
-function dust() { du -sh "$@" | tee .DU. | sort -h > .DS.; }
+defun	dust() { du -sh "$@" | tee .DU. | sort -h > .DS.; }
 
 alias	ds='dig +search'	dx='dig -x'
 
 alias	ud='diff -u'		UD='diff -U 0'
 alias	dr='diff -ur'		dy='diff -y'
-function rude()
+defun	rude()
 {
 	diff -ru "$@" |
 	less +/"^(diff|Only).*"
@@ -102,15 +108,15 @@ else
 	alias	egrep='egrep --color=auto'
 fi
 
-function gm {  egrep --color=always "$@" | less -r; }
+defun	gm {  egrep --color=always "$@" | less -r; }
 alias	g='egrep'		gi='egrep -i'
 alias	v='egrep -v'		gl='egrep -l'
-function gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
-function gy { egrep --color=auto "$@" *.py; }
+defun	gr { dir=$1; shift; find $dir -type f | xargs grep "$@"; }
+defun	gy { egrep --color=auto "$@" *.py; }
 
-alias GP='getent passwd'; function gp { egrep "$@" /etc/passwd; }
-alias GG='getent  group'; function gg { egrep "$@" /etc/group; }
-alias GH='getent  hosts'; function gh { egrep "$@" /etc/hosts; }
+alias	GP='getent passwd';	defun	gp { egrep "$@" /etc/passwd; }
+alias	GG='getent  group';	defun	gg { egrep "$@" /etc/group; }
+alias	GH='getent  hosts';	defun	gh { egrep "$@" /etc/hosts; }
 
 alias	hn=hostname		dn=domainname
 alias	kp='cp -p'		kr='cp -pr'
@@ -138,7 +144,7 @@ alias	mm='mv -i'		mu='mv -u'
 alias	mn='make -n'		mb='make -B'
 alias	ni='make -n install'	mi='make install'
 
-function n() { sort -u "$@"; }
+alias	un='sort -u'		hs='sort -h'
 alias	ns=nslookup
 
 alias	ox='openssl x509 -noout -text -in'

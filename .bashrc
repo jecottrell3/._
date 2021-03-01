@@ -1,4 +1,4 @@
-test -f ${DEBUG:-/no/where} && echo .bashrc $-
+((DEBUG)) && echo .bashrc $-
 #################################################################
 #	MAKE STUPID lxde term RUN AS LOGIN SHELL
 #################################################################
