@@ -5,11 +5,13 @@ test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
 set -o	ignoreeof
 umask	2
 #################################################################
-#	Find RBJ Account
+#	Find RBJ Account: OBSOLETE
 #################################################################
 
 export	USER=${USER:-${USERNAME:-$LOGNAME}}
-   for JC in $USER cottrell rbj jcottrell jcottrel nobody
+
+: SKIP ||
+   for JC in $USER cottrell jcottrell jcottrel rbj nobody
 do for dir in /home /homes /Users
 do
 	case $JC in
@@ -21,10 +23,8 @@ do
 done
 done
 
-export	JC JOME
-export	RBJ=$JOME/._
-export	SRC=$JOME/src;
-export	DEBUG		#### DO NOT SET A VALUE ####
+export	RBJ=$HOME/._
+export	SRC=$HOME/src;
 
 ((DEBUG)) && echo .bash_profile HOME=$HOME
 export	BG=$RANDOM

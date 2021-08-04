@@ -23,19 +23,22 @@ do
 	(-g)	gid=$2; shift 2;;
 	(-n)	rbj=$2; shift 2;;
 	(-s)	sub=/$2;shift 2;;
-	(noaa)  uid=7610
+	(c7)	rbj=rbj sub=c7
+		shift 1;;
+	(c8)	rbj=rbj sub=c8
+		shift 1;;
+	(home)	rbj=rbj
+		shift 1;;
+	(noaa)	uid=7610
 		gid=1009
 		grp=sysadm
 		shift 1;;
-	(nasa)  rbj=jecottre
-		uid=200115213	# TBD
-		shift 1;;
-	(nih)   rbj=cottrell
+	(nih)	rbj=cottrell
 		uid=200115213
 		shift 1;;
 	(*)	cat <<EOF
 usage:	$0 [-n name] [-u uid] [-g gid] [-s subdir]
-	defaults: -n rbj -u 654 -g 654 -s ''
+	defaults: -n jcottrell -u 654 -g 654 -s ''
 EOF
 		exit 1;;
 	esac

@@ -2,8 +2,6 @@
 #@st -s $DEBUG && set -x
 export	TZ=EST5EDT
 test -d /Applications && MAC=1 || MAC=0
-export	B=batcaveadmin
-export	N='n1b0R$1wh3Re!'
 #################################################################
 #	Do Domain Specific Customization
 #################################################################
@@ -29,9 +27,9 @@ done
 : $SEARCH
 set +x
 
- nih="source $RBJ/..nih"
- nia="source $RBJ/..nia"
- nlm="source $RBJ/..nlm"
+nih="source $RBJ/..nih"
+nia="source $RBJ/..nia"
+nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
 (bytecubed.com|u.group)
@@ -41,9 +39,6 @@ case ${DOMAIN:-$SEARCH} in
 (homerj)
 	echo Welcome to HOMERJ
 	export PRINTER=lp LPDEST=lp D=homerj
-	;;
-(*.noaa.gov)
-	$noaa
 	;;
 (ncbi.nlm.nih.gov)
 #	$nlm

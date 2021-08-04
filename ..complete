@@ -50,7 +50,7 @@
 #################################################################
 
 complete -A helptopic		help
-complete -A hostname		ss ssh sftp
+complete -A hostname		sax tax ssh sftp
 complete -A hostname		rsh telnet rlogin ftp ping xping host traceroute nslookup dig
 complete -A hostname		rxterm rxterm3 rxvt2
 complete -A setopt		set

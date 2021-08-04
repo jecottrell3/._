@@ -1,60 +1,6 @@
 ((DEBUG)) && echo ...lvm
 #################################################################
-#	LOGICAL VOLUME COMMANDS
-#################################################################
-alias	lvch=lvchange
-alias	lvco=lvconvert
-alias	lvmk=lvcreate
-alias	lvls=lvdisplay
-alias	lvxt=lvextend
-#lias	lvm=lvm
-#####	lvmch=lvmchange
-alias	lvmds=lvmdiskscan
-alias	lvmd=lvmdump
-#####	lvx=lvmsadc
-#####	lvx=lvmsar
-alias	lvrd=lvreduce
-alias	lvrm=lvremove
-alias	lvmv=lvrename
-alias	lvrs=lvresize
-#lias	lvs=lvs
-alias	lvsc=lvscan
-#################################################################
-#	PHYSICAL VOLUME COMMANDS
-#################################################################
-alias	pvch=pvchange
-#lias	pvck=pvck
-alias	pvmk=pvcreate
-alias	pvls=pvdisplay
-alias	pvmv=pvmove
-alias	pvrm=pvremove
-alias	pvrs=pvresize
-#lias	pvs=pvs
-alias	pvsc=pvscan
-#################################################################
-#	VOLUME GROUP COMMANDS
-#################################################################
-alias	vgcb=vgcfgbackup
-alias	vgcr=vgcfgrestore
-alias	vgch=vgchange
-#lias	vgck=vgck
-alias	vgco=vgconvert
-alias	vgmk=vgcreate
-alias	vgls=vgdisplay
-alias	vgex=vgexport
-alias	vgxt=vgextend
-alias	vgim=vgimport
-alias	vgic=vgimportclone
-alias	vgm=vgmerge
-alias	vgmn=vgmknodes
-alias	vgrd=vgreduce
-alias	vgrm=vgremove
-alias	vgmv=vgrename
-#lias	vgs=vgs
-alias	vgsc=vgscan
-alias	vgsp=vgsplit
-#################################################################
-#	Quick Aliases
+#	Quick Aliases for LVM
 #################################################################
 
 alias	p0='pvchange -x n'	v0='vgchange -a n'	l0='lvchange -a n'
