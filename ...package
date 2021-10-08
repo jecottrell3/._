@@ -31,14 +31,14 @@ done
 #################################################################
 #	PACKAGING -- YUM & PACKAGE-CLEANUP
 #################################################################
-alias	yc=' sudo yum clean all'	ys='      yum search'
-alias	yi=' sudo yum install'		ygi='sudo yum groupinstall'
-alias	iy=' sudo yum install -y'	igy='sudo yum groupinstall -y'
-alias	yl='      yum list'		ygl='     yum grouplist'
-alias	yn='      yum info'		ygn='     yum groupinfo'
-alias	yr=' sudo yum remove'		ygr='sudo yum groupremove'
-alias	yu=' sudo yum update'		ygu='sudo yum groupupdate'
-alias	uy=' sudo yum update -y'	ugy='sudo yum groupupdate -y'
+alias	yc=' sudo time yum clean all'	ys='      yum search'
+alias	yi=' sudo time yum install'	ygi='sudo yum groupinstall'
+alias	iy=' sudo time yum install -y'	igy='sudo yum groupinstall -y'
+alias	yl='           yum list'	ygl='     yum grouplist'
+alias	yn='           yum info'	ygn='     yum groupinfo'
+alias	yr=' sudo      yum remove'	ygr='sudo yum groupremove'
+alias	yu=' sudo time yum update'	ygu='sudo yum groupupdate'
+alias	uy=' sudo time yum update -y'	ugy='sudo yum groupupdate -y'
 
 alias	yct=yum-complete-transaction
 alias	ypc=package-cleanup
