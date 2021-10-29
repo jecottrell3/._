@@ -75,10 +75,10 @@ alias   g8="ssh-add -e $OSC"	g9="ssh-add -s $OSC"
 #################################################################
 #	SWAP		/	MOUNT
 #################################################################
-alias	w0='swapoff -av'	m0='umount -av'
-alias	w1='swapon  -av'	m1='mount  -av'
-alias	w2='swapon  -s'		m2='mount'	m4='umount'
-alias	w3='w0; w1'		m3='m0; m1'
+alias	w0='swapoff -av'	m0='umount -v'
+alias	w1='swapon  -av'	m1='mount  -v'
+alias	w2='swapon  -s'		m2='mount | egrep'
+alias	w3='w0; w1'		m3='m0 -a; m1 -a'
 #################################################################
 #	RKHunter	/	KPARTX
 #################################################################

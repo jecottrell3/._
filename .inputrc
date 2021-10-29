@@ -22,10 +22,10 @@ set output-meta On
 "\M-)": "META ) "
 "\M-+": "META + "
 "\M-,": "META , "
-"\M-:": "META : "
+"\M-:": "\C-e --help"
 "\M-;": "\C-e;l\n"
 "\M-@": "META @ "
-"\M-]": "META ] "
+"\M-]": "\C-aless \n"
 "\M-\"": "META \" "
 "\M-'": "META ' "
 

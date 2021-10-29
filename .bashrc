@@ -47,7 +47,7 @@ chmod a+rx,g+s $HOME
 FIXKEY=$HOME/.ssh/.fixkey
 test  -x	$FIXKEY && $FIXKEY
 
-tty &&
+tty -s &&
 case $SSH_AUTH_SOCK in
 (?*)  ssh-add -l > /dev/null || ssh-add;;
 esac

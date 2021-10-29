@@ -37,7 +37,7 @@ case $(tty) in
 
 	LITE					# Always LITE now
 	if	test -x /usr/bin/systemctl	# R7, C7, new
-	then	printf '\e[0;34;47m\e[8]\e[2J'	# Black on Bold White if New
+	then	printf '\e[0;34;47m\e[8]\e['	# Black on Bold White if New
 	else	printf '\e[0;34;47m\e[8]\e[2J'	# Black on Norm White if Old
 	fi
 	;;

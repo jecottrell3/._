@@ -2,7 +2,7 @@
 case $1 in
 (set)	printf "\e[$2;$3;$4m\e[8]";;
 (reset)	printf "\e]R";;
-(rev)	printf "\e]P0888888E]P7000000";;
+(rev)	printf "\e]P0888888\e]P7000000";;
 (*)	printf "\e]P$1$2$3$4";;
 esac
 
