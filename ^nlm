@@ -1,0 +1,42 @@
+echo Welcome to NCBI
+
+export	NCBI=ncbi.$NLM M=be-md V=st-va
+export	MD=$M.$NCBI VA=$V.$NCBI
+export	QA=be-md.qa.$NCBI
+export	ncbiBASE=dc=ncbi,dc=nlm,dc=nih,dc=gov
+
+alias	nds="ldapsearch -b ou=Devices,$ncbiBASE"
+alias	pdc="package_deployment create"
+
+# nack args: ticket host reason...
+function nack { nagios_ack -h   ${2?'no host'} -d 48 -c "$*"; }
+function cold { cons --ipmitool ${1?'no host'} mc reset cold; }
+function bios { cons --ipmitool ${1?'no host'} chassis bootdev bios; }
+function  pxe { cons --ipmitool ${1?'no host'} chassis bootdev  pxe; }
+
+alias	 LDisks='MegaCli -LDInfo -Lall -Aall'
+alias	 PDisks='MegaCli -PDList       -Aall'
+alias	Battery='MegaCli -AdpBbuCmd -GetBbuStatus -Aall'
+alias	  Learn='MegaCli -AdpBbuCmd -BbuLearn -Aall'
+alias	 Stripe='MegaCli -CfgLdAdd -R 0 '
+alias	 Mirror='MegaCli -CfgLdAdd -R 1 '
+alias	  RAID5='MegaCli -CfgLdAdd -R 5 '
+alias	 NoRaid='MegaCli -CfgLdDel -L '
+
+function pcc { ssh root@puppetca.$M puppet cert --clean $1.$MD; }
+function pcv { ssh root@puppetca.$V puppet cert --clean $1.$VA; }
+function pat { ssh root@${1:-$(hostname)} time puppet agent -t; }
+function rat
+{
+	test -w / && SUDO=eval || SUDO=sudo
+	CMD="time puppet agent -t"
+	case $# in
+	(0)	CMD="$SUDO $CMD";;
+	(*)	CMD="ssh -tAX root@$1 $CMD";;
+	esac
+	echo $CMD; eval $CMD
+}
+alias	rpu='rake puppetmaster:update:be-md'
+alias	rpv='rake puppetmaster:update:st-va'
+alias	rps='rake puppetmaster:restart:be-md'
+alias	rpw='rake puppetmaster:restart:st-va'

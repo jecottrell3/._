@@ -1,0 +1,16 @@
+echo	Welcome to NIH
+
+export	BASE='ou=NIH,OU=AD,DC=NIH,DC=gov'
+
+export	BIND='CN=cottrell,OU=Users,OU=NIA-IRP,OU=NIA,OU=NIH,OU=AD,DC=nih,DC=gov'
+
+alias	ldx="ldapsearch -b $BASE -h ldapad.nih.gov -D $BIND -o ldif-wrap=no"
+
+export	TFTP=/var/lib/tftpboot
+export	MENU=$TFTP/pxelinux.cfg
+export	IMGS=$TFTP/images
+
+alias	P0='service pcscd stop'		P1='service pcscd start'
+alias	P2='service pcscd status'	P3='service pcscd restart'
+alias	O0='service openct stop'	O1='service openct start'
+alias	O2='service openct status'	O3='service openct restart'
