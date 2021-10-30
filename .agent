@@ -1,0 +1,34 @@
+((DEBUG)) && echo .agent
+#################################################################
+#	Start SSH-AGENT if Needed	####	REDO	####
+#################################################################
+
+((BUG=0))
+((NEED=0))
+export	 AGENT=$HOME/.ssh/agent@$(hostname)
+: SKIP ||
+while :
+do
+	ssh-add -l >/dev/null 2>&1		# agent running?
+	STATUS=$?
+	((BUG)) && echo $STATUS@$NEED
+	case	$STATUS@$NEED in
+	(0@*)	: agent list my identity; break;;
+	(1@*)	: agent says NO identity; break;;
+	(2@0)	: try source;;
+	(2@1)	: try agent
+		ssh-agent | grep = >	$AGENT;;
+	(*)	: error
+		echo  $?@$NEED $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK;
+		sleep 9
+		break # WAS: exit  $?;;
+	esac
+	test -f $AGENT && source  $AGENT	# remember the past
+	((NEED++))
+done
+
+: SKIP ||
+{ test -n "$SSH_AGENT_PID" || ((MAC)); } &&	# original login host
+env | grep SSH_ | sed 's/^/export /' > $AGENT
+
+#################################################################

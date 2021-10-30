@@ -1,0 +1,34 @@
+if	:
+then
+	export	A=ansible		# Constant
+	export	D=homerj		# Domain
+	export	F=fail2ban		# Constant
+	export	P=--permanent		# Constant
+	export	R=$(uname -r)		# Computed REVISION
+	export	S=homerj		# SITE
+	export	X=x86_64		# Constant
+else
+	export	B=""		#
+	export	C=""		#
+	export	D=$(hostname -d)	# DOMAIN
+	export	E=""		#
+	export	G=""		#
+	export	H=$(hostname -s)	# HOST
+	export	H=yoko
+	export	I=""		#
+	export	I=$(hostname -i)	# IP ADR
+	export	J=""		#
+	export	K=""		#
+	export	L=""		#
+	export	M=""		#
+	export	N=""		#
+	export	O=""		#
+	export	Q=""		#
+	export	Q=$(hostname -f)	# HOST
+	export	T=""		#
+	export	U=""		#
+	export	V=""		#
+	export	W=""		#
+	export	Y=""		#
+	export	Z=""		#
+fi

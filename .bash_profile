@@ -1,84 +1,62 @@
-cd $HOME
+: cd $HOME
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
-#set | sort -o .set-$(date +%T)
-#env | sort -o .env-$(date +%T)
-set -o	ignoreeof
 umask	2
-#################################################################
-#	Find RBJ Account: OBSOLETE
-#################################################################
+set -o	ignoreeof
+((DEBUG)) && echo .bash_profile HOME=$HOME PWD=$PWD
+((DEBUG > 1)) && set | sort -o .set-$(date +%T)
+((DEBUG > 1)) && env | sort -o .env-$(date +%T)
+####################################################################
+####		Special Environment Variables			####
+####################################################################
+set -a
 
-export	USER=${USER:-${USERNAME:-$LOGNAME}}
+RBJ=$HOME/._
+SRC=$HOME/src;
 
-: SKIP ||
-   for JC in $USER cottrell jcottrell jcottrel rbj nobody
-do for dir in /home /homes /Users
-do
-	case $JC in
-	(root)   continue;;			# ROOT becomes NOBODY
-	(nobody) JOME=$HOME;;			# for OTHER people
-	(*)	 JOME=$dir/$JC;;		# JC candidate
-	esac
-	test -d $JOME/._ && break 2		# FOUND
-done
-done
+LESSKEY=$RBJ/.less
+ RCFILE=$RBJ/.bash_profile
+INPUTRC=$RBJ/.inputrc
 
-export	RBJ=$HOME/._
-export	SRC=$HOME/src;
+BG=$RANDOM
+ID=$(id | sed 's/).*//;s/.*(//')
+test -x /usr/bin/vim &&
+EDITOR=vim ||
+EDITOR=vi
+LESS=-MQRcdeisj11
+LANG=POSIX LOCALE=POSIX LC_ALL=POSIX
+test -d /Applications &&
+MAC=1 ||
+MAC=0
+VERSION_CONTROL=numbered
+HISTCONTROL=ignoreboth
+#export	HISTIGNORE=?	# any single letter
+PS4='% '
+P=--permanent	R=$(uname -r)	X=x86_64
+TMOUT=0 REV=$R
+TTY=$(tty | tr -dc 0123456789)
+USER=${USER:-${USERNAME:-$LOGNAME}}
+VIMINIT="source $RBJ/.vimrc"
 
-((DEBUG)) && echo .bash_profile HOME=$HOME
-export	BG=$RANDOM
+   M1=--max-size=1M K1111=--max-size=1111K G1=--max-size=1G
+  M11=--max-size=11M K111=--max-size=111K G11=--max-size=11G
+ M111=--max-size=111M K11=--max-size=11K G111=--max-size=111G
+M1111=--max-size=1111M K1=--max-size=1K G1111=--max-size=1111G
 
-export	LESSKEY=$RBJ/.less
-export	 RCFILE=$RBJ/.bash_profile
-export	INPUTRC=$RBJ/.inputrc
+   M3=--max-size=3M K3333=--max-size=3333K G3=--max-size=3G
+  M33=--max-size=33M K333=--max-size=333K G33=--max-size=33G
+ M333=--max-size=333M K33=--max-size=33K G333=--max-size=333G
+M3333=--max-size=3333M K3=--max-size=3K G3333=--max-size=3333G
 
-if	test -d /Applications 
-then	export	MAC=1
-else	export	MAC=0
-fi
-
-#################################################################
-#	Start SSH-AGENT if Needed
-#################################################################
-
-((BUG=0))
-((NEED=0))
-export	 AGENT=$HOME/.ssh/agent@$(hostname)
-: SKIP ||
-while :
-do
-	ssh-add -l >/dev/null 2>&1		# agent running?
-	STATUS=$?
-	((BUG)) && echo $STATUS@$NEED
-	case	$STATUS@$NEED in
-	(0@*)	: agent list my identity; break;;
-	(1@*)	: agent says NO identity; break;;
-	(2@0)	: try source;;
-	(2@1)	: try agent
-		ssh-agent | grep = >	$AGENT;;
-	(*)	: error
-		echo  $?@$NEED $SSH_AGENT_PID@$SSH_CLIENT:$SSH_AUTH_SOCK;
-		sleep 9
-		break # WAS: exit  $?;;
-	esac
-	test -f $AGENT && source  $AGENT	# remember the past
-	((NEED++))
-done
-
-: SKIP ||
-{ test -n "$SSH_AGENT_PID" || ((MAC)); } &&	# original login host
-env | grep SSH_ | sed 's/^/export /' > $AGENT
-
-#################################################################
-#	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin
-#################################################################
+set +a
+####################################################################
+####	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin		####
+####################################################################
 
 for dir in /usr/sbin /sbin $RBJ/bin ~/bin
 do
 	test -d $dir || continue
 	case :$PATH: in
-	(*:$dir:*)	continue;;
+	(*:$dir:*)	continue;;		# ALREADY HAVE
 	(*)		PATH=$dir:$PATH;;	# PREPEND
 	esac
 done
@@ -86,56 +64,15 @@ done
 eval $($RBJ/bin/fixpath    PATH)
 eval $($RBJ/bin/fixpath MANPATH)
 
-#################################################################
-#	Special Environment Variables
-#################################################################
-
-export	ID=$(id | sed 's/).*//;s/.*(//')
-export	LESS=-MQRcdeisj11
-export	LANG=POSIX LOCALE=POSIX LC_ALL=POSIX
-export	VERSION_CONTROL=numbered
-export	HISTCONTROL=ignoreboth
-#export	HISTIGNORE=?	# any single letter
-test -x /usr/bin/vim &&
-export	  EDITOR=vim ||
-export	  EDITOR=vi
-export	PS4='% '
-export	P=--permanent	R=$(uname -r)	X=x86_64
-export	TMOUT=0 REV=$R
-export	TTY=$(tty | tr -dc 0123456789)
-export	VIMINIT="source $RBJ/.vimrc"
-
-##port	CVS_RSH=/usr/bin/ssh
-
-export     M1=--max-size=1M K1111=--max-size=1111K G1=--max-size=1G
-export    M11=--max-size=11M K111=--max-size=111K G11=--max-size=11G
-export   M111=--max-size=111M K11=--max-size=11K G111=--max-size=111G
-export  M1111=--max-size=1111M K1=--max-size=1K G1111=--max-size=1111G
-
-export     M3=--max-size=3M K3333=--max-size=3333K G3=--max-size=3G
-export    M33=--max-size=33M K333=--max-size=333K G33=--max-size=33G
-export   M333=--max-size=333M K33=--max-size=33K G333=--max-size=333G
-export  M3333=--max-size=3333M K3=--max-size=3K G3333=--max-size=3333G
-
-#################################################################
-#	Do Rest of Init
-#################################################################
+####################################################################
+####		Do Rest of Init					####
+####################################################################
 
 LXONCE=Done				# do NOT export WHY???
-for file in /etc/profile $RBJ/.init $RBJ/..vars $RBJ/.bashrc
+for file in $HOME/.init $RBJ/.vars $RBJ/.agent $RBJ/.bashrc
 do
 	test -f $file &&
 	source  $file
 done
 
-#################################################################
-#	Obsolete for NIH: Add Master Key
-#################################################################
-
-####	case $USER@$HOST in
-####	(root@strudel)
-####		echo Adding Strudel Master Key
-####		ssh-add /root/.ssh/id_dsa;;
-####	esac
-
-#################################################################
+####################################################################

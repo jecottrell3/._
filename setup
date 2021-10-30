@@ -23,22 +23,24 @@ while read x
 do
 	case $x in			# FILTER OUT DOTS/OTHERS
 	(.|..)		continue;;
-	(src)		continue;;
-	(.git)rm -f $x; continue;;
-	(.svn)		continue;;
-	(CVS)		continue;;
-	(.profile)	continue;;
+	(.agent)	continue;;
 	(.debug)	continue;;
-	(setup)		continue;;
+	(.git) : rm -f $x; continue;;
+	(.profile)	continue;;
+	(.svn)		continue;;
+	(.vars)		continue;;
+	(CVS)		continue;;
 	(jimmy)		continue;;
+	(setup)		continue;;
 	(src)		continue;;
+	(src)		continue;;
+	 (^*)		continue;;
 	 (*~)		continue;;
 	(.*~)		continue;;
 	(.z*)		continue;;	# unless using zsh
 	(..*)		continue;;	# unless using zsh
-	(.ssh)	#est -w /  && continue	# skip if root
-####		test -e $x || rsync -rC ._/$x .
-		test -e $x || cp -a ._/$x .
+	(.init) test -e $x || cp -a ._/$x .;;
+	(.ssh)  test -e $x || cp -a ._/$x .
 		for y in id_[dr]sa id_rsa identity
 		do test -e $x/$y && chmod 600 $x/$y; done
 		chmod 600 $x/*.key $x/*.pass

@@ -1,0 +1,26 @@
+#! /bin/python
+
+'''FD -- Find and List Duplicates
+
+IN: 3 fields: sum, blocks, filename
+OUT: a Command for every line, either
+	+ 'rm' if sum has been seen before
+	+ ': ' otherwise, file is new
+The Command is followed by the Filname,
+then a '#' and the Sum as a comment
+'''
+
+from __future__ import print_function
+import sys, os, re, math
+
+seen = {}
+
+for line in sys.stdin.readlines():
+	#sum, blocks, file) = line.split()
+	cols = line.split()
+	sum  = cols[0]
+	file = cols[-1]
+	cmd = 'rm' if sum in seen else ': '
+	seen[sum] = file
+	print(' '.join((cmd, file, '#', sum)))
+#END

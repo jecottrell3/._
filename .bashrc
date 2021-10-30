@@ -47,10 +47,10 @@ chmod a+rx,g+s $HOME
 FIXKEY=$HOME/.ssh/.fixkey
 test  -x	$FIXKEY && $FIXKEY
 
-tty -s &&
+: SKIP || ####	tty -s &&
 case $SSH_AUTH_SOCK in
 (?*)  ssh-add -l > /dev/null || ssh-add;;
 esac
 
 #################################################################
-alias rbj='source /root/._/.bash_profile'
+alias rbj='source ~/._/.bash_profile'
