@@ -4,21 +4,21 @@ COLOR=(k r g y b m c w K R G Y B M C W)
 
 for BG in 0 1 2 3 4 5 6 7
 do
+for RV in 27 7
+do
 for HI in 0 1
 do
 for FG in 0 1 2 3 4 5 6 7
-do
-for RV in 27 7
 do
 	case $RV in
 	(27)	((FC=HI*8+FG)); ((BC=BG));;
 	(7)	((BC=HI*8+FG)); ((FC=BG));;
 	esac
 	FN=${COLOR[$FC]} BN=${COLOR[$BC]}
-
-	printf "\e[$HI;3${FG};4${BG};${RV}m $FN$BN "
+	printf "\e[$HI;3${FG};4${BG};${RV}m$FN$BN"
 done
 done
-printf '\n'
 done
+printf '\e[m\e[K\n'
 done
+printf '\e[m'
