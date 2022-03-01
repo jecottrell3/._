@@ -1,17 +1,17 @@
-((DEBUG)) && echo ..alias
+((DEBUG)) && echo ^alias
 #### TODO ####: DEPNDS on $JC
-#################################################################
-#	COMPLEX ALIASES
-#################################################################
+####################################################################
+####		COMPLEX ALIASES					####
+####################################################################
 
-for x in $RBJ/...*
+for x in $RBJ/^^*
 do
 	source  $x
 done
 
-#################################################################
-#	SHELL ALIASES
-#################################################################
+####################################################################
+####		SHELL ALIASES					####
+####################################################################
 
 alias	defun=function
 alias	   path='echo    $PATH | tr : \\012'
@@ -38,14 +38,14 @@ viso()	{ vi $*; source $*; }
 alias	vb='viso $RBJ/.bashrc'
 alias	zb='viso $RBJ/.zshrc'
 alias	ze='viso $RBJ/.zshenv'
-alias	va='viso $RBJ/..alias'
-alias	vc='viso $RBJ/..complete'
-alias	vo='viso $RBJ/..domain'
+alias	va='viso $RBJ/^alias'
+alias	vc='viso $RBJ/^complete'
+alias	vo='viso $RBJ/^domain'
 alias	vp='viso $RBJ/.bash_profile'
 alias	zp='viso $RBJ/.zprofile'
-alias	vr='viso $RBJ/..prompt'
-alias	zr='viso $RBJ/..zprompt'
-alias	vv='viso $RBJ/..vars'
+alias	vr='viso $RBJ/^prompt'
+alias	zr='viso $RBJ/^zprompt'
+alias	vv='viso $RBJ/.vars'
 alias	vn='vi   $RBJ/.inputrc'
 alias	vk='vi $HOME/.ssh/known_hosts'
 
@@ -57,13 +57,13 @@ alias	zz=suspend		zzz='suspend -f'
 
 defun	loudly() { echo "$@"; eval "$@"; }
 
-#################################################################
-#	SIMPLE ALIASES
-#################################################################
+####################################################################
+####		SIMPLE ALIASES					####
+####################################################################
 
 alias	  1=sha1sum		5=md5sum
 alias	  6='source ~/.bashrc'	7="source ~/.bash_profile"
-alias	  8='sudo mtu 8.8.8.8'	9='exec bash -l'
+alias	  8='sudo mtr 8.8.8.8'	9='exec bash -l'
 alias	256=sha256sum		512=sha512sum
 alias	123='xmodmap -e "pointer = 1 2 3"'
 alias	132='xmodmap -e "pointer = 1 3 2"'
@@ -186,4 +186,4 @@ alias	vax='time rsync -CvaxzS' pax='time rsync -CPaxzS'
 alias	T2=tune2fs		D2='dumpe2fs -h'
 alias	E2='e2fsck -C'		M2='mkfs.ext2'
 alias	M3='mkfs.ext3'		M4='mkfs.ext4'	
-#################################################################
+####################################################################

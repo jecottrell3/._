@@ -1,12 +1,12 @@
-((DEBUG)) && echo ...package
-#################################################################
-#	PACKAGING -- TAR
-#################################################################
+((DEBUG)) && echo ^^package
+####################################################################
+####		PACKAGING -- TAR				####
+####################################################################
 alias	tvf='tar  tvf'	xvf='tar  xvf'	cvf='tar  cvf'
 alias	zvf='tar zcvf'	jvf='tar jcvf'	Jvf='tar Jcvf'
-#################################################################
-#	PACKAGING -- RPM
-#################################################################
+####################################################################
+####		PACKAGING -- RPM				####
+####################################################################
 alias	ivh='rpm -ivh'	uvh='rpm -Uvh'
 alias	qc=' rpm -qc'	qd='  rpm -qd' 
 alias	qf=' rpm -qf'	qp='  rpm -qp' 
@@ -28,9 +28,9 @@ for x in ba bb bc bi bl bp bs
 do
 	eval alias "$x='rpmbuild -$x'"
 done
-#################################################################
-#	PACKAGING -- YUM & PACKAGE-CLEANUP
-#################################################################
+####################################################################
+####		PACKAGING -- YUM & PACKAGE-CLEANUP		####
+####################################################################
 alias	yc=' sudo yum clean all'	ys='      yum search'
 alias	yi=' sudo yum install'		ygi='sudo yum groupinstall'
 alias	iy=' sudo yum install -y'	igy='sudo yum groupinstall -y'
@@ -49,4 +49,4 @@ alias	orphans='   package-cleanup --orphans'
 alias	dupes='     package-cleanup --dupes'
 alias	cleandupes='package-cleanup --cleandupes'
 alias	oldkernels='package-cleanup --oldkernels'
-#################################################################
+####################################################################

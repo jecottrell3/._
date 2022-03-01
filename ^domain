@@ -1,21 +1,17 @@
-((DEBUG)) && echo ..domain
-#@st -s $DEBUG && set -x
+((DEBUG)) && echo ^domain
 export	TZ=EST5EDT
 test -d /Applications && MAC=1 || MAC=0
-#################################################################
-#	Do Domain Specific Customization
-#################################################################
-
+####################################################################
+####		Do Domain Specific Customization		####
+####################################################################
 	  HOST=$(hostname -s)
 	  FQDN=$(hostname -f)
 if	((MAC))
-then	DOMAIN=$NIA    IP=too-hard-for-now
-else
-	DOMAIN=$(hostname -d)
+then	DOMAIN=$NIA		IP=too-hard-for-now
+else	DOMAIN=$(hostname -d)
 	    IP=$(hostname -i)
 fi
 
-set +x
 export	H=$HOST	D=$DOMAIN	NIH=nih.gov
 export	CIT=cit.$NIH		NLM=nlm.$NIH
 export	NIA=nia.$NIH		HJ=homerj
@@ -25,101 +21,28 @@ do
 	\grep -q $SEARCH $RC && break
 done
 : $SEARCH
-set +x
-
-nih="source $RBJ/..nih"
-nia="source $RBJ/..nia"
-nlm="source $RBJ/..nlm"
 
 case ${DOMAIN:-$SEARCH} in
-(bytecubed.com|u.group)
-	echo Welcome to The U
-	alias	pem='ssh-add ~/.ssh/*.pem'
-	;;
-(homerj)
-	echo Welcome to HOMERJ
-	export PRINTER=lp LPDEST=lp D=homerj
-	;;
-(ncbi.nlm.nih.gov)
-#	$nlm
-	echo Welcome to NCBI
-	export	NCBI=ncbi.$NLM M=be-md V=st-va
-	export	MD=$M.$NCBI VA=$V.$NCBI
-	export	QA=be-md.qa.$NCBI
-	export	ncbiBASE=dc=ncbi,dc=nlm,dc=nih,dc=gov
-
-	alias	nds="ldapsearch -b ou=Devices,$ncbiBASE"
-	alias	pdc="package_deployment create"
-
-	# nack args: ticket host reason...
-	function nack { nagios_ack -h   ${2?'no host'} -d 48 -c "$*"; }
-	function cold { cons --ipmitool ${1?'no host'} mc reset cold; }
-	function bios { cons --ipmitool ${1?'no host'} chassis bootdev bios; }
-	function  pxe { cons --ipmitool ${1?'no host'} chassis bootdev  pxe; }
-
-	alias	 LDisks='MegaCli -LDInfo -Lall -Aall'
-	alias	 PDisks='MegaCli -PDList       -Aall'
-	alias	Battery='MegaCli -AdpBbuCmd -GetBbuStatus -Aall'
-	alias	  Learn='MegaCli -AdpBbuCmd -BbuLearn -Aall'
-	alias	 Stripe='MegaCli -CfgLdAdd -R 0 '
-	alias	 Mirror='MegaCli -CfgLdAdd -R 1 '
-	alias	  RAID5='MegaCli -CfgLdAdd -R 5 '
-	alias	 NoRaid='MegaCli -CfgLdDel -L '
-
-	function pcc { ssh root@puppetca.$M puppet cert --clean $1.$MD; }
-	function pcv { ssh root@puppetca.$V puppet cert --clean $1.$VA; }
-	function pat { ssh root@${1:-$(hostname)} time puppet agent -t; }
-	function rat
-	{
-		test -w / && SUDO=eval || SUDO=sudo
-		CMD="time puppet agent -t"
-		case $# in
-		(0)	CMD="$SUDO $CMD";;
-		(*)	CMD="ssh -tAX root@$1 $CMD";;
-		esac
-		echo $CMD; eval $CMD
-	}
-	alias	rpu='rake puppetmaster:update:be-md'
-	alias	rpv='rake puppetmaster:update:st-va'
-	alias	rps='rake puppetmaster:restart:be-md'
-	alias	rpw='rake puppetmaster:restart:st-va'
-	;;
-(nia.nih.gov)
-	echo Welcome to NIA
-	;;
-(*nih.gov)
-#	$nih
-	echo Welcome to NIH
-	export	BASE='ou=NIH,OU=AD,DC=NIH,DC=gov'
-
-	export	BIND='CN=cottrell,OU=Users,OU=NIA-IRP,OU=NIA,OU=NIH,OU=AD,DC=nih,DC=gov'
-	alias	ldx="ldapsearch -b $BASE -h ldapad.nih.gov -D $BIND -o ldif-wrap=no"
-
-	export	TFTP=/var/lib/tftpboot
-	export	MENU=$TFTP/pxelinux.cfg
-	export	IMGS=$TFTP/images
-	;;
-(*)
-	echo  Welcome to NOWHERE
+(bytecubed.com|u.group)	echo Welcome to The U
+	alias	pem='ssh-add ~/.ssh/*.pem';;
+(homerj)		echo Welcome to HOMERJ
+	export PRINTER=lp LPDEST=lp D=homerj;;
+(*.noaa.gov)		source $RBJ/^noaa;;
+(ncbi.nlm.nih.gov)	source $RBJ/^nlm;;
+(nia.nih.gov)		source $RBJ/^nia;;
+(*nih.gov)		source $RBJ/^nih;;
+(*)			echo  Welcome to NOWHERE
 	D=NOWHERE DOMAIN=NOWHERE;;
 esac
-
-#################################################################
-
-GMC()
-{
-	grub2-mkconfig -o /$CGC
-	\grep ^menuentry   /$CGC
-}
-
-#ource	/root/ks.vars			# TEMPORARY
+####################################################################
+####		RANDOM STUFF UNDER DEVELOPMENT			####
+####################################################################
+GMC() { grub2-mkconfig -o /$CGC; \grep ^menuentry   /$CGC; }
 
 YI() { for x in $(<$1); do rpm -q $x || sudo yum install $x; done; }
 YR() { for x in $(<$1); do rpm -q $x && sudo yum remove $x | \grep -v ^--;done; }
 YN() { yum info $(<$1) | less -j1 +/'^Name.*'; }
 YY() { while read x; do yum info "*$x*" | less -j1 +/'^Name.*'; done; }
-
-#################################################################
+####################################################################
 tw() { time wordsin $*; }
 tt() { mv "track$1.cdda.wav" "${3:-$1}-$2.wav"; }
-set +x

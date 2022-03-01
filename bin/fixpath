@@ -8,7 +8,6 @@
 # NOTE: . Appended at End
 
 ARGS="$@"			# preserve args
-((DEBUG)) && echo ARGS: $# "$@"
 
 set $* --			# allow -x
 VAR=${1:-PATH}			# assume PATH
@@ -28,4 +27,3 @@ echo $VAR=${VAL#:}		# for eval
 eval $VAR=${VAL#:}		# for source
 
 set -- "$ARGS"			# restore args
-((DEBUG)) && echo ARGS: $# "$@"
