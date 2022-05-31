@@ -29,10 +29,8 @@ LESSKEY=$Q/.less
 INPUTRC=$Q/.inputrc
 
 BG=$RANDOM
-ID=$(id | sed 's/).*//;s/.*(//')		# OBSOLETE
-test -x /usr/bin/vim &&
-EDITOR=vim ||
-EDITOR=vi
+ID=$(id -nu)
+test -x /usr/bin/vim && EDITOR=vim || EDITOR=vi
 LESS=-MQRcdeisj11
 LANG=POSIX LOCALE=POSIX LC_ALL=POSIX
 test -d /Applications &&

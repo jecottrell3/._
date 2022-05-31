@@ -1,6 +1,7 @@
 #! /bin/sh
 
 cd /repo
+mkdir -p .list
 
 MKO=mirrors.kernel.org
 AKO=archive.kernel.org
