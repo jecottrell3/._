@@ -2,6 +2,7 @@
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
 umask	2
 set -o	ignoreeof
+: DEBUG=1
 ((DEBUG)) && echo .bash_profile HOME=$HOME PWD=$PWD
 ((DEBUG > 1)) && set | sort -o .set-$(date +%T)
 ((DEBUG > 1)) && env | sort -o .env-$(date +%T)
@@ -10,18 +11,26 @@ set -o	ignoreeof
 ####################################################################
 set -a
 
-RBJ=$HOME/._
+Q=$HOME/._
+
+G=$(id -ng)
+J=jcottrell
+J=rbj
+P=--permanent
+R=$(uname -r)
+U=$(id -nu)
+X=x86_64
+
+RBJ=$HOME/._		# OBSOLETE
 SRC=$HOME/src;
 
-LESSKEY=$RBJ/.less
- RCFILE=$RBJ/.bash_profile
-INPUTRC=$RBJ/.inputrc
+LESSKEY=$Q/.less
+ RCFILE=$Q/.bash_profile
+INPUTRC=$Q/.inputrc
 
 BG=$RANDOM
-ID=$(id | sed 's/).*//;s/.*(//')
-test -x /usr/bin/vim &&
-EDITOR=vim ||
-EDITOR=vi
+ID=$(id -nu)
+test -x /usr/bin/vim && EDITOR=vim || EDITOR=vi
 LESS=-MQRcdeisj11
 LANG=POSIX LOCALE=POSIX LC_ALL=POSIX
 test -d /Applications &&
@@ -35,7 +44,7 @@ P=--permanent	R=$(uname -r)	X=x86_64
 TMOUT=0 REV=$R
 TTY=$(tty | tr -dc 0123456789)
 USER=${USER:-${USERNAME:-$LOGNAME}}
-VIMINIT="source $RBJ/.vimrc"
+VIMINIT="source $Q/.vimrc"
 
    M1=--max-size=1M K1111=--max-size=1111K G1=--max-size=1G
   M11=--max-size=11M K111=--max-size=111K G11=--max-size=11G
@@ -52,7 +61,7 @@ set +a
 ####	FIX PATH -- prepend ~/bin, /sbin, /usr/sbin		####
 ####################################################################
 
-for dir in /usr/sbin /sbin $RBJ/bin ~/bin
+for dir in /usr/sbin /sbin $Q/bin ~/bin
 do
 	test -d $dir || continue
 	case :$PATH: in
@@ -61,15 +70,15 @@ do
 	esac
 done
 
-eval $($RBJ/bin/fixpath    PATH)
-eval $($RBJ/bin/fixpath MANPATH)
+eval $($Q/bin/fixpath    PATH)
+eval $($Q/bin/fixpath MANPATH)
 
 ####################################################################
 ####		Do Rest of Init					####
 ####################################################################
 
 LXONCE=Done				# do NOT export WHY???
-for file in $HOME/.init $RBJ/.vars $RBJ/.agent $RBJ/.bashrc
+for file in $HOME/.init $Q/.vars $Q/.agent $Q/.bashrc
 do
 	test -f $file &&
 	source  $file

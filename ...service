@@ -1,7 +1,7 @@
 ((DEBUG)) && echo ...service
-#################################################################
-####	SYSTEMCTL	####	R.I.P. to SERVICE and CHKCONFIG
-#################################################################
+####################################################################
+####	SYSTEMCTL	####	R.I.P. SERVICE and CHKCONFIG	####
+####################################################################
 alias sc='systemctl';
 
 alias z0='systemctl stop'
@@ -15,9 +15,9 @@ alias z7='systemctl  enable --now'
 alias z6='systemctl is-enabled'
 alias z8='systemctl get-default'
 alias z9='systemctl set-default'
-#################################################################
-#	Firewall
-#################################################################
+####################################################################
+####		Firewall					####
+####################################################################
 alias	fw='firewall-cmd'
 
 alias	f0='firewall-cmd --remove-service'
@@ -30,9 +30,9 @@ alias	f6='firewall-cmd xxx'
 alias	f7='firewall-cmd xxx'
 alias	f8='firewall-cmd --complete-reload'
 alias	f9='firewall-cmd --runtime-to-permanent'
-#################################################################
-#	Authconfig
-#################################################################
+####################################################################
+####		Authconfig					####
+####################################################################
 alias	u0='less /etc/sysconfig/authconfig'
 alias	u1='authconfig --update'
 alias	u2='authconfig --test | less'
@@ -41,54 +41,47 @@ alias	u4='man authconfig'
 alias	u7='authconfig --restorelastbackup'
 alias	u8='authconfig --restorebackup'
 alias	u9='authconfig --savebackup'
-#################################################################
-#	NIH Smart Cards
-#################################################################
-#lias	P0='service pcscd stop'		P1='service pcscd start'
-#lias	P2='service pcscd status'	P3='service pcscd restart'
-#lias	O0='service openct stop'	O1='service openct start'
-#lias	O2='service openct status'	O3='service openct restart'
-#################################################################
-#	NETWORKING	/	KERBEROS
-#################################################################
+####################################################################
+####		NETWORKING	/	KERBEROS		####
+####################################################################
 alias	i0=ifdown		k0=kdestroy
 alias	i1=ifup			k1=kinit
 alias	i2=ifconfig		k2=klist
 alias	i3='i0; i1'		k3='k0; k1'
 alias	k8='unset KRB5_TRACE'	k9='export KRB5_TRACE=/dev/stderr'
-#################################################################
-#	SSH-ADD
-#################################################################
+####################################################################
+####		SSH-ADD						####
+####################################################################
 alias	a0='ssh-add -d'		a1='ssh-add'
 alias	a2='ssh-add -l'		a3='ssh-add -l || ssh-add'
 alias	a4='ssh-add -L'		a5='ssh-add -l -E md5'
 alias	a6='ssh-add -X'		a7='ssh-add -x'
-#################################################################
-#	SSH-AGENT		&	SMART CARDS
-#################################################################
+####################################################################
+####		SSH-AGENT	&	SMART CARDS		####
+####################################################################
 alias	g0='ssh-agent -k'	g1='eval $(ssh-agent)'
 alias	g2='ssh-agent -l'	g3='ssh-agent bash -l'
 LCK=/usr/lib64/pkcs11/libcoolkeypk11.so	# moved from above
 OSC=/usr/lib64/pkcs11/opensc-pkcs11.so	# Smart Cards Only
 alias   g6="ssh-add -e $LCK"	g7="ssh-add -s $LCK"
 alias   g8="ssh-add -e $OSC"	g9="ssh-add -s $OSC"
-#################################################################
-#	SWAP		/	MOUNT
-#################################################################
+####################################################################
+####		SWAP		/	MOUNT			####
+####################################################################
 alias	w0='swapoff -av'	m0='umount -v'
 alias	w1='swapon  -av'	m1='mount  -v'
 alias	w2='swapon  -s'		m2='mount | egrep'
 alias	w3='w0; w1'		m3='m0 -a; m1 -a'
-#################################################################
-#	RKHunter	/	KPARTX
-#################################################################
+####################################################################
+####		RKHunter	/	KPARTX			####
+####################################################################
 alias	r0='time rkhunter -c'		x0='kpartx -dv'
 alias	r1='time rkhunter -C'		x1='kpartx -av'
 alias	r2='time rkhunter --cronjob --report-warnings-only'
 alias	r3='time rkhunter --propupd'	x2='kpartx -lv'
-#################################################################
-#	BIND/NAMED
-#################################################################
+####################################################################
+####		BIND/NAMED					####
+####################################################################
 function n0() { rndc $* stop; }		
 function n1() {               named; }	
 function n2() { rndc $* status; }	
@@ -100,9 +93,9 @@ function n6() { rndc $* flush; }
 function n7() { rndc $* dumpdb; }	
 function n8() { rndc $* reconfig; }	
 function n9() { rndc $* reload; }	
-#################################################################
-#	SELINUX
-#################################################################
+####################################################################
+####		SELINUX						####
+####################################################################
 alias	e0='setenforce 0'
 alias	e1='setenforce 1'
 alias	e2='getenforce'
@@ -112,9 +105,9 @@ alias	e6='togglesebool'
 alias	e7='fixfiles -F verify'
 alias	e8='fixfiles -F check'
 alias	e9='fixfiles -F restore'
-#################################################################
-#	NTP
-#################################################################
+####################################################################
+####		NTP						####
+####################################################################
 alias	t0='service ntpd stop'
 alias	t1='service ntpd start'
 alias	t2='ntpstat'
@@ -123,15 +116,15 @@ alias	t4='ntpq -p'
 alias	t5='ntpdc'
 alias	t6='ntpdate ticktock1'
 alias	t9='chronyc sources'
-#################################################################
-#	SLURM
-#################################################################
+####################################################################
+####		SLURM						####
+####################################################################
 function L0() { scontrol update NodeName=$* State=Down; }	
 function L1() { scontrol update NodeName=$* State=Resume; }	
 function L2() { sinfo $*; }	
-#################################################################
-#	CERTUTIL
-#################################################################
+####################################################################
+####		CERTUTIL					####
+####################################################################
 function C0()
 {
 	certutil -D -d "$1" -n "$2"
@@ -161,7 +154,7 @@ function C6()
 	echo C2 sql:"$@"
 }
 
-#################################################################
+####################################################################
 alias	CL='certutil -L -d'
 alias	CD='certutil -D -d'
 alias	CA='certutil -A -a -t TC,C,C -d'

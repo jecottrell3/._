@@ -1,7 +1,7 @@
 ((DEBUG)) && echo ..prompt
-#################################################################
-#	PROMPTING
-#################################################################
+####################################################################
+####		PROMPTING					####
+####################################################################
 
 DC=/etc/DIR_COLORS
 LC=$DC.lightbgcolor
@@ -12,9 +12,9 @@ test -f $DC &&	alias	DARK='eval $(dircolors $DC)'
 test -f $LC &&	alias	LITE='eval $(dircolors $LC)'
 test -f $ZC &&	alias	C256='eval $(dircolors $ZC)'
 
-#################################################################
-#	Console Initialization
-#################################################################
+####################################################################
+####		Console Initialization				####
+####################################################################
 
 alias	fgh='echo $FG $BG $HI'
 
@@ -33,7 +33,7 @@ case $(tty) in
 		test -f /lib/kbd/consolefonts/$FONT &&
 		setfont                       $FONT
 	done
-	$RBJ/bin/hue 7 cc cc cc			# Normal is AA AA AA
+	$Q/bin/hue 7 cc cc cc			# Normal is AA AA AA
 
 	LITE					# Always LITE now
 	if	test -x /usr/bin/systemctl	# R7, C7, new
@@ -43,15 +43,14 @@ case $(tty) in
 	;;
 (/dev/ttys*)	: echo MAC;;
 (/dev/pts/*)	: echo PSEUDO
-		case $TERM in (xterm) source $RBJ/..xterm;; esac;;
+		case $TERM in (xterm) source $Q/..xterm;; esac;;
 esac
 
 case $HOST in
-(nialng*|lng*)	$RBJ/bin/color0;;
+(nialng*|lng*)	$Q/bin/color0;;
 esac
 
-#D=$(id -u)				# Linux
-ID=$(id | sed 's/(.*//;s/.*=//')	# who needs this?
+ID=$(id -u)
 
 ((BG %= 6))			# BG in {0..5}
 ((BG++))			# BG in {1..6}
@@ -76,9 +75,9 @@ case $DISPLAY in
 	xmodmap -e 'pointer = 1 3 2'
 esac
 
-#################################################################
-#	This part should go inside the last ESAC
-#################################################################
+####################################################################
+####		This part should go inside the last ESAC	####
+####################################################################
 
 if	test -f $HOME/.xsession-errors.NEVER
 then	alias ssh='ssh -e^'			# First Blood
@@ -88,4 +87,4 @@ then	alias ssh='ssh -e^'			# First Blood
 else	PS1="$PS81$PS82"			# Normal
 fi
 
-#################################################################
+####################################################################

@@ -1,17 +1,17 @@
 ((DEBUG)) && echo ..alias
-#### TODO ####: DEPNDS on $JC
-#################################################################
-#	COMPLEX ALIASES
-#################################################################
+#### TODO ####: DEPENDS on $J
+####################################################################
+####		COMPLEX ALIASES					####
+####################################################################
 
-for x in $RBJ/...*
+for x in $Q/...*
 do
 	source  $x
 done
 
-#################################################################
-#	SHELL ALIASES
-#################################################################
+####################################################################
+####		SHELL ALIASES					####
+####################################################################
 
 alias	defun=function
 alias	   path='echo    $PATH | tr : \\012'
@@ -35,18 +35,18 @@ alias	t=type		ta='type -a'	fn='declare -f'
 alias	nohup='nohup '	sudo='sudo '	time='time '
 
 viso()	{ vi $*; source $*; }
-alias	vb='viso $RBJ/.bashrc'
-alias	zb='viso $RBJ/.zshrc'
-alias	ze='viso $RBJ/.zshenv'
-alias	va='viso $RBJ/..alias'
-alias	vc='viso $RBJ/..complete'
-alias	vo='viso $RBJ/..domain'
-alias	vp='viso $RBJ/.bash_profile'
-alias	zp='viso $RBJ/.zprofile'
-alias	vr='viso $RBJ/..prompt'
-alias	zr='viso $RBJ/..zprompt'
-alias	vv='viso $RBJ/..vars'
-alias	vn='vi   $RBJ/.inputrc'
+alias	vb='viso $Q/.bashrc'
+alias	zb='viso $Q/.zshrc'
+alias	ze='viso $Q/.zshenv'
+alias	va='viso $Q/..alias'
+alias	vc='viso $Q/..complete'
+alias	vo='viso $Q/..domain'
+alias	vp='viso $Q/.bash_profile'
+alias	zp='viso $Q/.zprofile'
+alias	vr='viso $Q/..prompt'
+alias	zr='viso $Q/..zprompt'
+alias	vv='viso $Q/.vars'
+alias	vn='vi   $Q/.inputrc'
 alias	vk='vi $HOME/.ssh/known_hosts'
 
 alias	vd='vimdiff'		vf='sudo vim /etc/fstab'
@@ -57,13 +57,13 @@ alias	zz=suspend		zzz='suspend -f'
 
 defun	loudly() { echo "$@"; eval "$@"; }
 
-#################################################################
-#	SIMPLE ALIASES
-#################################################################
+####################################################################
+####		SIMPLE ALIASES					####
+####################################################################
 
 alias	  1=sha1sum		5=md5sum
-alias	  6='source ~/.bashrc'	7="source ~/.bash_profile"
-alias	  8='sudo mtu 8.8.8.8'	9='exec bash -l'
+alias	  6='source $Q/.bashrc'	7="source $Q/.bash_profile"
+alias	  8='sudo mtr 8.8.8.8'	9='exec bash -l'
 alias	256=sha256sum		512=sha512sum
 alias	123='xmodmap -e "pointer = 1 2 3"'
 alias	132='xmodmap -e "pointer = 1 3 2"'
@@ -162,23 +162,23 @@ alias	pd=pushd		po=popd
 
 alias	root='sudo chown   root:root'
 #lias	 rbj='sudo chown -R rbj:rbj'
-alias	  jc1='sudo chown -R $JC:'
-alias	  jc2='sudo chown -R $JC:$JC'
+alias	 jc1='sudo chown -R $J:'
+alias	 jc2='sudo chown -R $J:$J'
 
-alias	sb="sudo  -EH bash --rcfile $RBJ/.bash_profile"
-alias	xs="xsudo -EH bash --rcfile $RBJ/.bash_profile"
+alias	sb="sudo  -EH bash --rcfile $Q/.bash_profile"
+alias	xs="xsudo -EH bash --rcfile $Q/.bash_profile"
 alias	sir='lsb_release -sir'	su='su -p'	se=sudoedit
 alias	sl='ln -s'		slf='ln -sf'
 
 defun	sp() { time rsync -CvaxzS ~/.ssh $1:; }
-alias	sax='ssh -AX'	tax='ssh -tAX'		sj="ssh -tAX -l $JC"
+alias	sax='ssh -AX'	tax='ssh -tAX'		sj="ssh -tAX -l $J"
 
 alias	sun16='setfont latarcyrheb-sun16.psfu.gz'
 alias	sun22='setfont          sun12x22.psfu.gz'
 alias	sun32='setfont latarcyrheb-sun32.psfu.gz'
 alias	ter32='setfont           ter-132b.psf.gz'
 
-alias	tf='tail -F'		jim="su - $JC"
+alias	tf='tail -F'		jim="su - $J"
 
 alias	rax='time rsync  -vaxzS'  rs='time rsync -CzS'
 alias	vax='time rsync -CvaxzS' pax='time rsync -CPaxzS'
@@ -186,4 +186,4 @@ alias	vax='time rsync -CvaxzS' pax='time rsync -CPaxzS'
 alias	T2=tune2fs		D2='dumpe2fs -h'
 alias	E2='e2fsck -C'		M2='mkfs.ext2'
 alias	M3='mkfs.ext3'		M4='mkfs.ext4'	
-#################################################################
+####################################################################

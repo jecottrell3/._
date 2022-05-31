@@ -21,7 +21,7 @@ esac
 debug() { ((DEBUG)) && printf '%s\n' "$*"; }
 
 debug ARGS: $0 $# "$@"
-VAL=
+NEW=
 for DIR
 do
 	case    $DIR	in
@@ -39,8 +39,8 @@ do
 	esac
 done
 
-echo $VAR=${VAL#:}		# for eval
-eval $VAR=${VAL#:}		# for source
+echo $VAR=${NEW#:}		# for eval
+eval $VAR=${NEW#:}		# for source
 
 set -- "$ARGS"			# restore args
 ((DEBUG)) && echo ARGS: $# "$@"

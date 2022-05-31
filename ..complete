@@ -1,8 +1,8 @@
 ((DEBUG)) && echo ..complete
 # $Id: .complete 290 2014-09-17 19:19:41Z JECottrell3@gmail.com $
-#################################################################
-#	BASH COMPLETIONS -- cheat sheet
-#################################################################
+####################################################################
+####		BASH COMPLETIONS -- cheat sheet			####
+####################################################################
 
 # complete [-abcdefgjksuv] [-o comp-option] [-A action] [-G globpat]
 # 	[-W wordlist] [-P prefix] [-S suffix]
@@ -45,9 +45,9 @@
 # 	-u user    User names.  May also be specified as -u.
 # 	-v variable
 #
-#################################################################
-#	BASH COMPLETIONS
-#################################################################
+####################################################################
+####		BASH COMPLETIONS				####
+####################################################################
 
 complete -A helptopic		help
 complete -A hostname		sax tax ssh sftp
