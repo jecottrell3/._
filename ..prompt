@@ -1,4 +1,4 @@
-((DEBUG)) && echo ^prompt
+((DEBUG)) && echo ..prompt
 ####################################################################
 ####		PROMPTING					####
 ####################################################################
@@ -33,7 +33,7 @@ case $(tty) in
 		test -f /lib/kbd/consolefonts/$FONT &&
 		setfont                       $FONT
 	done
-	$RBJ/bin/hue 7 cc cc cc			# Normal is AA AA AA
+	$Q/bin/hue 7 cc cc cc			# Normal is AA AA AA
 
 	LITE					# Always LITE now
 	if	test -x /usr/bin/systemctl	# R7, C7, new
@@ -43,11 +43,11 @@ case $(tty) in
 	;;
 (/dev/ttys*)	: echo MAC;;
 (/dev/pts/*)	: echo PSEUDO
-		case $TERM in (xterm) source $RBJ/^xterm;; esac;;
+		case $TERM in (xterm) source $Q/..xterm;; esac;;
 esac
 
 case $HOST in
-(nialng*|lng*)	$RBJ/bin/color0;;
+(nialng*|lng*)	$Q/bin/color0;;
 esac
 
 ID=$(id -u)

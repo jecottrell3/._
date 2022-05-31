@@ -1,10 +1,10 @@
-((DEBUG)) && echo ^alias
+((DEBUG)) && echo ..alias
 #### TODO ####: DEPNDS on $J
 ####################################################################
 ####		COMPLEX ALIASES					####
 ####################################################################
 
-for x in $Q/^^*
+for x in $Q/...*
 do
 	source  $x
 done
@@ -38,13 +38,13 @@ viso()	{ vi $*; source $*; }
 alias	vb='viso $Q/.bashrc'
 alias	zb='viso $Q/.zshrc'
 alias	ze='viso $Q/.zshenv'
-alias	va='viso $Q/^alias'
-alias	vc='viso $Q/^complete'
-alias	vo='viso $Q/^domain'
+alias	va='viso $Q/..alias'
+alias	vc='viso $Q/..complete'
+alias	vo='viso $Q/..domain'
 alias	vp='viso $Q/.bash_profile'
 alias	zp='viso $Q/.zprofile'
-alias	vr='viso $Q/^prompt'
-alias	zr='viso $Q/^zprompt'
+alias	vr='viso $Q/..prompt'
+alias	zr='viso $Q/..zprompt'
 alias	vv='viso $Q/.vars'
 alias	vn='vi   $Q/.inputrc'
 alias	vk='vi $HOME/.ssh/known_hosts'

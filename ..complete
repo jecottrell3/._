@@ -1,4 +1,4 @@
-((DEBUG)) && echo ^complete
+((DEBUG)) && echo ..complete
 # $Id: .complete 290 2014-09-17 19:19:41Z JECottrell3@gmail.com $
 ####################################################################
 ####		BASH COMPLETIONS -- cheat sheet			####

@@ -1,4 +1,4 @@
-((DEBUG)) && echo ^domain
+((DEBUG)) && echo ..domain
 export	TZ=EST5EDT
 test -d /Applications && MAC=1 || MAC=0
 ####################################################################
@@ -27,10 +27,10 @@ case ${DOMAIN:-$SEARCH} in
 	alias	pem='ssh-add ~/.ssh/*.pem';;
 (homerj)		echo Welcome to HOMERJ
 	export PRINTER=lp LPDEST=lp D=homerj;;
-(*.noaa.gov)		source $RBJ/^noaa;;
-(ncbi.nlm.nih.gov)	source $RBJ/^nlm;;
-(nia.nih.gov)		source $RBJ/^nia;;
-(*nih.gov)		source $RBJ/^nih;;
+(*.noaa.gov)		source $Q/..noaa;;
+(ncbi.nlm.nih.gov)	source $Q/..nlm;;
+(nia.nih.gov)		source $Q/..nia;;
+(*nih.gov)		source $Q/..nih;;
 (*)			echo  Welcome to NOWHERE
 	D=NOWHERE DOMAIN=NOWHERE;;
 esac

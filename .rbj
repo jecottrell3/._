@@ -1,2 +1,2 @@
-source $RBJ/.bash_profile
-source $RBJ/.bashrc
+source $Q/.bash_profile
+source $Q/.bashrc

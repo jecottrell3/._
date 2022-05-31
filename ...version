@@ -1,6 +1,6 @@
-((DEBUG)) && echo ^^version
-alias	CVS="source	$RBJ/^attic"
-alias	SVN="source	$RBJ/^attic"
+((DEBUG)) && echo ...version
+alias	CVS="source	$Q/..attic"
+alias	SVN="source	$Q/..attic"
 ####################################################################
 ####		VERSION CONTROL -- CVS				####
 ####################################################################
