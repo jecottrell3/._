@@ -1,6 +1,6 @@
 #! /bin/sh
 # either  [1] source bin/fixpath VAR
-# or else [2] eval $(fixpath VAR)
+# or else [2] eval     $(fixpath VAR)
 
 # Fixes VAR (default PATH)
 # Duplicates Deleted
@@ -8,22 +8,38 @@
 # NOTE: . Appended at End
 
 ARGS="$@"			# preserve args
+((DEBUG)) && echo ARGS: $# "$@"
 
 set $* --			# allow -x
 VAR=${1:-PATH}			# assume PATH
 eval set -- \${${VAR}//:/ }	# avoids IFS
 
-VAL=
+case $1 in
+(-v)	((DEBUG=1)); shift;;
+esac
+
+debug() { ((DEBUG)) && printf '%s\n' "$*"; }
+
+debug ARGS: $0 $# "$@"
+NEW=
 for DIR
 do
-	test -d $DIR || continue
-	case :$VAL: in
-	(*:$DIR:*)	continue;;
-	(*)		VAL=$VAL:$DIR
+	case    $DIR	in
+	('')		debug emt "'$DIR'"; continue;;
+	(.)		debug dot "'$DIR'"; continue;;
+	esac
+
+	case	:$NEW:  in
+	(*:$DIR:*)
+			debug dup "'$DIR'"; continue;;
+	(*)	if	test -d  $DIR
+		then	NEW=$NEW:$DIR
+		else	debug nxd "'$DIR'"; continue
+		fi;;
 	esac
 done
 
-echo $VAR=${VAL#:}		# for eval
-eval $VAR=${VAL#:}		# for source
+echo $VAR=${NEW#:}		# for eval
+eval $VAR=${NEW#:}		# for source
 
 set -- "$ARGS"			# restore args
