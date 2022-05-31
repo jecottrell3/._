@@ -1,3 +1,4 @@
+: DEBUG=1
 ((DEBUG)) && echo .bashrc $-
 ####################################################################
 ####		MAKE STUPID lxde term RUN AS LOGIN SHELL	####
@@ -35,8 +36,8 @@ test -f /usr/bin/vim && alias   vi=vim
 
 for x in ^alias ^complete ^prompt ^domain
 do
-	test -f $RBJ/$x &&
-	source  $RBJ/$x
+	test -f $Q/$x &&
+	source  $Q/$x
 done
 
 ####################################################################
@@ -53,4 +54,3 @@ case $SSH_AUTH_SOCK in
 esac
 
 ####################################################################
-alias rbj='source ~/._/.bash_profile'
