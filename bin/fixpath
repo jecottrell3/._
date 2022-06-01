@@ -22,14 +22,14 @@ debug() { ((DEBUG)) && printf '%s\n' "$*"; }
 
 debug ARGS: $0 $# "$@"
 NEW=
-for DIR
+for DIR in "$@"
 do
-	case    $DIR	in
+	case    "$DIR"	in
 	('')		debug emt "'$DIR'"; continue;;
 	(.)		debug dot "'$DIR'"; continue;;
 	esac
 
-	case	:$NEW:  in
+	case	":$NEW:"  in
 	(*:$DIR:*)
 			debug dup "'$DIR'"; continue;;
 	(*)	if	test -d  $DIR
@@ -39,7 +39,7 @@ do
 	esac
 done
 
-echo $VAR=${NEW#:}		# for eval
-eval $VAR=${NEW#:}		# for source
+echo "$VAR='${NEW#:}'"		# for eval
+eval "$VAR='${NEW#:}'"		# for source
 
 set -- "$ARGS"			# restore args

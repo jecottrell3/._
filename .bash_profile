@@ -2,7 +2,7 @@
 test -w / && export KRB5CCNAME=FILE:/tmp/krb5cc_0	# root only
 umask	2
 set -o	ignoreeof
-: DEBUG=1
+DEBUG=1
 ((DEBUG)) && echo .bash_profile HOME=$HOME PWD=$PWD
 ((DEBUG > 1)) && set | sort -o .set-$(date +%T)
 ((DEBUG > 1)) && env | sort -o .env-$(date +%T)
