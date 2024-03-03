@@ -7,8 +7,8 @@ set output-meta On
 "\M-h": "\C-e --help"
 "\M-i": "META i"
 "\M-j": "META j"
-"\M-k": "\C-e;l\n"
-"\M-m": "\C-e | less +/\n"
+"\M-k": "\C-e | less +/^-.*\n"
+"\M-m": "\C-e | less\n"
 "\M-o": overwrite-mode
 "\M-q": 'PS1="$(hostname):\$PWD> "'
 "\M-s": "\C-e | sort "
