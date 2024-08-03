@@ -1,53 +1,21 @@
 #! /bin/sh
 
-case "$1" in
-(-[0-9])	((DEBUG=0-$1)); shift;;
-esac
-
-((DEBUG & 1)) && V=-v
-((DEBUG & 2)) && W=-v
-
-warn()
-{
-	((DEBUG & 4)) && echo "$*"
-}
-
-#### ARCHIVED ####	doit()	# Not Used, but Keep
-#### ARCHIVED ####	{
-#### ARCHIVED ####		((DEBUG & 1)) &&
-#### ARCHIVED ####		echo "$*"
-#### ARCHIVED ####		eval "$*"
-#### ARCHIVED ####	}
-
-declare -A seen
-sum "$@" |
-while read sum junk file
+set *
+   for one in $*
 do
-	if	[[ -d "$file" ]]
-	then	warn ": 0th is a dir $file"; continue
-	fi
-
-	case "$file" in
-	(^*)	warn ": 0th ignoring $file"; continue;;
-	esac
-
-	dir="^$sum^"
-	flg="${seen[$sum]}"
-# Third Time Seen
-	if	[[ -d "$dir" ]]
-	then	warn ": 3rd $sum $file"
-		ln $V $file $dir
-# Second Time Seen
-	elif	[[ -n "$flg" ]]
-	then	warn ": 2nd $sum $file"
-		mkdir $W -p $dir
-		ln $V $flg  $dir
-		ln $V $file $dir
-		unset seen[$sum]
-# First Time Seen
-	else	warn ": 1st $sum $file"
-		seen[$sum]=$file
+	#### : @@@@ $one
+	shift
+   for two in $*
+do
+	if	[[ $one ==  $two ]]
+	then	#### : WTF? $one $two
+		continue
+	elif	cmp -s $one $two
+	then	echo : ==== $one
+		echo rm -vf $two
+	else	#### : DIFF $one $two
+		continue
 	fi
 done
+done
 
-ls -lF ^*
