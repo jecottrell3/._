@@ -5,11 +5,24 @@
 :set bg=light
 :set tags+=tags;
 
+:map <C-\>		<C-w>w
+:map <C-k>a		:args<CR>
+:map <C-k>c		:colorscheme<SPACE>
+:map <C-k>g		:g/
+:map <C-k>p		:g//p<CR>
+:map <C-k>s		:%s/
+:map <C-k>h		:help<SPACE>
+:map <C-k>r		:rewind<CR>
+:map <C-k>t		:diffthis<CR>
+:map <C-k>u		:diffupdate<CR>
+:map <C-k>n		:n<CR>
+:map <C-k>w		:wn<CR>
+
 if &diff
-	:map \		:diffupdate<CR>
+"	:map \		:diffupdate<CR>
 	:colorscheme evening
 else
-	:map \		:n<CR>
+"	:map \		:n<CR>
 	:colorscheme default
 	:colorscheme peachpuff
 	:colorscheme murphy
