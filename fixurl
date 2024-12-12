@@ -1,5 +1,6 @@
 #! /bin/sh
 
+REPO=${2?'Missing Repo'}
 WHO=jecottrell3
 WHERE=github.com
 SSH=ssh://git@$WHERE
@@ -16,11 +17,9 @@ case $1 in
 	-p	user@HTTP"; exit 1;;
 esac
 
-WHAT=${1:-._}
-
 cd $RBJ
 echo git remote -v
-echo git remote -v set-url        origin $PULL/$WHO/$WHAT.git
+echo git remote -v set-url        origin $PULL/$WHO/$REPO.git
 echo : ==== :
-echo git remote -v set-url --push origin $PUSH/$WHO/$WHAT.git
+echo git remote -v set-url --push origin $PUSH/$WHO/$REPO.git
 echo git remote -v
