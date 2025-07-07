@@ -138,7 +138,9 @@ alias	lq='ls -FACR'		lr='ls -FalR'
 alias	lh='ls -FACsh'		lk='ls -Falh'
 alias	lg='ls -FACs'		lt='ls -Falt'	tl='ls -Faltr'
 alias	lz='ls -FaZ'		lx='ls -FalS'	xl='ls -FalSr'
-alias	ld='ls -Fald'		lv='ls -Falv'
+alias	le='ls -FACd'		ld='ls -Fald'	lv='ls -Falv'
+
+alias	td='tree -d'
 
 alias	lo=locate
 alias	loop='sudo mount -o loop'

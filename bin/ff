@@ -1,5 +1,4 @@
 #! /bin/sh
-# $Id: ff 271 2013-10-17 14:10:27Z JECottrell3@gmail.com $
 
 DIR=
 OPT=
@@ -18,6 +17,7 @@ do
 	(-I)	OPT="$OPT -inum  '$2'";	shift 2;; # Inode
 	(-L)	OPT="$OPT -links '$2'";	shift 2;; # Links
 	(-n)	OPT="$OPT -name  '$2'";	shift 2;; # Name
+	(-v)	OPT="$OPT -name '*.$2'"; shift 2;; # Ext/Ver
 	(-i)	OPT="$OPT -iname '$2'";	shift 2;; # Any Case
 	(-p)	OPT="$OPT -perm  '$2'";	shift 2;; # Perms
 	(-s)	OPT="$OPT -perm +6000";	shift 2;; # Set[ug]id

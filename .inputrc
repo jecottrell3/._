@@ -9,6 +9,7 @@ set output-meta On
 "\M-j": "META j"
 "\M-k": "\C-e | less +/^-.*\n"
 "\M-m": "\C-e | less\n"
+"\M-n": "\C-e | less -N\n"
 "\M-o": overwrite-mode
 "\M-q": 'PS1="$(hostname):\$PWD> "'
 "\M-s": "\C-e | sort "
