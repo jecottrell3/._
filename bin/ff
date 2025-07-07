@@ -20,7 +20,7 @@ do
 	(-v)	OPT="$OPT -name '*.$2'"; shift 2;; # Ext/Ver
 	(-i)	OPT="$OPT -iname '$2'";	shift 2;; # Any Case
 	(-p)	OPT="$OPT -perm  '$2'";	shift 2;; # Perms
-	(-s)	OPT="$OPT -perm +6000";	shift 2;; # Set[ug]id
+	(-s)	OPT="$OPT -perm /6000";	shift 1;; # Set[ug]id
 	(-t)	OPT="$OPT -type  '$2'";	shift 2;; # Type
 	(-[bdfl])OPT="$OPT -type  ${1#-}";shift 1;; # File/Dir/etc
 	(-u)	OPT="$OPT -user  '$2'";	shift 2;; # User
