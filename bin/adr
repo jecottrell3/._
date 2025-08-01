@@ -1,6 +1,6 @@
 #! /bin/sh
 
-/usr/bin/ip -c a | while read x y z
+/sbin/ip -c a | while read x y z
 do
 	case $x in
 	(?:) DEV=$y;;

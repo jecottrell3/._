@@ -141,6 +141,8 @@ alias	lz='ls -FaZ'		lx='ls -FalS'	xl='ls -FalSr'
 alias	le='ls -FACd'		ld='ls -Fald'	lv='ls -Falv'
 
 alias	td='tree -d'
+alias	lb='lsblk -o NAME,FSTYPE,LABEL,SIZE,TYPE,MOUNTPOINT'
+alias	lb='lsblk -o NAME,FSTYPE,TYPE,LABEL,SIZE,MOUNTPOINT'
 
 alias	lo=locate
 alias	loop='sudo mount -o loop'
