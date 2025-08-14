@@ -36,7 +36,7 @@ alias	jrh='git reset --hard'
 alias	jrv='git revert'
 alias	 js='git -p status'
 alias	 jt='git tag'
-alias	 ju='git add -u'
+alias	 ju='git add -uv'
 alias	 jv='git remote -v'
 alias	 jz='git stash'
 

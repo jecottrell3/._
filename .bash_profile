@@ -72,6 +72,7 @@ done
 
 eval $($Q/bin/fixpath    PATH)
 eval $($Q/bin/fixpath MANPATH)
+PATH=${PATH%:}:
 
 ####################################################################
 ####		Do Rest of Init					####
