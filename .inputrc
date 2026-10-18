@@ -31,7 +31,8 @@ set output-meta On
 "\M-\"": "META \" "
 "\M-'": "META ' "
 
-"\M-_": "\C-b\C-?_"
+"\M-_": "\M-b\C-?_"
+"\M-=": "\M-b\C-?_"
 "\C-_": "\C-asudo "
 
 "`": "\e"

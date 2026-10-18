@@ -31,7 +31,7 @@ INPUTRC=$Q/.inputrc
 BG=$RANDOM
 ID=$(id -nu)
 test -x /usr/bin/vim && EDITOR=vim || EDITOR=vi
-LESS=-MQRcdeisj11
+LESS=-MNQRcdeisj11
 LANG=POSIX LOCALE=POSIX LC_ALL=POSIX
 test -d /Applications &&
 MAC=1 ||

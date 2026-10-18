@@ -71,7 +71,7 @@ alias   g8="ssh-add -e $OSC"	g9="ssh-add -s $OSC"
 alias	w0='swapoff -av'	m0='umount -v'
 alias	w1='swapon  -av'	m1='mount  -v'
 alias	w2='swapon  -s'		m2='mount | egrep'
-alias	w3='w0; w1'		m3='m0 -a; m1 -a'
+alias	w3='w0; w1'; function	m3() { mount /dev/$1 /$*; }
 ####################################################################
 ####		RKHunter	/	KPARTX			####
 ####################################################################

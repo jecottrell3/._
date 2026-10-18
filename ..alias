@@ -61,6 +61,8 @@ defun	loudly() { echo "$@"; eval "$@"; }
 ####		SIMPLE ALIASES					####
 ####################################################################
 
+alias	  0=': 0'		2=': 2'
+alias	  3=pm-suspend		4=': pm-hiberbate'
 alias	  1=sha1sum		5=md5sum
 alias	  6='source $Q/.bashrc'	7="source $Q/.bash_profile"
 alias	  8='sudo mtr 8.8.8.8'	9='exec bash -l'
@@ -144,6 +146,7 @@ alias	fv='fx | sh -v'
 alias	td='tree -d'
 alias	lb='lsblk -o NAME,FSTYPE,LABEL,SIZE,TYPE,MOUNTPOINT'
 alias	lb='lsblk -o NAME,FSTYPE,TYPE,LABEL,SIZE,MOUNTPOINT'
+alias	lb='lsblk -o NAME,TYPE,LABEL,FSTYPE,SIZE,MOUNTPOINT'
 
 alias	lo=locate
 alias	loop='sudo mount -o loop'

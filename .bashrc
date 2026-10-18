@@ -37,6 +37,7 @@ test -f /usr/bin/vim && alias   vi=vim
 for x in ..alias ..complete ..prompt ..domain
 do
 	test -f $Q/$x &&
+	echo	$Q/$x &&
 	source  $Q/$x
 done
 

@@ -7,6 +7,7 @@
 
 :map <C-\>		<C-w>w
 :map <C-k>a		:args<CR>
+:map <C-k>m		:map<CR>
 :map <C-k>c		:colorscheme<SPACE>
 :map <C-k>g		:g/
 :map <C-k>p		:g//p<CR>

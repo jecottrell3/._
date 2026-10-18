@@ -5,6 +5,7 @@ mkdir -p .list
 
 MKO=mirrors.kernel.org
 AKO=archive.kernel.org
+VCO=vault.centos.org	# NO rsync :(
 SRPM=vault.centos.org	# NO rsync :(
 
 HOST=$MKO
@@ -36,6 +37,7 @@ do
 	([mM])	MAX=$ARG;;					# SIZE
 	(MKO)	HOST=$MKO;	echo Mirror: $HOST; continue;;		# NEW STUFF
 	(AKO)	HOST=$AKO;	echo Mirror: $HOST; continue;;		# OLD STUFF
+	(VCO)	HOST=$VCO;	echo Mirror: $HOST; continue;;		# NOW STUFF
 	(0)	DIR=;;						# RESET
 	(-)	DIR=${DIR%/*};;					# UP 1
 	(--)	DIR=${DIR%/*};	DIR=${DIR%/*};;			# UP 2
